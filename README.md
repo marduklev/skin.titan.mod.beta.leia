@@ -1,8 +1,7 @@
 # skin.titan MOD
 
-This skin is a Mod a the great Titan Skin for Kodi.
+This skin is a Mod a the great Titan Skin (created by  Marcelveldt) for Kodi.
 
-## Modded Skin from Marcelveldt
 
 USE OFFICIAL VERSION FROM KODI REPO OR THE BETA VERSION FROM EMBY REPO ONLY! IF YOU ARE UNLUCKY WITH THAT MOD
 

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan-->
+<includes>
+    <include name="View_525_Netflix_Landscape">     
+	<!--Panel-->		
+        <control type="group">
+            <width>100%</width>
+            <height>100%</height>
+            <visible>Control.IsVisible(525)</visible>
+            <visible>Integer.IsGreater(Container.NumItems,0)</visible>
+            <include>animation_view_change</include>			
+            <!-- background image + overlay slim right corner overlay-->
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+				<texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>	
+            </control>
+            <control type="image">
+				<fadetime>350</fadetime>
+                <texture background="true">$VAR[backgroundVar]</texture>
+                <aspectratio aligny="top">scale</aspectratio>
+				<animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <visible>!Skin.HasSetting(View525_DetailsShowFanart)</visible>				
+				<animation effect="fade" start="100" end="40" delay="200" time="1500" pulse="false" condition="Player.HasVideo">Conditional</animation>
+            </control>            
+            <!-- overlay without big thumb -->
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
+                <animation effect="fade" start="100" end="30" delay="0" time="0"  condition="true">Conditional</animation>
+                <visible>!Skin.HasSetting(View525_DetailsShowFanart)</visible>
+            </control>
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture colordiffuse="$VAR[Netflix2_PanelColor]">special://home/addons/resource.images.backgroundoverlays.basic/resources/Side by Side.png</texture>				
+                <animation effect="fade" start="100" end="95" delay="0" time="0"  condition="true">Conditional</animation>
+                <visible>!Skin.HasSetting(View525_DetailsShowFanart)</visible>
+            </control>
+            <!-- spotlight section -->
+            <control type="group" id="3505">
+                <width>100%</width>
+                <height>800</height>                             
+                <!-- preview video window -->
+               	<control type="group">
+					<right>0</right>
+					<top>0</top>
+					<width>1344</width>
+                    <height>756</height>
+					<visible>Player.HasVideo</visible>
+					<visible>!skin.hastheme(classic)</visible>
+					<animation effect="slide" start="0" end="0,-80" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>						
+						<control type="videowindow">							
+						</control>	
+						<control type="image">													
+                        <texture colordiffuse="$VAR[Netflix2_PanelColor]">overlay/Netflix_origin.png</texture>
+				   </control>						
+				 </control>
+				<!-- spotlight image -->
+                <control type="image">
+                    <fadetime>350</fadetime>
+                    <width>1280</width>
+					<height>770</height>
+					<right>0</right>
+                    <top>0</top>
+                    <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[netflixThumb]</texture>
+                    <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+                    <visible>Skin.HasSetting(View525_DetailsShowFanart)</visible>					
+					<animation effect="fade" start="100" end="0" delay="200" time="1500" pulse="false" condition="Player.HasVideo">Conditional</animation>					
+                </control>									
+                <!-- NEW rating STARS -->
+				<control type="group">
+                    <posx>65</posx>
+                    <top>288</top>
+                    <include>StarRatingNetflix</include>
+                </control>					
+                 <!-- clearlogo -->
+                <control type="image" id="29477">
+                    <height>230</height>
+                    <width>700</width>
+                    <left>10</left>
+                    <top>10</top>
+                    <aspectratio align="center" aligny="top">keep</aspectratio>
+                    <texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+                    <visible>!Skin.HasSetting(NoClearLogoNetflix)</visible>
+                </control>               
+				<control type="textbox"> <!-- if Clear LOGO N/A -->
+                    <height>300</height>
+                    <width>800</width>
+                    <left>70</left>
+                    <top>20</top>
+                    <font>Bold55</font>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <label>[UPPERCASE]$INFO[ListItem.Title][/UPPERCASE]</label>
+                    <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+                    <visible>[String.Contains(Control.GetLabel(29477),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29477),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29477),color_transparent) + Container.Content(sets)]</visible> 
+				</control>												                	
+				<!-- details -->
+                <control type="group">
+                    <posx>250</posx>										  
+                    <top>297</top>
+                    <include>Netflix_FlagsDetails</include>
+					<animation effect="slide" start="0" end="-168,0" condition="String.IsEmpty(ListItem.UserRating) + String.IsEmpty(Window(Home).Property(ListItem.UserRating)) + String.IsEmpty(Window(Home).Property(ListItem.UserRating))
+                                + String.IsEmpty(ListItem.Rating) + String.IsEmpty(Window(Home).Property(ListItem.Rating)) + String.IsEmpty(Window(Home).Property(ListItem.Rating))
+                                + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating))">Conditional																					  
+					</animation>		 
+                </control>
+				<!-- title for season and episodes -->
+                <control type="textbox">
+                    <height>60</height>
+                    <width>800</width>
+                    <left>73</left>
+                    <top>230</top>
+                    <font>Bold40</font>
+                    <align>left</align>
+                    <aligny>top</aligny>
+                    <label>$INFO[ListItem.Label]</label> 
+                    <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>	<!-- always red, def is $INFO[Skin.String(ViewDetailsTextColor)]-->
+                    <visible>Container.Content(episodes) | Container.Content(seasons)</visible> <!-- shows season and episode below Clear Logo -->
+                </control>                				
+				<!-- subtitle: MOTTO for Movies-->
+                <control type="label">
+                    <height>30</height>
+					<top>250</top>
+					<left>70</left>
+                    <width>800</width>
+                    <font>Reg28</font>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor> <!-- default is $INFO[Skin.String(ViewDetailsTextColor)] , alternative $INFO[Skin.String(ViewDetailsHighlightTextColor)], if its not black -->
+                    <label>[I]$VAR[View525_SubTitle][/I]</label>
+                    <visible>Container.Content(movies)</visible>
+                </control>				
+				<!-- plot -->
+                <control type="grouplist">
+                    <width>780</width>
+                    <posx>71</posx>
+                    <posy>350</posy>
+                    <height>250</height>
+                    <orientation>vertical</orientation>                  
+					<control type="textbox">
+                        <height>200</height>                        
+                        <label>$VAR[Plots]</label>
+                        <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
+                        <align>justify</align>
+                        <font>Reg24</font>
+					</control>                  
+				   <!-- genre -->
+					<control type="group">						
+						<include>Netflix_Genre</include>
+					</control>
+					<!--<control type="group">
+						<posx>250</posx>
+						<top>297</top>
+						<include>Netflix_Status</include>
+					</control>
+					-->
+				</control>				
+				 <!-- media flags , fixed -->
+                <control type="group">                   
+					<posx>80</posx>
+                    <height>52</height>
+                    <top>640</top>
+                    <include>mediaflags</include>
+					<visible>Skin.HasSetting(View525_UseFixedLayout)</visible>	
+					<animation effect="zoom" alignx="true" end="80,80" time="0" condition="true">Conditional</animation>			
+				</control>
+				<!-- media flags , non-fixed -->
+				<control type="group">                   
+					<posx>870</posx>
+                    <height>52</height>
+                    <top>580</top>
+                    <include>mediaflags</include>
+					<visible>!Skin.HasSetting(View525_UseFixedLayout)</visible>
+					<animation effect="slide" end="-320,-5" time="0" condition="String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode)">Conditional</animation>
+					<animation effect="zoom" alignx="true" end="80,80" time="0" condition="!String.IsEqual(ListItem.DBTYPE,movie)">Conditional</animation>
+					<animation effect="zoom" alignx="true" end="70,70" time="0" condition="String.IsEqual(ListItem.DBTYPE,movie)">Conditional</animation>
+				</control>					
+                <!-- rating , fixed -->
+                <control type="group">
+					<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</visible>
+                    <right>20</right>
+                    <height>150</height>
+                    <width>1000</width>
+                    <top>540</top>										
+                    <include condition="[Skin.HasSetting(StudioInFooter) | Skin.HasSetting(IMDBRatingInFooter) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(RTRatingInFooter)]">AltRatingFooter</include>
+					<visible>Skin.HasSetting(View525_UseFixedLayout)</visible>							               
+				</control>
+				<!-- rating , non-fixed -->
+				<control type="group">
+					<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</visible>
+                    <right>20</right>
+                    <height>150</height>
+                    <width>1000</width>
+                    <top>480</top>										
+                    <include condition="[Skin.HasSetting(StudioInFooter) | Skin.HasSetting(IMDBRatingInFooter) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(RTRatingInFooter)]">AltRatingFooter</include>
+					<visible>!Skin.HasSetting(View525_UseFixedLayout)</visible>									
+                </control>								
+				<!-- CAST on Trailer ,check cast sualfred-->								
+				<control type="panel"> 
+					<top>700</top>
+					<left>630</left>
+					<height>300</height>
+					<width>1260</width>
+					<orientation>horizontal</orientation>
+					<visible>Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,movie)]</visible>										
+					<animation effect="fade" start="0" end="100" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>
+					<itemlayout height="225" width="158">			
+						<control type="image">
+							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+							<bordersize>4</bordersize>
+						</control>						
+						<control type="label">
+							<font>reg18</font>
+							<label>$INFO[Container(50).ListItem.Label,[B],[/B][CR]]$INFO[Container(50).ListItem.Label2]</label>
+							<wrapmultiline>true</wrapmultiline>
+							<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+							<top>220</top>
+							<left>5</left>
+							<width>150</width>
+							<height>50</height>
+							<aligny>top</aligny>
+							<align>center</align>
+							<textoffsetx>0</textoffsetx>
+							<scroll>true</scroll>
+							<scrollspeed>20</scrollspeed>							
+						</control>		  														
+					</itemlayout>
+					<focusedlayout></focusedlayout>
+					<content>$VAR[castInfo]</content>
+                </control>					 
+			</control>           
+            <!-- menu button,check, add extra touch buttons sometime  -->
+            <control type="radiobutton" id="5001">
+                <width>60</width>
+                <height>60</height>
+                <right>20</right>
+                <top>20</top>
+                <font></font>
+                <selected>Control.HasFocus(5001)</selected>
+                <texturefocus></texturefocus>
+                <texturenofocus></texturenofocus>
+                <textureradiofocus colordiffuse="$INFO[Skin.String(ButtonTextFocusColor)]">touchcontrols/icon_back.png</textureradiofocus>
+                <textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">touchcontrols/icon_back.png</textureradionofocus>
+                <radiowidth>60</radiowidth>
+                <radioheight>60</radioheight>
+                <onclick>Close</onclick>
+                <visible>Skin.HasSetting(EnableTouchSupport) + !Window.IsActive(Home)</visible>
+                <ondown>510</ondown>
+            </control>           
+            <!-- View 525 -->
+			<include condition="Skin.HasSetting(View525_UseFixedLayout)">View525_layout_fixed</include>
+			<include condition="!Skin.HasSetting(View525_UseFixedLayout)">View525_layout_normal</include>          
+            <!--horizontal Scrollbar-->
+			<control type="group">
+				<control type="scrollbar" id="60">
+					<visible>Control.IsVisible(525) + Integer.IsGreater(Container.Numitems,0)</visible>
+					<left>80</left>
+					<bottom>1</bottom>
+					<width>1760</width>
+					<height>20</height>
+					<onup>525</onup>
+					<ondown>9000</ondown>
+					<onleft>60</onleft>
+					<onright>60</onright>					
+					<orientation>horizontal</orientation>
+					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>					
+				</control>
+			</control>
+        </control>
+ 	</include>
+
+    <include name="View525_layout_fixed">
+		<control type="fixedlist" id="525">
+            <focusposition>0</focusposition>
+			<include>View525_layout</include>
+		</control>
+	</include>
+	
+	<include name="View525_layout_normal">
+		<control type="panel" id="525">
+			<include>View525_layout</include>
+		</control>
+	</include>
+    
+    <include name="View525_layout">
+        <viewtype label="31018">icons</viewtype>
+        <left>50</left>
+        <bottom>-20</bottom>
+        <height>550</height>
+        <width>1910</width>       
+        <orientation>horizontal</orientation>
+		<preloaditems>2</preloaditems>
+        <pagecontrol>60</pagecontrol>
+        <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),525) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
+		<onleft>525</onleft>
+        <onright>525</onright>
+		<ondown condition="!Player.HasVideo + Integer.IsLessOrEqual(Container(525).NumItems,4)">9000</ondown>
+		<ondown condition="Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(525).NumItems,4) + !Player.HasVideo">7000</ondown>
+		<ondown condition="!Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(525).NumItems,4) + !Player.HasVideo">60</ondown>				
+
+		<!-- play trailer Movie -->
+		<onup condition="!Player.HasVideo + Container.Content(movies)">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer),1]) get some, also missing some , also not possible for TV SHows -->
+		<!-- play trailer TV Show / Set -->
+		<onup condition="!Player.HasVideo + [ListItem.IsCollection | Container.Content(tvshows)]">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onup> <!-- action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language]-->							
+		<!-- stop trailer playing,  keybord default <x>stop</x>-->
+		<ondown condition="Player.HasVideo">Stop</ondown>																																																   
+		<!-- get fullscreen , <tab>FullScreen</tab>-->
+		<onup condition="Player.HasVideo">fullscreen</onup>				        
+		
+		<!-- non fixed -->
+        <itemlayout width="400" height="224" condition="!Skin.HasSetting(View525_UseFixedLayout)">
+			<control type="group">
+				<width>400</width>
+				<height>224</height>
+				<bottom>-80</bottom>
+				<include>ThumbsViewLayout</include>					
+				<animation effect="fade" start="100" end="20" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
+			</control> 
+        </itemlayout>
+        <focusedlayout width="400" height="224" condition="!Skin.HasSetting(View525_UseFixedLayout)">
+			<control type="group">
+				<width>400</width>
+				<height>224</height>
+				<bottom>-80</bottom>
+				<include>ThumbsViewLayoutFocus</include>
+			</control>
+			<!-- D I S C A R T -->	
+            <control type="image">
+                <width>180</width>
+                <height>180</height>
+                <top>170</top>
+                <right>-100</right>
+				<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+				<animation effect="slide" start="-120" end="0" tween="cubic" easing="inout" time="1500" delay="600" condition="Skin.HasSetting(View525_ShowCDart)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" delay="600" time="800" pulse="false" condition="Skin.HasSetting(View525_ShowCDart)">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
+                <visible>Skin.HasSetting(View525_ShowCDart) + !Skin.HasSetting(View525_UseFixedLayout)</visible>
+				<visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>
+			</control>			
+		</focusedlayout>
+		<!-- fixed -->
+        <itemlayout width="400" height="224" condition="Skin.HasSetting(View525_UseFixedLayout)">              
+			<control type="group">
+				<width>400</width>
+				<height>224</height>
+				<bottom>-180</bottom>
+				<include>ThumbsViewLayout</include>        					
+				<animation effect="fade" start="100" end="20" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
+			</control>		  
+        </itemlayout>
+        <focusedlayout width="480" height="269" condition="Skin.HasSetting(View525_UseFixedLayout)">        
+			<control type="group">
+				<width>480</width>
+				<height>269</height>
+				<bottom>-135</bottom>
+				<include>ThumbsViewLayoutFocus</include>				
+			</control>				
+			<!-- D I S C A R T -->	
+            <control type="image">
+                <width>200</width>
+                <height>200</height>
+                <top>0</top>
+                <left>0</left>
+				<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>					
+				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>	
+				<animation effect="slide" center="auto" end="380,250" time="0" condition="true">Conditional</animation> <!-- to get image dont cut off -->						
+				<animation type="Conditional" condition="Skin.HasSetting(View525_ShowCDart)">
+					<effect type="slide" start="-900,0" end="0,0" tween="back" easing="inout" time="1200" delay="100" />
+					<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />						
+				</animation>				
+				<animation effect="rotate" end="-360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
+                <visible>Skin.HasSetting(View525_ShowCDart)</visible>
+				<visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>	
+			</control>
+			<!-- disc refcetion -->
+			<control type="image">
+				<width>200</width>
+				<height>200</height>
+				<top>0</top>
+                <left>0</left>
+				<texture background="true" flipy="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
+				<colordiffuse>cf505050</colordiffuse>
+				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>						
+				<animation effect="slide" center="auto" end="380,450" time="0" condition="true">Conditional</animation>				
+				<animation type="Conditional" condition="Skin.HasSetting(View525_ShowCDart)">
+					<effect type="slide" start="-900,0" end="0,0" tween="back" easing="inout" time="1200" delay="100" />
+					<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />						
+				</animation>
+				<animation effect="rotate" end="360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
+                <visible>Skin.HasSetting(View525_ShowCDart)</visible>
+				<visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>	
+			</control>				
+		</focusedlayout>
+	</include>
+    
+    <variable name="View525_FallbackTitle">
+        <value condition="Container.Content(episodes)">$INFO[ListItem.TvshowTitle]</value>
+        <value>$INFO[ListItem.Title]</value>
+    </variable>
+    
+    <variable name="View525_SubTitle">
+        <value condition="Container.Content(episodes)">$INFO[ListItem.Label]</value>
+        <value>$INFO[ListItem.TagLine]</value>
+    </variable>   
+</includes>

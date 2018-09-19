@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>								
+								
+	<include name="View_526_Wide_Netflix">
+		<control type="group">
+			<include>animation_view_change</include> <!-- check need -->
+			<visible>Control.IsVisible(526)</visible>					 
+			<!-- clean bg, if no fanart  -->  
+			<control type="image">                                   								
+				<width>100%</width>
+				<height>100%</height>
+				<texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>				
+				<visible>Skin.HasSetting(View526_DisableFanArt)</visible>				
+				<animation effect="fade" start="0" end="100" delay="0" time="400"  condition="Skin.HasSetting(View526_DisableFanArt)">Conditional</animation>				
+			</control>
+			<!-- studio -->				
+			<control type="image">					
+				<left>40</left>
+                <width>450</width>
+                <height>160</height>
+                <bottom>20</bottom>
+				<bordersize>1</bordersize>
+				<aspectratio aligny="top" alignx="center">keep</aspectratio>
+				<visible>Skin.HasSetting(StudioInFooter) + Skin.HasSetting(View_526_nofooterbar)</visible>			
+				<include>studiologo_image</include>
+			</control>
+			<!-- status -->
+           	<control type="group">
+				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Lastepisode.airdate.Label)) + Skin.HasSetting(View_526_nofooterbar)</visible>
+				<right>-120</right>
+				<bottom>20</bottom>
+				<width>1200</width>
+				<height>40</height>
+				<include>Netflix_Status</include>
+			</control>	
+			<control type="group">																		               
+                <!-- clearlogo at top left-->
+                <control type="image" id="887768">
+					<height>207</height>
+                    <width>630</width>
+                    <left>30</left>
+                    <top>10</top>
+                    <fadetime>300</fadetime>
+                    <aspectratio align="left" aligny="bottom">keep</aspectratio>
+                   <texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+				</control>
+                <!-- Header (if no logo)-->
+				<control type="label">
+                    <height>100</height>
+                    <width>800</width>
+                    <left>30</left>
+                    <top>40</top>
+                    <font>Bold44</font>
+                    <align>left</align>
+                    <aligny>bottom</aligny>
+                    <label>[UPPERCASE]$INFO[ListItem.TVShowTitle][/UPPERCASE]</label>
+                    <textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+                    <visible>[String.Contains(Control.GetLabel(887768),color_transparent) + Container.Content(Seasons)]</visible> 
+                </control>		 
+				<!-- rating STARS -->
+				<control type="group">						
+					<include>StarRatingNetflix</include>
+					<left>40</left>
+					<top>216</top>
+				</control>                    	
+				<!-- flags, info -->
+				<control type="grouplist">
+					<left>230</left>
+					<top>225</top>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>0</itemgap>
+					<!-- year -->
+					<control type="label">
+						<visible>![String.IsEmpty(ListItem.Year) | ListItem.Premiered]</visible>
+						<left>5</left>
+						<width>auto</width>
+						<label>[B]$VAR[premiered][/B]</label>
+						<height>40</height>
+						<aligny>center</aligny>
+						<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+						<font>Reg28</font>
+					</control>
+					<!-- empty seperator -->
+					<control type="group">
+						<left>10</left>
+						<top>-1</top>
+						<width>10</width>
+						<height>50</height>
+						<visible>String.IsEmpty(ListItem.MPAA)</visible>	
+						<control type="textbox">
+							<left>1</left>
+							<width>10</width>
+							<label>|</label>									
+							<height>50</height>								
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+							<font>Reg28</font>
+						</control>	
+					</control>
+					<control type="group">
+						<left>5</left>
+						<top>0</top>
+						<width>110</width>
+						<height>40</height>
+						<visible>!String.IsEmpty(ListItem.MPAA)</visible>					
+						<control type="image">
+							<height>40</height>
+							<width>110</width>
+							<texture colordiffuse="$INFO[NetflixDetailsFlagColor]">netflix/frame/detail-frame.png</texture>						
+						</control>
+						<control type="label">
+							<left>1</left>
+							<width>110</width>
+							<label>$INFO[ListItem.MPAA]</label>									
+							<height>40</height>
+							<aligny>center</aligny>
+							<align>center</align>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+							<font>Reg26</font>
+						</control>		
+					</control>									
+					<control type="label">
+						<left>5</left>
+						<width>auto</width>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Status),[B],[/B]]</label>
+						<height>40</height>
+						<aligny>center</aligny>
+						<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+						<font>Reg28</font>
+					</control>					
+				</control> 		
+			</control>
+			<!-- left list -->
+			<control type="list" id="526">
+				<left>50</left>
+				<top>310</top>
+				<width>41%</width>					  
+				<height>600</height>
+				<orientation>vertical</orientation>             
+				<focusposition>0</focusposition>
+				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
+				<onright>5026</onright>
+				<onup>526</onup>
+				<ondown>526</ondown>		
+				<focusedlayout height="65" width="480" condition="Container.Content(seasons)">
+					<control type="group">
+						<posx>40</posx>					
+						<control type="label">
+							<left>5</left>
+							<top>20</top>
+							<height>40</height>
+							<width>475</width>
+							<right>30</right>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label,[B],[/B]]$VAR[fakeright]$INFO[ListItem.Episode,            , $LOCALIZE[20360]]</label>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>												
+						</control>
+						<control type="image">
+							<left>-15</left>
+							<top>10</top>
+							<height>60</height>
+							<width>475</width>
+							<right>30</right>
+							<aligny>center</aligny>							
+							<texture colordiffuse="$VAR[ToggleNetflixViewDetailsTextColor]">netflix/border_netflix.png</texture>   <!-- re check, if colors get trouble -->										
+						</control>
+					</control>
+				</focusedlayout>
+				<itemlayout height="66" width="480" condition="Container.Content(seasons)">
+					<control type="group">
+						<posx>40</posx>						
+						<control type="label">
+							<left>5</left>
+							<top>20</top>
+							<height>40</height>
+							<width>475</width>
+							<right>30</right>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label,[B],[/B]]$VAR[fakeright]$INFO[ListItem.Episode,            , $LOCALIZE[20360]]</label>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>												
+						</control>
+					</control>
+				</itemlayout>
+			</control>
+		</control>		
+		<!-- right list -->
+		<control type="group">
+			<visible>Control.IsVisible(526)</visible>
+			<control type="fixedlist" id="5026">				
+				<height>900</height>
+				<top>80</top>
+				<left>830</left>				
+				<orientation>vertical</orientation>				
+				<focusposition>1</focusposition>
+				<onleft>526</onleft>
+				<onup>5026</onup>
+				<ondown>5026</ondown>
+                <onright>60</onright>
+				<onback>526</onback>
+				<focusedlayout width="1040" height="224">
+                    <control type="group">
+						<width>1040</width>
+						<height>224</height>
+						<control type="image">
+							<width>37%</width>
+							<height>100%</height>
+							<texture border="5">diffuse/wide.png</texture>
+							<colordiffuse>$VAR[NetflixViewDetailsPanelColor]</colordiffuse>
+							<bordersize>6</bordersize>
+							<visible>Skin.HasSetting(View526_HidePanel)</visible>
+						</control>
+						<control type="image">
+							<texture border="5">diffuse/wide.png</texture>
+							<colordiffuse>$VAR[NetflixViewDetailsPanelColor]</colordiffuse>
+							<bordersize>6</bordersize>
+							<visible>!Skin.HasSetting(View526_HidePanel)</visible>
+						</control>						
+						<control type="image">
+							<width>37%</width>
+							<height>100%</height>
+							<bordersize>8</bordersize>
+							<texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
+							<aspectratio align="left" aligny="center">keep</aspectratio>
+						</control>
+						<!--gradient overlay-->
+                        <control type="image">
+                            <bottom>0</bottom>
+							<height>35%</height>
+							<bordersize>8</bordersize>
+							<width>37%</width>
+                            <align>center</align>
+                            <height>63</height>
+                            <texture border="7">diffuse/gradient.png</texture>
+                            <colordiffuse>cb000000</colordiffuse><!-- recheck maybe make it hardcoded -->
+                        </control>
+						<!-- Episode/Season -->
+						<control type="label">
+							<left>2%</left>
+							<bottom>20</bottom>
+							<height>35</height>
+							<width>35%</width>
+							<font>Reg26</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$VAR[seasonwithspecials]</label>
+							<visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
+						</control>
+						<control type="progress">
+							<left>2%</left>
+							<bottom>16</bottom>
+							<width>33%</width>
+							<height>2%</height>
+							<align>left</align>
+							<texturebg colordiffuse="grey" border="2">colors/color_white.png</texturebg>
+							<lefttexture></lefttexture>
+							<midtexture colordiffuse="$VAR[NetfixViewHighlightTextColor]" border="2">colors/color_white.png</midtexture>
+							<righttexture></righttexture>
+							<visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+							<info>ListItem.PercentPlayed</info>
+						</control>
+						<!-- fake full progressbar for watched & not resumable -->
+                        <control type="image">
+							<left>2%</left>
+							<bottom>16</bottom>                              
+							<width>33%</width>
+							<height>2%</height>
+							<align>left</align>
+							<texture colordiffuse="$VAR[NetfixViewHighlightTextColor]" border="2">colors/color_white.png</texture>
+							<visible>[Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable]</visible>
+						</control>															  
+						<control type="label">
+							<top>8</top>
+							<left>38%</left>
+							<width>61%</width>
+							<aligny>center</aligny>
+							<height>38</height>
+							<align>left</align>
+							<font>Bold30</font>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+							<autoscroll>true</autoscroll>
+							<label>[B]$INFO[ListItem.Title][/B]$VAR[ListItemDuration, (,)]</label>
+						</control>
+						<control type="label">
+							<top>50</top>
+							<left>38%</left>
+							<width>100%</width>
+							<aligny>center</aligny>
+							<height>30</height>
+							<align>left</align>
+							<font>Reg22</font>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+							<label fallback="19055">$VAR[WideNetflixDetails]</label>
+						</control>
+						<control type="textbox">
+							<left>38%</left>
+							<right>30</right>
+							<top>87</top>
+							<height>125</height>
+							<align>justify</align>
+							<font>Reg26</font>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColorPlot]</textcolor>
+							<label>$VAR[Plots]</label>
+							<autoscroll delay="4000" time="4000" repeat="2000">true</autoscroll>
+						</control>
+					</control>
+				</focusedlayout>					
+				<itemlayout width="1040" height="224">
+					<control type="group">
+						<width>1040</width>
+						<height>224</height>
+						<control type="image">
+							<width>37%</width>
+							<height>100%</height>
+							<texture border="5">diffuse/wide.png</texture>
+							<colordiffuse>$VAR[NetflixViewDetailsPanelColor]</colordiffuse>
+							<bordersize>6</bordersize>
+							<visible>Skin.HasSetting(View526_HidePanel)</visible>
+						</control>
+						<control type="image">
+							<texture border="5">diffuse/wide.png</texture>
+							<colordiffuse>$VAR[NetflixViewDetailsPanelColor]</colordiffuse>
+							<bordersize>6</bordersize>
+							<visible>!Skin.HasSetting(View526_HidePanel)</visible>
+						</control>
+						<control type="image">
+						<!--Panel icon image-->
+							<width>37%</width>
+							<height>100%</height>
+							<bordersize>8</bordersize>
+							<texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
+							<aspectratio align="left" aligny="center">keep</aspectratio>
+						</control>
+						<!--gradient overlay-->
+                        <control type="image">
+                            <bottom>0</bottom>
+							<bordersize>8</bordersize>
+							<width>37%</width>
+							<height>35%</height>
+							<align>center</align>
+                            <height>63</height>
+                            <texture border="7">diffuse/gradient.png</texture>
+                            <colordiffuse>cb000000</colordiffuse>
+                        </control>
+						<!-- Episode/Season -->
+						<control type="label">
+							<left>2%</left>
+							<bottom>20</bottom>
+							<height>35</height>
+							<width>35%</width>
+							<font>Reg26</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$VAR[seasonwithspecials]</label>
+							<visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
+						</control>
+						<control type="progress">
+							<left>2%</left>
+							<bottom>16</bottom>
+							<description>progress bar</description>
+							<width>33%</width>
+							<height>2%</height>
+							<align>left</align>
+							<!-- hardcoded color on landscape -->
+							<texturebg colordiffuse="grey" border="2">colors/color_white.png</texturebg>
+							<midtexture colordiffuse="$VAR[NetfixViewHighlightTextColor]" border="2">colors/color_white.png</midtexture>
+							<visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+							<info>ListItem.PercentPlayed</info>
+						</control>
+						<!-- fake full progressbar for watched & not resumable -->
+                            <control type="image">
+                                <left>2%</left>
+                                <bottom>16</bottom>
+                                <width>33%</width>
+                                <height>2%</height>
+                                <align>left</align>
+                                <texture colordiffuse="$VAR[NetfixViewHighlightTextColor]" border="2">colors/color_white.png</texture>
+                                <visible>[Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable]</visible>
+                            </control>															  
+						<control type="label">
+							<top>8</top>
+							<left>38%</left>
+							<width>61%</width>
+							<aligny>center</aligny>
+							<height>38</height>
+							<align>left</align>
+							<font>Bold30</font>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+							<label>[B]$INFO[ListItem.Title][/B]$VAR[ListItemDuration, (,)]</label>
+						</control>
+						<control type="label">
+							<top>50</top>
+							<left>38%</left>
+							<width>100%</width>
+							<aligny>center</aligny>
+							<height>30</height>
+							<align>left</align>
+							<font>Reg22</font>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+							<label fallback="19055">$VAR[WideNetflixDetails]</label>
+						</control>
+						<control type="textbox">
+							<left>38%</left>
+							<right>30</right>
+							<top>87</top>
+							<height>125</height>
+							<align>justify</align>
+							<font>Reg26</font>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColorPlot]</textcolor>
+							<label>$VAR[Plots]</label>
+							<autoscroll>false</autoscroll>
+						</control>                           
+					</control>
+				</itemlayout>
+				<content target="video" sortby="premiered" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
+			</control>
+			<control type="image">
+				<top>303</top>
+				<right>50</right>
+				<width>1042</width>
+				<height>225</height>
+				<texture border="3.5">netflix/frame/slimframeFO.png</texture>
+				<colordiffuse>$VAR[NetflixViewDetailsBorderFocusColor]</colordiffuse>
+				<visible>Control.HasFocus(5026) + !Skin.HasSetting(View526_slimframe)</visible>       
+			</control>
+			<control type="image">
+				<top>303</top>
+				<right>705</right>
+				<width>386</width>
+				<height>225</height>
+				<texture border="2">netflix/frame/slimframe_hardedge.png</texture>				
+				<colordiffuse>$VAR[NetflixViewDetailsBorderFocusColor]</colordiffuse>
+				<visible>Control.HasFocus(5026) + Skin.HasSetting(View526_slimframe)</visible>       
+			</control>
+		</control>
+		<!-- check vertical Scrollbar not working atm
+		<control type="group">
+			<control type="scrollbar" id="60">
+				<visible>Control.IsVisible(5026) + Integer.IsGreater(Container.Numitems,0)</visible>
+				<right>5</right>
+				<bottom>30</bottom>
+				<width>20</width>
+				<height>900</height>
+				<onup>60</onup>
+				<ondown>60</ondown>
+				<onleft>5026</onleft>
+				<onright>5026</onright>					
+				<orientation>vertical</orientation>
+				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>					
+			</control>
+		</control>-->
+	</include>
+	<variable name="WideNetflixDetails">
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]">$INFO[ListItem.Premiered]</value>
+		<value condition="Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ] $INFO[ListItem.Property(UnWatchedEpisodes), (,) ]</value>
+		<value condition="!Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ]</value>
+	</variable>	
+	<variable name="fakeright">
+		<value condition="!Integer.IsGreater(ListItem.Episode,9) + !String.IsEmpty(ListItem.Episode)">[COLOR=00ffffff]0[/COLOR]</value>
+        <value condition="Integer.IsGreater(ListItem.Episode,9) + !String.IsEmpty(ListItem.Episode)"></value>
+	</variable>
+	<variable name="seasonwithspecials">
+		<value condition="Integer.IsLess(ListItem.Season,1) + !String.IsEmpty(ListItem.Episode)">[B]$LOCALIZE[20381] $INFO[ListItem.Episode][/B]</value>
+		<value condition="!Integer.IsLess(ListItem.Season,1) + !String.IsEmpty(ListItem.Episode)">[B]$VAR[WideView_LargeSeasonLabel,S,:]$VAR[WideView_LargeEpisodeLabel,E,][/B]</value>
+	</variable>
+	<variable name="ToggleNetflixViewDetailsTextColor">
+		<value condition="Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
+		<value condition="!Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewDetailsTextColor)]</value>
+	</variable>
+	<variable name="ToggleNetflixViewDetailsTextColorPlot">
+		<value condition="Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(NetflixSecondaryTextColor)]</value>
+		<value condition="!Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewDetailsTextColor)]</value>
+	</variable>
+	<!-- need further test, depending to panel in 527 -->
+	<variable name="NetflixViewDetailsPanelColor">
+		<value condition="Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(NetflixViewDetailsPanelColor)]</value>
+		<value condition="!Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewDetailsPanelColor)]</value>
+	</variable>
+	<variable name="NetfixViewHighlightTextColor">
+		<value condition="Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewNetfixHighlightTextColor)]</value>
+		<value condition="!Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewDetailsHighlightTextColor)]</value>
+	</variable>
+	<variable name="NetflixViewDetailsBorderFocusColor">
+		<value condition="Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</value>
+		<value condition="!Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewDetailsBorderFocusColor)]</value>
+	</variable>
+</includes>

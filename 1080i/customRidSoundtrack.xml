@@ -1,0 +1,11 @@
+
+<!--Titan, by Manfeed-->
+<window type="dialog" id="1305">
+    <onload>Stop</onload>
+    <onload>ClearProperty(PlayingOST,Home)</onload>
+    <visible>String.Contains(Player.Filenameandpath,theme.mp3) + [!Window.IsActive(videos) | String.IsEmpty(ListItem.Path) | ListItem.IsCollection]</visible>
+	<visible>Skin.HasSetting(LibraryOSTthemes)</visible>
+	<visible>!Player.HasVideo</visible>	
+	<controls>
+    </controls>
+</window>

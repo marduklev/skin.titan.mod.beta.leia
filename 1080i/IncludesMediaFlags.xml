@@ -1777,7 +1777,22 @@
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.mpaa)) + !String.Contains(Window(Home).Property(ListItem.mpaa),not rated)">$INFO[Window(Home).Property(ListItem.MPAA)]</value>
         <!-- fallback -->
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) + !String.Contains(Window(Home).Property(SkinHelper.ListItem.MPAA),not rated)">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
-		<value> N/A </value>
+		<value condition="[ 
+				String.IsEqual(ListItem.DBTYPE,movie) | 
+				String.IsEqual(ListItem.Property(DBTYPE),movie) | 
+				String.IsEqual(Window(Home).Property(ListItem.DBTYPE,movie)) | 
+				String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),movie) |
+				String.IsEqual(ListItem.DBTYPE,musicvideo) | 
+				String.IsEqual(ListItem.Property(DBTYPE),musicvideo) | 
+				String.IsEqual(Window(Home).Property(ListItem.DBTYPE,musicvideo)) | 
+				String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),musicvideo) |
+				String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | 
+				String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | 
+				String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode) |
+				String.IsEqual(ListItem.DBTYPE,tvshow) | 
+				String.IsEqual(ListItem.Property(DBTYPE),tvshow) | 
+				String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | 
+				String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]"> N/A </value>
 	</variable>
 	
 	<variable name="VideoAspectVar">

@@ -2423,11 +2423,10 @@
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-								<label>$VAR[railer_fs]</label>
-								
-								<onclick condition="!Player.HasVideo + String.IsEmpty(ListItem.Trailer)">***</onclick>			
+								<label>$VAR[railer_fs]</label>									
 								<onclick condition="!Player.HasVideo + String.IsEqual(ListItem.DBTYPE,movie)">PlayMedia($INFO[ListItem.Trailer],1)</onclick>						
 								<onclick condition="!Player.HasVideo + !String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>  							
+								<onclick condition="!Player.HasVideo + [String.IsEmpty(ListItem.Trailer) + String.IsEqual(ListItem.DBTYPE,movie)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>								
 								<onclick condition="Player.HasVideo">FullScreen</onclick>
 								<onclick condition="Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
                                 <onclick condition="Player.HasVideo">SetProperty(TrailerPlaying,fullscreen,home)</onclick>                                

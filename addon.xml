@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.titan.mod.beta.leia" version="18.1.6" name="T i t a n - M O D (BETA)" provider-name="mardukl,cartman.dos,marcelveldt,mgonzales">
+<addon id="skin.titan.mod.beta.leia" version="18.1.7" name="T i t a n - M O D (BETA) for LEIA" provider-name="mardukl,cartman.dos,marcelveldt,mgonzales">
 	<requires>
 		<import addon="xbmc.gui" version="5.13.0" />		
 		<import addon="script.skinshortcuts" version="0.6.5"/>
 		<import addon="script.skin.helper.service" version="1.0.0"/>
         <import addon="script.skin.helper.widgets" version="1.0.0"/>
         <import addon="script.skin.helper.backgrounds" version="1.0.0"/>
-		<import addon="script.user.rating" version="1.0.3"/>
         <import addon="resource.images.studios.coloured" version="0.0.9"/>
 		<import addon="resource.images.studios.white" version="0.0.15"/>
 		<import addon="resource.images.languageflags.colour" version="0.0.4"/>

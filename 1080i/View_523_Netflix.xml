@@ -179,8 +179,7 @@
 					<posx>1045</posx>
                     <height>50</height>
                     <top>620</top>
-                    <include>mediaflags</include>
-						
+                    <include>mediaflags</include>						
                 </control>
 				<!-- media flags if not TV Shows -->
                 <control type="group">
@@ -189,8 +188,7 @@
 					<height>52</height>
                     <top>620</top>
                     <include>mediaflags</include> <!-- sterted work on includename ="mediaflags_netflix -->
-					<animation effect="zoom" end="70,70" time="0" condition="true">Conditional</animation>
-					
+					<animation effect="zoom" end="70,70" time="0" condition="Skin.String(osdmediaflagsstyle,large) | Skin.String(osdmediaflagsstyle,large_color)">Conditional</animation>					
 				</control>						
 							
 				<!-- rating -->

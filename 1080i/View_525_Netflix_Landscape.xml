@@ -166,7 +166,7 @@
                     <top>640</top>
                     <include>mediaflags</include>
 					<visible>Skin.HasSetting(View525_UseFixedLayout)</visible>	
-					<animation effect="zoom" alignx="true" end="80,80" time="0" condition="true">Conditional</animation>			
+					<animation effect="zoom" alignx="true" end="80,80" time="0" condition="Skin.String(osdmediaflagsstyle,large) | Skin.String(osdmediaflagsstyle,large_color)">Conditional</animation>			
 				</control>
 				<!-- media flags , non-fixed -->
 				<control type="group">                   
@@ -176,8 +176,8 @@
                     <include>mediaflags</include>
 					<visible>!Skin.HasSetting(View525_UseFixedLayout)</visible>
 					<animation effect="slide" end="-320,-5" time="0" condition="String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode)">Conditional</animation>
-					<animation effect="zoom" alignx="true" end="80,80" time="0" condition="!String.IsEqual(ListItem.DBTYPE,movie)">Conditional</animation>
-					<animation effect="zoom" alignx="true" end="70,70" time="0" condition="String.IsEqual(ListItem.DBTYPE,movie)">Conditional</animation>
+					<animation effect="zoom" alignx="true" end="80,80" time="0" condition="!String.IsEqual(ListItem.DBTYPE,movie) + [Skin.String(osdmediaflagsstyle,large) | Skin.String(osdmediaflagsstyle,large_color)]">Conditional</animation>
+					<animation effect="zoom" alignx="true" end="70,70" time="0" condition="String.IsEqual(ListItem.DBTYPE,movie) + [Skin.String(osdmediaflagsstyle,large) | Skin.String(osdmediaflagsstyle,large_color)]">Conditional</animation>
 				</control>					
                 <!-- rating , fixed -->
                 <control type="group">

@@ -426,49 +426,10 @@
 	</variable>
     
 	<include name="mediaflags_classic">
-        <include>mediaflags_sets</include>
-        <!-- nextaired info -->
-        <control type="group">
-            <width>400</width>
-            <posy>1</posy>
-            <height>30</height>
-            <visible>!String.IsEmpty(Control.GetLabel(44240))</visible>
-            <visible>Container.content(tvshows) | Container.content(seasons)</visible>
-            <control type="image">
-                <posx>-6</posx>
-                <colordiffuse>$VAR[mediaFlagsFontColor]</colordiffuse>
-                <texture border="60,3,10,3">flags/flag_box_rating_classic.png</texture>
-                <aspectratio>stretch</aspectratio>
-            </control>
-            <control type="label" id="44240">
-                <font>flags</font>
-                <posx>40</posx>
-                <width>360</width>
-                <right>0</right>
-                <textcolor>$VAR[mediaFlagsFontColor]</textcolor>
-                <label>$INFO[Window(Home).Property(ListItem.Status),, ]$INFO[Window(Home).Property(ListItem.nextepisode.airdate)]</label>
-                <align>center</align>
-                <aligny>center</aligny>
-                <height>29</height>
-            </control>
-        </control>
-        <control type="group">
-            <visible>!String.IsEmpty(Control.GetLabel(44223))</visible>
-            <control type="image">
-                <!--Video Resolution-->
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>141</width>
-                <height>30</height>
-                <colordiffuse>$VAR[mediaFlagsFontColor]</colordiffuse>
-                <texture fallback="flags/flags_classic/resolution/default.png">$VAR[VideoResolutionVar,flags/flags_classic/resolution/,.png]</texture>
-            </control>
-            <control type="label" id="44223">
-                <visible>false</visible>
-                <textcolor>$VAR[mediaFlagsFontColor]</textcolor>
-                <label>$VAR[VideoResolutionVar]</label>
-            </control>
-
+		<include>mediaflags_sets</include>
+							   
+		<control type="grouplist">
+			<orientation>horizontal</orientation>
 			<!-- Video -->
 			<control type="group">
 				<visible>!String.IsEmpty(Control.GetLabel(44223))</visible>
@@ -531,7 +492,6 @@
 				</control>
 			</control>
 
-
 			<!-- mpaa rating -->			
 			<control type="group">
 				<visible>!String.IsEmpty(Control.GetLabel(44225))</visible>
@@ -593,7 +553,6 @@
 						<align>center</align>
 						<aligny>center</aligny>
 					</control>
-
 				</control>
 			</control>
 		</control>

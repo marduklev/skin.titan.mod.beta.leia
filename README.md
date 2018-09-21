@@ -1,7 +1,7 @@
 # Skin Titan M O D - for L E I A
 Latest Version of the mod
 
-##Installation instructions:
+## Installation instructions:
 >
 >      1. search for the green button "clone or download" click it -> download zip
 >      2. In Kodi, go to Settings --> AddOns --> Install from zip -> choose the source where you saved the .zip

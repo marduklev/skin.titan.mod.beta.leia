@@ -56,7 +56,7 @@
 				<height>50</height>
 				<font>Bold30</font>
 				<textcolor>white</textcolor>
-				<label>-/label>
+				<label></label>
 			</control>
 
 		</control>

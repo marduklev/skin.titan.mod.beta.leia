@@ -547,7 +547,8 @@
                     <!-- adjustments for spotlight -->
                     <animation effect="slide" start="0" end="0,210" time="300" condition="Control.IsVisible(5633399) | ControlGroup(505).HasFocus()">Conditional</animation>
                     <animation effect="fade" start="100" end="0" time="600" condition="[Control.IsVisible(5633399) | ControlGroup(505).HasFocus()] + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>
-					<animation effect="zoom" alignx="true" end="60,60" time="0" condition="Skin.String(osdmediaflagsstyle,large) | Skin.String(osdmediaflagsstyle,large_color)">Conditional</animation>
+					<animation effect="zoom" alignx="true" end="70,70" time="0" condition="Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color)">Conditional</animation>
+					<animation effect="zoom" alignx="true" end="120,120" time="0" condition="![Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color) | Skin.String(mediaflagsstyle,boxed)]">Conditional</animation>
                 </control>
                 <!-- ratings & studio -->
                 <control type="group">

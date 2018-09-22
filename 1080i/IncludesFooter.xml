@@ -99,6 +99,7 @@
         <value>ff000000</value>
     </variable>
     <variable name="AdvancedRatings_TextColor">
+		<value condition="Window.IsVisible(movieinformation) + !Skin.HasSetting(UseNetflixInfoDialog)">$INFO[Skin.String(ViewDetailsTextColor)]</value>																																				 
         <value condition="[Control.IsVisible(527) | Control.IsVisible(523) | Control.IsVisible(525) | [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt) + Skin.HasSetting(View_526_nofooterbar)]] | [Window.IsActive(Home) + Skin.String(HomeLayout, netflix2)]">$INFO[Skin.String(RatingsLogoColor)]</value> <!-- default  $INFO[Skin.String(ViewDetailsTextColor)] -->       
 		<value condition="Skin.String(FooterTextColor) + !Skin.String(FooterPanelColor, None)">$INFO[Skin.String(FooterTextColor)]</value>
         <value>ffffffff</value>
@@ -368,7 +369,7 @@
 			<right>10</right>
 			<align>right</align>			
 			<!-- studio -->				
-			<control type="image" id="414783">">					
+			<control type="image" id="414783">			
 				<bottom>-5</bottom>
 				<width>400</width>
 				<height>110</height>

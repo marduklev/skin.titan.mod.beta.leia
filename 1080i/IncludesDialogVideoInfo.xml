@@ -1336,14 +1336,16 @@
 								</control>
 							</control>
 						
-							<!-- ALT RATING No Studio -->
-                            <control type="group">
-                                <height>70</height>
-                                <width>85</width>
+                            <!-- ALT RATING No Studio -->
+                            <control type="grouplist">
+                                <usecontrolcoords>true</usecontrolcoords>
+								<orientation>horizontal</orientation>								
+								<height>70</height>
+                                <width>auto</width> <!--check-->
                                 <top>650</top>
-                                <left>695</left>
+                                <left>695</left>							
                                 <include>AltRatingMovieInfo</include>
-								<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible>
+								<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible> <!--check, need visit other than movie content, work with anims -->
 								<visible>!Player.HasVideo</visible>
                             </control>
 										
@@ -2733,7 +2735,7 @@
 					<posx>65</posx>
 					<posy>350</posy>
 					<width>1790</width>
-					<height>60%</height>
+					<height>90%</height>
 					<orientation>vertical</orientation>
 					<visible>String.IsEqual(Window.Property(AdditionalInfo),plot)</visible>
 
@@ -2755,37 +2757,17 @@
 						<align>justify</align>
 						<font>Reg42</font>
 					</control>
-
-                    <!-- ratings -->
+                    <!-- ALT RATING No Studio -->									
                     <control type="grouplist">
-                        <visible>!Skin.HasSetting(EnableWhiteRatingInHome)</visible>
-                        <orientation>horizontal</orientation>
-                        <posx>65</posx>
-                        <height>90</height>
-                        <itemgap>100</itemgap>
-                        <align>left</align>
-                        <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBTop250Color</include>
-                        <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBRatingColor</include>
-                        <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TVdbRatingColor</include>
-                        <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TMdbRatingColor</include>
-                        <include condition="Skin.HasSetting(RTRatingInFooter)">TomatoMeterColor</include>
-                        <include condition="Skin.HasSetting(RTRatingInFooter)">MetaCriticRatingColor</include>
-                    </control>
-
-                    <control type="grouplist">
-                        <visible>Skin.HasSetting(EnableWhiteRatingInHome)</visible>
-                        <orientation>horizontal</orientation>
-                        <posx>65</posx>
-                        <height>90</height>
-                        <itemgap>100</itemgap>
-                        <align>left</align>
-                        <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBTop250White</include>
-                        <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBRatingWhite</include>
-                        <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TVdbRatingWhite</include>
-                        <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TMdbRatingWhite</include>
-                        <include condition="Skin.HasSetting(RTRatingInFooter)">TomatoMeterWhite</include>
-                        <include condition="Skin.HasSetting(RTRatingInFooter)">MetaCriticRatingWhite</include>
-                    </control>
+						<usecontrolcoords>true</usecontrolcoords>
+						<orientation>horizontal</orientation>								
+						<height>70</height>
+						<width>auto</width> <!--check-->											  
+						<top>650</top>
+						<left>695</left>
+						<itemgap>10</itemgap>						
+						<include>AltRatingMovieInfo</include>
+					</control>					             
 				</control>
 
 				<!--Cast List-->
@@ -2987,126 +2969,67 @@
 	</include>
    
    <!-- just for mivieinfo dialog -->
-	<include name="AltRatingMovieInfo">
-		
+	<include name="AltRatingMovieInfo">		  
         <!-- Tomatometer -->
         <control type="group">
             <height>70</height>
-            <width>85</width>
-            <bottom>0</bottom>
-            <left>675</left>
+            <width>130</width> <!-- check, maybe param , for 2  infos -->							  
+            <left>10</left>
             <include>TomatoMeterVD</include>
-            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>
-           
-        </control>
-        
+			<aligny>center</aligny>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>         		   
+        </control>       		
         <!-- Tomatoaudience -->
         <control type="group">
             <height>70</height>
-            <width>85</width>
-            <bottom>0</bottom>
-            <right>0</right>
-            <include>TomatoAudienceVD</include> <!-- look again logfile-->
-            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>
-            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))">Conditional</animation>
+            <width>130</width>
+            <left>10</left>							
+            <include>TomatoAudienceVD</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>																																										   
         </control>
 		
         <!-- MetaCritic -->
         <control type="group">
             <height>70</height>
-            <width>85</width>
-            <bottom>0</bottom>
-            <left>795</left>
+            <width>130</width>							  
+            <left>10</left>
             <include>MetaCriticRatingVD</include>
             <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
         </control>
-        
-        <!-- IMDB Top 250 -->
+        <!-- TVdb -->							 
         <control type="group">
             <height>70</height>
-            <width>85</width>
-            <bottom>5</bottom>
-            <left>990</left>
+			<width>350</width>         							  
+            <left>10</left>
+            <include>TVdbVD</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)) + ![String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(ListItem.DBTYPE,musicvideo)]</visible> 
+        </control>		  
+        <!-- TMdb -->
+        <control type="group">																	  
+            <height>70</height>
+			<width>350</width>     							  
+            <left>10</left>
+            <include>TMdbVD</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)) + String.IsEqual(ListItem.DBTYPE,movie)</visible> 																		  
+        </control>			
+		<!-- IMDB -->
+        <control type="group">
+            <height>70</height>							   							  
+            <width>350</width>           
+            <left>10</left>
+            <include>ImdbVD</include>									   								  																	  
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB))</visible>  
+        </control>		
+		<!-- IMDB Top 250 -->
+        <control type="group">
+            <height>70</height>
+            <width>75</width>         
+            <left>10</left>
             <include>ImdbTop250VD</include>
             <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))</visible>  
-        </control>
-   
-		<!-- MOVIE IMDB & TMdb -->
-        <control type="group">
-            <visible>!String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
-            <height>70</height>
-            <width>85</width>
-            <bottom>0</bottom>
-            <left>0</left>
-           
-			<!-- imdb -->
-            <control type="image">
-                <!--imdb logo-->
-                <left>345</left>
-                <top>-3</top>
-                <width>45</width>
-                <height>45</height>
-                <bordersize>2</bordersize>
-                <texture>flags/flags_color/addratings/imdb.png</texture>
-            </control>
-            <control type="label">
-                <!--IMDB Rating and votes modern-->
-                <left>390</left>
-                <top>5</top>
-                <width>300</width>
-                <height>30</height>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>Reg26</font>
-                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
-                <label>$VAR[rating_value_imdb_2]</label>
-            </control>
-			
-            <control type="image">
-                <!--TMDB logo-->
-                <left>0</left>
-                <top>-5</top>
-                <width>55</width>
-                <height>50</height>
-                <bordersize>2</bordersize>
-                <texture>flags/flags_color/addratings/tmdbtp.png</texture>
-            </control>
-            <control type="label">
-                <!--TMDB Rating modern-->
-                <left>50</left>
-                <top>-10</top>
-                <width>300</width>
-                <height>60</height>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>Reg26</font>
-                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
-                <label>$VAR[rating_value_tmdb]</label> <!-- $INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TMDB), ,   ] -->
-			</control>												
-        </control>
-			
+        </control>			   
     </include>
-   <!-- labels variables - since leia can use scraped special ratings -->
-		
-	<variable name="rating_value_imdb_2">
-        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(imdb))"> $INFO[ListItem.RatingAndVotes(imdb)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>		
-    </variable>	
-	<variable name="rating_value_tmdb">
-       <value condition="!String.IsEmpty(ListItem.RatingAndVotes(themoviedb))"> $INFO[ListItem.RatingAndVotes(themoviedb)]</value>
-	   <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TMDB), (, $LOCALIZE[205])]</value>
-       
-    </variable>
-	<variable name="rating_value_imdb_2">
-        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(imdb))"> $INFO[ListItem.RatingAndVotes(imdb)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>		
-    </variable>	
-	<variable name="rating_value_tmdb">
-       <value condition="!String.IsEmpty(ListItem.RatingAndVotes(themoviedb))"> $INFO[ListItem.RatingAndVotes(themoviedb)]</value>
-	   <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TMDB), (, $LOCALIZE[205])]</value>
-       
-    </variable>
-   
+    
    <!-- texture thumbs for 'rate this title' button in dialoginfo -->
     <include name="ChangeRatingThumbsDown">
         <textureradioonfocus flipy="true" colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/button/thumb_up_fo.png</textureradioonfocus>
@@ -3123,118 +3046,181 @@
         <radioposy>0</radioposy>
     </include>
    
-   <!-- ratings videoinfo extract from footer xml-->
-   <include name="TomatoAudienceVD">
-        <!-- Rotten Tomatoes Meter -->
-        <control type="group">
-            <height>70</height>
-            <width>85</width>          
-            <control type="image">
-                <top>0</top>
-                <width>84</width>
-                <height>37</height>
-                <bordersize>2</bordersize>
-                <aspectratio>keep</aspectratio>
-                <texture>flags/popcorn.png</texture>
-                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
-            </control>
-            <control type="image">
-                <top>0</top>
-                <width>84</width>
-                <height>37</height>
-                <bordersize>2</bordersize>
-                <aspectratio>keep</aspectratio>
-                <texture>flags/popcorn2.png</texture>
-                <visible>!Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
-            </control>
-            <control type="label">
-                <top>38</top>
-                <width>84</width>
-                <height>30</height>
-                <align>center</align>
-                <aligny>center</aligny>
-                <font>flags</font>
-                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
-                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),,%]</label>
-            </control>
-        </control>
+   <!-- ratings videoinfo extract from footer xml, temporally not available ?? -->
+   <include name="TomatoAudienceVD">   
+		<control type="image">
+			<top>-5</top>
+			<width>84</width>
+			<height>37</height>										  
+			<aspectratio>keep</aspectratio>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_rotten_audience]</texture>
+			<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
+		</control>			  
+		<control type="label">
+			<top>38</top>
+			<width>84</width>
+			<height>30</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<font>flags</font>
+			<textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),,%]</label>
+		</control>  				  
     </include>
    <!-- Rotten Tomatoes Meter Video Info-->
-	<include name="TomatoMeterVD">
-        <!-- Rotten Tomatoes Meter -->
-        <control type="group">
-            <control type="image">
-                <description>Rotten tomatoes image</description>
-                <top>-5</top>
-                <width>45</width>
-                <height>45</height>
-                <bordersize>2</bordersize>
-                <aspectratio>keep</aspectratio>
-                <texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Image),flags/,.png]</texture>
-            </control>
-            <control type="label">
-                <top>5</top>
-				<left>35</left>
-                <width>84</width>
-                <height>30</height>
-                <align>center</align>
-                <aligny>center</aligny>
-                <font>reg26</font>
-                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
-                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),,%]</label>
-            </control>
-        </control>
+	<include name="TomatoMeterVD">									 							  
+		<control type="image">																
+			<top>-5</top>
+			<width>45</width>
+			<height>45</height>													  
+			<aspectratio>keep</aspectratio>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_rotten_meter]</texture>
+		</control>
+		<control type="label">
+			<top>5</top>
+			<left>35</left>
+			<width>84</width>
+			<height>30</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<font>reg26</font>
+			<textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),,%]</label>
+		</control>				  
+    </include>      
+	<!-- MetaCritic VD -->
+	<include name="MetaCriticRatingVD">               										
+		<control type="image">
+			<top>0</top>
+			<width>40</width>
+			<height>40</height>													  
+			<aspectratio>keep</aspectratio>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_metacritic]</texture>
+		</control>
+		<control type="label">
+			<top>5</top>
+			<left>25</left>
+			<width>100</width>
+			<height>30</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<font>Reg26</font>
+			<textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating),,%]</label>
+		</control>
     </include>
-   
-   <include name="ImdbTop250VD">
-        <!-- IMDB Top 250 VD -->
-        <control type="group">		
-            <control type="image">
-                <!--imdb logo-->
-                <top>0</top>
-                <width>74</width>
-                <height>35</height>
-                <bordersize>2</bordersize>
-                <texture>flags/imdb_logo_250.png</texture>
-            </control>
-            <control type="label">
-                <!--Rating modern-->
-                <top>28</top>
-                <width>84</width>
-                <height>30</height>
-                <align>center</align>
-                <aligny>center</aligny>
-                <font>Bold22</font>
-				<left>-5</left>
-                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
-                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)]</label>
-            </control>
-        </control>
-    </include>
-   <!-- MetaCritic VD -->
-	<include name="MetaCriticRatingVD">
-        <control type="group">          
-            <control type="image">
-				<top>0</top>
-                <width>40</width>
-                <height>40</height>
-                <bordersize>2</bordersize>
-                <aspectratio>keep</aspectratio>
-                <texture>flags/metacritic.png</texture>
-            </control>
-            <control type="label">
-                <top>5</top>
-				<left>25</left>
-                <width>100</width>
-                <height>30</height>
-                <align>center</align>
-                <aligny>center</aligny>
-                <font>Reg26</font>
-                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
-                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating),,%]</label>
-            </control>
-        </control>
-    </include>
+	<!-- TV db -->
+	<include name="TVdbVD">      
+		<control type="image">
+			<top>0</top>
+			<width>55</width>
+			<height>50</height>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_tvdb]</texture>
+		</control>
+		<control type="label">
+			<left>55</left>
+			<top>0</top>
+			<width>300</width>
+			<height>60</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>Reg26</font>
+			<textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)]</label>
+		</control>			
+	</include>
+	<!-- TM db -->
+	<include name="TMdbVD">      
+		<control type="image">
+			<top>-4</top>
+			<width>55</width>
+			<height>50</height>			
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_tmdb]</texture>
+		</control>
+		<control type="label">
+			<left>55</left>
+			<top>-10</top>
+			<width>300</width>
+			<height>60</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>Reg26</font>
+			<textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+			<label>$VAR[rating_value_tmdb]</label>
+		</control>			
+	</include>
+	<!-- IMDB VD -->
+	<include name="ImdbVD">           
+		<control type="image">
+			<top>3</top>
+			<left>0</left>
+			<width>74</width>
+			<height>35</height>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_imdb]</texture>
+		</control>
+		<control type="label">
+			<left>80</left>
+			<top>-10</top>
+			<width>auto</width>
+			<height>60</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>Reg26</font>
+			<textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+			<label>$VAR[rating_value_imdb]</label>
+		</control>      
+    </include>	
+	<!-- IMDB Top 250 VD -->
+	<include name="ImdbTop250VD">      
+		<control type="image">
+			<top>-7</top>
+			<width>70</width>
+			<height>32</height>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_imdb250]</texture>
+		</control>
+		<control type="label">
+		<!--Rating modern-->
+			<top>20</top>
+			<width>70</width>
+			<height>30</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<font>flags</font>
+			<textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),[B],[/B]]</label>
+		</control>
+    </include>		  
+	<!-- labels variables - since leia can use scraped special ratings -->
+		
+	<variable name="rating_value_imdb">
+        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(imdb))">$INFO[ListItem.RatingAndVotes(imdb)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>		
+    </variable>	
+	<variable name="rating_value_tmdb">
+       <value condition="!String.IsEmpty(ListItem.RatingAndVotes(themoviedb))">$INFO[ListItem.RatingAndVotes(themoviedb)]</value>
+	   <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TMDB), (, $LOCALIZE[205])]</value>      
+	   
+    </variable>
+	<!-- check need finishing , just for leia 
+	<variable name="rating_value_tvdb">
+        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(tvdb))"> $INFO[ListItem.RatingAndVotes(tvdb)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TVDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TVDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TVDB), (, $LOCALIZE[205])]</value>		
+    </variable>	
+	<variable name="rating_value_rotten">
+       <value condition="!String.IsEmpty(ListItem.RatingAndVotes(themoviedb))"> $INFO[ListItem.RatingAndVotes(themoviedb)]</value>
+	   <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TMDB), (, $LOCALIZE[205])]</value>      
+    </variable>
+	<variable name="rating_value_audience">
+        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(imdb))"> $INFO[ListItem.RatingAndVotes(imdb)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>		
+    </variable>	
+	<variable name="rating_value_meta">
+       <value condition="!String.IsEmpty(ListItem.RatingAndVotes(metacritic))">$INFO[ListItem.RatingAndVotes(metacritic)]</value>
+	   <value condition="String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.Rating(metacritic))">$INFO[ListItem.Rating(metacritic)]</value>
+	   <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.metacritic))">$INFO[Window(home).Property(SkinHelper.ListItem.MetaCritic.Rating), ,]$INFO[Window(home).Property(SkinHelper.ListItem.MetaCritic.Votes), (, $LOCALIZE[205])]</value>      
+    </variable>
+	*=totamtometerallaudience , *=tomatometerallcritics , 	*=tomatometeravgaudiance , 	*=tomatometeravgcritics -->
+	
 	<variable name="railer_fs">
 		<value condition="!Player.HasVideo">$LOCALIZE[20410]</value>
 		<value condition="Player.HasVideo">$LOCALIZE[244]</value>

@@ -279,8 +279,7 @@
 						<onleft>60</onleft>
 						<onright>60</onright>
 						<orientation>horizontal</orientation>
-						<animation effect="fade" start="100" end="0" time="10" condition="true">Conditional</animation>
-						
+						<animation effect="fade" start="100" end="0" time="10" condition="true">Conditional</animation>						
 					</control>
 
 					<!--Butons 8000-->			
@@ -337,8 +336,7 @@
 							<onclick condition="!Player.HasVideo + String.IsEqual(ListItem.DBTYPE,movie)">PlayMedia($INFO[ListItem.Trailer],1)</onclick> <!--sometimes huge delay Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1) ,faster but dont get all  PlayMedia($INFO[ListItem.Trailer],1) -->    
 							<onclick condition="!Player.HasVideo + !String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onclick> <!--sometimes huge delay Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1) ,faster but dont get all  PlayMedia($INFO[ListItem.Trailer],1) -->    
 							
-							<!--  TITAN trailer Default 
-							
+							<!--  TITAN trailer Default 							
 							<usealttexture>!String.IsEmpty(Window(Home).Property(TrailerPlaying))</usealttexture>
                             <onclick condition="String.IsEmpty(Window(Home).Property(TrailerPlaying))">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=$INFO[Skin.String(videoinfo_traileraction)],YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)])</onclick>
                             <onclick condition="!String.IsEmpty(Window(Home).Property(TrailerPlaying))">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
@@ -881,53 +879,27 @@
 								
 								<!-- Ratings Movie-->
 								<!-- TMDB -->
-								<control type="image">
-									<posx>1650</posx>
+								<control type="group">
+									<posx>1660</posx>
 									<posy>260</posy>
-									<width>55</width>
-									<height>50</height>
-                                    <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
-									<texture>flags/flags_color/addratings/tmdbtp.png</texture>
-                                    <visible>!String.IsEmpty(ListItem.Rating(themoviedb)) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
+									<height>70</height>
+									<width>35</width>								
+									<include>TMdbVD</include>																   
+									<visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB)) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
+									</control>
+								<!-- Movie imdb -->
+								<control type="group">
+									<posx>1650</posx>
+									<posy>320</posy>						  
+									<height>70</height>
+									<width>35</width>								
+									<include>ImdbVD</include>										  
+									<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB)) + String.IsEqual(ListItem.DBTYPE,movie)</visible>							   
 								</control>
-								<control type="label">
-									<posx>1710</posx>
-									<posy>250</posy>
-									<width>500</width>
-									<font>Reg26</font>
-									<align>left</align>
-									<label>$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB)]</label>	<!-- INFO  XBMC rating not working correct on Videoplayback/window, just inside DialogVideoInfo.xml $INFO[ListItem.Rating(themoviedb)]-->
-									<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-									<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                                    <visible>!String.IsEmpty(ListItem.Rating(themoviedb)) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
-									<scroll>false</scroll>
-								</control>
-								<!-- Movie IMDB -->
-								<control type="image">
-									<posx>1655</posx>
-									<posy>320</posy>
-									<width>45</width>
-									<height>45</height>
-                                    <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
-									<texture>flags/flags_color/addratings/imdb.png</texture>
-                                    <visible>!String.IsEmpty(ListItem.Rating(imdb)) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
-								</control>
-								<control type="label">
-									<posx>1710</posx>
-									<posy>310</posy>
-									<width>500</width>
-									<font>Reg26</font>
-									<align>left</align>
-									<label>$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB)]</label> <!-- INFO  XBMC rating not working correct on Videoplayback/window, just inside DialogVideoInfo.xml $INFO[ListItem.Rating(imdb)]-->
-									<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-									<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                                    <visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
-									<scroll>false</scroll>
-								</control>															
 								<!-- Movie Top 250 -->
 								<control type="group">
 									<posx>1660</posx>
-									<posy>380</posy>
+									<posy>385</posy>
 									<height>70</height>
 									<width>35</width>								
 									<include>ImdbTop250VD</include>
@@ -935,8 +907,8 @@
 								</control>
 								<!-- Movie rotten -->
 								<control type="group">
-									<posx>1645s</posx>
-									<posy>450</posy>
+									<posx>1645</posx>
+									<posy>445</posy>
 									<height>70</height>
 									<width>35</width>									
 									<include>TomatoMeterVD</include>
@@ -945,12 +917,12 @@
 								<!-- Movie meta -->
 								<control type="group">
 									<posx>1648</posx>
-									<posy>500</posy>
+									<posy>495</posy>
 									<height>70</height>
 									<width>35</width>
 									<include>MetaCriticRatingVD</include>
 									<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating),,%) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
-								</control>
+								</control>	
 								<!-- TV SHOWs TVDB , got no trailers, need adjustments -->
 								<control type="image">
 									<posx>1630</posx>
@@ -1441,23 +1413,13 @@
 							<top>455</top>
 							<width>960</width>
                             <height>540</height>			<!-- (720 * 0.75) -->
-							<visible>Player.HasVideo</visible>
-							
+							<visible>Player.HasVideo</visible>							
 							<control type="image">
-								<left>0</left>
-								<width>100%</width>
-								<height>100%</height>
 								<aligny>bottom</aligny>
 								<texture border="15">diffuse/bgpanel.png</texture>
 								<colordiffuse>ff000000</colordiffuse>
-							</control>
-							
+							</control>							
 							<control type="videowindow">
-								<left>0</left>
-								<top>0</top>
-								<width>100%</width>
-								<height>100%</height>
-								<visible>Player.HasVideo</visible>
 							</control>
 						</control>					
                     </control>
@@ -2968,7 +2930,6 @@
 		</control>
 	</include>
    
-   <!-- just for mivieinfo dialog -->
 	<include name="AltRatingMovieInfo">		  
         <!-- Tomatometer -->
         <control type="group">
@@ -3193,13 +3154,16 @@
 	<!-- labels variables - since leia can use scraped special ratings -->
 		
 	<variable name="rating_value_imdb">
-        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(imdb))">$INFO[ListItem.RatingAndVotes(imdb)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>		
+        <value condition="!String.IsEmpty(ListItem.Rating(imdb)) + Player.HasVideo">  $INFO[ListItem.Rating(imdb)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) + Player.HasVideo">  $INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB)]</value>		
+		<value condition="!String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !Player.HasVideo">$INFO[ListItem.RatingAndVotes(imdb)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) + !Player.HasVideo">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>		
     </variable>	
 	<variable name="rating_value_tmdb">
-       <value condition="!String.IsEmpty(ListItem.RatingAndVotes(themoviedb))">$INFO[ListItem.RatingAndVotes(themoviedb)]</value>
-	   <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TMDB), (, $LOCALIZE[205])]</value>      
-	   
+		<value condition="!String.IsEmpty(ListItem.Rating(themoviedb)) + Player.HasVideo">    $INFO[ListItem.Rating(themoviedb)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB)) + Player.HasVideo">    $INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB)]</value>	
+		<value condition="!String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + !Player.HasVideo">$INFO[ListItem.RatingAndVotes(themoviedb)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB)) + !Player.HasVideo">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TMDB), (, $LOCALIZE[205])]</value>      	
     </variable>
 	<!-- check need finishing , just for leia 
 	<variable name="rating_value_tvdb">

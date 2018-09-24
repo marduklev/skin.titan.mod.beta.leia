@@ -39,7 +39,7 @@
 			
 			<include condition="!Skin.String(general_header,disable)">TimeInfo</include>
 			
-			<!-- panel background -->
+			<!-- panel background ,check, removed button, in case of bg overlays-->
 			<control type="image">
 				<posy>150</posy>
 				<posx>0</posx>
@@ -47,7 +47,6 @@
 				<height>930</height>
 				<texture border="5">diffuse/panel.png</texture>
 				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                <visible>!Skin.HasSetting(ExtendedInfoHidePanel)</visible>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			
@@ -197,15 +196,7 @@
                         <onclick condition="!System.HasAddon(script.artwork.downloader)">RunPlugin(plugin://script.artwork.downloader)</onclick>
                     </control>
                     
-                    <control type="radiobutton" id="3052">
-                        <!--Hide panel behind moviedetails-->
-                        <label>31155</label>
-                        <width>450</width>
-                        <textoffsetx>20</textoffsetx>
-                        <align>left</align>
-                        <onclick>Skin.ToggleSetting(ExtendedInfoHidePanel)</onclick>
-                        <selected>Skin.HasSetting(ExtendedInfoHidePanel)</selected>
-                    </control>
+                    
 
 				</control>
      

@@ -8,7 +8,7 @@
             <include>GlobalBackground</include>
             <include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>				
 			<control type="group">
-				<include>animation_window_open_close</include>
+			<include>animation_window_open_close</include>
 																
 				<!-- Background Panel-->
 				<control type="image">
@@ -58,45 +58,17 @@
 					<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible>			
 					<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 					<visible>!Player.HasVideo</visible>					
-                    <itemlayout height="178" width="120"> 
-						<control type="group">
-							<width>120</width>
-							<height>178</height>
-						</control>
-						<control type="image">
-							<include>PosterThumbBG</include>
-						</control>
-						<control type="image">
-							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
-							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
-							<bordersize>4</bordersize>
-						</control>						
-						<control type="image">
-								<texture>diffuse/bgpanel.png</texture>
-								<include>PosterThumbBG</include>		<!-- <include>PosterThumbBG</include> or, <colordiffuse>$INFO[Skin.String(ButtonColor)]</colordiffuse>-->
-								<visible>true</visible>
-								<top>145</top>
-								<left>0</left>
-								<width>120</width>
-								<height>40</height>
-								<align>center</align>						
-                        </control>
-						<control type="label">
-								<font>reg14</font>
-								<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
-								<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-								<top>145</top>
-								<left>0</left>
-								<width>117</width>
-								<height>40</height>
-								<align>center</align>
-								<textoffsetx>0</textoffsetx>
-                        </control>						
+                    <itemlayout height="178" width="120"> 			
+							<control type="image">
+								<include>PosterThumbBG</include>
+							</control>
+							<control type="image">
+								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
+								<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+								<bordersize>4</bordersize>
+							</control>														
 					</itemlayout>					
-                    <focusedlayout height="180" width="122">
-                        <control type="group">
-							<width>122</width>
-                            <height>180</height>
+                    <focusedlayout height="180" width="122">                        
 							<control type="image">
 								<include>PosterThumbFO</include>
 							</control>
@@ -105,24 +77,23 @@
 								<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
 								<bordersize>8</bordersize>
 							</control>
-						</control>						
-                        <control type="button">
-							<font>reg14</font>
-							<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
-							<visible>true</visible>
-							<top>145</top>
-							<left></left>
-							<width>122</width>
-							<height>40</height>
-							<align>center</align>
-							<textoffsetx>0</textoffsetx>
-							<scroll>true</scroll>
-							<scrollspeed>20</scrollspeed>
-                        </control>
-					</focusedlayout>
+							<control type="button">
+								<font>reg14</font>
+								<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
+								<visible>true</visible>
+								<top>145</top>
+								<left>0</left>
+								<width>122</width>
+								<height>40</height>
+								<align>center</align>
+								<textoffsetx>0</textoffsetx>
+								<scroll>true</scroll>
+								<scrollspeed>20</scrollspeed>
+							</control>
+						</focusedlayout>
 					<content>$VAR[castInfo]</content>
                 </control>
-					
+				
 				<!-- CAST TV SHOW-->
 				<control type="panel" id="353"> <!-- new id [351 / kodi 50] ? -->
 					<top>620</top>
@@ -137,45 +108,17 @@
 					<visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)</visible>
 					<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>									
 					<visible>!Player.HasVideo</visible>
-                    <itemlayout height="243" width="158">
-						<control type="group">
-							<width>158</width>
-							<height>243</height>
-						</control>								
-						<control type="image">
-							<include>PosterThumbBG</include>
-						</control>								  
-						<control type="image">
-							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
-							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
-							<bordersize>4</bordersize>
-						</control>						
-						<control type="image">
-								<texture>diffuse/bgpanel.png</texture>
-								<include>PosterThumbBG</include>		<!--<include>PosterThumbBG</include> or  <colordiffuse>$INFO[Skin.String(ButtonColor)]</colordiffuse>-->
-								<visible>true</visible>
-								<top>220</top>
-								<left>0</left>
-								<width>158</width>
-								<height>50</height>
-								<align>center</align>	
-                        </control>
-						<control type="label">
-								<font>reg18</font>
-								<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
-								<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-								<top>220</top>
-								<left>0</left>
-								<width>155</width>
-								<height>50</height>
-								<align>center</align>
-								<textoffsetx>0</textoffsetx>
-                        </control>		  
-					</itemlayout>				
+                    <itemlayout height="243" width="158">																				
+							<control type="image">
+								<include>PosterThumbBG</include>
+							</control>							  
+							<control type="image">
+								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
+								<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+								<bordersize>4</bordersize>
+							</control>
+					</itemlayout>					
                     <focusedlayout height="257" width="173">
-                        <control type="group">
-                            <width>173</width>
-                            <height>257</height>
 							<control type="image">
 								<include>PosterThumbFO</include>
                             </control>
@@ -183,22 +126,21 @@
                                 <texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
                                 <aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
                                 <bordersize>8</bordersize>
-                            </control>							
-						</control>
-						<control type="button">
-							<font>reg20</font>
-							<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
-							<visible>true</visible>
-							<top>220</top>
-                            <left></left>
-							<width>173</width>
-							<height>50</height>
-							<align>center</align>
-							<scroll>true</scroll>
-							<scrollspeed>20</scrollspeed>
-							<textoffsetx>0</textoffsetx>
-                        </control>							
-                    </focusedlayout>
+                            </control>
+							<control type="button">
+								<font>reg20</font>
+								<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
+								<visible>true</visible>
+								<top>220</top>
+								<left>0</left>
+								<width>173</width>
+								<height>50</height>
+								<align>center</align>
+								<scroll>true</scroll>
+								<scrollspeed>20</scrollspeed>
+								<textoffsetx>0</textoffsetx>
+							</control>
+						</focusedlayout>
 					<content>$VAR[castInfo]</content>
                 </control>			
 								
@@ -227,7 +169,7 @@
                         <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
                     </control>
                 </control>
-                <!--studiologo_image -->
+				<!--studiologo_image -->
                 <control type="image">                    
                     <include>studiologo_image</include>
 					<right>60</right>
@@ -850,7 +792,7 @@
 									<include>mediaflags_large_layout</include>
 									<texture fallback="flags/flags_large/mpaa/NR.png">$VAR[mediaflags_large_rating]</texture>			<!-- relook, $VAR[mediaflags_large_rating, maybe no fallback ?? -->
 									<visible>!String.IsEmpty(ListItem.MPAA)</visible>
-								</control>
+								</control>								
 								<!-- TMDB -->
 								<control type="group">
 									<posx>1660</posx>
@@ -905,11 +847,11 @@
 									<include>MetaCriticRatingVD</include>
 									<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
 								</control>															
-							</control>
+							</control>						
 							<!--Special INFO -->
                             <control type="group">								
 								<width>1150</width>
-								<height>40</height>
+								<height>40</height>	
 								<!-- Nomination image Movie -->
 								<control type="image">
 									<posx>638</posx>
@@ -934,7 +876,7 @@
 									<scroll>true</scroll>
 									<orientation>horizontal</orientation>
 									<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus)) + String.IsEqual(ListItem.DBTYPE,movie) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards)) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
-								</control>																
+								</control>															
 								<!-- NEW  Nomination image TV -->
 								<control type="image">
 									<posx>640</posx>
@@ -981,7 +923,7 @@
                                 <animation effect="rotate" end="-360" center="auto" time="6000" delay="0" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 								-->
                                 <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster)) | !String.IsEmpty(ListItem.Property(TVShowThumb))</visible>
-                            </control>						
+                            </control>													
                             <control type="image">
                                 <!-- poster -->
                                 <posx>60</posx>
@@ -1008,16 +950,27 @@
 								<colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
 								<texture background="true">$VAR[rating_value_texture]</texture>
 							</control>
-							
 							<!-- media flags -->
 							<control type="group">
 								<posx>720</posx>
 								<height>50</height>
-								<top>930</top>
+								<top>925</top>
 								<include>mediaflags</include>
+								<animation effect="zoom" alignx="true" end="90,90" time="0" condition="Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color)">Conditional</animation>
+								<animation effect="slide" alignx="true" end="0,7" time="0" condition="Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color)">Conditional</animation>						
+								<visible>!String.IsEqual(ListItem.DBType,episode)</visible>
 								<visible>!Player.HasVideo</visible>
 							</control>
-							
+							<!-- media flags episodes , check, unhappy cause looked overloaded ,but didnt wnated to remove, need adjust episode to movie layout -->
+							<control type="group">
+								<posx>480</posx>
+								<height>50</height>
+								<top>915</top>
+								<include>mediaflags_classic</include>
+								<visible>String.IsEqual(ListItem.DBType,episode) + !Skin.String(mediaflagsstyle,disabled)</visible>
+								<animation effect="zoom" alignx="true" end="120,120" time="0" condition="true">Conditional</animation>
+							</control>
+												
 							<!-- audio language flags -->
 							<control type="grouplist">
 								<visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo)</visible>																							
@@ -1118,8 +1071,8 @@
 									<texture>$INFO[ListItem.Property(SubtitleLanguage.3),resource://resource.images.languageflags.colour/,.png]</texture>
 									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
 								</control>
-							</control>					
-                            <!-- RATINGS INFO  -->
+							</control>						
+							<!-- RATINGS INFO  -->
                             <control type="grouplist">
                                 <usecontrolcoords>true</usecontrolcoords>
 								<orientation>horizontal</orientation>								
@@ -1128,8 +1081,9 @@
                                 <top>650</top>
                                 <left>695</left>							
                                 <include>AltRatingMovieInfo</include>
-								<animation effect="slide" end="370,270" center="auto" time="0" condition="String.IsEqual(ListItem.DBType,tvshow)">Conditional</animation>
-								<animation effect="slide" end="0,-250" center="auto" time="0" condition="String.IsEqual(ListItem.DBType,episode)">Conditional</animation>
+								<animation effect="slide" end="370,270" center="auto" time="0" condition="String.IsEqual(ListItem.DBType,tvshow) + !Skin.String(mediaflagsstyle,disabled)">Conditional</animation>
+								<animation effect="slide" end="150,265" center="auto" time="0" condition="Skin.String(mediaflagsstyle,disabled)">Conditional</animation>
+								<animation effect="slide" end="350,265" center="auto" time="0" condition="String.IsEqual(ListItem.DBType,episode) + !Skin.String(mediaflagsstyle,disabled)">Conditional</animation>
 								<visible>!Player.HasVideo</visible>
                             </control>
 										
@@ -1225,13 +1179,13 @@
 							<top>455</top>
 							<width>960</width>
                             <height>540</height>			<!-- (720 * 0.75) -->
-							<visible>Player.HasVideo</visible>							
+							<visible>Player.HasVideo</visible>						
 							<control type="image">
 								<aligny>bottom</aligny>
 								<texture border="15">diffuse/bgpanel.png</texture>
 								<colordiffuse>ff000000</colordiffuse>
-							</control>							
-							<control type="videowindow">
+							</control>						
+							<control type="videowindow">								
 							</control>
 						</control>					
                     </control>
@@ -1250,8 +1204,8 @@
                         <font>Bold42</font>
                         <visible>String.IsEqual(Window.Property(AdditionalInfo),plot)</visible>
                     </control>
-                    
-					<!-- normal cast details as hidden list -->
+                    				
+                    <!-- normal cast details as hidden list -->
                     <control type="list" id="50">
                         <posx>1</posx>
                         <posy>1</posy>
@@ -1317,8 +1271,8 @@
 								<height>50</height>
 								<align>center</align>
 								<textoffsetx>0</textoffsetx>
-								</control>	
-                        </itemlayout>					
+							</control>	
+                        </itemlayout>						
                         <focusedlayout height="392" width="264">
                             <control type="group">
                                 <width>260</width>
@@ -1337,7 +1291,7 @@
                                 <label>$INFO[Container(351).ListItem.Label,[B],[/B][CR]]$INFO[Container(351).ListItem.Label2]</label>
                                 <visible>true</visible>
 								<top>340</top>
-                                <left></left>
+                                <left>0</left>
 								<width>260</width>
 								<height>50</height>
 								<align>center</align>
@@ -1353,7 +1307,7 @@
                     <!-- cast info details -->
 					<control type="group">
 						<visible>String.IsEqual(Window.Property(AdditionalInfo),cast)</visible>
-						<include>animation_window_open_close</include>                      
+						<include>animation_window_open_close</include>                        
                         <!-- busy image while widget loading -->
                         <control type="multiimage">
                             <posy>20</posy>
@@ -1452,7 +1406,7 @@
                             <left>80</left>
                             <posy>580</posy>
                             <width>90%</width>
-                            <height>38%</height>							                           
+                            <height>38%</height>							                          
                              <!--Panel-->
                             <control type="image">
                                 <bottom>-5</bottom>
@@ -1496,18 +1450,18 @@
 								<font>Bold24</font>
 								<scroll>true</scroll>
 								<scrollspeed>20</scrollspeed>
-                            </control>
+							</control>
                         </control>
                     </control>
                 </control>
 			</control>
 		</control>
 	</include>
-	   
+	
 	<include name ="NetflixInfo">
 		<control type="group">
 			<visible>![Skin.HasSetting(UseExtendedInfoDialog) + System.HasAddon(script.extendedinfo)]</visible>
-			<!-- base bg -->
+			<!-- base bg ,check unsure if half cut is that great-->
 			<control type="image">
 				<width>100%</width>
 				<height>100%</height>
@@ -1537,7 +1491,7 @@
 					</control>
 				</control>
 				<!-- fanart background image -->
-				<control type="image">     															  
+				<control type="image">                   
 					<animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>	
 					<texture diffuse="overlay/gradient_overlay_info.png">$VAR[fanartBackground]</texture>
 					<width>100%</width>
@@ -1552,7 +1506,7 @@
                     <texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
                     <animation effect="fade" start="100" end="70" time="0">Visible</animation>
                 </control>
-				<!--studiologo_image -->
+                <!--studiologo_image -->															  
                 <control type="image">                    
                     <include>studiologo_image</include>
 					<right>40</right>
@@ -1560,7 +1514,7 @@
 					<height>160</height>
 					<bottom>20</bottom>
                     <aspectratio aligny="center" align="right">keep</aspectratio>
-                    <!--<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>-->
+					<visible>Player.HasVideo</visible>																									  
                 </control>
                 <!-- additional info subtitle -->
 				<control type="label">
@@ -1572,7 +1526,7 @@
 					<height>100</height>
 					<font>Bold45</font>
 					<align>right</align>
-					<textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
+					<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
 					<label>$INFO[Window.Property(subtitle)]</label>
 					<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
 				</control>
@@ -1608,7 +1562,7 @@
                         <font>Reg48</font>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
+                        <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
                         <label>[B]$VAR[value_header][/B]</label>
                         <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
                     </control>
@@ -1633,8 +1587,8 @@
                             <font>Reg28</font>
                             <align>left</align>
                             <aligny>center</aligny>
-                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                            <label>[B]$INFO[ListItem.TagLine][/B]</label>
+                            <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+                            <label>[B][I]$INFO[ListItem.TagLine][/B][/I]</label>
                             <visible>!String.IsEmpty(ListItem.TagLine)</visible>
                         </control>
                         <!-- 'SxxExx "episode_title"' format sublabel -->
@@ -1644,7 +1598,7 @@
                             <font>Reg30</font>
                             <align>left</align>
                             <aligny>center</aligny>
-                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                            <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
                             <label>$VAR[NetflixDialogEpisodeInfoLabel]</label>
                             <visible>[String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)] | [Skin.HasSetting(ShowEpisodePlotInfoDialog) + Control.IsVisible(5050)]</visible>
                         </control>
@@ -1654,17 +1608,17 @@
                     <control type="textbox">
                         <animation effect="fade" start="100" end="0" time="200" condition="!String.IsEmpty(Window.Property(AdditionalInfo))">Conditional</animation>
                         <width>800</width>
-                        <height min="110" max="170">auto</height>
+                        <height min="110" max="175">auto</height>
                         <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                        <shadowcolor>black</shadowcolor>
                         <align>justify</align>
-                        <font>Reg28</font>
+                        <font>Reg30</font>
                         <label>$VAR[NetflixInfoDialogPlot]</label>
                     </control>
 
                     <!-- more details -->
                     <control type="grouplist">
                         <animation effect="fade" start="100" end="0" time="200" condition="!String.IsEmpty(Window.Property(AdditionalInfo))">Conditional</animation>
+						<!-- check pos <animation effect="slide" end="-30" time="0" condition="true">Conditional</animation> -->
                         <orientation>vertical</orientation>
                         <height max="290">auto</height>
                         <width>1200</width>
@@ -1690,7 +1644,6 @@
                                 <align>left</align>
                                 <label>[CAPITALIZE]$LOCALIZE[206]: [/CAPITALIZE]$INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)]</label>
                                 <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
-                                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                                 <scroll>false</scroll>
                             </control>
                         </control>
@@ -1715,8 +1668,7 @@
                                 <align>left</align>
                                 <label>[CAPITALIZE]$LOCALIZE[20348]: [/CAPITALIZE]$INFO[ListItem.Director]</label>
                                 <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
-                                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                                <scroll>false</scroll>
+								<scroll>false</scroll>
                             </control>
                         </control>
                         <!-- writer -->
@@ -1740,7 +1692,6 @@
                                 <align>left</align>
                                 <label>[CAPITALIZE]$LOCALIZE[20418]: [/CAPITALIZE]$INFO[ListItem.Writer]</label>
                                 <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
-                                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                                 <scroll>false</scroll>
                             </control>
                         </control>
@@ -1765,7 +1716,6 @@
                                 <align>left</align>
                                 <label>$INFO[ListItem.Genre]</label>
                                 <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
-                                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                                 <scroll>false</scroll>
                             </control>
                         </control>
@@ -1773,8 +1723,7 @@
                         <control type="group">
                             <width>1150</width>
                             <height>40</height>
-                            <!--<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Languages))</visible>-->
-							<!-- $INFO[Window(home).Property(SkinHelper.ListItem.AudioStreams.[num start0])] $INFO[Window(home).Property(SkinHelper.ListItem.AudioStreams.[num start0].Language)]-->				
+                            <!-- $INFO[Window(home).Property(SkinHelper.ListItem.AudioStreams.[num start0])] $INFO[Window(home).Property(SkinHelper.ListItem.AudioStreams.[num start0].Language)]-->				
 							<visible>
 							!String.IsEmpty(ListItem.AudioLanguage) | 
 							!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | 
@@ -1797,43 +1746,41 @@
                                 <align>left</align>
                                 <label>[CAPITALIZE]$LOCALIZE[21447]:[/CAPITALIZE]</label>
                                 <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
-                                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                                 <scroll>false</scroll>
                             </control>
 							<control type="image">
-									<posx>260</posx>
-									<posy>14</posy>
-									<width>40</width>
-									<height>35</height>
-									<aspectratio>stretch</aspectratio>
-									<!-- check fallback -->
-									<texture fallback="">$INFO[ListItem.Property(AudioLanguage.1),resource://resource.images.languageflags.colour/,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.AudioLanguage)</visible>
-								</control>							
-								<control type="image">
-									<posx>300</posx>
-									<posy>14</posy>
-									<width>40</width>
-									<height>35</height>
-									<aspectratio>stretch</aspectratio>
-									<texture>$INFO[ListItem.Property(AudioLanguage.2),resource://resource.images.languageflags.colour/,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
-								</control>
-								<control type="image">
-									<posx>340</posx>
-									<posy>14</posy>
-									<width>40</width>
-									<height>35</height>
-									<aspectratio>stretch</aspectratio>
-									<texture>$INFO[ListItem.Property(AudioLanguage.3),resource://resource.images.languageflags.colour/,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
-								</control>
+								<posx>260</posx>
+								<posy>14</posy>
+								<width>40</width>
+								<height>35</height>
+								<aspectratio>stretch</aspectratio>
+								<!-- check fallback -->
+								<texture fallback="">$INFO[ListItem.Property(AudioLanguage.1),resource://resource.images.languageflags.colour/,.png]</texture>
+								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.AudioLanguage)</visible>
+							</control>							
+							<control type="image">
+								<posx>300</posx>
+								<posy>14</posy>
+								<width>40</width>
+								<height>35</height>
+								<aspectratio>stretch</aspectratio>
+								<texture>$INFO[ListItem.Property(AudioLanguage.2),resource://resource.images.languageflags.colour/,.png]</texture>
+								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
+							</control>
+							<control type="image">
+								<posx>340</posx>
+								<posy>14</posy>
+								<width>40</width>
+								<height>35</height>
+								<aspectratio>stretch</aspectratio>
+								<texture>$INFO[ListItem.Property(AudioLanguage.3),resource://resource.images.languageflags.colour/,.png]</texture>
+								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
+							</control>
                         </control>
 						<!-- subtitles -->
                         <control type="group">
                             <width>1200</width>
                             <height>40</height>
-                            <!-- <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Subtitles))</visible> -->
 							<visible>
 							!String.IsEmpty(ListItem.SubtitleLanguage) | 
 							!String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) | 
@@ -1842,7 +1789,7 @@
 							</visible>
                             <control type="image">
                                 <posx>4</posx>
-                                <posy>15</posy>
+								<posy>15</posy>
                                 <width>36</width>
                                 <height>30</height>
                                 <colordiffuse>$INFO[Skin.String(NetflixSecondaryTextColor)]</colordiffuse>
@@ -1856,37 +1803,36 @@
                                 <align>left</align>
                                 <label>[CAPITALIZE]$LOCALIZE[287]:[/CAPITALIZE]</label>
                                 <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
-                                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                                 <scroll>false</scroll>
                             </control>
 							<control type="image">
-									<posx>260</posx>
-									<posy>15</posy>
-									<width>40</width>
-									<height>35</height>
-									<aspectratio>stretch</aspectratio>
-									<!-- check fallback -->
-									<texture fallback="">$INFO[ListItem.Property(SubtitleLanguage.1),resource://resource.images.languageflags.colour/,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) | !String.IsEmpty(ListItem.SubtitleLanguage)</visible>
-								</control>							
-								<control type="image">
-									<posx>300</posx>
-									<posy>15</posy>
-									<width>40</width>
-									<height>35</height>
-									<aspectratio>stretch</aspectratio>
-									<texture>$INFO[ListItem.Property(SubtitleLanguage.2),resource://resource.images.languageflags.colour/,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
-								</control>
-								<control type="image">
-									<posx>340</posx>
-									<posy>15</posy>
-									<width>40</width>
-									<height>35</height>
-									<aspectratio>stretch</aspectratio>
-									<texture>$INFO[ListItem.Property(SubtitleLanguage.3),resource://resource.images.languageflags.colour/,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
-								</control>	
+								<posx>260</posx>
+								<posy>15</posy>
+								<width>40</width>
+								<height>35</height>
+								<aspectratio>stretch</aspectratio>
+								<!-- check fallback -->
+								<texture fallback="">$INFO[ListItem.Property(SubtitleLanguage.1),resource://resource.images.languageflags.colour/,.png]</texture>
+								<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) | !String.IsEmpty(ListItem.SubtitleLanguage)</visible>
+							</control>							
+							<control type="image">
+								<posx>300</posx>
+								<posy>15</posy>
+								<width>40</width>
+								<height>35</height>
+								<aspectratio>stretch</aspectratio>
+								<texture>$INFO[ListItem.Property(SubtitleLanguage.2),resource://resource.images.languageflags.colour/,.png]</texture>
+								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
+							</control>
+							<control type="image">
+								<posx>340</posx>
+								<posy>15</posy>
+								<width>40</width>
+								<height>35</height>
+								<aspectratio>stretch</aspectratio>
+								<texture>$INFO[ListItem.Property(SubtitleLanguage.3),resource://resource.images.languageflags.colour/,.png]</texture>
+								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
+							</control>	
                         </control>
                         <!-- awards -->
                         <control type="group">
@@ -1909,7 +1855,6 @@
                                 <align>left</align>
                                 <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)]</label>
                                 <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
-                                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                                 <scroll>false</scroll>
                             </control>
                         </control>
@@ -1917,7 +1862,7 @@
 
                     <!-- buttons -->
                     <control type="group">
-                        <top>50</top>
+                        <top>30</top>
                         <width>550</width>
                         <animation effect="fade" start="100" end="0" time="200" condition="String.IsEqual(Window.Property(AdditionalInfo),plot)">Conditional</animation>
 
@@ -1933,9 +1878,9 @@
                                 <height>8</height>
                                 <align>center</align>
                                 <aligny>top</aligny>
-                                <texturebg colordiffuse="cc515151" border="2">colors/color_white.png</texturebg>
+                                <texturebg colordiffuse="grey" border="2">colors/color_white.png</texturebg>
                                 <lefttexture></lefttexture>
-                                <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="2">colors/color_white.png</midtexture>
+                                <midtexture colordiffuse="$INFO[Skin.String(ViewNetfixHighlightTextColor)]" border="2">colors/color_white.png</midtexture>
                                 <righttexture></righttexture>
                                 <info>ListItem.PercentPlayed</info>
                             </control>
@@ -2001,7 +1946,7 @@
                                         <aligny>top</aligny>
                                         <align>left</align>
                                         <aspectratio align="left" aligny="top">stretch</aspectratio>
-                                        <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                                        <colordiffuse>$INFO[Skin.String(NetflixPrimaryTextColor)]</colordiffuse>
                                         <texture background="true">netflix/border_netflix.png</texture>
                                     </control>
                                     <!-- play logo -->
@@ -2013,7 +1958,7 @@
                                         <align>left</align>
                                         <aligny>center</aligny>
                                         <texture>netflix/play.png</texture>
-                                        <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+                                        <colordiffuse>$INFO[Skin.String(NetflixPrimaryTextColor)]</colordiffuse>
                                     </control>
                                     <!-- play/resume label -->
                                     <control type="label">
@@ -2023,7 +1968,7 @@
                                         <aligny>center</aligny>
                                         <align>left</align>
                                         <font>Reg30</font>
-                                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                                        <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
                                         <label>$VAR[PlayOrResumeLabel]$INFO[ListItem.Season, S,]$INFO[ListItem.Episode,: Ep. ,]</label>
                                     </control>
                                     <!-- progress bar -->
@@ -2036,9 +1981,9 @@
                                         <height>8</height>
                                         <align>center</align>
                                         <aligny>top</aligny>
-                                        <texturebg colordiffuse="cc515151" border="2">colors/color_white.png</texturebg>
+                                        <texturebg colordiffuse="grey" border="2">colors/color_white.png</texturebg>
                                         <lefttexture></lefttexture>
-                                        <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="2">colors/color_white.png</midtexture>
+                                        <midtexture colordiffuse="$INFO[Skin.String(ViewNetfixHighlightTextColor)]" border="2">colors/color_white.png</midtexture>
                                         <righttexture></righttexture>
                                         <info>ListItem.PercentPlayed</info>
                                     </control>
@@ -2057,12 +2002,12 @@
                                 <textoffsetx>50</textoffsetx>
                                 <textoffsety>8</textoffsety>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>208</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/play.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/play.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play.png</textureradiooffnofocus>
                                 <radioposx>15</radioposx>
@@ -2085,12 +2030,12 @@
                                 <textoffsety>8</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>13404</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/play.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/play.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play.png</textureradiooffnofocus>
                                 <radioposx>15</radioposx>
@@ -2111,13 +2056,13 @@
                                 <textoffsetx>50</textoffsetx>
                                 <textoffsety>8</textoffsety>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <font>Reg30</font>
                                 <label>12021</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/play_beginning.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/play_beginning.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play_beginning.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play_beginning.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play_beginning.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/play_beginning.png</textureradiooffnofocus>
                                 <radioposx>15</radioposx>
@@ -2149,12 +2094,12 @@
                                 <textoffsety>12</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>More episodes</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/more_episodes.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/more_episodes.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/more_episodes.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/more_episodes.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/more_episodes.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/more_episodes.png</textureradiooffnofocus>
                                 <radioposy>0</radioposy>
@@ -2171,8 +2116,7 @@
 							<!-- Trailer-->
                             <control type="radiobutton" id="103">
                                 <visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
-								<visible>[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
-								
+								<visible>[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>								
 								<width>550</width>
                                 <height>65</height>
                                 <aligny>center</aligny>
@@ -2181,24 +2125,24 @@
                                 <textoffsety>8</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-								<label>$VAR[railer_fs]</label>									
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
+								<label>$VAR[Trailer_fs]</label>
 								<onclick condition="!Player.HasVideo + String.IsEqual(ListItem.DBTYPE,movie)">PlayMedia($INFO[ListItem.Trailer],1)</onclick>						
 								<onclick condition="!Player.HasVideo + !String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>  							
 								<onclick condition="!Player.HasVideo + [String.IsEmpty(ListItem.Trailer) + String.IsEqual(ListItem.DBTYPE,movie)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>								
 								<onclick condition="Player.HasVideo">FullScreen</onclick>
 								<onclick condition="Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
                                 <onclick condition="Player.HasVideo">SetProperty(TrailerPlaying,fullscreen,home)</onclick>                                
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
-                                <texturenofocus>-</texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioofffocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturenofocus></texturenofocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradiooffnofocus>
                                 <radioposx>5</radioposx>
                                 <radioposy>0</radioposy>
                                 <radiowidth>42</radiowidth>
-                                <radioheight>37</radioheight>																																																	   
+                                <radioheight>37</radioheight>
                                <!-- <onclick>AlarmClock(focus_delay,SetFocus(96),00:00,silent)</onclick> -->
                             </control>
 
@@ -2216,12 +2160,12 @@
                                 <textoffsety>8</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-                                <label>Rate this title</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
+                                <label>Rate this title</label><!--check, transl -->
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/button/thumb_up_nf.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/button/thumb_up_nf.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_nf.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_nf.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_nf.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_nf.png</textureradiooffnofocus>
                                 <radiowidth>24</radiowidth>
@@ -2229,10 +2173,10 @@
                                 <radioposx>15</radioposx>
                                 <radioposy>0</radioposy>
                                 <onclick condition="!String.IsEqual(Window(Home).Property(contenttype),musicvideos)">RunScript(script.user.rating)</onclick>
-								<onclick condition="String.IsEqual(Window(Home).Property(contenttype),musicvideos)">SendClick(7)</onclick>
-								<animation effect="fade" start="100" end="10" time="250" condition="Window.IsActive(script-user-rating-rateDialog.xml)">Conditional</animation>
+								<onclick condition="String.IsEqual(Window(Home).Property(contenttype),musicvideos)">SendClick(7)</onclick>																												  
+                                <animation effect="fade" start="100" end="10" time="250" condition="Window.IsActive(script-user-rating-rateDialog.xml)">Conditional</animation>
                             </control>
-							
+
                             <!-- Change rating -->
                             <control type="radiobutton" id="99998">
                                 <!-- localize -->
@@ -2246,17 +2190,17 @@
                                 <textoffsety>8</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>Change rating</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>                               
 								<include condition="Integer.IsLessOrEqual(ListItem.UserRating,5)">ChangeRatingThumbsDown</include>
                                 <include condition="Integer.IsGreaterOrEqual(ListItem.UserRating,5)">ChangeRatingThumbsUp</include>
                                 <radiowidth>24</radiowidth>
                                 <radioheight>26</radioheight>
                                 <radioposx>15</radioposx>
-                                 <onclick condition="!String.IsEqual(Window(Home).Property(contenttype),musicvideos)">RunScript(script.user.rating)</onclick>
-								<onclick condition="String.IsEqual(Window(Home).Property(contenttype),musicvideos)">SendClick(7)</onclick>
+                                <onclick condition="!String.IsEqual(Window(Home).Property(contenttype),musicvideos)">RunScript(script.user.rating)</onclick>
+								<onclick condition="String.IsEqual(Window(Home).Property(contenttype),musicvideos)">SendClick(7)</onclick>                               																				  
                                 <animation effect="fade" start="100" end="10" time="250" condition="Window.IsActive(script-user-rating-rateDialog.xml)">Conditional</animation>
                             </control>
 
@@ -2273,12 +2217,12 @@
                                 <textoffsety>8</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>$LOCALIZE[207] &amp; $LOCALIZE[31608]</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/plus.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/plus.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradiooffnofocus>
                                 <radioposx>15</radioposx>
@@ -2302,12 +2246,12 @@
                                 <textoffsety>8</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>206</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/plus.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/plus.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradiooffnofocus>
                                 <radioposx>15</radioposx>
@@ -2331,12 +2275,12 @@
                                 <textoffsety>5</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>31622</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/plus.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/plus.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/plus.png</textureradiooffnofocus>
                                 <radioposx>15</radioposx>
@@ -2359,12 +2303,12 @@
                                 <textoffsety>8</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>More Info</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/info.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/info.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/info.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/info.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/info.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/info.png</textureradiooffnofocus>
                                 <radioposy>0</radioposy>
@@ -2390,9 +2334,9 @@
                                 <textoffsety>8</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>CinemaVision</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
                                 <radioposx>25</radioposx>
                                 <radiowidth>20</radiowidth>
@@ -2415,9 +2359,9 @@
                                 <textoffsety>8</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>$INFO[System.AddonTitle(script.cinema.experience)]</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
                                 <radioposx>25</radioposx>
                                 <radiowidth>20</radiowidth>
@@ -2441,12 +2385,12 @@
                                 <textoffsety>8</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>13511</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/text-bg-color.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/text-bg-color.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/text-bg-color.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/text-bg-color.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/text-bg-color.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/text-bg-color.png</textureradiooffnofocus>
                                 <radioposx>15</radioposx>
@@ -2470,12 +2414,12 @@
                                 <textoffsety>10</textoffsety>
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>184</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/sinchronize.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/sinchronize.png</textureradioofffocus>
+                                <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/sinchronize.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/sinchronize.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/sinchronize.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/sinchronize.png</textureradiooffnofocus>
                                 <radioposx>15</radioposx>
@@ -2487,13 +2431,14 @@
                     </control>
                 </control>
 
-				<!-- plots & critics additional info -->
+				<!-- plots & critics additional info ,check, back behaviour-->
 				<control type="grouplist">
 					<posx>65</posx>
 					<posy>350</posy>
 					<width>1790</width>
 					<height>90%</height>
 					<orientation>vertical</orientation>
+					<itemgap>30</itemgap>
 					<visible>String.IsEqual(Window.Property(AdditionalInfo),plot)</visible>
 
                     <control type="button" id="3531">
@@ -2509,17 +2454,16 @@
 						<width>1790</width>
 						<height min="170" max="357">auto</height>
 						<label>$INFO[ListItem.Plot]</label>
-						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+						<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
 						<align>justify</align>
-						<font>Reg42</font>
+						<font>Reg44</font>
 					</control>
-                    <!-- ALT RATING No Studio -->									
+					<!-- ALT RATING No Studio -->
                     <control type="grouplist">
 						<usecontrolcoords>true</usecontrolcoords>
 						<orientation>horizontal</orientation>								
 						<height>70</height>
-						<width>auto</width> <!--check-->											  
+						<width>auto</width> <!--check-->
 						<top>650</top>
 						<left>695</left>
 						<itemgap>10</itemgap>						
@@ -2542,7 +2486,7 @@
 					<ondown>8000</ondown>
 					<visible allowhiddenfocus="true">false</visible>
 				</control>
-				<!-- extendedinfo cast list -->
+				<!-- extendedinfo cast list ,check back behaviour -->
 				<control type="panel" id="351">
 					<posx>550</posx>
 					<posy>250</posy>
@@ -2590,7 +2534,7 @@
 							</control>
 						</control>
 						<control type="button">
-							<label>-</label>
+							<label></label>
 							<visible>false</visible>
 							<onfocus>SetProperty(actordbid,$INFO[ListItem.Property(DBID)],home)</onfocus>
 						</control>
@@ -2724,94 +2668,94 @@
 			</control>
 		</control>
 	</include>
-   
-	<include name="AltRatingMovieInfo">		  
+	   
+	<include name="AltRatingMovieInfo">		
         <!-- Tomatometer -->
         <control type="group">
             <height>70</height>
-            <width>130</width> <!-- check, maybe param , for 2  infos -->							  
+            <width>130</width> <!-- check, maybe param , for 2  infos -->
             <left>10</left>
             <include>TomatoMeterVD</include>
 			<aligny>center</aligny>
-            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>         		   
-        </control>       		
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>         
+        </control>       
         <!-- Tomatoaudience -->
         <control type="group">
             <height>70</height>
             <width>130</width>
-            <left>10</left>							
+            <left>10</left>
             <include>TomatoAudienceVD</include>
-            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>																																										   
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>
         </control>
 		
         <!-- MetaCritic -->
         <control type="group">
             <height>70</height>
-            <width>130</width>							  
+            <width>130</width>
             <left>10</left>
             <include>MetaCriticRatingVD</include>
             <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
         </control>
-        <!-- TVdb -->							 
+        <!-- TVdb -->
         <control type="group">
             <height>70</height>
-			<width>350</width>         							  
+			<width>350</width>         
             <left>10</left>
             <include>TVdbVD</include>
-            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)) + ![String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(ListItem.DBTYPE,musicvideo)]</visible> 
-        </control>		  
+            <visible>[!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)) | !String.IsEmpty(ListItem.RatingAndVotes(tvdb)) | !String.IsEmpty(ListItem.Rating(tvdb))] + [!String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEqual(ListItem.DBTYPE,musicvideo)]</visible> 
+        </control>	
         <!-- TMdb -->
-        <control type="group">																	  
+        <control type="group">
             <height>70</height>
-			<width>350</width>     							  
+			<width>350</width>     
             <left>10</left>
             <include>TMdbVD</include>
-            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)) + String.IsEqual(ListItem.DBTYPE,movie)</visible> 																		  
-        </control>			
+            <visible>[!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)) | !String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) | !String.IsEmpty(ListItem.Rating(themoviedb))] + String.IsEqual(ListItem.DBTYPE,movie)</visible> 																		  
+        </control>		
 		<!-- IMDB -->
         <control type="group">
-            <height>70</height>							   							  
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB)) | !String.IsEmpty(ListItem.RatingAndVotes(imdb)) | !String.IsEmpty(ListItem.Rating(imdb))</visible> 
+			<height>70</height>
             <width>350</width>           
             <left>10</left>
-            <include>ImdbVD</include>									   								  																	  
-            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB))</visible>  
-        </control>		
+            <include>ImdbVD</include>            
+        </control>			
 		<!-- IMDB Top 250 -->
         <control type="group">
             <height>70</height>
             <width>75</width>         
             <left>10</left>
             <include>ImdbTop250VD</include>
-            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))</visible>  
-        </control>			   
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)) | !String.IsEmpty(ListItem.Top250)</visible>  
+        </control>				
     </include>
-    
+ 
    <!-- texture thumbs for 'rate this title' button in dialoginfo -->
     <include name="ChangeRatingThumbsDown">
-        <textureradioonfocus flipy="true" colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/button/thumb_up_fo.png</textureradioonfocus>
-        <textureradioofffocus flipy="true" colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/button/thumb_up_fo.png</textureradioofffocus>
+        <textureradioonfocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_fo.png</textureradioonfocus>
+        <textureradioofffocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_fo.png</textureradioofffocus>
         <textureradioonnofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_fo.png</textureradioonnofocus>
         <textureradiooffnofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_fo.png</textureradiooffnofocus>
         <radioposy>22</radioposy>
     </include>
     <include name="ChangeRatingThumbsUp">
-        <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/button/thumb_up_fo.png</textureradioonfocus>
-        <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/button/thumb_up_fo.png</textureradioofffocus>
+        <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_fo.png</textureradioonfocus>
+        <textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_fo.png</textureradioofffocus>
         <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_fo.png</textureradioonnofocus>
         <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_fo.png</textureradiooffnofocus>
         <radioposy>0</radioposy>
     </include>
    
    <!-- ratings videoinfo extract from footer xml, temporally not available ?? -->
-   <include name="TomatoAudienceVD">   
+   <include name="TomatoAudienceVD">             
 		<control type="image">
 			<top>-5</top>
 			<width>84</width>
-			<height>37</height>										  
+			<height>37</height>
 			<aspectratio>keep</aspectratio>
 			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_rotten_audience]</texture>
 			<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
-		</control>			  
+		</control>
 		<control type="label">
 			<top>38</top>
 			<width>84</width>
@@ -2821,14 +2765,14 @@
 			<font>flags</font>
 			<textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
 			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),,%]</label>
-		</control>  				  
+		</control>  
     </include>
    <!-- Rotten Tomatoes Meter Video Info-->
-	<include name="TomatoMeterVD">									 							  
-		<control type="image">																
+	<include name="TomatoMeterVD">
+		<control type="image">
 			<top>-5</top>
 			<width>45</width>
-			<height>45</height>													  
+			<height>45</height>			
 			<aspectratio>keep</aspectratio>
 			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_rotten_meter]</texture>
 		</control>
@@ -2842,14 +2786,14 @@
 			<font>reg26</font>
 			<textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
 			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),,%]</label>
-		</control>				  
-    </include>      
-	<!-- MetaCritic VD -->
-	<include name="MetaCriticRatingVD">               										
+		</control>
+    </include>   
+    <!-- MetaCritic VD -->
+	<include name="MetaCriticRatingVD">               
 		<control type="image">
 			<top>0</top>
 			<width>40</width>
-			<height>40</height>													  
+			<height>40</height>			
 			<aspectratio>keep</aspectratio>
 			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_metacritic]</texture>
 		</control>
@@ -2943,9 +2887,9 @@
 			<aligny>center</aligny>
 			<font>flags</font>
 			<textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
-			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),[B],[/B]]</label>
+			<label>$VAR[rating_value_250]</label>
 		</control>
-    </include>		  
+    </include>	
 	<!-- labels variables - since leia can use scraped special ratings -->
 		
 	<variable name="rating_value_imdb">
@@ -2958,7 +2902,7 @@
 		<value condition="!String.IsEmpty(ListItem.Rating(themoviedb)) + Player.HasVideo">    $INFO[ListItem.Rating(themoviedb)]</value>
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB)) + Player.HasVideo">    $INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB)]</value>	
 		<value condition="!String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + !Player.HasVideo">$INFO[ListItem.RatingAndVotes(themoviedb)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB)) + !Player.HasVideo">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TMDB), (, $LOCALIZE[205])]</value>      	
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB)) + !Player.HasVideo">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TMDB), (, $LOCALIZE[205])]</value>      
     </variable>
 	<variable name="rating_value_tvdb">
 		<value condition="!String.IsEmpty(ListItem.Rating(tvdb)) + Player.HasVideo"> $INFO[ListItem.Rating(tvdb)]</value>
@@ -2966,11 +2910,16 @@
 		<value condition="!String.IsEmpty(ListItem.RatingAndVotes(tvdb)) + !Player.HasVideo">$INFO[ListItem.RatingAndVotes(tvdb)]</value>
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TVDB)) + !Player.HasVideo">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TVDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TVDB), (, $LOCALIZE[205])]</value>      
     </variable>
-	<variable name="rating_value_meta">
+	<variable name="rating_value_meta"><!-- check, -->
        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(metacritic))">$INFO[ListItem.RatingAndVotes(metacritic)]</value>
 	   <value condition="String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.Rating(metacritic))">$INFO[ListItem.Rating(metacritic)]</value>
 	   <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.metacritic))">$INFO[Window(home).Property(SkinHelper.ListItem.MetaCritic.Rating), ,]$INFO[Window(home).Property(SkinHelper.ListItem.MetaCritic.Votes), (, $LOCALIZE[205])]</value>      
     </variable>
+	<variable name="rating_value_250">
+       <value condition="!String.IsEmpty(ListItem.Top250)">$INFO[ListItem.Top250,[B],[/B]]</value>
+	   <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))">$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),[B],[/B]]</value>
+	</variable>
+	
 	<!-- check need finishing 
 	<variable name="rating_value_">
         <value condition="!String.IsEmpty(ListItem.RatingAndVotes(tvdb))"> $INFO[ListItem.RatingAndVotes(tvdb)]</value>
@@ -2984,11 +2933,10 @@
         <value condition="!String.IsEmpty(ListItem.RatingAndVotes(imdb))"> $INFO[ListItem.RatingAndVotes(imdb)]</value>
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>		
     </variable>	
-	
 	*=totamtometerallaudience , *=tomatometerallcritics , 	*=tomatometeravgaudiance , 	*=tomatometeravgcritics -->
 	
-	<variable name="railer_fs">
+	<variable name="Trailer_fs">
 		<value condition="!Player.HasVideo">$LOCALIZE[20410]</value>
 		<value condition="Player.HasVideo">$LOCALIZE[244]</value>
-	</variable>		
+	</variable>
 </includes>

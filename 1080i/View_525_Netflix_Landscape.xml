@@ -166,7 +166,7 @@
                     <top>640</top>
                     <include>mediaflags</include>
 					<visible>Skin.HasSetting(View525_UseFixedLayout)</visible>	
-					<animation effect="zoom" alignx="true" end="80,80" time="0" condition="Skin.String(osdmediaflagsstyle,large) | Skin.String(osdmediaflagsstyle,large_color)">Conditional</animation>			
+					<animation effect="zoom" alignx="true" end="80,80" time="0" condition="Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color)">Conditional</animation>			
 				</control>
 				<!-- media flags , non-fixed -->
 				<control type="group">                   

@@ -32,7 +32,7 @@
 				<posy>985</posy>
 				<width>225</width>
 				<height>65</height>
-				<texture colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/frame/slimframeFO.png</texture>
+				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeFO.png</texture>
 				<animation effect="fade" time="200">WindowOpen</animation>
 				<animation effect="fade" time="400">WindowClose</animation>
 			</control>
@@ -42,7 +42,7 @@
 				<posy>985</posy>
 				<width>225</width>
 				<height>65</height>
-				<texture colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/frame/slimframeNF.png</texture>
+				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeNF.png</texture>
 				<animation effect="fade" time="300">WindowOpen</animation>
 				<animation effect="fade" time="400">WindowClose</animation>
 			</control>
@@ -54,7 +54,7 @@
 				<posy>985</posy>
 				<width>225</width>
 				<height>65</height>
-				<texture colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/frame/slimframeFO.png</texture>
+				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeFO.png</texture>
 				<animation effect="fade" time="200">WindowOpen</animation>
 				<animation effect="fade" time="400">WindowClose</animation>
 			</control>
@@ -64,7 +64,7 @@
 				<posy>985</posy>
 				<width>225</width>
 				<height>65</height>
-				<texture colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/frame/slimframeNF.png</texture>
+				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeNF.png</texture>
 				<animation effect="fade" time="300">WindowOpen</animation>
 				<animation effect="fade" time="400">WindowClose</animation>
 			</control>
@@ -76,7 +76,7 @@
 				<posy>1002</posy>
 				<width>30</width>
 				<height>30</height>
-				<texture>netflix/button/thumb_up_fo.png</texture>
+				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_fo.png</texture>
 				<animation type="WindowClose">
 					<effect type="slide" start="0" end="-100" time="300" delay="100"/>
 					<effect type="fade" time="400"/>
@@ -89,7 +89,7 @@
 				<posy>1002</posy>
 				<width>30</width>
 				<height>30</height>
-				<texture flipy="true">netflix/button/thumb_up_fo.png</texture>
+				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]" flipy="true">netflix/button/thumb_up_fo.png</texture>
 				<animation type="WindowClose">
 					<effect type="slide" start="0" end="-100" time="300" delay="100"/>
 					<effect type="fade" time="400"/>
@@ -117,8 +117,8 @@
 					<posx>100</posx>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus>netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus>netflix/button/thumb_up_NF.png</texturenofocus>
+					<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
 					<onclick>SetFocus(69611)</onclick>
                     <animation effect="slide" start="-100,0" end="0,0" time="300">WindowOpen</animation>
                     <animation effect="fade" time="300">WindowOpen</animation>
@@ -131,8 +131,8 @@
 					<posx>100</posx>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus>netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus>netflix/button/thumb_up_NF.png</texturenofocus>
+					<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
 					<onclick>SetFocus(69611)</onclick>
                     <animation effect="slide" start="-100,0" end="0,0" time="300">WindowOpen</animation>
                     <animation effect="fade" time="300">WindowOpen</animation>
@@ -145,8 +145,8 @@
 					<posx>100</posx>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus>netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus>netflix/button/thumb_up_NF.png</texturenofocus>
+					<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
 					<onclick>SetFocus(69611)</onclick>
                     <animation effect="slide" start="-100,0" end="0,0" time="300">WindowOpen</animation>
                     <animation effect="fade" time="300">WindowOpen</animation>
@@ -159,8 +159,8 @@
 					<posx>100</posx>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus>netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus>netflix/button/thumb_up_NF.png</texturenofocus>
+					<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
 					<onclick>SetFocus(69611)</onclick>
                     <animation effect="slide" start="-100,0" end="0,0" time="300">WindowOpen</animation>
                     <animation effect="fade" time="300">WindowOpen</animation>
@@ -173,8 +173,8 @@
 					<posx>100</posx>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus>netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus>netflix/button/thumb_up_NF.png</texturenofocus>
+					<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+					<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
 					<onclick>SetFocus(69611)</onclick>
                     <animation effect="slide" start="-100,0" end="0,0" time="300">WindowOpen</animation>
                     <animation effect="fade" time="300">WindowOpen</animation>
@@ -189,8 +189,8 @@
 					<posx>230</posx>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus flipy="true">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus flipy="true">netflix/button/thumb_up_NF.png</texturenofocus>
+					<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+					<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
 					<onclick>SetFocus(69612)</onclick>
                     <animation effect="fade" time="300">WindowOpen</animation>
                     <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69612)">Conditional</animation>
@@ -202,8 +202,8 @@
 					<posx>230</posx>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus flipy="true">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus flipy="true">netflix/button/thumb_up_NF.png</texturenofocus>
+					<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+					<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
 					<onclick>SetFocus(69612)</onclick>
                     <animation effect="fade" time="300">WindowOpen</animation>
                     <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69612)">Conditional</animation>
@@ -215,8 +215,8 @@
 					<posx>230</posx>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus flipy="true">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus flipy="true">netflix/button/thumb_up_NF.png</texturenofocus>
+					<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+					<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
 					<onclick>SetFocus(69612)</onclick>
                     <animation effect="fade" time="300">WindowOpen</animation>
                     <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69612)">Conditional</animation>
@@ -228,8 +228,8 @@
 					<posx>230</posx>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus flipy="true">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus flipy="true">netflix/button/thumb_up_NF.png</texturenofocus>
+					<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+					<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
 					<onclick>SetFocus(69612)</onclick>
                     <animation effect="fade" time="300">WindowOpen</animation>
                     <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69612)">Conditional</animation>
@@ -241,8 +241,8 @@
 					<posx>230</posx>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus flipy="true">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus flipy="true">netflix/button/thumb_up_NF.png</texturenofocus>
+					<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+					<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
 					<onclick>SetFocus(69612)</onclick>
                     <animation effect="fade" time="300">WindowOpen</animation>
                     <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69612)">Conditional</animation>

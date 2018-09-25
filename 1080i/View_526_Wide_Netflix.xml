@@ -140,6 +140,8 @@
 				<focusposition>0</focusposition>
 				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
 				<onright>5026</onright>
+				
+				
 				<onup>526</onup>
 				<ondown>526</ondown>		
 				<focusedlayout height="65" width="480" condition="Container.Content(seasons)">
@@ -197,6 +199,7 @@
 				<ondown>5026</ondown>
                 <onright>60</onright>
 				<onback>526</onback>
+								
 				<focusedlayout width="1040" height="224">
                     <control type="group">
 						<width>1040</width>
@@ -231,7 +234,7 @@
                             <align>center</align>
                             <height>63</height>
                             <texture border="7">diffuse/gradient.png</texture>
-                            <colordiffuse>cb000000</colordiffuse><!-- recheck maybe make it hardcoded -->
+                            <colordiffuse>cb000000</colordiffuse>
                         </control>
 						<!-- Episode/Season -->
 						<control type="label">
@@ -411,7 +414,7 @@
 						</control>                           
 					</control>
 				</itemlayout>
-				<content target="video" sortby="premiered" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
+				<content target="videos,videodb://tvshows/titles/episodes" sortby="premiered" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
 			</control>
 			<control type="image">
 				<top>303</top>
@@ -462,26 +465,5 @@
 	<variable name="seasonwithspecials">
 		<value condition="Integer.IsLess(ListItem.Season,1) + !String.IsEmpty(ListItem.Episode)">[B]$LOCALIZE[20381] $INFO[ListItem.Episode][/B]</value>
 		<value condition="!Integer.IsLess(ListItem.Season,1) + !String.IsEmpty(ListItem.Episode)">[B]$VAR[WideView_LargeSeasonLabel,S,:]$VAR[WideView_LargeEpisodeLabel,E,][/B]</value>
-	</variable>
-	<variable name="ToggleNetflixViewDetailsTextColor">
-		<value condition="Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
-		<value condition="!Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewDetailsTextColor)]</value>
-	</variable>
-	<variable name="ToggleNetflixViewDetailsTextColorPlot">
-		<value condition="Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(NetflixSecondaryTextColor)]</value>
-		<value condition="!Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewDetailsTextColor)]</value>
-	</variable>
-	<!-- need further test, depending to panel in 527 -->
-	<variable name="NetflixViewDetailsPanelColor">
-		<value condition="Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(NetflixViewDetailsPanelColor)]</value>
-		<value condition="!Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewDetailsPanelColor)]</value>
-	</variable>
-	<variable name="NetfixViewHighlightTextColor">
-		<value condition="Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewNetfixHighlightTextColor)]</value>
-		<value condition="!Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewDetailsHighlightTextColor)]</value>
-	</variable>
-	<variable name="NetflixViewDetailsBorderFocusColor">
-		<value condition="Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</value>
-		<value condition="!Skin.HasSetting(View526_DisableFanArt)">$INFO[Skin.String(ViewDetailsBorderFocusColor)]</value>
 	</variable>
 </includes>

@@ -84,7 +84,7 @@
                     <align>left</align>
                     <aligny>center</aligny>
                     <label>[UPPERCASE][B]$INFO[ListItem.TVShowTitle][/UPPERCASE]$VAR[premiered, (,)][/B]$INFO[Window(Home).Property(SkinHelper.ListItem.Status), | ,]</label>
-                    <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+                    <textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
                     <visible>!Control.HasFocus(5127)</visible>
                 </control>
 			<control type="textbox"> 
@@ -96,7 +96,7 @@
 				<align>left</align>
 				<aligny>center</aligny>
 				<label>$VAR[Netflix_Details,•, •]</label>
-				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+				<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 				<visible>!Control.HasFocus(5127)</visible>
 			</control>
 			<!-- rating TV SHOWS -->
@@ -104,9 +104,9 @@
 				<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + !Control.HasFocus(5127)</visible>
 				<height>150</height>
 				<width>800</width>
-				<left>1240</left>
-				<top>310</top>
-				<animation effect="zoom" alignx="false" end="85,85" time="0" condition="true">Conditional</animation>					
+				<left>1260</left>
+				<top>320</top>
+				<animation effect="zoom" alignx="false" end="80,80" time="0" condition="true">Conditional</animation>					
 				<include condition="[Skin.HasSetting(StudioInFooter) | Skin.HasSetting(IMDBRatingInFooter) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(RTRatingInFooter)]">AltRatingFooter</include>
 			</control>		
 			
@@ -119,7 +119,7 @@
 				<align>justify</align>
 				<font>Reg26</font>
                 <label>$INFO[ListItem.Plot]</label>
-                <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+                <textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
                 <visible>!Control.HasFocus(5127)</visible>
             </control>	
 			
@@ -148,7 +148,7 @@
 					<align>justify</align>
 					<font>Reg28</font>
 					<label>$VAR[TSEEp]</label>
-					<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+					<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 					<visible>!Control.HasFocus(5127)</visible>
 				</control>          
 			</control>
@@ -392,7 +392,7 @@
 						<height>60</height>
 						<font>Reg26</font>
 						<align>left</align>
-						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+						<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 						<label>$INFO[ListItem.Episode,Ep. , : ]$INFO[ListItem.Title,, • ]$VAR[ListItemDuration]</label>
 					</control>
 				</itemlayout>
@@ -419,7 +419,7 @@
 							<align>center</align>
 							<texturebg colordiffuse="grey" border="2">colors/color_white.png</texturebg>
 							<lefttexture></lefttexture>
-							<midtexture colordiffuse="$INFO[Skin.String(ViewNetfixHighlightTextColor)]" border="2">colors/color_white.png</midtexture><!-- ViewNetfixHighlightTextColor -->
+							<midtexture colordiffuse="$VAR[NetfixViewHighlightTextColor]" border="2">colors/color_white.png</midtexture><!-- ViewNetfixHighlightTextColor -->
 							<righttexture></righttexture>
 							<visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
 							<info>ListItem.PercentPlayed</info>
@@ -433,7 +433,7 @@
 							<align>justify</align>
 							<font>Bold30</font>
 							<autoscroll>true</autoscroll>
-							<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 							<label>[UPPERCASE]$INFO[ListItem.TVShowTitle,, • ][/UPPERCASE]$VAR[WideView_LargeSeasonLabel,s,]$VAR[WideView_LargeEpisodeLabel,e,]$INFO[ListItem.Title, • ,]</label>		<!-- check have also var in 526? -->						
 						</control>
 						<control type="textbox">								
@@ -443,7 +443,7 @@
 							<height>155</height>
 							<align>justify</align>
 							<font>Reg26</font>
-							<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 							<label>$VAR[Plots]</label>
 							<autoscroll delay="2000" time="4000" repeat="2000">true</autoscroll>
 						</control>
@@ -457,8 +457,9 @@
 						<control type="image">							
 							<left>-10</left>
 							<height>110</height>
+							<width>780</width>
 							<texture border="5">diffuse/panel.png</texture>
-							<colordiffuse>$INFO[Skin.String(NetflixViewDetailsPanelColor)]</colordiffuse>
+							<colordiffuse>$VAR[NetflixViewDetailsPanelColor]</colordiffuse>
 							<visible>Control.HasFocus(5127)</visible>
 						</control>
 						<control type="image">
@@ -483,7 +484,7 @@
 							<height>60</height>
 							<align>left</align>
 							<font>Bold30</font>
-							<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>							
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>							
 							<autoscroll>true</autoscroll>
 							<label>$INFO[ListItem.Episode,Ep. , : ]$INFO[ListItem.Title,, • ]$VAR[ListItemDuration]</label>						
 						</control>						

@@ -46,7 +46,7 @@
 				<width>100%</width>
 				<height>930</height>
 				<texture border="5">diffuse/panel.png</texture>
-				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+				<colordiffuse>ff000000</colordiffuse>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			

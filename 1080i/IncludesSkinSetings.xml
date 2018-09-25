@@ -1247,11 +1247,17 @@
             <label>$LOCALIZE[31221]</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
-         <!--viewdetails panel color-->
+        <!--viewdetails UNFOCUSED panel -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31472" />
-            <param name="label" value="$LOCALIZE[31472]" />
-            <param name="skinsetting" value="ViewDetailsPanelColor" />
+            <param name="label" value="$LOCALIZE[31472] (Unfocused Color)" />
+            <param name="skinsetting" value="ViewDetailsPanelColor" /><!-- need be renamed with append [NF]-->
+        </include>
+		 <!--viewdetails FOCUS panel color -->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31571" />
+            <param name="label" value="$LOCALIZE[31472] ($LOCALIZE[31180]) " />
+            <param name="skinsetting" value="ViewDetailsFocusColor" /><!-- need be renamed to [ViewDetailsPanelColorFO]-->
         </include>
 		<!--viewdetails text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
@@ -1289,13 +1295,7 @@
             <param name="label" value="$LOCALIZE[31570]" />
             <param name="skinsetting" value="ViewDetailsListItemTextFocusColor" />
         </include>
-         <!--listitem text focus color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
-            <param name="id" value="31571" />
-            <param name="label" value="$LOCALIZE[31571]" />
-            <param name="skinsetting" value="ViewDetailsFocusColor" />
-        </include>
-		<!--listitem border focus color-->
+        <!--listitem border focus color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31828" />
             <param name="label" value="$LOCALIZE[31828]" />

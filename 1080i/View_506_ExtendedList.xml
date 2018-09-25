@@ -2,22 +2,17 @@
 
 <includes>
 
-	<include name="ViewExtendedList">
-	
-	
-		<control type="group">
-		
+	<include name="ViewExtendedList">	
+		<control type="group">		
 			<posx>30</posx>
 			<bottom>110</bottom>
 			<height>840</height>
 			<defaultcontrol always="true">506</defaultcontrol>
 			<visible>Control.IsVisible(506)</visible>
             <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
-			<include>animation_view_change</include>
-			
+			<include>animation_view_change</include>			
 
-			<control type="panel" id="506">
-					
+			<control type="panel" id="506">					
 				<posx>20</posx>
 				<posy>-30</posy>
 				<width>1820</width>
@@ -34,14 +29,13 @@
 				<preloaditems>2</preloaditems>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),506) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <visible>!Container.Content(files)</visible>
-				<itemlayout width="454" height="900">
-				
+				<itemlayout width="454" height="900">				
 					<control type="group">
 						<posx>0</posx>
 						<posy>40</posy>
 						<width>460</width>
 						<height>900</height>
-
+						
 						<control type="image">
 							<posx>8</posx>
 							<posy>7</posy>
@@ -59,8 +53,7 @@
 							<height>250</height>
 							<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/video.png">$VAR[LandscapeImage]</texture>
 							<aspectratio scalediffuse="true" align="center" aligny="center">stretch</aspectratio>
-						</control>
-                                  						
+						</control>                                						
 						<control type="group">
 							<!--Watched Overlay-->
 							<right>18</right>
@@ -84,9 +77,8 @@
 							<width>400</width>
 							<height>80</height>
 							<label>$VAR[View_Item_Header]</label>
-							<font>Bold32</font>
-                            
-							<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+							<font>Bold32</font>                          
+							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
 							<aligny>top</aligny>
 						</control>
 						
@@ -96,8 +88,7 @@
 							<width>410</width>
 							<height>305</height>
 							<label>$VAR[Plots]</label>
-							<font>Reg24</font>
-                            
+							<font>Reg24</font>                            
 							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
 							<aligny>top</aligny>
 							<autoscroll>false</autoscroll>
@@ -146,9 +137,8 @@
 							<width>400</width>
 							<height>80</height>
 							<label>$VAR[View_Item_Header]</label>
-							<font>Bold32</font>
-                            
-							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+							<font>Bold32</font>                            
+							<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor><!-- check, can be problematic if panel is near same as highlightr-->
 							<aligny>top</aligny>
 						</control>
 						
@@ -171,13 +161,9 @@
 							<font>Reg24</font>                          
 							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
 							<aligny>top</aligny>
-						</control>
-					
-					</control>	
-					
-				</focusedlayout>
-
-			
+						</control>					
+					</control>						
+				</focusedlayout>		
 			</control>
 		
 			<!--horizontal Scrollbar-->
@@ -197,9 +183,7 @@
 				</control>
 			</control>
 			
-		
-		</control>
-		
+		</control>		
 	</include>
 
 </includes>

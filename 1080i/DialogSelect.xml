@@ -16,15 +16,16 @@
         <control type="group" id="1000">
             <include>animation_window_open_close</include>
             <visible>!Window.IsVisible(yesnodialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + ![Window.IsVisible(script-LibraryEditor-genre.xml) + String.IsEmpty(Window.Property(ShowDialog))] + !Window.IsVisible(script-LibraryEditor-dialogs.xml)</visible>
-     			<!-- background panel -->
+     		<!-- background panel frame-->
 			<control type="image">
 				<posx>367</posx>
 				<posy>236</posy>
 				<width>1190</width>
 				<height>690</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse> <!-- check, need frther test, if just want frames over overlay of 2,wich imitate frame -->
 			</control>
+			<!-- background panel -->
 			<control type="image">
 				<posx>367</posx>
 				<posy>236</posy>
@@ -32,8 +33,7 @@
 				<height>690</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<bordersize>10</bordersize>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-				
+				<colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse>			
 			</control>
 			
 			<!--Header-->
@@ -355,7 +355,7 @@
                             <visible>ListItem.IsSelected</visible>
                         </control>
                     </control>
-                </focusedlayout>		
+                </focusedlayout>
             </control>
 			<control type="scrollbar" id="1661">
 				<visible>Control.IsVisible(6)</visible>

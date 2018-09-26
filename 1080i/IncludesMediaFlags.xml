@@ -63,27 +63,32 @@
                 <texture background="true">$VAR[mediaflags_large_path]$INFO[ListItem.VideoAspect,/aspectratio/,.png]</texture>
                 <visible>!String.IsEmpty(ListItem.VideoAspect)</visible>
             </control>
+			<!-- temp removed
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]/cc.png</texture>
                 <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + !Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
+			-->
+			<!-- temp removed, not working 
             <control type="image" >
                 <height>95</height>
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$INFO[ListItem.AudioLanguage,$VAR[LanguageFlagIconPath],.png]</texture>
                 <visible>!String.IsEmpty(ListItem.AudioLanguage) + Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
+			
             <control type="image">
                 <height>95</height>
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$INFO[ListItem.SubtitleLanguage,$VAR[LanguageFlagIconPath],.png]</texture>
                 <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
+			-->
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture fallback="flags/flags_large/mpaa/NR.png">$VAR[mediaflags_large_rating]</texture>
-                <visible>!String.IsEmpty(ListItem.MPAA) + ![Skin.HasSetting(EnableTouchSupport) + Skin.String(mediaflagsstyle,large_color) + !Skin.HasSetting(CompactHeader)]</visible>
+                <visible>!String.IsEmpty(ListItem.MPAA) + ![Skin.HasSetting(EnableTouchSupport) + Skin.String(mediaflagsstyle,large_color) + !Skin.HasSetting(CompactHeader)] + ![Control.IsVisible(523) | Control.IsVisible(525)]</visible>
             </control>
             <include>mediaflags_sets</include>
             <!-- next aired info-->
@@ -175,7 +180,7 @@
             <control type="image" id="11510">
                 <include>mediaflags_large_layout</include>
                 <texture fallback="NR.png">$VAR[mediaflags_large_rating_widgets]</texture>
-                <visible>!String.IsEmpty(Window(Home).Property(ListItem.MPAA)) + !String.IsEqual(Window(Home).Property(ListItem.MPAA),NR.png)</visible>
+                <visible>!String.IsEmpty(Window(Home).Property(ListItem.MPAA)) + !String.IsEqual(Window(Home).Property(ListItem.MPAA),NR.png) + ![Control.IsVisible(523) | Control.IsVisible(525)]</visible>
             </control>
         </control>
     </include>
@@ -427,7 +432,6 @@
     
 	<include name="mediaflags_classic">
 		<include>mediaflags_sets</include>
-							   
 		<control type="grouplist">
 			<orientation>horizontal</orientation>
 			<!-- Video -->
@@ -494,7 +498,7 @@
 
 			<!-- mpaa rating -->			
 			<control type="group">
-				<visible>!String.IsEmpty(Control.GetLabel(44225))</visible>
+				<visible>!String.IsEmpty(Control.GetLabel(44225)) + ![Control.IsVisible(523) | Control.IsVisible(525)]</visible>
 				<width>145</width>
 				<height>30</height>
 
@@ -718,7 +722,7 @@
 			<control type="group">
 				<width>170</width>
 				<height>36</height>
-				<visible>!String.IsEmpty(Control.GetLabel(54229))</visible>
+				<visible>!String.IsEmpty(Control.GetLabel(54229)) + ![Control.IsVisible(523) | Control.IsVisible(525)]</visible>
 				<control type="image">
 					<posx>-6</posx>
 					<colordiffuse>$VAR[mediaFlagsFontColor]</colordiffuse>
@@ -890,7 +894,7 @@
                 <colordiffuse>$VAR[mediaFlagsFontColor]</colordiffuse>
                 <texture>flags/mpaa.png</texture>
                 <bordersize>3</bordersize>
-                <visible>!String.IsEmpty(Control.GetLabel(44225))</visible>
+                <visible>!String.IsEmpty(Control.GetLabel(44225)) + ![Control.IsVisible(523) | Control.IsVisible(525)]</visible>
                 <visible>!String.StartsWith(ListItem.Path,videodb://movies/sets/)</visible>
             </control>
             <control type="label" id="44225">
@@ -899,7 +903,7 @@
                 <width>auto</width>
                 <textcolor>$VAR[mediaFlagsFontColor]</textcolor>
                 <label>$VAR[RatingFlagVar]</label>
-                <visible>!String.IsEmpty(Control.GetLabel(44225))</visible>
+                <visible>!String.IsEmpty(Control.GetLabel(44225)) + ![Control.IsVisible(523) | Control.IsVisible(525)]</visible>
                 <visible>!String.StartsWith(ListItem.Path,videodb://movies/sets/)</visible>
             </control>
             <control type="label">
@@ -1736,23 +1740,7 @@
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.mpaa)) + !String.Contains(Window(Home).Property(ListItem.mpaa),not rated)">$INFO[Window(Home).Property(ListItem.MPAA)]</value>
         <!-- fallback -->
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) + !String.Contains(Window(Home).Property(SkinHelper.ListItem.MPAA),not rated)">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
-		<value condition="[ 
-				String.IsEqual(ListItem.DBTYPE,movie) | 
-				String.IsEqual(ListItem.Property(DBTYPE),movie) | 
-				String.IsEqual(Window(Home).Property(ListItem.DBTYPE,movie)) | 
-				String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),movie) |
-				String.IsEqual(ListItem.DBTYPE,musicvideo) | 
-				String.IsEqual(ListItem.Property(DBTYPE),musicvideo) | 
-				String.IsEqual(Window(Home).Property(ListItem.DBTYPE,musicvideo)) | 
-				String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),musicvideo) |
-				String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | 
-				String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | 
-				String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode) |
-				String.IsEqual(ListItem.DBTYPE,tvshow) | 
-				String.IsEqual(ListItem.Property(DBTYPE),tvshow) | 
-				String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | 
-				String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]"> N/A </value>
-	</variable>
+    </variable>
 	
 	<variable name="VideoAspectVar">
         <value condition="Skin.String(mediaflagsstyle,classic) + !String.IsEmpty(ListItem.VideoAspect)">$INFO[ListItem.VideoAspect]</value>
@@ -1854,7 +1842,7 @@
 
 		<value condition="String.IsEqual(ListItem.AudioCodec,ac3)">DOLBY D</value>
 		<value condition="String.IsEqual(ListItem.AudioCodec,dca)">DTS</value>
-        <value condition="String.Contains(ListItem.AudioCodec,atmos)">ATMOS</value>
+        <value condition="String.Contains(ListItem.AudioCodec,atmos)">ATMOS</value><!-- check -->
 		<value condition="String.Contains(ListItem.AudioCodec,dts-hd)">DTS HD</value>
 		<value condition="String.Contains(ListItem.AudioCodec,dtshd)">DTS HD</value>
 		<value condition="String.Contains(ListItem.AudioCodec,pcm)">PCM</value>
@@ -1891,6 +1879,7 @@
 	</variable>
 	
 	<variable name="AudioChannelsVar">
+		<!-- strange behaviour, when its used 2 times, (netflixview), the detail row, wont show show correct, if dis first conds, classic flags missing info -->
         <value condition="Skin.String(mediaflagsstyle,classic) + !String.IsEmpty(ListItem.AudioChannels)">$INFO[ListItem.AudioChannels]</value>
         <value condition="Skin.String(mediaflagsstyle,classic) + !String.IsEmpty(Window(Home).Property(ListItem.AudioChannels))">$INFO[Window(Home).Property(ListItem.AudioChannels)]</value>
         <value condition="Skin.String(osdmediaflagsstyle,classic) + window.isactive(visualisation) + !String.IsEmpty(MusicPlayer.Channels) + skin.hastheme(classic)">$INFO[MusicPlayer.Channels]</value>

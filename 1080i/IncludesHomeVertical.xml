@@ -494,7 +494,7 @@
                     <control type="button">
 						<include condition="Skin.HasSetting(SimpleVerHomeLeftAlign)">align_left</include>
 						<align>right</align>
-                        <label>-</label>
+                        <label></label>
                         <visible>false</visible>
                         <onfocus>SetProperty(submenu,show,home)</onfocus>
                     </control>
@@ -611,7 +611,7 @@
                         <animation effect="fade" time="200" start="100" end="60" reversible="true" condition="!Control.HasFocus(4444)">Conditional</animation>
                     </control>
                     <control type="button">
-                        <label>-</label>
+                        <label></label>
                         <visible>false</visible>
                         <onfocus>SetProperty(submenu,show,home)</onfocus>
                     </control>
@@ -742,8 +742,8 @@
                 <onright condition="Skin.String(HomeLayout,netflix2)">9000</onright>
                 <onback condition="Skin.String(HomeLayout,netflix2)">9000</onback>
                 <onright>300</onright>
-				<onback>300</onback>
-                <pagecontrol>-</pagecontrol>
+                <onback>300</onback>
+                <pagecontrol></pagecontrol>
                 <scrolltime tween="quadratic" easing="out">300</scrolltime>
                 <focusposition>1</focusposition>
                 <movement>2</movement>
@@ -752,7 +752,7 @@
                     <control type="image">
                         <texture>colors/color_white.png</texture>
                         <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
-						<visible>!Skin.HasSetting(HideMainPanelBackground)</visible>
+						<visible>!Skin.HasSetting(HideMainPanelBackground)</visible>										  
                     </control>
                     <control type="label">
                         <width>94%</width>
@@ -803,7 +803,7 @@
                         <visible>!Control.HasFocus(4444)</visible>
                     </control>
                     <control type="button">
-                        <label>-</label>
+                        <label></label>
                         <visible>false</visible>
                         <onfocus>SetProperty(submenu,show,home)</onfocus>
                     </control>
@@ -816,10 +816,10 @@
 			
     </include>
     <include name="HomeBigVertical_mainmenu">
-    <control type="group">
+	<control type="group">
 		<animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(300)] + !Control.HasFocus(77777)">
                 <effect type="slide" start="-520" end="0" time="900" delay="0" tween="back" easing="inout" />
-        </animation>
+        </animation>					  
 		<control type="image">
             <!-- Panel -->
             <top>0</top>
@@ -857,10 +857,10 @@
             <onback condition="!Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</onback>
             <ondown>300</ondown>
             <onup>300</onup>
-            <onleft condition="Control.IsVisible(4446)">Control.SetFocus(4446,0)</onleft>
+			<onleft condition="Control.IsVisible(4446)">Control.SetFocus(4446,0)</onleft>
             <onleft condition="!Control.IsVisible(4446) + Integer.IsGreater(Container(4445).NumItems,0) + !Skin.HasSetting(OpenSubMenuOnClick)">Control.SetFocus(4444,0)</onleft>
 			<onright>77777</onright>
-            <pagecontrol>-</pagecontrol>
+			<pagecontrol></pagecontrol>
             <scrolltime tween="quadratic" easing="out">150</scrolltime>
             <orientation>Vertical</orientation>
             <itemlayout height="120" width="434">
@@ -921,7 +921,7 @@
             <animation effect="slide" start="0" end="0,655" time="0" condition="[String.IsEqual(Container(300).ListItem.Property(widgetstyle),landscapelarge) | [String.IsEmpty(Container(300).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapelarge)]] + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>
             <animation effect="slide" start="0" end="0,762" time="0" condition="[String.IsEqual(Container(300).ListItem.Property(widgetstyle),landscapesmall) | [String.IsEmpty(Container(300).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapesmall)]] + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>
             <animation effect="slide" start="0" end="0,720" time="0" condition="[String.IsEqual(Container(300).ListItem.Property(widgetstyle),landscapedetails) | [String.IsEmpty(Container(300).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapedetails)]] + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>
-            <animation effect="slide" start="0" end="0,720" time="0" condition="[String.IsEqual(Container(300).ListItem.Property(widgetstyle),landscapedetails) | [String.IsEmpty(Container(300).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapedetails2)]] + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>            
+             <animation effect="slide" start="0" end="0,720" time="0" condition="[String.IsEqual(Container(300).ListItem.Property(widgetstyle),landscapedetails) | [String.IsEmpty(Container(300).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapedetails2)]] + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>            
 			<animation effect="slide" start="0" end="0,760" time="0" condition="[String.IsEqual(Container(300).ListItem.Property(widgetstyle),banner) | [String.IsEmpty(Container(300).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,banner)]] + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>
             <animation effect="slide" start="0" end="0,570" time="0" condition="[String.IsEqual(Container(300).ListItem.Property(widgetstyle),singlebox) | [String.IsEmpty(Container(300).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,singlebox)]] + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>
             <animation effect="slide" start="0" end="0,670" time="0" condition="[String.IsEqual(Container(300).ListItem.Property(widgetstyle),widebox) | [String.IsEmpty(Container(300).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,widebox)]] + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>

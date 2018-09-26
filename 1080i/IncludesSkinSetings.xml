@@ -27,6 +27,7 @@
                 <label2>$INFO[Skin.String(HomeLayout.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=HomeLayout,header=$LOCALIZE[31124])</onclick>
             </control>
+			<!-- check, focus crash - if choose or abort, kodi crash if closing 2nd!! dialog/ SUBLEVEL , DialogSelcet.xml is opend TWICE-->
             <!-- height of the tiles-->
             <control type="button" id="31770">
                 <include>SkinSettings_Button</include>
@@ -416,15 +417,15 @@
                 <onclick>Skin.ToggleSetting(NoTitleOnHomeMenuTiles)</onclick>
                 <selected>Skin.HasSetting(NoTitleOnHomeMenuTiles)</selected>
             </control>
-			<!--hide widget panel-->
-            <control type="radiobutton" id="13006">
+            <!--hide widget panel-->
+			<control type="radiobutton" id="13006">
                 <include>SkinSettings_Button</include>
                 <label>Hide Main Panel Background</label>
                 <onclick>Skin.ToggleSetting(HideMainPanelBackground)</onclick>
                 <selected>Skin.HasSetting(HideMainPanelBackground)</selected>
                 <visible>String.Contains(Skin.String(HomeLayout), ver)</visible>
             </control>
-            <!--hide widget panel-->
+			<!--hide widget panel-->
             <control type="radiobutton" id="13004">
                 <include>SkinSettings_Button</include>
                 <label>31206</label>
@@ -1255,7 +1256,7 @@
             <label>$LOCALIZE[31221]</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
-         <!--viewdetails UNFOCUSED panel -->
+        <!--viewdetails UNFOCUSED panel -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31472" />
             <param name="label" value="$LOCALIZE[31472] (Unfocused Color)" />
@@ -1303,7 +1304,7 @@
             <param name="label" value="$LOCALIZE[31570]" />
             <param name="skinsetting" value="ViewDetailsListItemTextFocusColor" />
         </include>
-		<!--listitem border focus color-->
+        <!--listitem border focus color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31828" />
             <param name="label" value="$LOCALIZE[31828]" />

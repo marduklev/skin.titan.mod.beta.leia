@@ -222,7 +222,7 @@
 							<height>100%</height>
 							<bordersize>8</bordersize>
 							<texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
-							<aspectratio align="left" aligny="center">keep</aspectratio>
+							<aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
 						</control>
 						<!--gradient overlay-->
 						<control type="image">
@@ -330,7 +330,7 @@
 							<height>100%</height>
 							<bordersize>8</bordersize>
 							<texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
-							<aspectratio align="left" aligny="center">keep</aspectratio>
+							<aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
 						</control>
 						<!--gradient overlay-->
 						<control type="image">

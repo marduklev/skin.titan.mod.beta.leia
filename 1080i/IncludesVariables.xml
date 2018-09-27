@@ -621,28 +621,29 @@
    </variable>
    
    <variable name="ToggleNetflixViewDetailsTextColorPlot">
-		<value condition="Skin.HasSetting(View526_DisableFanArt) | Skin.HasSetting(View527_DisableFanArt)">$INFO[Skin.String(NetflixSecondaryTextColor)]</value>
-		<value condition="!Skin.HasSetting(View526_DisableFanArt) | !Skin.HasSetting(View527_DisableFanArt)">$INFO[Skin.String(ViewDetailsTextColor)]</value>
+		<value condition="[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(NetflixSecondaryTextColor)]</value>
+		<value condition="[Control.IsVisible(526) + !Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + !Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(ViewDetailsTextColor)]</value>
 	</variable>
 	
 	<variable name="NetflixViewDetailsPanelColor">
-		<value condition="Skin.HasSetting(View526_DisableFanArt) | Skin.HasSetting(View527_DisableFanArt)">$INFO[Skin.String(NetflixViewDetailsPanelColor)]</value>
-		<value condition="!Skin.HasSetting(View526_DisableFanArt) | !Skin.HasSetting(View527_DisableFanArt)">$INFO[Skin.String(ViewDetailsPanelColor)]</value>
+		<value condition="[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(NetflixViewDetailsPanelColor)]</value>
+		<value condition="[Control.IsVisible(526) + !Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + !Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(ViewDetailsPanelColor)]</value>
 	</variable>
 	
 	<variable name="ToggleNetflixViewDetailsTextColor">
-		<value condition="Skin.HasSetting(View526_DisableFanArt) | Skin.HasSetting(View527_DisableFanArt)">$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
-		<value condition="!Skin.HasSetting(View526_DisableFanArt) | !Skin.HasSetting(View527_DisableFanArt)">$INFO[Skin.String(ViewDetailsTextColor)]</value>
+		<value condition="[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
+		<value condition="[Control.IsVisible(526) + !Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + !Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(ViewDetailsTextColor)]</value>
 	</variable>
 	
 	<variable name="NetfixViewHighlightTextColor">
-		<value condition="Skin.HasSetting(View526_DisableFanArt) | Skin.HasSetting(View527_DisableFanArt)">$INFO[Skin.String(ViewNetfixHighlightTextColor)]</value>
-		<value condition="!Skin.HasSetting(View526_DisableFanArt) | !Skin.HasSetting(View527_DisableFanArt)">$INFO[Skin.String(ViewDetailsHighlightTextColor)]</value>
+		<value condition="[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(ViewNetfixHighlightTextColor)]</value>
+		<value condition="[Control.IsVisible(526) + !Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + !Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(ViewDetailsHighlightTextColor)]</value>
+		<value>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</value>
 	</variable>
 
 	<variable name="NetflixViewDetailsBorderFocusColor">
-		<value condition="Skin.HasSetting(View526_DisableFanArt) | Skin.HasSetting(View527_DisableFanArt)">$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</value>
-		<value condition="!Skin.HasSetting(View526_DisableFanArt) | !Skin.HasSetting(View527_DisableFanArt)">$INFO[Skin.String(ViewDetailsBorderFocusColor)]</value>
+		<value condition="[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</value>
+		<value condition="[Control.IsVisible(526) + !Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + !Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(ViewDetailsBorderFocusColor)]</value>
 	</variable>
 	
 	<variable name="VideoPlayerClearArt">
@@ -1331,5 +1332,5 @@
         <value condition="!String.IsEmpty(MusicPlayer.Rating)">$INFO[MusicPlayer.Rating,rating/,.png]</value>
         <value condition="!String.IsEmpty(MusicPlayer.StarRating)">$INFO[MusicPlayer.StarRating,leftrating/]</value>
         <value condition="!String.IsEmpty(MusicPlayer.UserRating)">$INFO[MusicPlayer.UserRating,rating/,.png]</value>
-    </variable>									   
+    </variable>
 </includes>

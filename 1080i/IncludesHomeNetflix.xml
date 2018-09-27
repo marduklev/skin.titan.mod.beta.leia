@@ -290,52 +290,6 @@
                         <onclick>SetProperty(ShowSpotlightInfo,Show,Home)</onclick>
                         <onclick>SetFocus(1508)</onclick>
                     </control>
-					<!-- re check 
-					<control type="radiobutton" id="51">
-                      
-                        <visible>![String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow)]</visible>
-                        <description>Play</description>
-                        <width>240</width>
-                        <height>100%</height>
-                        <label>[CAPITALIZE][B]Play[/B][/CAPITALIZE]</label>
-                        <align>center</align>
-                        
-						<textcolor>white</textcolor>
-                        
-						<focusedcolor>black</focusedcolor>
-                        
-						<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>                       
-                        <textureradioonfocus colordiffuse="black">netflix/play.png</textureradioonfocus>
-                        <textureradioofffocus colordiffuse="black">netflix/play.png</textureradioofffocus>
-                        
-						
-						<texturenofocus colordiffuse="white" border="5">netflix/frame/frame_hardedge.png</texturenofocus>
-						<textureradioonnofocus colordiffuse="white">netflix/play.png</textureradioonnofocus>
-                        <textureradiooffnofocus colordiffuse="white">netflix/play.png</textureradiooffnofocus>
-						
-                        <radioposx>45</radioposx>
-                        <radiowidth>25</radiowidth>
-                        <radioheight>35</radioheight>
-                        <font>Reg28</font>
-                        <onclick>PlayMedia($ESCINFO[Container(1508).ListItem.FileNameAndPath])</onclick>
-                    </control>
-                    <control type="button" id="52">
-                       
-                        <description>Info</description>
-                        <width>240</width>
-                        <height>100%</height>
-                        <align>center</align>
-                       
-                        <label>[CAPITALIZE][B]more info[/B][/CAPITALIZE]</label>
-                        <textcolor>white</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
-                        <texturenofocus colordiffuse="white" border="5">netflix/frame/frame_hardedge.png</texturenofocus>
-                        <font>Reg28</font>
-                        <onclick>SetProperty(ShowSpotlightInfo,Show,Home)</onclick>
-                        <onclick>SetFocus(1508)</onclick>
-                    </control>
-					-->
                 </control>
 
                 <!-- trailer window -->
@@ -392,7 +346,7 @@
                         <!-- adjust for spotlight -->
                         <animation effect="slide" start="0" end="0,137" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>
                     </control>
-                    <!-- text title -->
+                    <!-- text if clearlogo  n/a -->
                     <control type="textbox" id="29476">
                         <visible>String.IsEmpty(Control.GetLabel(29475)) | Skin.HasSetting(NoClearLogoNetflix)</visible>
                         <top>55</top>
@@ -401,9 +355,8 @@
                         <font>Reg48</font>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                        <label>$VAR[HomeMenuWidgetInfoLabel]</label>
+                        <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+                        <label>[UPPERCASE]$VAR[HomeMenuWidgetInfoLabel][/UPPERCASE]</label>
                         <animation effect="fade" time="200">Visible</animation>
                         <!-- adjust for spotlight -->
                         <animation effect="slide" start="0" end="0,155" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>
@@ -426,7 +379,7 @@
                         <font>Reg26</font>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                        <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
                         <label>[I]$VAR[NetflixSublabel][/I]</label>
                         <!-- adjust for spotlight -->
                         <animation effect="slide" start="0" end="0,225" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29475)">Conditional</animation>
@@ -449,8 +402,8 @@
                             <font>Reg30</font>
                             <align>left</align>
                             <aligny>center</aligny>
-                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                            <label>[CAPITALIZE]$LOCALIZE[31212][/CAPITALIZE]</label>
+                            <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+                            <label>[CAPITALIZE][B]$LOCALIZE[31212][/B][/CAPITALIZE]</label>
                         </control>
                         <!-- season x episode x & title -->
                         <control type="label">
@@ -458,8 +411,8 @@
                             <width>1000</width>
                             <font>Reg40</font>
                             <align>left</align>
-                            <aligny>center</aligny>
-                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+							<aligny>center</aligny>
+                            <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
                             <label>$VAR[NetflixEpisodeInfoLabel]</label>
                         </control>
                         <!-- progress bar & continue label -->
@@ -475,10 +428,10 @@
                                 <width>150</width>
                                 <height>8</height>
                                 <align>left</align>
-                                <texturebg colordiffuse="cc515151" border="2">colors/color_white.png</texturebg>
-                                <lefttexture>-</lefttexture>
-                                <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="2">colors/color_white.png</midtexture>
-                                <righttexture>-</righttexture>
+                                <texturebg colordiffuse="grey" border="2">colors/color_white.png</texturebg>
+                                <lefttexture></lefttexture>
+                                <midtexture colordiffuse="$INFO[Skin.String(ViewNetfixHighlightTextColor)]" border="2">colors/color_white.png</midtexture>
+                                <righttexture></righttexture>
                                 <info>ListItem.PercentPlayed</info>
                             </control>
                             <!--continue watching -->
@@ -486,7 +439,7 @@
                                 <left>175</left>
                                 <height>30</height>
                                 <width>600</width>
-                                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                                <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
                                 <label>[CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE]</label>
                             </control>
                         </control>
@@ -500,7 +453,6 @@
                         <height min="50" max="138">auto</height>
                         <width>650</width>
                         <textcolor>$VAR[NetflixPlotTextColor]</textcolor>
-                        <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                         <align>justify</align>
                         <font>Reg28</font>
                         <label>$VAR[HomeMenuWidgetInfoPlot]</label>
@@ -522,14 +474,14 @@
                             <height>30</height>
                             <aligny>center</aligny>
                             <texture>netflix/fact.png</texture>
-                            <colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
+                            <colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
                         </control>
                         <control type="label" id="84">
                             <left>40</left>
                             <height>30</height>
                             <width>800</width>
                             <label>$VAR[NetflixMoreDetails]</label>
-                            <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
+                            <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
                             <align>left</align>
                             <aligny>center</aligny>
                             <font>Reg24</font>
@@ -689,7 +641,7 @@
 
     <!-- Netflix Plot Textcolor -->
     <variable name="NetflixPlotTextColor">
-        <value condition="ControlGroup(505).HasFocus()">$INFO[Skin.String(ViewDetailsTextColor)]</value>
+        <value condition="ControlGroup(505).HasFocus()">$INFO[Skin.String(NetflixSecondaryTextColor)]</value>
         <value>$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
     </variable>
 

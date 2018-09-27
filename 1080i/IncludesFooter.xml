@@ -99,7 +99,7 @@
     </variable>
     <variable name="AdvancedRatings_TextColor">
 		<value condition="Window.IsVisible(movieinformation) + !Skin.HasSetting(UseNetflixInfoDialog)">$INFO[Skin.String(ViewDetailsTextColor)]</value>																																				 
-        <value condition="[Control.IsVisible(527) | Control.IsVisible(523) | Control.IsVisible(525) | [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt) + Skin.HasSetting(View_526_nofooterbar)]] | [Window.IsActive(Home) + Skin.String(HomeLayout, netflix2)] | [Window.IsVisible(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)]">$INFO[Skin.String(RatingsLogoColor)]</value> <!-- default  $INFO[Skin.String(ViewDetailsTextColor)] -->       
+        <value condition="[Control.IsVisible(523) | Control.IsVisible(525) | [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt) + Skin.HasSetting(View_526_nofooterbar)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]] | [Window.IsActive(Home) + Skin.String(HomeLayout, netflix2)] | [Window.IsVisible(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)]">$INFO[Skin.String(RatingsLogoColor)]</value> <!-- default  $INFO[Skin.String(ViewDetailsTextColor)] -->       
 		<value condition="Skin.String(FooterTextColor) + !Skin.String(FooterPanelColor, None)">$INFO[Skin.String(FooterTextColor)]</value>
         <value>ffffffff</value>
     </variable>
@@ -761,7 +761,7 @@
 			<width>180</width>
 			<height>55</height>
 			<aspectratio align="left" aligny="center">keep</aspectratio>
-			<colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
+			<colordiffuse>$VAR[NetfixViewHighlightTextColor]</colordiffuse>
 			<texture background="true">$VAR[rating_value_texture]</texture>
 		</control>
 	</include>	

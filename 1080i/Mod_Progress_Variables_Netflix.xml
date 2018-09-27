@@ -127,7 +127,7 @@
 			<height>30</height>
 			<aligny>bottom</aligny>
 			<texture>netflix/genre.png</texture>
-			<colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>    
+			<colordiffuse>$INFO[Skin.String(NetflixSecondaryTextColor)]</colordiffuse>    
 		</control>
 		<control type="label">
 			<left>60</left>
@@ -148,7 +148,7 @@
 			<height>40</height>
 			<aligny>bottom</aligny>
 			<texture>netflix/tvshowstatus.png</texture>
-			<colordiffuse>$INFO[Skin.String(NetflixSecondaryTextColor)]</colordiffuse>    
+			<colordiffuse>$VAR[ToggleNetflixViewDetailsTextColorPlot]</colordiffuse>    
 		</control>
 		<control type="label">
 			<left>55</left>				
@@ -156,7 +156,7 @@
 			<width>1200</width>
 			<!--<label>$INFO[Window(Home).Property(SkinHelper.ListItem.airdaytime.label),[B]$LOCALIZE[31212][/B] $LOCALIZE[31213] • ] $INFO[Window(Home).Property(SkinHelper.ListItem.NextEpisode.Label),• ]</label>-->
 			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Lastepisode.airdate.Label),[B]$LOCALIZE[31214]:[/B] ,]</label>
-			<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
+			<textcolor>$VAR[ToggleNetflixViewDetailsTextColorPlot]</textcolor>
 			<align>left</align>
 			<aligny>center</aligny>
 			<font>Reg24</font>			
@@ -179,7 +179,7 @@
                 <width>auto</width>
                 <aligny>center</aligny>
                 <font>Reg28</font>
-                <textcolor>green</textcolor> <!-- check, stay hardcoded? -->
+                <textcolor>green</textcolor> <!-- check, stay hardcoded? i dont think so-->
                 <label>[B]$VAR[NewItem][/B]</label>
                 <include>Default_Fade</include>
             </control>

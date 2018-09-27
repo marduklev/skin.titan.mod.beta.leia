@@ -44,8 +44,8 @@
 					 <visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
                  </control>			
 				
-				<!-- MOVIE CAst, bit small, but ...-->
-				<control type="panel" id="353"> <!-- new id [351 / kodi 50] ? ,check if i can work with params, reduse TV/movie into 1 group-->
+				<!-- MOVIE CAst, bit small, but ... -->
+				<control type="panel" id="353">
 					<top>710</top>
 					<left>700</left>
 					<height>200</height>
@@ -66,7 +66,28 @@
 								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
 								<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
 								<bordersize>4</bordersize>
-							</control>														
+							</control>
+							<control type="image">
+								<texture>diffuse/bgpanel.png</texture>
+								<colordiffuse>black</colordiffuse>
+								<visible>true</visible>
+								<top>145</top>
+								<left>0</left>
+								<width>120</width>
+								<height>40</height>
+								<align>center</align>						
+                        </control>
+						<control type="label">
+								<font>reg14</font>
+								<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
+								<textcolor>white</textcolor>
+								<top>145</top>
+								<left>0</left>
+								<width>117</width>
+								<height>40</height>
+								<align>center</align>
+								<textoffsetx>0</textoffsetx>
+                        </control>
 					</itemlayout>					
                     <focusedlayout height="180" width="122">                        
 							<control type="image">
@@ -82,7 +103,6 @@
 								<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
 								<visible>true</visible>
 								<top>145</top>
-								<left>0</left>
 								<width>122</width>
 								<height>40</height>
 								<align>center</align>
@@ -109,38 +129,57 @@
 					<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>									
 					<visible>!Player.HasVideo</visible>
                     <itemlayout height="243" width="158">																				
-							<control type="image">
-								<include>PosterThumbBG</include>
-							</control>							  
-							<control type="image">
-								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
-								<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
-								<bordersize>4</bordersize>
-							</control>
+						<control type="image">
+							<include>PosterThumbBG</include>
+						</control>							  
+						<control type="image">
+							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="image">
+							<texture>diffuse/bgpanel.png</texture>
+							<colordiffuse>black</colordiffuse>
+							<visible>true</visible>
+							<top>220</top>
+							<width>158</width>
+							<height>50</height>
+							<align>center</align>	
+						</control>
+						<control type="label">
+							<font>reg18</font>
+							<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
+							<textcolor>white</textcolor>
+							<top>220</top>
+							<left>0</left>
+							<width>155</width>
+							<height>50</height>
+							<align>center</align>
+							<textoffsetx>0</textoffsetx>
+						</control>			  
 					</itemlayout>					
                     <focusedlayout height="257" width="173">
-							<control type="image">
-								<include>PosterThumbFO</include>
-                            </control>
-                            <control type="image">
-                                <texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
-                                <bordersize>8</bordersize>
-                            </control>
-							<control type="button">
-								<font>reg20</font>
-								<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
-								<visible>true</visible>
-								<top>220</top>
-								<left>0</left>
-								<width>173</width>
-								<height>50</height>
-								<align>center</align>
-								<scroll>true</scroll>
-								<scrollspeed>20</scrollspeed>
-								<textoffsetx>0</textoffsetx>
-							</control>
-						</focusedlayout>
+						<control type="image">
+							<include>PosterThumbFO</include>
+						</control>
+						<control type="image">
+							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="button">
+							<font>reg20</font>
+							<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
+							<visible>true</visible>
+							<top>220</top>
+							<width>173</width>
+							<height>50</height>
+							<align>center</align>
+							<scroll>true</scroll>
+							<scrollspeed>20</scrollspeed>
+							<textoffsetx>0</textoffsetx>
+						</control>
+					</focusedlayout>
 					<content>$VAR[castInfo]</content>
                 </control>			
 								

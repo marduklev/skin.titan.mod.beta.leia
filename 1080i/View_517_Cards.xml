@@ -15,7 +15,7 @@
                     <ondown>517</ondown>
                     <onleft>9000</onleft>
                     <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
-        <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+					<onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
                     <orientation>vertical</orientation>
                     <pagecontrol>60</pagecontrol>
                     <preloaditems>2</preloaditems>
@@ -89,7 +89,7 @@
                             <height>330</height>
                             <control type="image">
                                 <texture>diffuse/wide.png</texture>
-                                <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                                 <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
@@ -110,8 +110,8 @@
                                 <height>50</height>
                                 <align>left</align>
                                 <font>Bold28</font>
-                                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
-                                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+                                <textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+                                <selectedcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</selectedcolor>
                                 <label>$INFO[ListItem.Label]</label>
                             </control>
                             <control type="textbox">
@@ -214,7 +214,7 @@
                             <height>330</height>
                             <control type="image">
                                 <texture>diffuse/wide.png</texture>
-                                <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                                 <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
@@ -235,8 +235,8 @@
                                 <height>50</height>
                                 <align>left</align>
                                 <font>Bold30</font>
-                                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
-                                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+                                <textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+                                <selectedcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</selectedcolor>
                                 <label>$INFO[ListItem.Label]</label>
                             </control>
                             <control type="textbox">

@@ -1,18 +1,13 @@
 <settings>
-    <!-- home layout -->
-    <setting id="HomeLayout" value="||SUBLEVEL||HomeLayout_titantiles" label="$LOCALIZE[31309] >" condition="" icon="special://skin/extras/viewthumbs/homelayout_1.jpg" description=""/>
-    <setting id="HomeLayout" value="||SUBLEVEL||HomeLayout_horizontal" label="$LOCALIZE[31683] >" condition="" icon="special://skin/extras/viewthumbs/homelayout_horizontal_low.jpg" description=""/>
-    <setting id="HomeLayout" value="||SUBLEVEL||HomeLayout_vertical" label="$LOCALIZE[31685] >" condition="" icon="special://skin/extras/viewthumbs/homelayout_verticalbig.jpg" description=""/>
-    
     <!-- Titan tiles based homelayouts -->
-    <setting id="HomeLayout_titantiles" value="1" label="$LOCALIZE[31033]" condition="" icon="special://skin/extras/viewthumbs/homelayout_1.jpg" description="$LOCALIZE[31033]">
+    <setting id="HomeLayout" value="1" label="$LOCALIZE[31033]" condition="" icon="special://skin/extras/viewthumbs/homelayout_1.jpg" description="$LOCALIZE[31033]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,landscape)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Landscape)</onselect>
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
     </setting>
-    <setting id="HomeLayout_titantiles" value="2" label="$LOCALIZE[31031]" condition="" icon="special://skin/extras/viewthumbs/homelayout_2.jpg" description="$LOCALIZE[31031][CR][B]Skin default[/B]" default="true">
+    <setting id="HomeLayout" value="2" label="$LOCALIZE[31031]" condition="" icon="special://skin/extras/viewthumbs/homelayout_2.jpg" description="$LOCALIZE[31031][CR][B]Skin default[/B]" default="true">
         <onselect condition="True">Skin.SetBool(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,landscape)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Landscape)</onselect>
@@ -20,21 +15,21 @@
         <onselect condition="True">Skin.Reset(LowerWidgets)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
     </setting>
-    <setting id="HomeLayout_titantiles" value="3" label="$LOCALIZE[31032]" condition="" icon="special://skin/extras/viewthumbs/homelayout_3.jpg" description="$LOCALIZE[31032]">
+    <setting id="HomeLayout" value="3" label="$LOCALIZE[31032]" condition="" icon="special://skin/extras/viewthumbs/homelayout_3.jpg" description="$LOCALIZE[31032]">
         <onselect condition="True">Skin.SetBool(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,landscape)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Landscape)</onselect>
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
     </setting>
-    <setting id="HomeLayout_titantiles" value="1small" label="$LOCALIZE[31649]" condition="" icon="special://skin/extras/viewthumbs/homelayout_1small.jpg" description="$LOCALIZE[31649]">
+    <setting id="HomeLayout" value="1small" label="$LOCALIZE[31649]" condition="" icon="special://skin/extras/viewthumbs/homelayout_1small.jpg" description="$LOCALIZE[31649]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,landscape)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Landscape)</onselect>
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
     </setting>
-    <setting id="HomeLayout_titantiles" value="2small" label="$LOCALIZE[31650]" condition="" icon="special://skin/extras/viewthumbs/homelayout_2small.jpg" description="$LOCALIZE[31650]">
+    <setting id="HomeLayout" value="2small" label="$LOCALIZE[31650]" condition="" icon="special://skin/extras/viewthumbs/homelayout_2small.jpg" description="$LOCALIZE[31650]">
         <onselect condition="True">Skin.SetBool(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,landscape)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Landscape)</onselect>
@@ -42,7 +37,7 @@
         <onselect condition="True">Skin.Reset(LowerWidgets)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
     </setting>
-    <setting id="HomeLayout_titantiles" value="3small" label="$LOCALIZE[31651]" condition="" icon="special://skin/extras/viewthumbs/homelayout_3small.jpg" description="$LOCALIZE[31651]">
+    <setting id="HomeLayout" value="3small" label="$LOCALIZE[31651]" condition="" icon="special://skin/extras/viewthumbs/homelayout_3small.jpg" description="$LOCALIZE[31651]">
         <onselect condition="True">Skin.SetBool(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,landscape)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Landscape)</onselect>
@@ -51,7 +46,7 @@
     </setting>
     
     <!-- horizontal home layouts -->
-    <setting id="HomeLayout_horizontal" value="simplehor" label="$LOCALIZE[31261]" condition="" icon="special://skin/extras/viewthumbs/homelayout_horizontal.jpg" description="$LOCALIZE[31261]">
+    <setting id="HomeLayout" value="simplehor" label="$LOCALIZE[31261]" condition="" icon="special://skin/extras/viewthumbs/homelayout_horizontal.jpg" description="$LOCALIZE[31261]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,landscape)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Landscape)</onselect>
@@ -59,7 +54,7 @@
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
     </setting>
-    <setting id="HomeLayout_horizontal" value="lowhorizontal" label="$LOCALIZE[31682]" condition="" icon="special://skin/extras/viewthumbs/homelayout_horizontal_low.jpg" description="$LOCALIZE[31682]">
+	<setting id="HomeLayout" value="lowhorizontal" label="$LOCALIZE[31682]" condition="" icon="special://skin/extras/viewthumbs/homelayout_horizontal_low.jpg" description="$LOCALIZE[31682]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,poster)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Poster)</onselect>
@@ -67,7 +62,7 @@
         <onselect condition="True">Skin.SetBool(UseFixedHomeFocus)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
     </setting>
-    <setting id="HomeLayout_horizontal" value="lowhorizontal_big" label="$LOCALIZE[31684]" condition="" icon="special://skin/extras/viewthumbs/homelayout_horizontal_low_big.jpg" description="$LOCALIZE[31684]">
+    <setting id="HomeLayout" value="lowhorizontal_big" label="$LOCALIZE[31684]" condition="" icon="special://skin/extras/viewthumbs/homelayout_horizontal_low_big.jpg" description="$LOCALIZE[31684]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,poster)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Poster)</onselect>
@@ -77,19 +72,19 @@
     </setting>
     
     <!-- vertical homelayouts -->
-    <setting id="HomeLayout_vertical" value="simplever" label="$LOCALIZE[31262]" condition="" icon="special://skin/extras/viewthumbs/homelayout_vertical.jpg" description="$LOCALIZE[31262]">
+    <setting id="HomeLayout" value="simplever" label="$LOCALIZE[31262]" condition="" icon="special://skin/extras/viewthumbs/homelayout_vertical.jpg" description="$LOCALIZE[31262]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,poster)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Poster)</onselect>
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
     </setting>
-    <setting id="HomeLayout_vertical" value="simplever_tiles" label="$LOCALIZE[31262] (tiles)" condition="" icon="special://skin/extras/viewthumbs/homelayout_vertical_tiles.jpg" description="$LOCALIZE[31262] (tiles)">
+    <setting id="HomeLayout" value="simplever_tiles" label="$LOCALIZE[31262] (tiles)" condition="" icon="special://skin/extras/viewthumbs/homelayout_vertical_tiles.jpg" description="$LOCALIZE[31262] (tiles)">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,poster)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Poster)</onselect>
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
     </setting>
-    <setting id="HomeLayout_vertical" value="verticalbig" label="$LOCALIZE[31686]" condition="" icon="special://skin/extras/viewthumbs/homelayout_verticalbig.jpg" description="$LOCALIZE[31686]">
+    <setting id="HomeLayout" value="verticalbig" label="$LOCALIZE[31686]" condition="" icon="special://skin/extras/viewthumbs/homelayout_verticalbig.jpg" description="$LOCALIZE[31686]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.Reset(VerticalHomeInlineSubmenu)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,poster)</onselect>

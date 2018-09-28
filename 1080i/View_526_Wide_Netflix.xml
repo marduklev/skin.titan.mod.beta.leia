@@ -2,9 +2,8 @@
 <includes>
 	<include name="View_526_Wide_Netflix">
 		<control type="group">
-			<include>animation_view_change</include> <!-- check need -->
+			<include>animation_view_change</include>
 			<visible>Control.IsVisible(526)</visible>
-			<!-- clean bg, if no fanart  -->
 			<control type="image">
 				<width>100%</width>
 				<height>100%</height>
@@ -12,7 +11,6 @@
 				<visible>Skin.HasSetting(View526_DisableFanArt)</visible>
 				<animation effect="fade" start="0" end="100" delay="0" time="400"  condition="Skin.HasSetting(View526_DisableFanArt)">Conditional</animation>
 			</control>
-			<!-- studio -->
 			<control type="image">
 				<left>40</left>
 				<width>450</width>
@@ -23,7 +21,6 @@
 				<visible>Skin.HasSetting(StudioInFooter) + Skin.HasSetting(View_526_nofooterbar)</visible>
 				<include>studiologo_image</include>
 			</control>
-			<!-- status -->
 			<control type="group">
 				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Lastepisode.airdate.Label)) + Skin.HasSetting(View_526_nofooterbar)</visible>
 				<right>-120</right>
@@ -33,7 +30,6 @@
 				<include>Netflix_Status</include>
 			</control>	
 			<control type="group">
-				<!-- clearlogo at top left-->
 				<control type="image" id="887768">
 					<height>207</height>
 					<width>630</width>
@@ -43,7 +39,6 @@
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
 				</control>
-				<!-- Header (if no logo)-->
 				<control type="label">
 					<height>100</height>
 					<width>800</width>
@@ -56,20 +51,17 @@
 					<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 					<visible>[String.Contains(Control.GetLabel(887768),color_transparent) + Container.Content(Seasons)]</visible> 
 				</control>
-				<!-- rating STARS -->
 				<control type="group">
 					<include>StarRatingNetflix</include>
 					<left>40</left>
 					<top>216</top>
 				</control>
-				<!-- flags, info -->
 				<control type="grouplist">
 					<left>230</left>
 					<top>225</top>
 					<orientation>horizontal</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
 					<itemgap>0</itemgap>
-					<!-- year -->
 					<control type="label">
 						<visible>![String.IsEmpty(ListItem.Year) | ListItem.Premiered]</visible>
 						<left>5</left>
@@ -80,7 +72,6 @@
 						<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 						<font>Reg28</font>
 					</control>
-					<!-- empty seperator -->
 					<control type="group">
 						<left>10</left>
 						<top>-1</top>
@@ -140,7 +131,6 @@
 				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
 				<onright>5026</onright>
 				
-				
 				<onup>526</onup>
 				<ondown>526</ondown>
 				<focusedlayout height="65" width="480" condition="Container.Content(seasons)">
@@ -163,7 +153,7 @@
 							<width>475</width>
 							<right>30</right>
 							<aligny>center</aligny>
-							<texture colordiffuse="$VAR[ToggleNetflixViewDetailsTextColor]">netflix/border_netflix.png</texture>   <!-- re check, if colors get trouble -->										
+							<texture colordiffuse="$VAR[ToggleNetflixViewDetailsTextColor]">netflix/border_netflix.png</texture><!-- re check, if colors get trouble -->
 						</control>
 					</control>
 				</focusedlayout>
@@ -198,7 +188,7 @@
 				<ondown>5026</ondown>
 				<onright>60</onright>
 				<onback>526</onback>
-								
+				
 				<focusedlayout width="1040" height="224">
 					<control type="group">
 						<width>1040</width>
@@ -426,8 +416,8 @@
 			</control>
 			<control type="image">
 				<top>303</top>
-				<right>705</right>
-				<width>386</width>
+				<right>704</right>
+				<width>388</width>
 				<height>227</height>
 				<texture border="2">netflix/frame/slimframe_hardedge.png</texture>
 				<colordiffuse>$VAR[NetflixViewDetailsBorderFocusColor]</colordiffuse>

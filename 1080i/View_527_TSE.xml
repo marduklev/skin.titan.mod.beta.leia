@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="View_527_TSE">
-		<control type="group">			
-			<visible>Control.IsVisible(527)</visible>		
-			<visible>Container.Content(tvshows)</visible>			
-			<include>animation_view_change</include>					
+		<control type="group">
+			<visible>Control.IsVisible(527)</visible>
+			<visible>Container.Content(tvshows)</visible>
+			<include>animation_view_change</include>
 			<!-- clean bg, if no fanart  -->  
-			<control type="image">                                   								
+			<control type="image">
 				<width>100%</width>
 				<height>100%</height>
-				<texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>				
-				<visible>Skin.HasSetting(View527_DisableFanArt)</visible>				
-				<animation effect="fade" start="0" end="100" delay="0" time="400"  condition="Skin.HasSetting(View527_DisableFanArt)">Conditional</animation>				
+				<texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
+				<visible>Skin.HasSetting(View527_DisableFanArt)</visible>
+				<animation effect="fade" start="0" end="100" delay="0" time="400"  condition="Skin.HasSetting(View527_DisableFanArt)">Conditional</animation>
 			</control>
-			 <!-- seperate  div line 1 -->
+			<!-- seperate  div line 1 -->
 			<control type="image">
 				<top>100</top>
 				<left>750</left>
 				<width>1</width>
 				<height>925</height>
 				<texture>colors/color_white.png</texture>
-                <colordiffuse>grey</colordiffuse>
+				<colordiffuse>grey</colordiffuse>
 			</control>
 			<!-- panel 1 -->
 			<control type="image">
@@ -39,7 +39,7 @@
 				<width>1</width>
 				<height>925</height>
 				<texture>colors/color_white.png</texture>
-                <colordiffuse>grey</colordiffuse>
+				<colordiffuse>grey</colordiffuse>
 			</control>
 			<!--panel 2-->
 			<control type="image">
@@ -60,39 +60,36 @@
 				<texture border="15">diffuse/bgpanel_softedgeframe.png</texture>
 				<colordiffuse>99000000</colordiffuse>
 				<visible>!Skin.HasSetting(View527_HidePanel)</visible>
-				<!-- <animation effect="slide" start="0,0" end="0,100" time="400" condition="!Control.HasFocus(5127)" reversible="true">conditonal</animation>
-				-->
-			</control>    
-            <!-- INFO GROUP -->
-			<!-- spotlight image -->
-            <control type="image">
+			</control>
+			<!-- INFO GROUP -->
+			<control type="image">
 				<fadetime>350</fadetime>
 				<width>890</width>
 				<height>385</height>
-				<right>0</right>                   
+				<right>0</right>
 				<top>0</top>
 				<texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[netflixThumb]</texture>
-				<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>                   					
+				<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
 				<visible>!Control.HasFocus(5127)</visible>
-			</control>			
+			</control>
 			<control type="textbox"> 
-                <height>45</height>
-                <width>800</width>
-                <left>1118</left>
-                <top>362</top>
-                <font>Reg30</font>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <label>[UPPERCASE][B]$INFO[ListItem.TVShowTitle][/UPPERCASE]$VAR[premiered, (,)][/B]$INFO[Window(Home).Property(SkinHelper.ListItem.Status), | ,]</label>
-                    <textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
-                    <visible>!Control.HasFocus(5127)</visible>
-                </control>
+				<height>45</height>
+				<width>800</width>
+				<left>1118</left>
+				<top>362</top>
+				<font>Reg30</font>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE][B]$INFO[ListItem.TVShowTitle][/UPPERCASE]$VAR[premiered, (,)][/B]$INFO[Window(Home).Property(SkinHelper.ListItem.Status), | ,]</label>
+				<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+				<visible>!Control.HasFocus(5127)</visible>
+			</control>
 			<control type="textbox"> 
-                <height>35</height>
-                <width>800</width>
-                <left>1118</left>
-                <top>392</top>
-                <font>Reg20</font>
+				<height>35</height>
+				<width>800</width>
+				<left>1118</left>
+				<top>392</top>
+				<font>Reg20</font>
 				<align>left</align>
 				<aligny>center</aligny>
 				<label>$VAR[Netflix_Details,•, •]</label>
@@ -106,23 +103,21 @@
 				<width>800</width>
 				<left>1260</left>
 				<top>320</top>
-				<animation effect="zoom" alignx="false" end="80,80" time="0" condition="true">Conditional</animation>					
+				<animation effect="zoom" alignx="false" end="80,80" time="0" condition="true">Conditional</animation>
 				<include condition="[Skin.HasSetting(StudioInFooter) | Skin.HasSetting(IMDBRatingInFooter) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(RTRatingInFooter)]">AltRatingFooter</include>
-			</control>		
-			
+			</control>
 			<control type="textbox"> 
-                <width>750</width>
+				<width>750</width>
 				<top>437</top>
 				<left>1118</left>
 				<height>155</height>
 				<height>155</height>
 				<align>justify</align>
 				<font>Reg26</font>
-                <label>$INFO[ListItem.Plot]</label>
-                <textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
-                <visible>!Control.HasFocus(5127)</visible>
-            </control>	
-			
+				<label>$INFO[ListItem.Plot]</label>
+				<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+				<visible>!Control.HasFocus(5127)</visible>
+			</control>
 			<control type="grouplist">
 				<orientation>horizontal</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
@@ -131,19 +126,18 @@
 				<left>1095</left>
 				<height>155</height>
 				<itemgap>10</itemgap>
-				<!--Arrows-->
 				<control type="image">
 					<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
 					<left>5</left>
 					<width>20</width>
 					<height>60</height>
 					<aspectratio>keep</aspectratio>
-					<texture>dialogs/videoinfo/arrow.png</texture>					
+					<texture>dialogs/videoinfo/arrow.png</texture>
 					<colordiffuse>white</colordiffuse>
 					<visible>!Control.HasFocus(5127)</visible>
 				</control>
 				<control type="label"> 
-				   	<left>5</left>
+					<left>5</left>
 					<height>55</height>
 					<align>justify</align>
 					<font>Reg28</font>
@@ -152,19 +146,19 @@
 					<visible>!Control.HasFocus(5127)</visible>
 				</control>          
 			</control>
-			
-			<!-- studio -->				
-			<control type="image">					
+
+			<!-- studio -->
+			<control type="image">
 				<left>700</left>
-                <width>410</width>
-                <height>90</height>
-                <top>1</top>
+				<width>410</width>
+				<height>90</height>
+				<top>1</top>
 				<bordersize>1</bordersize>
 				<aspectratio aligny="top" alignx="center">keep</aspectratio>
-				<visible>Skin.HasSetting(StudioInFooter)</visible>			
+				<visible>Skin.HasSetting(StudioInFooter)</visible>
 				<include>studiologo_image</include>
 			</control>
-			
+
 			<!-- SHOWS -->
 			<control type="fixedlist" id="527">
 				<top>100</top>
@@ -180,14 +174,14 @@
 				<onleft condition="!Skin.HasSetting(EnableQuickJump)">60</onleft>
 				 + [Control.HasFocus(60) | Control.HasFocus(6000)
 				 -->
-				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>								
-				<onright>5027</onright>				
+				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
+				<onright>5027</onright>
 				<onup>527</onup>
-				<ondown>527</ondown>				
+				<ondown>527</ondown>
 				<!-- default , clearlogo-->
-				<itemlayout  width="750" height="210" condition="![Skin.HasSetting(LogoViewPreferClearArt) | Skin.HasSetting(LogoViewPreferLandscape) | Skin.HasSetting(LogoViewPreferBanner)]">
+				<itemlayout width="750" height="210" condition="![Skin.HasSetting(LogoViewPreferClearArt) | Skin.HasSetting(LogoViewPreferLandscape) | Skin.HasSetting(LogoViewPreferBanner)]">
 					<control type="image">
-						<left>102</left>			
+						<left>102</left>
 						<width>390</width>
 						<height>164</height>
 						<aspectratio aligny="center" align="center">keep</aspectratio>
@@ -200,16 +194,16 @@
 						<animation effect="zoom" center="auto" start="100" end="140" time="480" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>	
 						<control type="image">
-							<left>102</left>						
+							<left>102</left>
 							<width>430</width>
 							<height>205</height>
 							<aspectratio aligny="center" align="center">keep</aspectratio>
 							<texture background="true">$VAR[527_Schow]</texture>
-						</control>						
-					</control>						
+						</control>
+					</control>
 				</focusedlayout>
 				<!-- clear art -->
-				<itemlayout  width="780" height="328" condition="Skin.HasSetting(LogoViewPreferClearArt)">
+				<itemlayout width="780" height="328" condition="Skin.HasSetting(LogoViewPreferClearArt)">
 					<control type="group">
 						<animation effect="fade" start="0" end="30" time="0" reversible="false" condition="true">Conditional</animation>
 						<control type="image">
@@ -261,11 +255,11 @@
 					</control>
 				</focusedlayout>
 				<!-- banner -->
-				<itemlayout  width="780" height="140" condition="Skin.HasSetting(LogoViewPreferBanner)">
+				<itemlayout width="780" height="140" condition="Skin.HasSetting(LogoViewPreferBanner)">
 					<control type="group">
 						<animation effect="fade" start="0" end="50" time="0" reversible="false" condition="true">Conditional</animation>
 						<control type="image">
-							<left>82</left>								
+							<left>82</left>
 							<width>500</width>
 							<height>92</height>
 							<aspectratio aligny="center" align="center">keep</aspectratio>
@@ -276,9 +270,9 @@
 				<focusedlayout width="780" height="140" condition="Skin.HasSetting(LogoViewPreferBanner)">
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="140" time="480" tween="back" reversible="false">Focus</animation>
-						<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>		
-							<control type="image">
-							<left>82</left>								
+						<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
+						<control type="image">
+							<left>82</left>
 							<width>500</width>
 							<height>92</height>
 							<aspectratio aligny="center" align="center">keep</aspectratio>
@@ -287,7 +281,7 @@
 					</control>
 				</focusedlayout>
 			</control>
-			
+
 			<!-- seasons -->
 			<control type="fixedlist" id="5027">
 				<left>40%</left>
@@ -309,7 +303,7 @@
 				<animation type="Conditional" condition="Integer.IsEqual(Container(5027).NumItems,1)">
 					<effect type="slide" end="0,300" time="0" delay="0" />
 				</animation>
-				<focusedlayout height="320" condition="Container.Content(tvshows)">												
+				<focusedlayout height="320" condition="Container.Content(tvshows)">
 					<control type="group">
 						<left>30</left>
 						<top>20</top>
@@ -334,9 +328,9 @@
 							<!--Watched Overlay-->
 							<right>8</right>
 							<top>8</top>
-							<include>WatchedIndicatorNormal</include>							
-						</control>	
-					</control>					
+							<include>WatchedIndicatorNormal</include>
+						</control>
+					</control>
 				</focusedlayout>
 				<itemlayout height="320" condition="Container.Content(tvshows)">
 					<control type="group">
@@ -345,15 +339,14 @@
 						<width>218</width>
 						<height>312</height>
 						<animation effect="fade" start="0" end="60" time="0" reversible="false" condition="true">Conditional</animation>
-						<!-- <animation effect="fade" start="60" end="30" delay="0" time="400"  condition="!Control.HasFocus(5027)">Conditional</animation>	-->
-						<include>PosterPanelLayout</include>														
+						<include>PosterPanelLayout</include>
 					</control>
 				</itemlayout>			
 				<content target="ListItem.DBTYPE(season)" sortby="year" sortorder="ascending">$INFO[Container(527).ListItem.FolderPath]</content>
 			</control>
-			
-			<!-- episodes -->		
-			<control type="fixedlist" id="5127">				
+
+			<!-- episodes -->
+			<control type="fixedlist" id="5127">
 				<top>0</top>
 				<height>95.3%</height>
 				<left>53%</left>
@@ -364,9 +357,9 @@
 				<onleft>5027</onleft>
 				<onright></onright>
 				<onup>5127</onup>
-				<ondown>5127</ondown>				
-				<visible>Container.Content(tvshows)</visible>									
-				<itemlayout  width="860" height="120">				
+				<ondown>5127</ondown>
+				<visible>Container.Content(tvshows)</visible>
+				<itemlayout  width="860" height="120">
 					<control type="image">
 						<animation effect="fade" end="30" time="0" reversible="false" condition="!Control.HasFocus(5127)">Conditional</animation>
 						<top>635</top>
@@ -378,7 +371,7 @@
 					</control>
 					<control type="group">
 						<top>635</top>
-						<right>0</right>  							
+						<right>0</right>
 						<width>50</width>
 						<height>50</height>
 						<include>WatchedIndicatorSmall</include>
@@ -399,17 +392,15 @@
 				<focusedlayout width="900" height="120">
 					<control type="group">
 						<posy>0</posy>
-						<visible>Control.HasFocus(5127)</visible>						
-						<!-- spotlight image , thumbs should be scaled 1280x720 -->
+						<visible>Control.HasFocus(5127)</visible>
 						<control type="image">
 							<fadetime>350</fadetime>
 							<width>896</width>
 							<height>504</height>
-							<right>0</right>							
+							<right>0</right>
 							<texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[LandscapeImage]</texture>
 							<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>							
 						</control>
-						
 						<control type="progress">
 							<right>40</right>  
 							<top>400</top>
@@ -419,12 +410,12 @@
 							<align>center</align>
 							<texturebg colordiffuse="grey" border="2">colors/color_white.png</texturebg>
 							<lefttexture></lefttexture>
-							<midtexture colordiffuse="$VAR[NetfixViewHighlightTextColor]" border="2">colors/color_white.png</midtexture><!-- ViewNetfixHighlightTextColor -->
+							<midtexture colordiffuse="$VAR[NetfixViewHighlightTextColor]" border="2">colors/color_white.png</midtexture>
 							<righttexture></righttexture>
 							<visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
 							<info>ListItem.PercentPlayed</info>
 						</control>
-						<control type="textbox">							
+						<control type="textbox">
 							<width>85%</width>
 							<left>100</left>
 							<align>left</align>
@@ -434,9 +425,9 @@
 							<font>Bold30</font>
 							<autoscroll>true</autoscroll>
 							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
-							<label>[UPPERCASE]$INFO[ListItem.TVShowTitle,, • ][/UPPERCASE]$VAR[WideView_LargeSeasonLabel,s,]$VAR[WideView_LargeEpisodeLabel,e,]$INFO[ListItem.Title, • ,]</label>		<!-- check have also var in 526? -->						
+							<label>[UPPERCASE]$INFO[ListItem.TVShowTitle,, • ][/UPPERCASE]$VAR[WideView_LargeSeasonLabel,s,]$VAR[WideView_LargeEpisodeLabel,e,]$INFO[ListItem.Title, • ,]</label>
 						</control>
-						<control type="textbox">								
+						<control type="textbox">
 							<left>100</left>
 							<width>750</width>
 							<top>410</top>
@@ -453,8 +444,8 @@
 						<top>640</top>
 						<left>70</left>
 						<width>780</width>
-						<height>120</height>												
-						<control type="image">							
+						<height>120</height>
+						<control type="image">
 							<left>-10</left>
 							<height>110</height>
 							<width>780</width>
@@ -463,63 +454,63 @@
 							<visible>Control.HasFocus(5127)</visible>
 						</control>
 						<control type="image">
-						<!--cdart image-->
-                            <top>5</top>
+							<!--cdart image-->
+							<top>5</top>
 							<left>20</left>
 							<width>100</width>
 							<height>100</height>
 							<texture background="true" diffuse="diffuse/roundmask.png" fallback="defaultcovers/cd_big.png">$VAR[RoundImage]</texture>
-							<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>       
-                        </control>
+							<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+						</control>
 						<control type="group">
-							<right>-10</right>  							
+							<right>-10</right>
 							<width>50</width>
 							<height>50</height>
 							<include>WatchedIndicatorSmall</include>
 						</control>
-						<control type="label">							
+						<control type="label">
 							<left>138</left>
 							<width>645</width>
 							<aligny>center</aligny>
 							<height>60</height>
 							<align>left</align>
 							<font>Bold30</font>
-							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>							
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 							<autoscroll>true</autoscroll>
-							<label>$INFO[ListItem.Episode,Ep. , : ]$INFO[ListItem.Title,, • ]$VAR[ListItemDuration]</label>						
-						</control>						
+							<label>$INFO[ListItem.Episode,Ep. , : ]$INFO[ListItem.Title,, • ]$VAR[ListItemDuration]</label>
+						</control>
 					</control>
 				</focusedlayout>
 				<content target="video" sortby="year" sortorder="ascending">$INFO[Container(5027).ListItem.FolderPath]</content>
-			</control>		
+			</control>
 		</control>
 	</include>
-	
-	<variable name="527_Schow">		
+
+	<variable name="527_Schow">
 		<value condition="Skin.HasSetting(LogoViewPreferClearArt) + !String.IsEmpty(ListItem.Art(clearart))">$INFO[ListItem.Art(clearart)]</value>
 		<value condition="Skin.HasSetting(LogoViewPreferLandscape) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
 		<value condition="Skin.HasSetting(LogoViewPreferBanner) + !String.IsEmpty(ListItem.Art(Banner))">$VAR[BannerImage]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
-		<value condition="!String.IsEmpty(ListItem.Art(Banner))">$VAR[BannerImage]</value>		
+		<value condition="!String.IsEmpty(ListItem.Art(Banner))">$VAR[BannerImage]</value>
 		<value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
 		<value condition="String.IsEqual(ListItem.Label,..)">DefaultFolderBack.png</value>
 		<value>DefaultMovies.png</value>
 	</variable>	
-	<variable name="527_Schow_focus">		<!-- season fanart not working -->
+	<variable name="527_Schow_focus"><!-- season fanart not working -->
 		<value condition="![Control.HasFocus(5027) | Control.HasFocus(5127)] | Control.HasFocus(527)">$VAR[netflixThumb]</value>
 		<value condition="![Control.HasFocus(527) | Control.HasFocus(5127)] | Control.HasFocus(5027)">$[ListItem.Art(season.fanart)]</value>
 		<value condition="![Control.HasFocus(527) | Control.HasFocus(5027)] | Control.HasFocus(5127)">$VAR[LandscapeImage]</value>
 	</variable>
-	 <variable name="RoundImage">		
-        <value condition="!String.IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>
+	<variable name="RoundImage">
+		<value condition="!String.IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster) )">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.landscape))">$INFO[ListItem.Art(tvshow.landscape)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 	</variable>
-	<variable name="TSEEp">		
+	<variable name="TSEEp">
 		<value condition="Container.Content(TVShows) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),[B]E P I S O D E S (,) [/B]]$INFO[ListItem.Property(UnWatchedEpisodes), | , $LOCALIZE[31092]]</value>
 		<value condition="Container.Content(TVShows) + !Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),[B]E P I S O D E S (,)[/B]]</value>																																																																																							
-	</variable>		 
+	</variable>
 </includes>

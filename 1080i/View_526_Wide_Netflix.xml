@@ -9,7 +9,7 @@
 				<height>100%</height>
 				<texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
 				<visible>Skin.HasSetting(View526_DisableFanArt)</visible>
-				<animation effect="fade" start="0" end="100" delay="0" time="400"  condition="Skin.HasSetting(View526_DisableFanArt)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" delay="0" time="400" condition="Skin.HasSetting(View526_DisableFanArt)">Conditional</animation>
 			</control>
 			<control type="image">
 				<left>40</left>
@@ -153,7 +153,7 @@
 							<width>475</width>
 							<right>30</right>
 							<aligny>center</aligny>
-							<texture colordiffuse="$VAR[ToggleNetflixViewDetailsTextColor]">netflix/border_netflix.png</texture><!-- re check, if colors get trouble -->
+							<texture colordiffuse="$VAR[ToggleNetflixViewDetailsTextColor]">netflix/border_netflix.png</texture>
 						</control>
 					</control>
 				</focusedlayout>
@@ -343,7 +343,6 @@
 							<align>left</align>
 							<textcolor>white</textcolor>
 							<label>$VAR[seasonwithspecials]</label>
-							<visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
 						</control>
 						<control type="progress">
 							<left>2%</left>
@@ -403,7 +402,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<content target="videos,videodb://tvshows/titles/episodes" sortby="premiered" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
+				<content target="video" sortby="premiered" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
 			</control>
 			<control type="image">
 				<top>303</top>
@@ -438,7 +437,7 @@
 				<onright>5026</onright>
 				<orientation>vertical</orientation>
 				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>					
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
 			</control>
 		</control>-->
 	</include>

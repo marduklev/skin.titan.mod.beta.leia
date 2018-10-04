@@ -606,7 +606,7 @@
    
 	<variable name="ViewDetailsBorderFocusColor">
         <value condition="Window.IsActive(home)">$INFO[Skin.String(HomeViewDetailsBorderFocusColor)]</value>
-        <value condition="Control.IsVisible(523) | Control.IsVisible(524) | [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</value>
+        <value condition="Control.IsVisible(523) | Control.IsVisible(525) | [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</value>
 		<value>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</value>
     </variable>
 	<variable name="ViewDetailsPanelColor"><!-- check, used as panel bg for all panel views instead the default ViewDetailsPanelColor-->

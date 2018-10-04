@@ -5,7 +5,7 @@
 			<visible>Control.IsVisible(527)</visible>
 			<visible>Container.Content(tvshows)</visible>
 			<include>animation_view_change</include>
-			<!-- clean bg, if no fanart  -->  
+			<!-- clean bg, if no fanart  -->
 			<control type="image">
 				<width>100%</width>
 				<height>100%</height>
@@ -144,7 +144,7 @@
 					<label>$VAR[TSEEp]</label>
 					<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 					<visible>!Control.HasFocus(5127)</visible>
-				</control>          
+				</control>
 			</control>
 
 			<!-- studio -->
@@ -220,7 +220,7 @@
 						<animation effect="zoom" center="auto" start="100" end="140" time="480" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>		
 						<control type="image">
-							<left>122</left>								
+							<left>122</left>
 							<width>430</width>
 							<height>205</height>
 							<aspectratio aligny="center" align="center">keep</aspectratio>
@@ -244,9 +244,9 @@
 				<focusedlayout width="780" height="328" condition="Skin.HasSetting(LogoViewPreferLandscape)">
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="150" time="480" tween="back" reversible="false">Focus</animation>
-						<animation effect="zoom" center="auto" start="150" end="100" time="160" tween="back" reversible="false">UnFocus</animation>							
+						<animation effect="zoom" center="auto" start="150" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
 						<control type="image">
-							<left>102</left>								
+							<left>102</left>
 							<width>430</width>
 							<height>205</height>
 							<aspectratio aligny="center" align="center">keep</aspectratio>
@@ -381,7 +381,7 @@
 						<animation effect="fade" end="30" time="0" reversible="false" condition="!Control.HasFocus(5127)">Conditional</animation>
 						<top>635</top>
 						<left>210</left>
-						<width>100%</width>
+						<width>645</width>
 						<height>60</height>
 						<font>Reg26</font>
 						<align>left</align>
@@ -399,7 +399,7 @@
 							<height>504</height>
 							<right>0</right>
 							<texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[LandscapeImage]</texture>
-							<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>							
+							<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
 						</control>
 						<control type="progress">
 							<right>40</right>  
@@ -446,9 +446,8 @@
 						<width>780</width>
 						<height>120</height>
 						<control type="image">
-							<left>-10</left>
 							<height>110</height>
-							<width>780</width>
+							<width>790</width>
 							<texture border="5">diffuse/panel.png</texture>
 							<colordiffuse>$VAR[NetflixViewDetailsPanelColor]</colordiffuse>
 							<visible>Control.HasFocus(5127)</visible>
@@ -511,6 +510,6 @@
 	</variable>
 	<variable name="TSEEp">
 		<value condition="Container.Content(TVShows) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),[B]E P I S O D E S (,) [/B]]$INFO[ListItem.Property(UnWatchedEpisodes), | , $LOCALIZE[31092]]</value>
-		<value condition="Container.Content(TVShows) + !Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),[B]E P I S O D E S (,)[/B]]</value>																																																																																							
+		<value condition="Container.Content(TVShows) + !Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),[B]E P I S O D E S (,)[/B]]</value>
 	</variable>
 </includes>

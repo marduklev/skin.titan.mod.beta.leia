@@ -1,254 +1,324 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Titan -->
 <window>
-	<onload>SetFocus(11099)</onload>
-    <coordinates>
-        <system>1</system>
-        <posx>0</posx>
-        <posy>0</posy>
-    </coordinates>
-    <controls>
-		<!-- hidden button when clicked thumb up -->
-		<control type="button" id="69611">
-			<include>HiddenObject</include>
-			<visible allowhiddenfocus="true">false</visible>
+	<onload>SetFocus($INFO[Skin.String(ThumbsUpRateValue),1102,])</onload>
+	<controls>
+		<!-- default/no movieinfodialog bg -->
+		<control type="image">
+			<description>BG</description>
+			<posx>540</posx>
+			<posy>410</posy>
+			<width>720</width>
+			<height>350</height>
+			<texture>netflix/rating_bg.png</texture>
+			<visible>!Window.IsActive(movieinformation)</visible>
 		</control>
-		<!-- hidden button when clicked thumb down -->
-		<control type="button" id="69612">
-			<include>HiddenObject</include>
-			<visible allowhiddenfocus="true">false</visible>
+		<!-- circle thumb up for dialog , focus -->
+		<control type="image">
+			<visible>Control.HasFocus(11026) | Control.HasFocus(11027) | Control.HasFocus(11028) | Control.HasFocus(11029) | Control.HasFocus(11030)</visible>
+			<posx>720</posx>
+			<posy>585</posy>
+			<width>150</width>
+			<height>150</height>
+			<texture>netflix/button/thunmb_up_fo.png</texture>
+			<visible>!Window.IsActive(movieinformation)</visible>   
 		</control>
-		<!-- hidden button to reset rating -->
-		<control type="button" id="11020">
-			<description>0 Button</description>
-			<include>HiddenObject</include>
-			<visible allowhiddenfocus="true">false</visible>
+		<!-- circle thumb down for dialog , focus -->
+		<control type="image">
+			<visible>Control.HasFocus(11021) | Control.HasFocus(11022) | Control.HasFocus(11023) | Control.HasFocus(11024) | Control.HasFocus(11025)</visible>
+			<posx>890</posx>
+			<posy>585</posy>
+			<width>150</width>
+			<height>150</height>
+			<texture flipy="true">netflix/button/thunmb_up_fo.png</texture>
+			<visible>!Window.IsActive(movieinformation)</visible>
 		</control>
-
+		<!-- circle thumb up for dialog , NO focus -->
+		<control type="image">
+			<visible>Control.HasFocus(11021) | Control.HasFocus(11022) | Control.HasFocus(11023) | Control.HasFocus(11024) | Control.HasFocus(11025)</visible>
+			<posx>723</posx>
+			<posy>590</posy>
+			<width>135</width>
+			<height>135</height>
+			<texture>netflix/button/thunmb_up-nf.png</texture>    
+			<visible>!Window.IsActive(movieinformation)</visible>   
+		</control>
+		<!-- circle thumb down for dialog , NO focus -->
+		<control type="image">
+			<visible>Control.HasFocus(11026) | Control.HasFocus(11027) | Control.HasFocus(11028) | Control.HasFocus(11029) | Control.HasFocus(11030)</visible>
+			<posx>894</posx>
+			<posy>590</posy>
+			<width>135</width>
+			<height>135</height>
+			<texture flipy="true">netflix/button/thunmb_up-nf.png</texture>    
+			<visible>!Window.IsActive(movieinformation)</visible>     
+		</control>
+		<!-- frame up for dialog , focus -->
+		<control type="image">
+			<visible>Control.HasFocus(11026) | Control.HasFocus(11027) | Control.HasFocus(11028) | Control.HasFocus(11029) | Control.HasFocus(11030)</visible>
+			<posx>65</posx>
+			<posy>985</posy>
+			<width>225</width>
+			<height>65</height>
+			<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeFO.png</texture>
+			<visible>Window.IsActive(movieinformation)</visible>
+			<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowOpen</animation>
+			<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowClose</animation>
+		</control>
+		<!-- frame up for dialog , NO focus -->
+		 <control type="image">
+			<visible>Control.HasFocus(11021) | Control.HasFocus(11022) | Control.HasFocus(11023) | Control.HasFocus(11024) | Control.HasFocus(11025)</visible>
+			<posx>65</posx>
+			<posy>985</posy>
+			<width>225</width>
+			<height>65</height>
+			<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeNF.png</texture>
+			<visible>Window.IsActive(movieinformation)</visible>
+			<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowOpen</animation>
+			<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowClose</animation>
+		</control>
+		<!-- frame down for dialog, focus -->
+		 <control type="image">
+			<visible>Control.HasFocus(11021) | Control.HasFocus(11022) | Control.HasFocus(11023) | Control.HasFocus(11024) | Control.HasFocus(11025)</visible>
+			<posx>325</posx>
+			<posy>985</posy>
+			<width>225</width>
+			<height>65</height>
+			<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeFO.png</texture>
+			<visible>Window.IsActive(movieinformation)</visible>
+			<animation effect="fade" time="200" condition="Window.IsActive(movieinformation)">WindowOpen</animation>
+			<animation effect="fade" time="200" condition="Window.IsActive(movieinformation)">WindowClose</animation>
+		</control>
+		<!-- frame down for dialog, NO focus -->
+		<control type="image">
+			<visible>Control.HasFocus(11026) | Control.HasFocus(11027) | Control.HasFocus(11028) | Control.HasFocus(11029) | Control.HasFocus(11030)</visible>
+			<posx>325</posx>
+			<posy>985</posy>
+			<width>225</width>
+			<height>65</height>
+			<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeNF.png</texture>
+			<visible>Window.IsActive(movieinformation)</visible>
+			<animation effect="fade" time="200" condition="Window.IsActive(movieinformation)">WindowOpen</animation>
+			<animation effect="fade" time="200" condition="Window.IsActive(movieinformation)">WindowClose</animation>
+		</control>
+		
 		<control type="group">
-			<!-- frame up for dialog , focus -->
-			 <control type="image">			
-				<visible>Control.HasFocus(11030) | Control.HasFocus(11029) | Control.HasFocus(11028) | Control.HasFocus(11027) | Control.HasFocus(11026)</visible>
-				<posx>65</posx>
-				<posy>985</posy>
-				<width>225</width>
-				<height>65</height>
-				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeFO.png</texture>
-				<animation effect="fade" time="200">WindowOpen</animation>
-				<animation effect="fade" time="400">WindowClose</animation>
+			<posx>530</posx>
+			<height>25</height>
+			<width>700</width>
+			<visible>!Window.IsActive(movieinformation)</visible>
+			<control type="label" id="10010">
+				<description>User</description>
+				<posy>430</posy>
+				<label></label>
+				<align>center</align>
+				<font>font14</font>
+				<textcolor>blue</textcolor>	
 			</control>
-			<!-- frame up for dialog , NO focus -->
-			 <control type="image">
-				<posx>65</posx>
-				<posy>985</posy>
-				<width>225</width>
-				<height>65</height>
-				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeNF.png</texture>
-				<animation effect="fade" time="300">WindowOpen</animation>
-				<animation effect="fade" time="400">WindowClose</animation>
+			<control type="label" id="10011">
+				<description>Label</description>
+				<posy>470</posy>
+				<label>[B]$ADDON[script.user.rating 32100][/B]</label>
+				<align>center</align>
+				<font>font14</font>
+				<textcolor>FF0084ff</textcolor>
 			</control>
-
-			<!-- frame down for dialog, focus -->
-			 <control type="image">
-				<visible>Control.HasFocus(11021) | Control.HasFocus(11022) | Control.HasFocus(11023) | Control.HasFocus(11024) | Control.HasFocus(11025)</visible>
-				<posx>325</posx>
-				<posy>985</posy>
-				<width>225</width>
-				<height>65</height>
-				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeFO.png</texture>
-				<animation effect="fade" time="200">WindowOpen</animation>
-				<animation effect="fade" time="400">WindowClose</animation>
-			</control>
-			<!-- frame down for dialog, NO focus -->
-			 <control type="image">
-				<posx>325</posx>
-				<posy>985</posy>
-				<width>225</width>
-				<height>65</height>
-				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/frame/slimframeNF.png</texture>
-				<animation effect="fade" time="300">WindowOpen</animation>
-				<animation effect="fade" time="400">WindowClose</animation>
-			</control>
-
-			<!-- thumbs up full texture onclick -->
-			<control type="image">
-				<visible>Control.HasFocus(69611)</visible>
-				<posx>165</posx>
-				<posy>1002</posy>
-				<width>30</width>
-				<height>30</height>
-				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_fo.png</texture>
-				<animation type="WindowClose">
-					<effect type="slide" start="0" end="-100" time="300" delay="100"/>
-					<effect type="fade" time="400"/>
-				</animation>
-			</control>
-			<!-- thumbs down full texture onclick -->
-			<control type="image">
-				<visible>Control.HasFocus(69612)</visible>
-				<posx>425</posx>
-				<posy>1002</posy>
-				<width>30</width>
-				<height>30</height>
-				<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]" flipy="true">netflix/button/thumb_up_fo.png</texture>
-				<animation type="WindowClose">
-					<effect type="slide" start="0" end="-100" time="300" delay="100"/>
-					<effect type="fade" time="400"/>
-				</animation>
-			</control>
-
-			<control type="grouplist" id="11099">
-				<orientation>horizontal</orientation>
-				<usecontrolcoords>true</usecontrolcoords>
-				<width>550</width>
-				<height>65</height>
-                <onback>SendClick(11020)</onback>
-				<onup>SendClick(11020)</onup>
-				<onup>close</onup>
-				<onright>11099</onright>
-				<onleft>11099</onleft>
-				<itemgap>0</itemgap>
-				<posx>65</posx>
-				<posy>1002</posy>
-
-				<!-- thumbs up ratings -->
-				<control type="button" id="11026">
-					<visible>Skin.String(ThumbsUpRateValue,6)</visible>
-					<description>6 Button</description>
-					<posx>100</posx>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
-					<onclick>SetFocus(69611)</onclick>
-                    <animation effect="slide" start="-100,0" end="0,0" time="300">WindowOpen</animation>
-                    <animation effect="fade" time="300">WindowOpen</animation>
-                    <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69611)">Conditional</animation>
-                    <animation effect="fade" time="400">WindowClose</animation>
-				</control>
-				<control type="button" id="11027">
-					<visible>Skin.String(ThumbsUpRateValue,7)</visible>
-					<description>7 Button</description>
-					<posx>100</posx>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
-					<onclick>SetFocus(69611)</onclick>
-                    <animation effect="slide" start="-100,0" end="0,0" time="300">WindowOpen</animation>
-                    <animation effect="fade" time="300">WindowOpen</animation>
-                    <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69611)">Conditional</animation>
-                    <animation effect="fade" time="400">WindowClose</animation>
-				</control>
-				<control type="button" id="11028">
-					<visible>Skin.String(ThumbsUpRateValue,8)</visible>
-					<description>8 Button</description>
-					<posx>100</posx>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
-					<onclick>SetFocus(69611)</onclick>
-                    <animation effect="slide" start="-100,0" end="0,0" time="300">WindowOpen</animation>
-                    <animation effect="fade" time="300">WindowOpen</animation>
-                    <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69611)">Conditional</animation>
-                    <animation effect="fade" time="400">WindowClose</animation>
-				</control>
-				<control type="button" id="11029">
-					<visible>Skin.String(ThumbsUpRateValue,9)</visible>
-					<description>9 Button</description>
-					<posx>100</posx>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
-					<onclick>SetFocus(69611)</onclick>
-                    <animation effect="slide" start="-100,0" end="0,0" time="300">WindowOpen</animation>
-                    <animation effect="fade" time="300">WindowOpen</animation>
-                    <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69611)">Conditional</animation>
-                    <animation effect="fade" time="400">WindowClose</animation>
-				</control>
-				<control type="button" id="11030">
-					<visible>Skin.String(ThumbsUpRateValue,10)</visible>
-					<description>10 Button</description>
-					<posx>100</posx>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
-					<onclick>SetFocus(69611)</onclick>
-                    <animation effect="slide" start="-100,0" end="0,0" time="300">WindowOpen</animation>
-                    <animation effect="fade" time="300">WindowOpen</animation>
-                    <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69611)">Conditional</animation>
-                    <animation effect="fade" time="400">WindowClose</animation>
-				</control>
-
-				<!-- thumbs down ratings -->
-				<control type="button" id="11021">
-					<visible>Skin.String(ThumbsDownRateValue,1)</visible>
-					<description>1 Button</description>
-					<posx>230</posx>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
-					<onclick>SetFocus(69612)</onclick>
-                    <animation effect="fade" time="300">WindowOpen</animation>
-                    <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69612)">Conditional</animation>
-                    <animation effect="fade" time="400">WindowClose</animation>
-				</control>
-				<control type="button" id="11022">
-					<visible>Skin.String(ThumbsDownRateValue,2)</visible>
-					<description>2 Button</description>
-					<posx>230</posx>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
-					<onclick>SetFocus(69612)</onclick>
-                    <animation effect="fade" time="300">WindowOpen</animation>
-                    <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69612)">Conditional</animation>
-                    <animation effect="fade" time="400">WindowClose</animation>
-				</control>
-				<control type="button" id="11023">
-					<visible>Skin.String(ThumbsDownRateValue,3)</visible>
-					<description>3 Button</description>
-					<posx>230</posx>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
-					<onclick>SetFocus(69612)</onclick>
-                    <animation effect="fade" time="300">WindowOpen</animation>
-                    <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69612)">Conditional</animation>
-                    <animation effect="fade" time="400">WindowClose</animation>
-				</control>
-				<control type="button" id="11024">
-					<visible>Skin.String(ThumbsDownRateValue,4)</visible>
-					<description>4 Button</description>
-					<posx>230</posx>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
-					<onclick>SetFocus(69612)</onclick>
-                    <animation effect="fade" time="300">WindowOpen</animation>
-                    <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69612)">Conditional</animation>
-                    <animation effect="fade" time="400">WindowClose</animation>
-				</control>
-				<control type="button" id="11025">
-					<visible>Skin.String(ThumbsDownRateValue,5)</visible>
-					<description>5 Button</description>
-					<posx>230</posx>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
-					<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
-					<onclick>SetFocus(69612)</onclick>
-                    <animation effect="fade" time="300">WindowOpen</animation>
-                    <animation effect="fade" end="0" time="0" condition="Control.HasFocus(69612)">Conditional</animation>
-                    <animation effect="fade" time="400">WindowClose</animation>
-				</control>
+			<control type="label" id="10012">
+				<description>Title</description>
+				<posy>514</posy>
+				<label></label>
+				<align>center</align>
+				<font>font13</font>
+				<textcolor>FFFFFFFF</textcolor>
 			</control>
 		</control>
-    </controls>
+		
+		<control type="grouplist" id="11099">
+			<orientation>horizontal</orientation>
+			<onright>11099</onright>
+			<onleft>11099</onleft>
+			
+			<control type="button" id="11021">
+				<visible>Skin.String(ThumbsDownRateValue,1)</visible> 
+				<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowOpen</animation>
+				<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowClose</animation>
+				<animation effect="zoom" end="40,40" time="0" condition="Window.IsActive(movieinformation)">Conditional</animation>
+				<description>1 Button</description>
+				<posx>690</posx>
+				<posy>1665</posy>
+				<width>100</width>
+				<height>100</height>
+				<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+				<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
+				<animation effect="fade" end="0" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>  
+				<animation effect="slide" end="870,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+			</control>
+			<control type="button" id="11022">
+				<visible>Skin.String(ThumbsDownRateValue,2)</visible>
+				<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowOpen</animation>
+				<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowClose</animation>
+				<animation effect="zoom" end="40,40" time="0" condition="Window.IsActive(movieinformation)">Conditional</animation>
+				<description>2 Button</description>
+				<posx>690</posx>
+				<posy>1665</posy>
+				<width>100</width>
+				<height>100</height>
+				<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+				<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
+				<animation effect="fade" end="0" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>  
+				<animation effect="slide" end="870,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+			</control>
+			<control type="button" id="11023">
+				<visible>Skin.String(ThumbsDownRateValue,3)</visible>
+				<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowOpen</animation>
+				<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowClose</animation>
+				<animation effect="zoom" end="40,40" time="0" condition="Window.IsActive(movieinformation)">Conditional</animation>
+				<description>3 Button</description>
+				<posx>690</posx>
+				<posy>1665</posy>
+				<width>100</width>
+				<height>100</height>
+				<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+				<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
+				<animation effect="fade" end="0" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="slide" end="870,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+			</control>
+			<control type="button" id="11024">
+				<visible>Skin.String(ThumbsDownRateValue,4)</visible>
+				<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowOpen</animation>
+				<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowClose</animation>
+				<animation effect="zoom" end="40,40" time="0" condition="Window.IsActive(movieinformation)">Conditional</animation>
+				<description>4 Button</description>
+				<posx>690</posx>
+				<posy>1665</posy>
+				<width>100</width>
+				<height>100</height>
+				<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+				<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
+				<animation effect="fade" end="0" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>  
+				<animation effect="slide" end="870,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+			</control>
+			<control type="button" id="11025">
+				<visible>Skin.String(ThumbsDownRateValue,5)</visible>
+				<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowOpen</animation>
+				<animation effect="fade" time="300" condition="Window.IsActive(movieinformation)">WindowClose</animation>
+				<animation effect="zoom" end="40,40" time="0" condition="Window.IsActive(movieinformation)">Conditional</animation>
+				<description>5 Button</description>
+				<posx>690</posx>
+				<posy>1665</posy>              
+				<width>100</width>
+				<height>100</height>
+				<texturefocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+				<texturenofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
+				<animation effect="fade" end="0" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>  
+				<animation effect="slide" end="870,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+			</control>
+			
+			<control type="button" id="11026">
+				<visible>Skin.String(ThumbsUpRateValue,6)</visible>
+				<animation type="WindowOpen" condition="Window.IsActive(movieinformation)">
+					<effect type="slide" start="0,0" end="75,0" time="150" delay="0"/>
+					<effect type="fade" start="0" end="100" time="300" delay="0"/>
+				</animation>
+				<animation type="WindowClose" condition="Window.IsActive(movieinformation)">
+					<effect type="slide" start="75,0" end="0,0" time="150" delay="0"/>
+					<effect type="fade" start="100" end="0" time="300" delay="0"/>
+				</animation>
+				<description>6 Button</description>
+				<posx>-45</posx>
+				<posy>1664</posy>
+				<width>100</width>
+				<height>100</height>                        
+				<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+				<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
+				<animation effect="zoom" end="40,40" time="0" condition="Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="fade" end="0" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="slide" end="600,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+			</control>
+			<control type="button" id="11027">
+				<visible>Skin.String(ThumbsUpRateValue,7)</visible><animation effect="slide" end="75,0" time="0">WindowOpen</animation>
+				<animation type="WindowOpen" condition="Window.IsActive(movieinformation)">
+					<effect type="slide" start="0,0" end="75,0" time="150" delay="0"/>
+					<effect type="fade" start="0" end="100" time="300" delay="0"/>
+				</animation>
+				<animation type="WindowClose" condition="Window.IsActive(movieinformation)">
+					<effect type="slide" start="75,0" end="0,0" time="150" delay="0"/>
+					<effect type="fade" start="100" end="0" time="300" delay="0"/>
+				</animation>
+				<description>7 Button</description>
+				<posx>-45</posx>
+				<posy>1664</posy>
+				<width>100</width>
+				<height>100</height>                        
+				<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+				<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
+				<animation effect="zoom" end="40,40" time="0" condition="Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="fade" end="0" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="slide" end="600,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+			</control>
+			<control type="button" id="11028">
+				<visible>Skin.String(ThumbsUpRateValue,8)</visible>
+				<animation type="WindowOpen" condition="Window.IsActive(movieinformation)">
+					<effect type="slide" start="0,0" end="75,0" time="150" delay="0"/>
+					<effect type="fade" start="0" end="100" time="300" delay="0"/>
+				</animation>
+				<animation type="WindowClose" condition="Window.IsActive(movieinformation)">
+					<effect type="slide" start="75,0" end="0,0" time="150" delay="0"/>
+					<effect type="fade" start="100" end="0" time="300" delay="0"/>
+				</animation>
+				<description>8 Button</description>
+				<posx>-45</posx>
+				<posy>1664</posy>
+				<width>100</width>
+				<height>100</height>                        
+				<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+				<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
+				<animation effect="zoom" end="40,40" time="0" condition="Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="fade" end="0" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="slide" end="600,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+			</control>
+			<control type="button" id="11029">
+				<visible>Skin.String(ThumbsUpRateValue,9)</visible>
+				<animation type="WindowOpen" condition="Window.IsActive(movieinformation)">
+					<effect type="slide" start="0,0" end="75,0" time="150" delay="0"/>
+					<effect type="fade" start="0" end="100" time="300" delay="0"/>
+				</animation>
+				<animation type="WindowClose" condition="Window.IsActive(movieinformation)">
+					<effect type="slide" start="75,0" end="0,0" time="150" delay="0"/>
+					<effect type="fade" start="100" end="0" time="300" delay="0"/>
+				</animation>
+				<description>9 Button</description>
+				<posx>-45</posx>
+				<posy>1664</posy>
+				<width>100</width>
+				<height>100</height>                        
+				<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+				<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
+				<animation effect="zoom" end="40,40" time="0" condition="Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="fade" end="0" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="slide" end="600,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+			</control>
+			<control type="button" id="11030">
+				<visible>Skin.String(ThumbsUpRateValue,10)</visible>
+				<animation type="WindowOpen" condition="Window.IsActive(movieinformation)">
+					<effect type="slide" start="0,0" end="75,0" time="150" delay="0"/>
+					<effect type="fade" start="0" end="100" time="300" delay="0"/>
+				</animation>
+				<animation type="WindowClose" condition="Window.IsActive(movieinformation)">
+					<effect type="slide" start="75,0" end="0,0" time="150" delay="0"/>
+					<effect type="fade" start="100" end="0" time="300" delay="0"/>
+				</animation>
+				<description>10 Button</description>
+				<posx>-45</posx>
+				<posy>1664</posy>
+				<width>100</width>
+				<height>100</height>                        
+				<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturefocus>
+				<texturenofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/button/thumb_up_NF.png</texturenofocus>
+				<animation effect="zoom" end="40,40" time="0" condition="Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="fade" end="0" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+				<animation effect="slide" end="600,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
+			</control>
+		</control>
+	</controls>
 </window>

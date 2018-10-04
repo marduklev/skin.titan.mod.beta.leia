@@ -6,10 +6,10 @@
 			<visible>!Skin.HasSetting(UseNetflixInfoDialog)</visible>
 			<visible>![Skin.HasSetting(UseExtendedInfoDialog) + System.HasAddon(script.extendedinfo)]</visible>
             <include>GlobalBackground</include>
-            <include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>				
+            <include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>
 			<control type="group">
 			<include>animation_window_open_close</include>
-																
+				
 				<!-- Background Panel-->
 				<control type="image">
 					<posx>40</posx>
@@ -18,7 +18,7 @@
 					<height>86%</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
                     <visible>!Skin.HasSetting(DialogVideoInfoHidePanel)</visible>
-					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>					
+					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 				</control>
                 
                 <!-- clearlogo at top left-->
@@ -42,7 +42,7 @@
                      <texture background="true">$INFO[ListItem.Art(clearart)]</texture>
                      <aspectratio align="left" aligny="top">keep</aspectratio>
 					 <visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
-                 </control>			
+                 </control>
 				
 				<!-- MOVIE CAst, bit small, but ... -->
 				<control type="panel" id="353">
@@ -55,10 +55,10 @@
 					<orientation>horizontal</orientation>
 					<ondown>8000</ondown>
 					<onup>8000</onup>
-					<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible>			
+					<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible>
 					<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
-					<visible>!Player.HasVideo</visible>					
-                    <itemlayout height="178" width="120"> 			
+					<visible>!Player.HasVideo</visible>
+                    <itemlayout height="178" width="120">
 							<control type="image">
 								<include>PosterThumbBG</include>
 							</control>
@@ -75,7 +75,7 @@
 								<left>0</left>
 								<width>120</width>
 								<height>40</height>
-								<align>center</align>						
+								<align>center</align>
                         </control>
 						<control type="label">
 								<font>reg14</font>
@@ -88,8 +88,8 @@
 								<align>center</align>
 								<textoffsetx>0</textoffsetx>
                         </control>
-					</itemlayout>					
-                    <focusedlayout height="180" width="122">                        
+					</itemlayout>
+                    <focusedlayout height="180" width="122">
 							<control type="image">
 								<include>PosterThumbFO</include>
 							</control>
@@ -115,7 +115,7 @@
                 </control>
 				
 				<!-- CAST TV SHOW-->
-				<control type="panel" id="353"> <!-- new id [351 / kodi 50] ? -->
+				<control type="panel" id="353">
 					<top>620</top>
 					<left>700</left>
 					<height>400</height>
@@ -126,12 +126,12 @@
 					<ondown>8000</ondown>
 					<onup>8000</onup>
 					<visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)</visible>
-					<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>									
+					<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 					<visible>!Player.HasVideo</visible>
-                    <itemlayout height="243" width="158">																				
+                    <itemlayout height="243" width="158">
 						<control type="image">
 							<include>PosterThumbBG</include>
-						</control>							  
+						</control>
 						<control type="image">
 							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
 							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
@@ -144,7 +144,7 @@
 							<top>220</top>
 							<width>158</width>
 							<height>50</height>
-							<align>center</align>	
+							<align>center</align>
 						</control>
 						<control type="label">
 							<font>reg18</font>
@@ -156,8 +156,8 @@
 							<height>50</height>
 							<align>center</align>
 							<textoffsetx>0</textoffsetx>
-						</control>			  
-					</itemlayout>					
+						</control>
+					</itemlayout>
                     <focusedlayout height="257" width="173">
 						<control type="image">
 							<include>PosterThumbFO</include>
@@ -181,8 +181,8 @@
 						</control>
 					</focusedlayout>
 					<content>$VAR[castInfo]</content>
-                </control>			
-								
+                </control>
+				
                 <!-- Header (if no logo)-->
                 <control type="group">
                     <visible>String.IsEmpty(Control.GetLabel(887767))</visible>
@@ -209,7 +209,7 @@
                     </control>
                 </control>
 				<!--studiologo_image -->
-                <control type="image">                    
+                <control type="image">
                     <include>studiologo_image</include>
 					<right>60</right>
                     <width>430</width>
@@ -234,7 +234,7 @@
                 </control>
 				
 				<control type="group">
-					<!--Info Stuff-->									
+					<!--Info Stuff-->
 					<control type="scrollbar" id="60">
 						<left>0</left>
 						<width>100%</width>
@@ -244,29 +244,29 @@
 						<onleft>60</onleft>
 						<onright>60</onright>
 						<orientation>horizontal</orientation>
-						<animation effect="fade" start="100" end="0" time="10" condition="true">Conditional</animation>						
+						<animation effect="fade" start="100" end="0" time="10" condition="true">Conditional</animation>
 					</control>
-
-					<!--Butons 8000-->			
+					
+					<!--Butons 8000-->
 					<control type="grouplist" id="8000">
 						<posx>60</posx>
 						<bottom>5</bottom>
 						<width>1800</width>
 						<height>60</height>
-						<itemgap>10</itemgap>					
+						<itemgap>10</itemgap>
 						<onup condition="String.IsEqual(Window.Property(AdditionalInfo),cast)">351</onup>
-                        <onup condition="String.IsEqual(Window.Property(AdditionalInfo),similar)">352</onup>						
+                        <onup condition="String.IsEqual(Window.Property(AdditionalInfo),similar)">352</onup>
 						<onup condition="!String.IsEqual(Window.Property(AdditionalInfo),cast) | String.IsEqual(Window.Property(AdditionalInfo),similar)">353</onup>
-                        <ondown condition="!String.IsEqual(Window.Property(AdditionalInfo),cast) | String.IsEqual(Window.Property(AdditionalInfo),similar)">353</ondown> 										
+                        <ondown condition="!String.IsEqual(Window.Property(AdditionalInfo),cast) | String.IsEqual(Window.Property(AdditionalInfo),similar)">353</ondown>
 						<onleft>8000</onleft>
-						<onright>8000</onright>							
+						<onright>8000</onright>
 						<pagecontrol>60</pagecontrol>
 						<orientation>horizontal</orientation>
 						<visible>!Skin.HasSetting(UseNetflixInfoDialog)</visible>	
-						<visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>						
+						<visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
                         <include condition="Skin.HasSetting(EnableTouchSupport)">back_button</include>
                         <include condition="Skin.HasSetting(EnableTouchSupport)">home_button</include>
-                        						
+						
 						<control type="button" id="8">
 							<!--Play-->
 							<label>208</label>
@@ -278,7 +278,7 @@
                             <visible>Skin.HasSetting(videoinfo_button_play)</visible>
 							<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 						</control>
-
+						
 						<control type="button" id="9">
 							<!--Resume-->
 							<label>13404</label>
@@ -305,9 +305,18 @@
                             <onclick condition="Player.HasVideo">FullScreen</onclick>
 							<visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
 							<visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie)</visible>
-							<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>							
+							<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 						</control>
-						
+						<control type="button" id="204">
+							<!-- stop trailer -->
+							<label>Stop</label>
+							<width>285</width>
+							<height>40</height>
+							<align>center</align>
+							<textoffsetx>0</textoffsetx>
+							<onclick>Stop</onclick>
+                            <visible>Player.HasVideo</visible>
+						</control>
 						<control type="button" id="114">
 							<!--Cast Button-->
 							<label>206</label>
@@ -428,7 +437,7 @@
 							<label>$INFO[System.AddonTitle(script.videoextras)]</label>
 							<onclick>XBMC.RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
 							<visible>System.HasAddon(script.videoextras) + String.IsEmpty(Window(movieinformation).Property(HideVideoExtrasButton))</visible>
-                            <visible>Skin.HasSetting(videoinfo_button_videoextras)</visible>							
+                            <visible>Skin.HasSetting(videoinfo_button_videoextras)</visible>
 						</control>
 												
 						<control type="button" id="101">
@@ -526,9 +535,9 @@
                         <aspectratio>keep</aspectratio>
                         <texture flipx="true">dialogs/videoinfo/arrow.png</texture>
                         <visible>!Control.HasFocus(51)</visible>
-                        <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>						<!-- default is white ,  -->
+                        <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse> <!-- default is white ,  -->
                         <visible>Container(8000).HasPrevious</visible>
-                    </control>					
+                    </control>
 					
 					<!-- seperate  div line 1 -->
 					<control type="image">
@@ -590,12 +599,11 @@
 						<visible>!Player.HasVideo</visible>
 					</control>
 					
-					<!--Info Group -->				
+					<!--Info Group -->
 					<control type="group">
 						<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 						<visible>!Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml)</visible>
 						<include>animation_window_open_close</include>
-						
 						
 						<control type="grouplist">
 							<posx>65</posx>
@@ -616,8 +624,7 @@
 								<font>Bold24</font>
 							</control>
 							
-							
-							<control type="group">							
+							<control type="group">
 								<!--Premiered or Year -->
 								<width>950</width>
 								<height>40</height>
@@ -776,7 +783,7 @@
 							</control>
 							
 							<!-- info right on trailer playback -->
-							<control type="group">															
+							<control type="group">
 								<visible>Player.HasVideo</visible>
 								<!-- premiered -->
 								<control type="image">
@@ -829,15 +836,15 @@
 									<posx>1630</posx>
 									<posy>150</posy>
 									<include>mediaflags_large_layout</include>
-									<texture fallback="flags/flags_large/mpaa/NR.png">$VAR[mediaflags_large_rating]</texture>			<!-- relook, $VAR[mediaflags_large_rating, maybe no fallback ?? -->
+									<texture fallback="flags/flags_large/mpaa/NR.png">$VAR[mediaflags_large_rating]</texture> <!-- relook, $VAR[mediaflags_large_rating, maybe no fallback ?? -->
 									<visible>!String.IsEmpty(ListItem.MPAA)</visible>
-								</control>								
+								</control>
 								<!-- TMDB -->
 								<control type="group">
 									<posx>1660</posx>
 									<posy>260</posy>
 									<height>70</height>
-									<width>35</width>								
+									<width>35</width>
 									<include>TMdbVD</include>
 									<visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB))</visible>
 								</control>
@@ -846,16 +853,16 @@
 									<posx>1650</posx>
 									<posy>260</posy>
 									<height>70</height>
-									<width>110</width>								
+									<width>110</width>
 									<include>TVdbVD</include>
 									<visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TVDB))</visible>
-								</control>									
+								</control>
 								<!-- imdb -->
 								<control type="group">
 									<posx>1650</posx>
 									<posy>320</posy>
 									<height>70</height>
-									<width>35</width>								
+									<width>35</width>
 									<include>ImdbVD</include>
 									<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB))</visible>
 								</control>
@@ -864,7 +871,7 @@
 									<posx>1660</posx>
 									<posy>385</posy>
 									<height>70</height>
-									<width>35</width>								
+									<width>35</width>
 									<include>ImdbTop250VD</include>
 									<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))</visible>
 								</control>
@@ -873,7 +880,7 @@
 									<posx>1645</posx>
 									<posy>445</posy>
 									<height>70</height>
-									<width>35</width>									
+									<width>35</width>
 									<include>TomatoMeterVD</include>
 									<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>
 								</control>
@@ -885,10 +892,10 @@
 									<width>35</width>
 									<include>MetaCriticRatingVD</include>
 									<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
-								</control>															
-							</control>						
+								</control>
+							</control>
 							<!--Special INFO -->
-                            <control type="group">								
+                            <control type="group">
 								<width>1150</width>
 								<height>40</height>	
 								<!-- Nomination image Movie -->
@@ -915,7 +922,7 @@
 									<scroll>true</scroll>
 									<orientation>horizontal</orientation>
 									<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus)) + String.IsEqual(ListItem.DBTYPE,movie) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards)) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
-								</control>															
+								</control>
 								<!-- NEW  Nomination image TV -->
 								<control type="image">
 									<posx>640</posx>
@@ -940,8 +947,8 @@
 									<scroll>true</scroll>
 									<orientation>horizontal</orientation>
 									<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus)) + !String.IsEqual(ListItem.DBTYPE,tvshow) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards)) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
-								</control>								
-                            </control>                                                                               
+								</control>
+                            </control>
 						</control>
                         
                         <!-- Poster image -->
@@ -962,7 +969,7 @@
                                 <animation effect="rotate" end="-360" center="auto" time="6000" delay="0" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 								-->
                                 <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster)) | !String.IsEmpty(ListItem.Property(TVShowThumb))</visible>
-                            </control>													
+                            </control>
                             <control type="image">
                                 <!-- poster -->
                                 <posx>60</posx>
@@ -982,7 +989,7 @@
 							<!-- rating STARS -->
 							<control type="image">
 								<left>125</left>
-								<top>410</top>				
+								<top>410</top>
 								<width>180</width>
 								<height>130</height>
 								<aspectratio align="left" aligny="center">keep</aspectratio>
@@ -1009,7 +1016,7 @@
 								<visible>String.IsEqual(ListItem.DBType,episode) + !Skin.String(mediaflagsstyle,disabled)</visible>
 								<animation effect="zoom" alignx="true" end="120,120" time="0" condition="true">Conditional</animation>
 							</control>
-												
+
 							<!-- audio language flags -->
 							<control type="grouplist">
 								<visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo)</visible>																							
@@ -1018,7 +1025,7 @@
 								<top>480</top>
 								<itemgap>5</itemgap>
 								<orientation>horizontal</orientation>
-								<align>left</align>						
+								<align>left</align>
 								<!-- test label to test skinhelper
 								<control type="label">
 									<height>30</height>
@@ -1027,15 +1034,15 @@
 									<align>left</align>
 									<label>$INFO[Window(home).Property(SkinHelper.ListItem.AudioStreams.0.Language)]$INFO[Window(home).Property(SkinHelper.ListItem.Languages.Count)]</label>
 									<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-									<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>									
-								</control>-->
+									<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+								</control> -->
 								<control type="image">
 									<visible>
 									!String.IsEmpty(ListItem.AudioLanguage) | 
 									!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | 
 									!String.IsEmpty(ListItem.Property(AudioLanguage.2)) | 
-									!String.IsEmpty(ListItem.Property(AudioLanguage.3))			<!-- $INFO[Window(home).Property(SkinHelper.ListItem.AudioStreams.[num start0])] $INFO[Window(home).Property(SkinHelper.ListItem.AudioStreams.[num start0].Language)]-->				
-									</visible>									
+									!String.IsEmpty(ListItem.Property(AudioLanguage.3))
+									</visible>
 									<width>50</width>
 									<height>30</height>
 									<aspectratio>keep</aspectratio>
@@ -1048,7 +1055,7 @@
 									<!-- check fallback -->
 									<texture fallback="">$INFO[ListItem.Property(AudioLanguage.1),resource://resource.images.languageflags.colour/,.png]</texture>
 									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.AudioLanguage)</visible>
-								</control>							
+								</control>
 								<control type="image">
 									<width>40</width>
 									<height>35</height>
@@ -1067,7 +1074,7 @@
 							</control>
 							<!-- subtitle language flags , need further check, maybe leia bug most are empty, but have surely an adio stream language tag -->
 							<control type="grouplist">
-								<visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo)</visible>						
+								<visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo)</visible>
 								<posx>390</posx>
 								<height>45</height>
 								<top>530</top>
@@ -1087,7 +1094,7 @@
 									!String.IsEmpty(ListItem.Property(SubtitleLanguage.2)) | 
 									!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))	<!-- $INFO[Window(home).Property(SkinHelper.ListItem.Subtitles.[num start0])] -->
 									</visible>
-								</control>							
+								</control>
 								<control type="image">
 									<width>40</width>
 									<height>35</height>
@@ -1110,15 +1117,15 @@
 									<texture>$INFO[ListItem.Property(SubtitleLanguage.3),resource://resource.images.languageflags.colour/,.png]</texture>
 									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
 								</control>
-							</control>						
+							</control>
 							<!-- RATINGS INFO  -->
                             <control type="grouplist">
                                 <usecontrolcoords>true</usecontrolcoords>
-								<orientation>horizontal</orientation>								
+								<orientation>horizontal</orientation>
 								<height>70</height>
                                 <width>auto</width> <!--check-->
                                 <top>650</top>
-                                <left>695</left>							
+                                <left>695</left>
                                 <include>AltRatingMovieInfo</include>
 								<animation effect="slide" end="370,270" center="auto" time="0" condition="String.IsEqual(ListItem.DBType,tvshow) + !Skin.String(mediaflagsstyle,disabled)">Conditional</animation>
 								<animation effect="slide" end="150,265" center="auto" time="0" condition="Skin.String(mediaflagsstyle,disabled)">Conditional</animation>
@@ -1133,7 +1140,7 @@
 								<left>60</left>
 								<height>1</height>
 								<texture>colors/color_white.png</texture>
-                                <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>	<!-- $INFO[Skin.String(ViewDetailsTextColor)] , or just white ?-->
+                                <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse> <!-- $INFO[Skin.String(ViewDetailsTextColor)] , or just white ?-->
 								<visible>!Player.HasVideo</visible>
 							</control>
 							
@@ -1144,7 +1151,7 @@
 								<left>60</left>
 								<height>1</height>
 								<texture>colors/color_white.png</texture>
-                                <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>	<!-- $INFO[Skin.String(ViewDetailsTextColor)] , or just white ?-->
+                                <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse> <!-- $INFO[Skin.String(ViewDetailsTextColor)] , or just white ?-->
 								<visible>Player.HasVideo</visible>
 							</control>
 							
@@ -1164,8 +1171,8 @@
 								<visible>!Player.HasVideo</visible>
                             </control>
 							
-							<!-- MOVIE budget / revenue / Box Office etc (wished eg $119,119,282 	(12.7% of total ))-->
-                            <control type="label">			 <!-- maybe not needed, or relook skinhelper, visible condition -->
+							<!-- MOVIE budget / revenue / Box Office etc (wished eg $119,119,282 (12.7% of total ))-->
+                            <control type="label"> <!-- maybe not needed, or relook skinhelper, visible condition -->
                                 <width>80%</width>
 								<height>90</height>
 								<top>55</top>
@@ -1209,7 +1216,7 @@
                                 <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                                 <scroll>false</scroll>
                                 <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.airdaytime.label)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.NextEpisode.Label))</visible> <!-- !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.NextEpisode.Label)) -->
-                            </control>				
+                            </control>
                         </control>
                         
 						<!-- trailer window -->
@@ -1217,16 +1224,16 @@
 							<left>700</left>
 							<top>455</top>
 							<width>960</width>
-                            <height>540</height>			<!-- (720 * 0.75) -->
-							<visible>Player.HasVideo</visible>						
+                            <height>540</height>
+							<visible>Player.HasVideo</visible>
 							<control type="image">
 								<aligny>bottom</aligny>
 								<texture border="15">diffuse/bgpanel.png</texture>
 								<colordiffuse>ff000000</colordiffuse>
-							</control>						
-							<control type="videowindow">								
 							</control>
-						</control>					
+							<control type="videowindow">
+							</control>
+						</control>
                     </control>
 					
                     <!-- Large Plot , not needed, but keep-->
@@ -1243,7 +1250,7 @@
                         <font>Bold42</font>
                         <visible>String.IsEqual(Window.Property(AdditionalInfo),plot)</visible>
                     </control>
-                    				
+
                     <!-- normal cast details as hidden list -->
                     <control type="list" id="50">
                         <posx>1</posx>
@@ -1255,7 +1262,7 @@
                         <onup>8000</onup>
                         <onleft>8000</onleft>
                         <onright>8000</onright>
-                        <ondown>8000</ondown>						
+                        <ondown>8000</ondown>
                         <visible allowhiddenfocus="true">false</visible>
                     </control>
                     <!-- big cast list -->
@@ -1268,7 +1275,7 @@
                         <ondown>351</ondown> 
 						<onleft>351</onleft>
 						<onright>351</onright>
-                        <onback>8000</onback>                       
+                        <onback>8000</onback>
                         <scrolltime>200</scrolltime>
                         <orientation>vertical</orientation>
                         <focusposition>1</focusposition>
@@ -1292,7 +1299,7 @@
                             </control>
 							<control type="image">
 								<texture>diffuse/bgpanel.png</texture>
-								<include>PosterThumbBG</include>		<!--<include>PosterThumbBG</include> or  <colordiffuse>$INFO[Skin.String(ButtonColor)]</colordiffuse>-->
+								<include>PosterThumbBG</include> <!-- <include>PosterThumbBG</include> or  <colordiffuse>$INFO[Skin.String(ButtonColor)]</colordiffuse> -->
 								<visible>true</visible>
 								<top>330</top>
 								<left>0</left>
@@ -1310,8 +1317,8 @@
 								<height>50</height>
 								<align>center</align>
 								<textoffsetx>0</textoffsetx>
-							</control>	
-                        </itemlayout>						
+							</control>
+						</itemlayout>
                         <focusedlayout height="392" width="264">
                             <control type="group">
                                 <width>260</width>
@@ -1338,7 +1345,7 @@
 								<scrollspeed>20</scrollspeed>
 								<textoffsetx>0</textoffsetx>
                                 <onfocus>SetProperty(actordbid,$INFO[ListItem.Property(DBID)],home)</onfocus>
-                            </control>																					
+                            </control>
                         </focusedlayout>
                         <content>$VAR[castInfo]</content>
                     </control>
@@ -1368,12 +1375,12 @@
                         <posx>80</posx>
                         <posy>180</posy>
                         <width>90%</width>
-                        <height>35%</height>						
+                        <height>35%</height>
 						<onup>352</onup>
 						<onleft>352</onleft>
 						<onright>352</onright>
                         <ondown>8000</ondown>
-						<onback>8000</onback>					
+						<onback>8000</onback>
                         <scrolltime>200</scrolltime>
                         <orientation>horizontal</orientation>
                         <focusposition>1</focusposition>
@@ -1407,28 +1414,28 @@
                                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                             </control>
                         </itemlayout>
-                        <focusedlayout height="387" width="240">						 
+                        <focusedlayout height="387" width="240">
                             <control type="group">
                                 <width>240</width>
                                 <height>362</height>
-                                <include>PosterPanelLayoutFocus</include>								
+                                <include>PosterPanelLayoutFocus</include>
 								<animation effect="slide" end="-3,25" center="auto" time="50">focus</animation>
                             </control>
 							<control type="image">
                                 <bottom>2</bottom>
                                 <height>50</height>
 								<width>240</width>
-                                <bordersize>0</bordersize>								
-                                <texture diffuse="diffuse/poster.png">colors/color_white.png</texture>                               
+                                <bordersize>0</bordersize>
+                                <texture diffuse="diffuse/poster.png">colors/color_white.png</texture>
 								<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 								<animation effect="slide" end="-3,25" center="auto" time="50">focus</animation>
-                            </control>								
+                            </control>
 							<control type="label">
                                 <left>10</left>
                                 <bottom>2</bottom>
                                 <width>230</width>
                                 <height>50</height>
-                                <align>left</align>								
+                                <align>left</align>
                                 <label>$INFO[Container(352).ListItem.Title]</label>
                                 <font>Reg24</font>
                                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -1436,7 +1443,7 @@
                             </control>
                         </focusedlayout>
                         <content>$VAR[similarInfo]</content>
-                    </control>                       
+                    </control>
                     <!-- similar info details -->
                     <control type="group">
 						<include>animation_window_open_close</include>
@@ -1445,7 +1452,7 @@
                             <left>80</left>
                             <posy>580</posy>
                             <width>90%</width>
-                            <height>38%</height>							                          
+                            <height>38%</height>
                              <!--Panel-->
                             <control type="image">
                                 <bottom>-5</bottom>
@@ -1458,7 +1465,7 @@
 							<control type="image">
                                 <left>5</left>
                                 <top>5</top>
-                                <height>97%</height>                                
+                                <height>97%</height>
                                 <align>left</align>
 								<aspectratio align="left" aligny="top">keep</aspectratio>
                                 <texture background="true" diffuse="diffuse/poster.png">$INFO[Container(352).ListItem.Art(fanart)]</texture>
@@ -1545,15 +1552,15 @@
                     <texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
                     <animation effect="fade" start="100" end="70" time="0">Visible</animation>
                 </control>
-                <!--studiologo_image -->															  
-                <control type="image">                    
+                <!--studiologo_image -->
+                <control type="image">
                     <include>studiologo_image</include>
 					<right>40</right>
 					<width>450</width>
 					<height>160</height>
 					<bottom>20</bottom>
                     <aspectratio aligny="center" align="right">keep</aspectratio>
-					<visible>Player.HasVideo</visible>																									  
+					<visible>Player.HasVideo</visible>
                 </control>
                 <!-- additional info subtitle -->
 				<control type="label">
@@ -1767,8 +1774,8 @@
 							!String.IsEmpty(ListItem.AudioLanguage) | 
 							!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | 
 							!String.IsEmpty(ListItem.Property(AudioLanguage.2)) | 
-							!String.IsEmpty(ListItem.Property(AudioLanguage.3))			
-							</visible>	
+							!String.IsEmpty(ListItem.Property(AudioLanguage.3))
+							</visible>
                             <control type="image">
                                 <posx>10</posx>
                                 <posy>15</posy>
@@ -1776,7 +1783,7 @@
                                 <height>28</height>
                                 <colordiffuse>$INFO[Skin.String(NetflixSecondaryTextColor)]</colordiffuse>
                                 <texture>flags/audio.png</texture>
-                            </control>						
+                            </control>
                             <control type="label">
                                 <posx>60</posx>
                                 <posy>0</posy>
@@ -1796,7 +1803,7 @@
 								<!-- check fallback -->
 								<texture fallback="">$INFO[ListItem.Property(AudioLanguage.1),resource://resource.images.languageflags.colour/,.png]</texture>
 								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.AudioLanguage)</visible>
-							</control>							
+							</control>
 							<control type="image">
 								<posx>300</posx>
 								<posy>14</posy>
@@ -1824,7 +1831,7 @@
 							!String.IsEmpty(ListItem.SubtitleLanguage) | 
 							!String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) | 
 							!String.IsEmpty(ListItem.Property(SubtitleLanguage.2)) | 
-							!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))			
+							!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))
 							</visible>
                             <control type="image">
                                 <posx>4</posx>
@@ -1853,7 +1860,7 @@
 								<!-- check fallback -->
 								<texture fallback="">$INFO[ListItem.Property(SubtitleLanguage.1),resource://resource.images.languageflags.colour/,.png]</texture>
 								<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) | !String.IsEmpty(ListItem.SubtitleLanguage)</visible>
-							</control>							
+							</control>
 							<control type="image">
 								<posx>300</posx>
 								<posy>15</posy>
@@ -1871,7 +1878,7 @@
 								<aspectratio>stretch</aspectratio>
 								<texture>$INFO[ListItem.Property(SubtitleLanguage.3),resource://resource.images.languageflags.colour/,.png]</texture>
 								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
-							</control>	
+							</control>
                         </control>
                         <!-- awards -->
                         <control type="group">
@@ -2154,8 +2161,8 @@
 
 							<!-- Trailer-->
                             <control type="radiobutton" id="103">
-                                <visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
-								<visible>[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>								
+								<visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
+								<visible>[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
 								<width>550</width>
                                 <height>65</height>
                                 <aligny>center</aligny>
@@ -2171,7 +2178,7 @@
 								<onclick condition="!Player.HasVideo + [String.IsEmpty(ListItem.Trailer) + String.IsEqual(ListItem.DBTYPE,movie)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>								
 								<onclick condition="Player.HasVideo">FullScreen</onclick>
 								<onclick condition="Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
-                                <onclick condition="Player.HasVideo">SetProperty(TrailerPlaying,fullscreen,home)</onclick>                                
+                                <onclick condition="Player.HasVideo">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
                                 <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonfocus>
@@ -2182,10 +2189,31 @@
                                 <radioposy>0</radioposy>
                                 <radiowidth>42</radiowidth>
                                 <radioheight>37</radioheight>
-                               <!-- <onclick>AlarmClock(focus_delay,SetFocus(96),00:00,silent)</onclick> -->
                             </control>
-
-                            <!-- Rate this title -->
+							<control type="radiobutton" id="204">
+								<label>Stop</label>
+								<visible>Player.HasVideo</visible>
+								<width>550</width>
+								<height>65</height>
+								<aligny>center</aligny>
+								<align>left</align>
+								<textoffsetx>50</textoffsetx>
+								<textoffsety>8</textoffsety>
+								<font>Reg30</font>
+								<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+								<focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
+								<onclick>Stop</onclick>
+								<texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
+								<texturenofocus></texturenofocus>
+								<textureradioonfocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioofffocus>
+								<textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonnofocus>
+								<textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradiooffnofocus>
+								<radioposx>5</radioposx>
+								<radioposy>0</radioposy>
+								<radiowidth>42</radiowidth>
+							</control>
+							<!-- Rate this title -->
                             <control type="radiobutton" id="99999">
                                 <!-- localize -->
                                 <visible>String.IsEmpty(ListItem.UserRating)</visible>
@@ -2232,7 +2260,7 @@
                                 <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
                                 <label>Change rating</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>                               
+                                <texturenofocus></texturenofocus>
 								<include condition="Integer.IsLessOrEqual(ListItem.UserRating,5)">ChangeRatingThumbsDown</include>
                                 <include condition="Integer.IsGreaterOrEqual(ListItem.UserRating,5)">ChangeRatingThumbsUp</include>
                                 <radiowidth>24</radiowidth>

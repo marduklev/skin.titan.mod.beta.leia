@@ -660,7 +660,7 @@
 	<value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
 	<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 	<value condition="!String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
-	<value>$INFO[Player.Art(thumb)]</value>
+	<value>$INFO[Player.Icon]</value>
    </variable>
 	 
 	 <variable name="OSDInfoImage">
@@ -669,7 +669,7 @@
         <value condition="!String.IsEmpty(Player.Art(tvshow.clearart))">$INFO[Player.Art(tvshow.clearart)]</value>
 		<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
-        <value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value>
 		<value>DefaultVideo.png</value>
 	 </variable>
 	 

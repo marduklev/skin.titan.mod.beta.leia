@@ -204,18 +204,16 @@
 				<onup>50</onup>
 				<width>1200</width>
 				
-                <control type="button" id="11111">
-                    <!--Close-->
-                    <width>290</width>
+				<control type="button" id="10">
+                  <!--watch dependencies button-->
+                    <width>300</width>
                     <height>80</height>
                     <align>center</align>
-                    <label>222</label>
+                    <label>$LOCALIZE[39024]</label>
 					<include>DialogButtonOther</include>
-                    <onclick>Close</onclick>
-                    <visible>Control.IsEnabled(11111)</visible>
                 </control>
-                
-                <control type="togglebutton" id="22111">
+				
+				<control type="togglebutton" id="22111">
                     <!--screenshots-->
                     <width>300</width>
                     <height>80</height>
@@ -299,6 +297,17 @@
                     <label>21340</label>
 					<include>DialogButtonOther</include>
                     <visible>Control.IsEnabled(13)</visible>
+                </control>
+				
+				<control type="button" id="11111">
+                    <!--Close-->
+                    <width>290</width>
+                    <height>80</height>
+                    <align>center</align>
+                    <label>222</label>
+					<include>DialogButtonOther</include>
+                    <onclick>Close</onclick>
+                    <visible>Control.IsEnabled(11111)</visible>
                 </control>
                 
             </control>

@@ -367,7 +367,7 @@
 					<width>400</width>
 					<height></height>
 					<fadetime>200</fadetime>
-					<texture background="true">$INFO[VideoPlayer.Cover]</texture>
+					<texture background="true">$VAR[OSDImagePVR_Streams]</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<visible>Player.HasVideo + String.IsEmpty(Player.Art(tvshow.poster)) + String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))</visible>
 				</control>
@@ -396,11 +396,11 @@
 					<aspectratio align="right" aligny="bottom">keep</aspectratio>
 					<texture background="true">$VAR[VideoPlayerClearArt]</texture>
 					<visible>Skin.HasSetting(OSDShowClearArt)</visible>
-					<!-- big symbols-- on + playback | big symbols off-->
+					<!-- big symbols - on + playback | big symbols off -->
 					<animation effect="slide" start="0" end="700,235" time="0" condition="Player.Playing + Skin.HasSetting(OSDLargeSeekingLabel) | !Skin.HasSetting(OSDLargeSeekingLabel)">Conditional</animation>
 				</control>
 				
-				<!--   header , no need to let in in Panel group below ? <!-- UPDATE 18.3 cleanup, check var -->
+				<!--   header , no need to let in in Panel group below ? - UPDATE 18.3 cleanup, check var -->
 				<control type="textbox">
 					<posx>480</posx>
 					<posy>70</posy>
@@ -794,8 +794,8 @@
 				<width>380</width>
 				<height></height>
 				<fadetime>200</fadetime>
-				<texture background="true">$INFO[VideoPlayer.Cover]</texture>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<texture background="true">$VAR[OSDImagePVR_Streams]</texture>
+				<aspectratio align="center" aligny="top">keep</aspectratio>
 				<visible>Player.HasVideo + String.IsEmpty(Player.Art(tvshow.poster)) + String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))</visible>
 			</control>
 				
@@ -808,9 +808,9 @@
                 <aspectratio align="right" aligny="bottom">keep</aspectratio>
                 <texture background="true">$VAR[VideoPlayerClearArt]</texture>
                 <visible>Skin.HasSetting(OSDShowClearArt)</visible>
-				<!-- big symbols-- on-->
+				<!-- big symbols- on-->
 				<animation effect="slide" start="0" end="700,225" time="0" condition="Player.Playing + Skin.HasSetting(OSDLargeSeekingLabel)">Conditional</animation>
-				<!-- big symbols-- off-->
+				<!-- big symbols- off-->
 				<animation effect="slide" start="0" end="700,245" time="0" condition="!Skin.HasSetting(OSDLargeSeekingLabel)">Conditional</animation>
 			</control>
 			
@@ -3220,10 +3220,13 @@
         <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
         <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))">$INFO[Window(Home).Property(SkinHelper.Player.Art.Poster)]</value>
 		<value condition="!String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
-		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value>
 		<value>DefaultVideo.png</value>
 	 </variable>
-
+	<variable name="OSDImagePVR_Streams">
+        <value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value>
+		<value>$INFO[VideoPlayer.Cover]</value>
+	</variable>
 	<variable name="OSDLabel1">
         <value condition="Player.HasVideo + String.IsEqual(Window(Home).Property(subtitlemenu), show)">$LOCALIZE[287]</value>
         <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumberLabel,, - ]$INFO[VideoPlayer.ChannelName]</value>

@@ -657,7 +657,7 @@
             Control.IsVisible(504) | Control.IsVisible(58) | Control.IsVisible(508) | Control.IsVisible(59) | Control.IsVisible(522) | 
             Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(51) | Control.IsVisible(52) | 
             Control.IsVisible(502) | Control.IsVisible(523) | Control.IsVisible(525) | [Control.IsVisible(50) + Container.Content(movies)] |
-            [Control.IsVisible(516) + [Container.Content(albums) | Container.Content(songs)] + !IsEmpty(ListItem.Album) + !IsEmpty(ListItem.Thumb)]
+            [Control.IsVisible(516) + [Container.Content(albums) | Container.Content(songs)] + !String.IsEmpty(ListItem.Album) + !String.IsEmpty(ListItem.Thumb)]
             </visible>
             <visible>!Control.IsVisible(88882) + !Control.IsVisible(88883)</visible>
 		</control>
@@ -897,7 +897,7 @@
             [Skin.HasSetting(View523_DisableExtraFanArt) + Control.IsVisible(523)] |
 			[Skin.HasSetting(View525_DisableExtraFanArt) + Control.IsVisible(525)]
             </selected>
-			<visible>Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + !IsEmpty(ListItem.Art(FanArt))</visible>
+			<visible>Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(FanArt))</visible>
 			<visible>
             Control.IsVisible(10) | Control.IsVisible(50) | Control.IsVisible(51) | 
             Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | 
@@ -978,10 +978,11 @@
                     <label>19019</label>
                     <include>SideBladeMenuButton</include>
 					<onclick condition="Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)">NextChannelGroup</onclick>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
                 </control>
-                <control type="button" id="101">
+				<!-- check, make it toggle with alt label? -->	
+				<control type="button" id="101">
 					<description>TV Guide</description>
 					<left>0</left>
 					<top>80</top>
@@ -989,18 +990,18 @@
 					<include>SideBladeMenuButton</include>
 					<label>22020</label>
 					<onclick condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">NextChannelGroup</onclick>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
 				</control>
-				<control type="button" id="102">
+                <control type="button" id="102">
 					<description>Recordings</description>
 					<left>0</left>
 					<top>120</top>
 					<textwidth>400</textwidth>
 					<include>SideBladeMenuButton</include>
 					<label>19163</label>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVRecordings)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVRecordings)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
 				</control>
 				<control type="button" id="103">
 					<description>Timers</description>
@@ -1009,8 +1010,8 @@
 					<textwidth>400</textwidth>
 					<include>SideBladeMenuButton</include>
 					<label>19040</label>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimers)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimers)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
 				</control>
                 <control type="button" id="105">
 					<description>Timer Rules</description>
@@ -1019,8 +1020,8 @@
 					<textwidth>400</textwidth>
 					<include>SideBladeMenuButton</include>
 					<label>19138</label>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimerRules)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimerRules)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimerRules)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimerRules)</onclick>
 				</control>
 				<control type="button" id="104">
 					<description>Search</description>
@@ -1029,8 +1030,8 @@
 					<textwidth>400</textwidth>
 					<include>SideBladeMenuButton</include>
 					<label>137</label>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
 				</control>
 				<control type="button" id="28">
 					<description>Channel Groups</description>
@@ -1050,6 +1051,7 @@
 					<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
                     <visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
 				</control>
+				<!-- removed, cause vietypes n/a in leia, keep till decide for choose horizontal/vertical timeline -
 				<control type="button" id="400">
 					<description>PVR Guide View</description>
 					<left>0</left>
@@ -1061,7 +1063,7 @@
                     <visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
                     <visible>Window.IsActive(tvguide)</visible>
 				</control>
-				
+				-->
 				<control type="button" id="3">
 					<description>Sort by button</description>
 					<include>SideBladeMenuButton</include>

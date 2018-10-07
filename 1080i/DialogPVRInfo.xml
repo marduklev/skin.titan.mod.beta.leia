@@ -27,15 +27,7 @@
                 <width>1345</width>
                 <height>100%</height>
                 <texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-            </control>
-            <control type="image">
-                <posx>640</posx>
-                <posy>0</posy>
-                <width>1340</width>
-                <height>100%</height>
-                <texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse>
             </control>
             <control type="image">
                 <posx>640</posx>
@@ -53,8 +45,7 @@
 				<height>180</height>
 				<right>60</right>
                 <posy>40</posy>
-				<font></font>
-				<texture background="true">$VAR[PVRInfoThumb]</texture>
+				<texture background="true">$VAR[PVRInfoThumb]</texture> <!--check not working -->
                 <aspectratio align="right" aligny="top">keep</aspectratio>
 				<visible>!Skin.HasSetting(EnableTouchSupport)</visible>
 			</control>

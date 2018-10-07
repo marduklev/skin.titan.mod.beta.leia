@@ -181,37 +181,38 @@
 			<include>DimensionsFullscreen</include>
 			<animation effect="slide" start="0,-400" end="0,0" tween="cubic" easing="out" delay="0" time="250" reversible="false">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="0" time="250" reversible="false">Hidden</animation>
-			
-            <control type="image">
-				<posx>0</posx>
-				<posy>-5</posy>
-				<width>100%</width>
-				<height>145</height>
-				<texture border="5">diffuse/panel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-			</control>
-            <control type="label">
-                <!--Now Playing-->
-                <posx>310</posx>
-                <posy>15</posy>
-                <width>885</width>
-                <align>left</align>
-                <font>Reg28</font>
-                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                <label>$VAR[NowPlayingLabel]</label>
+			<control type="group">
+				<animation effect="slide" end="250,0" delay="0" time="0" condition="Player.HasVideo">conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>-5</posy>
+					<width>100%</width>
+					<height>145</height>
+					<texture border="5">diffuse/panel.png</texture>
+					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				</control>
+				<control type="label">
+					<!--Now Playing-->
+					<posx>310</posx>
+					<posy>15</posy>
+					<width>885</width>
+					<align>left</align>
+					<font>Reg28</font>
+					<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+					<label>$VAR[NowPlayingLabel]</label>
+				</control>
+				<control type="label">
+					<!--Title-->
+					<posx>310</posx>
+					<posy>70</posy>
+					<width>1150</width>
+					<align>left</align>
+					<font>Bold45</font>
+					<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+					<label>$VAR[NowPlayingTitle]</label>
+					<scroll>false</scroll>
+				</control>
             </control>
-            <control type="label">
-                <!--Title-->
-                <posx>310</posx>
-                <posy>70</posy>
-                <width>1150</width>
-                <align>left</align>
-                <font>Bold45</font>
-                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                <label>$VAR[NowPlayingTitle]</label>
-                <scroll>false</scroll>
-            </control>
-            
             <!-- AUDIO COVER + DISCART -->
             <control type="group">
                 <visible>Player.HasAudio</visible>
@@ -262,31 +263,49 @@
             </control>
             
             <!-- VIDEO COVER -->
-            <control type="group">
+            <control type="grouplist">
                 <visible>Player.HasVideo</visible>
-                <control type="image">
-                    <posx>85</posx>
-                    <posy>10</posy>
-                    <width>123</width>
-                    <height>123</height>
-                    <aligny>center</aligny>
-                    <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-                    <fadetime>300</fadetime>
-                    <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-                    <texture background="true" fallback="defaultcovers/cd_small.png" diffuse="diffuse/cdmask_small_new.png">$VAR[PlayerDiscArtImage]</texture>
-                    <visible>!Skin.HasSetting(DisableNowPlayingDiscArt) + [!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster))]</visible>
-                </control>
-                <control type="image">
-                    <!--Cover image-->
-                    <posx>60</posx>
-                    <posy>5</posy>
-                    <width>240</width>
-                    <height>130</height>
-                    <fadetime>200</fadetime>
-                    <texture background="true">$VAR[VideoPlayerPoster]</texture>
-                    <aspectratio align="left" aligny="center">keep</aspectratio>
-                </control>
-            </control>
+				<usecontrolcoords>true</usecontrolcoords>
+				<orientation>horizontal</orientation>
+				<posx>60</posx>
+				<posy>5</posy>
+                
+				<control type="group">
+					<width>180</width>
+					<control type="image">
+						<right>0</right>
+						<width>123</width>
+						<height>123</height>
+						<aligny>center</aligny>
+						<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+						<fadetime>300</fadetime>
+						<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+						<texture background="true" fallback="defaultcovers/cd_small.png" diffuse="diffuse/cdmask_small_new.png">$VAR[PlayerDiscArtImage]</texture>
+						<visible>!Skin.HasSetting(DisableNowPlayingDiscArt) + [!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster))]</visible>
+					</control>
+					<control type="image">
+						<!--Cover image-->
+						<width>240</width>
+						<height>135</height>
+						<fadetime>200</fadetime>
+						<texture background="true">$VAR[VideoPlayerPoster]</texture>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+					</control>
+				</control>
+				<!-- preview videowindow,need check in pvr view , also its replace go fs button-->
+				<control type="group">
+					<left>5</left>
+					<width>285</width>
+					<height>130</height>
+					<visible>!Window.IsActive(movieinformation)</visible>
+					<!-- black background -->
+					<control type="image">
+						<texture>colors/color_black.png</texture>
+					</control>
+					<control type="videowindow">
+					</control>
+				</control>
+			</control>
             
 			<!-- hidden button to go fullscreen on click -->
 			<control type="button">
@@ -547,7 +566,7 @@
     
 	<include name="NowPlayingVideoBackground">
 		<control type="group">
-            <visible>Player.HasVideo</visible>
+            <visible>Player.HasVideo + !Window.IsActive(movieinformation)</visible>
             
             <!-- black background -->
             <control type="image">

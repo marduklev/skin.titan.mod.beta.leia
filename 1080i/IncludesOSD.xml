@@ -3223,8 +3223,8 @@
 		<value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value>
 		<value>DefaultVideo.png</value>
 	 </variable>
-	<variable name="OSDImagePVR_Streams">
-        <value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value>
+	<variable name="OSDImagePVR_Streams"> <!-- pvr stuff, $INFO[ListItem.EpgEventIcon], $INFO[PVR.EpgEventIcon] -->
+        <value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value> <!-- Player.Icon start with switc pr, thelogodb/1+1.png-->
 		<value>$INFO[VideoPlayer.Cover]</value>
 	</variable>
 	<variable name="OSDLabel1">

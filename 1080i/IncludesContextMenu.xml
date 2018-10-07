@@ -981,14 +981,16 @@
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
                 </control>
-				<!-- check, make it toggle with alt label? -->	
 				<control type="button" id="101">
 					<description>TV Guide</description>
 					<left>0</left>
 					<top>80</top>
 					<textwidth>400</textwidth>
+					  
 					<include>SideBladeMenuButton</include>
 					<label>22020</label>
+						<!-- check, make it toggle with alt label? -->									 
+							  
 					<onclick condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">NextChannelGroup</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>

@@ -367,8 +367,8 @@
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Landscape))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Landscape)]</value>
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Fanart))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
-		<value>$INFO[ListItem.ChannelName,thelogodb/,.png]</value>
-    </variable>
+		<value>$INFO[ListItem.ChannelName,resource://resource.images.thelogodb/,.png]</value>
+	</variable>
 	
 	<variable name="ListItemDuration">
 		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + !Skin.HasSetting(SkinHelper.DisableHoursDuration) + Integer.IsGreater(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,h ]$INFO[ListItem.Duration(m),,min]</value>		
@@ -865,7 +865,7 @@
      
      <variable name="channellogo"><!-- check, pvr changes -->
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
-		<value condition="window.isactive(tvchannels) | window.isactive(tvguide)">$INFO[ListItem.ChannelName,thelogodb/,.png]</value>
+		<value condition="window.isactive(tvchannels) | window.isactive(tvguide)">$INFO[ListItem.ChannelName,resource://resource.images.thelogodb/,.png]</value>
 		<value condition="!String.IsEmpty(ListItem.Icon) + [window.isactive(tvchannels) | window.isactive(tvguide)]">$INFO[ListItem.Icon]</value>
 	 </variable>
      

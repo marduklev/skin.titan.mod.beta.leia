@@ -982,7 +982,7 @@
             <!-- video information dialog -->
             <control type="label" id="20159">
                 <include>SkinSettings_Header</include>
-                <label>$LOCALIZE[20159]</label>
+                <label>$LOCALIZE[20159]</label> <!-- uncorrect string in kodi main res-german ?-->
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
             <control type="radiobutton" id="17124">
@@ -1025,12 +1025,12 @@
                 <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
             </control>
             <!-- trailer behaviour in videoinfo -->
-            <control type="button" id="31694">
+			<control type="radiobutton" id="31694">
                 <include>SkinSettings_Button</include>
-                <label>31694</label>
-                <label2>$INFO[Skin.String(videoinfo_traileraction.label)]</label2>
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=videoinfo_traileraction,header=$LOCALIZE[31694])</onclick>
-                <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
+                <label>$LOCALIZE[20410] $LOCALIZE[37026] $LOCALIZE[208]</label>       <!-- trailer  auto - - play - maybe make  VAR depending to language sometime-->        
+                <onclick>Skin.ToggleSetting(videoinfo_traileraction,auto)</onclick>
+                <selected>Skin.HasSetting(videoinfo_traileraction,auto)</selected>
+				<visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
             </control>
 			<!-- Enable auto-hide details when trailer is playing -->
             <control type="radiobutton" id="41634">
@@ -1040,26 +1040,7 @@
                 <selected>Skin.HasSetting(AutoHideDetailsOnTrailer)</selected>
                 <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
             </control>											 
-			<!-- prefer locally stored trailers
-            <control type="radiobutton" id="46653">
-                <include>SkinSettings_Button</include>
-                <label>Prefer locally stored trailers in Video Info</label>
-                <onclick>Skin.ToggleSetting(PreferLocallyStored)</onclick>
-                <onclick condition="Skin.String(RegionalTrailers,true)">Skin.SetString(RegionalTrailers,false)</onclick>
-                <selected>Skin.HasSetting(PreferLocallyStored)</selected>
-                <visible>!Skin.HasSetting(UseExtendedInfoDialog) + !Skin.HasSetting(RegionalTrailers)</visible>
-            </control>
-			 -->
-            <!-- enable local language trailers in netflix info dialog -->
-            <control type="radiobutton" id="41633">
-                <include>SkinSettings_Button</include>
-                <label>Enable regional trailers (system language) in Video Info</label>
-                <onclick condition="!Skin.String(RegionalTrailers,true)">Skin.SetString(RegionalTrailers,true)</onclick>
-                <onclick condition="Skin.String(RegionalTrailers,true)">Skin.SetString(RegionalTrailers,false)</onclick>
-                <selected>Skin.String(RegionalTrailers,true)</selected>
-                <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
-            </control>									   	  
-            <control type="radiobutton" id="31674">
+			<control type="radiobutton" id="31674">
                 <!-- hide filename in videoinfo -->
                 <description></description>
                 <include>SkinSettings_Button</include>
@@ -1352,19 +1333,19 @@
             <param name="label" value="$LOCALIZE[31018] Highlight Color" />
             <param name="skinsetting" value="ViewNetfixHighlightTextColor" />
         </include>				
-		<!--Netflix Details Flag Color-->
+		<!-- Netflix Details Flag Color -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31832" />
-            <param name="label" value="$LOCALIZE[31018] Detail (mpaa & codec) Frames Color" />
+            <param name="label" value="$LOCALIZE[31018] Detail (mpaa and codec) Frames Color" />
             <param name="skinsetting" value="NetflixDetailsFlagColor" />
         </include>
-		<!--footer text color (if  netflix) -->
+		<!-- footer text color (if  netflix) -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31833" />
-            <param name="label" value="$LOCALIZE[31018] ($LOCALIZE[563] & Media Flags Color)" />
+            <param name="label" value="$LOCALIZE[31018] ($LOCALIZE[563] and Media Flags Color)" />
             <param name="skinsetting" value="RatingsLogoColor" />
-        </include>	
-    </include>								  
+        </include>
+    </include>
     
     <include name="SkinSettings_ForcedViews">
         <!-- Forced views -->

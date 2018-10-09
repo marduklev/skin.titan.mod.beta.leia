@@ -1265,10 +1265,10 @@
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<!--colordiffuse changed to white -->
 					<texturebg border="5" colordiffuse="white">diffuse/panel.png</texturebg>
-					<lefttexture>-</lefttexture>
+					<lefttexture></lefttexture>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarCacheColor)]">diffuse/panel.png</midtexture>
-					<righttexture>-</righttexture>
-					<overlaytexture>-</overlaytexture>
+					<righttexture></righttexture>
+					<overlaytexture></overlaytexture>
 					<visible>!Skin.String(OSDProgressBarCacheColor,None)</visible>
 				</control>
 				<control type="progress" id="23">
@@ -1281,10 +1281,10 @@
 					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
-					<lefttexture>-</lefttexture>
+					<lefttexture></lefttexture>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
-					<righttexture>-</righttexture>
-					<overlaytexture>-</overlaytexture>
+					<righttexture></righttexture>
+					<overlaytexture></overlaytexture>
 				</control>
 				<control type="image">
 					<description>Progress Bar Border</description>

@@ -957,7 +957,7 @@
                 <include>animation_fade_visible_hidden</include>
                 <width>50</width>
                 <height>50</height>
-                <font>-</font>
+                <font></font>
                 <onright>40002</onright>
                 <ondown>300</ondown>
                 <onleft>77777</onleft>
@@ -1265,7 +1265,7 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="button">
-                        <label>-</label>
+                        <label></label>
                         <visible>false</visible>
                         <onfocus>SetProperty(submenu,show,home)</onfocus>
                     </control>

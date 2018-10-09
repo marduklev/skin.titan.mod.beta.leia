@@ -15,17 +15,17 @@
             <control type="image">
                 <height>120</height>
                 <texture>script-user-rating-bg.png</texture>
-                <visible>StringCompare(Window(10000).Property(script.user.rating_items),1)</visible>
+                <visible>String.IsEqual(Window(10000).Property(script.user.rating_items),1)</visible>
             </control>
             <control type="image">
                 <height>170</height>
                 <texture>script-user-rating-bg.png</texture>
-                <visible>StringCompare(Window(10000).Property(script.user.rating_items),2)</visible>
+                <visible>String.IsEqual(Window(10000).Property(script.user.rating_items),2)</visible>
             </control>
             <control type="image">
                 <height>220</height>
                 <texture>script-user-rating-bg.png</texture>
-                <visible>StringCompare(Window(10000).Property(script.user.rating_items),3)</visible>
+                <visible>String.IsEqual(Window(10000).Property(script.user.rating_items),3)</visible>
             </control>
         </control>
         <control type="label" id="10060">

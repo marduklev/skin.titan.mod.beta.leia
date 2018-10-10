@@ -465,7 +465,13 @@
                     <onright>13</onright>
                     <onup>13</onup>
                     <ondown>13</ondown>
-					
+					<control type="togglebutton" id="34">
+						<description>TV/Radio Button</description>
+						<label>19174 </label>
+						<altlabel>19173</altlabel>
+						<usealttexture>!String.IsEmpty(Window.Property(IsRadio))</usealttexture>
+						<include>DialogButtonOther</include>
+					</control>
 					<control type="button" id="26">
 						<description>Add Group</description>
 						<width>300</width>

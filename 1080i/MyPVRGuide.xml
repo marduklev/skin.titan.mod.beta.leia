@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Titan-->
-<!-- check needed 2018-01-16 MyPVRGuide.xml - channel group selection list
-https://github.com/xbmc/xbmc/pull/13364
-
-You can now add a list control with id="11" to MyPVRGuide.xml
-This container will allow the user to select the channel group from a list.
--->
 <window>
     <defaultcontrol always="true">10</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
@@ -212,7 +206,7 @@ This container will allow the user to select the channel group from a list.
 				</control>
 			</control>
             <control type="group">
-                <!-- timeline view ID=10-->
+                <!-- timeline view ID=10, check needs further test and time to have horizontal grid -->
                 <control type="epggrid" id="10">
                     <viewtype label="19032">list</viewtype>
                     <description>EPG Grid</description>
@@ -220,7 +214,8 @@ This container will allow the user to select the channel group from a list.
                     <include condition="!String.IsEmpty(Window(home).Property(pvrGuideOnFullscreenVideo)) + Skin.string(GuideRows, 7)">altEpgOnScreen7</include>
                     <include condition="!String.IsEmpty(Window(home).Property(pvrGuideOnFullscreenVideo)) + Skin.string(GuideRows, 9)">altEpgOnScreen9</include>
                     <include condition="!String.IsEmpty(Window(home).Property(pvrGuideOnFullscreenVideo)) + Skin.string(GuideRows, 10)">altEpgOnScreen10</include>
-                    <top>275</top>
+                    <orientation>vertical</orientation>
+					<top>275</top>
                     <height>665</height>
                     <left>50</left>
                     <width>1800</width>

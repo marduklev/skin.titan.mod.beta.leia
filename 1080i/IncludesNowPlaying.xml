@@ -297,7 +297,7 @@
 					<left>5</left>
 					<width>285</width>
 					<height>130</height>
-					<visible>!Window.IsActive(movieinformation)</visible>
+					<visible>!Window.IsActive(movieinformation) + [VideoPlayer.Content(livetv) + !Skin.HasSetting(GuideShowInfo)]</visible>
 					<!-- black background -->
 					<control type="image">
 						<texture>colors/color_black.png</texture>

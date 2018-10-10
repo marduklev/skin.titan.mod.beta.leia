@@ -1,22 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan
- 2017-03-13 DialogPVRChannelGuide.xml
-
-please rename DialogPVRGuideOSD.xml to DialogPVRChannelGuide.xml
-the window name also changed, from pvrosdguide to pvrchannelguide
-
-
-pull-request: https://github.com/xbmc/xbmc/pull/11847
-commit: https://github.com/xbmc/xbmc/commit/fa66...52cf6263c7 
-
-
-
-2017-03-21 new infolabels
-
-these infolabels were added a few weeks ago, but we decided to rename them
-- Container.ActualItems -> Container.NumAllItems
-- Container.NonFolderItems -> Container.NumNonFolderItems
--->
+<!--Titan -->
 <window>
     <defaultcontrol always="true">10</defaultcontrol>
     <controls>

@@ -402,7 +402,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<content target="video" sortby="premiered" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
+				<content target="video" sortby="year" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
 			</control>
 			<control type="image">
 				<top>303</top>

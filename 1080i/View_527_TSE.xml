@@ -297,6 +297,7 @@
 				<onright>5127</onright>
 				<onup>5027</onup>
 				<ondown>5027</ondown>
+				<onback>527</onback>
 				<animation type="Conditional" condition="Integer.IsEqual(Container(5027).NumItems,2)">
 					<effect type="slide" end="0,150" time="0" delay="0" />
 				</animation>
@@ -358,6 +359,7 @@
 				<onright></onright>
 				<onup>5127</onup>
 				<ondown>5127</ondown>
+				<onback>5027</onback>
 				<visible>Container.Content(tvshows)</visible>
 				<itemlayout  width="860" height="120">
 					<control type="image">

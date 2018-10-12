@@ -10,7 +10,6 @@
             <visible>[!Control.IsVisible(3333) | String.IsEmpty(Control.GetLabel(3333))] + [!Control.IsVisible(3334) | String.IsEmpty(Control.GetLabel(3334))]</visible>
 		</control>
          <include>NowPlayingBackground</include>
-         
          <!-- lyrics overlay -->
          <control type="group">
             <visible>!Skin.HasSetting(DisableLyricsOverlay) + Window.IsActive(script-cu-lrclyrics-main.xml)</visible>
@@ -27,7 +26,7 @@
                 <posy>0</posy>
                 <width>100%</width>
                 <height>100%</height>
-                <texture>special://home/addons/resource.images.backgroundoverlays.basic/resources/Spot.png</texture>
+                <texture>special://home/addons/resource.images.backgroundoverlays.basic/resources/Spot.png</texture> <!-- check . compare code vs //resource -->
                 <colordiffuse>$INFO[Skin.String(LyricsOverlayColor)]</colordiffuse>
             </control>
         </control>

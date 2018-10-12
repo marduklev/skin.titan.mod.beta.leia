@@ -400,7 +400,7 @@
 					<animation effect="slide" start="0" end="700,235" time="0" condition="Player.Playing + Skin.HasSetting(OSDLargeSeekingLabel) | !Skin.HasSetting(OSDLargeSeekingLabel)">Conditional</animation>
 				</control>
 				
-				<!--   header , no need to let in in Panel group below ? - UPDATE 18.3 cleanup, check var -->
+				<!--   header -->
 				<control type="textbox">
 					<posx>480</posx>
 					<posy>70</posy>
@@ -744,10 +744,6 @@
 		<control type="group">
 			<bottom>0</bottom>
 			<height>300</height>
-			<!--
-			<animation effect="slide" start="0" end="0,-15" time="0" condition="!ControlGroup.HasFocus(200)">Conditional</animation>
-			<animation effect="slide" start="0" end="0,215" time="600" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
-			seems same as = <animation effect="slide" start="0" end="0,215" time="600" condition="!Control.IsVisible(552233)">Conditional</animation> -->
 			<!--Panel-->
 			<control type="image">
 				<posx>0</posx>
@@ -1185,7 +1181,7 @@
 			<!--Clock-->
             <control type="label">
                 <right>20</right>
-				<posy>-35</posy>
+				<posy>20</posy>
 				<width>400</width>
 				<height>100</height>
 				<align>right</align>
@@ -1199,7 +1195,7 @@
 			<!-- SHOWS END TIME RIGHT -->
 		    <control type="label">
 				<right>23</right>
-				<posy>40</posy>		
+				<posy>100</posy>		
 				<width>890</width>
 				<align>right</align>
 				<font>Reg32</font>		
@@ -2033,7 +2029,7 @@
 					<width>60</width>
 					<height>60</height>
 					<label>210</label>
-					<font/>
+					<font></font>
 					<texturefocus>osd/classic/PrevTrackFO.png</texturefocus>
 					<texturenofocus>osd/classic/PrevTrackNF.png</texturenofocus>
 					<onclick>PlayerControl(Previous)</onclick>
@@ -2045,7 +2041,7 @@
 					<include>animation_fade_visible_hidden</include>
 					<width>60</width>
 					<height>60</height>
-					<font/>
+					<font></font>
 					<texturefocus>osd/classic/RewindFO.png</texturefocus>
 					<texturenofocus>osd/classic/RewindNF.png</texturenofocus>
 					<onclick>PlayerControl(Rewind)</onclick>
@@ -2058,7 +2054,7 @@
 					<include>animation_fade_visible_hidden</include>
 					<width>164</width>
 					<height>60</height>
-					<font/>
+					<font></font>
 					<texturefocus>osd/classic/PauseFO.png</texturefocus>
 					<texturenofocus>osd/classic/PauseNF.png</texturenofocus>
 					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
@@ -2073,7 +2069,7 @@
 					<include>animation_fade_visible_hidden</include>
 					<width>60</width>
 					<height>60</height>
-					<font/>
+					<font></font>
 					<texturefocus>osd/classic/StopFO.png</texturefocus>
 					<texturenofocus>osd/classic/StopNF.png</texturenofocus>
 					<onclick>PlayerControl(Stop)</onclick>
@@ -2085,7 +2081,7 @@
 					<include>animation_fade_visible_hidden</include>
 					<width>60</width>
 					<height>60</height>
-					<font/>
+					<font></font>
 					<texturefocus>osd/classic/ForwardFO.png</texturefocus>
 					<texturenofocus>osd/classic/ForwardNF.png</texturenofocus>
 					<onclick>PlayerControl(Forward)</onclick>
@@ -2097,7 +2093,7 @@
 					<width>60</width>
 					<height>60</height>
 					<label>209</label>
-					<font/>
+					<font></font>
 					<texturefocus>osd/classic/NextTrackFO.png</texturefocus>
 					<texturenofocus>osd/classic/NextTrackNF.png</texturenofocus>
 					<onclick>PlayerControl(Next)</onclick>
@@ -2160,7 +2156,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label>13396</label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/AudioFO.png</texturefocus>
 				<texturenofocus>osd/classic/AudioNF.png</texturenofocus>
 				<onclick>ActivateWindow(124)</onclick>
@@ -2172,7 +2168,7 @@
 				<height>60</height>
 				<label>13395</label>
 				<align>left</align>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/VideoFO.png</texturefocus>
 				<texturenofocus>osd/classic/VideoNF.png</texturenofocus>
 				<onclick>ActivateWindow(123)</onclick>
@@ -2183,7 +2179,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label>287</label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/SubtitlesFO.png</texturefocus>
 				<texturenofocus>osd/classic/SubtitlesNF.png</texturenofocus>
 				<onclick>ActivateWindow(osdsubtitlesettings)</onclick>
@@ -2195,7 +2191,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label>287</label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/TeletextFO.png</texturefocus>
 				<texturenofocus>osd/classic/TeletextNF.png</texturenofocus>
 				<onclick>ActivateWindow(Teletext)</onclick>
@@ -2222,7 +2218,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label>210</label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/PrevTrackFO.png</texturefocus>
 				<texturenofocus>osd/classic/PrevTrackNF.png</texturenofocus>
 				<onclick>PlayerControl(Previous)</onclick>
@@ -2234,7 +2230,7 @@
 				<include>animation_fade_visible_hidden</include>
 				<width>60</width>
 				<height>60</height>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/RewindFO.png</texturefocus>
 				<texturenofocus>osd/classic/RewindNF.png</texturenofocus>
 				<onclick>PlayerControl(Rewind)</onclick>
@@ -2247,7 +2243,7 @@
 				<include>animation_fade_visible_hidden</include>
 				<width>164</width>
 				<height>60</height>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/PauseFO.png</texturefocus>
 				<texturenofocus>osd/classic/PauseNF.png</texturenofocus>
 				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
@@ -2262,7 +2258,7 @@
 				<include>animation_fade_visible_hidden</include>
 				<width>60</width>
 				<height>60</height>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/StopFO.png</texturefocus>
 				<texturenofocus>osd/classic/StopNF.png</texturenofocus>
 				<onclick>PlayerControl(Stop)</onclick>
@@ -2274,7 +2270,7 @@
 				<include>animation_fade_visible_hidden</include>
 				<width>60</width>
 				<height>60</height>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/ForwardFO.png</texturefocus>
 				<texturenofocus>osd/classic/ForwardNF.png</texturenofocus>
 				<onclick>PlayerControl(Forward)</onclick>
@@ -2286,7 +2282,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label>209</label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/NextTrackFO.png</texturefocus>
 				<texturenofocus>osd/classic/NextTrackNF.png</texturenofocus>
 				<onclick>PlayerControl(Next)</onclick>
@@ -2297,7 +2293,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label></label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/ChannelFO.png</texturefocus>
 				<texturenofocus>osd/classic/ChannelNF.png</texturenofocus>
 				<onclick>ActivateWindow(VideoBookmarks)</onclick>
@@ -2310,7 +2306,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label></label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/RecordOffFO.png</texturefocus>
 				<texturenofocus>osd/classic/RecordOffNF.png</texturenofocus>
 				<alttexturefocus>osd/classic/RecordOnFO.png</alttexturefocus>
@@ -2326,7 +2322,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label></label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/ChannelFO.png</texturefocus>
 				<texturenofocus>osd/classic/ChannelNF.png</texturenofocus>
                 <visible>VideoPlayer.Content(livetv)</visible>
@@ -2338,7 +2334,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label></label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/epgFO.png</texturefocus>
 				<texturenofocus>osd/classic/epgNF.png</texturenofocus>
                 <visible>VideoPlayer.Content(livetv)</visible>
@@ -2350,7 +2346,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label></label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/InfoFO.png</texturefocus>
 				<texturenofocus>osd/classic/InfoNF.png</texturenofocus>
 				<onclick>PlayerControl(ShowVideoMenu)</onclick>
@@ -2362,7 +2358,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label></label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/StereoscopicFO.png</texturefocus>
 				<texturenofocus>osd/classic/StereoscopicNF.png</texturenofocus>
 				<onclick>StereoMode</onclick>
@@ -2374,7 +2370,7 @@
 				<width>60</width>
 				<height>60</height>
 				<label></label>
-				<font/>
+				<font></font>
 				<texturefocus>osd/classic/InfoFO.png</texturefocus>
 				<texturenofocus>osd/classic/InfoNF.png</texturenofocus>
 				<visible>player.hasvideo</visible>
@@ -2417,8 +2413,7 @@
             <animation effect="slide" end="22" time="0" condition="Skin.HasSetting(UseSlimOSDPanel)">Conditional</animation>
         </control>
         
-		<!-- subtitle selection, removed in LEIA, not needed, added xbmc sub window above -->					 
-        
+		
         <!--SeekBar -->
         <include condition="[Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(UseNetflixOSDPanel)] + player.hasvideo">SeekBar_Slim</include>
         <include condition="[!Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(UseNetflixOSDPanel)] + player.hasvideo">SeekBar_Normal</include>      
@@ -2462,7 +2457,7 @@
 				<height>$PARAM[size]</height>
 				<label>210</label>
                 <altlabel>210</altlabel>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]PrevTrack_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]PrevTrack.png</texturenofocus>
 				<usealttexture>VideoPlayer.Content(livetv)</usealttexture>
@@ -2476,7 +2471,7 @@
 				<description>RR</description>
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
-				<font/>
+				<font></font>
                 <label>209</label>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Rewind_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Rewind.png</texturenofocus>
@@ -2488,7 +2483,7 @@
 				<description>Play Pause</description>
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
-				<font/>
+				<font></font>
                 <label>208</label>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Pause_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Pause.png</texturenofocus>
@@ -2502,7 +2497,7 @@
 				<description>Stop</description>
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
-				<font/>
+				<font></font>
                 <label>36036</label>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Stop_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Stop.png</texturenofocus>
@@ -2513,7 +2508,7 @@
 				<description>FF</description>
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
-				<font/>
+				<font></font>
                 <label>210</label>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Forward_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Forward.png</texturenofocus>
@@ -2525,7 +2520,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>209</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]NextTrack_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]NextTrack.png</texturenofocus>
 				<usealttexture>VideoPlayer.Content(livetv)</usealttexture>
@@ -2538,7 +2533,7 @@
 			  <width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 			  <label>$LOCALIZE[486]$INFO[Playlist.Repeat, : ]</label>
-			  <font/>
+			  <font></font>
 			  <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Repeat_fo.png</texturefocus>
 			  <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Repeat.png</texturenofocus>
 			  <onclick>XBMC.PlayerControl(Repeat)</onclick>
@@ -2568,7 +2563,7 @@
               <height>$PARAM[size]</height>
 			  <label>$LOCALIZE[590]$INFO[Playlist.Random, : ]</label>
 			  <altlabel>$LOCALIZE[590] : $LOCALIZE[16041]</altlabel>
-			  <font/>
+			  <font></font>
 			  <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]RandomOff_fo.png</texturefocus>
 			  <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]RandomOff.png</texturenofocus>
 			  <usealttexture>Playlist.IsRandom</usealttexture>
@@ -2582,7 +2577,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>209</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]RecordOff_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]RecordOff.png</texturenofocus>
 				<alttexturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]RecordOn_fo.png</alttexturefocus>
@@ -2597,7 +2592,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>209</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]BookMarks_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]BookMarks.png</texturenofocus>
 				<onclick>ActivateWindow(VideoBookmarks)</onclick>
@@ -2609,7 +2604,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>209</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Dvd_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Dvd.png</texturenofocus>
 				<onclick>PlayerControl(ShowVideoMenu)</onclick>
@@ -2620,7 +2615,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>209</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Stereoscopic_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Stereoscopic.png</texturenofocus>
 				<onclick>StereoMode</onclick>
@@ -2631,7 +2626,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>13396</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Audio_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Audio.png</texturenofocus>
 				<onclick>ActivateWindow(124)</onclick>
@@ -2643,7 +2638,7 @@
 				<height>$PARAM[size]</height>
 				<label>13395</label>
 				<align>left</align>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Video_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Video.png</texturenofocus>
 				<onclick>ActivateWindow(123)</onclick>
@@ -2656,7 +2651,7 @@
 			    <width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>287</label>
-				<font/>
+				<font></font>
 				<onclick>ActivateWindow(osdsubtitlesettings)</onclick>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Subtitles_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Subtitles.png</texturenofocus>		
@@ -2669,7 +2664,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>287</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]TeleText_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]TeleText.png</texturenofocus>
 				<onclick>ActivateWindow(Teletext)</onclick>
@@ -2681,7 +2676,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>31128</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Lyrics_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Lyrics.png</texturenofocus>
 				<alttexturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Lyrics_fo.png</alttexturefocus>
@@ -2700,7 +2695,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>12006</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Viz_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Viz.png</texturenofocus>
 				<visible>Player.hasaudio</visible>
@@ -2710,7 +2705,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>$LOCALIZE[250] $LOCALIZE[21417]</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Settings_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Settings.png</texturenofocus>
 				<visible>Player.hasaudio + Visualisation.Enabled </visible>
@@ -2721,7 +2716,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>$LOCALIZE[250] $LOCALIZE[21417]</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]epg_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]epg.png</texturenofocus>
 				<visible>Player.hasaudio + Visualisation.Enabled + [String.IsEqual(Visualisation.Name,milkdrop) | String.IsEqual(Visualisation.Name,vortex) | Visualisation.HasPresets ]</visible>
@@ -2732,7 +2727,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>12006</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]ChannelList_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]ChannelList.png</texturenofocus>
 				<visible>VideoPlayer.Content(livetv)</visible>
@@ -2743,7 +2738,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>12006</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]epg_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]epg.png</texturenofocus>
 				<visible>VideoPlayer.Content(livetv)</visible>
@@ -2754,7 +2749,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>12006</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]TeleText_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]TeleText.png</texturenofocus>
 				<visible>!String.IsEqual(Playlist.Length(music),0) + Player.HasAudio</visible>
@@ -2767,7 +2762,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>31133</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Info_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Info.png</texturenofocus>
 				<visible>player.hasvideo</visible>
@@ -2778,7 +2773,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>volup</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]VolumeUp_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]VolumeUp.png</texturenofocus>
 				<visible>Skin.HasSetting(EnableTouchSupport)</visible>
@@ -2789,7 +2784,7 @@
 				<width>$PARAM[size]</width>
 				<height>$PARAM[size]</height>
 				<label>voldown</label>
-				<font/>
+				<font></font>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]VolumeDown_fo.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]VolumeDown.png</texturenofocus>
 				<visible>Skin.HasSetting(EnableTouchSupport)</visible>
@@ -3124,7 +3119,7 @@
 			<control type="image">
 				<width>100%</width>
 				<height>100%</height>
-				<texture border="15">overlay/Vignette.png</texture>
+				<texture border="15">special://home/addons/resource.images.backgroundoverlays.basic/resources/Vignette.png</texture>
 				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 			</control>
 			<!--Video Cover-->

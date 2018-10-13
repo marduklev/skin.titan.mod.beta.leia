@@ -197,7 +197,7 @@
                 <width>100%</width>
                 <height>100%</height>
                 <texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
-                <animation effect="fade" start="100" end="70" delay="0" time="0"  condition="true">Conditional</animation>
+                <animation effect="fade" start="100" end="70" delay="0" time="0" condition="true">Conditional</animation>
                 <animation effect="fade" start="70" end="40" delay="0" time="6000" condition="Control.IsVisible(5633399)">Conditional</animation>
             </control>
             <control type="image">
@@ -205,7 +205,7 @@
                 <width>100%</width>
                 <height>100%</height>
                 <texture colordiffuse="$VAR[Netflix2_PanelColor]">special://home/addons/resource.images.backgroundoverlays.basic/resources/Side by Side.png</texture>
-                <animation effect="fade" start="100" end="95" delay="0" time="0"  condition="true">Conditional</animation>
+                <animation effect="fade" start="100" end="95" delay="0" time="0" condition="true">Conditional</animation>
                 <animation effect="fade" start="95" end="30" delay="0" time="6000" condition="Control.IsVisible(5633399)">Conditional</animation>
             </control>
 
@@ -511,8 +511,8 @@
                     <width>1000</width>
                     <include>AltRatingFooter</include>
 					<!-- adjustments for spotlight -->
-                    <animation effect="slide" start="0" end="0,180" time="300"  condition="Control.IsVisible(5633399) | ControlGroup(505).HasFocus()">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="600"  condition="[Control.IsVisible(5633399) | ControlGroup(505).HasFocus() | Control.IsVisible(5633400)] + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,180" time="300" condition="Control.IsVisible(5633399) | ControlGroup(505).HasFocus()">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="600" condition="[Control.IsVisible(5633399) | ControlGroup(505).HasFocus() | Control.IsVisible(5633400)] + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>
                 </control>
 
             </control>

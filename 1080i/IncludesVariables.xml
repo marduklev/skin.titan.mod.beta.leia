@@ -185,12 +185,12 @@
     </variable>
     <variable name="value_ground3_label">
         <!-- Studio -->
-        <value condition="Container.Content(movies) | Window.IsVisible(VideoPlaylist) | Container.Content(musicvideos) |  Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$LOCALIZE[345] :</value>
+        <value condition="Container.Content(movies) | Window.IsVisible(VideoPlaylist) | Container.Content(musicvideos) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$LOCALIZE[345] :</value>
         <!-- Studio -->
     </variable>
     <variable name="value_ground3_value">
 		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[Window(Home).Property(SkinHelper.ListItem.Studio)]</value>
-        <value condition="Container.Content(movies) | Window.IsVisible(VideoPlaylist) | Container.Content(musicvideos) |  Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[ListItem.Year]</value>
+        <value condition="Container.Content(movies) | Window.IsVisible(VideoPlaylist) | Container.Content(musicvideos) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[ListItem.Year]</value>
     </variable>
     <variable name="value_ground4_label">
         <!-- Regie / Episodes (counter) / Duration -->

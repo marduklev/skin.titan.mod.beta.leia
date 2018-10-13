@@ -747,7 +747,7 @@
                 </control>
             </control>
         </itemlayout>
-        <focusedlayout width="366" height="210" condition="!String.Contains(Skin.String(HomeLayout),ver) + !  Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout width="366" height="210" condition="!String.Contains(Skin.String(HomeLayout),ver) + !Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <width>374</width>
                 <height>210</height>

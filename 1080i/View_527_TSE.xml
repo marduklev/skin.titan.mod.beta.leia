@@ -11,7 +11,7 @@
 				<height>100%</height>
 				<texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
 				<visible>Skin.HasSetting(View527_DisableFanArt)</visible>
-				<animation effect="fade" start="0" end="100" delay="0" time="400"  condition="Skin.HasSetting(View527_DisableFanArt)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" delay="0" time="400" condition="Skin.HasSetting(View527_DisableFanArt)">Conditional</animation>
 			</control>
 			<!-- seperate  div line 1 -->
 			<control type="image">

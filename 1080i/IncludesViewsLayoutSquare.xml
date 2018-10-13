@@ -25,7 +25,7 @@
             <top>8</top>
             <include>WatchedIndicatorSmall</include>
             <animation type="Conditional" condition="skin.hastheme(classic)">
-                <effect type="slide" end="3,-3" time="0"  />
+                <effect type="slide" end="3,-3" time="0" />
             </animation>
         </control>
         <!--Label Overlay-->
@@ -53,7 +53,7 @@
             <top>8</top>
             <include>WatchedIndicatorSmall</include>
             <animation type="Conditional" condition="skin.hastheme(classic)">
-                <effect type="slide" end="3,-3" time="0"  />
+                <effect type="slide" end="3,-3" time="0" />
             </animation>
         </control>
         <!--Label Overlay-->

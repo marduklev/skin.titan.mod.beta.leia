@@ -117,7 +117,7 @@
                     <animation effect="slide" start="0,200" end="0" tween="cubic" easing="inout" time="1200" delay="800">Visible</animation>
                     <animation effect="fade" start="0" end="100" delay="800" time="800" pulse="false">Visible</animation>
                     <animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-                    <visible>Skin.HasSetting(View514_ShowCDart) + Control.HasFocus(514) + !Skin.HasSetting(PosterShiftViewShowInfo) + ![String.StartsWith(ListItem.Thumb,Default) | String.IsEmpty(ListItem.Thumb)]  + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious</visible>
+                    <visible>Skin.HasSetting(View514_ShowCDart) + Control.HasFocus(514) + !Skin.HasSetting(PosterShiftViewShowInfo) + ![String.StartsWith(ListItem.Thumb,Default) | String.IsEmpty(ListItem.Thumb)] + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious</visible>
                 </control>
                 
 				<control type="fixedlist" id="514">

@@ -245,7 +245,7 @@
                 <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
                 <pagecontrol>60</pagecontrol>
                 <scrolltime>200</scrolltime>
-                <itemlayout height="80"  width="1780">
+                <itemlayout height="80" width="1780">
                      <control type="label">
                         <!--Channel Number-->
                         <posx>20</posx>

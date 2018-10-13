@@ -724,7 +724,7 @@
 					<align>left</align>
                     <textoffsetx>10</textoffsetx>
                     <font>Reg22</font>
-					<label>$ADDON[script.skinshortcuts 32044] >></label>
+					<label>$ADDON[script.skinshortcuts 32044]</label>
                     <onclick>SetProperty(widgetID, 99)</onclick>
 					<onclick>SendClick(312)</onclick>
                     <visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>

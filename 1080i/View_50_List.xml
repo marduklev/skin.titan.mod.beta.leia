@@ -3,7 +3,6 @@
 <includes>
     <include name="View_50_List">
         <!--Panel-->
-		
         <control type="group">
             <visible>Control.IsVisible(50)</visible>
             <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>

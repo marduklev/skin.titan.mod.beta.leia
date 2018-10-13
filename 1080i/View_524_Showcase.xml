@@ -80,7 +80,7 @@
         <width>60</width>
         <height>60</height>
 		<animation type="Conditional" condition="skin.hastheme(classic)">
-            <effect type="slide" end="4,-3" time="0"  />
+            <effect type="slide" end="4,-3" time="0" />
 		</animation>
     </include>
     <include name="MovieShowcaseThumbMain">

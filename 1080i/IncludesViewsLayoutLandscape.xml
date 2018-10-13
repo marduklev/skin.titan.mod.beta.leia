@@ -180,7 +180,7 @@
             ![Control.IsVisible(502) + Skin.String(View502.Tags,disable)] + 
             ![Control.IsVisible(505) + Skin.String(View505.Tags,disable)] + 
             ![[!Window.IsActive(Home) + Control.IsVisible(511)] + Skin.String(View511.Tags,disable)] + 
-            ![Control.IsVisible(512) + Skin.String(View512.Tags,disable)] +            
+            ![Control.IsVisible(512) + Skin.String(View512.Tags,disable)] + 
 			![Control.IsVisible(525) + Skin.String(View525.Tags,disable)] + 
             ![Skin.HasSetting(NoTitleOnHomeMenuTiles) + !String.IsEmpty(ListItem.Property(defaultID))] + 
             !String.IsEqual(ListItem.Property(disableLabel), disable) +
@@ -191,7 +191,7 @@
             [Control.IsVisible(502) + Skin.String(View502.Tags,enable)] | 
             [Control.IsVisible(505) + Skin.String(View505.Tags,enable)] | 
             [[!Window.IsActive(Home) + Control.IsVisible(511)] + Skin.String(View511.Tags,enable)] | 
-            [Control.IsVisible(512) + Skin.String(View512.Tags,enable)] |            
+            [Control.IsVisible(512) + Skin.String(View512.Tags,enable)] | 
 			[Control.IsVisible(525) + Skin.String(View525.Tags,enable)] | 
             [String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Art(clearlogo)) + !String.Contains(ListItem.Thumb,icon.png)] |
             [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] |

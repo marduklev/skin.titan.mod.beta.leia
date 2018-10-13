@@ -103,7 +103,7 @@
                 <include>SkinSettings_Button</include>
                 <label>Auto Trailer Interval</label>
                 <label2>$INFO[Skin.String(auto_trailer_interval.label)]</label2>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) +  String.Contains(Skin.String(HomeLayout), netflix) + Skin.HasSetting(NetflixAutoTrailer)</visible>
+                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout), netflix) + Skin.HasSetting(NetflixAutoTrailer)</visible>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=auto_trailer_interval,header=Auto Trailer Interval)</onclick>
             </control>
             

@@ -33,7 +33,7 @@
             <onfocus condition="[[!String.Contains(Skin.String(HomeLayout), netflix) + !Skin.String(HomeLayout, win10)] | Skin.HasSetting(AutoFocusHome)] + Skin.String(home.defaultfocus) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus(300,$INFO[Skin.String(home.defaultfocus)])</onfocus>
             <include name="WidgetsAutoRotate" content="WidgetsAutoRotate" condition="[String.Contains(Skin.String(HomeLayout), netflix) | Skin.String(HomeLayout, win10)] + Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
                 <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
-            </include>            
+            </include>
             <onfocus condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle, $INFO[Skin.String(widgetstyle)])</onfocus>
             <onfocus>SetProperty(HomeFirstLoadDone,done)</onfocus>
 			<texturenofocus></texturenofocus>

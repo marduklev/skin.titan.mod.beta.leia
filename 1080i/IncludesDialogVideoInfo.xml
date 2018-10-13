@@ -1504,7 +1504,7 @@
 		</control>
 	</include>
 	
-	<include name ="NetflixInfo">
+	<include name="NetflixInfo">
 		<control type="group">
 			<visible>![Skin.HasSetting(UseExtendedInfoDialog) + System.HasAddon(script.extendedinfo)]</visible>
 			<!-- base bg ,check unsure if half cut is that great-->
@@ -2786,15 +2786,15 @@
             <width>350</width>           
             <left>10</left>
             <include>ImdbVD</include>            
-        </control>			
+        </control>
 		<!-- IMDB Top 250 -->
         <control type="group">
             <height>70</height>
-            <width>75</width>         
+            <width>75</width>
             <left>10</left>
             <include>ImdbTop250VD</include>
             <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)) | !String.IsEmpty(ListItem.Top250)</visible>  
-        </control>				
+        </control>
     </include>
  
    <!-- texture thumbs for 'rate this title' button in dialoginfo -->

@@ -104,7 +104,7 @@
 			<animation time="300" effect="slide" start="0" end="400" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>																																																																								  																																																																																										   
             <!-- background image -->
             <control type="image">
-                <visible>[!Skin.HasSetting(NetflixHomeShowLargeThumb) | ControlGroup(505).HasFocus()]  + !Control.IsVisible(5633399)</visible>
+                <visible>[!Skin.HasSetting(NetflixHomeShowLargeThumb) | ControlGroup(505).HasFocus()] + !Control.IsVisible(5633399)</visible>
                 <fadetime>350</fadetime>
                 <texture background="true">$INFO[Control.GetLabel(99004)]</texture>
                 <aspectratio aligny="top">scale</aspectratio>
@@ -232,7 +232,7 @@
                 <!-- spotlight buttons -->
                 <!-- contains hardcoded colors -->
                 <control type="grouplist" id="505">
-                    <visible allowhiddenfocus="true">ControlGroup(505).HasFocus() +  Integer.IsGreater(Container(1508).NumItems,0)</visible>
+                    <visible allowhiddenfocus="true">ControlGroup(505).HasFocus() + Integer.IsGreater(Container(1508).NumItems,0)</visible>
                     <animation effect="slide" end="-1000" condition="!ControlGroup(505).HasFocus">Conditional</animation>
                     <orientation>horizontal</orientation>
                     <bottom>65</bottom>
@@ -1465,9 +1465,9 @@
         <value condition="!String.IsEmpty(ListItem.TagLine)">[B]$INFO[ListItem.TagLine][/B]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.TagLine))">[B]$INFO[Window(Home).Property(ListItem.TagLine)][/B]</value>
         <!-- Watch Tag Info -->
-        <value condition="ControlGroup(505).HasFocus() | [String.IsEqual(ListItem.DBTYPE,tvshow)  | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]">$VAR[WatchNowTagInfo]</value>
+        <value condition="ControlGroup(505).HasFocus() | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]">$VAR[WatchNowTagInfo]</value>
         <!-- Album/Song Info -->
-        <value condition="[String.IsEqual(ListItem.DBTYPE,album)  | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),album)]">$INFO[ListItem.Album]</value>
+        <value condition="[String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),album)]">$INFO[ListItem.Album]</value>
         <value condition="!String.IsEmpty(ListItem.Artist)">[B]$INFO[ListItem.Title,  "," ]$INFO[ListItem.Album, ($LOCALIZE[36918] : ,)][/B]</value>
         <!-- PVR Info -->
         <value condition="String.IsEmpty(ListItem.DBTYPE) + !String.IsEmpty(ListItem.Property(StartDateTime))">$INFO[ListItem.Channel]</value>

@@ -23,7 +23,7 @@
             <width>100%</width>
             <height>100%</height>
             <texture>calibrate/debuggrid1080.png</texture>
-        </control>       
+        </control>
         
         <!-- Window/Dialog debug -->
         <control type="grouplist">

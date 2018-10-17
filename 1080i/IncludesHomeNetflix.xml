@@ -624,10 +624,10 @@
         <value>$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
     </variable>
 
-    <!-- Disabled Spotlight Widgets Height -->
+    <!-- Disabled Spotlight Widgets Height ,check, need also include for disabled header on home -->
     <include name="NetflixHome_AltHeight_NoSpotlight">
-        <top>0</top>
-        <height>100%</height>
+        <top>135</top>
+        <height>87.5%</height>
     </include>
 
     <!-- Netflix 1 Spotlight Widget -->

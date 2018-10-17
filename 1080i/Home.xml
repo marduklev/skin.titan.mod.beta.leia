@@ -7,10 +7,7 @@
     <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;group=mainmenu|powermenu)</onload>
 	<include condition="Skin.String(widgets_rotate) + !Skin.String(widgets_rotate,disabled)">WidgetsAutoRotateUnload</include>
     <onunload condition="!Skin.HasSetting(SectionBackgroundHomeOnly)">SetProperty(SectionBackground,$INFO[Control.GetLabel(99004)])</onunload>
-    <!--
-	<onload condition="String.IsEqual(Skin.String(studiologos.path),resource://resource.images.studios.coloured/)">Skin.SetString(SkinHelper.StudioLogos.Path,resource://resource.images.studios.coloured/)</onload>
-	<onload condition="String.IsEqual(Skin.String(studiologos.path),resource://resource.images.studios.white/)">Skin.SetString(SkinHelper.StudioLogos.Path,resource://resource.images.studios.white/)</onload>
-	-->	
+    
 	<!-- auto close homemenu and focus mainmenu when home is unloaded -->
     <onunload>ClearProperty(submenu,Home)</onunload>
     <onunload>ClearProperty(ShowWidget,Home)</onunload>
@@ -26,9 +23,11 @@
     
         <control type="button" id="1000">
 			<description>hidden button for onload actions as placing them in onload causes strange behaviour</description>
-            <!--focus 77777 more consistently on first load-up -->																																																													  
-            <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [String.Contains(Skin.String(HomeLayout), netflix) | Skin.String(HomeLayout, win10)] + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">AlarmClock(focus_delay,SetFocus(77777),00:01,silent)</onfocus>									
+            <!--focus 77777 more consistently on first load-up, but nav issue if no widget available/dont show all widget option -->
+            <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [String.Contains(Skin.String(HomeLayout), netflix) | Skin.String(HomeLayout, win10)] + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">AlarmClock(focus_delay,SetFocus(77777),00:01,silent)</onfocus>
             <onfocus condition="!String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [String.Contains(Skin.String(HomeLayout), netflix) | Skin.String(HomeLayout, win10)] + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus(77777)</onfocus>
+            <onfocus condition="Integer.IsEqual(Container(77777).NumItems,0) + [String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [String.Contains(Skin.String(HomeLayout), netflix) | Skin.String(HomeLayout, win10)] + !Skin.HasSetting(AutoFocusHome)+ String.IsEmpty(Window(Home).Property(LastFocusWidget))]">AlarmClock(focus_delay,SetFocus(300),00:01,silent)</onfocus>
+            <onfocus condition="Integer.IsEqual(Container(77777).NumItems,0) + [!String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [String.Contains(Skin.String(HomeLayout), netflix) | Skin.String(HomeLayout, win10)] + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))]">SetFocus(300)</onfocus>
             <onfocus condition="[[!String.Contains(Skin.String(HomeLayout), netflix) + !Skin.String(HomeLayout, win10)] | Skin.HasSetting(AutoFocusHome)] + !Skin.String(home.defaultfocus) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus(300)</onfocus>
             <onfocus condition="[[!String.Contains(Skin.String(HomeLayout), netflix) + !Skin.String(HomeLayout, win10)] | Skin.HasSetting(AutoFocusHome)] + Skin.String(home.defaultfocus) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus(300,$INFO[Skin.String(home.defaultfocus)])</onfocus>
             <include name="WidgetsAutoRotate" content="WidgetsAutoRotate" condition="[String.Contains(Skin.String(HomeLayout), netflix) | Skin.String(HomeLayout, win10)] + Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
@@ -66,7 +65,7 @@
         
         <!-- PVR recording icon -->
         <include condition="Skin.HasSetting(Home_RecordingIndicator)">NowRecordingIcon</include>
-	
+		
 		<!-- Home Screen -->
         <include condition="Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 2) | Skin.String(HomeLayout, 3) | Skin.String(HomeLayout, 1small) | Skin.String(HomeLayout, 2small) | Skin.String(HomeLayout, 3small)">HomeTitanTiles</include>
         <include condition="Skin.String(HomeLayout, simplehor) | String.Contains(Skin.String(HomeLayout), lowhorizontal)">HorizontalHome</include>
@@ -75,7 +74,6 @@
         <include condition="Skin.String(HomeLayout, netflix)">HomeNetflix</include>
         <include condition="Skin.String(HomeLayout, netflix2)">HomeNetflix2</include>
         <include condition="Skin.String(HomeLayout, win10)">HomeWin10</include>
-		
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
         
 	</controls>

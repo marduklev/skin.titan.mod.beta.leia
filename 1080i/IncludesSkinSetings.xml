@@ -27,7 +27,6 @@
                 <label2>$INFO[Skin.String(HomeLayout.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=HomeLayout,header=$LOCALIZE[31124])</onclick>
             </control>
-			<!-- check, focus crash - if choose or abort, kodi crash if closing 2nd!! dialog/ SUBLEVEL , DialogSelcet.xml is opend TWICE-->
             <!-- height of the tiles-->
             <control type="button" id="31770">
                 <include>SkinSettings_Button</include>
@@ -74,88 +73,37 @@
             <!--disable top row on netflix home-->
             <control type="radiobutton" id="23604">
                 <include>SkinSettings_Button</include>
-                <label>$LOCALIZE[31639]</label>
+                <label>Disable Spotlight Area</label>
                 <onclick>Skin.ToggleSetting(NetflixHomeDisableFirstRow)</onclick>
 				<onclick condition="Skin.HasSetting(SpotLightTrailers)">Skin.ToggleSetting(SpotLightTrailers)</onclick>
-                <onclick condition="Skin.HasSetting(NetflixAutoTrailer)">Skin.ToggleSetting(NetflixAutoTrailer)</onclick>																													 
+                <onclick condition="Skin.HasSetting(NetflixAutoTrailer)">Skin.ToggleSetting(NetflixAutoTrailer)</onclick>
                 <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
                 <selected>Skin.HasSetting(NetflixHomeDisableFirstRow)</selected>
             </control>
-			<!--spotlight widget trailer-->
-            <control type="radiobutton" id="31798">
+			<!--show rating on home netflix home 1 and 2 -->
+            <control type="radiobutton" id="399764">
                 <include>SkinSettings_Button</include>
-                <label>31798</label>
-                <onclick>Skin.ToggleSetting(SpotLightTrailers)</onclick>
-                <selected>Skin.HasSetting(SpotLightTrailers)</selected>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout, enhanced)</visible>
-				<!--<visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + [Skin.String(HomeLayout, enhanced) | Skin.String(HomeLayout,netflix2)]</visible>-->														   
-            </control>	
-			<!-- enable auto-trailers in netflix home -->
-            <control type="radiobutton" id="28637">
-                <include>SkinSettings_Button</include>
-                <label>Enable auto-trailers in netflix home</label>
-                <onclick>Skin.ToggleSetting(NetflixAutoTrailer)</onclick>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout), netflix)</visible>
-                <selected>Skin.HasSetting(NetflixAutoTrailer)</selected>
+                <label>Show Ratings</label>
+                <onclick>Skin.ToggleSetting(showratingnetflixhome)</onclick>
+                <selected>Skin.HasSetting(showratingnetflixhome)</selected>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
             </control>
-            <!--Auto Trailer Interval-->
-            <control type="button" id="43699">
-                <include>SkinSettings_Button</include>
-                <label>Auto Trailer Interval</label>
-                <label2>$INFO[Skin.String(auto_trailer_interval.label)]</label2>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout), netflix) + Skin.HasSetting(NetflixAutoTrailer)</visible>
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=auto_trailer_interval,header=Auto Trailer Interval)</onclick>
-            </control>
-            
-            <!-- Enable experimental spotlight content -->
-            <control type="radiobutton" id="28327">
-                <include>SkinSettings_Button</include>
-                <label>Enable experimental spotlight content</label>
-                <onclick>Skin.ToggleSetting(ExperimentalSpotlight)</onclick>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2)</visible>
-                <selected>Skin.HasSetting(ExperimentalSpotlight)</selected>
-            </control>
-            <!-- Allow tvshows in experimental content -->
-            <control type="radiobutton" id="28328">
-                <include>SkinSettings_Button</include>
-                <label>Allow TVShows in experimental spotlight content</label>
-                <onclick>Skin.ToggleSetting(AllowTVShowsSpotlight)</onclick>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2)</visible>
-                <selected>Skin.HasSetting(AllowTVShowsSpotlight)</selected>
-            </control>					  
-			      
-            <!--show large thumb on netflix2 home-->
-            <control type="radiobutton" id="31114">
-                <include>SkinSettings_Button</include>
-                <label>$LOCALIZE[31114]</label>
-                <onclick>Skin.ToggleSetting(NetflixHomeShowLargeThumb)</onclick>
-                <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
-                <selected>Skin.HasSetting(NetflixHomeShowLargeThumb)</selected>
-            </control>
-			<!--hide media flags & rating while trailer, check ID !!  -->
-            <control type="radiobutton" id="131786">
-                <include>SkinSettings_Button</include>
-                <label>Hide media flags and rating when playing trailer</label>
-                <onclick>Skin.ToggleSetting(HideMediaFlagsTrailer)</onclick>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2) + [Skin.HasSetting(SpotLightTrailers) | Skin.HasSetting(NetflixAutoTrailer)]</visible>
-                <selected>Skin.HasSetting(HideMediaFlagsTrailer)</selected>
-            </control>
-			<!--disable rating+logo on netflix home, re check-->
+			<!-- show media flags on netflix home -->
             <control type="radiobutton" id="131766">
                 <include>SkinSettings_Button</include>
-                <label>Disable ratings</label>
-                <onclick>Skin.ToggleSetting(NetflixHomeDisableRating)</onclick>
+                <label>Show Media Flags</label>
+                <onclick>Skin.ToggleSetting(HomemenuMediaFlags)</onclick>
                 <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
-                <selected>Skin.HasSetting(NetflixHomeDisableRating)</selected>
+                <selected>Skin.HasSetting(HomemenuMediaFlags)</selected>
             </control>
-			<!--disable studio logo on netflix home, , need re check-->
+			<!--show studio logo on netflix home, , need re check-->
             <control type="radiobutton" id="131767">
                 <include>SkinSettings_Button</include>
-                <label>Disable studio logo in Home</label>
-                <onclick>Skin.ToggleSetting(NetflixHomeDisableStudio)</onclick>
+                <label>Show Studio Logo</label>
+                <onclick>Skin.ToggleSetting(NetflixHomeStudio)</onclick>
                 <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
-                <selected>Skin.HasSetting(NetflixHomeDisableStudio)</selected>
-            </control>											  		  
+                <selected>Skin.HasSetting(NetflixHomeStudio)</selected>
+            </control>
             <!--Enable white rating flags in home , need re check-->
             <control type="radiobutton" id="399766">
                 <include>SkinSettings_Button</include>
@@ -164,13 +112,13 @@
                 <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow) + !Skin.HasSetting(NetflixHomeDisableRating)</visible>
                 <selected>Skin.HasSetting(EnableWhiteRatingInHome)</selected>
             </control>
-			<!--no footer on home , re check, not visible on netflix 2/1-->
+			<!--no footer on home , non netflix home 1 and 2, need check to other home wich dont have/need footer -->
             <control type="radiobutton" id="5164">
                 <include>SkinSettings_Button</include>
                 <label>31494</label>
                 <onclick>Skin.ToggleSetting(NoFooterBarOnHome)</onclick>
                 <selected>Skin.HasSetting(NoFooterBarOnHome)</selected>
-                <visible>!Skin.HasSetting(NoFooterBar) | !String.Contains(Skin.String(HomeLayout), netflix)</visible>
+                <visible>!String.Contains(Skin.String(HomeLayout), netflix)</visible>
             </control>
             <!-- disable clearlogo in netflix home -->
             <control type="radiobutton" id="31818">
@@ -178,17 +126,9 @@
                 <include>SkinSettings_Button</include>
                 <label>31818</label>
                 <onclick>Skin.ToggleSetting(NoClearLogoNetflix)</onclick>
-                <selected>Skin.HasSetting(NoClearLogoNetflix)</selected>
+                <selected>Skin.HasSetting(NoClearLogoNetflixHome)</selected>
                 <visible>String.Contains(Skin.String(HomeLayout),netflix)</visible>
             </control>							 					 
-            <!--auto show home menu on netflix home or win10-->
-            <control type="radiobutton" id="31725">
-                <include>SkinSettings_Button</include>
-                <label>$LOCALIZE[31725]</label>
-                <onclick>Skin.ToggleSetting(AutoFocusHome)</onclick>
-                <visible>String.Contains(Skin.String(HomeLayout), netflix) | Skin.String(HomeLayout,win10)</visible>
-                <selected>Skin.HasSetting(AutoFocusHome)</selected>
-            </control>
             <!-- default focus position-->
             <control type="button" id="31727">
                 <include>SkinSettings_Button</include>
@@ -205,54 +145,7 @@
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=SubmenuLayout,header=$LOCALIZE[31312])</onclick>
                 <visible>[Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 2) | Skin.String(HomeLayout, 3) | Skin.String(HomeLayout, 1small) | Skin.String(HomeLayout, 2small) | Skin.String(HomeLayout, 3small)]</visible>
             </control>
-            <!-- widget layout-->
-            <control type="button" id="23719">
-                <include>SkinSettings_Button</include>
-                <label>31507</label>
-                <label2>$INFO[Skin.String(widgetstyle.label)]</label2>
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=widgetstyle,header=$LOCALIZE[31507])</onclick>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
-            </control>
-            <!--large widget area-->
-            <control type="radiobutton" id="31761">
-                <include>SkinSettings_Button</include>
-                <label>$LOCALIZE[31761]</label>
-                <onclick>Skin.ToggleSetting(VerticalHomeLargeWidget)</onclick>
-                <visible>String.Contains(Skin.String(HomeLayout), ver)</visible>
-                <selected>Skin.HasSetting(VerticalHomeLargeWidget)</selected>
-            </control>
-            <!--show all widgets at once-->
-            <control type="radiobutton" id="31820">
-                <include>SkinSettings_Button</include>
-                <label>$LOCALIZE[31820]</label>
-                <onclick>Skin.ToggleSetting(ShowAllWidgets)</onclick>
-                <visible>String.Contains(Skin.String(HomeLayout), ver) | String.Contains(Skin.String(HomeLayout), netflix) | String.Contains(Skin.String(HomeLayout), win10)</visible>
-                <selected>Skin.HasSetting(ShowAllWidgets)</selected>
-            </control>
-            <!-- widget rotate-->
-            <control type="button" id="31672">
-                <include>SkinSettings_Button</include>
-                <label>31672</label>
-                <label2>$INFO[Skin.String(widgets_rotate.label)]</label2>
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=widgets_rotate,header=$LOCALIZE[31672])</onclick>
-                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
-            </control>
-            <!-- widget rotate delay-->
-            <control type="button" id="31679">
-                <include>SkinSettings_Button</include>
-                <label>31679</label>
-                <label2>$INFO[Skin.String(widgets_rotate_delay.label)]</label2>
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=widgets_rotate_delay,header=$LOCALIZE[31679])</onclick>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + Skin.String(widgets_rotate) + !Skin.String(widgets_rotate,disabled)</visible>
-            </control>
-            <!-- widget rotate pause-->
-            <control type="radiobutton" id="31821">
-                <include>SkinSettings_Button</include>
-                <label>31821</label>
-                <onclick>Skin.ToggleSetting(widgets_rotate_pause)</onclick>
-                <selected>Skin.HasSetting(widgets_rotate_pause)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + Skin.String(widgets_rotate) + !Skin.String(widgets_rotate,disabled) + !String.Contains(Skin.String(HomeLayout),netflix)</visible>
-            </control>
+            
 
             <!-- HOMESCREEN OPTIONS -->
             <control type="label" id="23011">
@@ -265,7 +158,7 @@
                 <label>13305</label>
                 <onclick>XBMC.RunScript(script.skin.helper.service,action=togglekodisetting,setting=lookandfeel.enablerssfeeds)</onclick>
                 <selected>system.getbool(lookandfeel.enablerssfeeds)</selected>
-                <visible>!Skin.String(HomeLayout, win10)</visible>
+                <visible>![Skin.String(HomeLayout, win10) | String.Contains(Skin.String(HomeLayout), netflix)]</visible>
             </control>
             <!-- open submenu on click-->
             <control type="radiobutton" id="23012">
@@ -293,8 +186,15 @@
                 <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
                 <visible>[Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 1small)] + Skin.HasSetting(AutoShowWidgets)</visible>
             </control>
-
-            <!--enable auto show submenus-->
+			<!--auto show home menu on netflix home or win10-->
+            <control type="radiobutton" id="31725">
+                <include>SkinSettings_Button</include>
+                <label>$LOCALIZE[31725]</label>
+                <onclick>Skin.ToggleSetting(AutoFocusHome)</onclick>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix) | Skin.String(HomeLayout,win10)</visible>
+                <selected>Skin.HasSetting(AutoFocusHome)</selected>
+            </control>
+			<!--enable auto show submenus-->
             <control type="radiobutton" id="23014">
                 <include>SkinSettings_Button</include>
                 <label>31113</label>
@@ -353,23 +253,8 @@
                 <selected>Skin.HasSetting(Vertical_Home_Animation)</selected>
                 <visible>[Skin.String(HomeLayout, simplever) | Skin.String(HomeLayout, simplever_tiles)]</visible>
             </control>
-            <!--enable widgets animation-->
-            <control type="radiobutton" id="31621">
-                <include>SkinSettings_Button</include>
-                <label>31621</label>
-                <onclick>Skin.ToggleSetting(Widgets_Animation)</onclick>
-                <selected>Skin.HasSetting(Widgets_Animation)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced) + !String.Contains(Skin.String(HomeLayout), netflix) + !Skin.String(HomeLayout, win10)</visible>
-            </control>
-            <!--enable widgets zoom effect-->
-            <control type="radiobutton" id="31763">
-                <include>SkinSettings_Button</include>
-                <label>31763</label>
-                <onclick>Skin.ToggleSetting(WidgetsZoomFocus)</onclick>
-                <selected>Skin.HasSetting(WidgetsZoomFocus)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
-            </control>
-			<!--Disable Logo on MainMenu, re check-->
+            
+			<!--Disable Profile Logo on MainMenu, re check-->
             <control type="radiobutton" id="31749">
                 <include>SkinSettings_Button</include>
                 <label>Disable Logo on Main Menu</label>
@@ -399,7 +284,8 @@
                 <label>31198</label>
                 <onclick>Skin.ToggleSetting(DisablePowerMenu)</onclick>
                 <selected>Skin.HasSetting(DisablePowerMenu)</selected>
-            </control>
+				<visible>!String.Contains(Skin.String(HomeLayout), netflix)</visible>
+			</control>
             <!--hide power button-->
             <control type="radiobutton" id="23027">
                 <include>SkinSettings_Button</include>
@@ -407,6 +293,7 @@
                 <onclick>Skin.ToggleSetting(HidePowerMenu)</onclick>
                 <selected>Skin.HasSetting(HidePowerMenu)</selected>
                 <visible>!Skin.HasSetting(DisablePowerMenu)</visible>
+				<visible>!String.Contains(Skin.String(HomeLayout), netflix)</visible>
             </control>
 
             <!--no titles on home tiles-->
@@ -431,7 +318,7 @@
                 <label>31206</label>
                 <onclick>Skin.ToggleSetting(HideWidgetPanelBackground)</onclick>
                 <selected>Skin.HasSetting(HideWidgetPanelBackground)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small) + !Skin.String(HomeLayout, win10)</visible>
+                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small) + !Skin.String(HomeLayout, win10) + !Skin.String(HomeLayout, netflix2)</visible>
             </control>
             <!--hide widget details-->
             <control type="radiobutton" id="31707">
@@ -441,22 +328,6 @@
                 <selected>Skin.HasSetting(HideWidgetDetailsPanel)</selected>
                 <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small) + !Skin.String(HomeLayout, win10) + !String.Contains(Skin.String(HomeLayout), netflix)</visible>
             </control>
-            <!--large widget details-->
-            <control type="radiobutton" id="31741">
-                <include>SkinSettings_Button</include>
-                <label>31741</label>
-                <onclick>Skin.ToggleSetting(LargeWidgetDetailsPanel)</onclick>
-                <selected>Skin.HasSetting(LargeWidgetDetailsPanel)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.HasSetting(HideWidgetDetailsPanel) + String.Contains(Skin.String(HomeLayout), ver)</visible>
-            </control>           
-            <!--prefer tv show art for episodes-->
-            <control type="radiobutton" id="31304">
-                <include>SkinSettings_Button</include>
-                <label>31304</label>
-                <onclick>Skin.ToggleSetting(PreferTvShowThumbWidget)</onclick>
-                <selected>Skin.HasSetting(PreferTvShowThumbWidget)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small)</visible>
-            </control>           
             <!--hide indicators on home tiles-->
             <control type="radiobutton" id="31529">
                 <include>SkinSettings_Button</include>
@@ -466,30 +337,6 @@
                 <visible>[Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 2) | Skin.String(HomeLayout, 1small) | Skin.String(HomeLayout, 2small) | Skin.String(HomeLayout, simplever)]</visible>
                 <visible>![Skin.HasSetting(DisableAllWidgets) + Skin.HasSetting(DisableAllSubmenus)]</visible>
             </control>
-            <!-- display tags on widgets -->
-            <control type="button" id="31675">
-                <include>SkinSettings_Button</include>
-                <label>31675</label>
-                <label2>$INFO[Skin.String(Widgets_DisplayTags.label)]</label2>
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=Widgets_DisplayTags,header=$LOCALIZE[31675])</onclick>
-                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
-            </control>
-            <!-- prefer plot outline -->
-            <control type="radiobutton" id="31794">
-                <include>SkinSettings_Button</include>
-                <label>31794</label>
-                <onclick>Skin.ToggleSetting(WidgetsPreferPlotOutline)</onclick>
-                <selected>Skin.HasSetting(WidgetsPreferPlotOutline)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
-            </control>
-            <!-- auto right align widgets -->
-            <control type="radiobutton" id="31712">
-                <include>SkinSettings_Button</include>
-                <label>31712</label>
-                <onclick>Skin.ToggleSetting(WidgetAlignRight)</onclick>
-                <selected>Skin.HasSetting(WidgetAlignRight)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
-            </control>
 			<!-- mod: show/don't show plot for unwatched/inprogress episodes -->
             <control type="radiobutton" id="39274">
                 <include>SkinSettings_Button</include>
@@ -497,7 +344,165 @@
                 <onclick>Skin.ToggleSetting(ShowEpisodesPlotAll)</onclick>
                 <selected>Skin.HasSetting(ShowEpisodesPlotAll)</selected>
                 <visible>Skin.String(HomeLayout,netflix2)</visible>
-            </control>																	
+            </control>
+			<control type="label" id="23005">
+                <include>SkinSettings_Header</include>
+                <label>Home Screen Widgets</label>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            </control>
+			<!-- widget layout-->
+            <control type="button" id="23719">
+                <include>SkinSettings_Button</include>
+                <label>31507</label>
+                <label2>$INFO[Skin.String(widgetstyle.label)]</label2>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=widgetstyle,header=$LOCALIZE[31507])</onclick>
+                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
+            </control>
+            <!--large widget area-->
+            <control type="radiobutton" id="31761">
+                <include>SkinSettings_Button</include>
+                <label>$LOCALIZE[31761]</label>
+                <onclick>Skin.ToggleSetting(VerticalHomeLargeWidget)</onclick>
+                <visible>String.Contains(Skin.String(HomeLayout), ver)</visible>
+                <selected>Skin.HasSetting(VerticalHomeLargeWidget)</selected>
+            </control>
+			<!-- enable auto-trailers in netflix home -->
+            <control type="radiobutton" id="28637">
+                <include>SkinSettings_Button</include>
+                <label>$LOCALIZE[20410] $LOCALIZE[37026] $LOCALIZE[208]</label>
+                <onclick>Skin.ToggleSetting(NetflixAutoTrailer)</onclick>
+                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout), netflix)</visible>
+                <selected>Skin.HasSetting(NetflixAutoTrailer)</selected>
+            </control>
+            <!--Auto Trailer Interval-->
+            <control type="button" id="43699">
+                <include>SkinSettings_Button</include>
+                <label>$LOCALIZE[20410] $LOCALIZE[37026] $LOCALIZE[208] Interval</label>
+                <label2>$INFO[Skin.String(auto_trailer_interval.label)]</label2>
+                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout), netflix) + Skin.HasSetting(NetflixAutoTrailer)</visible>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=auto_trailer_interval,header=Auto Trailer Interval)</onclick>
+            </control>
+			<!--spotlight widget trailer-->
+            <control type="radiobutton" id="31798">
+                <include>SkinSettings_Button</include>
+                <label>$LOCALIZE[20410] $LOCALIZE[37026] $LOCALIZE[208] (Spotlight Widget)</label>
+                <onclick>Skin.ToggleSetting(SpotLightTrailers)</onclick>
+                <selected>Skin.HasSetting(SpotLightTrailers)</selected>
+                <visible>[!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2)] | Skin.String(HomeLayout, enhanced)</visible>-->
+            </control>
+            <!--hide media flags & rating while trailer, check ID !!  -->
+            <control type="radiobutton" id="131786">
+                <include>SkinSettings_Button</include>
+                <label>Hide media flags and rating when playing trailer</label>
+                <onclick>Skin.ToggleSetting(HideMediaFlagsTrailer)</onclick>
+                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2) + [Skin.HasSetting(SpotLightTrailers) | Skin.HasSetting(NetflixAutoTrailer)]</visible>
+                <selected>Skin.HasSetting(HideMediaFlagsTrailer)</selected>
+            </control>
+			<!--enable widgets animation-->
+            <control type="radiobutton" id="31621">
+                <include>SkinSettings_Button</include>
+                <label>31621</label>
+                <onclick>Skin.ToggleSetting(Widgets_Animation)</onclick>
+                <selected>Skin.HasSetting(Widgets_Animation)</selected>
+                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced) + !String.Contains(Skin.String(HomeLayout), netflix) + !Skin.String(HomeLayout, win10)</visible>
+            </control>
+            <!--enable widgets zoom effect-->
+            <control type="radiobutton" id="31763">
+                <include>SkinSettings_Button</include>
+                <label>31763</label>
+                <onclick>Skin.ToggleSetting(WidgetsZoomFocus)</onclick>
+                <selected>Skin.HasSetting(WidgetsZoomFocus)</selected>
+                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
+            </control>
+			 <!--large widget details-->
+            <control type="radiobutton" id="31741">
+                <include>SkinSettings_Button</include>
+                <label>31741</label>
+                <onclick>Skin.ToggleSetting(LargeWidgetDetailsPanel)</onclick>
+                <selected>Skin.HasSetting(LargeWidgetDetailsPanel)</selected>
+                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.HasSetting(HideWidgetDetailsPanel) + String.Contains(Skin.String(HomeLayout), ver)</visible>
+            </control>
+			 <!--prefer tv show art for episodes-->
+            <control type="radiobutton" id="31304">
+                <include>SkinSettings_Button</include>
+                <label>31304</label>
+                <onclick>Skin.ToggleSetting(PreferTvShowThumbWidget)</onclick>
+                <selected>Skin.HasSetting(PreferTvShowThumbWidget)</selected>
+                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small)</visible>
+            </control>
+            <!--show all widgets at once, check will cause spotlight widget issues -->
+            <control type="radiobutton" id="31820">
+                <include>SkinSettings_Button</include>
+                <label>$LOCALIZE[31820]</label>
+                <onclick>Skin.ToggleSetting(ShowAllWidgets)</onclick>
+                <visible>String.Contains(Skin.String(HomeLayout), ver) | String.Contains(Skin.String(HomeLayout), netflix) | String.Contains(Skin.String(HomeLayout), win10)</visible>
+                <selected>Skin.HasSetting(ShowAllWidgets)</selected>
+            </control>
+			<!-- auto right align widgets -->
+            <control type="radiobutton" id="31712">
+                <include>SkinSettings_Button</include>
+                <label>31712</label>
+                <onclick>Skin.ToggleSetting(WidgetAlignRight)</onclick>
+                <selected>Skin.HasSetting(WidgetAlignRight)</selected>
+                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
+            </control>
+            <!-- widget rotate-->
+            <control type="button" id="31672">
+                <include>SkinSettings_Button</include>
+                <label>31672</label>
+                <label2>$INFO[Skin.String(widgets_rotate.label)]</label2>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=widgets_rotate,header=$LOCALIZE[31672])</onclick>
+                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
+            </control>
+            <!-- widget rotate delay-->
+            <control type="button" id="31679">
+                <include>SkinSettings_Button</include>
+                <label>31679</label>
+                <label2>$INFO[Skin.String(widgets_rotate_delay.label)]</label2>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=widgets_rotate_delay,header=$LOCALIZE[31679])</onclick>
+                <visible>!Skin.HasSetting(DisableAllWidgets) + Skin.String(widgets_rotate) + !Skin.String(widgets_rotate,disabled)</visible>
+            </control>
+            <!-- widget rotate pause-->
+            <control type="radiobutton" id="31821">
+                <include>SkinSettings_Button</include>
+                <label>31821</label>
+                <onclick>Skin.ToggleSetting(widgets_rotate_pause)</onclick>
+                <selected>Skin.HasSetting(widgets_rotate_pause)</selected>
+                <visible>!Skin.HasSetting(DisableAllWidgets) + Skin.String(widgets_rotate) + !Skin.String(widgets_rotate,disabled) + !String.Contains(Skin.String(HomeLayout),netflix)</visible>
+            </control>
+			<!-- display tags on widgets -->
+            <control type="button" id="31675">
+                <include>SkinSettings_Button</include>
+                <label>31675</label>
+                <label2>$INFO[Skin.String(Widgets_DisplayTags.label)]</label2>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=Widgets_DisplayTags,header=$LOCALIZE[31675])</onclick>
+                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
+            </control>
+			<!-- prefer plot outline -->
+            <control type="radiobutton" id="31794">
+                <include>SkinSettings_Button</include>
+                <label>31794</label>
+                <onclick>Skin.ToggleSetting(WidgetsPreferPlotOutline)</onclick>
+                <selected>Skin.HasSetting(WidgetsPreferPlotOutline)</selected>
+                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
+            </control>
+			<!-- Enable experimental spotlight content -->
+            <control type="radiobutton" id="28327">
+                <include>SkinSettings_Button</include>
+                <label>Enable experimental spotlight content</label>
+                <onclick>Skin.ToggleSetting(ExperimentalSpotlight)</onclick>
+                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2)</visible>
+                <selected>Skin.HasSetting(ExperimentalSpotlight)</selected>
+            </control>
+            <!-- Allow tvshows in experimental content -->
+            <control type="radiobutton" id="28328">
+                <include>SkinSettings_Button</include>
+                <label>Allow TVShows in experimental spotlight content</label>
+                <onclick>Skin.ToggleSetting(AllowTVShowsSpotlight)</onclick>
+                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2)</visible>
+                <selected>Skin.HasSetting(AllowTVShowsSpotlight)</selected>
+            </control>
+			
             <!-- colorize custom home tiles -->
             <control type="radiobutton" id="31755">
                 <include>SkinSettings_Button</include>

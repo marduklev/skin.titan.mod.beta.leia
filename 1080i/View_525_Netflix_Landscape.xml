@@ -84,7 +84,7 @@
                     <top>10</top>
                     <aspectratio align="center" aligny="top">keep</aspectratio>
                     <texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
-                    <visible>!Skin.HasSetting(NoClearLogoNetflix)</visible>
+                    <visible>!String.IsEmpty(Control.GetLabel(29477))</visible>
                 </control>
 				<control type="textbox"> <!-- if Clear LOGO N/A -->
                     <height>300</height>

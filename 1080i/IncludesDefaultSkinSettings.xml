@@ -69,7 +69,6 @@
 		<onload condition="!Skin.String(SpinnerTexture.Color)">Skin.SetString(SpinnerTexture.Color, ffff0000)</onload>
         <onload condition="!Skin.String(mediaflagsstyle)">Skin.SetString(mediaflagsstyle, large)</onload>
         <onload condition="!Skin.String(osdmediaflagsstyle)">Skin.SetString(osdmediaflagsstyle, large)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(NetflixHomeShowLargeThumb)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View523_DetailsShowFanart)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View525_DetailsShowFanart)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(WatchedIndicator.Playing)</onload>

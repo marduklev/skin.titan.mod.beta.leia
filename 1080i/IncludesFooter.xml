@@ -321,7 +321,7 @@
 	
 	<!-- TM db rating footer -->
 	<include name="TMdb_footer">
-        <control type="group">			
+        <control type="group">
 			<control type="image">
 				<top>-10</top>
 				<height>80</height>
@@ -355,7 +355,7 @@
     </include>
 	
 	<include name="studiologo_image">
-		<fadetime>200</fadetime>	
+		<fadetime>200</fadetime>
 		<texture background="true">$VAR[image_StudioLogo]</texture>
 		<colordiffuse condition="String.IsEqual(Skin.String(studiologos.path),resource://resource.images.studios.white/)">$VAR[AdvancedRatings_TextColor]</colordiffuse>
 	</include>
@@ -366,20 +366,20 @@
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
 			<right>10</right>
-			<align>right</align>			
-			<!-- studio -->				
-			<control type="image" id="414783">			
+			<align>right</align>
+			<!-- studio -->
+			<control type="image" id="414783">
 				<bottom>-5</bottom>
 				<width>400</width>
 				<height>110</height>
 				<aspectratio aligny="center" align="right">keep</aspectratio>
-				<visible>Skin.HasSetting(StudioInFooter)</visible>			
+				<visible>[[Window.IsActive(videos) + Skin.HasSetting(StudioInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(NetflixHomeStudio)]]</visible>
 				<visible>!Control.IsVisible(527)</visible>
 				<include>studiologo_image</include>
 				<bordersize>1</bordersize>
-			</control>				
+			</control>
 			<!-- meta -->
-			<control type="group">		
+			<control type="group">
 				<left>2</left>  
 				<bottom>15</bottom>
 				<width>70</width>

@@ -1179,7 +1179,7 @@
 								<left>0</left>
 								<font>Light22</font>
                                 <align>center</align>
-                                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Budget.formatted), • [B]Budget: [/B], $ • ][CR]$INFO[Window(Home).Property(SkinHelper.ListItem.Revenue.formatted), • [B]Gesammt Einnahmen: [/B]$, • ][CR]$INFO[Window(Home).Property(SkinHelper.ListItem.BoxOffice), • [B]Einnahme am 1.KINOTAG: [/B], • ]</label>
+                                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Budget.formatted), • [B]Budget: [/B], $ • ][CR]$INFO[Window(Home).Property(SkinHelper.ListItem.Revenue.formatted), • [B]Gesamt Einnahmen: [/B]$, • ][CR]$INFO[Window(Home).Property(SkinHelper.ListItem.BoxOffice), • [B]Einnahme am 1.KINOTAG: [/B], • ]</label>
                                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 								<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                                 <scroll>false</scroll> 
@@ -1592,7 +1592,7 @@
                     <!-- Title -->
                     <!-- clearlogo [800x310] -->
                     <control type="image" id="887766">
-                        <visible>!Skin.HasSetting(NoClearLogoNetflix) + !String.IsEmpty(Control.GetLabel(887766))</visible>
+                        <visible>!String.IsEmpty(Control.GetLabel(887766))</visible>
                         <height>230</height>
                         <width>593</width>
                         <align>left</align>
@@ -1601,7 +1601,7 @@
                     </control>
                     <!-- text title -->
                     <control type="textbox">
-                        <visible>Skin.HasSetting(NoClearLogoNetflix) | String.IsEmpty(Control.GetLabel(887766))</visible>
+                        <visible>String.IsEmpty(Control.GetLabel(887766))</visible>
                         <top>55</top>
                         <width max="1000">auto</width>
                         <height>auto</height>

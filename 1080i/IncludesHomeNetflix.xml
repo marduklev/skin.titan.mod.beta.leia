@@ -14,7 +14,9 @@
 
             <!-- all widgets -->
             <control type="grouplist" id="77777">
-                <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_AltHeight_NoSpotLight</include>
+                 <!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_NoHeaderOnHome</include> check, new setting, no defined include -->
+				 <!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_WinHeaderOnHome</include>check, new setting, no defined include -->
+				<include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_AltHeight_NoSpotLight</include> <!-- actual use height if header is active -->
                 <left>50</left>
                 <right>50</right>
                 <bottom>0</bottom>
@@ -101,7 +103,7 @@
         <!-- netflix content -->
         <control type="group" id="9000">
             <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
-			<animation time="300" effect="slide" start="0" end="400" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>																																																																								  																																																																																										   
+			<animation time="300" effect="slide" start="0" end="400" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
             <!-- background image -->
             <control type="image">
                 <visible>ControlGroup(505).HasFocus() + !Control.IsVisible(5633399)</visible>
@@ -1209,8 +1211,10 @@
                 <onleft>300</onleft>
                 <onleft>ClearProperty(submenu,home)</onleft>
                 <onright>ClearProperty(submenu,home)</onright>
-                <onright>9000</onright>
                 <onright>ClearProperty(ShowViewSubMenu, Home)</onright>
+				<onright condition="String.IsEqual(Container(77777).NumItems,0) + !Skin.HasSetting(ShowAllWidgets)">300</onright>  <!-- tempporally till spotlight fix -->
+				<onright condition="!String.IsEqual(Container(77777).NumItems,0) + !Skin.HasSetting(ShowAllWidgets)">77777</onright> <!-- tempporally till spotlight fix -->
+				<onright condition="Skin.HasSetting(ShowAllWidgets)">9000</onright>
                 <onup>4444</onup>
                 <ondown>4444</ondown>
                 <onback>300</onback>

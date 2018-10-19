@@ -127,8 +127,16 @@
                 <label>31818</label>
                 <onclick>Skin.ToggleSetting(NoClearLogoNetflix)</onclick>
                 <selected>Skin.HasSetting(NoClearLogoNetflixHome)</selected>
-                <visible>String.Contains(Skin.String(HomeLayout),netflix)</visible>
-            </control>							 					 
+                <visible>String.Contains(Skin.String(HomeLayout),netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
+            </control>
+			<!-- mod: show/don't show plot for unwatched/inprogress episodes -->
+            <control type="radiobutton" id="39274">
+                <include>SkinSettings_Button</include>
+                <label>Show plot for unwatched and in-progress episodes</label>
+                <onclick>Skin.ToggleSetting(ShowEpisodesPlotAll)</onclick>
+                <selected>Skin.HasSetting(ShowEpisodesPlotAll)</selected>
+                <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
+            </control>
             <!-- default focus position-->
             <control type="button" id="31727">
                 <include>SkinSettings_Button</include>
@@ -147,7 +155,7 @@
             </control>
             
 
-            <!-- HOMESCREEN OPTIONS -->
+            <!-- HOMESCREEN Main Menu OPTIONS ,check-->
             <control type="label" id="23011">
                 <include>SkinSettings_Header</include>
                 <label>31122</label>
@@ -336,14 +344,6 @@
                 <selected>Skin.HasSetting(HideHomeTileIndicators)</selected>
                 <visible>[Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 2) | Skin.String(HomeLayout, 1small) | Skin.String(HomeLayout, 2small) | Skin.String(HomeLayout, simplever)]</visible>
                 <visible>![Skin.HasSetting(DisableAllWidgets) + Skin.HasSetting(DisableAllSubmenus)]</visible>
-            </control>
-			<!-- mod: show/don't show plot for unwatched/inprogress episodes -->
-            <control type="radiobutton" id="39274">
-                <include>SkinSettings_Button</include>
-                <label>Show plot for unwatched and in-progress episodes</label>
-                <onclick>Skin.ToggleSetting(ShowEpisodesPlotAll)</onclick>
-                <selected>Skin.HasSetting(ShowEpisodesPlotAll)</selected>
-                <visible>Skin.String(HomeLayout,netflix2)</visible>
             </control>
 			<control type="label" id="23005">
                 <include>SkinSettings_Header</include>

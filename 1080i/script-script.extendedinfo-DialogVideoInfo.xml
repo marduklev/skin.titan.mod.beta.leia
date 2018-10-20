@@ -82,16 +82,16 @@
 						<visible>false</visible>
 					</control>
 					<control type="radiobutton" id="6003">
-						<visible>false></visible>
+						<visible>false</visible>
 					</control>
 					<control type="radiobutton" id="6005">
-						<visible>false></visible>
+						<visible>false</visible>
 					</control>
 					<control type="radiobutton" id="6002">
-						<visible>false></visible>
+						<visible>false</visible>
 					</control>
 					<control type="radiobutton" id="6006">
-						<visible>false></visible>
+						<visible>false</visible>
 					</control>
 					
 					<!-- play button -->

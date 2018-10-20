@@ -186,7 +186,7 @@
 				<control type="image">
 					<posx>0</posx>
 					<posy>-5</posy>
-					<width>100%</width>
+					<width>110%</width>
 					<height>145</height>
 					<texture border="5">diffuse/panel.png</texture>
 					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
@@ -208,7 +208,7 @@
 					<width>1150</width>
 					<align>left</align>
 					<font>Bold45</font>
-					<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+					<textcolor>$INFO[Skin.String(SecondaryHeaderTextColor)]</textcolor>
 					<label>$VAR[NowPlayingTitle]</label>
 					<scroll>false</scroll>
 				</control>
@@ -298,17 +298,17 @@
 					<width>285</width>
 					<height>130</height>
 					<visible>!VideoPlayer.Content(livetv) |
-					[VideoPlayer.Content(livetv) +
+					[VideoPlayer.Content(livetv) + 
 					[Control.IsVisible(10) + !Skin.HasSetting(GuideShowInfo)] |
-					[[Control.IsVisible(51) + !Skin.HasSetting(View51_DetailsShowFanart)] | [Control.IsVisible(51) + Skin.HasSetting(BigListViewShowInfo) + !Skin.HasSetting(View51_DetailsShowFanart)]] |
+					[[Control.IsVisible(51) + !Skin.HasSetting(View51_DetailsShowFanart)] | [Control.IsVisible(51) + Skin.HasSetting(BigListViewShowInfo) + !Skin.HasSetting(View51_DetailsShowFanart)]] | 
 					[Control.IsVisible(504) + !Skin.HasSetting(View504_DetailsShowFanart)] | 
-					[[Control.IsVisible(516) + !Skin.HasSetting(View516_DetailsShowFanart)] | [Control.IsVisible(516) + Skin.HasSetting(SlimListViewShowInfo) + !Skin.HasSetting(View516_DetailsShowFanart)]] |
-					Control.IsVisible(52) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(506) | Control.IsVisible(509) | Control.IsVisible(511) |
+					[[Control.IsVisible(516) + !Skin.HasSetting(View516_DetailsShowFanart)] | [Control.IsVisible(516) + Skin.HasSetting(SlimListViewShowInfo) + !Skin.HasSetting(View516_DetailsShowFanart)]] | 
+					Control.IsVisible(52) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(506) | Control.IsVisible(509) | Control.IsVisible(511) | 
 					Control.IsVisible(517) | Control.IsVisible(518) | Control.IsVisible(521) | Control.IsVisible(522) | 
 					[Control.IsVisible(53) + !Skin.HasSetting(View53_DetailsShowFanart)] | 
-					[Control.IsVisible(59) + !Skin.HasSetting(View59_DetailsShowFanart)] |
-					[Control.IsVisible(510) + !Skin.HasSetting(View510_DetailsShowFanart)] |
-					[Control.IsVisible(512) + !Skin.HasSetting(View512_DetailsShowFanart)] |
+					[Control.IsVisible(59) + !Skin.HasSetting(View59_DetailsShowFanart)] | 
+					[Control.IsVisible(510) + !Skin.HasSetting(View510_DetailsShowFanart)] | 
+					[Control.IsVisible(512) + !Skin.HasSetting(View512_DetailsShowFanart)] | 
 					[Control.IsVisible(505) + !Skin.HasSetting(View505_DetailsShowFanart)]
 					]</visible>
 					<!-- black background -->

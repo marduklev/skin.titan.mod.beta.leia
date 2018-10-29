@@ -7,7 +7,6 @@
     <variable name="value_header">
         <value condition="[Window.IsActive(skinsettings) | Window.IsActive(Custom_SkinSettings.xml)]">[UPPERCASE]$LOCALIZE[20077][/UPPERCASE]</value>
 		<value condition="window.isactive(favourites)">$LOCALIZE[1036]</value>
-        <value condition="window.isactive(DialogAudioDSPManager.xml )">$LOCALIZE[15020]</value>
 		<value condition="Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml) + !String.IsEmpty(Window(Home).Property(actor.title))">$INFO[Window(Home).Property(actor.title)]</value>
 		<value condition="Window.IsActive(loginscreen)">$INFO[System.CurrentWindow]</value>
 		<value condition="window.isactive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>

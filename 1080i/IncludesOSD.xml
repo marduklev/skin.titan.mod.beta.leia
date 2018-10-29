@@ -721,6 +721,7 @@
 		<control type="group">
 			<bottom>0</bottom>
 			<height>300</height>
+			<animation effect="slide" center="auto" end="0,220" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 			<!--Panel-->
 			<control type="image">
 				<posx>0</posx>
@@ -728,9 +729,37 @@
 				<width>100%</width>
 				<height>320</height>
 				<texture border="10">$VAR[osdpanelimage]</texture>
-				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>		   
+				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 			</control>
-			
+			<!-- check, create one image instead of using 2 -->
+			<control type="group">
+				<posx>0</posx>
+				<visible>!Skin.HasSetting(EnableOSDInfo)</visible>
+				<control type="image">
+					<posy>-125</posy>
+					<width>100%</width>
+					<height>85</height>
+					<texture border="2" colordiffuse="$INFO[Skin.String(OSDPanelColor)]">diffuse/gradient.png</texture>
+				</control>
+				<!--
+				<control type="image">
+					<posy>-75</posy>
+					<width>100%</width>
+					<height>40</height>
+					<texture flipy="true" colordiffuse="$INFO[Skin.String(OSDPanelColor)]" border="2">diffuse/gradient.png</texture>
+				</control>
+				-->
+			</control>
+			<!-- top bar Panel if info off ,disabled, but keep, since its intersting overlay if switch gradient 
+			<control type="image">
+				<posx>0</posx>
+				<posy>-20</posy>
+				<width>100%</width>
+				<height>320</height>
+				<texture border="2">diffuse/gradient.png</texture>
+				<colordiffuse>red</colordiffuse>
+			</control>
+			-->
 			<!-- NEW ADDED ! MOVIE SHOW DISCART -->
 			<control type="image">
 				<posx>200</posx>
@@ -740,12 +769,13 @@
 				<aligny>center</aligny>
 				<fadetime>300</fadetime>
 				<bordersize>20</bordersize>
-				<animation effect="rotate" end="-360" center="auto" time="12000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-				<animation effect="fade" start="0" end="100" delay="800" time="1200" reversible="false"></animation>
+				<animation effect="rotate" end="-360" center="auto" time="12000" loop="true" reversible="false" condition="!Player.Paused + Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 				<texture background="true" diffuse="diffuse/cdmask_medium_new.png" fallback="defaultcovers/cd_medium.png" border="5">$VAR[PlayerDiscArtImage]</texture>
 				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
 				<visible>Player.HasVideo + [!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
-				<visible>!Skin.HasSetting(HideOSDDisc)</visible>	
+				<visible>!Skin.HasSetting(HideOSDDisc)</visible>
+				<animation effect="slide" center="auto" end="-70,-210" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+				<animation effect="zoom" center="auto" end="85,85" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 			</control>		
 			
 			<!--Cover movies - poster-->
@@ -758,6 +788,8 @@
 				<texture background="true">$VAR[OSDImage]</texture>
 				<aspectratio align="left" aligny="bottom">stretch</aspectratio>
 				<visible>[!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
+				<animation effect="slide" center="auto" end="-45,-320" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+				<animation effect="zoom" center="auto" end="85,85" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 			</control>
 			
 			<!-- Cover No Poster / livetv  -->
@@ -770,6 +802,8 @@
 				<texture background="true">$VAR[OSDImagePVR_Streams]</texture>
 				<aspectratio align="center" aligny="top">keep</aspectratio>
 				<visible>Player.HasVideo + String.IsEmpty(Player.Art(tvshow.poster)) + String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))</visible>
+				<animation effect="slide" center="auto" end="-45,-320" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+				<animation effect="zoom" center="auto" end="85,85" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 			</control>
 				
 			<!--clearart pos condit animatons -->
@@ -794,7 +828,7 @@
 				<usecontrolcoords>true</usecontrolcoords>
 				<itemgap>5</itemgap>
 				<align>left</align>
-				
+				<visible>Player.HasVideo + Skin.HasSetting(EnableOSDInfo)</visible>
 				<left>480</left>
 				<posy>-18</posy>	
 				<width>100%</width>
@@ -1033,7 +1067,9 @@
 				<fadetime>200</fadetime>
 				<texture background="true">$VAR[VideoPlayerClearLogo]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
-				<visible>!VideoPlayer.Content(livetv) + [!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster))]</visible>				
+				<visible>!VideoPlayer.Content(livetv) + [!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster))]</visible>
+				<animation effect="slide" end="-40,125" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+				<animation effect="zoom" end="85,85" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 			</control>
 			
 			<control type="group">
@@ -1066,8 +1102,6 @@
 					<label>$VAR[OSDLabel1,,  •]  $VAR[OSDLabel2]</label>
 					<scroll>false</scroll>
                     <visible>Player.HasVideo + !Skin.HasSetting(OSDLargeSeekingLabel)</visible>
-					<animation effect="slide" end="-300,185" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
-					<animation effect="zoom" end="135,135" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 				</control>
 			
                 <!-- media flags -->
@@ -1078,6 +1112,7 @@
                     <animation time="300" effect="fade" delay="300">Visible</animation>
                     <animation time="100" effect="fade" delay="0">Hidden</animation>
                     <visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]]</visible>
+					<animation effect="slide" end="0,-210" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
                 </control>
 
 				<control type="progress" id="1">
@@ -1152,7 +1187,6 @@
 					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
-
 			</control>
 
 			<!--Clock-->
@@ -1167,6 +1201,7 @@
                 <aligny>top</aligny>
                 <textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
+				<animation effect="slide" center="auto" end="0,-180" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
             </control>
 
 			<!-- SHOWS END TIME RIGHT -->
@@ -1179,7 +1214,8 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerActionLabel]</label>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>				
+				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+				<animation effect="slide" center="auto" end="0,-200" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 			</control>
 			<!-- Label 3 - SHOWS GENRE INFO/Chapter -->
             <control type="label">
@@ -1204,11 +1240,7 @@
                 <shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[OSDLabel3]</label>
 				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show) + !Skin.HasSetting(OSDLargeSeekingLabel)</visible>
-				<animation effect="slide" end="-190,195" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
-				<animation effect="zoom" end="125,125" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 			</control>
-			
-			
 		</control>
     </include>
 	
@@ -2814,6 +2846,7 @@
 			<textureslidernib colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/seekslider_ball.png</textureslidernib>
 			<textureslidernibfocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">diffuse/seekslider_ball.png</textureslidernibfocus>
 			<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show) + !VideoPlayer.Content(LiveTV)</visible>
+			<animation effect="slide" center="auto" end="0,220" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 		</control>
 	</include>
 	
@@ -3051,7 +3084,9 @@
             <height>128</height>
             <visible>!String.IsEmpty(Window(Weather).Property(Current.FanartCode)) + Skin.String(WeatherIconPack.path)</visible>
 		    <animation end="100,-20" time="0" effect="slide" condition="Skin.HasSetting(UseNetflixOSDPanel)">Conditional</animation>
-			<animation end="85,85" time="0" effect="zoom" condition="Skin.HasSetting(UseNetflixOSDPanel)">Conditional</animation> 
+			<animation end="85,85" time="0" effect="zoom" condition="Skin.HasSetting(UseNetflixOSDPanel)">Conditional</animation>
+			<animation end="85,85" time="350" effect="zoom" condition="!Skin.HasSetting(UseNetflixOSDPanel) + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+			<animation end="20,0" time="350" effect="slide" condition="!Skin.HasSetting(UseNetflixOSDPanel) + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation> 			
 			<include>HideOsdConditions</include>
 
             <!--Current Weather-->
@@ -3335,7 +3370,8 @@
 		<value condition="player.rewinding8x">[B]$LOCALIZE[31254][/B] x8</value>
 		<value condition="player.rewinding16x">[B]$LOCALIZE[31254][/B] x16</value>
 		<value condition="player.rewinding32x">[B]$LOCALIZE[31254][/B] x32</value>
-		<value condition="!String.IsEmpty(player.FinishTime) + Player.paused | !String.IsEmpty(player.FinishTime) + Skin.HasSetting(UseSlimOSDPanel)">[B]$LOCALIZE[31112][/B][CR]$INFO[Player.FinishTime]</value>
+		<value condition="!String.IsEmpty(player.FinishTime) + Player.paused + !Skin.HasSetting(UseSlimOSDPanel) | !String.IsEmpty(player.FinishTime) + [Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B] - $INFO[Player.FinishTime]</value>
+		<value condition="!String.IsEmpty(player.FinishTime) + Player.paused + !Skin.HasSetting(UseSlimOSDPanel) | !String.IsEmpty(player.FinishTime) + [Skin.HasSetting(UseSlimOSDPanel) + Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B][CR]$INFO[Player.FinishTime]</value>
 		<value condition="!String.IsEmpty(player.FinishTime)">[B]$LOCALIZE[31112][/B]: $INFO[Player.FinishTime]</value>
 	 </variable>
 	 
@@ -3612,7 +3648,7 @@
      <include name="HideOsdConditions">
         <visible>
             !Window.IsActive(pvrchannelguide) + !Window.IsActive(PVROSDTeletext) + !Window.IsActive(PVROSDChannels) + !Window.IsActive(videobookmarks) + 
-            !Window.IsActive(sliderdialog) + !Window.IsActive(subtitlesearch) + !Window.IsActive(script.pseudotv.TVOverlay.xml) + !Window.IsActive(osdaudiodspsettings) + 
+            !Window.IsActive(sliderdialog) + !Window.IsActive(subtitlesearch) + !Window.IsActive(script.pseudotv.TVOverlay.xml) + 
             !Window.IsActive(script.pseudotv.live.TVOverlay.xml) + !Window.IsActive(selectdialog) + !Window.IsActive(musicplaylist)
         </visible>
      </include>

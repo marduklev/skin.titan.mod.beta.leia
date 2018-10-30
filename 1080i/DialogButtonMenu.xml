@@ -7,7 +7,6 @@
     <onload>Dialog.Close(busydialog)</onload>
     <allowoverlay>no</allowoverlay>
     <controls>
-	
 	<include>DialogOverlayExtra</include>
 
 
@@ -100,7 +99,7 @@
 			<animation effect="fade" time="250" delay="250">Visible</animation>
         </control>
         <!--Button Grouplist-->
-        <control type="list" id="3110">
+		<control type="list" id="3110">
             <posx>720</posx>
             <posy>25</posy>
             <width>1130</width>
@@ -112,7 +111,6 @@
 			<ondown>300</ondown>
 			<onback>300</onback>
             <orientation>horizontal</orientation>
-            <focusposition></focusposition>
             <scrolltime tween="cubic" easing="inout">500</scrolltime>
 			<itemlayout width="170" height="64">
 				<control type="image">

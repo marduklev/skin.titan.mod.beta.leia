@@ -556,31 +556,6 @@
                 <include condition="Window.IsActive(3018)">netflix_items_movies</include>
                 <include condition="Window.IsActive(3017)">netflix_items_tvshows</include>              
             </control>
-
-            <!-- check busy image while spotlight widget loading 
-            <control type="grouplist">
-                <visible>Control.HasFocus(1508) + Control.IsVisible(1508) + Container(1508).IsUpdating</visible>
-                <orientation>horizontal</orientation>
-                <left>1665</left>
-                <top>405</top>
-                <width>500</width>
-                <height>60</height>
-                <itemgap>20</itemgap>
-                <control type="multiimage">
-                    <width>60</width>
-                    <height>60</height>
-                    <aspectratio>keep</aspectratio>
-                    <imagepath>$INFO[Skin.String(SkinHelper.SpinnerTexture.Path)]</imagepath>
-                    <timeperimage>100</timeperimage>
-                    <colordiffuse>$INFO[Skin.String(SpinnerTexture.Color)]</colordiffuse>
-                    <fadetime>0</fadetime>
-                    <visible>!Skin.String(SkinHelper.SpinnerTexture.Path,None)</visible>
-                </control>
-               
-            </control>
-			-->
-            
-            
             <control type="scrollbar" id="317">
                 <visible>Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars)</visible>
                 <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixHome_AltHeight_NoSpotlight</include>
@@ -1105,52 +1080,91 @@
                 <include condition="Window.IsActive(3017)">netflix_mainmenu_tvshows</include>
             </control>
 
-            <!-- settings & exit buttons -->
-            <control type="grouplist" id="40003">
-                <orientation>vertical</orientation>
-                <posy>85%</posy>
-                <width>384</width>
-                <height>115</height>
-                <onup>40003</onup>
-                <ondown>40003</ondown>
+			<!-- custom shutdown -->
+			<control type="list" id="40003">
+				<orientation>vertical</orientation>
+				<posy>85%</posy>
+				<width>384</width>
+				<height>125</height>
+				<onup>40003</onup>
+				<ondown>40003</ondown>
 				<onright>ClearProperty(ShowViewSubMenu, Home)</onright>
-                <onright>77777</onright>
-                <onback>ClearProperty(ShowViewSubMenu, Home)</onback>
-                <onback>300</onback>
-				
-                <!-- settings button -->
-                <control type="button" id="40004">
-                    <width>384</width>
-                    <height>55</height>
-                    <textoffsetx>50</textoffsetx>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <font>Light22</font>
-                    <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
-                    <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
-                    <label>5</label>
-                    <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
-                    <texturenofocus></texturenofocus>
-                    <onclick>ClearProperty(ShowViewSubMenu, Home)</onclick>
-                    <onclick>ActivateWindow(Settings)</onclick>
-                </control>
-                <!-- exit button -->
-                <control type="button" id="40005">
-                    <width>384</width>
-                    <height>55</height>
-                    <textoffsetx>50</textoffsetx>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <font>Light22</font>
-                    <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
-                    <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
-                    <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
-                    <texturenofocus></texturenofocus>
-                    <label>13012</label>
-                    <onclick>quit</onclick>
-                </control>
-            </control>
-        </control>
+				<onright>77777</onright>
+				<onback>ClearProperty(ShowViewSubMenu, Home)</onback>
+				<onback>300</onback>
+				<visible>![Skin.HasSetting(DisablePowerMenu) | Skin.HasSetting(HidePowerMenu)]</visible>
+				<itemlayout width="384" height="45">
+					<control type="label">
+						<width>384</width>
+						<height>45</height>
+						<textoffsetx>50</textoffsetx>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>Reg24</font>
+						<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="384" height="45">
+					<control type="group">
+						<width>100%</width>
+						<height>100%</height>
+						<control type="image">
+							<width>384</width>
+							<height>45</height>
+							<texture colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texture>
+							<visible>Control.HasFocus(40003)</visible>
+						</control>
+						<control type="label">
+							<width>384</width>
+							<height>45</height>
+							<textoffsetx>50</textoffsetx>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>Reg24</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+							<visible>![Control.HasFocus(4444) | Control.HasFocus(77777) | Control.HasFocus(300)]</visible> <!-- cause Var and inculdes fail in that case -->
+						</control>
+						<control type="label">
+							<width>384</width>
+							<height>45</height>
+							<textoffsetx>50</textoffsetx>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>Reg24</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+							<visible>[Control.HasFocus(4444) | Control.HasFocus(77777) | Control.HasFocus(300)]</visible> <!-- cause Var and inculdes fail in that case -->
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include condition="!Window.IsActive(loginscreen)">skinshortcuts-group-powermenu</include>
+					<!-- shutdown menu options for loginscreen -->
+					<item id="997">
+						<label>$LOCALIZE[13009]</label>
+						<visible>System.ShowExitButton + Window.IsActive(loginscreen)</visible>
+						<onclick condition="Window.IsActive(shutdownmenu)">Close</onclick>
+						<onclick>Quit()</onclick>
+					</item>
+					<item id="998">
+						<property name="id">$NUM[4]</property>
+						<label>$LOCALIZE[13005]</label>
+						<visible>System.CanPowerDown + Window.IsActive(loginscreen)</visible>
+						<onclick condition="Window.IsActive(shutdownmenu)">Close</onclick>
+						<onclick>PowerDown</onclick>
+					</item>
+					<item id="999">
+						<label>$LOCALIZE[13013]</label>
+						<visible>System.CanReboot + Window.IsActive(loginscreen)</visible>
+						<onclick condition="Window.IsActive(shutdownmenu)">Close</onclick>
+						<onclick>Reboot</onclick>
+					</item>
+				</content>
+			</control>
+		</control>
+			
         <include>SideBladeSubMenu</include>
     </include>
 
@@ -1460,6 +1474,5 @@
     <variable name="WatchNowTagInfo">
         <value condition="Integer.IsGreater(ListItem.Property(TotalSeasons),1) + String.IsEqual(ListItem.Property(UnWatchedEpisodes),ListItem.Property(TotalEpisodes))">[B]Watch $LOCALIZE[36904] 1 Now[/B]</value>
         <value condition="ControlGroup(505).HasFocus()">[B]Watch Now[/B]</value>
-    </variable>
-	
+    </variable>	
 </includes>

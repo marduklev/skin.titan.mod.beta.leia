@@ -292,7 +292,6 @@
                 <label>31198</label>
                 <onclick>Skin.ToggleSetting(DisablePowerMenu)</onclick>
                 <selected>Skin.HasSetting(DisablePowerMenu)</selected>
-				<visible>!String.Contains(Skin.String(HomeLayout), netflix)</visible>
 			</control>
             <!--hide power button-->
             <control type="radiobutton" id="23027">
@@ -301,8 +300,7 @@
                 <onclick>Skin.ToggleSetting(HidePowerMenu)</onclick>
                 <selected>Skin.HasSetting(HidePowerMenu)</selected>
                 <visible>!Skin.HasSetting(DisablePowerMenu)</visible>
-				<visible>!String.Contains(Skin.String(HomeLayout), netflix)</visible>
-            </control>
+			</control>
 
             <!--no titles on home tiles-->
             <control type="radiobutton" id="13014">

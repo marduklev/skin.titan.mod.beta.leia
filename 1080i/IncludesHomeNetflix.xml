@@ -14,8 +14,8 @@
 
             <!-- all widgets -->
             <control type="grouplist" id="77777">
-                 <!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_NoHeaderOnHome</include> check, new setting, no defined include -->
-				 <!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_WinHeaderOnHome</include>check, new setting, no defined include -->
+                <!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_NoHeaderOnHome</include> check, new setting, no defined include -->
+				<!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_WinHeaderOnHome</include>check, new setting, no defined include -->
 				<include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_AltHeight_NoSpotLight</include> <!-- actual use height if header is active -->
                 <left>50</left>
                 <right>50</right>
@@ -44,10 +44,8 @@
                 <showonepage>false</showonepage>
                 <visible>[Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars)]</visible>
             </control>
-
             <!-- Header -->
             <include>Header</include>
-
         </control>
         <!--Sub Menu Tab Left-->
         <control type="group">
@@ -123,7 +121,7 @@
                 <animation effect="slide" start="0" end="0,-80" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
                 <control type="videowindow">
 					<width>100%</width>
-					<height>100%</height>			
+					<height>100%</height>
 				</control>
             </control>
             <!--fullscreen trailer fade in,need check -->
@@ -245,7 +243,6 @@
 						<focusedcolor>$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]</focusedcolor>
                         <texturefocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">diffuse/panel.png</texturefocus><!-- diffuse/panel.png, netflix/bg/bg_hardedge.png-->
                         <texturenofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonNoFocusColor)]" border="5">diffuse/panel_trans.png</texturenofocus><!-- diffuse/panel_trans.png, netflix/frame/frame_hardedge.png-->
-                        
 						<textureradioonfocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">netflix/play.png</textureradioonfocus>
                         <textureradioofffocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">netflix/play.png</textureradioofffocus>
                         <textureradioonnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonNoFocusColor)]">netflix/play.png</textureradioonnofocus>
@@ -338,7 +335,7 @@
                         <align>left</align>
                         <aligny>center</aligny>
                         <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
-                        <label>[UPPERCASE]$VAR[HomeMenuWidgetInfoLabel][/UPPERCASE]</label>
+                        <label>$VAR[HomeMenuWidgetInfoLabel]</label>
                         <animation effect="fade" time="200">Visible</animation>
                         <!-- adjust for spotlight -->
                         <animation effect="slide" start="0" end="0,155" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>

@@ -91,7 +91,6 @@
     </include>
 
     <include name="HomeNetflix2">
-        <!-- base BG -->
         <control type="image">
             <width>100%</width>
             <height>100%</height>
@@ -102,7 +101,8 @@
         <control type="group" id="9000">
             <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
 			<animation time="300" effect="slide" start="0" end="400" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
-            <!-- background image -->
+            
+			<!-- Spotlight Widget background image -->
             <control type="image">
                 <visible>ControlGroup(505).HasFocus() + !Control.IsVisible(5633399)</visible>
                 <fadetime>350</fadetime>
@@ -113,7 +113,7 @@
                 <animation effect="fade" start="0" end="100" delay="0" time="1200">Visible</animation>
             </control>
 
-            <!-- fullscreen trailer window -->
+            <!-- Spotlight Widget trailer window -->
             <control type="group" id="5633399">
                 <visible>Player.HasVideo + [ControlGroup(505).HasFocus() | Control(53).HasFocus()]</visible>
                 <width>100%</width>
@@ -124,7 +124,7 @@
 					<height>100%</height>
 				</control>
             </control>
-            <!--fullscreen trailer fade in,need check -->
+            <!--Spotlight Widget fullscreen trailer fade in,need check -->
             <control type="image">
                 <visible>Control.IsVisible(5633399)</visible>
                 <width>100%</width>
@@ -206,7 +206,7 @@
                     <onfocus condition="Skin.HasSetting(SpotLightTrailers) + !String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + !Player.HasVideo + !String.IsEmpty(Container(1508).ListItem.Trailer)">AlarmClock(trailer_delay,PlayMedia($ESCINFO[Container(1508).ListItem.Trailer],1),00:06,silent)</onfocus>
                     <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + Skin.HasSetting(SpotLightTrailers) + !String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + !Player.HasVideo + [String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow) | String.IsEmpty(Container(1508).ListItem.Trailer)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[Container(1508).ListItem.Title],local=true),00:05,silent)</onfocus>
                     <onunfocus condition="String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))">SetProperty(SpotlightFirstPlayDone,Done,Home)</onunfocus>
-                    <onfocus>SetFocus(505)</onfocus>
+                    <onfocus>SetFocus(505)</onfocus> <!-- <onfocus condition="Integer.IsGreater(Container(1508).NumItems,0)">SetFocus(505)</onfocus> check -->
                 </control>
 
                 <!-- spotlight buttons -->
@@ -540,14 +540,15 @@
                 <animation effect="slide" end="30" condition="Control.IsVisible(317)">Conditional</animation>
                 <!-- spotlight slide-down -->
                 <animation effect="slide" end="0,210" time="300" delay="0" condition="ControlGroup(505).HasFocus() | Control.IsVisible(5633399)">Conditional</animation>
-                <posx>40</posx>
+                <height></height>
+				<posx>40</posx>
                 <bottom>0</bottom>
                 <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixHome_AltHeight_NoSpotlight</include>
                 <top>613</top>
                 <itemgap>2</itemgap>
                 <width>100%</width>
-                <ondown>77777</ondown>
-                <onup>77777</onup>
+                <onup condition="!Container(1508).IsUpdating">1508</onup>
+				<ondown>77777</ondown>								  
                 <onback condition="Window.IsActive(Home)">300</onback>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) | !Window.IsActive(Home)">300</onleft>
                 <pagecontrol>317</pagecontrol>
@@ -556,6 +557,7 @@
                 <include condition="Window.IsActive(3018)">netflix_items_movies</include>
                 <include condition="Window.IsActive(3017)">netflix_items_tvshows</include>              
             </control>
+			
             <control type="scrollbar" id="317">
                 <visible>Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars)</visible>
                 <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixHome_AltHeight_NoSpotlight</include>
@@ -571,19 +573,10 @@
         <!-- Header -->
 		<include>Header</include>
         
-        <!--Side Menu BIG-->
-        <control type="group">
-            <top>0</top>
-            <left>0</left>
-            <include condition="Skin.HasSetting(NetFlixHome_LargeMenu)">HomeBigVertical_submenu</include>
-            <include condition="Skin.HasSetting(NetFlixHome_LargeMenu)">HomeBigVertical_mainmenu</include>
-            <animation type="Conditional" condition="![ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)]">
-                <effect type="slide" start="0" end="-660" time="300" delay="0" tween="cubic" easing="inout" />
-            </animation>
-        </control>
+        
 
-        <!-- Side Menu Small -->
-        <include condition="!Skin.HasSetting(NetFlixHome_LargeMenu)">NetflixSideBladeMainMenu</include>
+        <!-- Side Menu -->
+        <include>NetflixSideBladeMainMenu</include>
     </include>
 
     <!-- Netflix2 Panel Color -->
@@ -1230,8 +1223,6 @@
                 <ondown>4444</ondown>
                 <onback>300</onback>
                 <onback>ClearProperty(submenu,home)</onback>
-                <focusposition>0</focusposition>
-                <movement>3</movement>
                 <itemlayout width="360" height="50">
                     <control type="label">
                         <posx>10</posx>

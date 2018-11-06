@@ -209,7 +209,7 @@
                 <onclick>Skin.ToggleSetting(AutoShowSubmenu)</onclick>
                 <selected>Skin.HasSetting(AutoShowSubmenu)</selected>
 				<visible>!Skin.String(HomeLayout, enhanced)</visible>
-            </control>		
+            </control>
             <!--open submenu inline in vertical home-->
             <control type="radiobutton" id="23515">
                 <include>SkinSettings_Button</include>
@@ -245,6 +245,15 @@
                 <visible>![Skin.HasSetting(UseSingleShortcut) + Skin.String(HomeLayout, simplehor)]</visible>
                 <visible>Skin.String(HomeLayout, enhanced) | Skin.String(HomeLayout, netflix2) | Skin.String(HomeLayout, win10) | Skin.String(HomeLayout, simplehor) | String.Contains(Skin.String(HomeLayout), lowhorizontal)</visible>
             </control>
+            <!--use large mainmenu on netflix home, check 18.1.9
+            <control type="radiobutton" id="31805">
+                <include>SkinSettings_Button</include>
+                <label>31805</label>
+                <onclick>Skin.ToggleSetting(NetFlixHome_LargeMenu)</onclick>
+                <selected>Skin.HasSetting(NetFlixHome_LargeMenu)</selected>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
+            </control>
+			-->
             <!--enable home menu animation-->
             <control type="radiobutton" id="31620">
                 <include>SkinSettings_Button</include>
@@ -269,7 +278,7 @@
                 <onclick>Skin.ToggleSetting(DisableIconsMainMenu)</onclick>
                 <selected>Skin.HasSetting(DisableIconsMainMenu)</selected>
                 <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
-            </control>		  
+            </control>
             <!--hide power warning-->
             <control type="label" id="23024">
                 <include>SkinSettings_Button</include>
@@ -739,7 +748,7 @@
             <onleft>14000</onleft>
             <showonepage>false</showonepage>
             <visible>String.IsEqual(Window(Home).Property(SkinSettingSection),8)</visible>
-        </control>	
+        </control>
     </include>
     
     <include name="SkinSettings_Library">
@@ -850,10 +859,10 @@
                 <onclick>Skin.ToggleSetting(AnimatedFanart)</onclick>
                 <selected>Skin.HasSetting(AnimatedFanart)</selected>
                 <visible>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</visible>
-            </control>			         
+            </control>
 		   <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
-                <param name="id" value="85151" />			<!-- look again dependency 85151 -->
-                <param name="label" value="31187" />		<!-- look again dependency 31187 -->
+                <param name="id" value="85151" /><!-- look again dependency 85151 -->
+                <param name="label" value="31187" /><!-- look again dependency 31187 -->
                 <param name="action" value="RunPlugin(plugin://script.artwork.beef)" />
                 <param name="visible" value="!System.HasAddon(script.artwork.beef)" />
             </include>
@@ -926,7 +935,7 @@
                 <onclick>Skin.ToggleSetting(EnableWhiteRatingInFooter)</onclick>
                 <visible>!Skin.HasTheme(classic)</visible>
                 <selected>Skin.HasSetting(EnableWhiteRatingInFooter)</selected>
-            </control>					  
+            </control>
 			<control type="radiobutton" id="17120">
                 <include>SkinSettings_Button</include>
                 <label>31509</label>
@@ -1001,7 +1010,7 @@
                 <selected>Skin.HasSetting(ShowEpisodePlotInfoDialog)</selected>
                 <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
 				<visible>Skin.HasSetting(UseNetflixInfoDialog)</visible>
-            </control>														 		  
+            </control>
             <!-- actor list behaviour in videoinfo -->
             <control type="button" id="31689">
                 <include>SkinSettings_Button</include>
@@ -1019,14 +1028,15 @@
                 <selected>Skin.String(actorthumbslookup,true)</selected>
                 <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
             </control>
-            <!-- trailer behaviour in videoinfo -->
+            <!-- trailer behaviour in videoinfo 
 			<control type="radiobutton" id="31694">
                 <include>SkinSettings_Button</include>
-                <label>$LOCALIZE[20410] $LOCALIZE[37026] $LOCALIZE[208]</label>       <!-- trailer  auto - - play - maybe make  VAR depending to language sometime-->        
+                <label>$LOCALIZE[20410] $LOCALIZE[37026] $LOCALIZE[208]</label>
                 <onclick>Skin.ToggleSetting(videoinfo_traileraction,auto)</onclick>
                 <selected>Skin.HasSetting(videoinfo_traileraction,auto)</selected>
 				<visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
             </control>
+			disabled in case of play in loop bug -->
 			<!-- Enable auto-hide details when trailer is playing -->
             <control type="radiobutton" id="41634">
                 <include>SkinSettings_Button</include>
@@ -1034,7 +1044,7 @@
                 <onclick>Skin.ToggleSetting(AutoHideDetailsOnTrailer)</onclick>
                 <selected>Skin.HasSetting(AutoHideDetailsOnTrailer)</selected>
                 <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
-            </control>											 
+            </control>
 			<control type="radiobutton" id="31674">
                 <!-- hide filename in videoinfo -->
                 <description></description>
@@ -1042,7 +1052,7 @@
                 <label>31674</label>
                 <onclick>Skin.ToggleSetting(DialogVideoInfo_HideFileName)</onclick>
                 <selected>Skin.HasSetting(DialogVideoInfo_HideFileName)</selected>
-				<visible>Skin.HasSetting(UseExtendedInfoDialog) | !Skin.HasSetting(UseNetflixInfoDialog)</visible>																										
+				<visible>Skin.HasSetting(UseExtendedInfoDialog) | !Skin.HasSetting(UseNetflixInfoDialog)</visible>
             </control>
             <!-- Select which buttons to show in videoinfo -->
             <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
@@ -1315,7 +1325,7 @@
             <param name="id" value="31830" />
             <param name="label" value="$LOCALIZE[31830]" />
             <param name="skinsetting" value="NetflixPrimaryTextColor" />
-        </include>		
+        </include>
         <!--Netflix Secondary Text Color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31831" />
@@ -1327,7 +1337,7 @@
             <param name="id" value="31840" />
             <param name="label" value="$LOCALIZE[31018] Highlight Color" />
             <param name="skinsetting" value="ViewNetfixHighlightTextColor" />
-        </include>				
+        </include>
 		<!-- Netflix Details Flag Color -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31832" />
@@ -1488,7 +1498,7 @@
             <onleft>7000</onleft>
             <showonepage>false</showonepage>
             <visible>String.IsEqual(Window(Home).Property(SkinSettingSection),7)</visible>
-        </control>	
+        </control>
     </include>
     
     <include name="SkinSettings_OSD">
@@ -1514,7 +1524,7 @@
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
             
-			<!-- toggle slim osd ON , need re check (selected /toggle)-->		
+			<!-- toggle slim osd ON , need re check (selected /toggle)-->
             <control type="radiobutton" id="13060">
                 <include>SkinSettings_Button</include>
                 <label>31476</label>
@@ -1524,7 +1534,7 @@
                 <selected>!Skin.HasSetting(UseModernOSDPanel)</selected>
 				<onclick condition="Skin.HasSetting(UseNetflixOSDPanel)">Skin.ToggleSetting(UseNetflixOSDPanel)</onclick>
 				<selected>!Skin.HasSetting(UseNetflixOSDPanel)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>				
+                <visible>!Skin.HasTheme(classic)</visible>
 				<visible>!Skin.HasSetting(UseNetflixOSDPanel)</visible>
             </control>
 
@@ -1533,23 +1543,23 @@
                 <include>SkinSettings_Button</include>
                 <label>Use Default OSD</label>               
 				<onclick>Skin.ToggleSetting(UseModernOSDPanel)</onclick>
-                <selected>Skin.HasSetting(UseModernOSDPanel)</selected>								
+                <selected>Skin.HasSetting(UseModernOSDPanel)</selected>
 				<onclick>Skin.ToggleSetting(UseSlimOSDPanel)</onclick>
-                <selected>!Skin.HasSetting(UseSlimOSDPanel)</selected>								
+                <selected>!Skin.HasSetting(UseSlimOSDPanel)</selected>
    				<onclick condition="Skin.HasSetting(UseNetflixOSDPanel)">Skin.ToggleSetting(UseNetflixOSDPanel)</onclick>
-				<selected>!Skin.HasSetting(UseNetflixOSDPanel)</selected>				
+				<selected>!Skin.HasSetting(UseNetflixOSDPanel)</selected>
 				<visible>!Skin.HasTheme(classic)</visible>
 				<visible>!Skin.HasSetting(UseNetflixOSDPanel)</visible>
             </control>
 			
-			<!-- toggle netflix OSD -->	
+			<!-- toggle netflix OSD -->
 			<control type="radiobutton" id="14273">
                 <include>SkinSettings_Button</include>
                 <label>Use Netflix OSD Panel</label>
 				<onclick>Skin.ToggleSetting(UseNetflixOSDPanel)</onclick>
-				<selected>Skin.HasSetting(UseNetflixOSDPanel)</selected>							
-				<visible>!Skin.HasTheme(classic)</visible>			
-            </control>	
+				<selected>Skin.HasSetting(UseNetflixOSDPanel)</selected>
+				<visible>!Skin.HasTheme(classic)</visible>
+            </control>
 			
             <control type="button" id="31698">
                 <include>SkinSettings_Button</include>
@@ -1565,7 +1575,7 @@
                 <label>31519</label>
                 <onclick>Skin.ToggleSetting(HideOSDDisc)</onclick>
                 <selected>Skin.HasSetting(HideOSDDisc)</selected>
-				<visible>!Skin.HasSetting(UseNetflixOSDPanel)</visible>													   
+				<visible>!Skin.HasSetting(UseNetflixOSDPanel)</visible>
             </control>
             <control type="radiobutton" id="13065">
                 <include>SkinSettings_Button</include>
@@ -1593,16 +1603,16 @@
             <control type="radiobutton" id="13052">
                 <description>enable info on osd</description>
                 <include>SkinSettings_Button</include>
-                <label>31133</label>	<!-- 31133 -->
+                <label>31133</label><!-- 31133 -->
                 <onclick>Skin.ToggleSetting(EnableOSDInfo)</onclick>
                 <selected>Skin.HasSetting(EnableOSDInfo)</selected>
-            </control>								   
+            </control>
 			
             <control type="button" id="13054">
                 <include>SkinSettings_Button</include>
                 <label>$LOCALIZE[31230]</label>
                 <label2>$INFO[skin.string(SkinHelper.ShowInfoAtPlaybackStart)] $LOCALIZE[31231]</label2>
-                <visible>!Skin.HasSetting(LowPerformanceMode)</visible>		
+                <visible>!Skin.HasSetting(LowPerformanceMode)</visible>
                 <onclick>Skin.SetNumeric(SkinHelper.ShowInfoAtPlaybackStart)</onclick>
             </control>
             <control type="radiobutton" id="13058">
@@ -1663,7 +1673,7 @@
 			<control type="button" id="13063">
                 <include>SkinSettings_Button</include>
                 <label>$LOCALIZE[31629]</label>
-                <label2>$INFO[skin.string(SkinHelper.AutoCloseVideoOSD)] $LOCALIZE[31231]</label2>		
+                <label2>$INFO[skin.string(SkinHelper.AutoCloseVideoOSD)] $LOCALIZE[31231]</label2>
                 <onclick>Skin.SetNumeric(SkinHelper.AutoCloseVideoOSD)</onclick>
             </control>
             <!-- style for codec info -->
@@ -1688,7 +1698,7 @@
                 <onclick>Skin.ToggleSetting(OSDShowClearLogo)</onclick>
                 <selected>Skin.HasSetting(OSDShowClearLogo)</selected>
                 <visible>Skin.HasSetting(UseNetflixOSDPanel)</visible>
-            </control>							  
+            </control>
             <control type="radiobutton" id="8012">
                 <include>SkinSettings_Button</include>
                 <label>31244</label>
@@ -1797,7 +1807,7 @@
             <control type="button" id="130631">
                 <include>SkinSettings_Button</include>
                 <label>$LOCALIZE[31629]</label>
-                <label2>$INFO[skin.string(SkinHelper.AutoCloseMusicOSD)] $LOCALIZE[31231]</label2>		
+                <label2>$INFO[skin.string(SkinHelper.AutoCloseMusicOSD)] $LOCALIZE[31231]</label2>
                 <onclick>Skin.SetNumeric(SkinHelper.AutoCloseMusicOSD)</onclick>
             </control>
             
@@ -1847,7 +1857,7 @@
                 <onclick>Skin.ToggleSetting(DisableNowPlayingClock)</onclick>
                 <selected>Skin.HasSetting(DisableNowPlayingClock)</selected>
                 <visible>!Skin.HasSetting(DisableNowPlayingInfoBar)</visible>
-            </control>																 
+            </control>
             
          </control>
 		<!--scrollbar for osd settings-->
@@ -1857,7 +1867,7 @@
             <onleft>16000</onleft>
             <showonepage>false</showonepage>
             <visible>String.IsEqual(Window(Home).Property(SkinSettingSection),16)</visible>
-        </control>					
+        </control>
     </include>
     
     <include name="SkinSettings_OSD_Colors">
@@ -1951,7 +1961,7 @@
             <param name="label" value="OSD Buffering Spinner Color" />
             <param name="skinsetting" value="OSDBufferingSpinnerColor" />
             <param name="visible" value="!skin.hastheme(classic)" />
-        </include>															
+        </include>
         <!-- Lyrics diffuse panel -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31813" />
@@ -2211,11 +2221,11 @@
                 <visible>Skin.String(HomeLayout,netflix2)</visible>
                 <onclick>Skin.ToggleSetting(LockHubWidgets)</onclick>
                 <selected>Skin.HasSetting(LockHubWidgets)</selected>
-            </control>					   
+            </control>
             <!-- empty label -->
             <control type="label" id="6004">
                 <height>20</height>
-				<label></label>		   
+				<label></label>
             </control>
             <control type="label" id="6005">
                 <include>SkinSettings_Header</include>
@@ -2512,7 +2522,7 @@
                 <label>Enable regional trailers (system language)</label>
                 <onclick>Skin.ToggleSetting(LocalTrailers)</onclick>
                 <selected>Skin.HasSetting(LocalTrailers)</selected>
-            </control>				
+            </control>
             <control type="radiobutton" id="5159">
                 <description>Kiosk mode</description>
                 <include>SkinSettings_Button</include>
@@ -2762,7 +2772,7 @@
                 <label>31808</label>
                 <onclick>Skin.ToggleSetting(EnableWeatherAlertOverlay)</onclick>
                 <selected>Skin.HasSetting(EnableWeatherAlertOverlay)</selected>
-            </control>	
+            </control>
             <!-- skin helper settings -->
             <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
                 <param name="id" value="8019" />
@@ -3016,7 +3026,7 @@
             <param name="label" value="$LOCALIZE[31018] Main Menu Power Menu Focus ButtonColor" />
             <param name="skinsetting" value="MainMenuSecondaryFocusButtonColor" />
             <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
-        </include>									
+        </include>
         <!--home button focus-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31174" />
@@ -3281,7 +3291,7 @@
             <include condition="!Window.IsActive(Custom_SkinSettings.xml)">SkinSettings_MenuButtonLarge</include>
             <include condition="Window.IsActive(Custom_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
             <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),8)</usealttexture>
-        </control>	
+        </control>
          <control type="togglebutton" id="17">
             <!--media library-->
             <label>$LOCALIZE[31221]</label>

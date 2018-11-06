@@ -20,13 +20,14 @@
             <onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog) + String.IsEqual(Window(Home).Property(contenttype),tvshows)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onfocus>
             <onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog) + String.IsEqual(Window(Home).Property(contenttype),seasons)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onfocus>
             <onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog) + String.IsEqual(Window(Home).Property(contenttype),episodes)">RunScript(script.extendedinfo,info=extendedepisodeinfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],silent=True)</onfocus>
+			<!-- disabled, because on loop bug
 			<onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog) + Skin.HasSetting(videoinfo_traileraction,auto) + [[String.IsEqual(Window(Home).Property(contenttype),movies) | String.IsEqual(ListItem.DBTYPE,movie)] | ![String.IsEqual(Window(Home).Property(contenttype),tvshows) | String.IsEqual(ListItem.DBTYPE,tvshow)]]">PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
-			<onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog) + Skin.HasSetting(videoinfo_traileraction,auto) + [![String.IsEqual(Window(Home).Property(contenttype),movies) | String.IsEqual(ListItem.DBTYPE,movie)] | [String.IsEqual(Window(Home).Property(contenttype),tvshows) | String.IsEqual(ListItem.DBTYPE,tvshow)]]">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onfocus>
-			<onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog)">close</onfocus>			
+			<onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog) + Skin.HasSetting(videoinfo_traileraction,auto) + [![String.IsEqual(Window(Home).Property(contenttype),movies) | String.IsEqual(ListItem.DBTYPE,movie)] | [String.IsEqual(Window(Home).Property(contenttype),tvshows) | String.IsEqual(ListItem.DBTYPE,tvshow)]]">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onfocus> -->
+			<onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog)">close</onfocus>
             <onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog)">SetFocus(8000)</onfocus>
-        </control>		
+        </control>
 		<!-- include conditon -->
-		<include condition="Skin.HasSetting(UseNetflixInfoDialog) + !Skin.HasSetting(UseExtendedInfoDialog)">NetflixInfo</include>		
+		<include condition="Skin.HasSetting(UseNetflixInfoDialog) + !Skin.HasSetting(UseExtendedInfoDialog)">NetflixInfo</include>
 		<include condition="!Skin.HasSetting(UseNetflixInfoDialog) + !Skin.HasSetting(UseExtendedInfoDialog)">DefaultInfo</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
 	</controls>

@@ -207,6 +207,7 @@
                     <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + Skin.HasSetting(SpotLightTrailers) + !String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + !Player.HasVideo + [String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow) | String.IsEmpty(Container(1508).ListItem.Trailer)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[Container(1508).ListItem.Title],local=true),00:05,silent)</onfocus>
                     <onunfocus condition="String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))">SetProperty(SpotlightFirstPlayDone,Done,Home)</onunfocus>
                     <onfocus>SetFocus(505)</onfocus> <!-- <onfocus condition="Integer.IsGreater(Container(1508).NumItems,0)">SetFocus(505)</onfocus> check -->
+					<ondown>SetFocus(77777)</ondown>
                 </control>
 
                 <!-- spotlight buttons -->
@@ -995,6 +996,7 @@
                 <onback>40003</onback>
                 <onup>300</onup>
                 <ondown>300</ondown>
+				<onleft>40003</onleft>
 				<orientation>vertical</orientation>
                 <itemlayout height="80" width="385">
                     <!-- menu item icon -->
@@ -1085,6 +1087,7 @@
 				<onright>77777</onright>
 				<onback>ClearProperty(ShowViewSubMenu, Home)</onback>
 				<onback>300</onback>
+				<onleft>300</onleft>
 				<visible>![Skin.HasSetting(DisablePowerMenu) | Skin.HasSetting(HidePowerMenu)]</visible>
 				<itemlayout width="384" height="45">
 					<control type="label">

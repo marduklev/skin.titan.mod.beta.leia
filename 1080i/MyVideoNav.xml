@@ -8,7 +8,8 @@
 	<onload condition="Skin.HasSetting(NetflixAutoTrailer) + Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">Stop</onload>
 	<onload condition="Skin.HasSetting(NetflixAutoTrailer) + Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">ClearProperty(TrailerPlaying)</onload>
 	<onload condition="Skin.HasSetting(NetflixAutoTrailer) + System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onload>
-	
+	<onload>RunScript(script.skin.helper.service,action=fileexists,file=$INFO[ListItem.Path,,-tvshowtrailer.mp4],skinstring=ListItem.tvshowtrailer)</onload>
+	<onload>RunScript(script.skin.helper.service,action=fileexists,file=$INFO[ListItem.Path,,theme.mp3],skinstring=ListItem.OSTTheme)</onload>
 	<onload>ClearProperty(ShowViewSubMenu, Home)</onload>
 	<onunload>ClearProperty(ShowViewSubMenu, Home)</onunload>
 	<!-- return to infodialog if previous window -->

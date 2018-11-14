@@ -306,7 +306,9 @@
 		<!-- play trailer Movie -->
 		<onup condition="!Player.HasVideo + Container.Content(movies)">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer),1]) get some, also missing some , also not possible for TV SHows -->
 		<!-- play trailer TV Show / Set -->
-		<onup condition="!Player.HasVideo + [ListItem.IsCollection | Container.Content(tvshows)]">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onup> <!-- action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language]-->
+		<onup condition="String.IsEmpty(Skin.String(ListItem.tvshowtrailer)) + !Player.HasVideo + [ListItem.IsCollection | Container.Content(tvshows)]">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onup>
+		<!-- play LOCAL trailer TV Show / Set -->
+		<onup condition="!String.IsEmpty(Skin.String(ListItem.tvshowtrailer)) + !Player.HasVideo + [ListItem.IsCollection | Container.Content(tvshows)]">PlayMedia($ESCINFO[ListItem.Path,,-tvshowtrailer.mp4],1)</onup> <!-- action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language]-->
 		<!-- stop trailer playing,  keybord default <x>stop</x>-->
 		<ondown condition="Player.HasVideo">Stop</ondown>
 		<!-- get fullscreen , <tab>FullScreen</tab>-->

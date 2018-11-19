@@ -541,16 +541,16 @@
                 <animation effect="slide" end="30" condition="Control.IsVisible(317)">Conditional</animation>
                 <!-- spotlight slide-down -->
                 <animation effect="slide" end="0,210" time="300" delay="0" condition="ControlGroup(505).HasFocus() | Control.IsVisible(5633399)">Conditional</animation>
-                <height></height>
-				<posx>40</posx>
+                <posx>40</posx>
                 <bottom>0</bottom>
                 <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixHome_AltHeight_NoSpotlight</include>
                 <top>613</top>
-                <itemgap>2</itemgap>
+                <itemgap>1</itemgap>
                 <width>100%</width>
+				<!-- <height>440</height> -->
                 <onup condition="!Container(1508).IsUpdating">1508</onup>
-				<ondown>77777</ondown>								  
-                <onback condition="Window.IsActive(Home)">300</onback>
+				<ondown>77777</ondown>
+				<onback condition="Window.IsActive(Home)">300</onback>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) | !Window.IsActive(Home)">300</onleft>
                 <pagecontrol>317</pagecontrol>
                 <include condition="Window.IsActive(Home) + !Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixSpotlightWidget</include>
@@ -995,7 +995,8 @@
                 <onback>ClearProperty(ShowViewSubMenu, Home)</onback>
                 <onback>40003</onback>
                 <onup>300</onup>
-                <ondown>300</ondown>
+                <ondown condition="!Skin.HasSetting(EnhancedHome_Circular)">300</ondown>
+				<ondown condition="Skin.HasSetting(EnhancedHome_Circular)">40003</ondown>
 				<onleft>40003</onleft>
 				<orientation>vertical</orientation>
                 <itemlayout height="80" width="385">
@@ -1081,7 +1082,8 @@
 				<posy>85%</posy>
 				<width>384</width>
 				<height>125</height>
-				<onup>40003</onup>
+				<onup condition="!Skin.HasSetting(EnhancedHome_Circular)">40003</onup>
+				<onup condition="Skin.HasSetting(EnhancedHome_Circular)">300</onup>
 				<ondown>40003</ondown>
 				<onright>ClearProperty(ShowViewSubMenu, Home)</onright>
 				<onright>77777</onright>

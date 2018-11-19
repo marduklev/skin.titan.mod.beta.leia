@@ -1958,8 +1958,9 @@
                                 <!-- Set InfoDialog as BaseWindow -->
                                 <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
                                 <onclick>close</onclick>
-                                <onclick>PlayMedia($ESCINFO[Container(5050).ListItem.FileNameAndPath],resume)</onclick>
-                                <itemlayout width="550" height="65">
+                                <!-- <onclick>PlayMedia($ESCINFO[Container(5050).ListItem.FileNameAndPath],resume)</onclick> -->
+								<onclick>PlayMedia($INFO[listitem.path]$INFO[listitem.filename],resume)</onclick>
+								<itemlayout width="550" height="65">
                                     <!-- play logo -->
                                     <control type="image">
                                         <top>20</top>
@@ -2117,13 +2118,9 @@
                                 <radioheight>23</radioheight>
                                 <!-- Set InfoDialog as BaseWindow -->
                                 <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
-                                <onclick>close</onclick>
-                                <!-- play movie -->
-                                <onclick condition="!Control.IsVisible(5050) + String.IsEqual(ListItem.DBTYPE,episode)">PlayMedia(videodb://tvshows/$INFO[ListItem.DBID])</onclick>
-                                <!-- play episode -->
-                                <onclick condition="!Control.IsVisible(5050) + String.IsEqual(ListItem.DBTYPE,movie)">PlayMedia(videodb://movies/$INFO[ListItem.DBID])</onclick>
-                                <!-- fallback to native play button -->
-                                <onclick condition="!Control.IsVisible(5050) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.DBTYPE,movie)">SendClick(8)</onclick>
+                                <onclick>close</onclick>        
+                                <onclick condition="!Control.IsVisible(5050)">SendClick(8)</onclick>
+								<!-- <onclick condition="!Control.IsVisible(5050)">PlayMedia($INFO[listitem.path]$INFO[listitem.filename])</onclick>-->
                                 <!-- currently works only if FILE FOLDERS structured with seasons folders -->
                                 <onclick condition="Control.IsVisible(5050)">PlayMedia($ESCINFO[Container(5050).ListItem.Path],isdir,playoffset=$VAR[NextUpEpisodeMinusOne])</onclick>
                             </control>
@@ -2156,7 +2153,7 @@
                                 <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
                                 <onclick>close</onclick>
                                 <!-- activate ALL EPISODES view -->
-                                <onclick>ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/-1/,return)</onclick>
+                                <onclick>ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
                             </control>
 
 							<!-- Trailer-->

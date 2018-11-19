@@ -41,6 +41,7 @@
                 <itemlayout height="2500" width="1920">
                 </itemlayout>
                 <focusedlayout height="2500" width="1920">
+				<include>play_OST_Theme</include>
                 </focusedlayout>
             </control>
 

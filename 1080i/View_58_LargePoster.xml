@@ -118,6 +118,7 @@
 				<focusedlayout height="946" width="520">
 					<control type="group">
 						<posy>200</posy>
+						<include>play_OST_Theme</include>
 						<control type="image">
 							<!--Poster-->
 							<width>520</width>

@@ -111,9 +111,9 @@
                      <control type="group">
                         <width>270</width>
                         <height>400</height>
+						<include>play_OST_Theme</include>
                         <include>PosterPanelLayout</include>
                     </control>
-				
 				</focusedlayout>
             </control>
         </control>

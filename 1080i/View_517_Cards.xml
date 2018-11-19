@@ -212,6 +212,7 @@
                         <control type="group">
                             <width>890</width>
                             <height>330</height>
+							<include>play_OST_Theme</include>
                             <control type="image">
                                 <texture>diffuse/wide.png</texture>
                                 <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>

@@ -235,6 +235,7 @@
 					<control type="group">
                         <right>0</right>
                         <width>1160</width>
+						<include>play_OST_Theme</include>
                         <include>SlimListLayoutFocus</include>
                         <include>AutoTrailerButton</include>
                     </control>
@@ -243,6 +244,7 @@
 					<include>SlimListLayout</include>
 				</itemlayout>
 				<focusedlayout width="1280" height="60" condition="!Skin.HasSetting(SlimListViewShowInfo)">
+					<include>play_OST_Theme</include>
 					<include>SlimListLayoutFocus</include>
 				</focusedlayout>
 

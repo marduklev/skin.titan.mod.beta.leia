@@ -45,6 +45,7 @@
                     <control type="group">
                         <width>590</width>
                         <height>125</height>
+						<include>play_OST_Theme</include>
                         <animation type="focus">
 							<effect type="zoom" start="100" end="105" center="auto" time="150" />
 						</animation>
@@ -82,6 +83,7 @@
                     <control type="group">
                         <width>890</width>
                         <height>205</height>
+						<include>play_OST_Theme</include>
                         <animation type="focus">
 							<effect type="zoom" start="100" end="105" center="auto" time="150" />
 						</animation>

@@ -33,6 +33,7 @@
                 <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic">Focus</animation>
                 <animation effect="zoom" center="auto" start="105" end="100" time="160" tween="quadratic">Unfocus</animation>
                 <include>PosterPanelLayoutFocus</include>
+				<include>play_OST_Theme</include>
           </control>
         </focusedlayout>
 

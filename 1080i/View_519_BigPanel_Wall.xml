@@ -35,6 +35,7 @@
           <control type="group">
             <width>236</width>
             <height>350</height>
+			<include>play_OST_Theme</include>
             <include>PosterPanelLayoutFocus</include>
           </control>
         </focusedlayout>

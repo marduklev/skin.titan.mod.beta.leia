@@ -59,6 +59,7 @@
                     <control type="group">
                         <width>565</width>
                         <height>325</height>
+						<include>play_OST_Theme</include>
                         <include>LandscapeLayoutFocus</include>
                     </control>
 				</focusedlayout>

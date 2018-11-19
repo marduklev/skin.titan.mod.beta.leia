@@ -30,6 +30,21 @@
 				<include>Netflix_Status</include>
 			</control>	
 			<control type="group">
+				<control type="videowindow">
+					<visible>Player.HasVideo</visible>
+					<posx>95</posx>
+					<posy>10</posy>
+					<width>430</width>
+					<height>200</height>
+				</control>
+				<control type="image">
+					<visible>Player.HasVideo</visible>
+					<posx>95</posx>
+					<posy>-10</posy>
+					<width>430</width>
+					<height>240</height>
+					<texture>netflix/frame/detail-frame.png</texture>
+				</control>
 				<control type="image" id="887768">
 					<height>207</height>
 					<width>630</width>
@@ -38,7 +53,10 @@
 					<fadetime>300</fadetime>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+					<animation effect="slide" start="0,0" end="320,140" delay="0" time="0" pulse="false" condition="Player.HasVideo">Conditional</animation>
+					<animation effect="zoom" start="100" end="30" delay="0" time="0" pulse="false" condition="Player.HasVideo">Conditional</animation>
 				</control>
+				
 				<control type="label">
 					<height>100</height>
 					<width>800</width>
@@ -127,10 +145,8 @@
 				<width>41%</width>
 				<height>600</height>
 				<orientation>vertical</orientation>
-				<focusposition>0</focusposition>
 				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
 				<onright>5026</onright>
-				
 				<onup>526</onup>
 				<ondown>526</ondown>
 				<focusedlayout height="65" width="480" condition="Container.Content(seasons)">
@@ -143,7 +159,17 @@
 							<width>475</width>
 							<right>30</right>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label,[B],[/B]]$VAR[fakeright]$INFO[ListItem.Episode,            , $LOCALIZE[20360]]</label>
+							<label>$INFO[ListItem.Label,[B],[/B]]</label>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+						</control>
+						<control type="label">
+							<top>20</top>
+							<height>40</height>
+							<width>475</width>
+							<right>0</right>
+							<aligny>center</aligny>
+							<align>right</align>
+							<label>$INFO[ListItem.Episode,, $LOCALIZE[20360]]</label>
 							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 						</control>
 						<control type="image">
@@ -167,7 +193,17 @@
 							<width>475</width>
 							<right>30</right>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label,[B],[/B]]$VAR[fakeright]$INFO[ListItem.Episode,            , $LOCALIZE[20360]]</label>
+							<label>$INFO[ListItem.Label,[B],[/B]]</label>
+							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+						</control>
+						<control type="label">
+							<top>20</top>
+							<height>40</height>
+							<width>475</width>
+							<right>0</right>
+							<aligny>center</aligny>
+							<align>right</align>
+							<label>$INFO[ListItem.Episode,, $LOCALIZE[20360]]</label>
 							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 						</control>
 					</control>
@@ -188,7 +224,7 @@
 				<ondown>5026</ondown>
 				<onright>60</onright>
 				<onback>526</onback>
-				
+				<onright>ActivateWindow(3034)</onright> <!-- check. test mark as watched , use custom menu -->
 				<focusedlayout width="1040" height="224">
 					<control type="group">
 						<width>1040</width>
@@ -294,6 +330,17 @@
 							<label>$VAR[Plots]</label>
 							<autoscroll delay="4000" time="4000" repeat="2000">true</autoscroll>
 						</control>
+							<control type="videowindow">
+								<visible>Player.HasVideo</visible>
+								<width>42%</width>
+								<height>94%</height>
+							</control>
+							<control type="image">
+								<visible>Player.HasVideo</visible>
+								<width>37%</width>
+							<height>100%</height>
+								<texture>netflix/frame/detail-frame.png</texture>
+							</control>
 					</control>
 				</focusedlayout>
 				<itemlayout width="1040" height="224">
@@ -402,6 +449,9 @@
 						</control>
 					</control>
 				</itemlayout>
+				<!-- content change test 
+				<content target="video" sortby="year" sortorder="ascending">videodb://tvshows/titles/$INFO[ListItem.DBID]/-1/,return)</content>
+				<content target="video" sortby="year" sortorder="ascending">$ESCINFO[Container(526).ListItem.FolderPath]</content> -->
 				<content target="video" sortby="year" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
 			</control>
 			<control type="image">
@@ -446,10 +496,6 @@
 		<value condition="Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ] $INFO[ListItem.Property(UnWatchedEpisodes), (,) ]</value>
 		<value condition="!Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ]</value>
 	</variable>	
-	<variable name="fakeright">
-		<value condition="!Integer.IsGreater(ListItem.Episode,9) + !String.IsEmpty(ListItem.Episode)">[COLOR=00ffffff]0[/COLOR]</value>
-        <value condition="Integer.IsGreater(ListItem.Episode,9) + !String.IsEmpty(ListItem.Episode)"></value>
-	</variable>
 	<variable name="seasonwithspecials">
 		<value condition="Integer.IsLess(ListItem.Season,1) + !String.IsEmpty(ListItem.Episode)">[B]$LOCALIZE[20381] $INFO[ListItem.Episode][/B]</value>
 		<value condition="!Integer.IsLess(ListItem.Season,1) + !String.IsEmpty(ListItem.Episode)">[B]$VAR[WideView_LargeSeasonLabel,S,:]$VAR[WideView_LargeEpisodeLabel,E,][/B]</value>

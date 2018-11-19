@@ -37,6 +37,7 @@
                     <control type="group">
                         <width>162</width>
                         <height>240</height>
+						<include>play_OST_Theme</include>
                         <include>SmallPosterPanelLayoutFocus</include>
                         <animation type="focus">
 							<effect type="zoom" start="100" end="115" center="auto" time="150" />

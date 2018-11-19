@@ -104,6 +104,7 @@
                             <width>1800</width>
                             <top>0</top>
                             <height>310</height>
+							<include>play_OST_Theme</include>
                             <control type="image">
                                 <texture border="5">diffuse/wide.png</texture>
                                 <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse> <!-- merge <colordiffuse>b3ffffff</colordiffuse>  , change to hardcoded, def ia also for focused in views-->

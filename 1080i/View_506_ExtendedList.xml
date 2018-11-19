@@ -104,7 +104,7 @@
 						<posy>40</posy>
 						<width>460</width>
 						<height>900</height>
-						
+						<include>play_OST_Theme</include>
 						<control type="image">
 							<posx>8</posx>
 							<posy>7</posy>

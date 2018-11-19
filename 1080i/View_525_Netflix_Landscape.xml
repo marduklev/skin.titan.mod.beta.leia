@@ -330,6 +330,7 @@
 				<width>400</width>
 				<height>224</height>
 				<bottom>-80</bottom>
+				<include>play_OST_Theme</include>
 				<include>ThumbsViewLayoutFocus</include>
 			</control>
 			<!-- D I S C A R T -->	
@@ -363,6 +364,7 @@
 				<width>480</width>
 				<height>269</height>
 				<bottom>-135</bottom>
+				<include>play_OST_Theme</include>
 				<include>ThumbsViewLayoutFocus</include>
 			</control>
 			<!-- D I S C A R T -->

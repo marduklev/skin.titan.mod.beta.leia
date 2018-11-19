@@ -37,6 +37,7 @@
 			<control type="group">
                 <width>290</width>
                 <height>178</height>
+				<include>play_OST_Theme</include>
 				<include>ThumbsViewLayoutFocus</include>
                 <include>AutoTrailerButton</include>
 			</control>

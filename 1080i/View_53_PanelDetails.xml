@@ -42,7 +42,8 @@
                         <height>240</height>
                         <include>SmallPosterPanelLayoutFocus</include>
                         <include>AutoTrailerButton</include>
-                      </control>			  
+						<include>play_OST_Theme</include>
+                      </control>
                 </focusedlayout>
             </control>
       

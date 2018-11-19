@@ -287,6 +287,7 @@
 				<onup condition="Player.HasVideo">fullscreen</onup>
 				
 				<itemlayout height="247" width="170" background="true" condition="!Skin.HasSetting(View523_SameHeight)">
+					
 					<control type="group">
 						<width>170</width>
 						<height>247</height>
@@ -312,6 +313,7 @@
 						<height>381</height>
 						<right>2</right>
 						<bottom>-100</bottom>
+						<include>play_OST_Theme</include>
 						<include>PosterPanelLayoutFocus</include>
 						<include>AutoTrailerButton</include>
 					</control>
@@ -383,6 +385,7 @@
 						<width>100%</width>
 						<height>100%</height>
 						<bottom>-200</bottom>
+						<include>play_OST_Theme</include>
 						<include>PosterPanelLayoutFocus</include>
 						<include>AutoTrailerButton</include>
 						<animation effect="zoom" end="112,112" center="auto" time="100">focus</animation>

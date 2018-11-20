@@ -534,16 +534,16 @@
  </control>
 </include>
 
-    <include name="AutoTrailerButton">
+    
+	<!-- default -
+	<include name="AutoTrailerButton">
         <control type="button">
-          <visible>false</visible>
-          <!-- delayed auto-trailers -->
-          <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
-          <onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
-          <onfocus condition="!Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(ListItem.Trailer)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)]),00:03,silent)</onfocus>
-          <onfocus condition="!Player.HasVideo + Skin.String(AutoYoutubeTrailer,true) + Skin.HasSetting(DetailsAutoTrailer) + [String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:03,silent)</onfocus>
+            <visible>false</visible>
+            <onfocus condition="Skin.HasSetting(DetailsAutoTrailer) + [Container.Content(movies) | Container.Content(tvshows)]">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)])</onfocus>
+            <onunfocus condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunfocus>
         </control>
     </include>
+	-->
 
     <include name="HiddenHomeMenuButtonEnhancedHome">
         <control type="button">
@@ -581,7 +581,7 @@
         </control>
     </include>
 
-    <variable name="SetWidgetContainer">
+    <variable name="SetWidgetContainer"> <!-- check important -->
         <value condition="Control.IsVisible(1510)">SetProperty(Skinhelper.WidgetContainer,1510,Home)</value>
         <value condition="Control.IsVisible(1520)">SetProperty(Skinhelper.WidgetContainer,1520,Home)</value>
         <value condition="Control.IsVisible(1530)">SetProperty(Skinhelper.WidgetContainer,1530,Home)</value>

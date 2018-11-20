@@ -70,7 +70,7 @@
                     <visible>Skin.HasSetting(View525_DetailsShowFanart)</visible>
 					<animation effect="fade" start="100" end="0" delay="200" time="1500" pulse="false" condition="Player.HasVideo">Conditional</animation>
                 </control>
-                <!-- NEW rating STARS -->
+                <!-- rating STARS -->
 				<control type="group">
                     <posx>65</posx>
                     <top>288</top>
@@ -86,7 +86,8 @@
                     <texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
                     <visible>!String.IsEmpty(Control.GetLabel(29477))</visible>
                 </control>
-				<control type="textbox"> <!-- if Clear LOGO N/A -->
+				<!-- clearlogo n/a -->
+				<control type="textbox">
                     <height>300</height>
                     <width>800</width>
                     <left>70</left>
@@ -118,8 +119,8 @@
                     <align>left</align>
                     <aligny>top</aligny>
                     <label>$INFO[ListItem.Label]</label> 
-                    <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor> <!-- always red, def is $INFO[Skin.String(ViewDetailsTextColor)]-->
-                    <visible>Container.Content(episodes) | Container.Content(seasons)</visible> <!-- shows season and episode below Clear Logo -->
+                    <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+                    <visible>Container.Content(episodes) | Container.Content(seasons)</visible>
                 </control>
 				<!-- subtitle: MOTTO for Movies-->
                 <control type="label">
@@ -141,10 +142,12 @@
                     <posy>350</posy>
                     <height>250</height>
                     <orientation>vertical</orientation>
+					<!-- <visible>String.IsEmpty(Window(home).Property(tvshowtrailer_avail))</visible> -->
 					<control type="textbox">
                         <height>200</height>
                         <label>$VAR[Plots]</label>
-                        <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
+                        <!-- testing purposes <label>escinfo $ESCINFO[ListItem.FileNameAndPath][CR]info path $INFO[listitem.path] ,info filename $INFO[listitem.filename][CR]info FileNameAndPath $INFO[listitem.FileNameAndPath] ,info foldername $INFO[ListItem.FolderName]</label>-->
+						<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
                         <align>justify</align>
                         <font>Reg24</font>
 					</control>
@@ -293,7 +296,7 @@
         <left>50</left>
         <bottom>-20</bottom>
         <height>550</height>
-        <width>1910</width>       
+        <width>1910</width>
         <orientation>horizontal</orientation>
 		<preloaditems>2</preloaditems>
         <pagecontrol>60</pagecontrol>
@@ -304,14 +307,14 @@
 		<ondown condition="Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(525).NumItems,4) + !Player.HasVideo">7000</ondown>
 		<ondown condition="!Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(525).NumItems,4) + !Player.HasVideo">60</ondown>
 		<!-- play trailer Movie -->
-		<onup condition="!Player.HasVideo + Container.Content(movies)">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer),1]) get some, also missing some , also not possible for TV SHows -->
-		<!-- play trailer TV Show / Set -->
-		<onup condition="String.IsEmpty(Skin.String(ListItem.tvshowtrailer)) + !Player.HasVideo + [ListItem.IsCollection | Container.Content(tvshows)]">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onup>
+		<onup condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) + Container.Content(movies)]">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- based on scraping, check local movietitle (year)-trailer.filexet, if not exist play http, -->
 		<!-- play LOCAL trailer TV Show / Set -->
-		<onup condition="!String.IsEmpty(Skin.String(ListItem.tvshowtrailer)) + !Player.HasVideo + [ListItem.IsCollection | Container.Content(tvshows)]">PlayMedia($ESCINFO[ListItem.Path,,-tvshowtrailer.mp4],1)</onup> <!-- action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language]-->
-		<!-- stop trailer playing,  keybord default <x>stop</x>-->
+		<onup condition="!Player.HasVideo + [!String.IsEmpty(Window(home).Property(tvshowtrailer_avail)) + !String.Contains(ListItem.Path,http)]">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onup> <!-- ,need to check, escinfo could be need if other than win?? or emby ?? action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language] -->
+		<!-- play yt trailer -->
+		<onup condition="!Player.HasVideo + [String.IsEmpty(Window(home).Property(tvshowtrailer_avail)) | [String.IsEmpty(ListItem.Trailer) + Container.Content(movies)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onup>
+		<!-- stop trailer playing, keybord default <x>stop</x> -->
 		<ondown condition="Player.HasVideo">Stop</ondown>
-		<!-- get fullscreen , <tab>FullScreen</tab>-->
+		<!-- get fullscreen , <tab>FullScreen</tab> -->
 		<onup condition="Player.HasVideo">fullscreen</onup>
 		
 		<!-- non fixed -->
@@ -330,6 +333,8 @@
 				<width>400</width>
 				<height>224</height>
 				<bottom>-80</bottom>
+				<include>check_local_trailer</include>
+				<include>AutoTrailerButton</include>
 				<include>play_OST_Theme</include>
 				<include>ThumbsViewLayoutFocus</include>
 			</control>
@@ -364,6 +369,8 @@
 				<width>480</width>
 				<height>269</height>
 				<bottom>-135</bottom>
+				<include>check_local_trailer</include> <!-- make it depending to skinsetting is best solution : can take long time for SH to return/write the result ,but its the only way to handle the auto play and yt trailers -->
+				<include>AutoTrailerButton</include>
 				<include>play_OST_Theme</include>
 				<include>ThumbsViewLayoutFocus</include>
 			</control>

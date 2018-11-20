@@ -3,7 +3,7 @@
 <includes>
 
 	<!-- V I E W T Y P E S -->
-	<include name="Netflix_FlagsDetails">		
+	<include name="Netflix_FlagsDetails">
 		<!-- flags, info -->
 		<control type="grouplist">
 			<orientation>horizontal</orientation>
@@ -30,8 +30,8 @@
 				<control type="textbox">
 					<left>1</left>
 					<width>10</width>
-					<label>|</label>									
-					<height>50</height>						
+					<label>|</label>
+					<height>50</height>
 					<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 					<font>Reg28</font>
 				</control>	
@@ -42,24 +42,24 @@
 				<top>0</top>
 				<width>110</width>
 				<height>40</height>
-				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))</visible>					
+				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))</visible>
 				<control type="image">
 					<height>40</height>
 					<width>110</width>
-					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texture><!-- 	$INFO[Skin.String(ViewDetailsTextColor)] -->						
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texture>
 				</control>
 				<control type="label">
 					<left>1</left>
 					<width>110</width>
-					<label>$VAR[RatingFlagVar]</label>									
+					<label>$VAR[RatingFlagVar]</label>
 					<height>40</height>
 					<aligny>center</aligny>
 					<align>center</align>
 					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
 					<font>Reg26</font>
-				</control>		
-			</control>				
-			<!-- var, details -->				
+				</control>
+			</control>
+			<!-- var, details -->
 			<control type="label">
 				<left>5</left>
 				<width>auto</width>
@@ -75,16 +75,16 @@
 				<top>0</top>
 				<width>82</width>
 				<height>40</height>
-				<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>					
+				<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
 				<control type="image">
 					<height>38</height>
 					<width>82</width>
-					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture><!-- 	$INFO[Skin.String(ViewDetailsTextColor)] -->						
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
 				</control>
 				<control type="label">
 					<left>0</left>
 					<width>100%</width>
-					<label>$VAR[GetResolution,[B],[/B]]</label>				
+					<label>$VAR[GetResolution,[B],[/B]]</label>
 					<height>40</height>
 					<aligny>center</aligny>
 					<align>center</align>
@@ -98,36 +98,36 @@
 				<top>0</top>
 				<width>82</width>
 				<height>40</height>
-				<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>					
+				<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
 				<control type="image">
 					<height>38</height>
-					<width>82</width>					
-					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>					
+					<width>82</width>
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
 				</control>
 				<control type="label">
 					<left>0</left>
 					<width>100%</width>
-					<label>$VAR[AudioChannelsVar,[B],[/B]]</label>				
+					<label>$VAR[AudioChannelsVar,[B],[/B]]</label>
 					<height>40</height>
 					<aligny>center</aligny>
 					<align>center</align>
 					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
 					<font>Bold26</font>
-				</control>	 
+				</control>
 			</control>
-		</control>      		
+		</control>
 	</include>
 	
 	<!-- Include netflix genre -->
-	<include name="Netflix_Genre">		
-		<visible>!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>	            
-		<control type="image">                          
+	<include name="Netflix_Genre">
+		<visible>!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+		<control type="image">
 			<top>10</top>
 			<width>50</width>
 			<height>30</height>
 			<aligny>bottom</aligny>
 			<texture>netflix/genre.png</texture>
-			<colordiffuse>$INFO[Skin.String(NetflixSecondaryTextColor)]</colordiffuse>    
+			<colordiffuse>$INFO[Skin.String(NetflixSecondaryTextColor)]</colordiffuse>
 		</control>
 		<control type="label">
 			<left>60</left>
@@ -138,12 +138,12 @@
 			<align>left</align>
 			<aligny>center</aligny>
 			<font>Reg24</font>
-		</control>		
-	</include>	
+		</control>
+	</include>
 	
 	<!-- Include netflix next aired -->
-	<include name="Netflix_Status">			            
-		<control type="image">                          				
+	<include name="Netflix_Status">
+		<control type="image">
 			<width>40</width>
 			<height>40</height>
 			<aligny>bottom</aligny>
@@ -151,16 +151,16 @@
 			<colordiffuse>$VAR[ToggleNetflixViewDetailsTextColorPlot]</colordiffuse>    
 		</control>
 		<control type="label">
-			<left>55</left>				
+			<left>55</left>
 			<height>52</height>
 			<width>1200</width>
-			<!--<label>$INFO[Window(Home).Property(SkinHelper.ListItem.airdaytime.label),[B]$LOCALIZE[31212][/B] $LOCALIZE[31213] • ] $INFO[Window(Home).Property(SkinHelper.ListItem.NextEpisode.Label),• ]</label>-->
+			<!-- <label>$INFO[Window(Home).Property(SkinHelper.ListItem.airdaytime.label),[B]$LOCALIZE[31212][/B] $LOCALIZE[31213] • ] $INFO[Window(Home).Property(SkinHelper.ListItem.NextEpisode.Label),• ]</label> -->
 			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Lastepisode.airdate.Label),[B]$LOCALIZE[31214]:[/B] ,]</label>
 			<textcolor>$VAR[ToggleNetflixViewDetailsTextColorPlot]</textcolor>
 			<align>left</align>
 			<aligny>center</aligny>
-			<font>Reg24</font>			
-		</control>		
+			<font>Reg24</font>
+		</control>
 	</include>
 	
 	<!-- Netflix 2 Home / Widgets / Dialog Info Spotlight Row Details -->
@@ -179,7 +179,7 @@
                 <width>auto</width>
                 <aligny>center</aligny>
                 <font>Reg28</font>
-                <textcolor>green</textcolor> <!-- check, stay hardcoded? i dont think so-->
+                <textcolor>green</textcolor> <!-- check, stay hardcoded? i dont think so -->
                 <label>[B]$VAR[NewItem][/B]</label>
                 <include>Default_Fade</include>
             </control>
@@ -187,8 +187,8 @@
 			<!-- Thumbs Up/Down -->
             <control type="group">
 				<width>32</width>
-				<visible>Skin.HasSetting(NetflixThumbRating)</visible>				
-				<control type="image" id="6111091">					
+				<visible>Skin.HasSetting(NetflixThumbRating)</visible>
+				<control type="image" id="6111091">
 					<visible>String.IsGreaterOrEqual(ListItem.Rating,6) | Integer.IsGreaterOrEqual(ListItem.Rating,6)</visible><!-- check, add more v conds, maybe sh could slows it down -->
 					<posy>5</posy>
 					<width>30</width>
@@ -197,8 +197,8 @@
 					<colordiffuse>$INFO[Skin.String(ThumbUpColor)]</colordiffuse>
 					<texture background="true">netflix/thumbs-up.png</texture>
 					<include>Default_Fade</include>
-				</control>				
-				<control type="image" id="6111092">					
+				</control>
+				<control type="image" id="6111092">
 					<visible>String.IsGreaterOrEqual(ListItem.Rating,1) + String.IsLess(ListItem.Rating,6) | Integer.IsGreaterOrEqual(ListItem.Rating,1) + Integer.IsLess(ListItem.Rating,6)</visible>
 					<posy>10</posy>
 					<width>30</width>
@@ -207,8 +207,8 @@
 					<colordiffuse>$INFO[Skin.String(ThumbDownColor)]</colordiffuse>
 					<texture flipy="true" background="true">netflix/thumbs-up.png</texture>
 					<include>Default_Fade</include>
-				</control>				
-				<control type="image" id="6111093">					
+				</control>
+				<control type="image" id="6111093">
 					<visible>Integer.IsLess(ListItem.Rating,1) | String.IsEmpty(ListItem.Rating)</visible>
 					<posy>8</posy>
 					<width>30</width>
@@ -255,7 +255,7 @@
 				<control type="image">
 					<height>100%</height>
 					<width>100%</width>
-					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texture> <!-- reminder, check, have an ugly hard edge frame for it, make an var for options? -->
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texture>
 				</control>
 				<control type="label" id="6111121">
 					<top>2</top>
@@ -269,7 +269,6 @@
 					<label>$VAR[RatingFlagVar]</label>
 				</control>
 			</control>
-
 			<!-- Duration / Total Seasons/Episodes -->
 			<control type="label" id="611113">
 				<posy>5</posy>
@@ -282,7 +281,6 @@
 				<font>Reg28</font>
                 <include>Default_Fade</include>
 			</control>
-
 			<!-- Resolution -->
 			<control type="group" id="611114">
                 <visible>!String.IsEmpty(Control.GetLabel(6111141))</visible>
@@ -296,7 +294,7 @@
 					<width>100%</width>
 					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
 				</control>
-				<control type="label" id="6111141">					
+				<control type="label" id="6111141">
 					<width>100%</width>
 					<height>36</height>
 					<aligny>bottom</aligny>
@@ -307,7 +305,6 @@
                     <label>$VAR[GetResolution,[B],[/B]]</label>
 				</control>
 			</control>
-
 			<!-- Audio Channels -->
 			<control type="group" id="611115">
                 <visible>!String.IsEmpty(Control.GetLabel(6111151))</visible>
@@ -422,22 +419,22 @@
 
 	<variable name="audiovideoframe">
 		<value condition="Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/frame_hardedge.png</value>
-		<value condition="!Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/frame_softedge.png</value>		
+		<value condition="!Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/frame_softedge.png</value>
 	</variable>
 	<variable name="CodecSameLabelColorAsFrames">
 		<value condition="!Skin.HasSetting(CodecSameLabelColorAsFrames)">$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
-		<value condition="Skin.HasSetting(CodecSameLabelColorAsFrames)">$INFO[Skin.String(NetflixDetailsFlagColor)]</value>		
+		<value condition="Skin.HasSetting(CodecSameLabelColorAsFrames)">$INFO[Skin.String(NetflixDetailsFlagColor)]</value>
 	</variable>	
 	<variable name="mpaaframe">
 		<value condition="Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/detail-framehardedge.png</value>
-		<value condition="!Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/detail-frame.png</value>		
+		<value condition="!Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/detail-frame.png</value>
 	</variable>	
 	
 	<variable name="premiered">
 		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/) | !ControlGroup(77777).HasFocus + Control.IsVisible(1508)">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</value>
 		<value condition="Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)">$INFO[ListItem.Premiered]</value>		
-		<value>$INFO[ListItem.year]</value>		
-	</variable>								
+		<value>$INFO[ListItem.year]</value>
+	</variable>
 	
 	<variable name="ListItemGenre">
 		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
@@ -480,10 +477,10 @@
 	</variable>
 	
 	
-		<!-- ened corrections here -->
+<!-- ended corrections here -->
 	
 	<!-- Thumbs Down/Up Includes need further test conditions to other than user rating  -->
-	<include name="ThumbsUpMinCondition">																	
+	<include name="ThumbsUpMinCondition">
 		<include condition="Skin.String(ThumbsUpMin,6)">ThumbsUpMin6</include>
 		<include condition="Skin.String(ThumbsUpMin,7)">ThumbsUpMin7</include>
 		<include condition="Skin.String(ThumbsUpMin,8)">ThumbsUpMin8</include>
@@ -497,8 +494,7 @@
         <include condition="Skin.String(ThumbsDownMax,3)">ThumbsDownMax3</include>
         <include condition="Skin.String(ThumbsDownMax,2)">ThumbsDownMax2</include>
         <include condition="Skin.String(ThumbsDownMax,1)">ThumbsDownMax1</include>
-    </include>																										  
-	
+    </include>
 	
 	<!-- check need proof fallback empty rating to user rating, need variables-->
 	<include name="ThumbsDownMax1"><visible>Integer.IsEqual(ListItem.Rating,1)</visible></include>

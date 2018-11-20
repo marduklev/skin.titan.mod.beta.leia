@@ -16,9 +16,9 @@
         <onload>SetProperty(startupDone,loaded,Home)</onload>
     </include>
     
-	<include name="DefaultSkinSettingsValues">		
+	<include name="DefaultSkinSettingsValues">
 		<!-- various default settings  -->
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseSectionBackground)</onload>
+		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseSectionBackground)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowFanartBackground)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DetailsShowFanart)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View502_ShowCDart)</onload>

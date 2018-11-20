@@ -60,6 +60,7 @@
 						<control type="group">
 							<animation effect="zoom" center="auto" start="100" end="140" time="480" tween="back" reversible="false">Focus</animation>
 							<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
+							<include>play_OST_Theme</include>
 							<control type="image">
 								<left>83</left>
 								<top>158</top>

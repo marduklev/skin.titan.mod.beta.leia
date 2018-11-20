@@ -30,9 +30,9 @@
 				<include>Netflix_Status</include>
 			</control>	
 			<control type="group">
-				<control type="videowindow">
+				<!-- <control type="videowindow"> check, need improvement, WIP 
 					<visible>Player.HasVideo</visible>
-					<posx>95</posx>
+					<posx>85</posx>
 					<posy>10</posy>
 					<width>430</width>
 					<height>200</height>
@@ -45,6 +45,7 @@
 					<height>240</height>
 					<texture>netflix/frame/detail-frame.png</texture>
 				</control>
+				-->
 				<control type="image" id="887768">
 					<height>207</height>
 					<width>630</width>
@@ -330,7 +331,7 @@
 							<label>$VAR[Plots]</label>
 							<autoscroll delay="4000" time="4000" repeat="2000">true</autoscroll>
 						</control>
-							<control type="videowindow">
+							<!--<control type="videowindow">
 								<visible>Player.HasVideo</visible>
 								<width>42%</width>
 								<height>94%</height>
@@ -341,6 +342,7 @@
 							<height>100%</height>
 								<texture>netflix/frame/detail-frame.png</texture>
 							</control>
+							-->
 					</control>
 				</focusedlayout>
 				<itemlayout width="1040" height="224">

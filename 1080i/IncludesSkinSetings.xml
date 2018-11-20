@@ -2703,7 +2703,7 @@
                 <onclick>RunScript(script.skin.helper.service,action=setresourceaddon,skinstring=WeatherIconPack,addontype=resource.images.weathericons)</onclick>
             </control>
             
-            <control type="button" id="17122">
+            <control type="button" id="17122"> <!-- check, double id -->
                 <description>Weather FanArt</description>
                 <include>SkinSettings_Button</include>
                 <label>31624</label>

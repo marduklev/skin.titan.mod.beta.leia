@@ -277,9 +277,9 @@
 				<!-- play trailer Movie -->
 				<onup condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) + Container.Content(movies)]">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- based on scraping, check local movietitle (year)-trailer.filexet, if not exist play http, -->
 				<!-- play LOCAL trailer TV Show / Set -->
-				<onup condition="!Player.HasVideo + [!String.IsEmpty(Window(home).Property(tvshowtrailer_avail)) + !String.Contains(ListItem.Path,http)]">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onup> <!-- ,need to check, escinfo could be need if other than win?? or emby ?? action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language] -->
+				<onup condition="!Player.HasVideo + [!String.IsEmpty(Window(home).Property(trailer_avail)) + !String.Contains(ListItem.Path,http)]">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onup> <!-- ,need to check, escinfo could be need if other than win?? or emby ?? action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language] -->
 				<!-- play yt trailer -->
-				<onup condition="!Player.HasVideo + [String.IsEmpty(Window(home).Property(tvshowtrailer_avail)) | [String.IsEmpty(ListItem.Trailer) + Container.Content(movies)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onup>
+				<onup condition="!Player.HasVideo + [String.IsEmpty(Window(home).Property(trailer_avail)) | [String.IsEmpty(ListItem.Trailer) + Container.Content(movies)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onup>
 				<!-- stop trailer playing, keybord default <x>stop</x> -->
 				<ondown condition="Player.HasVideo">Stop</ondown>
 				<!-- get fullscreen , <tab>FullScreen</tab> -->
@@ -316,7 +316,7 @@
 						<height>381</height>
 						<right>2</right>
 						<bottom>-100</bottom>
-						<include>check_local_trailer</include>
+						<include condition="Skin.HasSetting(Library_NoOnlineLookupTrailer)">check_local_trailer</include>
 						<include>play_OST_Theme</include>
 						<include>PosterPanelLayoutFocus</include>
 						<include>AutoTrailerButton</include>
@@ -389,7 +389,7 @@
 						<width>100%</width>
 						<height>100%</height>
 						<bottom>-200</bottom>
-						<include>check_local_trailer</include>
+						<include condition="Skin.HasSetting(Library_NoOnlineLookupTrailer)">check_local_trailer</include>
 						<include>play_OST_Theme</include>
 						<include>PosterPanelLayoutFocus</include>
 						<include>AutoTrailerButton</include>

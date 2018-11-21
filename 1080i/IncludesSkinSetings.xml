@@ -803,6 +803,20 @@
                 <onclick>Skin.ToggleSetting(DisableLandscapeThumbs)</onclick>
                 <selected>Skin.HasSetting(DisableLandscapeThumbs)</selected>
             </control>
+            <!-- OST theme playback by lib -->
+            <control type="radiobutton" id="55145">
+            <include>SkinSettings_Button</include>
+                <label>Play OST Themes</label>
+                <onclick>Skin.ToggleSetting(LibraryOSTthemes)</onclick>
+                <selected>Skin.HasSetting(LibraryOSTthemes)</selected>
+            </control>
+			<!-- OST theme playback by lib -->
+            <control type="radiobutton" id="55146">
+            <include>SkinSettings_Button</include>
+                <label>Placeholder: Always use Local Traier</label>
+                <onclick>Skin.ToggleSetting(Library_NoOnlineLookupTrailer)</onclick>
+                <selected>Skin.HasSetting(Library_NoOnlineLookupTrailer)</selected>
+            </control>
             <!-- alternative logo location -->
             <control type="button" id="13027">
                 <include>SkinSettings_Button</include>
@@ -2508,15 +2522,7 @@
                 <onclick condition="Skin.String(AutoStartPlayList)">Skin.Reset(AutoStartPlayList)</onclick>
                 <selected>Skin.String(AutoStartPlayList)</selected>
             </control>
-			
-			<control type="radiobutton" id="55145">
-            <!-- Manfeeds theme by lib -->
-            <include>SkinSettings_Button</include>
-                <label>OST Themes(thx to manfeed)</label>
-                <onclick>Skin.ToggleSetting(LibraryOSTthemes)</onclick>
-                <selected>Skin.HasSetting(LibraryOSTthemes)</selected>               
-            </control>
-			<!-- enable local language trailers -->
+            <!-- enable local language trailers -->
             <control type="radiobutton" id="41633">
                 <include>SkinSettings_Button</include>
                 <label>Enable regional trailers (system language)</label>

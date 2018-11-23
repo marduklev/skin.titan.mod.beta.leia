@@ -414,8 +414,24 @@
             <onclick>ReloadSkin()</onclick>
 			<selected>Skin.HasSetting(View_501_HorizontalNavigation)</selected>
 		</control>
-
-        <control type="button" id="3020">
+		<!-- custm tvmelody settings -->
+		<control type="radiobutton" id="55145">
+			<include>SideBladeMenuButton</include>
+			<!-- <visible>System.HasAddon(script.tvmelodies)</visible> -->
+			<!-- <visible>Control.IsVisible(**)</visible> -->
+			<textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">common/settings1.png</textureradioonfocus>
+			<textureradioonnofocus colordiffuse="$INFO[Skin.String(SideBladeTextColor)]">common/settings1.png</textureradioonnofocus>
+			<textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">common/settings1.png</textureradioofffocus>
+			<textureradiooffnofocus colordiffuse="$INFO[Skin.String(SideBladeTextColor)]">common/settings1.png</textureradiooffnofocus>
+			<radiowidth>115</radiowidth>
+            <radioheight>35</radioheight>
+            <radioposx>0</radioposx>
+            <radioposy>12</radioposy>
+			<label>OST Theme Options</label>
+			<onclick condition="System.HasAddon(script.tvmelodies)">Addon.OpenSettings(script.tvmelodies)</onclick>
+			<onclick condition="!System.HasAddon(script.tvmelodies)">InstallAddon(script.tvmelodies)</onclick>
+		</control>
+		<control type="button" id="3020">
 			<!--Show tags-->
 			<include>SideBladeMenuButton</include>
 			<label>20459</label>

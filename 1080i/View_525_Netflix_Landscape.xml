@@ -142,10 +142,9 @@
                     <posy>350</posy>
                     <height>250</height>
                     <orientation>vertical</orientation>
-					<!-- <visible>!String.IsEmpty(Window(home).Property(trailer_avail))</visible> -->
 					<control type="textbox">
-                        <height>200</height>
-                        <label>$VAR[Plots]</label>
+						<height>200</height>
+						<label>$VAR[Plots]</label>
                         <!-- testing purposes <label>escinfo $ESCINFO[ListItem.FileNameAndPath][CR]info path $INFO[listitem.path] ,info filename $INFO[listitem.filename][CR]info FileNameAndPath $INFO[listitem.FileNameAndPath] ,info foldername $INFO[ListItem.FolderName]</label>-->
 						<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
                         <align>justify</align>
@@ -336,7 +335,6 @@
 				<bottom>-80</bottom>
 				<include condition="Skin.HasSetting(Library_NoOnlineLookupTrailer)">check_local_trailer</include>
 				<include>AutoTrailerButton</include>
-				<include>play_OST_Theme</include>
 				<include>ThumbsViewLayoutFocus</include>
 			</control>
 			<!-- D I S C A R T -->	
@@ -372,7 +370,6 @@
 				<bottom>-135</bottom>
 				<include condition="Skin.HasSetting(Library_NoOnlineLookupTrailer)">check_local_trailer</include>
 				<include>AutoTrailerButton</include>
-				<include>play_OST_Theme</include>
 				<include>ThumbsViewLayoutFocus</include>
 			</control>
 			<!-- D I S C A R T -->

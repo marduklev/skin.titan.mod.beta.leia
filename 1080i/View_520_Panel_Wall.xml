@@ -39,8 +39,7 @@
                     <control type="group">
                         <width>169</width>
                         <height>258</height>
-						<include>play_OST_Theme</include>
-                        <include>SmallPosterPanelLayoutFocus</include>
+						<include>SmallPosterPanelLayoutFocus</include>
                       </control>
                 </focusedlayout>
 			</control>

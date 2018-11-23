@@ -74,7 +74,6 @@
 	</include>
 
     <include name="BigListFocusLayout">
-		<include>play_OST_Theme</include>
 		<control type="image">
 			<posx>0</posx>
 			<posy>0</posy>
@@ -151,7 +150,6 @@
 	</include>
 	
 	<include name="BiglistSlimLayout">
-		<include>play_OST_Theme</include>
 		<!--Title-->
 		<control type="label">
 			<posx>10</posx>

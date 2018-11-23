@@ -33,8 +33,7 @@
 		  <control type="group">
                 <width>240</width>
                 <height>240</height>
-				<include>play_OST_Theme</include>
-                <include>SquarePosterPanelLayoutFocus</include>
+				<include>SquarePosterPanelLayoutFocus</include>
             </control>
         </focusedlayout>
 	  </control>

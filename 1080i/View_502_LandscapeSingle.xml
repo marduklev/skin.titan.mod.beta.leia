@@ -59,8 +59,7 @@
                     <control type="group">
                         <width>565</width>
                         <height>325</height>
-						<include>play_OST_Theme</include>
-                        <include>LandscapeLayoutFocus</include>
+						<include>LandscapeLayoutFocus</include>
                     </control>
 				</focusedlayout>
                     <itemlayout width="450" height="325" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">

@@ -61,7 +61,6 @@
                     </control>
                 </itemlayout>
                 <focusedlayout width="800" height="90">
-					<include>play_OST_Theme</include>
                     <control type="image">
 						<right>0</right>
 						<posy>0</posy>

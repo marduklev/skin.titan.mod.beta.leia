@@ -58,7 +58,6 @@
                         </control>
                         <include>BannerLayout</include>
                         <include>AutoTrailerButton</include>
-						<include>play_OST_Theme</include>
 					</control>
                 </focusedlayout>
                 <itemlayout height="246" width="1190" condition="Skin.HasSetting(View55_LargeBanners)">
@@ -91,7 +90,6 @@
                         </control>
                         <include>BannerLayout</include>
                         <include>AutoTrailerButton</include>
-						<include>play_OST_Theme</include>
 					</control>
                 </focusedlayout>
      			</control>

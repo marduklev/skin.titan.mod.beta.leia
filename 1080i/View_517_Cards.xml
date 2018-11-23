@@ -212,8 +212,7 @@
                         <control type="group">
                             <width>890</width>
                             <height>330</height>
-							<include>play_OST_Theme</include>
-                            <control type="image">
+							<control type="image">
                                 <texture>diffuse/wide.png</texture>
                                 <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                                 <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>

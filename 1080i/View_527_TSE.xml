@@ -193,7 +193,6 @@
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="140" time="480" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>	
-						<include>play_OST_Theme</include>
 						<control type="image">
 							<left>102</left>
 							<width>430</width>
@@ -220,7 +219,6 @@
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="140" time="480" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>		
-						<include>play_OST_Theme</include>
 						<control type="image">
 							<left>122</left>
 							<width>430</width>
@@ -247,7 +245,6 @@
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="150" time="480" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="150" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
-						<include>play_OST_Theme</include>
 						<control type="image">
 							<left>102</left>
 							<width>430</width>
@@ -274,7 +271,6 @@
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="140" time="480" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
-						<include>play_OST_Theme</include>
 						<control type="image">
 							<left>82</left>
 							<width>500</width>

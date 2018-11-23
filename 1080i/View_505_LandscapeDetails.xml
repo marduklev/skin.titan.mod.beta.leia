@@ -37,8 +37,7 @@
 				<control type="group">
                     <width>575</width>
                     <height>330</height>
-					<include>play_OST_Theme</include>
-                    <include>LandscapeLayoutFocus</include>
+					<include>LandscapeLayoutFocus</include>
                     <include>AutoTrailerButton</include>
                 </control>
 			</focusedlayout>

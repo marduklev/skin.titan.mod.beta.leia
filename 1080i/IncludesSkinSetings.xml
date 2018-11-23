@@ -803,20 +803,26 @@
                 <onclick>Skin.ToggleSetting(DisableLandscapeThumbs)</onclick>
                 <selected>Skin.HasSetting(DisableLandscapeThumbs)</selected>
             </control>
-            <!-- OST theme playback by lib -->
-            <control type="radiobutton" id="55145">
+            <!-- OST theme playback by lib 
+            <control type="radiobutton" id="++">
             <include>SkinSettings_Button</include>
                 <label>Play OST Themes</label>
                 <onclick>Skin.ToggleSetting(LibraryOSTthemes)</onclick>
                 <selected>Skin.HasSetting(LibraryOSTthemes)</selected>
-            </control>
-			<!-- OST theme playback by lib -->
+            </control> removed -->
+			<!--
+			<include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+                <param name="id" value="55145" />
+                <param name="addon" value="script.tvmelodies" />
+            </include> 
+			-->
+			<!-- Local Trailer -->
             <control type="radiobutton" id="55146">
-            <include>SkinSettings_Button</include>
-                <label>Placeholder: Always use Local Traier</label>
-                <onclick>Skin.ToggleSetting(Library_NoOnlineLookupTrailer)</onclick>
-                <selected>Skin.HasSetting(Library_NoOnlineLookupTrailer)</selected>
-            </control>
+				<include>SkinSettings_Button</include>
+				<label>Placeholder/WIP: Always use Local Traier</label>
+				<onclick>Skin.ToggleSetting(Library_NoOnlineLookupTrailer)</onclick>
+				<selected>Skin.HasSetting(Library_NoOnlineLookupTrailer)</selected>
+			</control>
             <!-- alternative logo location -->
             <control type="button" id="13027">
                 <include>SkinSettings_Button</include>
@@ -2522,13 +2528,6 @@
                 <onclick condition="Skin.String(AutoStartPlayList)">Skin.Reset(AutoStartPlayList)</onclick>
                 <selected>Skin.String(AutoStartPlayList)</selected>
             </control>
-            <!-- enable local language trailers -->
-            <control type="radiobutton" id="41633">
-                <include>SkinSettings_Button</include>
-                <label>Enable regional trailers (system language)</label>
-                <onclick>Skin.ToggleSetting(LocalTrailers)</onclick>
-                <selected>Skin.HasSetting(LocalTrailers)</selected>
-            </control>
             <control type="radiobutton" id="5159">
                 <description>Kiosk mode</description>
                 <include>SkinSettings_Button</include>
@@ -3202,6 +3201,11 @@
             <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="31007" />
                 <param name="addon" value="service.nextup.notification" />
+            </include>
+			<!-- moved to lib settings -->
+			<include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+                <param name="id" value="55145" />
+                <param name="addon" value="script.tvmelodies" />
             </include>
             <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="31008" />

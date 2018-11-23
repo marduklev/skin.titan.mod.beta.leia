@@ -49,8 +49,7 @@
                     <control type="group">
                         <left>0</left>
                         <width>790</width>
-						<include>play_OST_Theme</include>
-                        <include>BigListFocusLayout</include>
+						<include>BigListFocusLayout</include>
                         <include>AutoTrailerButton</include>
                     </control>
 				</focusedlayout>
@@ -66,8 +65,7 @@
                     <control type="group">
                         <left>0</left>
                         <width>790</width>
-						<include>play_OST_Theme</include>
-                        <include>BigList2SlimLayoutFocus</include>
+						<include>BigList2SlimLayoutFocus</include>
                         <include>AutoTrailerButton</include>
                     </control>
 				</focusedlayout>

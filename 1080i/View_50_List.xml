@@ -439,8 +439,7 @@
                     </control>
                 </itemlayout>
                 <focusedlayout condition="[Container.content(MusicVideos) | Container.Content(movies) | container.content(tvshows) | Container.Content(seasons)] + ![Skin.HasSetting(View50_ShowBanners) + container.content(tvshows)]" width="1800" height="90">
-                    <include>play_OST_Theme</include>
-					<control type="image">
+                    <control type="image">
 						<right>-5</right>
 						<posy>0</posy>
 						<height>86</height>
@@ -510,8 +509,7 @@
                         <width>680</width>
                         <height>138</height>
                         <right>90</right>
-						<include>play_OST_Theme</include>
-                        <control type="image">
+						<control type="image">
                             <texture border="5">diffuse/banner.png</texture>
                             <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
                             <aspectratio scalediffuse="false" align="left">stretch</aspectratio>

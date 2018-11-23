@@ -232,7 +232,6 @@
 					<include>LowListLayout</include>
 				</itemlayout>
 				<focusedlayout width="857" height="115" condition="!Skin.HasSetting(View515_UseSlimList) + ![Skin.HasSetting(View515_ShowBanners) + container.content(tvshows)]">
-					<include>play_OST_Theme</include>
 					<include>LowListFocusLayout</include>
 				</focusedlayout>
 				
@@ -240,7 +239,6 @@
 					<include>LowListSlimLayout</include>
 				</itemlayout>
 				<focusedlayout width="857" height="69" condition="Skin.HasSetting(View515_UseSlimList) + ![Skin.HasSetting(View515_ShowBanners) + container.content(tvshows)]">
-					<include>play_OST_Theme</include>
 					<include>LowListSlimLayoutFocus</include>
 				</focusedlayout>
 				
@@ -264,8 +262,7 @@
 					<control type="group">
                         <width>840</width>
                         <height>160</height>
-						<include>play_OST_Theme</include>
-                        <control type="image">
+						<control type="image">
                             <texture border="5">diffuse/banner.png</texture>
                             <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
                             <aspectratio scalediffuse="false" align="left">stretch</aspectratio>

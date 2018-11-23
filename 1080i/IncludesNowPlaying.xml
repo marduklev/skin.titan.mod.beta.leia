@@ -175,7 +175,7 @@
         <control type="group" id="88888">
             <!--Panel-->
 			<!--<visible>Player.HasAudio + !Skin.HasSetting(HideCurrentlyPlaying_OSTtheme)</visible>, old, i choose property need check if its workin consistent -->
-            <visible>Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))</visible>
+            <visible>Player.HasAudio + String.IsEmpty(Window(home).Property(TVMelodies.isPlaying))</visible>
 			<visible>!Skin.HasSetting(DisableNowPlayingInfoBar)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !ControlGroup(400).HasFocus() + !Control.IsVisible(77551)</visible>
 			<visible>[[Player.HasVideo + !String.IsEmpty(VideoPlayer.Title)] | [Player.HasAudio + !String.IsEmpty(MusicPlayer.Title)] | Player.IsInternetStream]</visible>

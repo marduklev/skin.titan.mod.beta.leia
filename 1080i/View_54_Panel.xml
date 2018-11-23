@@ -37,8 +37,7 @@
                         <width>183</width>
                         <height>264</height>
                         <include>SmallPosterPanelLayoutFocus</include>
-						<include>play_OST_Theme</include>
-                      </control>
+					</control>
                 </focusedlayout>
 			</control>
 		

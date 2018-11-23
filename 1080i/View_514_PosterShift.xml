@@ -140,7 +140,6 @@
 					</itemlayout>
 					<focusedlayout width="315" height="750">
 						<control type="group">
-							<include>play_OST_Theme</include>
 							<animation effect="zoom" center="auto" start="100" end="130" time="160" tween="quadratic">Focus</animation>
 							<animation effect="zoom" center="auto" start="130" end="100" time="160" tween="quadratic">Unfocus</animation>
 							<include>ShiftPosterThumbs</include>

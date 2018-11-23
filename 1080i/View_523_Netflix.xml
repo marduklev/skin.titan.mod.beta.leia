@@ -317,7 +317,6 @@
 						<right>2</right>
 						<bottom>-100</bottom>
 						<include condition="Skin.HasSetting(Library_NoOnlineLookupTrailer)">check_local_trailer</include>
-						<include>play_OST_Theme</include>
 						<include>PosterPanelLayoutFocus</include>
 						<include>AutoTrailerButton</include>
 					</control>
@@ -390,7 +389,6 @@
 						<height>100%</height>
 						<bottom>-200</bottom>
 						<include condition="Skin.HasSetting(Library_NoOnlineLookupTrailer)">check_local_trailer</include>
-						<include>play_OST_Theme</include>
 						<include>PosterPanelLayoutFocus</include>
 						<include>AutoTrailerButton</include>
 						<animation effect="zoom" end="112,112" center="auto" time="100">focus</animation>

@@ -38,7 +38,6 @@
 				</animation>
                 <width>354</width>
                 <height>185</height>
-				<include>play_OST_Theme</include>
 				<include>ThumbsViewLayoutFocus</include>
 			</control>
         </focusedlayout>

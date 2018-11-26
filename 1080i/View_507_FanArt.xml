@@ -9,17 +9,38 @@
             <visible>Control.IsVisible(507)</visible>
 			<visible>Integer.IsGreater(Container(507).NumItems,0)</visible>
             <include>animation_view_change</include>
-            <!-- fanart image -->
+            <!-- gb , need check fanart toogle vis conditions , unneeded here -->
+			<control type="image">
+				<include>DimensionsFullscreen</include>
+				<aligny>bottom</aligny>
+				<texture>colors/color_black.png</texture>
+				
+				<colordiffuse>black</colordiffuse>
+			</control>
+			
+			<!-- <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse> -->
+			
+			<!-- fanart image -->
+			 <control type="image">
+				<visible>!Skin.HasSetting(FanArtViewShowInfo)</visible>
+				<include>DimensionsFullscreen</include>
+				<texture border="20">netflix/frame/slimframe_hardedge.png</texture>
+				<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse> <!-- focused frame custom library color -->
+			</control>
             <control type="multiimage">
-                <include>DimensionsFullscreen</include>
-                <imagepath background="true">$VAR[backgroundVar]</imagepath>
+				<visible>!Skin.HasSetting(FanArtViewShowInfo)</visible>
+				<right>10</right>
+				<top>10</top>
+				<width>1900</width>
+				<height>1055</height>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
-                <fadetime>350</fadetime>
+                <fadetime>200</fadetime>
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
             </control>
-			<include>WatchedIndicatorLarge</include>
+			<include condition="!Skin.HasSetting(FanArtViewShowInfo)">WatchedIndicatorLarge</include>
             
              <!-- ID="52" -->
             <control type="panel" id="507">
@@ -49,14 +70,15 @@
 				<visible>Control.IsVisible(507) + !String.IsEmpty(ListItem.Label)</visible>
 				<visible>Skin.HasSetting(FanArtViewShowInfo)</visible>
 				<include>animation_view_change</include>
-				<bottom>13%</bottom>
-				<height>230</height>
+				<top>12%</top>
+				<height>900</height>
 
 				<control type="image">
-					<posx>50</posx>
-					<width>1820</width>
+					<posx>10</posx>
+					<width>550</width>
+					<height>840</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
-					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+					<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 				</control>
 				
 				<control type="grouplist">
@@ -67,11 +89,11 @@
 					<onleft>100</onleft>
 					<onright>noop</onright>
 					<orientation>vertical</orientation>
-					<posx>80</posx>
+					<posx>40</posx>
 					<posy>10</posy>
 					<control type="label">
 						<height>33</height>
-						<width>1100</width>
+						<width>480</width>
 						<font>Bold30</font>
 						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
                         <shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
@@ -79,7 +101,7 @@
 					</control>
                     <control type="label">
 						  <height>40</height>
-						  <width>1100</width>
+						 <width>480</width>
 						  <font>Reg31</font>
 						  <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						  <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
@@ -88,22 +110,30 @@
 					<control type="textbox">
 						<posx>0</posx>
 						<posy>0</posy>
-						<width>1770</width>
-						<height>135</height>
+						<width>480</width>
+						<height>700</height>
 						<label>$VAR[Plots]</label>
 						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 						<align>justify</align>
 						<font>Light28</font>
 					</control>
-					<control type="label">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>1100</width>
-						<height>20</height>
-						<label></label>
-					</control>
 				</control>
+				<!-- fanart image -->
+				<control type="multiimage">
+					<right>0</right>
+					<top>0</top>
+					<width>1350</width>
+					<height>840</height>
+					<imagepath background="true">$VAR[backgroundVar]</imagepath>
+					<aspectratio>scale</aspectratio>
+					<fadetime>200</fadetime>
+					<include>fanartSpeed</include>
+					<randomize>true</randomize>
+					<loop>yes</loop>
+				</control>
+				<include>WatchedIndicatorLarge</include>
+				
 			
 				<!-- touchscreen support -->
 				<!-- page button left -->
@@ -143,4 +173,5 @@
 		
 		</control>
      </include>
+	 
 </includes>

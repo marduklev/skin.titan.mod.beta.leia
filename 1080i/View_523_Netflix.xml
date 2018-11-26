@@ -274,21 +274,16 @@
 				<ondown condition="!Player.HasVideo + Integer.IsLessOrEqual(Container(523).NumItems,10)">9000</ondown><!-- need check for new titan default layout - maybe less items -->
 				<ondown condition="Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(523).NumItems,10) + !Player.HasVideo">7000</ondown>
 				<ondown condition="!Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(523).NumItems,10) + !Player.HasVideo">60</ondown>
-				<!-- play trailer Movie -->
-				<onup condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) + Container.Content(movies)]">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- based on scraping, check local movietitle (year)-trailer.filexet, if not exist play http, -->
-				<!-- play LOCAL trailer TV Show / Set -->
-				<onup condition="!Player.HasVideo + [!String.IsEmpty(Window(home).Property(trailer_avail)) + !String.Contains(ListItem.Path,http)]">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onup> <!-- ,need to check, escinfo could be need if other than win?? or emby ?? action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language] -->
-				<!-- play yt trailer -->
-				<onup condition="!Player.HasVideo + [String.IsEmpty(Window(home).Property(trailer_avail)) | [String.IsEmpty(ListItem.Trailer) + Container.Content(movies)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onup>
+				<!-- play LOCAL trailer-->
+				<onup condition="!Player.HasVideo + !String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onup> <!-- ,need to check, escinfo could be need if other than win?? or emby ?? action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language] -->
+				<!-- play scraped trailer Movie, force scraped online -->
+				<onup condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- based on scraping, check local movietitle (year)-trailer.filexet, if not exist play http, -->
+				<!-- play yt trailer if scraped empty -->
+				<onup condition="!Player.HasVideo + [[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onup>
 				<!-- stop trailer playing, keybord default <x>stop</x> -->
 				<ondown condition="Player.HasVideo">Stop</ondown>
 				<!-- get fullscreen , <tab>FullScreen</tab> -->
 				<onup condition="Player.HasVideo">fullscreen</onup>
-				<!-- stop trailer playing,  keybord default <x>stop</x>-->
-				<ondown condition="Player.HasVideo">Stop</ondown>
-				<!-- get fullscreen , <tab>FullScreen</tab>-->
-				<onup condition="Player.HasVideo">fullscreen</onup>
-				
 				<itemlayout height="247" width="170" background="true" condition="!Skin.HasSetting(View523_SameHeight)">
 					
 					<control type="group">

@@ -2,16 +2,27 @@
 <includes>
 
 	<include name="View52_layout">
-            <posx>65</posx>
-            <bottom>16%</bottom>
+            <animation effect="slide" center="auto" end="0,-420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
+			<posx>65</posx>
+            <bottom>14%</bottom>
             <width>1806</width>
             <height>345</height>
-            <onup>9000</onup>
-            <ondown condition="Skin.HasSetting(EnableQuickJump)">7000</ondown>
-                <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
-            <onleft>52</onleft>
+            <ondown condition="!Player.HasVideo + Integer.IsLessOrEqual(Container(52).NumItems,7)">9000</ondown>
+			<ondown condition="Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(52).NumItems,7) + !Player.HasVideo">7000</ondown>
+			<ondown condition="!Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(52).NumItems,7) + !Player.HasVideo">60</ondown>
+			<onleft>52</onleft>
             <onright>52</onright>
-            <pagecontrol>60</pagecontrol>
+			<!-- play LOCAL trailer-->
+			<onup condition="!Player.HasVideo + !String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onup> <!-- ,need to check, escinfo could be need if other than win?? or emby ?? action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language] -->
+			<!-- play scraped trailer Movie, force scraped online -->
+			<onup condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- based on scraping, check local movietitle (year)-trailer.filexet, if not exist play http, -->
+			<!-- play yt trailer if scraped empty -->
+			<onup condition="!Player.HasVideo + [[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onup>
+			<!-- stop trailer playing, keybord default <x>stop</x> -->
+			<ondown condition="Player.HasVideo">Stop</ondown>
+			<!-- get fullscreen , <tab>FullScreen</tab> -->
+			<onup condition="Player.HasVideo">fullscreen</onup>
+			<pagecontrol>60</pagecontrol>
             <viewtype label="31445">bigwrap</viewtype>
             <scrolltime tween="quadratic">200</scrolltime>
             <focusposition>3</focusposition>
@@ -20,22 +31,23 @@
             <preloaditems>2</preloaditems>
             <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),52) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
             <itemlayout height="345" width="258">
-            <control type="group">
-                <width>233</width>
-                <height>340</height>
-                <include>PosterPanelLayout</include>
-            </control>
-        </itemlayout>
-        <focusedlayout height="345" width="258">
-            <control type="group">
-                <width>233</width>
-                <height>340</height>
-                <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic">Focus</animation>
-                <animation effect="zoom" center="auto" start="105" end="100" time="160" tween="quadratic">Unfocus</animation>
-                <include>PosterPanelLayoutFocus</include>
-			</control>
-        </focusedlayout>
-
+				<control type="group">
+					<width>233</width>
+					<height>340</height>
+					<include>PosterPanelLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout height="345" width="258">
+				<control type="group">
+					<width>233</width>
+					<height>340</height>
+					<animation effect="zoom" center="auto" start="115" end="120" time="130" tween="quadratic">Focus</animation>
+					<animation effect="zoom" center="auto" start="115" end="100" time="70" tween="quadratic">Unfocus</animation>
+					<include>PosterPanelLayoutFocus</include>
+					<include condition="Skin.HasSetting(Library_NoOnlineLookupTrailer)">check_local_trailer</include>
+					<include>AutoTrailerButton</include>
+				</control>
+			</focusedlayout>
 	</include>
 
 	<include name="View52_layout_fixed">
@@ -58,10 +70,111 @@
             <visible>Control.IsVisible(52)</visible>
             <include>animation_view_change</include>
 			
-			<!-- movie details -->
+			<!-- movie details def-->
 			<control type="group">
+				<animation effect="slide" center="auto" end="0,420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
 				<visible>Skin.HasSetting(PanelViewShowInfo)</visible>
+				<visible>!Skin.HasSetting(PanelViewShowFanart)</visible>
 				<include>MovieDetailsTop</include>
+							
+			</control> 
+			
+			<!-- movie fanart, plot -->
+			<control type="group">
+				<visible>Skin.HasSetting(PanelViewShowFanart)</visible>
+				<visible>!Skin.HasSetting(PanelViewShowInfo)</visible>
+				<!-- next custom layout, switch info bottom , with fanart ... -->
+				<animation effect="slide" center="auto" end="0,420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
+				<!-- panel -->
+				<control type="group" id="888">
+					<include>animation_view_change</include>
+					<visible>Integer.IsGreater(Container.NumItems,0)</visible>
+					<height>820</height>
+					<top>13%</top>
+					<control type="image">
+						<animation effect="slide" center="auto" end="0,-420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
+						<visible>!String.IsEmpty(ListItem.Label)</visible>
+						<posx>50</posx>
+						<height>820</height>
+						<width>1820</width>
+						<texture border="15">diffuse/bgpanel.png</texture>
+						<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse> <!-- $VAR[ViewDetailsFocusColor] -->
+					</control>
+					<!--Info-->
+					<control type="grouplist">
+					<posx>60</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<!-- fanart -->
+						<control type="group">
+							<width>672</width>
+							<height>378</height>
+							<control type="image">
+								<!--thumb image-->
+								<bordersize>8</bordersize>
+								<texture background="true" diffuse="home/home_matte2.png" fallback="colors/color_keyboard.png">$VAR[FanartLandscapeImage]</texture>
+								<aspectratio scalediffuse="false" align="center" aligny="center">stretch</aspectratio>
+								<visible>![!String.IsEmpty(ListItem.Thumb) + String.IsEqual(ListItem.Thumb,ListItem.Property(channellogo))]</visible>
+								<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
+							</control>
+							
+							<control type="multiimage">
+								<!--thumb image for home tiles-->
+								<left>8</left>
+								<right>8</right>
+								<top>8</top>
+								<bottom>8</bottom>
+								<imagepath background="true" diffuse="home/home_matte2.png" fallback="home/titan.png">$INFO[ListItem.Icon]</imagepath>
+								<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+								<include>fanartSpeed</include>
+								<fadetime>450</fadetime>
+								<include condition="Skin.HasSetting(RandomizeBackground)">randomizeImages</include>
+								<visible>!String.IsEmpty(ListItem.Property(defaultID))</visible>
+							</control>
+						</control>
+						<!-- Info -->
+						<control type="group">
+							<control type="label">
+								<top>10</top>
+								<left>20</left>
+								<width>1080</width>
+								<height>30</height>
+								<label>[UPPERCASE][B]$VAR[mediatitle][/UPPERCASE][/B]</label>
+								<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+								<align>left</align>
+							</control>
+							<!-- 
+							<control type="group">
+								<top>35</top>
+								<width>200</width>
+								<include>StarRatingNetflix</include>
+							</control>
+							-->
+							<control type="label">
+								<top>50</top>
+								<left>20</left>
+								<width>1080</width>
+								<height>30</height>
+								<label>[B]$VAR[Details][/B]</label>
+								<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+								<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+								<align>left</align>
+							</control>
+							<control type="textbox">
+								<top>80</top>
+								<left>20</left>
+								<width>1080</width>
+								<height>305</height>
+								<label>$VAR[Plots]</label>
+								<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+								<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+								<align>justify</align>
+							</control>
+						</control>
+					</control>
+     			</control>
 			</control>
 					
 			<!--cdart image-->
@@ -102,6 +215,7 @@
 					<onup>52</onup>
 					<onleft>60</onleft>
 					<onright>60</onright>
+					<ondown>9000</ondown>
 					<orientation>horizontal</orientation>
 					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
@@ -109,8 +223,20 @@
 			</control>
 			
 		</control>
-		
-		
-
+		<control type="group">
+			<visible>Player.HasVideo</visible>
+			<animation effect="slide" center="auto" end="0,420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
+			<posx>60</posx>
+				<posy>145</posy>
+				<width>672</width>
+				<height>378</height>
+			<control type="image">
+				<aligny>bottom</aligny>
+				<texture border="15">diffuse/bgpanel.png</texture>
+				<colordiffuse>ff000000</colordiffuse>
+			</control>
+			<control type="videowindow">
+			</control>
+		</control>
     </include>
 </includes>

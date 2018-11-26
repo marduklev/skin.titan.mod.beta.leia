@@ -28,24 +28,50 @@
 				<width>1200</width>
 				<height>40</height>
 				<include>Netflix_Status</include>
-			</control>	
+			</control>
+			<!-- currently plaing
 			<control type="group">
-				<!-- <control type="videowindow"> check, need improvement, WIP 
-					<visible>Player.HasVideo</visible>
-					<posx>85</posx>
+				<visible>Player.HasVideo</visible>
+				<control type="image">
+					<posx>0</posx>
+					<posy>5</posy>
+					<width>100%</width>
+					<height>70</height>
+					<texture>netflix/frame/detail-framehardedgetest.png</texture></control>
+				<control type="videowindow">
+					<posx>125</posx>
 					<posy>10</posy>
 					<width>430</width>
 					<height>200</height>
 				</control>
 				<control type="image">
-					<visible>Player.HasVideo</visible>
-					<posx>95</posx>
-					<posy>-10</posy>
+					<posx>126</posx>
+					<posy>-8</posy>
 					<width>430</width>
-					<height>240</height>
+					<height>235</height>
 					<texture>netflix/frame/detail-frame.png</texture>
 				</control>
-				-->
+				<control type="image">
+					<width>168</width>
+					<height>94</height>
+					<posx>10</posx>
+					<posy>5</posy>
+					<fadetime>200</fadetime>
+					<texture background="true">$INFO[Player.Art(tvshow.clearlogo)]</texture>
+					<aspectratio align="right" aligny="center">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posx>540</posx>
+					<posy>7</posy>
+					<width>850</width>
+					<align>left</align>
+					<font>Bold28</font>
+					<textcolor>$INFO[Skin.String(SecondaryHeaderTextColor)]</textcolor>
+					<label>$VAR[NowPlayingTitle526]</label>
+					<scroll>false</scroll>
+				</control>
+			</control> -->
+			<control type="group">
 				<control type="image" id="887768">
 					<height>207</height>
 					<width>630</width>
@@ -54,8 +80,7 @@
 					<fadetime>300</fadetime>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
-					<animation effect="slide" start="0,0" end="320,140" delay="0" time="0" pulse="false" condition="Player.HasVideo">Conditional</animation>
-					<animation effect="zoom" start="100" end="30" delay="0" time="0" pulse="false" condition="Player.HasVideo">Conditional</animation>
+					<!-- <visible>!Player.HasVideo</visible> -->
 				</control>
 				
 				<control type="label">
@@ -225,7 +250,7 @@
 				<ondown>5026</ondown>
 				<onright>60</onright>
 				<onback>526</onback>
-				<onright>ActivateWindow(3034)</onright> <!-- check. test mark as watched , use custom menu -->
+				<!-- <onright>ActivateWindow(3034)</onright> check. test mark as watched , use custom menu -->
 				<focusedlayout width="1040" height="224">
 					<control type="group">
 						<width>1040</width>

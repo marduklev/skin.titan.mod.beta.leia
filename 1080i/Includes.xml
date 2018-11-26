@@ -4,8 +4,7 @@
     <include file="IncludesVariables.xml" />
 	<include file="IncludesDialogVideoInfo.xml" />
 	<include file="Mod_Progress_Variables_Netflix.xml" />
-	<include file="Mod_ViewType_Specials.xml" />
-    <include file="IncludesHomeTitanTiles.xml" />
+	<include file="IncludesHomeTitanTiles.xml" />
     <include file="IncludesHomeWidgets.xml" />
 	<include file="IncludesHomeTitanTilesSubMenu.xml" />
     <include file="IncludesNowPlaying.xml" />

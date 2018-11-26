@@ -533,8 +533,6 @@
 	</control>
  </control>
 </include>
-
-    
 	<!-- default -
 	<include name="AutoTrailerButton">
         <control type="button">
@@ -542,8 +540,30 @@
             <onfocus condition="Skin.HasSetting(DetailsAutoTrailer) + [Container.Content(movies) | Container.Content(tvshows)]">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)])</onfocus>
             <onunfocus condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunfocus>
         </control>
-    </include>
-	-->
+    </include> -->
+	
+    <include name="AutoTrailerButton">
+		<control type="button">
+			<visible>false</visible>
+			<onfocus condition="!Skin.HasSetting(DetailsAutoTrailer)">RunScript(special://skin/scripts/checkexist.py)</onfocus>
+			<!-- <onfocus>RunScript(script.skin.helper.service,action=fileexists,file=$INFO[listitem.path,,theme.mp3],winprop=osttheme_avail)</onfocus> -->
+			<onfocus condition="!Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(ListItem.Trailer)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:03,silent)</onfocus>
+			<onfocus condition="!Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer) + String.IsEmpty(ListItem.Trailer)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$VAR[TVShowTitle],local=true),00:03,silent)</onfocus>
+			<onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
+			<onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
+			<onunfocus condition="!String.IsEmpty(Window(home).Property(trailer_avail))">ClearProperty(trailer_avail,home)</onunfocus>
+		</control>
+	</include>
+
+	<!-- check if local trailer exist - views 523,525-->
+	<include name="check_local_trailer"> <!-- = just if ' Skin.HasSetting(Library_NoOnlineLookupTrailer) ' not wotking always used script -->
+		<control type="button">
+			<visible>false</visible>
+			<onfocus condition="Skin.HasSetting(Library_NoOnlineLookupTrailer)">RunScript(special://skin/scripts/checkexist.py)</onfocus> <!-- faster !-->
+			<!-- <onfocus>RunScript(script.skin.helper.service,action=fileexists,file=$INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],winprop=trailer_avail)</onfocus> -->
+			<onunfocus condition="!String.IsEmpty(Window(home).Property(trailer_avail))">ClearProperty(trailer_avail,home)</onunfocus>
+		</control>
+	</include>
 
     <include name="HiddenHomeMenuButtonEnhancedHome">
         <control type="button">

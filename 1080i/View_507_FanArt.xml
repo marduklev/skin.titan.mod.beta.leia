@@ -14,7 +14,6 @@
 				<include>DimensionsFullscreen</include>
 				<aligny>bottom</aligny>
 				<texture>colors/color_black.png</texture>
-				
 				<colordiffuse>black</colordiffuse>
 			</control>
 			
@@ -79,9 +78,19 @@
 					<height>840</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
 					<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+					<animation effect="slide" center="auto" end="1350,0" time="450" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+				</control>
+				<control type="image">
+					<posx>10</posx>
+					<width>550</width>
+					<height>840</height>
+					<texture border="20">netflix/frame/slimframe_hardedge.png</texture>
+					<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse> <!-- focused frame custom library color -->
+					<animation effect="slide" center="auto" end="1350,0" time="450" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 				</control>
 				
 				<control type="grouplist">
+					<animation effect="slide" center="auto" end="1350,0" time="450" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 					<!--Regie, Duration... Movies, TV-Shows, Sesaons, Music-Videos-->
 					<itemgap>0</itemgap>
 					<onup>500</onup>
@@ -92,15 +101,19 @@
 					<posx>40</posx>
 					<posy>10</posy>
 					<control type="label">
-						<height>33</height>
+						<height>80</height>
 						<width>480</width>
 						<font>Bold30</font>
+						<wrapmultiline>true</wrapmultiline>
 						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
                         <shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
 						<label>[UPPERCASE]$VAR[mediatitle][/UPPERCASE]</label>
 					</control>
                     <control type="label">
-						  <height>40</height>
+						<!-- <wrapmultiline>true</wrapmultiline> -->
+							<scroll>true</scroll>
+						 <top>-10</top>
+						 <height>40</height>
 						 <width>480</width>
 						  <font>Reg31</font>
 						  <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -108,10 +121,9 @@
 						  <label>$VAR[Details]</label>
 					</control>
 					<control type="textbox">
-						<posx>0</posx>
-						<posy>0</posy>
+						<top>10</top>
 						<width>480</width>
-						<height>700</height>
+						<height>660</height>
 						<label>$VAR[Plots]</label>
 						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
@@ -121,6 +133,7 @@
 				</control>
 				<!-- fanart image -->
 				<control type="multiimage">
+					<animation effect="slide" center="auto" end="-565,0" time="450" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 					<right>0</right>
 					<top>0</top>
 					<width>1350</width>
@@ -132,7 +145,10 @@
 					<randomize>true</randomize>
 					<loop>yes</loop>
 				</control>
-				<include>WatchedIndicatorLarge</include>
+				<control type="group">
+					<animation effect="slide" center="auto" end="-565,0" time="450" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<include>WatchedIndicatorLarge</include>
+				</control>
 				
 			
 				<!-- touchscreen support -->

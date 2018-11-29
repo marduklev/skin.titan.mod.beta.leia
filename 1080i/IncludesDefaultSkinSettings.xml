@@ -121,7 +121,9 @@
 		<onload condition="!Skin.String(ViewDetailsNetflixPanelColor)">Skin.SetString(ViewDetailsNetflixPanelColor, ff000000)</onload>
         <onload condition="!Skin.String(ViewDetailsNetflixPanelColor.name)">Skin.SetString(ViewDetailsNetflixPanelColor.name, default)</onload>
 		<onload condition="!Skin.String(HomeViewDetailsFocusColor)">Skin.SetString(HomeViewDetailsFocusColor, ff00b8ff)</onload>
-        <onload condition="!Skin.String(HomeViewDetailsFocusColor.name)">Skin.SetString(HomeViewDetailsFocusColor.name, mainblue)</onload>
+		<onload condition="!Skin.String(HomeViewDetailsFocusColor.name)">Skin.SetString(HomeViewDetailsFocusColor.name, mainblue)</onload>
+		<onload condition="!Skin.String(ViewDetailsBGColor)">Skin.SetString(ViewDetailsBGColor, black)</onload>
+		<onload condition="!Skin.String(ViewDetailsBGColor.name)">Skin.SetString(ViewDetailsBGColor.name, default)</onload>
 		<onload condition="!Skin.String(HomeViewDetailsBorderFocusColor)">Skin.SetString(HomeViewDetailsBorderFocusColor, ff00b8ff)</onload>
         <onload condition="!Skin.String(HomeViewDetailsBorderFocusColor.name)">Skin.SetString(HomeViewDetailsBorderFocusColor.name, mainblue)</onload>
  		<onload condition="!Skin.String(HeaderTextColor)">Skin.SetString(HeaderTextColor,ffffffff)</onload>

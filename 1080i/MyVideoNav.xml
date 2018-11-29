@@ -21,12 +21,7 @@
 		
         <!-- Video Background -->
         <include>GlobalBackground</include>
-		<!--Header-->
-        <include>Header</include>
- 
-		<!--NowPlaying-->
-		<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(LowPerformanceMode)">NowPlayingModern</include>
-
+		
 		<!-- all Views -->
         <include>allViews</include>
 		
@@ -156,13 +151,18 @@
 				</control>
              </control>
         </control>
-		
+		<!--Header-->
+        <include>Header</include>
+ 
+		<!--NowPlaying-->
+		<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(LowPerformanceMode)">NowPlayingModern</include>
+
 		<!--NowPlaying-->
         <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
         <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
         
-        <!-- info overlay -->
+        <!-- info overlay ,check-->
         <control type="group" id="77999">
             <visible>Skin.HasSetting(EnableInfoOverlay) + System.IdleTime(3)</visible>
             <visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)</visible>
@@ -204,7 +204,7 @@
                 <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                 <label>$VAR[Plots]</label>
                 <autoscroll delay="15000" time="6000" repeat="20000">Control.IsVisible(77999)</autoscroll>
-            </control>           
+            </control>
         </control>
 	</controls>
 </window>

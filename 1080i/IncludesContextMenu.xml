@@ -501,6 +501,23 @@
             Control.IsVisible(53) | [Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)]
             </visible>
 		</control>
+		<control type="radiobutton" id="317934">
+			<include>SideBladeMenuButton</include>
+			<label>Frame on Info</label>
+			<onclick condition="Control.IsVisible(507)">Skin.ToggleSetting(507_framedInfo)</onclick>
+			<selected>[Control.IsVisible(507) + Skin.HasSetting(507_framedInfo)]
+            </selected>
+			<visible>[Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)]
+            </visible>
+		</control>
+		<control type="radiobutton" id="317935">
+			<include>SideBladeMenuButton</include>
+			<label>Frame on Fanart</label>
+			<onclick condition="Control.IsVisible(507)">Skin.ToggleSetting(507_framedFanart)</onclick>
+			<selected>[Control.IsVisible(507) + Skin.HasSetting(507_framedFanart)]
+            </selected>
+			<visible>Control.IsVisible(507)</visible>
+		</control>
 		<!-- custm tvmelody settings -->
 		<control type="radiobutton" id="55145">
 			<include>SideBladeMenuButton</include>

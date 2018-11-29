@@ -320,11 +320,11 @@
             <onclick condition="Control.IsVisible(51)">Skin.ToggleSetting(BigListViewShowInfo)</onclick>
             <onclick condition="Control.IsVisible(516)">Skin.ToggleSetting(SlimListViewShowInfo)</onclick>
 			<selected>
-            [Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)] |
-            [Control.IsVisible(524) + Skin.HasSetting(ShowCaseViewShowInfo)] |
+            [Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)] | 
+            [Control.IsVisible(524) + Skin.HasSetting(ShowCaseViewShowInfo)] | 
             [Control.IsVisible(52) + Skin.HasSetting(PanelViewShowInfo)] |
-            [Control.IsVisible(502) + Skin.HasSetting(LandscapeViewShowInfo)] |
-            [Control.IsVisible(503) + Skin.HasSetting(LogoViewShowInfo)] |
+            [Control.IsVisible(502) + Skin.HasSetting(LandscapeViewShowInfo)] | 
+            [Control.IsVisible(503) + Skin.HasSetting(LogoViewShowInfo)] | 
             [Control.IsVisible(51) + Skin.HasSetting(BigListViewShowInfo)] | 
             [Control.IsVisible(516) + Skin.HasSetting(SlimListViewShowInfo)]
             </selected>
@@ -434,23 +434,6 @@
             <onclick>ReloadSkin()</onclick>
 			<selected>Skin.HasSetting(View_501_HorizontalNavigation)</selected>
 		</control>
-		<!-- custm tvmelody settings -->
-		<control type="radiobutton" id="55145">
-			<include>SideBladeMenuButton</include>
-			<!-- <visible>System.HasAddon(script.tvmelodies)</visible> -->
-			<!-- <visible>Control.IsVisible(**)</visible> -->
-			<textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">common/settings1.png</textureradioonfocus>
-			<textureradioonnofocus colordiffuse="$INFO[Skin.String(SideBladeTextColor)]">common/settings1.png</textureradioonnofocus>
-			<textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">common/settings1.png</textureradioofffocus>
-			<textureradiooffnofocus colordiffuse="$INFO[Skin.String(SideBladeTextColor)]">common/settings1.png</textureradiooffnofocus>
-			<radiowidth>115</radiowidth>
-            <radioheight>35</radioheight>
-            <radioposx>0</radioposx>
-            <radioposy>12</radioposy>
-			<label>OST Theme Options</label>
-			<onclick condition="System.HasAddon(script.tvmelodies)">Addon.OpenSettings(script.tvmelodies)</onclick>
-			<onclick condition="!System.HasAddon(script.tvmelodies)">InstallAddon(script.tvmelodies)</onclick>
-		</control>
 		<control type="button" id="3020">
 			<!--Show tags-->
 			<include>SideBladeMenuButton</include>
@@ -515,8 +498,25 @@
             [Control.IsVisible(516) + Skin.HasSetting(SlimListViewShowInfo)] |
             Control.IsVisible(512) | Control.IsVisible(510) | Control.IsVisible(505) | 
             Control.IsVisible(59) | Control.IsVisible(55) | Control.IsVisible(504) |
-            Control.IsVisible(53) | [Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)]
+            Control.IsVisible(53) | [Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)]
             </visible>
+		</control>
+		<!-- custm tvmelody settings -->
+		<control type="radiobutton" id="55145">
+			<include>SideBladeMenuButton</include>
+			<!-- <visible>System.HasAddon(script.tvmelodies)</visible> -->
+			<!-- <visible>Control.IsVisible(**)</visible> -->
+			<textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">common/settings1.png</textureradioonfocus>
+			<textureradioonnofocus colordiffuse="$INFO[Skin.String(SideBladeTextColor)]">common/settings1.png</textureradioonnofocus>
+			<textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">common/settings1.png</textureradioofffocus>
+			<textureradiooffnofocus colordiffuse="$INFO[Skin.String(SideBladeTextColor)]">common/settings1.png</textureradiooffnofocus>
+			<radiowidth>115</radiowidth>
+            <radioheight>35</radioheight>
+            <radioposx>0</radioposx>
+            <radioposy>12</radioposy>
+			<label>OST Theme Options</label>
+			<onclick condition="System.HasAddon(script.tvmelodies)">Addon.OpenSettings(script.tvmelodies)</onclick>
+			<onclick condition="!System.HasAddon(script.tvmelodies)">InstallAddon(script.tvmelodies)</onclick>
 		</control>
         <control type="radiobutton" id="3046">
 			<!--Use alternate aspect ratio for landscape-->

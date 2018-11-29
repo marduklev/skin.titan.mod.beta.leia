@@ -12,16 +12,7 @@
 			<ondown condition="!Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(52).NumItems,7) + !Player.HasVideo">60</ondown>
 			<onleft>52</onleft>
             <onright>52</onright>
-			<!-- play LOCAL trailer-->
-			<onup condition="!Player.HasVideo + !String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onup> <!-- ,need to check, escinfo could be need if other than win?? or emby ?? action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language] -->
-			<!-- play scraped trailer Movie, force scraped online -->
-			<onup condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- based on scraping, check local movietitle (year)-trailer.filexet, if not exist play http, -->
-			<!-- play yt trailer if scraped empty -->
-			<onup condition="!Player.HasVideo + [[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onup>
-			<!-- stop trailer playing, keybord default <x>stop</x> -->
-			<ondown condition="Player.HasVideo">Stop</ondown>
-			<!-- get fullscreen , <tab>FullScreen</tab> -->
-			<onup condition="Player.HasVideo">fullscreen</onup>
+			<include>trailer_onup</include>
 			<pagecontrol>60</pagecontrol>
             <viewtype label="31445">bigwrap</viewtype>
             <scrolltime tween="quadratic">200</scrolltime>
@@ -224,7 +215,7 @@
 			
 		</control>
 		<control type="group">
-			<visible>Player.HasVideo</visible>
+			<visible>Player.HasVideo + Control.IsVisible(52)</visible>
 			<animation effect="slide" center="auto" end="0,420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
 			<posx>60</posx>
 				<posy>145</posy>

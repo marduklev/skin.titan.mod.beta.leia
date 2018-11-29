@@ -43,16 +43,14 @@
 				<include>WatchedIndicatorLarge</include>
             </control>
 			
-            
-             <!-- ID="52" -->
+            <!-- ID="52" -->
             <control type="panel" id="507">
                 <posx>0</posx>
                 <posy>40</posy>
                 <width>100%</width>
                 <height>800</height>
-                <onup>9000</onup>
-                <ondown condition="Skin.HasSetting(EnableQuickJump)">7000</ondown>
-                <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
+				<include>trailer_onup</include>
+                <ondown condition="!Player.HasVideo + Skin.HasSetting(EnableQuickJump)">7000</ondown>
                 <onleft>507</onleft>
                 <onright>507</onright>
                 <viewtype label="31434">fanart</viewtype>
@@ -61,9 +59,11 @@
                 <orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),507) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-                <itemlayout height="2500" width="1920">
+                <itemlayout>
                 </itemlayout>
                 <focusedlayout height="2500" width="1920">
+					<include condition="Skin.HasSetting(Library_NoOnlineLookupTrailer)">check_local_trailer</include>
+					<include>AutoTrailerButton</include>
 				</focusedlayout>
             </control>
 
@@ -158,14 +158,13 @@
 					<visible>Skin.HasSetting(507_framedFanart)</visible>
 					<right>0</right>
 					<top>0</top>
-					<width>1355</width>
+					<width>1356</width>
 					<height>832</height>
 					<texture border="15">netflix/frame/slimframe_hardedge.png</texture>
 					<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
 					<animation effect="slide" center="auto" end="-565,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 				</control>
 				
-			
 				<!-- touchscreen support -->
 				<!-- page button left -->
 				<control type="button">
@@ -198,10 +197,51 @@
 					<onclick>Control.Move(507,1) </onclick>
 					<visible>Skin.HasSetting(EnableTouchSupport)</visible>
 				</control>
-			
 			</control>
-			
-		
+			<!-- preview video window if info true -->
+            <control type="group">
+				<visible>Player.HasVideo + Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)</visible>
+				<animation effect="slide" center="auto" end="-565,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+				<right>6</right>
+				<top>15%</top>
+				<width>1344</width>
+				<height>756</height>
+				<control type="image">
+					<top>-16</top>
+					<height>108.3%</height>
+					<texture colordiffuse="black">colors/color_black.png</texture>
+				</control>
+				<control type="videowindow">
+				</control>
+				<control type="image" id="887768">
+					<height>103</height>
+					<width>315</width>
+					<right>5</right>
+					<bottom>-30</bottom>
+					<fadetime>200</fadetime>
+					<aspectratio align="right" aligny="bottom">keep</aspectratio>
+					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+				</control>
+			</control>
+			<!-- preview video window if info false -->
+            <control type="group">
+					<visible>Player.HasVideo + Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>
+					<include>DimensionsFullscreen</include>
+					<control type="image">
+                        <texture colordiffuse="black">colors/color_black.png</texture>
+					</control>
+					<control type="videowindow">
+					</control>
+					<control type="image" id="887768">
+						<height>103</height>
+						<width>315</width>
+						<right>5</right>
+						<top>10</top>
+						<fadetime>200</fadetime>
+						<aspectratio align="right" aligny="top">keep</aspectratio>
+						<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+					</control>
+			</control>
 		</control>
      </include>
 	 

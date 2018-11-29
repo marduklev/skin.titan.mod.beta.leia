@@ -541,10 +541,25 @@
             <onunfocus condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunfocus>
         </control>
     </include> -->
-	
+	<include name="trailer_onup">
+		<onup condition="!Player.HasVideo">SetProperty(trailer_trailerwillplaying,true,home)</onup>
+		<!-- play LOCAL trailer-->
+		<onup condition="!Player.HasVideo + !String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onup> <!-- ,need to check, escinfo could be need if other than win?? or emby ?? action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language] -->
+		<!-- play scraped trailer Movie, force scraped online -->
+		<onup condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- based on scraping, check local movietitle (year)-trailer.filexet, if not exist play http, -->
+		<!-- play yt trailer if scraped empty -->
+		<onup condition="!Player.HasVideo + [[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onup>
+		<!-- stop trailer playing, keybord default <x>stop</x> -->
+		<ondown condition="Player.HasVideo">Stop</ondown>
+		<!-- get fullscreen , <tab>FullScreen</tab> -->
+		<onup condition="Player.HasVideo">fullscreen</onup>
+		<ondown condition="!String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">ClearProperty(trailer_trailerwillplaying)</ondown>
+	</include>
     <include name="AutoTrailerButton">
 		<control type="button">
 			<visible>false</visible>
+			
+			<onfocus condition="!Player.HasVideo">SetProperty(trailer_trailerwillplaying,true,home)</onfocus>
 			<onfocus condition="!Skin.HasSetting(DetailsAutoTrailer)">RunScript(special://skin/scripts/checkexist.py)</onfocus>
 			<!-- <onfocus>RunScript(script.skin.helper.service,action=fileexists,file=$INFO[listitem.path,,theme.mp3],winprop=osttheme_avail)</onfocus> -->
 			<onfocus condition="!Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(ListItem.Trailer)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:03,silent)</onfocus>
@@ -552,11 +567,12 @@
 			<onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
 			<onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
 			<onunfocus condition="!String.IsEmpty(Window(home).Property(trailer_avail))">ClearProperty(trailer_avail,home)</onunfocus>
+			<onunfocus condition="!String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">ClearProperty(trailer_trailerwillplaying)</onunfocus>
 		</control>
 	</include>
 
-	<!-- check if local trailer exist - views 523,525-->
-	<include name="check_local_trailer"> <!-- = just if ' Skin.HasSetting(Library_NoOnlineLookupTrailer) ' not wotking always used script -->
+	<!-- check if local trailer exist -->
+	<include name="check_local_trailer"> <!-- = just if ' Skin.HasSetting(Library_NoOnlineLookupTrailer) -->
 		<control type="button">
 			<visible>false</visible>
 			<onfocus condition="Skin.HasSetting(Library_NoOnlineLookupTrailer)">RunScript(special://skin/scripts/checkexist.py)</onfocus> <!-- faster !-->

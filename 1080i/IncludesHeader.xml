@@ -10,7 +10,7 @@
     <include name="Header_Normal">
         <!-- Header Normal -->
         <control type="group">
-            <visible>![Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | [Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)]]</visible> <!--  | [Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)]-->
+            <visible>![Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | [Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)]]</visible>
 			<visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(77551) + !Control.IsVisible(88888) + !Control.IsVisible(88883)</visible>
             <visible>![[String.Contains(Skin.String(HomeLayout), 2) | String.Contains(Skin.String(HomeLayout), 1)] + !Skin.HasSetting(AutoShowWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show) + Skin.HasSetting(HideWidgetDetailsPanel)]</visible>
             <!-- header panel -->

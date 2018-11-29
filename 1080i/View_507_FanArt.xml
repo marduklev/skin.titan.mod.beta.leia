@@ -9,23 +9,22 @@
             <visible>Control.IsVisible(507)</visible>
 			<visible>Integer.IsGreater(Container(507).NumItems,0)</visible>
             <include>animation_view_change</include>
-            <!-- gb , need check fanart toogle vis conditions , unneeded here -->
+            <!-- bg -->
 			<control type="image">
 				<include>DimensionsFullscreen</include>
+				<visible>Skin.HasSetting(FanArtViewShowInfo)</visible>
 				<aligny>bottom</aligny>
-				<texture>colors/color_black.png</texture>
-				<colordiffuse>black</colordiffuse>
+				<texture>colors/color_white.png</texture>
+				<colordiffuse>$INFO[Skin.String(ViewDetailsBGColor)]</colordiffuse>
 			</control>
-			
-			<!-- <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse> -->
-			
-			<!-- fanart image -->
+			<!-- fanart image frame -->
 			 <control type="image">
-				<visible>!Skin.HasSetting(FanArtViewShowInfo)</visible>
+				<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_framedFanart)</visible>
 				<include>DimensionsFullscreen</include>
 				<texture border="20">netflix/frame/slimframe_hardedge.png</texture>
-				<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse> <!-- focused frame custom library color -->
+				<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse> 
 			</control>
+			<!-- fanart -->
             <control type="multiimage">
 				<visible>!Skin.HasSetting(FanArtViewShowInfo)</visible>
 				<right>10</right>
@@ -39,7 +38,11 @@
                 <randomize>true</randomize>
                 <loop>yes</loop>
             </control>
-			<include condition="!Skin.HasSetting(FanArtViewShowInfo)">WatchedIndicatorLarge</include>
+			<control type="group">
+				<visible>!Skin.HasSetting(FanArtViewShowInfo)</visible>
+				<include>WatchedIndicatorLarge</include>
+            </control>
+			
             
              <!-- ID="52" -->
             <control type="panel" id="507">
@@ -69,28 +72,30 @@
 				<visible>Control.IsVisible(507) + !String.IsEmpty(ListItem.Label)</visible>
 				<visible>Skin.HasSetting(FanArtViewShowInfo)</visible>
 				<include>animation_view_change</include>
-				<top>12%</top>
-				<height>900</height>
+				<top>13%</top>
+				<height>835</height>
 
 				<control type="image">
 					<posx>10</posx>
 					<width>550</width>
-					<height>840</height>
+					<height>830</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
 					<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
-					<animation effect="slide" center="auto" end="1350,0" time="450" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<animation effect="slide" center="auto" end="1350,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 				</control>
 				<control type="image">
-					<posx>10</posx>
-					<width>550</width>
-					<height>840</height>
-					<texture border="20">netflix/frame/slimframe_hardedge.png</texture>
-					<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse> <!-- focused frame custom library color -->
-					<animation effect="slide" center="auto" end="1350,0" time="450" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<visible>Skin.HasSetting(507_framedInfo)</visible>
+					<posx>9</posx>
+					<posy>0</posy>
+					<width>552</width>
+					<height>832</height>
+					<texture border="15">netflix/frame/slimframe_hardedge.png</texture>
+					<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+					<animation effect="slide" center="auto" end="1350,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 				</control>
 				
 				<control type="grouplist">
-					<animation effect="slide" center="auto" end="1350,0" time="450" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<animation effect="slide" center="auto" end="1350,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 					<!--Regie, Duration... Movies, TV-Shows, Sesaons, Music-Videos-->
 					<itemgap>0</itemgap>
 					<onup>500</onup>
@@ -133,11 +138,11 @@
 				</control>
 				<!-- fanart image -->
 				<control type="multiimage">
-					<animation effect="slide" center="auto" end="-565,0" time="450" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<animation effect="slide" center="auto" end="-565,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 					<right>0</right>
 					<top>0</top>
 					<width>1350</width>
-					<height>840</height>
+					<height>830</height>
 					<imagepath background="true">$VAR[backgroundVar]</imagepath>
 					<aspectratio>scale</aspectratio>
 					<fadetime>200</fadetime>
@@ -146,8 +151,18 @@
 					<loop>yes</loop>
 				</control>
 				<control type="group">
-					<animation effect="slide" center="auto" end="-565,0" time="450" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<animation effect="slide" center="auto" end="-565,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 					<include>WatchedIndicatorLarge</include>
+				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(507_framedFanart)</visible>
+					<right>0</right>
+					<top>0</top>
+					<width>1355</width>
+					<height>832</height>
+					<texture border="15">netflix/frame/slimframe_hardedge.png</texture>
+					<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+					<animation effect="slide" center="auto" end="-565,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 				</control>
 				
 			

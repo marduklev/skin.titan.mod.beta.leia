@@ -1266,13 +1266,19 @@
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31472" />
             <param name="label" value="$LOCALIZE[31472] (Unfocused Color)" />
-            <param name="skinsetting" value="ViewDetailsPanelColor" /><!-- need be renamed with append [NF]-->
+            <param name="skinsetting" value="ViewDetailsPanelColor" />
         </include>
 		 <!--viewdetails FOCUS panel color -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31571" />
             <param name="label" value="$LOCALIZE[31472] ($LOCALIZE[31180]) " />
-            <param name="skinsetting" value="ViewDetailsFocusColor" /><!-- need be renamed to [ViewDetailsPanelColorFO]-->
+            <param name="skinsetting" value="ViewDetailsFocusColor" />
+        </include>
+		<!--viewdetails BG color overlay of fanart , needed for 507 (523,525,526,527 use netflix colors) -->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31575" />
+            <param name="label" value="WIP -view507 + ... $LOCALIZE[745]" />
+            <param name="skinsetting" value="ViewDetailsBGColor" />
         </include>
 		<!--viewdetails text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">

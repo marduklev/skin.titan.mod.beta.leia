@@ -174,18 +174,15 @@
     <include name="NowPlayingInfoBar">
         <control type="group" id="88888">
             <!--Panel-->
-			<!--<visible>Player.HasAudio + !Skin.HasSetting(HideCurrentlyPlaying_OSTtheme)</visible>, old, i choose property need check if its workin consistent -->
-            <visible>Player.HasAudio + String.IsEmpty(Window(home).Property(TVMelodies.isPlaying))</visible>
 			<visible>!Skin.HasSetting(DisableNowPlayingInfoBar)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !ControlGroup(400).HasFocus() + !Control.IsVisible(77551)</visible>
-			<visible>[[Player.HasVideo + !String.IsEmpty(VideoPlayer.Title)] | [Player.HasAudio + !String.IsEmpty(MusicPlayer.Title)] | Player.IsInternetStream]</visible>
+			<visible>[[Player.HasVideo + !String.IsEmpty(VideoPlayer.Title)] | [Player.HasAudio + String.IsEmpty(Window(home).Property(TVMelodies.isPlaying)) + !String.IsEmpty(MusicPlayer.Title)] | Player.IsInternetStream]</visible>
 			<visible>String.IsEmpty(Window(10025).Property(PlayingBackgroundMedia)) + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
-			<!-- check hot to set a property <visible>!String.IsEqual(Window(Home).Property(PlayingOST),True)</visible> -->
 			<include>DimensionsFullscreen</include>
 			<animation effect="slide" start="0,-400" end="0,0" tween="cubic" easing="out" delay="0" time="250" reversible="false">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="0" time="250" reversible="false">Hidden</animation>
 			<control type="group">
-				<animation effect="slide" end="250,0" delay="0" time="0" condition="Player.HasVideo">conditional</animation>
+				<animation effect="slide" end="250,0" delay="0" time="0" condition="Player.HasVideo">conditional</animation> <!-- check, need condition if poster empty -->
 				<control type="image">
 					<posx>0</posx>
 					<posy>-5</posy>

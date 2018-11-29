@@ -244,7 +244,7 @@
             
             <control type="image">
                 <texture>colors/color_white.png</texture>
-                <colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse>
+                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
                 <left>0</left>
                 <width>100%</width>
                 <bottom>110</bottom>
@@ -454,7 +454,6 @@
             <height>765</height>
 			<bottom>13%</bottom>
             <control type="image">
-				<animation effect="slide" center="auto" end="0,-420" time="450" condition="Control.IsVisible(52) + Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
                 <visible>!String.IsEmpty(ListItem.Label)</visible>
                 <posx>50</posx>
                 <width>1820</width>

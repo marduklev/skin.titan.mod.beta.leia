@@ -250,7 +250,24 @@
 				<texture border="5">$VAR[osdpanelimage]</texture>
 				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 			</control>
-
+			<!--diffuse bg for title if info shown, ugly, but wished, not merge untill optionial
+			<control type="group">
+				<posx>0</posx>
+				<visible>Skin.HasSetting(EnableOSDInfo)</visible>
+				<control type="image">
+					<posy>-40</posy>
+					<width>100%</width>
+					<height>30</height>
+					<texture aligny="top" border="5" colordiffuse="$INFO[Skin.String(OSDPanelColor)]">diffuse/gradient.png</texture>
+				</control>
+				<control type="image">
+					<posy>-15</posy>
+					<width>100%</width>
+					<height>30</height>
+					<texture flipy="true" aligny="bottom" border="5" colordiffuse="$INFO[Skin.String(OSDPanelColor)]">diffuse/gradient.png</texture>
+				</control>
+			</control>
+			 -->
 			<!-- music cover with cd art -->
             <control type="group">
                 <visible>Player.HasAudio + !Skin.HasSetting(HideOSDDisc)</visible>
@@ -814,6 +831,7 @@
                 <aspectratio align="right" aligny="bottom">keep</aspectratio>
                 <texture background="true">$VAR[VideoPlayerClearArt]</texture>
                 <visible>Skin.HasSetting(OSDShowClearArt)</visible>
+				<visible>Skin.HasSetting(EnableOSDInfo)</visible>
 				<!-- big symbols- on-->
 				<animation effect="slide" start="0" end="700,225" time="0" condition="Player.Playing + Skin.HasSetting(OSDLargeSeekingLabel)">Conditional</animation>
 				<!-- big symbols- off-->
@@ -865,9 +883,9 @@
 					<top>0</top>
 					<width>auto</width>
 					<!-- <label fallback="19055">[B]$VAR[premiere_date_player,, • ]$INFO[VideoPlayer.RatingAndVotes,, • ]$INFO[VideoPlayer.MPAA,, • ]$INFO[VideoPlayer.Country]$INFO[VideoPlayer.Director, • ,][/B]</label> -->
-					<label>[B]$INFO[VideoPlayer.Director,: ,][/B]</label> <!-- ckeck again if long director overlay, adjust for 3 names -->					
+					<label>[B]$INFO[VideoPlayer.Director,: ,][/B]</label> <!-- ckeck again if long director overlay, adjust for 3 names -->
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
-					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>					
+					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<font>Reg24</font>
 				</control>   
 
@@ -920,11 +938,11 @@
 					-->
 					<aspectratio align="left" aligny="top">keep</aspectratio>
 				</control>
-				<control type="label">				
+				<control type="label">
 					<left>-5</left>	
 					<width>auto</width>
 					<font>Reg22</font>
-					<align>left</align>								
+					<align>left</align>
 					<!--
 					<label>$INFO[Window(Home).Property(SkinHelper.Player.Rating.TMDB)]$INFO[Window(Home).Property(SkinHelper.Player.Votes.TMDB),(,)]</label>
 					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Rating.TMDB))</visible>
@@ -942,7 +960,7 @@
 					<left>10</left>
 					<top>-2</top>
 					<width>65</width>
-					<height>70</height>					
+					<height>70</height>
 					<texture>flags/player/player_imdb.png</texture>
 					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>	<!-- $INFO[Skin.String(OSDPrimaryTextColor)] -->
 					<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
@@ -954,7 +972,7 @@
 					<top>0</top>
 					<width>auto</width>
 					<font>Reg22</font>
-					<align>left</align>					
+					<align>left</align>
 					<label>$INFO[Window(Home).Property(SkinHelper.Player.Rating.IMDB)]$INFO[Window(Home).Property(SkinHelper.Player.Votes.IMDB), (, $LOCALIZE[205])]</label> <!-- INFO  XBMC rating not working correct on Videoplayback/window, just inside DialogVideoInfo.xml $INFO[ListItem.Rating(imdb)]-->
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
@@ -964,17 +982,17 @@
 				</control>
 				
 				
-				<!--meta  -->
+				<!-- meta -->
 				<control type="image">
 					<left>15</left>
 					<top>10</top>
 					<width>35</width>
-					<height>35</height>							
+					<height>35</height>
 					<texture>flags/player/player_meta.png</texture>
-					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>	<!-- $INFO[Skin.String(OSDPrimaryTextColor)] -->
+					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse> <!-- $INFO[Skin.String(OSDPrimaryTextColor)] -->
 					<visible>VideoPlayer.Content(movies)</visible>
 					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.Player.MetaCritic.Rating))</visible>
-					<aspectratio align="left" aligny="top">keep</aspectratio>				
+					<aspectratio align="left" aligny="top">keep</aspectratio>
 					<visible>VideoPlayer.Content(movies)</visible>
 				</control>
 				<control type="label">
@@ -982,7 +1000,7 @@
 					<top>0</top>
 					<width>auto</width>
 					<font>Reg22</font>
-					<align>left</align>					
+					<align>left</align>
 					<label>$INFO[Window(Home).Property(SkinHelper.Player.MetaCritic.Rating),  ,%]</label> <!-- INFO  XBMC rating not working correct on Videoplayback/window, just inside DialogVideoInfo.xml $INFO[ListItem.Rating(imdb)]-->
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
@@ -995,19 +1013,19 @@
 					<left>15</left>
 					<top>8</top>
 					<width>35</width>
-					<height>35</height>				
+					<height>35</height>
 					<texture>flags/player/player_rottenbw.png</texture>
-					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>	<!-- $INFO[Skin.String(OSDPrimaryTextColor)] -->
+					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse> <!-- $INFO[Skin.String(OSDPrimaryTextColor)] -->
 					<visible>VideoPlayer.Content(movies)</visible>
 					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.Player.RottenTomatoes.Rating))</visible>
-					<aspectratio align="left" aligny="top">keep</aspectratio>			
+					<aspectratio align="left" aligny="top">keep</aspectratio>
 				</control>
 				<control type="label">
 					<left>-3</left>
 					<top>0</top>
 					<width>auto</width>
 					<font>Reg22</font>
-					<align>left</align>		
+					<align>left</align>
 					<label>$INFO[Window(Home).Property(SkinHelper.Player.RottenTomatoes.Rating), ,%]</label> <!-- INFO  XBMC rating not working correct on Videoplayback/window, just inside DialogVideoInfo.xml $INFO[ListItem.Rating(imdb)]-->
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
@@ -1020,7 +1038,7 @@
 					<left>15</left>
 					<top>-2</top>
 					<width>50</width>
-					<height>50</height>				
+					<height>50</height>
 					<texture>flags/white/imdb_250.png</texture>
 					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>
 					<visible>VideoPlayer.Content(movies)</visible>
@@ -1075,27 +1093,28 @@
 				<!-- MOVIE OSDLabel1 & 2 in One Line when BIG SYMBOLS ACTIVE = Skin.HasSetting(OSDLargeSeekingLabel)-->
 				<control type="label">
 					<posx>0</posx>
-					<posy>-200</posy>				
-					<width>100%</width>					
-					<align>center</align>				
-					<font>Reg35</font>					
+					<posy>-200</posy>
+					<width>100%</width>
+					<align>center</align>
+					<font>Reg35</font>
 					<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
-					<label>$VAR[OSDLabel1,,  •  ]$VAR[OSDLabel2]</label>			
+					<label>$VAR[OSDLabel1,,  •  ]$VAR[OSDLabel2]</label>
 					<scroll>false</scroll>
                     <visible>Player.HasVideo + Skin.HasSetting(OSDLargeSeekingLabel)</visible>
-					<animation effect="slide" start="0" end="-305,100" time="0" condition="Player.Playing">Conditional</animation>
-					<animation effect="slide" end="35,195" time="0" condition="Player.Playing + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
-					<animation effect="zoom" end="130,130" time="0" condition="Player.Playing + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+					<animation effect="slide" start="0" end="0,80" time="0" condition="Player.Playing">Conditional</animation>
+					<animation effect="slide" center="auto" end="0,-220" time="0" condition="!Player.Playing + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+					<!-- <animation effect="slide" end="35,195" time="0" condition="Player.Playing + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+					-->
 				</control>
 				
 				<!-- MOVIE OSDLabel1 & 2 in One Line when BIG SYMBOLS IN-ACTIVE = !Skin.HasSetting(OSDLargeSeekingLabel)-->
 				<control type="label">
-					<posx>0</posx>						
-					<posy>-125</posy>					
-					<width>100%</width>				
-					<align>center</align>			
-					<font>Reg30</font>					
+					<posx>0</posx>
+					<posy>-125</posy>
+					<width>100%</width>
+					<align>center</align>
+					<font>Reg30</font>
 					<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
 					<label>$VAR[OSDLabel1,,  •]  $VAR[OSDLabel2]</label>
@@ -1218,23 +1237,25 @@
 			</control>
 			<!-- Label 3 - SHOWS GENRE INFO/Chapter -->
             <control type="label">
-				<posx>1630</posx>			
-				<posy>-85</posy>			
+				<posx>1630</posx>
+				<posy>-85</posy>
 				<width>890</width>
 				<align>right</align>
-				<font>Reg26</font>			
+				<font>Reg26</font>
 				<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[OSDLabel3]</label>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show) + Skin.HasSetting(OSDLargeSeekingLabel)</visible>
+				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show) + Skin.HasSetting(OSDLargeSeekingLabel) + Skin.HasSetting(EnableOSDInfo)</visible>
+				<!-- <animation effect="slide" center="auto" end="-100,0" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+				-->
 			</control>
 			<!-- Label 3 - SHOWS GENRE INFO/Chapter BIG OFF-->
             <control type="label">
-				<posx>0</posx>			
-				<posy>-85</posy>			
+				<posx>0</posx>
+				<posy>-85</posy>
 				<width>100%</width>
 				<align>center</align>
-				<font>Reg26</font>			
+				<font>Reg26</font>
 				<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[OSDLabel3]</label>
@@ -1473,14 +1494,14 @@
 				<animation delay="3000" time="300" effect="fade">Visible</animation>
 				<animation delay="0" time="200" effect="fade">Hidden</animation>
 				<posx>60</posx>
-				<posy>-560</posy>
-				<width>800</width>
-				<height>310</height>
+				<posy>-400</posy>
+				<width>400</width>
+				<height>155</height>
 				<align>left</align>
 				<aligny>bottom</aligny>
 				<texture background="true" fallback="colors/color_transparent.png">$VAR[VideoPlayerClearLogo]</texture>
-				<aspectratio scalediffuse="false" align="left" aligny="bottom">keep</aspectratio>				
-				<visible>player.paused + !Control.IsVisible(552233) + !Skin.HasSetting(OSDShowClearLogo)</visible>			
+				<aspectratio scalediffuse="false" align="left" aligny="bottom">keep</aspectratio>
+				<visible>player.paused + !Control.IsVisible(552233) + !Skin.HasSetting(OSDShowClearLogo)</visible>
 			</control>
 
 			<!-- OSDLabel7 -->
@@ -1507,11 +1528,11 @@
 				<animation delay="0" time="200" effect="fade">Hidden</animation>
 				<animation end="15,-115" time="0" effect="slide" condition="String.Contains(Control.GetLabel(1),color_transparent)">Conditional</animation>
 				<posx>60</posx>
-				<posy>-270</posy>
+				<posy>-250</posy>
 				<width>980</width>
 				<align>left</align>
 				<aligny>top</aligny>
-				<font>Reg50</font>
+				<font>Reg32</font>
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[OSDLabel8]</label>
@@ -1715,7 +1736,7 @@
 					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarBorderColor)]">diffuse/thinborder.png</texture>
-				</control>										
+				</control>
 				<!--Process/Seekbar-->
 				<control type="label">
 					<!--Play Time-->
@@ -3147,7 +3168,7 @@
             <visible>Skin.HasSetting(EnableOSDInfo)</visible>
             <visible>[Player.Paused + Skin.HasSetting(OSDShowInfoOnPause)] | Player.ShowInfo | Window.IsActive(videoosd)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
-            <include>HideOsdConditions</include>			
+            <include>HideOsdConditions</include>
 			
 			<include condition="Skin.HasSetting(UseNetflixOSDPanel) + Skin.HasSetting(EnableOSDInfo)">OSDInfoPanelNetflix</include>
         </control>       
@@ -3156,6 +3177,14 @@
 	<include name="OSDInfoPanelNetflix">
 		<!--OSD Info Panel-->
 		<control type="group">
+			<!-- dim video if info is up -->
+			<control type="group">
+				<visible>Skin.HasSetting(EnableOSDInfo)</visible>
+				<control type="image">
+					<include>DimensionsFullscreen</include>
+					<texture colordiffuse="4d181818">colors/color_white.png</texture>
+				</control>
+			</control>
 			<!-- background -->
 			<control type="image">
 				<width>100%</width>
@@ -3163,6 +3192,7 @@
 				<texture border="15">special://home/addons/resource.images.backgroundoverlays.basic/resources/Vignette.png</texture>
 				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 			</control>
+			
 			<!--Video Cover-->
 			<control type="image" id="39623">
 				<posx>60</posx>
@@ -3177,7 +3207,7 @@
 				<bordersize>20</bordersize>
 				<aspectratio align="left" aligny="top">keep</aspectratio>
 				<animation end="0" time="0" effect="fade" condition="String.Contains(Control.GetLabel(39623),DefaultVideo)">Conditional</animation>
-			</control>																													   																																
+			</control>
 			<!-- Info -->
 			<control type="grouplist">
 				<animation end="-250,0" time="0" effect="slide" condition="String.Contains(Control.GetLabel(39623),DefaultVideo)">Conditional</animation>
@@ -3248,7 +3278,7 @@
 				</control>
 			</control>
 		</control>
-	</include>	
+	</include>
 	
     <variable name="OSDImage">
         <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.Player.AnimatedPoster)]</value>
@@ -3319,7 +3349,7 @@
 
 	<variable name="OSDLabel8">
 		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(Episodes)">$INFO[VideoPlayer.Season,$LOCALIZE[20373] , | ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] , | ][B]$INFO[VideoPlayer.Title][/B]</value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(Movies)">[B]$INFO[VideoPlayer.year][/B]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</value>																												
+		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(Movies)">[B]$INFO[VideoPlayer.year][/B]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</value>
 		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName][/B]</value>
 	</variable>
 	

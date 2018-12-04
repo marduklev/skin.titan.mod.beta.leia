@@ -486,7 +486,7 @@
                 <control type="group">
                     <visible>[Skin.HasSetting(showratingnetflixhome) + !Player.HasVideo] | [Player.HasVideo + !Skin.HasSetting(HideMediaFlagsTrailer)]</visible>
                     <right>20</right>
-                    <top>487</top>
+                    <top>475</top>
                     <height>150</height>
                     <width>1000</width>
                     <include>AltRatingFooter</include>

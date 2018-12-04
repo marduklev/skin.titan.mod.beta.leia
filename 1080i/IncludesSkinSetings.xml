@@ -1608,7 +1608,8 @@
                 <label>$LOCALIZE[31661]</label>
                 <onclick>Skin.ToggleSetting(osdgradientstyle)</onclick>
                 <selected>Skin.HasSetting(osdgradientstyle)</selected>
-                <visible>!skin.hastheme(classic) | !Skin.HasSetting(UseNetflixOSDPanel)</visible>
+                <visible>!skin.hastheme(classic)</visible>
+				<visible>!Skin.HasSetting(UseNetflixOSDPanel)</visible>
             </control>
             <!-- Volume Indicator Style -->
             <control type="button" id="31809">

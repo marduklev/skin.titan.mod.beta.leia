@@ -1,7 +1,6 @@
 ## -*- coding: utf-8 -*-
 import xbmc
 import xbmcvfs
-import xbmcgui
 
 trailerfilenamemp4 =  xbmc.getInfoLabel( "listitem.path" ) + xbmc.getInfoLabel( "listitem.FolderName" ) + "-trailer" + ".mp4"
 

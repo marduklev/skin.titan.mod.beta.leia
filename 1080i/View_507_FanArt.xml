@@ -200,7 +200,7 @@
 			</control>
 			<!-- preview video window if info true -->
             <control type="group">
-				<visible>Player.HasVideo + Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)</visible>
+				<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)</visible>
 				<animation effect="slide" center="auto" end="-565,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 				<right>6</right>
 				<top>15%</top>

@@ -174,16 +174,19 @@
     <include name="NowPlayingInfoBar">
         <control type="group" id="88888">
             <!--Panel-->
-			<visible>String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))</visible>
+			<!-- <visible>String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))</visible> 
+			[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)] -->
 			<visible>!Skin.HasSetting(DisableNowPlayingInfoBar)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !ControlGroup(400).HasFocus() + !Control.IsVisible(77551)</visible>
-			<visible>[[Player.HasVideo + !String.IsEmpty(VideoPlayer.Title)] | [Player.HasAudio + String.IsEmpty(Window(home).Property(TVMelodies.isPlaying)) + !String.IsEmpty(MusicPlayer.Title)] | Player.IsInternetStream]</visible>
+			<!-- <visible>[[Player.HasVideo + !String.IsEmpty(VideoPlayer.Title)] | [Player.HasAudio + String.IsEmpty(Window(home).Property(TVMelodies.isPlaying)) + !String.IsEmpty(MusicPlayer.Title)] | Player.IsInternetStream]</visible> -->
+			<visible>[[Player.HasVideo + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)]] | [Player.HasAudio + String.IsEmpty(Window(home).Property(TVMelodies.isPlaying)) + !String.IsEmpty(MusicPlayer.Title)]]</visible>
+			
 			<visible>String.IsEmpty(Window(10025).Property(PlayingBackgroundMedia)) + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
 			<include>DimensionsFullscreen</include>
 			<animation effect="slide" start="0,-400" end="0,0" tween="cubic" easing="out" delay="0" time="250" reversible="false">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="0" time="250" reversible="false">Hidden</animation>
 			<control type="group">
-				<animation effect="slide" end="250,0" delay="0" time="0" condition="Player.HasVideo">conditional</animation> <!-- check, need condition if poster empty -->
+				<animation effect="slide" end="300,0" delay="0" time="0" condition="Player.HasVideo">conditional</animation> <!-- check, need condition if poster empty -->
 				<control type="image">
 					<posx>0</posx>
 					<posy>-5</posy>
@@ -272,9 +275,9 @@
 				<posy>5</posy>
                 
 				<control type="group">
-					<width>180</width>
+					<width>250</width>
 					<control type="image">
-						<right>0</right>
+						<left>50</left>
 						<width>123</width>
 						<height>123</height>
 						<aligny>center</aligny>
@@ -295,7 +298,6 @@
 				</control>
 				<!-- preview videowindow,need check in pvr view , also its replace go fs button-->
 				<control type="group">
-					<left>5</left>
 					<width>285</width>
 					<height>130</height>
 					<visible>!VideoPlayer.Content(livetv) |

@@ -245,6 +245,7 @@
             <control type="image">
                 <texture>colors/color_white.png</texture>
                 <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+				<!-- <colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse> -->
                 <left>0</left>
                 <width>100%</width>
                 <bottom>110</bottom>
@@ -273,7 +274,8 @@
                 <onleft>7002</onleft>
                 <onright>7002</onright>
                 <onup>5000</onup>
-                <ondown>60</ondown>
+                <ondown condition="!Control.IsVisible(507)">60</ondown>
+				<ondown condition="Control.IsVisible(507)">9000</ondown>
                 <onback>5000</onback>
                 <orientation>horizontal</orientation>
                 <itemlayout height="40" width="66">
@@ -454,6 +456,7 @@
             <height>765</height>
 			<bottom>13%</bottom>
             <control type="image">
+				<animation effect="slide" center="auto" end="0,-420" time="450" condition="Control.IsVisible(52) + Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
                 <visible>!String.IsEmpty(ListItem.Label)</visible>
                 <posx>50</posx>
                 <width>1820</width>
@@ -1235,7 +1238,7 @@
                 [Control.IsVisible(51) + Skin.HasSetting(View51_ShowCDart)] | 
                 [Control.IsVisible(52) + Skin.HasSetting(View52_ShowCDart)] | 
                 [Control.IsVisible(58) + Skin.HasSetting(View58_ShowCDart)] | 
-				[Control.IsVisible(59) + Skin.HasSetting(View59_ShowCDart)] | 												  
+				[Control.IsVisible(59) + Skin.HasSetting(View59_ShowCDart)] | 
                 [Control.IsVisible(502) + Skin.HasSetting(View502_ShowCDart)] | 
                 [Control.IsVisible(504) + Skin.HasSetting(View504_ShowCDart)] | 
                 [Control.IsVisible(508) + Skin.HasSetting(View508_ShowCDart)] | 
@@ -1262,8 +1265,8 @@
             <posy>8</posy>
             <width>609</width>
             <height>344</height>
-            <visible>
-                    [Window.IsActive(tvchannels) + VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)] | 
+            <visible><!--
+                    [Window.IsActive(tvchannels) + VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)] | -->
                     [Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer)] |
 					[!String.IsEmpty(Window(Home).Property(TrailerPlaying)) + Skin.HasSetting(DetailsAutoTrailer)]
             </visible>

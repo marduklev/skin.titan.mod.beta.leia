@@ -189,16 +189,18 @@
                     <control type="label">
                         <posx>61</posx>
                         <posy>10</posy>
-                        <width min="80" max="900">auto</width>
+                        <width>600</width>
                         <height>100</height>
-                        <font>Bold45</font>
+                        <wrapmultiline>true</wrapmultiline>
+						<font>Bold45</font>
                         <align>left</align>
+						<aligny>bottom</aligny>
                         <textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
                         <label>$VAR[value_header]</label>
                         <shadowcolor>$INFO[Skin.String(ViewDetailsHighlightShadowColor)]</shadowcolor>
                     </control>
-                     <control type="label">
-                        <posy>85</posy>
+                    <control type="label">
+                        <posy>105</posy>
                         <posx>61</posx>
                         <width min="0" max="900">auto</width>
                         <height>50</height>

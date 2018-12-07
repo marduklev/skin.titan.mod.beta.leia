@@ -3,8 +3,7 @@
 <includes>
 
     <include name="View_507_FanArt">
-	
-	 <!--View 507-->
+		<!--View 507-->
         <control type="group">
             <visible>Control.IsVisible(507)</visible>
 			<visible>Integer.IsGreater(Container(507).NumItems,0)</visible>
@@ -38,7 +37,26 @@
                 <randomize>true</randomize>
                 <loop>yes</loop>
             </control>
-			
+			<!-- preview video window if info false -->
+            <control type="group">
+				<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv) + Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>
+				<include>DimensionsFullscreen</include>
+				<control type="image">
+					<texture colordiffuse="black">colors/color_black.png</texture>
+				</control>
+				<control type="videowindow">
+				</control>
+				<control type="image" id="887768">
+					<visible>!Skin.HasSetting(507_BelloNero)</visible>
+					<height>103</height>
+					<width>315</width>
+					<right>5</right>
+					<top>10</top>
+					<fadetime>200</fadetime>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+				</control>
+			</control>
 			<!-- bello Nero import -->
 			<control type="group">
 				<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_BelloNero)</visible>
@@ -98,6 +116,7 @@
 					String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ClearLogo)) + 
 					String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.ClearLogo))
 					</visible>
+					<visible>Skin.HasSetting(View_507_nofooterbar)</visible>
 					<left>260</left>
 					<bottom>0</bottom>
 					<width>690</width>
@@ -148,30 +167,6 @@
 				</focusedlayout>
             </control>
 			
-			<!-- preview video window if info false -->
-            <control type="group">
-				<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv) + Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>
-				<include>DimensionsFullscreen</include>
-				<control type="image">
-					<texture colordiffuse="black">colors/color_black.png</texture>
-				</control>
-				<control type="videowindow">
-				</control>
-				<control type="image" id="887768">
-					<visible>!Skin.HasSetting(507_BelloNero)</visible>
-					<height>103</height>
-					<width>315</width>
-					<right>5</right>
-					<top>10</top>
-					<fadetime>200</fadetime>
-					<aspectratio align="right" aligny="top">keep</aspectratio>
-					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
-				</control>
-			</control>
-			
-			
-		
-		
 			<!--Info-->
 			<control type="group">
 				<visible>Control.IsVisible(507) + !String.IsEmpty(ListItem.Label)</visible>
@@ -312,8 +307,16 @@
 				<width>1344</width>
 				<height>756</height>
 				<control type="image">
+					<visible>Skin.HasSetting(507_framedFanart)</visible>
 					<top>-16</top>
 					<height>108.3%</height>
+					<texture colordiffuse="black">colors/color_black.png</texture>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(507_framedFanart)</visible>
+					<top>-23</top>
+					<height>109.9%</height>
+					<width>102%</width>
 					<texture colordiffuse="black">colors/color_black.png</texture>
 				</control>
 				<control type="videowindow">
@@ -327,8 +330,7 @@
 					<aspectratio align="right" aligny="bottom">keep</aspectratio>
 					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
 				</control>
-			</control>
-			
+			</control>			
 		</control>
-     </include>
+    </include>
 </includes>

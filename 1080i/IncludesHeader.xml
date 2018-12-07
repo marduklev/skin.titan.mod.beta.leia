@@ -401,7 +401,7 @@
             <visible>!skin.hassetting(nofooterbar)</visible>
             <visible>![[Skin.String(mediaflagsstyle,large_color) | Skin.String(mediaflagsstyle,large) | Skin.HasSetting(EnableTouchSupport)] + !String.IsEmpty(ListItem.VideoResolution)]</visible>
 			<visible>!String.IsEmpty(Control.GetLabel(884)) + Skin.String(ClearLogoLocation, footer) + !skin.hastheme(classic) + !String.IsEqual(Window(Home).Property(showinfopanel),show)</visible>
-			<animation effect="slide" end="0,300" time="300" condition="Skin.HasSetting(View_526_nofooterbar) + Control.IsVisible(526)">Conditional</animation>
+			<animation effect="slide" end="0,300" time="300" condition="Skin.HasSetting(View_526_nofooterbar) + Control.IsVisible(526) | Control.IsVisible(507) + Skin.HasSetting(View_507_nofooterbar)">Conditional</animation>
 		</control>
         <!--clearlogo footer (with touch mode or large icons-->
         <control type="image" id="884">
@@ -422,7 +422,7 @@
             <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(RTRatingInFooter)">Conditional</animation>
             <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + Skin.HasSetting(RTRatingInFooter)">Conditional</animation>
             <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) + Skin.HasSetting(RTRatingInFooter)">Conditional</animation>			
-			<animation effect="slide" end="0,300" time="300" condition="Skin.HasSetting(View_526_nofooterbar) + Control.IsVisible(526)">Conditional</animation>
+			<animation effect="slide" end="0,300" time="300" condition="Skin.HasSetting(View_526_nofooterbar) + Control.IsVisible(526) | Control.IsVisible(507) + Skin.HasSetting(View_507_nofooterbar)">Conditional</animation>
 		</control>
 		
 	</include>

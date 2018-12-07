@@ -38,10 +38,91 @@
                 <randomize>true</randomize>
                 <loop>yes</loop>
             </control>
+			
+			<!-- bello Nero import -->
+			<control type="group">
+				<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_BelloNero)</visible>
+				<control type="image">
+					<animation effect="slide" start="0,0" end="-550,0" time="380" tween="sine" easing="inout" condition="![Container.OnNext | Container.OnPrevious]" reversible="false">Conditional</animation>
+					<left>340</left>
+					<posy>0</posy>
+					<width>110%</width>
+					<height>110%</height>
+					<texture background="true">-test/left_blade.png</texture>
+					<animation type="WindowOpen">
+						<effect type="fade" start="0" end="100" time="490" tween="sine" easing="out"/>
+						<effect type="slide" start="0,0" end="-340,0" time="390" delay="350" tween="sine" easing="out"/>
+					</animation>
+					<animation type="WindowClose">
+						<effect type="slide" start="-340,0" end="0,0" time="490" delay="0" tween="sine" easing="in"/>
+						<effect type="fade" start="100" end="0" time="490" delay="250" tween="sine" easing="in"/>
+					</animation>
+				</control>
+				<control type="image">
+					<animation effect="slide" start="0,0" end="470,0" time="380" tween="sine" easing="inout" condition="![Container.OnNext | Container.OnPrevious]" reversible="false">Conditional</animation>
+					<left>-260</left>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>110%</width>
+					<height>110%</height>
+					<texture background="true">-test/right_blade.png</texture>
+					<animation type="WindowOpen">
+						<effect type="fade" start="0" end="100" time="490" tween="sine" easing="out"/>
+						<effect type="slide" start="0,0" end="260,0" time="390" delay="350" tween="sine" easing="out"/>
+					</animation>
+					<animation type="WindowClose">
+						<effect type="slide" start="260,0" end="0,0" time="490" delay="0" tween="sine" easing="in"/>
+						<effect type="fade" start="100" end="0" time="490" delay="250" tween="sine" easing="in"/>
+					</animation>
+				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(View_507_nofooterbar)</visible>
+					<left>260</left>
+					<bottom>50</bottom>
+					<width>390</width>
+					<height>150</height>
+					<fadetime>100</fadetime>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<texture background="true">$VAR[ListItemClearLogo]</texture>
+					<animation type="WindowOpen">
+						<effect type="fade" start="0" end="100" time="250" delay="380" tween="sine" easing="out"/>
+					</animation>
+					<animation type="WindowClose">
+						<effect type="fade" start="100" end="0" time="350" tween="sine" easing="in"/>
+					</animation>
+				</control>
+				<control type="label">
+					<visible>
+					String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + 
+					String.IsEmpty(ListItem.Art(clearlogo)) + 
+					String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ClearLogo)) + 
+					String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.ClearLogo))
+					</visible>
+					<left>260</left>
+					<bottom>0</bottom>
+					<width>690</width>
+					<height>200</height>
+					<wrapmultiline>true</wrapmultiline>
+					<font>Bold50</font>
+                    <align>left</align>
+                    <aligny>bottom</aligny>
+                    <label>[UPPERCASE]$INFO[ListItem.Title][/UPPERCASE]</label>
+					<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+                    <shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
+					<animation type="WindowOpen">
+						<effect type="fade" start="0" end="100" time="250" delay="380" tween="sine" easing="out"/>
+					</animation>
+					<animation type="WindowClose">
+						<effect type="fade" start="100" end="0" time="350" tween="sine" easing="in"/>
+					</animation>
+				</control>
+			</control>
+			
 			<control type="group">
 				<visible>!Skin.HasSetting(FanArtViewShowInfo)</visible>
 				<include>WatchedIndicatorLarge</include>
-            </control>
+				<animation effect="fade" start="100" end="60" time="0" condition="Skin.HasSetting(507_BelloNero)" reversible="false">Conditional</animation>
+			</control>
 			
             <!-- ID="52" -->
             <control type="panel" id="507">
@@ -66,7 +147,31 @@
 					<include>AutoTrailerButton</include>
 				</focusedlayout>
             </control>
-
+			
+			<!-- preview video window if info false -->
+            <control type="group">
+				<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv) + Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>
+				<include>DimensionsFullscreen</include>
+				<control type="image">
+					<texture colordiffuse="black">colors/color_black.png</texture>
+				</control>
+				<control type="videowindow">
+				</control>
+				<control type="image" id="887768">
+					<visible>!Skin.HasSetting(507_BelloNero)</visible>
+					<height>103</height>
+					<width>315</width>
+					<right>5</right>
+					<top>10</top>
+					<fadetime>200</fadetime>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+				</control>
+			</control>
+			
+			
+		
+		
 			<!--Info-->
 			<control type="group">
 				<visible>Control.IsVisible(507) + !String.IsEmpty(ListItem.Label)</visible>
@@ -223,26 +328,7 @@
 					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
 				</control>
 			</control>
-			<!-- preview video window if info false -->
-            <control type="group">
-					<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv) + Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>
-					<include>DimensionsFullscreen</include>
-					<control type="image">
-                        <texture colordiffuse="black">colors/color_black.png</texture>
-					</control>
-					<control type="videowindow">
-					</control>
-					<control type="image" id="887768">
-						<height>103</height>
-						<width>315</width>
-						<right>5</right>
-						<top>10</top>
-						<fadetime>200</fadetime>
-						<aspectratio align="right" aligny="top">keep</aspectratio>
-						<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
-					</control>
-			</control>
+			
 		</control>
      </include>
-	 
 </includes>

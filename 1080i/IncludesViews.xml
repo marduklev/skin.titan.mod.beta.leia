@@ -1268,11 +1268,7 @@
             <posy>8</posy>
             <width>609</width>
             <height>344</height>
-            <visible><!--
-                    [Window.IsActive(tvchannels) + VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)] | -->
-                    [Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer)] |
-					[!String.IsEmpty(Window(Home).Property(TrailerPlaying)) + Skin.HasSetting(DetailsAutoTrailer)]
-            </visible>
+            <visible>Player.HasVideo + !VideoPlayer.Content(livetv) + String.IsEmpty(VideoPlayer.DBID)</visible> <!-- check, WIP condition ,need PVR verify -->
             <visible>!skin.hastheme(classic)</visible>
             <control type="image">
 				<aligny>bottom</aligny>

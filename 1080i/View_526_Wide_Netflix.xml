@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+
+	<variable name="WideNetflixDetails">
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]">$INFO[ListItem.Premiered]</value>
+		<value condition="Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ] $INFO[ListItem.Property(UnWatchedEpisodes), (,) ]</value>
+		<value condition="!Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ]</value>
+	</variable>	
+	<variable name="seasonwithspecials">
+		<value condition="Integer.IsLess(ListItem.Season,1) + !String.IsEmpty(ListItem.Episode)">[B]$LOCALIZE[20381] $INFO[ListItem.Episode][/B]</value>
+		<value condition="!Integer.IsLess(ListItem.Season,1) + !String.IsEmpty(ListItem.Episode)">[B]$VAR[WideView_LargeSeasonLabel,S,:]$VAR[WideView_LargeEpisodeLabel,E,][/B]</value>
+	</variable>
+
 	<include name="View_526_Wide_Netflix">
 		<control type="group">
 			<include>animation_view_change</include>
@@ -518,13 +529,4 @@
 			</control>
 		</control>-->
 	</include>
-	<variable name="WideNetflixDetails">
-		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]">$INFO[ListItem.Premiered]</value>
-		<value condition="Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ] $INFO[ListItem.Property(UnWatchedEpisodes), (,) ]</value>
-		<value condition="!Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ]</value>
-	</variable>	
-	<variable name="seasonwithspecials">
-		<value condition="Integer.IsLess(ListItem.Season,1) + !String.IsEmpty(ListItem.Episode)">[B]$LOCALIZE[20381] $INFO[ListItem.Episode][/B]</value>
-		<value condition="!Integer.IsLess(ListItem.Season,1) + !String.IsEmpty(ListItem.Episode)">[B]$VAR[WideView_LargeSeasonLabel,S,:]$VAR[WideView_LargeEpisodeLabel,E,][/B]</value>
-	</variable>
 </includes>

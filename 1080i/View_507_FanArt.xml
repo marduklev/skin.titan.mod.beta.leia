@@ -150,8 +150,7 @@
                 <width>100%</width>
                 <height>800</height>
 				<include>trailer_onup</include>
-                <ondown condition="!Player.HasVideo + Skin.HasSetting(EnableQuickJump) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists)]">7000</ondown>
-				<ondown condition="!Player.HasVideo + Skin.HasSetting(EnableQuickJump) + [!Container.Content(movies) | !Container.Content(tvshows) | Container.Content(artists)]">9000</ondown>
+                <ondown condition="!Player.HasVideo + Skin.HasSetting(EnableQuickJump)">7000</ondown>
 				<ondown condition="!Player.HasVideo + !Skin.HasSetting(EnableQuickJump)">9000</ondown>
                 <onleft>507</onleft>
                 <onright>507</onright>

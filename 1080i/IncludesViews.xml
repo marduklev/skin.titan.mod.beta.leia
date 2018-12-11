@@ -241,7 +241,8 @@
                 <right>-1</right>
                 <bottom>0</bottom>
                 <height>1</height>
-                <onfocus>SetFocus(60)</onfocus>
+                <onfocus contition="!Control.IsVisible(507)">SetFocus(60)</onfocus>
+				<onfocus contition="Control.IsVisible(507)">SetFocus(9000)</onfocus>
                 <visible>!Control.IsVisible(7002)</visible>
             </control>
             

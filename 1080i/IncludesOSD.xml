@@ -831,7 +831,7 @@
                 <aspectratio align="right" aligny="bottom">keep</aspectratio>
                 <texture background="true">$VAR[VideoPlayerClearArt]</texture>
                 <visible>Skin.HasSetting(OSDShowClearArt)</visible>
-				<visible>Skin.HasSetting(EnableOSDInfo)</visible>
+				<visible>Skin.HasSetting(EnableOSDInfo)</visible> <!-- checck needed -->
 				<!-- big symbols- on-->
 				<animation effect="slide" start="0" end="700,225" time="0" condition="Player.Playing + Skin.HasSetting(OSDLargeSeekingLabel)">Conditional</animation>
 				<!-- big symbols- off-->
@@ -874,7 +874,6 @@
 					<texture>dialogs/videoinfo/director-icon.png</texture>
 					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse> <!-- $INFO[Skin.String(OSDPrimaryTextColor)] -->
 					<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
-					<visible></visible>
 					<aspectratio align="left" aligny="top">keep</aspectratio>
 				</control>
 				<control type="label">
@@ -1395,7 +1394,7 @@
 				<align>right</align>
 				<textcolor>$VAR[mediaFlagsFontColor]</textcolor>
 				<label>$VAR[OSDLabel3]</label>
-				<visible>!Skin.String(osdmediaflagsstyle,disabled)</visible>
+				<visible>!Skin.String(osdmediaflagsstyle,disabled) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]</visible>
 				<animation effect="fade" time="400" delay="500" reversible="false">Visible</animation>
 			</control>
 				
@@ -1501,7 +1500,7 @@
 				<aligny>bottom</aligny>
 				<texture background="true" fallback="colors/color_transparent.png">$VAR[VideoPlayerClearLogo]</texture>
 				<aspectratio scalediffuse="false" align="left" aligny="bottom">keep</aspectratio>
-				<visible>player.paused + !Control.IsVisible(552233) + !Skin.HasSetting(OSDShowClearLogo)</visible>
+				<visible>player.paused + !Control.IsVisible(552233) + !Skin.HasSetting(OSDShowClearLogo) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]</visible>
 			</control>
 
 			<!-- OSDLabel7 -->
@@ -1519,8 +1518,7 @@
 				<label>[B]$VAR[OSDLabel7][/B]</label>
 				<scroll>false</scroll>
 				<visible>player.paused + String.Contains(Control.GetLabel(1),color_transparent) + !Control.IsVisible(552233)</visible>
-				<visible>player.paused</visible>
-			
+				<visible>player.paused + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]</visible>
 			</control>
 			<!-- OSDLabel8 -->
 			<control type="label">
@@ -1537,7 +1535,7 @@
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[OSDLabel8]</label>
 				<scroll>false</scroll>
-				<visible>player.paused + !Control.IsVisible(552233)</visible>
+				<visible>player.paused + !Control.IsVisible(552233) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]</visible>
 			</control>
 			
 			<!--Clock-->
@@ -3216,6 +3214,7 @@
 				<width>1380</width>
 				<height>650</height>
 				<orientation>vertical</orientation>
+				<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]</visible>
 				<control type="label">
 					<align>left</align>
 					<width>250</width>

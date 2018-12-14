@@ -170,7 +170,7 @@
             <visible>![Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()]</visible>
             <animation time="300" effect="fade" delay="0">Visible</animation>
             <include>DialogOverlayExtra</include>
-            <width>100%</width>
+			<width>100%</width>
             <height>100%</height>
             <control type="label">
                 <top>4%</top>

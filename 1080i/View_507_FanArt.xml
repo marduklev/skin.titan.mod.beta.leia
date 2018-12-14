@@ -57,7 +57,7 @@
 					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
 				</control>
 			</control>
-			<!-- bello Nero import -->
+			<!-- bello import -->
 			<control type="group">
 				<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_BelloNero)</visible>
 				<control type="image">

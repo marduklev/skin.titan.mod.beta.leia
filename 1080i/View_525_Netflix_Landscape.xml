@@ -145,8 +145,7 @@
 					<control type="textbox">
 						<height>200</height>
 						<label>$VAR[Plots]</label>
-                        <!-- testing purposes <label>escinfo $ESCINFO[ListItem.FileNameAndPath][CR]info path $INFO[listitem.path] ,info filename $INFO[listitem.filename][CR]info FileNameAndPath $INFO[listitem.FileNameAndPath] ,info foldername $INFO[ListItem.FolderName]</label>-->
-						<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
+                        <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
                         <align>justify</align>
                         <font>Reg24</font>
 					</control>

@@ -34,6 +34,8 @@
             </include>
             <onfocus condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle, $INFO[Skin.String(widgetstyle)])</onfocus>
             <onfocus>SetProperty(HomeFirstLoadDone,done)</onfocus>
+			<!-- <posx>-400</posx>
+			<posy>-400</posy> -->	
 			<texturenofocus></texturenofocus>
 			<texturefocus></texturefocus>
             <onleft>300</onleft>

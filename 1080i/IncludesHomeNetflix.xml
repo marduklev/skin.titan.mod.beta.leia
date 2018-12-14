@@ -101,8 +101,7 @@
         <control type="group" id="9000">
             <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
 			<animation time="300" effect="slide" start="0" end="400" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
-            
-			<!-- Spotlight Widget background image -->
+            <!-- Spotlight Widget background image -->
             <control type="image">
                 <visible>ControlGroup(505).HasFocus() + !Control.IsVisible(5633399)</visible>
                 <fadetime>350</fadetime>
@@ -112,8 +111,7 @@
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="fade" start="0" end="100" delay="0" time="1200">Visible</animation>
             </control>
-
-            <!-- Spotlight Widget trailer window -->
+			<!-- Spotlight Widget trailer window -->
             <control type="group" id="5633399">
                 <visible>Player.HasVideo + [ControlGroup(505).HasFocus() | Control(53).HasFocus()]</visible>
                 <width>100%</width>
@@ -574,8 +572,6 @@
         <!-- Header -->
 		<include>Header</include>
         
-        
-
         <!-- Side Menu -->
         <include>NetflixSideBladeMainMenu</include>
     </include>

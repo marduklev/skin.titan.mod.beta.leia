@@ -236,7 +236,8 @@
 				<animation effect="slide" end="600,590" time="0" condition="!Window.IsActive(movieinformation)">Conditional</animation>
 			</control>
 			<control type="button" id="11027">
-				<visible>Skin.String(ThumbsUpRateValue,7)</visible><animation effect="slide" end="75,0" time="0">WindowOpen</animation>
+				<visible>Skin.String(ThumbsUpRateValue,7)</visible>
+				<animation effect="slide" end="75,0" time="0">WindowOpen</animation>
 				<animation type="WindowOpen" condition="Window.IsActive(movieinformation)">
 					<effect type="slide" start="0,0" end="75,0" time="150" delay="0"/>
 					<effect type="fade" start="0" end="100" time="300" delay="0"/>

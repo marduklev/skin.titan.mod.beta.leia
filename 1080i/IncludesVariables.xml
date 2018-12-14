@@ -972,7 +972,8 @@
      </variable>
      
      <variable name="osdpanelimage">
-        <value condition="Skin.HasSetting(osdgradientstyle)">diffuse/gradient.png</value>
+        <value condition="[Skin.HasSetting(osdgradientstyle) + Skin.HasSetting(EnableOSDInfo) + Skin.HasSetting(UseSlimOSDPanel)] | [Skin.HasSetting(osdgradientstyle) + !Skin.HasSetting(UseSlimOSDPanel)]">diffuse/gradient.png</value>
+		<value condition="Skin.HasSetting(osdgradientstyle) + Skin.HasSetting(EnableOSDInfo)">diffuse/gradient.png</value>
         <value>diffuse/panel.png</value>
      </variable>
      

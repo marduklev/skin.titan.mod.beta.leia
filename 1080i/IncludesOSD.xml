@@ -8,7 +8,7 @@
 			<height>376</height>
             <posx>180</posx>
             <width>1560</width>
-            <visible>![Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(subtitlesearch) | Window.IsActive(sliderdialog)]</visible>
+            <visible>![Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(OSDSubtitleSettings) | Window.IsActive(sliderdialog)]</visible>
 			<!--Panel-->
 			<control type="image">
 				<texture>osd/classic/osd_panel.png</texture>
@@ -80,7 +80,7 @@
 
 			<!--Flags-->
 			<control type="group">
-				<visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]]</visible>
+				<visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
 				<animation time="300" effect="fade" delay="300">Visible</animation>
 				<posx>370</posx>
 				<posy>270</posy>
@@ -118,7 +118,7 @@
 				<font>Reg28</font>
 				<textcolor>black</textcolor>
 				<label>$VAR[OSDLabel3]</label>
-				<visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]]</visible>
+				<visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
 				<animation time="300" effect="fade" delay="300">Visible</animation>
 			</control>
 
@@ -402,6 +402,8 @@
 					<visible>Skin.HasSetting(OSDShowClearArt)</visible>
 					<!-- big symbols - on + playback | big symbols off -->
 					<animation effect="slide" start="0" end="700,235" time="0" condition="Player.Playing + Skin.HasSetting(OSDLargeSeekingLabel) | !Skin.HasSetting(OSDLargeSeekingLabel)">Conditional</animation>
+					<animation effect="fade" start="100" end="40" time="650" condition="!Player.Paused + Skin.HasSetting(OSDLargeSeekingLabel) + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+					<!-- <animation effect="slide" start="0,0" end="-220,120" time="0" condition="!Player.Paused + Skin.HasSetting(OSDLargeSeekingLabel) + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation> -->
 				</control>
 				
 				<!--   header -->
@@ -416,6 +418,7 @@
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<align>justify</align>
 					<font>Reg24</font>
+					<animation effect="slide" start="0" end="0,150" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 				</control>
 				<!-- PLOT en/dis able via OSD BUTTON-->
 				<control type="textbox">
@@ -428,13 +431,14 @@
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<align>justify</align>
+					<animation effect="fade" time="350">VisibleChange</animation>
 					<font>Reg24</font>
 				</control>
             </control>
 			<control type="group">
 				<animation effect="slide" end="50" time="0" condition="player.hasaudio + !Skin.HasSetting(HideOSDDisc)">Conditional</animation>
-				
-				<!-- MOVIE OSDLabel 1 & 2 in One Line BIG SYMBOLS ACTIVE = Skin.HasSetting(OSDLargeSeekingLabel)-->
+				<animation effect="slide" start="0" end="0,150" time="350" condition="Player.HasVideo + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+				<!-- MOVIE OSDLabel 1 & 2 in One Line BIG SYMBOLS ACTIVE = Skin.HasSetting(OSDLargeSeekingLabel) -->
 				<control type="label">
 					<posx>0</posx>
 					<posy>-150</posy>
@@ -446,7 +450,9 @@
 					<label>$VAR[OSDLabel1,,  •  ]$VAR[OSDLabel2]</label>
 					<scroll>false</scroll>
 					<visible>Player.HasVideo + Skin.HasSetting(OSDLargeSeekingLabel)</visible>	
-					<animation effect="slide" start="0" end="0,85" time="0" condition="Player.Playing">Conditional</animation>
+					<animation effect="slide" start="0" end="0,-150" time="0" condition="Player.Paused + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+					<animation effect="slide" start="0" end="0,100" time="0" condition="!Player.Paused + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+					<animation effect="slide" start="0" end="0,95" time="0" condition="!Player.Paused + Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 				</control>
 				
 				<!-- MOVIE OSDLabel 1 & 2 in One Line BIG SYMBOLS IN-ACTIVE = !Skin.HasSetting(OSDLargeSeekingLabel)-->
@@ -457,11 +463,9 @@
 					<font>Reg30</font>
 					<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
-					<label>$VAR[OSDLabel1,,  •  ]$VAR[OSDLabelDefaultNoInfo]$VAR[OSDLabel2]</label>
+					<label>$VAR[OSDLabel1,,  •  ]$VAR[OSDLabel2]</label>
 					<scroll>false</scroll>
 					<visible>Player.HasVideo + !Skin.HasSetting(OSDLargeSeekingLabel)</visible>
-					<animation effect="slide" end="-300,185" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
-					<animation effect="zoom" end="135,135" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 				</control>
 				
 				<!-- OSD label 3 Genre Chapter Info -->
@@ -617,7 +621,7 @@
 					<posx>600</posx>
 					<posy>290</posy>
 					<include>mediaflags</include>
-					<visible>![Window.IsActive(videoosd) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]]</visible>
+					<visible>![Window.IsActive(videoosd) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
 					<visible>player.hasvideo</visible>
 					<animation effect="fade" time="400" delay="500" reversible="false">Visible</animation>
 				</control>
@@ -626,7 +630,7 @@
 					<posx>285</posx>
 					<posy>310</posy>
 					<include>mediaflagsAudio</include>
-					<visible>![Window.IsActive(musicosd) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]]</visible>
+					<visible>![Window.IsActive(musicosd) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
 					<visible>!player.hasvideo</visible>
 					<animation effect="fade" time="400" delay="500" reversible="false">Visible</animation>
 				</control>
@@ -1128,7 +1132,7 @@
                     <include>mediaflags</include>
                     <animation time="300" effect="fade" delay="300">Visible</animation>
                     <animation time="100" effect="fade" delay="0">Hidden</animation>
-                    <visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]]</visible>
+                    <visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
 					<animation effect="slide" end="0,-210" time="0" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
                 </control>
 
@@ -1365,7 +1369,7 @@
 					<posx>585</posx>
 					<posy>215</posy>
 					<include>mediaflags</include>
-					<visible>![Window.IsActive(videoosd) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]]</visible>
+					<visible>![Window.IsActive(videoosd) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
 					<visible>player.hasvideo</visible>
 					<animation effect="fade" time="400" delay="500" reversible="false">Visible</animation>
 				</control>
@@ -1394,7 +1398,7 @@
 				<align>right</align>
 				<textcolor>$VAR[mediaFlagsFontColor]</textcolor>
 				<label>$VAR[OSDLabel3]</label>
-				<visible>!Skin.String(osdmediaflagsstyle,disabled) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]</visible>
+				<visible>!Skin.String(osdmediaflagsstyle,disabled) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]</visible>
 				<animation effect="fade" time="400" delay="500" reversible="false">Visible</animation>
 			</control>
 				
@@ -1500,7 +1504,7 @@
 				<aligny>bottom</aligny>
 				<texture background="true" fallback="colors/color_transparent.png">$VAR[VideoPlayerClearLogo]</texture>
 				<aspectratio scalediffuse="false" align="left" aligny="bottom">keep</aspectratio>
-				<visible>player.paused + !Control.IsVisible(552233) + !Skin.HasSetting(OSDShowClearLogo) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]</visible>
+				<visible>player.paused + !Control.IsVisible(552233) + !Skin.HasSetting(OSDShowClearLogo) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]</visible>
 			</control>
 
 			<!-- OSDLabel7 -->
@@ -1518,7 +1522,7 @@
 				<label>[B]$VAR[OSDLabel7][/B]</label>
 				<scroll>false</scroll>
 				<visible>player.paused + String.Contains(Control.GetLabel(1),color_transparent) + !Control.IsVisible(552233)</visible>
-				<visible>player.paused + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]</visible>
+				<visible>player.paused + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]</visible>
 			</control>
 			<!-- OSDLabel8 -->
 			<control type="label">
@@ -1535,7 +1539,7 @@
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[OSDLabel8]</label>
 				<scroll>false</scroll>
-				<visible>player.paused + !Control.IsVisible(552233) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]</visible>
+				<visible>player.paused + !Control.IsVisible(552233) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]</visible>
 			</control>
 			
 			<!--Clock-->
@@ -1629,7 +1633,7 @@
 					<scroll>false</scroll>
                     <animation time="300" effect="fade" delay="300">Visible</animation>
                     <animation time="100" effect="fade" delay="0">Hidden</animation>
-					<visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]]</visible>
+					<visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
 				</control>
 			
 			<control type="group">
@@ -1649,7 +1653,7 @@
 					<scroll>false</scroll>
                     <animation time="300" effect="fade" delay="300">Visible</animation>
                     <animation time="100" effect="fade" delay="0">Hidden</animation>
-					<visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]]</visible>
+					<visible>![[Window.IsActive(musicosd) | Window.IsActive(videoosd)] + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
 										  
 																											 
 																	   
@@ -2206,7 +2210,7 @@
 			<onleft>200</onleft>
 			<onright></onright>
 			<orientation>horizontal</orientation>
-            <visible>![Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(subtitlesearch) | Window.IsActive(sliderdialog)]</visible>
+            <visible>![Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(OSDSubtitleSettings) | Window.IsActive(sliderdialog)]</visible>
 			<control type="button" id="101">
 				<!--Audio Settings-->
 				<width>60</width>
@@ -2265,7 +2269,7 @@
 			<ondown></ondown>
 			<onleft></onleft>
 			<onright>101</onright>
-            <visible>![Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(subtitlesearch) | Window.IsActive(sliderdialog)]</visible>
+            <visible>![Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(OSDSubtitleSettings) | Window.IsActive(sliderdialog)]</visible>
 			<orientation>horizontal</orientation>
 			<control type="button" id="201">
 				<!--Skip Back-->
@@ -2439,7 +2443,7 @@
             <bottom>166</bottom>
             <width>800</width>
             <visible>Window.IsActive(videoosd)</visible>
-            <visible>![Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(subtitlesearch) | Window.IsActive(sliderdialog)]</visible>
+            <visible>![Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(OSDSubtitleSettings) | Window.IsActive(sliderdialog)]</visible>
 			<visible>!String.IsEmpty(Player.Duration)</visible>
 			<action>seek</action>
             <texturefocus></texturefocus>
@@ -2461,7 +2465,6 @@
             <height>60</height>
             <include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
             <visible>Skin.HasSetting(EnableTouchSupport)</visible>
-            <visible>!Window.IsActive(subtitlesearch)</visible>
             <visible>!Window.IsActive(sliderdialog)</visible>
             <animation type="Conditional" condition="player.paused | player.forwarding | player.rewinding">
                 <effect type="slide" start="0,0" end="-160,0" time="200" tween="cubic" easing="inout" delay="0" />
@@ -2506,7 +2509,7 @@
 			<animation effect="slide" end="220,-90" time="0" condition="player.hasaudio + Skin.HasSetting(UseSlimOSDPanel)">Conditional</animation>	
 			<animation effect="slide" end="70,15" time="0" condition="player.hasaudio + !Skin.HasSetting(UseSlimOSDPanel)">Conditional</animation>
 			<animation effect="slide" end="0,-20" time="0" condition="player.hasvideo + Skin.HasSetting(UseNetflixOSDPanel)">Conditional</animation>
-			<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(selectdialog)]</visible>
+			<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(selectdialog)]</visible>
 			<control type="togglebutton" id="201">
 				<description>Skip Back or previous channel</description>
 				<width>$PARAM[size]</width>
@@ -2883,6 +2886,7 @@
 			<textureslidernibfocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">diffuse/seekslider_ball.png</textureslidernibfocus>
 			<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show) + !VideoPlayer.Content(LiveTV)</visible>
             <animation effect="slide" end="50" time="0" condition="player.hasaudio + !Skin.HasSetting(HideOSDDisc)">Conditional</animation>
+			<animation effect="slide" start="0" end="0,150" time="350" condition="Player.HasVideo + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
             <visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(selectdialog)]</visible>     		
         </control>
 		
@@ -3175,6 +3179,7 @@
 	<include name="OSDInfoPanelNetflix">
 		<!--OSD Info Panel-->
 		<control type="group">
+		
 			<!-- dim video if info is up -->
 			<control type="group">
 				<visible>Skin.HasSetting(EnableOSDInfo)</visible>
@@ -3213,8 +3218,8 @@
 				<posy>250</posy>
 				<width>1380</width>
 				<height>650</height>
+				<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]</visible>
 				<orientation>vertical</orientation>
-				<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(subtitlesearch)]</visible>
 				<control type="label">
 					<align>left</align>
 					<width>250</width>
@@ -3303,38 +3308,33 @@
         <value>$LOCALIZE[31040]</value>
 	 </variable>
      
-	 <variable name="OSDLabel2">
+	<variable name="OSDLabel2">
         <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(Episodes)">$INFO[VideoPlayer.Episode]. $INFO[VideoPlayer.Title]</value>
         <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName]</value>
         <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show)">$INFO[VideoPlayer.Title]</value>
-        
-	 </variable>
-    
-	<variable name="OSDLabelDefaultNoInfo">
-        <value condition="!Skin.HasSetting(UseSlimOSDPanel) + Player.HasVideo + !Skin.HasSetting(EnableOSDInfo)">[CR]</value>
-        <value condition="!Skin.HasSetting(UseSlimOSDPanel) + Player.HasVideo + Skin.HasSetting(EnableOSDInfo)"></value>
     </variable>
+    
 	<variable name="OSDLabel3">
         <value condition="Player.HasVideo + VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.NextTitle) + !Window.IsActive(VideoOSD)">$LOCALIZE[19031]: $INFO[VideoPlayer.NextTitle]</value>
         <value condition="Player.HasVideo + !VideoPlayer.Content(livetv) + String.IsEmpty(VideoPlayer.NextTitle) + !Window.IsActive(VideoOSD) + !String.IsEmpty(player.chaptercount) + !String.IsEqual(player.chaptercount,00)">$INFO[player.chapter,[B]$LOCALIZE[21396]:[/B] ,]$INFO[player.chaptercount,/,]$INFO[player.chaptername, - ,]</value>
 		<value condition="!String.IsEmpty(VideoPlayer.Genre) + !String.Contains(VideoPlayer.Genre,unknown)">$LOCALIZE[515]: $INFO[VideoPlayer.Genre]</value>
-     </variable>
+    </variable>
 	
 	<variable name="OSDLabel4">   <!-- added for specific MUSIC INFO , ALBUM NAME YEAR GENRE  -->
         <value condition="Player.HasAudio">Album : $INFO[MusicPlayer.Album] ($INFO[MusicPlayer.Year])[CR]Genre: $INFO[MusicPlayer.Genre]</value>
 		 <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.ChannelName)">$INFO[MusicPlayer.ChannelName]</value>
         <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.ChannelName) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName))">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
-	 </variable>
+	</variable>
 	 
-	 <variable name="OSDLabel5">   <!-- added MUSIC INFO , ARTIST - TITLE -->
+	<variable name="OSDLabel5">   <!-- added MUSIC INFO , ARTIST - TITLE -->
         <value condition="Player.HasAudio">$INFO[MusicPlayer.Artist][CR]• $INFO[MusicPlayer.Title] •</value>
 		<value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]</value>
         <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.ChannelName)">$INFO[MusicPlayer.ChannelName]</value>
         <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.ChannelName) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName))">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
-	 </variable>
+	</variable>
 	<variable name="OSDLabel6">	<!-- added for MUSIC INFO Playlist vievs -->
 		<value condition="Player.HasAudio + !Window.IsActive(MusicOSD) + MusicPlayer.HasNext">[COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]$LOCALIZE[19031] • [/COLOR]$INFO[MusicPlayer.Offset(1).Artist] - $INFO[MusicPlayer.Offset(1).Title] • [COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]$LOCALIZE[554]:[/COLOR] $INFO[MusicPlayer.Offset(1).PlaylistPosition][COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]/[/COLOR]$INFO[MusicPlayer.PlaylistLength][CR]$INFO[MusicPlayer.Offset(2).Artist] - $INFO[MusicPlayer.Offset(2).Title] • [COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]$LOCALIZE[554]:[/COLOR] $INFO[MusicPlayer.Offset(2).PlaylistPosition][COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]/[/COLOR]$INFO[MusicPlayer.PlaylistLength][CR]$INFO[MusicPlayer.Offset(3).Artist] - $INFO[MusicPlayer.Offset(3).Title] • [COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]$LOCALIZE[554]:[/COLOR] $INFO[MusicPlayer.Offset(3).PlaylistPosition][COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]/[/COLOR]$INFO[MusicPlayer.PlaylistLength]</value>
-     </variable>
+    </variable>
 		
 	<variable name="OSDLabel7">
 		<value condition="Player.HasVideo + String.IsEqual(Window(Home).Property(subtitlemenu), show)"></value>
@@ -3680,7 +3680,7 @@
      <include name="HideOsdConditions">
         <visible>
             !Window.IsActive(pvrchannelguide) + !Window.IsActive(PVROSDTeletext) + !Window.IsActive(PVROSDChannels) + !Window.IsActive(videobookmarks) + 
-            !Window.IsActive(sliderdialog) + !Window.IsActive(subtitlesearch) + !Window.IsActive(script.pseudotv.TVOverlay.xml) + 
+            !Window.IsActive(sliderdialog) + !Window.IsActive(OSDSubtitleSettings) + !Window.IsActive(script.pseudotv.TVOverlay.xml) + 
             !Window.IsActive(script.pseudotv.live.TVOverlay.xml) + !Window.IsActive(selectdialog) + !Window.IsActive(musicplaylist)
         </visible>
      </include>

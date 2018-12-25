@@ -163,7 +163,7 @@
         <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
         
-        <!-- info overlay ,check-->
+        <!-- info overlay -->
         <control type="group" id="77999">
             <visible>Skin.HasSetting(EnableInfoOverlay) + System.IdleTime(3)</visible>
             <visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)</visible>

@@ -250,24 +250,6 @@
 				<texture border="5">$VAR[osdpanelimage]</texture>
 				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 			</control>
-			<!--diffuse bg for title if info shown, ugly, but wished, not merge untill optionial
-			<control type="group">
-				<posx>0</posx>
-				<visible>Skin.HasSetting(EnableOSDInfo)</visible>
-				<control type="image">
-					<posy>-40</posy>
-					<width>100%</width>
-					<height>30</height>
-					<texture aligny="top" border="5" colordiffuse="$INFO[Skin.String(OSDPanelColor)]">diffuse/gradient.png</texture>
-				</control>
-				<control type="image">
-					<posy>-15</posy>
-					<width>100%</width>
-					<height>30</height>
-					<texture flipy="true" aligny="bottom" border="5" colordiffuse="$INFO[Skin.String(OSDPanelColor)]">diffuse/gradient.png</texture>
-				</control>
-			</control>
-			 -->
 			<!-- music cover with cd art -->
             <control type="group">
                 <visible>Player.HasAudio + !Skin.HasSetting(HideOSDDisc)</visible>
@@ -438,8 +420,6 @@
 			<control type="group">
 				<animation effect="slide" end="50" time="0" condition="player.hasaudio + !Skin.HasSetting(HideOSDDisc)">Conditional</animation>
 				<animation effect="slide" start="0" end="0,150" time="350" condition="Player.HasVideo + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
-				
-				
 				<!-- MOVIE OSDLabel 1 & 2 in One -->
 				<control type="label">
 					<posy>-50</posy>
@@ -1070,8 +1050,6 @@
 			</control>
 			
 			<control type="group">
-				
-				
 				<!-- MOVIE OSDLabel1 & 2 in One Line -->
 				<control type="label">
 					<posx>0</posx>
@@ -1504,7 +1482,6 @@
 				<scroll>false</scroll>
 				<visible>player.paused + !Control.IsVisible(552233) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]</visible>
 			</control>
-			
 			<!--Clock-->
 			<control type="label">
 				<right>23</right>
@@ -1536,9 +1513,7 @@
 		</control>
 	</include>
 	
-	
-	
-    <include name="OSDPanelModernSlimMusic">
+	<include name="OSDPanelModernSlimMusic">
 		<control type="group">
 			<bottom>0</bottom>
 			<height>200</height>
@@ -1601,12 +1576,11 @@
 			
 			<control type="group">
 				<!-- OSDLabel5 ARTIST - TITLE -->
-													  
-                <control type="label">
-					<posx>400</posx>			<!-- default is 430 -->
+				<control type="label">
+					<posx>400</posx>
 					<posy>0</posy>
 					<width>80%</width>
-					<align>center</align>		<!-- default is left -->
+					<align>center</align>
 					<font>Reg32</font>
 					<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
@@ -1912,9 +1886,6 @@
 				<width>1560</width>
 				<texture>osd/classic/osd_panel.png</texture>
 			</control>
-			
-			
-			
 			<!--Cover-->
 			<control type="image">
 				<!--No Movie-->
@@ -3161,7 +3132,6 @@
 				<texture border="15">special://home/addons/resource.images.backgroundoverlays.basic/resources/Vignette.png</texture>
 				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 			</control>
-			
 			<!--Video Cover-->
 			<control type="image" id="39623">
 				<posx>60</posx>
@@ -3184,8 +3154,8 @@
 				<posy>250</posy>
 				<width>1380</width>
 				<height>650</height>
-				<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]</visible>
 				<orientation>vertical</orientation>
+				<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]</visible>
 				<control type="label">
 					<align>left</align>
 					<width>250</width>
@@ -3279,8 +3249,7 @@
         <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName]</value>
         <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show)">$INFO[VideoPlayer.Title]</value>
     </variable>
-    
-	<variable name="OSDLabel3">
+    <variable name="OSDLabel3">
         <value condition="Player.HasVideo + VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.NextTitle) + !Window.IsActive(VideoOSD)">$LOCALIZE[19031]: $INFO[VideoPlayer.NextTitle]</value>
         <value condition="Player.HasVideo + !VideoPlayer.Content(livetv) + String.IsEmpty(VideoPlayer.NextTitle) + !Window.IsActive(VideoOSD) + !String.IsEmpty(player.chaptercount) + !String.IsEqual(player.chaptercount,00)">$INFO[player.chapter,[B]$LOCALIZE[21396]:[/B] ,]$INFO[player.chaptercount,/,]$INFO[player.chaptername, - ,]</value>
 		<value condition="!String.IsEmpty(VideoPlayer.Genre) + !String.Contains(VideoPlayer.Genre,unknown)">$LOCALIZE[515]: $INFO[VideoPlayer.Genre]</value>

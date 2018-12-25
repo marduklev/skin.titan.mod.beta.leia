@@ -165,11 +165,6 @@
             </control>
         </control>
     </include>
-
-	<include name="NowPlayingModern">
-		<include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>
-        <include condition="!Skin.HasSetting(DisableNowPlayingInfoBar)">NowPlayingInfoBar</include>
-    </include>
 	
     <include name="NowPlayingInfoBar">
         <control type="group" id="88888">

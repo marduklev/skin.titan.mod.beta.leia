@@ -730,28 +730,13 @@
     </include>
     
     <include name="StarRating">
-        <control type="group">
-            <width>315</width>
-            <height>55</height>
-            <right>0</right>
-            <control type="label">
-                <right>0</right>
-                <height>55</height>
-                <width>315</width>
-                <font>Reg36</font>
-                <align>right</align>
-                <aligny>center</aligny>
-                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
-                <label>$VAR[rating_value_label]</label>
-            </control>
-            <control type="image">
-                <right>0</right>
-                <width>315</width>
-                <height>55</height>
-                <aspectratio align="left" aligny="center">keep</aspectratio>
-                <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
-                <texture background="true">$VAR[rating_value_texture]</texture>
-            </control>
+        <control type="image">
+			<right>0</right>
+			<width>315</width>
+			<height>55</height>
+			<aspectratio align="left" aligny="center">keep</aspectratio>
+			<colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
+			<texture background="true">$VAR[rating_value_texture]</texture>
         </control>
     </include>
     <!-- NEW rating STARS for netflix view/home menu-->
@@ -817,10 +802,7 @@
 		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter)">flags/metacritic.png</value>     
     </variable>  
 	<variable name="image_StudioLogo">
-		<value condition="String.IsEqual(Skin.String(studiologos.path),resource://resource.images.studios.coloured/)">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</value>
-		<value condition="String.IsEqual(Skin.String(studiologos.path),resource://resource.images.studios.white/)">$INFO[ListItem.Studio,resource://resource.images.studios.white/,.png]</value>
-		<value condition="String.IsEqual(Skin.String(studiologos.path),resource://resource.images.studios.squarehd/)">$INFO[ListItem.Studio,resource://resource.images.studios.squarehd/,.png]"</value>		
-		<value condition="!String.IsEmpty(Skin.String(studiologos.path))">$INFO[ListItem.Studio,$INFO[Skin.String(studiologos.path)],.png]</value>
+		<value condition="Skin.HasSetting(NoSHStudioInFooter)">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Studio].png</value>
 		<value>$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value>				
 	</variable>
 	

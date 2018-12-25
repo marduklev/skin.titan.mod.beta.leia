@@ -766,13 +766,15 @@
             <pagecontrol>317</pagecontrol>
             <orientation>vertical</orientation>
             <visible>String.IsEqual(Window(Home).Property(SkinSettingSection),17)</visible>
-            <!-- media library views -->
-            <control type="label" id="13020">
+            
+			
+			<!-- Header Artwork Lib -->
+            <control type="label" id="170001">
                 <include>SkinSettings_Header</include>
-                <label>$LOCALIZE[31221]</label>
+                <label>Artwork Settings</label>
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
-            <!--Show Fanart Background-->
+			 <!--Show Fanart Background-->
             <control type="radiobutton" id="320">
                 <include>SkinSettings_Button</include>
                 <label>31141</label>
@@ -803,63 +805,14 @@
                 <onclick>Skin.ToggleSetting(DisableLandscapeThumbs)</onclick>
                 <selected>Skin.HasSetting(DisableLandscapeThumbs)</selected>
             </control>
-            <!-- OST theme playback by lib 
-            <control type="radiobutton" id="++">
-            <include>SkinSettings_Button</include>
-                <label>Play OST Themes</label>
-                <onclick>Skin.ToggleSetting(LibraryOSTthemes)</onclick>
-                <selected>Skin.HasSetting(LibraryOSTthemes)</selected>
-            </control> removed -->
-			<!--
-			<include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
-                <param name="id" value="55145" />
-                <param name="addon" value="script.tvmelodies" />
-            </include> 
-			-->
-			<!-- Local Trailer -->
-            <control type="radiobutton" id="55146">
-				<include>SkinSettings_Button</include>
-				<label>Placeholder/WIP: Always use Local Traier</label>
-				<onclick>Skin.ToggleSetting(Library_NoOnlineLookupTrailer)</onclick>
-				<selected>Skin.HasSetting(Library_NoOnlineLookupTrailer)</selected>
-			</control>
-            <!-- alternative logo location -->
+			 <!-- alternative logo location -->
             <control type="button" id="13027">
                 <include>SkinSettings_Button</include>
                 <label>31327</label>
                 <label2>$INFO[Skin.String(ClearLogoLocation.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ClearLogoLocation,header=$LOCALIZE[31327])</onclick>
             </control>
-            <!-- show movie title -->
-            <control type="radiobutton" id="13028">
-                <include>SkinSettings_Button</include>
-                <label>31235</label>
-                <onclick>Skin.ToggleSetting(ShowMovieTitleHeader)</onclick>
-                <selected>Skin.HasSetting(ShowMovieTitleHeader)</selected>
-            </control>
-            <!-- style for codec info -->
-            <control type="button" id="13029">
-                <include>SkinSettings_Button</include>
-                <label>31632</label>
-                <label2>$INFO[Skin.String(mediaflagsstyle.label)]</label2>
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=mediaflagsstyle,header=$LOCALIZE[31632])</onclick>
-                <visible>!Skin.HasTheme(classic)</visible>
-            </control>
-			<!-- style for codec frames netflix detail row -->
-            <control type="radiobutton" id="13033">
-                <include>SkinSettings_Button</include>
-                <label>Use Hard Edge A/V Codec Info Frames for Netflix Views</label>
-                <onclick>Skin.ToggleSetting(HardEdgeNetflixFrames)</onclick>
-                <selected>Skin.HasSetting(HardEdgeNetflixFrames)</selected>
-            </control>
-			<!-- style for Codec Frames and Label in same color -->
-            <control type="radiobutton" id="13034">
-                <include>SkinSettings_Button</include>
-                <label>Use Codec Frames and Codec Label in same color</label>
-                <onclick>Skin.ToggleSetting(CodecSameLabelColorAsFrames)</onclick>
-                <selected>Skin.HasSetting(CodecSameLabelColorAsFrames)</selected>
-            </control>
-            <!-- animated posters -->
+			<!-- animated posters -->
             <control type="radiobutton" id="31706">
                 <include>SkinSettings_Button</include>
                 <label>31706</label>
@@ -880,19 +833,56 @@
                 <selected>Skin.HasSetting(AnimatedFanart)</selected>
                 <visible>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</visible>
             </control>
-		   <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
-                <param name="id" value="85151" /><!-- look again dependency 85151 -->
-                <param name="label" value="31187" /><!-- look again dependency 31187 -->
-                <param name="action" value="RunPlugin(plugin://script.artwork.beef)" />
-                <param name="visible" value="!System.HasAddon(script.artwork.beef)" />
-            </include>
-            <control type="radiobutton" id="17118">
+			<control type="radiobutton" id="17118">
                 <include>SkinSettings_Button</include>
                 <label>31498</label>
                 <onclick>Skin.ToggleSetting(EnableFakeDiscArt)</onclick>
                 <selected>Skin.HasSetting(EnableFakeDiscArt)</selected>
             </control>
 			
+			<!-- Header studio Lib -->
+            <control type="label" id="170003">
+                <include>SkinSettings_Header</include>
+                <label>Studio Logos</label>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            </control>
+			<control type="radiobutton" id="17120">
+                <include>SkinSettings_Button</include>
+                <label>31509</label>
+                <onclick>Skin.ToggleSetting(StudioInFooter)</onclick>
+                <selected>Skin.HasSetting(StudioInFooter)</selected>
+                <visible>!Skin.HasTheme(classic)</visible>
+            </control>
+			<control type="radiobutton" id="170010">
+                <include>SkinSettings_Button</include>
+                <label>Dont use Skinhelper for showing Studio Logos</label>
+                <onclick>Skin.ToggleSetting(NoSHStudioInFooter)</onclick>
+                <selected>Skin.HasSetting(NoSHStudioInFooter)</selected>
+                <visible>!Skin.HasTheme(classic)</visible>
+            </control>
+			<!-- Header ratings Lib -->
+            <control type="label" id="170002">
+                <include>SkinSettings_Header</include>
+                <label>Ratings</label>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            </control>
+			<!--Thumbs up rate value-->
+            <control type="button" id="172001">
+                <include>SkinSettings_Button</include>
+                <label>Thumbs Up rate value (User Rating Addon)</label>
+                <label2>$INFO[Skin.String(ThumbsUpRateValue.label)]</label2>
+                <visible>System.HasAddon(script.user.rating)</visible>
+				<!--<visible>Skin.String(HomeLayout,netflix2)</visible>-->
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsUpRateValue,header=Thumbs Up rate value)</onclick>
+            </control>
+            <!--Thumbs down rate value-->
+            <control type="button" id="172002">
+                <include>SkinSettings_Button</include>
+                <label>Thumbs Down rate value (User Rating Addon)</label>
+                <label2>$INFO[Skin.String(ThumbsDownRateValue.label)]</label2>
+                <visible>System.HasAddon(script.user.rating)</visible>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsDownRateValue,header=Thumbs Down rate value)</onclick>
+            </control>
 			<control type="radiobutton" id="31701">
                 <include>SkinSettings_Button</include>
                 <label>Show Thumbs instead of Stars Rating in Home Menu and Video Info</label>
@@ -914,22 +904,6 @@
 				<param name="skinsetting" value="ThumbUpColor" />
 				<param name="visible" value="Skin.HasSetting(NetflixThumbRating) + Skin.String(HomeLayout,netflix2)" />
 			</include>
-			<!--Thumbs up rate value-->
-            <control type="button" id="172001">
-                <include>SkinSettings_Button</include>
-                <label>Thumbs Up rate value(User Rating)</label>
-                <label2>$INFO[Skin.String(ThumbsUpRateValue.label)]</label2>
-                <!--<visible>Skin.String(HomeLayout,netflix2)</visible>-->
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsUpRateValue,header=Thumbs Up rate value)</onclick>
-            </control>
-            <!--Thumbs down rate value-->
-            <control type="button" id="172002">
-                <include>SkinSettings_Button</include>
-                <label>Thumbs Down rate value(User Rating)</label>
-                <label2>$INFO[Skin.String(ThumbsDownRateValue.label)]</label2>
-                 <!--<visible>Skin.String(HomeLayout,netflix2)</visible>-->
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsDownRateValue,header=Thumbs Down rate value)</onclick>
-            </control>
             <!--Thumbs up min. value
             <control type="button" id="17200">
                 <include>SkinSettings_Button</include>
@@ -956,13 +930,7 @@
                 <visible>!Skin.HasTheme(classic)</visible>
                 <selected>Skin.HasSetting(EnableWhiteRatingInFooter)</selected>
             </control>
-			<control type="radiobutton" id="17120">
-                <include>SkinSettings_Button</include>
-                <label>31509</label>
-                <onclick>Skin.ToggleSetting(StudioInFooter)</onclick>
-                <selected>Skin.HasSetting(StudioInFooter)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
-            </control>
+			
             <control type="radiobutton" id="399767">
                 <include>SkinSettings_Button</include>
                 <label>31607</label>
@@ -972,7 +940,7 @@
             </control>
 			<control type="radiobutton" id="17123">
                 <include>SkinSettings_Button</include>
-                <label>TVdb and TMdb RatingInFooter</label>
+                <label>TVdb and TMdb Rating In Footer</label>
                 <onclick>Skin.ToggleSetting(TV_TMdbRatingInFooter)</onclick>
                 <selected>Skin.HasSetting(TV_TMdbRatingInFooter)</selected>
                 <visible>!Skin.HasTheme(classic)</visible>
@@ -984,7 +952,67 @@
                 <selected>Skin.HasSetting(RTRatingInFooter)</selected>
                 <visible>!Skin.HasTheme(classic)</visible>
             </control>
-            <control type="radiobutton" id="17122">
+            
+			<!-- Header trailer Lib -->
+            <control type="label" id="170005">
+                <include>SkinSettings_Header</include>
+                <label>Media Flag Settings</label>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            </control>
+			<!-- style for codec info -->
+            <control type="button" id="13029">
+                <include>SkinSettings_Button</include>
+                <label>31632</label>
+                <label2>$INFO[Skin.String(mediaflagsstyle.label)]</label2>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=mediaflagsstyle,header=$LOCALIZE[31632])</onclick>
+                <visible>!Skin.HasTheme(classic)</visible>
+            </control>
+			<!-- style for codec frames netflix detail row -->
+            <control type="radiobutton" id="13033">
+                <include>SkinSettings_Button</include>
+                <label>Use Hard Edge A/V Codec Info Frames (just Netflix Views)</label>
+                <onclick>Skin.ToggleSetting(HardEdgeNetflixFrames)</onclick>
+                <selected>Skin.HasSetting(HardEdgeNetflixFrames)</selected>
+            </control>
+			<!-- style for Codec Frames and Label in same color -->
+            <control type="radiobutton" id="13034">
+                <include>SkinSettings_Button</include>
+                <label>Use Codec Frames and Codec Label in same color (just Netflix Views)</label>
+                <onclick>Skin.ToggleSetting(CodecSameLabelColorAsFrames)</onclick>
+                <selected>Skin.HasSetting(CodecSameLabelColorAsFrames)</selected>
+            </control>
+			
+			<!-- Header trailer Lib -->
+            <control type="label" id="170004">
+                <include>SkinSettings_Header</include>
+                <label>Trailer Settings</label>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            </control>
+			
+			<!-- Local Trailer -->
+            <control type="radiobutton" id="55146">
+				<include>SkinSettings_Button</include>
+				<label>Just Play Locally Stored Trailers (Never do Online Trailer Lookup)</label>
+				<onclick>Skin.ToggleSetting(Library_NoOnlineLookupTrailer)</onclick>
+				<selected>Skin.HasSetting(Library_NoOnlineLookupTrailer)</selected>
+			</control>
+			<!-- media library views -->
+            <control type="label" id="13020">
+                <include>SkinSettings_Header</include>
+                <label>$LOCALIZE[31221]</label>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            </control>
+           
+           
+            <!-- show movie title -->
+            <control type="radiobutton" id="13028">
+                <include>SkinSettings_Button</include>
+                <label>31235</label>
+                <onclick>Skin.ToggleSetting(ShowMovieTitleHeader)</onclick>
+                <selected>Skin.HasSetting(ShowMovieTitleHeader)</selected>
+            </control>
+            
+			<control type="radiobutton" id="17122">
                 <include>SkinSettings_Button</include>
                 <label>31613</label>
                 <onclick>Skin.ToggleSetting(DisableSideBladeIndicator)</onclick>
@@ -1006,12 +1034,12 @@
             <!-- video information dialog -->
             <control type="label" id="20159">
                 <include>SkinSettings_Header</include>
-                <label>$LOCALIZE[20159]</label> <!-- uncorrect string in kodi main res-german ?-->
+                <label>$LOCALIZE[12003]</label> <!-- uncorrect string in kodi main res-german ?-->
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
             <control type="radiobutton" id="17124">
                 <include>SkinSettings_Button</include>
-                <label>Use Netflix Info</label>
+                <label>Use $LOCALIZE[31018] $LOCALIZE[12003]</label>
                 <onclick>Skin.ToggleSetting(UseNetflixInfoDialog)</onclick> 				
                 <selected>Skin.HasSetting(UseNetflixInfoDialog)</selected>
             </control>
@@ -1063,7 +1091,7 @@
                 <label>Enable auto-hide details when trailer is playing</label>
                 <onclick>Skin.ToggleSetting(AutoHideDetailsOnTrailer)</onclick>
                 <selected>Skin.HasSetting(AutoHideDetailsOnTrailer)</selected>
-                <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
+                <visible>Skin.HasSetting(UseNetflixInfoDialog)</visible>
             </control>
 			<control type="radiobutton" id="31674">
                 <!-- hide filename in videoinfo -->
@@ -3209,7 +3237,14 @@
                 <param name="id" value="31007" />
                 <param name="addon" value="service.nextup.notification" />
             </include>
-			<!-- moved to lib settings -->
+			<include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+                <param name="id" value="55143" />
+                <param name="addon" value="plugin.video.netflix" />
+            </include>
+			<include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+                <param name="id" value="55142" />
+                <param name="addon" value="script.user.rating" />
+            </include>
 			<include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="55145" />
                 <param name="addon" value="script.tvmelodies" />

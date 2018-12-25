@@ -33,8 +33,8 @@
     <view id="Wide" value="518" languageid="31659" type="all" />
 	<view id="Logos" value="503" languageid="31461" type="movies,setmovies,tvshows,musicvideos" />
 	<view id="FanArt" value="507" languageid="31434" type="movies,setmovies,tvshows,musicvideos,seasons,sets,pictures" />
-	<view id="Netflix" value="523" languageid="31018" type="movies,setmovies,tvshows,musicvideos,seasons,sets" />
-	<view id="Netflix Landscape" value="525" languageid="31918" type="movies,setmovies,tvshows,musicvideos,seasons,sets,episodes" />
+	<view id="Netflix" value="523" languageid="31018" type="!episodes,all" />
+	<view id="Netflix Landscape" value="525" languageid="31918" type="all" />
 	<view id="Wide Netflix" value="526" languageid="31827" type="seasons" />
 	<view id="TSE" value="527" languageid="31901" type="tvshows" />
 </views>

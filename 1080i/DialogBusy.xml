@@ -9,6 +9,7 @@
 	
         <control type="group">
             <visible>![Skin.HasSetting(NetflixAutoTrailer) + Window.IsActive(Home)]</visible>
+			<visible>!Window.IsVisible(startup)</visible>
             <posx>960</posx>
             <!--Center-->
             <posy>540</posy>

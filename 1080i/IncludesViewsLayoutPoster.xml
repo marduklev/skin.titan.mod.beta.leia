@@ -423,10 +423,14 @@
 		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + !String.Contains(ListItem.FolderPath,music)">$VAR[MovieGenreIconVar]</value>
 		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVar]</value>
 		<value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)] + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.StudioLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value>
+		<!-- $INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Label].png
+		default <value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)] + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.StudioLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value> -->
 		<value condition="Container.Content(actors) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
 		<value condition="Container.Content(directors) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
 		<value condition="Container.Content(years)">DefaultYear.png</value>
 		<value condition="Container.Content(countries)">DefaultCountry.png</value>
+	  	<!-- 
+		<value condition="Container.Content(countries)">resource://resource.images.skinicons.wide/Country.png</value> -->
 		<value condition="Container.Content(tags)">DefaultTags.png</value>
 		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 	</variable>
@@ -445,8 +449,7 @@
 		<value condition="String.IsEqual(ListItem.Label,$LOCALIZE[21452])">dialogs/filebrowser/DefaultAddSource.png</value>
 		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVarList]</value>
 		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)]">$VAR[MovieGenreIconVarList]</value>
-		<value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)] + System.HasAddon(resource.images.studios.coloured) + Skin.HasSetting(PreferColorStudioLogos)">resource://resource.images.studios.coloured/$INFO[ListItem.Label,,.png]</value>
-		<value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)]">resource://resource.images.studios.white/$INFO[ListItem.Label,,.png]</value>
+		<value condition="Container.Content(studios)">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Label].png</value>
 		<value condition="Container.Content(actors) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
 		<value condition="Container.Content(directors) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
 		<value condition="!String.IsEmpty(ListItem.Property(character)) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>

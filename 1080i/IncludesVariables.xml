@@ -252,12 +252,12 @@
         <value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value condition="Container.Content(artists)">resource://resource.images.skinicons.wide/artist.png</value>
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)]">resource://resource.images.skinicons.wide/genre.png</value>
-        <value condition="Container.Content(studios)">$INFO[ListItem.Label,special://skin/extras/flags/studios/,.png]</value>
+        <value condition="Container.Content(studios)">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Label].png</value>
 		<value condition="Container.Content(actors) + String.IsEmpty(ListItem.Thumb)">resource://resource.images.skinicons.wide/ActorPoster.png</value>
 		<value condition="Container.Content(directors) + String.IsEmpty(ListItem.Thumb)">resource://resource.images.skinicons.wide/ActorPoster.png</value>
 		<value condition="Container.Content(years)">resource://resource.images.skinicons.wide/Year.png</value>
 		<value condition="Container.Content(countries)">resource://resource.images.skinicons.wide/Country.png</value>
-		<value condition="Container.Content(tags)">resource://resource.images.skinicons.wide/Tags.png</value>
+	  <value condition="Container.Content(tags)">resource://resource.images.skinicons.wide/Tags.png</value>
     </variable>
 
 	<variable name="VideoInfoPosterImage">
@@ -511,7 +511,7 @@
 		<value condition="Container.content(Albums)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Artist]</value>
 		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ListItem.Property(season_finale)">$INFO[ListItem.Premiered,, • ]$INFO[ListItem.Duration,, min. • ]$LOCALIZE[31336]</value>
 		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ListItem.Property(series_finale)">$INFO[ListItem.Premiered,, • ]$INFO[ListItem.Duration,, min. • ]$LOCALIZE[31335]</value>
-		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]">$INFO[ListItem.Premiered,, • ]$VAR[ListItemDuration,, •]$INFO[ListItem.Rating, ,]</value>
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]">$INFO[ListItem.Premiered,, • ]$VAR[ListItemDuration,, •]$INFO[ListItem.Rating]</value>
 		<value condition="Container.Content(addons) + !String.IsEmpty(ListItem.AddonVersion) + String.IsEmpty(ListItem.Label2)">$LOCALIZE[24051] $INFO[ListItem.AddonVersion] - $LOCALIZE[21863]: $INFO[ListItem.AddonCreator]</value>
         <value condition="Container.Content(addons) + !String.IsEmpty(ListItem.AddonVersion) + !String.IsEmpty(ListItem.Label2)">$LOCALIZE[24051] $INFO[ListItem.AddonVersion] - $LOCALIZE[21863]: $INFO[ListItem.AddonCreator] - $INFO[ListItem.Label2]</value>
 		<value condition="Container.Content(songs)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Genre,, • ]$INFO[ListItem.Album]$INFO[ListItem.Duration, • ]</value>
@@ -862,7 +862,7 @@
         <value condition="!String.IsEmpty(Container.Content)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[Container.Content]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]&amp;castaction=$INFO[Skin.String(videoinfo_castaction)]</value>
      </variable>
      
-     <variable name="channellogo"><!-- check, pvr changes -->
+     <variable name="channellogo"><!-- check, pvr changes, definetly need revisit -->
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 		<value condition="window.isactive(tvchannels) | window.isactive(tvguide)">$INFO[ListItem.ChannelName,resource://resource.images.thelogodb/,.png]</value>
 		<value condition="!String.IsEmpty(ListItem.Icon) + [window.isactive(tvchannels) | window.isactive(tvguide)]">$INFO[ListItem.Icon]</value>

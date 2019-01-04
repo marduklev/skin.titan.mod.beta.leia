@@ -336,9 +336,6 @@
         <!-- weather fanart -->
         <value condition="Window.IsActive(MyWeather.xml)">$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.fanartCode)]$INFO[Skin.String(WeatherFanArtPack.ext)]</value>	
 
-        <!-- section backgrounds when skinshortcuts dialog active -->
-        <value condition="Skin.HasSetting(UseSectionBackground) + !String.IsEmpty(Container(211).ListItem.Property(Background))">$INFO[Container(211).ListItem.Property(Background)]</value>
-
         <!-- section backgrounds when home active -->
         <value condition="Skin.HasSetting(UseSectionBackground) + !String.IsEmpty(Container(4444).ListItem.Property(Background)) + Control.HasFocus(4444)">$INFO[Container(4444).ListItem.Property(Background)]</value>
         <value condition="Skin.HasSetting(UseSectionBackground) + !String.IsEmpty(Container(300).ListItem.Property(Background)) + !String.Contains(Container(300).ListItem.Property(Background),widgetfanart)">$INFO[Container(300).ListItem.Property(Background)]</value>

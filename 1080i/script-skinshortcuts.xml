@@ -158,10 +158,10 @@
 					<control type="label"> <!--label-->
 						<left>150</left>
 						<width>460</width>
-						<label>W I D G E T    C O N T E N T</label>
+						<label>[B]W I D G E T    C O N T E N T[/B]</label>
 						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-						<font>Reg306</font>
+						<font>Reg22</font>
 					</control>
 					
                     <!--spotlight widget label for enhanced-->
@@ -374,7 +374,6 @@
 						<height>300</height>
                         <aspectratio>keep</aspectratio>
 						<texture background="true" aligny="center" >$INFO[Container(211).ListItem.Property(Background)]</texture>
-						<visible>Skin.HasSetting(UseSectionBackground)</visible>
 						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					</control>
 				</control>

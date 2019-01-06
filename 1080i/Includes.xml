@@ -46,6 +46,7 @@
 	<include file="View_525_Netflix_Landscape.xml" />
 	<include file="View_526_Wide_Netflix.xml" />
 	<include file="View_527_TSE.xml" />	
+    <include file="View_528_Gameflix.xml" />	
     <include file="IncludesViews.xml" />
     <include file="IncludesMediaFlags.xml" />
     <include file="IncludesViewsLayoutPoster.xml" />

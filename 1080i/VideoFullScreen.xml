@@ -18,7 +18,7 @@
 		</control>
 
 	<!-- Aspect Ratio / Zoom Info Overlay -->
-	<control type="group">
+	<control type="group" id="0">
 	
 			<left>0</left>
 			<top>300</top>
@@ -63,38 +63,52 @@
 
 	<!-- Jump to Time Code Overlay -->
 		<control type="group" id="1">
-			<visible>!String.IsEmpty(Player.SeekNumeric) + !Window.IsVisible(VideoOSD)</visible>
 			<animation type="Visible" condition="!Window.IsVisible(SeekBar)">
 				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
 				<effect type="fade" start="0" end="100" time="200"/>
 			</animation>
 			<control type="image" id="1">
-				<left>75</left>
+				<left>70</left>
 				<top>300</top>
-				<width>140</width>
-				<height>50</height>
+				<width>500</width>
+				<height>110</height>
 				<texture border="5">diffuse/panel.png</texture>
 				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+				<visible>!String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
 			</control>
 			<control type="label" id="1">
 				<left>75</left>
-				<top>300</top>
+				<top>350</top>
 				<width>140</width>
 				<height>50</height>
 				<label>$INFO[Player.SeekNumeric(hh:mm:ss)]</label>
 				<font>Bold30</font>
                 <textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
+				<visible>!String.IsEmpty(Player.SeekNumeric)</visible>
 				<aligny>center</aligny>
 				<align>center</align>
 			</control>
 			<control type="label" id="1">
 				<left>75</left>
-				<top>350</top>
+				<top>300</top>
 				<width>500</width>
 				<height>50</height>
 				<label>$LOCALIZE[31806]</label>
+				<visible>!String.IsEmpty(Player.SeekNumeric)</visible>
 				<font>Bold26</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<aligny>center</aligny>
+				<align>Left</align>
+			</control>
+			<control type="label" id="2">
+				<left>75</left>
+				<top>320</top>
+				<width>500</width>
+				<height>50</height>
+				<label>$INFO[PVR.ChannelNumberInput,Channel Number Input :[CR],]</label>
+				<font>Bold40</font>
 				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<aligny>center</aligny>

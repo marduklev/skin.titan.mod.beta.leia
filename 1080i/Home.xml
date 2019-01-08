@@ -76,6 +76,103 @@
         <include condition="Skin.String(HomeLayout, netflix2)">HomeNetflix2</include>
         <include condition="Skin.String(HomeLayout, win10)">HomeWin10</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
+		
+		<!--vertical custom shutdown, avoid autoclose setting trough activate on back Grouplist-->
+		
+		<!-- <include name="home_shutdown_onback">	 -->
+		<control type="group" >
+			<visible>String.Contains(Skin.String(HomeLayout), ver)</visible> <!-- check, WIP, -->
+			<bottom>-200</bottom>
+			<posx>10</posx>
+			<height>110</height>
+			<scrolltime tween="cubic" easing="inout">500</scrolltime>
+			<animation effect="slide" center="auto" start="0,0" end="0,-100" time="200" >Focus</animation>
+			<animation effect="slide" center="auto" start="0,-100" end="0,0" time="200" >UnFocus</animation>
+			
+			<control type="image">
+				<bottom>100</bottom>
+				<left>10</left>
+				<width>1800</width>
+				<height>100</height>
+				<texture border="15">diffuse/bgpanel.png</texture>
+				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+			</control>
+			<!--Menu-Label-->
+			<control type="label">
+				<bottom>80</bottom>
+				<left>-20</left>
+				<label>[B]$INFO[Container(311055).ListItem.Label].[/B]</label>
+				<width>560</width>
+				<height>130</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>Reg42</font>
+				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+			</control>	
+			
+			<control type="list" id="311055">
+				<posx>600</posx>
+				<bottom>100</bottom>
+				<width>1180</width>
+				<height>75</height>
+				<align>center</align>
+				<onup>Dialog.Close(shutdownmenu)</onup>
+				<ondown>Dialog.Close(shutdownmenu)</ondown>
+				
+				<onup>300</onup>
+				<ondown>300</ondown>
+				<onright>311055</onright>
+				<onleft>311055</onleft>
+				<onback>ClearProperty(ShowViewSubMenu, Home)</onback>
+				<onback>300</onback>
+				<orientation>horizontal</orientation>
+				
+				<itemlayout width="170" height="64">
+					<control type="image">
+						<width>64</width>
+						<height>64</height>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<colordiffuse>$INFO[Skin.String(GeneralTextColor)]</colordiffuse>
+						<animation end="50" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
+					</control>
+				</itemlayout>
+				<focusedlayout width="170" height="64">
+					<control type="image">
+						<width>64</width>
+						<height>64</height>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<colordiffuse>$INFO[Skin.String(GeneralTextColor)]</colordiffuse>
+					</control>
+				</focusedlayout>
+				<content>
+					<include condition="!Window.IsActive(loginscreen)">skinshortcuts-group-powermenu</include>
+					<!-- shutdown menu options for loginscreen -->
+					<item id="997">
+						<label>$LOCALIZE[13009]</label>
+						<icon>common/exit1.png</icon>
+						<visible>System.ShowExitButton + Window.IsActive(loginscreen)</visible>
+						<onclick condition="Window.IsActive(shutdownmenu)">Dialog.Close(shutdownmenu)</onclick>
+						<onclick>Quit()</onclick>
+					</item>
+					<item id="998">
+						<property name="id">$NUM[4]</property>
+						<label>$LOCALIZE[13005]</label>
+						<icon>common/shutdown1.png</icon>
+						<visible>System.CanPowerDown + Window.IsActive(loginscreen)</visible>
+						<onclick condition="Window.IsActive(shutdownmenu)">Dialog.Close(shutdownmenu)</onclick>
+						<onclick>PowerDown</onclick>
+					</item>
+					<item id="999">
+						<label>$LOCALIZE[13013]</label>
+						<icon>common/reboot1.png</icon>
+						<visible>System.CanReboot + Window.IsActive(loginscreen)</visible>
+						<onclick condition="Window.IsActive(shutdownmenu)">Dialog.Close(shutdownmenu)</onclick>
+						<onclick>Reboot</onclick>
+					</item>
+				</content>
+			</control>
+		 <!-- </include> -->
+		</control>
         
 	</controls>
 </window>

@@ -190,7 +190,7 @@
                 <onup condition="!Skin.HasSetting(ShowProfile)">300</onup>
                 <onup condition="Skin.HasSetting(ShowProfile)">Control.SetFocus(890,0)</onup>
                 <ondown>300</ondown>
-                <onback condition="!Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</onback>
+                <onback condition="!Skin.HasSetting(DisablePowerMenu)">Control.SetFocus(311055,0)</onback>
                 <onright condition="Control.IsVisible(4446)">Control.SetFocus(4446,0)</onright>
                 <onleft condition="!Control.IsVisible(4446) + Integer.IsGreater(Container(4445).NumItems,0) + !Skin.HasSetting(OpenSubMenuOnClick)">Control.SetFocus(4444,0)</onleft>
                 <onright condition="!Control.IsVisible(4446)">$VAR[focusWidget]</onright>

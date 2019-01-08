@@ -912,48 +912,46 @@
                 <onclick>SetFocus(9000)</onclick>
             </control>
 
-            <!-- logo / user profile button -->
-            <control type="group" id="40000">
+            <!-- logo and bla,   make condition here and in depening on header setting  extras/skinsettinh.xml - home header options , also need bools on home load  if some settings are hidden -->
+            <control type="grouplist" id="40000">
                 <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
-                <top>30</top>
-                <width>385</width>
-                <height>80</height>
+                <posy>20</posy>
+				<posx>0</posx>
+                <width>440</width>
+                <height>150</height>
+				<orientation>vertical</orientation>
                 <animation effect="slide" end="0,60" condition="Control.IsVisible(1)">Conditional</animation>
                 <include>animation_fade_visible_hidden</include>
                 <!-- logo -->
-                <control type="group" id="40000">
-                    <visible>!Control.IsVisible(40001)</visible>
-                    <height>80</height>
-                    <width>275</width>
-                    <left>50</left>
-                    <!-- default Logo image -->
-                    <control type="image">
-                        <height>80</height>
-                        <width>275</width>
-                        <aspectratio align="left">keep</aspectratio>
-                        <colordiffuse>$INFO[Skin.String(HeaderTextColor)]</colordiffuse>
-                        <texture background="true">special://skin/extras/media/bingie_logo.png</texture>
-                        <visible>!Skin.String(CustomLogoImage)</visible>
-                    </control>
-                    <!-- custom Logo image -->
-                    <control type="image">
-                        <height>80</height>
-                        <width>275</width>
-                        <aspectratio align="left">keep</aspectratio>
-                        <texture background="true">$INFO[Skin.String(CustomLogoImage)]</texture>
-                        <visible>Skin.String(CustomLogoImage)</visible>
-                    </control>
-                </control>
-
-                <!-- profile logo, label & switch button -->
+                <!-- custom Logo image -->
+				<!-- check, add a button to choose custom logo here -->
+                <control type="image"> <!-- 325x125 -->
+					<visible>String.Contains(Skin.String(home_header),logo)</visible>
+					<left>10</left>
+					<height>80</height>
+					<width>275</width>
+					<aspectratio align="center">keep</aspectratio>
+					<texture background="true" fallback="home/kodi_logo_light.png">$INFO[Skin.String(CustomLogoImage)]</texture>
+				</control>
+				<control type="label">
+					<visible>String.Contains(Skin.String(home_header),logo) + !Skin.HasSetting(DisableProfileMainMenu)</visible>
+					<left>0</left>
+					<height>10</height>
+					<width>1</width>
+					<label></label>
+				</control>
+                <!-- user profile -->
                 <control type="group" id="40001">
-                    <visible>System.HasLoginScreen | Skin.HasSetting(DisableLogoMainMenu)</visible>
-                    <height>60</height>
+                    <visible>!Skin.HasSetting(DisableProfileMainMenu)</visible>
+					<height>60</height>
+					<width>440</width>
+					<left>10</left>
                     <control type="button" id="40002">
                         <!-- localize & hardcoded color -->
                         <label>[B]$INFO[System.ProfileName][/B][CR][COLOR ffc0c0c0]Switch Profiles[/COLOR]</label>
                         <textoffsetx>115</textoffsetx>
                         <align>left</align>
+						<aligny>bottom</aligny>
                         <width>384</width>
                         <height>60</height>
                         <font>Reg20</font>
@@ -975,7 +973,7 @@
                         <width>50</width>
                         <height>50</height>
                         <texture background="true">$INFO[System.ProfileThumb]</texture>
-                    </control>
+					</control>
                 </control>
             </control>
 

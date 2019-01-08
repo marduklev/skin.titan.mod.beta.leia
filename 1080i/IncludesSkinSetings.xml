@@ -245,15 +245,6 @@
                 <visible>![Skin.HasSetting(UseSingleShortcut) + Skin.String(HomeLayout, simplehor)]</visible>
                 <visible>Skin.String(HomeLayout, enhanced) | Skin.String(HomeLayout, netflix2) | Skin.String(HomeLayout, win10) | Skin.String(HomeLayout, simplehor) | String.Contains(Skin.String(HomeLayout), lowhorizontal)</visible>
             </control>
-            <!--use large mainmenu on netflix home, check 18.1.9
-            <control type="radiobutton" id="31805">
-                <include>SkinSettings_Button</include>
-                <label>31805</label>
-                <onclick>Skin.ToggleSetting(NetFlixHome_LargeMenu)</onclick>
-                <selected>Skin.HasSetting(NetFlixHome_LargeMenu)</selected>
-                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
-            </control>
-			-->
             <!--enable home menu animation-->
             <control type="radiobutton" id="31620">
                 <include>SkinSettings_Button</include>
@@ -266,11 +257,21 @@
 			<!--Disable Profile Logo on MainMenu, re check-->
             <control type="radiobutton" id="31749">
                 <include>SkinSettings_Button</include>
-                <label>Disable Logo on Main Menu</label>
-                <onclick>Skin.ToggleSetting(DisableLogoMainMenu)</onclick>
-                <selected>Skin.HasSetting(DisableLogoMainMenu)</selected>
+                <label>Disable Profile Info/Button on Main Menu</label>
+                <onclick>Skin.ToggleSetting(DisableProfileMainMenu)</onclick>
+                <selected>Skin.HasSetting(DisableProfileMainMenu)</selected>
                 <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
             </control>
+
+			<!-- not needed, thumb is set in kodi setting
+			<include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+                <param name="id" value="31749" />
+                <param name="label" value="WIP - USE me for choose profile Logo" />
+                <param name="action" value="RunScript(script.skin.helper.service,action=SAVESKINIMAGE,header=Custom Profile Logo,skinstring=CustomProfileLogo)" />
+                <param name="visible" value="true" />
+				e.g.
+				<texture background="true" fallback="$INFO[System.ProfileThumb]">$INFO[Skin.String(CustomProfileLogo)]</texture>
+            </include>-->
             <!--Disable Icons in Main Menu Items, re check-->
             <control type="radiobutton" id="31750">
                 <include>SkinSettings_Button</include>

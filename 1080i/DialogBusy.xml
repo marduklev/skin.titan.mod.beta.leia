@@ -2,7 +2,6 @@
 <!--Titan-->
 <window>
     <defaultcontrol always="true">-</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
     <controls>
 		
 		<include condition="Skin.HasSetting(SpinnerDimScreen)">DialogOverlayExtra</include>

@@ -2,7 +2,7 @@
 <!--Titan-->
 <window>
     <defaultcontrol always="true">5000</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
+    
 	
 	<onunload>ClearProperty(ShowViewSubMenu, Home)</onunload>
     <include>allViewIds</include>

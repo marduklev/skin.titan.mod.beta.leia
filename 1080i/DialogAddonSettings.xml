@@ -2,8 +2,7 @@
 <!--Titan-->
 <window>
     <defaultcontrol always="true">9</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
-	
+    
     <controls>
 		<include>DialogOverlayExtra</include>
 		<include condition="Skin.HasSetting(EnableTouchSupport)">Footer</include>

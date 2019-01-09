@@ -77,11 +77,15 @@
         <include condition="Skin.String(HomeLayout, win10)">HomeWin10</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
 		
-		<!--vertical custom shutdown, avoid autoclose setting trough activate on back Grouplist-->
-		
-		<!-- <include name="home_shutdown_onback">	 -->
+		<!-- check, WIP,  vertical custom shutdown, avoid autoclose setting after choosing it trough activate stutdown via on back -->
 		<control type="group" >
-			<visible>String.Contains(Skin.String(HomeLayout), ver)</visible> <!-- check, WIP, -->
+			<include>DialogOverlayExtra</include>
+			<visible>String.Contains(Skin.String(HomeLayout), ver) + Control.HasFocus(311055)</visible>
+		</control>
+		<!-- <include name="home_shutdown_onback"> -->
+		<!-- CUSTOM/FAKE SHUTDOWN MENU -->
+		<control type="group" >
+			<visible>String.Contains(Skin.String(HomeLayout), ver)</visible>
 			<bottom>-200</bottom>
 			<posx>10</posx>
 			<height>110</height>
@@ -101,7 +105,7 @@
 			<control type="label">
 				<bottom>80</bottom>
 				<left>-20</left>
-				<label>[B]$INFO[Container(311055).ListItem.Label].[/B]</label>
+				<label>[B]$INFO[Container(311055).ListItem.Label][/B]</label>
 				<width>560</width>
 				<height>130</height>
 				<align>right</align>
@@ -118,7 +122,6 @@
 				<align>center</align>
 				<onup>Dialog.Close(shutdownmenu)</onup>
 				<ondown>Dialog.Close(shutdownmenu)</ondown>
-				
 				<onup>300</onup>
 				<ondown>300</ondown>
 				<onright>311055</onright>
@@ -126,6 +129,7 @@
 				<onback>ClearProperty(ShowViewSubMenu, Home)</onback>
 				<onback>300</onback>
 				<orientation>horizontal</orientation>
+				<include>DialogOverlayExtra</include>
 				
 				<itemlayout width="170" height="64">
 					<control type="image">
@@ -146,29 +150,6 @@
 				</focusedlayout>
 				<content>
 					<include condition="!Window.IsActive(loginscreen)">skinshortcuts-group-powermenu</include>
-					<!-- shutdown menu options for loginscreen -->
-					<item id="997">
-						<label>$LOCALIZE[13009]</label>
-						<icon>common/exit1.png</icon>
-						<visible>System.ShowExitButton + Window.IsActive(loginscreen)</visible>
-						<onclick condition="Window.IsActive(shutdownmenu)">Dialog.Close(shutdownmenu)</onclick>
-						<onclick>Quit()</onclick>
-					</item>
-					<item id="998">
-						<property name="id">$NUM[4]</property>
-						<label>$LOCALIZE[13005]</label>
-						<icon>common/shutdown1.png</icon>
-						<visible>System.CanPowerDown + Window.IsActive(loginscreen)</visible>
-						<onclick condition="Window.IsActive(shutdownmenu)">Dialog.Close(shutdownmenu)</onclick>
-						<onclick>PowerDown</onclick>
-					</item>
-					<item id="999">
-						<label>$LOCALIZE[13013]</label>
-						<icon>common/reboot1.png</icon>
-						<visible>System.CanReboot + Window.IsActive(loginscreen)</visible>
-						<onclick condition="Window.IsActive(shutdownmenu)">Dialog.Close(shutdownmenu)</onclick>
-						<onclick>Reboot</onclick>
-					</item>
 				</content>
 			</control>
 		 <!-- </include> -->

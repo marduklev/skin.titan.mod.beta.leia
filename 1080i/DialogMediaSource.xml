@@ -2,8 +2,7 @@
 <!--Titan-->
 <window>
     <defaultcontrol always="true">9002</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
-	
+    
     <controls>
         <!--Dialog Overlay-->
         <include>DialogOverlayExtra</include>

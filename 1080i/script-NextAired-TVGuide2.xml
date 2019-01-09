@@ -2,7 +2,7 @@
 <window>
 	<onload>ClearProperty(ShowViewSubMenu, Home)</onload>
 	<onunload>ClearProperty(ShowViewSubMenu, Home)</onunload>
-	<allowoverlay>no</allowoverlay>
+	
 	
 	<defaultcontrol always="true">5000</defaultcontrol>
     <controls>

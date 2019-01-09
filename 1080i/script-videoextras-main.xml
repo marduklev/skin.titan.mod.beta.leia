@@ -2,7 +2,7 @@
 <!--Titan-->
 <window id="3001">
     <defaultcontrol always="true">51</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
+    
 	<onload condition="System.HasAddon(script.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
 
     <controls>

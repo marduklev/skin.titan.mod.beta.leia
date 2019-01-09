@@ -2,7 +2,6 @@
 <!--Titan-->
 <window>
     <defaultcontrol always="true">5</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
     <controls>
         <!--Dialog Overlay-->
 		<control type="group">

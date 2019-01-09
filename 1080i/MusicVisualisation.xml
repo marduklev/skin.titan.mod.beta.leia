@@ -2,8 +2,7 @@
 <!--Titan-->
 <window>
 	<defaultcontrol></defaultcontrol>
-	<allowoverlay>false</allowoverlay>
-    <controls>
+	<controls>
          <!--fallback background -->
         <control type="group">
 			<include>GlobalBackground</include>

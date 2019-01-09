@@ -2,7 +2,6 @@
 <!--Titan-->
 <window>
     <defaultcontrol always="true">4</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
     <onunload>ClearProperty(Focus)</onunload>
 	<include>animation_window_open_close</include>
     <controls>

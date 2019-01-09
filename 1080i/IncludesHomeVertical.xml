@@ -11,7 +11,7 @@
                 <effect type="fade" start="100" end="0" time="1000" delay="0" tween="cubic" easing="inout" />
 			<!-- Back Easing InOut when main active -->
             </animation>
-			<animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(300)] + !Control.HasFocus(77777)">
+			<animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(300) | Control.HasFocus(311055)] + !Control.HasFocus(77777)">
                 <effect type="slide" start="-520" end="0" time="900" delay="0" tween="back" easing="inout" />
             </animation>
             
@@ -174,14 +174,13 @@
 			
             <control type="list" id="300">  
 				<!-- MAIN lost focus -->
-				<animation effect="slide" start="0" end="-600" time="900" tween="back" easing="inout" condition="!Control.HasFocus(300)">Conditional</animation>
-								
+				<animation effect="slide" start="0" end="-600" time="900" tween="back" easing="inout" condition="Control.HasFocus(4444) | !Control.HasFocus(300) + [!Control.HasFocus(311055) | Window.IsActive(ShutdownMenu)]">Conditional</animation>
+				
+							
 				<!-- MAIN MENU FADE, SUB get focus, left align -->
 				<!--
                 <animation effect="fade" time="3200" start="100" end="0" reversible="true" condition="Control.HasFocus(4444)">Conditional</animation>
                 -->
-				
-				
 				<posx>0</posx>
                 <posy>120</posy>
                 <width>590</width>
@@ -191,6 +190,7 @@
                 <onup condition="Skin.HasSetting(ShowProfile)">Control.SetFocus(890,0)</onup>
                 <ondown>300</ondown>
                 <onback condition="!Skin.HasSetting(DisablePowerMenu)">Control.SetFocus(311055,0)</onback>
+				<!-- <onback condition="!Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</onback> -->
                 <onright condition="Control.IsVisible(4446)">Control.SetFocus(4446,0)</onright>
                 <onleft condition="!Control.IsVisible(4446) + Integer.IsGreater(Container(4445).NumItems,0) + !Skin.HasSetting(OpenSubMenuOnClick)">Control.SetFocus(4444,0)</onleft>
                 <onright condition="!Control.IsVisible(4446)">$VAR[focusWidget]</onright>

@@ -1187,7 +1187,7 @@
         </control>
 
     </control>
-    <control type="group">
+    <control type="group"> <!-- check, adjust me for music, -->
         <visible>
         [Control.IsVisible(512) + Skin.HasSetting(View512_DetailsShowFanart)] |
         [Control.IsVisible(516) + Skin.HasSetting(View516_DetailsShowFanart)] |

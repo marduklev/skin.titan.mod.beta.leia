@@ -114,7 +114,7 @@
             <aligny>center</aligny>
             <label>[UPPERCASE]$VAR[infolinevar][/UPPERCASE]</label>
             <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
-            <visible>!Window.IsVisible(shutdownmenu)</visible>
+            <visible>!Window.IsVisible(shutdownmenu) | !Control.HasFocus(311055)</visible>
         </control>
         
     </include>
@@ -133,9 +133,9 @@
                 <aspectratio>stretch</aspectratio>
                 <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
                 <visible>Skin.String(MainMenuPanelColor) + !Skin.String(MainMenuPanelColor,None) + !Skin.HasSetting(HideMainPanelBackground)</visible>
-				<animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(300)] + !Control.HasFocus(77777)">
-                <effect type="slide" start="-580" end="0" time="900" delay="0" tween="back" easing="inout" />
-            </animation>
+				<animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(300) | Control.HasFocus(311055)] + !Control.HasFocus(77777)">
+					<effect type="slide" start="-580" end="0" time="900" delay="0" tween="back" easing="inout" />
+				</animation>
             </control>
             
             <!-- Header -->
@@ -817,9 +817,9 @@
     </include>
     <include name="HomeBigVertical_mainmenu">
 	<control type="group">
-		<animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(300)] + !Control.HasFocus(77777)">
-                <effect type="slide" start="-520" end="0" time="900" delay="0" tween="back" easing="inout" />
-        </animation>					  
+		<animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(300) | Control.HasFocus(311055)] + !Control.HasFocus(77777)">
+			<effect type="slide" start="-580" end="0" time="900" delay="0" tween="back" easing="inout" />
+		</animation>					  
 		<control type="image">
             <!-- Panel -->
             <top>0</top>
@@ -854,8 +854,9 @@
             <top>0</top>
             <width>434</width>
             <height>100%</height>
-            <onback condition="!Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</onback>
-            <ondown>300</ondown>
+            <!-- <onback condition="!Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</onback> -->
+            <onback condition="!Skin.HasSetting(DisablePowerMenu)">Control.SetFocus(311055,0)</onback>
+			<ondown>300</ondown>
             <onup>300</onup>
 			<onleft condition="Control.IsVisible(4446)">Control.SetFocus(4446,0)</onleft>
             <onleft condition="!Control.IsVisible(4446) + Integer.IsGreater(Container(4445).NumItems,0) + !Skin.HasSetting(OpenSubMenuOnClick)">Control.SetFocus(4444,0)</onleft>

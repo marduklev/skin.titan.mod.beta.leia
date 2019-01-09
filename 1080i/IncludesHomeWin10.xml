@@ -88,7 +88,7 @@
         </control>
         <control type="panel" id="4444">
             <viewtype label="31436">icons</viewtype>
-            <width>220</width>
+            <width>440</width>
             <height>880</height>
             <onfocus>ClearProperty(ShowViewSubMenu)</onfocus>
             <orientation>vertical</orientation>

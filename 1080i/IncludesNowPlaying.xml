@@ -185,6 +185,7 @@
 			<animation effect="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="0" time="250" reversible="false">Hidden</animation>
 			<control type="group">
 				<animation effect="slide" end="300,0" delay="0" time="0" condition="Player.HasVideo">conditional</animation> <!-- check, need condition if poster empty -->
+				<animation effect="slide" end="90,-30" delay="0" time="0" condition="Control.IsVisible(523) | Control.IsVisible(525)">conditional</animation>
 				<control type="image">
 					<visible>![Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(523) | Control.IsVisible(525)]</visible>
 					<posx>-300</posx>
@@ -195,7 +196,8 @@
 					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 				</control>
 				<control type="image">
-					<visible>Control.IsVisible(526)</visible>
+					<visible>Control.IsVisible(526) | Control.IsVisible(523) | Control.IsVisible(525)</visible>
+					<animation effect="fade" start="100" end="30" delay="0" time="0" condition="Control.IsVisible(523) | Control.IsVisible(525)">conditional</animation>
 					<posx>-300</posx>
 					<posy>-5</posy>
 					<width>100%</width>
@@ -285,7 +287,6 @@
 				<control type="group">
 					<width>250</width>
 					<control type="image">
-						<visible>!Control.IsVisible(526)</visible>
 						<left>50</left>
 						<width>123</width>
 						<height>123</height>
@@ -297,7 +298,6 @@
 						<visible>!Skin.HasSetting(DisableNowPlayingDiscArt) + [!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster))]</visible>
 					</control>
 					<control type="image">
-						<visible>!Control.IsVisible(526)</visible>
 						<!--Cover image-->
 						<width>240</width>
 						<height>135</height>
@@ -312,14 +312,12 @@
 					<height>130</height>
 					<visible>!VideoPlayer.Content(livetv) |
 					[VideoPlayer.Content(livetv) + 
-					
 					[Control.IsVisible(10) + !Skin.HasSetting(GuideShowInfo)] |
 					[[Control.IsVisible(51) + !Skin.HasSetting(View51_DetailsShowFanart)] | [Control.IsVisible(51) + Skin.HasSetting(BigListViewShowInfo) + !Skin.HasSetting(View51_DetailsShowFanart)]] | 
 					Control.IsVisible(504) | 
 					[[Control.IsVisible(516) + !Skin.HasSetting(View516_DetailsShowFanart)] | [Control.IsVisible(516) + Skin.HasSetting(SlimListViewShowInfo) + !Skin.HasSetting(View516_DetailsShowFanart)]] | 
 					Control.IsVisible(52) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(506) | Control.IsVisible(509) | Control.IsVisible(511) | 
 					Control.IsVisible(50) | Control.IsVisible(53) | Control.IsVisible(517) | Control.IsVisible(510) | Control.IsVisible(518) |  Control.IsVisible(520) | Control.IsVisible(521) | Control.IsVisible(522) | 
-					
 					[Control.IsVisible(59) + !Skin.HasSetting(View59_DetailsShowFanart)] | 
 					[Control.IsVisible(512) + !Skin.HasSetting(View512_DetailsShowFanart)] | 
 					[Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)] | 
@@ -328,8 +326,12 @@
 					<!-- black background -->
 					<control type="image">
 						<texture>colors/color_black.png</texture>
+						<width>285</width>
+						<height>130</height>
 					</control>
 					<control type="videowindow">
+						<width>285</width>
+						<height>130</height>
 					</control>
 				</control>
 			</control>
@@ -362,7 +364,7 @@
 				<texture background="true">$VAR[VideoPlayerClearArt]</texture>
 				<aspectratio align="right" aligny="center">keep</aspectratio>
                 <visible>!Skin.HasSetting(EnableTouchSupport)</visible>
-				<visible>!String.IsEmpty(Control.GetLabel(884455)) + !Skin.HasSetting(DisableNowPlayingClearArt)</visible>
+				<visible>!String.IsEmpty(Control.GetLabel(884455)) + !Skin.HasSetting(DisableNowPlayingClearArt) + ![Control.IsVisible(527) | Control.IsVisible(523) | Control.IsVisible(525)]</visible>
 			</control>
             
             <!-- clock -->
@@ -370,7 +372,7 @@
                 <animation type="Conditional" condition="Window.IsActive(volumebar)">
                     <effect type="slide" start="0,0" end="-120,0" time="400" tween="cubic" easing="inout" delay="0" />
                 </animation>
-                <visible>!Skin.HasSetting(EnableTouchSupport) + !Control.IsVisible(884455) + !Skin.HasSetting(DisableNowPlayingClock)</visible>               
+                <visible>!Skin.HasSetting(EnableTouchSupport) + !Control.IsVisible(884455) + !Skin.HasSetting(DisableNowPlayingClock) + ![Control.IsVisible(527) | Control.IsVisible(523) | Control.IsVisible(525)]</visible>               
 				<control type="grouplist">
                     <!--Time Grouplist Line 1-->
                     <posx>1260</posx>

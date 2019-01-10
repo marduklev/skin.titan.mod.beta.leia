@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">3012</defaultcontrol>
+	<onload>Dialog.Close(fullscreeninfo,true)</onload>
+	<onload>Dialog.Close(videoosd,true)</onload>
+	<!-- <onload>SetFocus(3012)</onload> -->
+	<controls>
+		<control type="group">
+			
+			<!-- Background Image -->
+			<control type="image">
+				<posx>1225</posx>
+				<posy>430</posy>
+				<height>550</height>
+				<width>1040</width>
+				<texture colordiffuse="ff000000">diffuse/gradient.png</texture>
+			</control>
+			<control type="grouplist">
+				<posx>1245</posx>
+				<posy>450</posy>
+				<height>600</height>
+				<width>1020</width>
+				<orientation>vertical</orientation>
+				<!-- title -->
+				<control type="label">
+					<left>20</left>
+					<width>500</width>
+					<height>30</height>
+					<align>left</align>
+					<textcolor>white</textcolor>
+					<font>Bold36</font>
+					<label>[B]$INFO[Window.Property(tvshowtitle)][/B]</label>
+				</control>
+				<!-- time -->
+				<control type="label">
+					<width>500</width>
+					<top>30</top>
+					<left>20</left>
+					<height>33</height>
+					<font>Bold24</font>
+					<aligny>center</aligny>
+					<textcolor>grey</textcolor>
+					<label>$INFO[Player.TimeRemaining(ss),Starting in , seconds...]</label>
+				</control>
+				<!-- Framed Thumb Image + E,S Info -->
+				<control type="group">
+					<left>20</left>
+					<top>65</top>
+					<width>500</width>
+					<height>282</height>
+					<control type="image">
+						<width>500</width>
+						<height>282</height>
+						<texture>$VAR[NextUpThumb]</texture>
+						<aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
+					</control>
+					<control type="image">
+						<bottom>5</bottom>
+						<left>5</left>
+						<width>498</width>
+						<align>center</align>
+						<height>55</height>
+					   <texture colordiffuse="ff000000">diffuse/gradient.png</texture>
+					</control>
+					<control type="image">
+						<width>504</width>
+						<height>285</height>
+						<texture border="2">netflix/frame/slimframe_hardedge.png</texture>
+					</control>
+                    <control type="label">
+						<bottom>25</bottom>
+						<left>25</left>
+						<height>20</height>
+						<width>auto</width>
+						<textcolor>white</textcolor>
+						<font>Bold26</font>
+						<label>$INFO[Window.Property(season),S,: ]$INFO[Window.Property(episode),E,]</label>
+                    </control>
+				</control>
+				<!-- Infos -->				 
+				<control type="label">
+					<width>auto</width>
+					<height>25</height>
+					<aligny>center</aligny>
+					<font>Bold26</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>00000000</shadowcolor>
+					<label>$INFO[Window.Property(title)]</label> <!-- need var for se if integer lesser than 10 -->
+					<visible>!String.IsEmpty(Window.Property(title))</visible>
+				</control>
+				<control type="grouplist">
+					<orientation>horizontal</orientation>
+					<itemgap>10</itemgap>
+					<usecontrolcoords>true</usecontrolcoords>
+					<height>42</height>
+					<control type="label">
+						<width>auto</width>
+						<height>40</height>
+						<aligny>center</aligny>
+						<font>Reg24</font>
+						<textcolor>eeffffff</textcolor>
+						<shadowcolor>00000000</shadowcolor>
+						<label>$INFO[Window.Property(year)]</label>
+						<visible>!String.IsEmpty(Window.Property(year))</visible>
+					</control>
+					<control type="group">
+						<width>105</width>
+						<control type="image">
+							<top>2</top>
+							<width>100</width>
+							<height>40</height>
+							<aspect>keep</aspect>
+							<texture align="center" border="2">netflix/frame/detail-framehardedge.png</texture>
+						</control>
+						<control type="label">
+							<width>100</width>
+							<height>40</height>
+							<aligny>center</aligny>
+							<align>center</align>
+							<font>Reg24</font>
+							<textcolor>eeffffff</textcolor>
+							<shadowcolor>00000000</shadowcolor>
+							<label>MPAA</label>
+						</control>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>40</height>
+						<aligny>center</aligny>
+						<font>Bold26</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>00000000</shadowcolor>
+						<label>HD</label>
+					</control>
+				</control>
+				<control type="label">
+					<wrapmultiline>true</wrapmultiline>
+					<width>650</width>
+					<height>80</height>
+					<aligny>top</aligny>
+					<font>Reg26</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>00000000</shadowcolor>
+					<label>$INFO[Window.Property(plot)]</label>
+				</control>
+				
+						
+			</control>
+			<!-- Buttons -->
+			<control type="grouplist">
+				<orientation>horizontal</orientation>
+				<posx>1245</posx>
+				<bottom>10</bottom>
+				<width>600</width>
+				<height>60</height>
+				<itemgap>20</itemgap>
+				<control type="radiobutton" id="3012">
+					<label>[B]$ADDON[service.upnext 30006][/B]</label>
+					<height>50</height>
+					<width>250</width>
+					<font>Bold18</font>
+					<textcolor>white</textcolor>                       
+					<focusedcolor>black</focusedcolor>
+					<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
+					<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+					<textureradioonfocus colordiffuse="black">netflix/play.png</textureradioonfocus>
+					<textureradioofffocus colordiffuse="black">netflix/play.png</textureradioofffocus>
+					<textureradioonnofocus colordiffuse="white">netflix/play.png</textureradioonnofocus>
+					<textureradiooffnofocus colordiffuse="white">netflix/play.png</textureradiooffnofocus>
+					<radioposx>20</radioposx>
+					<radiowidth>35</radiowidth>
+					<radioheight>30</radioheight>
+				</control>
+				
+				<control type="radiobutton" id="3013">
+					<label>$ADDON[service.upnext 30034]</label>
+					<height>50</height>
+					<width>250</width>
+					<font>Bold18</font>
+					<textcolor>white</textcolor>                       
+					<focusedcolor>black</focusedcolor>
+					<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
+					<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+					<textureradioonfocus colordiffuse="black">touchcontrols/close.png</textureradioonfocus>
+					<textureradioofffocus colordiffuse="black">touchcontrols/close.png</textureradioofffocus>
+					<textureradioonnofocus colordiffuse="white">touchcontrols/close.png</textureradioonnofocus>
+					<textureradiooffnofocus colordiffuse="white">touchcontrols/close.png</textureradiooffnofocus>
+					<radioposx>20</radioposx>
+					<radiowidth>35</radiowidth>
+					<radioheight>30</radioheight>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -300,11 +300,12 @@
 							<align>center</align>
 							<textoffsetx>0</textoffsetx>
 							<label>20410</label>
-							<onclick condition="!Player.HasVideo + String.IsEqual(ListItem.DBTYPE,movie)">PlayMedia($INFO[ListItem.Trailer],1)</onclick> <!--sometimes huge delay Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1) ,faster but dont get all  PlayMedia($INFO[ListItem.Trailer],1) -->    
-							<onclick condition="!Player.HasVideo + !String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onclick> <!--sometimes huge delay Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1) ,faster but dont get all  PlayMedia($INFO[ListItem.Trailer],1) -->    												
 							<altlabel>244</altlabel>
-                            <usealttexture>Player.HasVideo</usealttexture>
-                            <onclick condition="Player.HasVideo">FullScreen</onclick>
+							<usealttexture>Player.HasVideo</usealttexture>
+							<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[Window(Home).Property(filename_formatted)]$INFO[ListItem.Title,,-trailer.mp4],1)</onclick>
+							<onclick condition="String.IsEmpty(Window(home).Property(trailer_avail)) + !Player.HasVideo + String.IsEqual(ListItem.DBTYPE,movie)">PlayMedia($INFO[ListItem.Trailer],1)</onclick> <!--sometimes huge delay Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1) ,faster but dont get all  PlayMedia($INFO[ListItem.Trailer],1) -->    
+							<onclick condition="String.IsEmpty(Window(home).Property(trailer_avail)) + !Player.HasVideo + !String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onclick> <!--sometimes huge delay Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1) ,faster but dont get all  PlayMedia($INFO[ListItem.Trailer],1) -->    												
+							<onclick condition="Player.HasVideo">FullScreen</onclick>
 							<visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
 							<visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie)</visible>
 							<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
@@ -2171,7 +2172,10 @@
                                 <font>Reg30</font>
                                 <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
                                 <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
-								<label>$VAR[Trailer_fs]</label>
+								<label>20410</label>
+								<altlabel>244</altlabel>
+								<usealttexture>Player.HasVideo</usealttexture>
+								<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[Window(Home).Property(filename_formatted)]$INFO[ListItem.Title,,-trailer.mp4],1)</onclick>
 								<onclick condition="!Player.HasVideo + String.IsEqual(ListItem.DBTYPE,movie)">PlayMedia($INFO[ListItem.Trailer],1)</onclick>						
 								<onclick condition="!Player.HasVideo + !String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onclick>  							
 								<onclick condition="!Player.HasVideo + [String.IsEmpty(ListItem.Trailer) + String.IsEqual(ListItem.DBTYPE,movie)]">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[ListItem.Title],local=true)</onclick>								
@@ -3001,8 +3005,4 @@
     </variable>	
 	*=totamtometerallaudience , *=tomatometerallcritics , 	*=tomatometeravgaudiance , 	*=tomatometeravgcritics -->
 	
-	<variable name="Trailer_fs">
-		<value condition="!Player.HasVideo">$LOCALIZE[20410]</value>
-		<value condition="Player.HasVideo">$LOCALIZE[244]</value>
-	</variable>
 </includes>

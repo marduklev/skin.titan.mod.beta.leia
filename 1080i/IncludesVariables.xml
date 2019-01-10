@@ -645,12 +645,12 @@
 	<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.Player.Art.ClearLogo)]</value>
    </variable>
    
-   <variable name="VideoPlayerPoster">
+   <variable name="VideoPlayerPoster">"
 	<value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value> <!-- check, strange beh in  PVR play=!VideoPlayer.Content(livetv), !canrecord,  vs switch=VideoPlayer.Content(livetv), canrecord pr,put on top solved issue -->
 	<value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
 	<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 	<value condition="!String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>	
-   </variable>
+	</variable>
 	 
 	 <variable name="OSDInfoImage">
 		<value condition="!String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
@@ -1324,5 +1324,9 @@
         <value condition="!String.IsEmpty(MusicPlayer.Rating)">$INFO[MusicPlayer.Rating,rating/,.png]</value>
         <value condition="!String.IsEmpty(MusicPlayer.StarRating)">$INFO[MusicPlayer.StarRating,leftrating/]</value>
         <value condition="!String.IsEmpty(MusicPlayer.UserRating)">$INFO[MusicPlayer.UserRating,rating/,.png]</value>
+    </variable>
+	<variable name="nextupbutton">
+        <value condition="Control.HasFocus(3012)">black</value>
+		<value condition="!Control.HasFocus(3012)">white</value>
     </variable>
 </includes>

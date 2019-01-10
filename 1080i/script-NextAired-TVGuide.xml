@@ -92,43 +92,36 @@
 					<item id="1">
 						<label>$INFO[Window(home).Property(NextAired.203.Weekday)]</label>
 						<label2>$INFO[Container(200).NumItems]</label2>
-						<!-- <onclick>noop</onclick> -->
 						<icon></icon>
 					</item>
 					<item id="2">
 						<label>$INFO[Window(home).Property(NextAired.201.Weekday)]</label>
 						<label2>$INFO[Container(201).NumItems]</label2>
-						<!-- <onclick>noop</onclick> -->
 						<icon></icon>
 					</item>
 					<item id="3">
 						<label>$INFO[Window(home).Property(NextAired.202.Weekday)]</label>
 						<label2>$INFO[Container(202).NumItems]</label2>
-						<!-- <onclick>noop</onclick> -->
 						<icon></icon>
 					</item>
 					<item id="4">
 						<label>$INFO[Window(home).Property(NextAired.203.Weekday)]</label>
 						<label2>$INFO[Container(203).NumItems]</label2>
-						<!-- <onclick>noop</onclick> -->
 						<icon></icon>
 					</item>
 					<item id="5">
 						<label>$INFO[Window(home).Property(NextAired.204.Weekday)]</label>
 						<label2>$INFO[Container(204).NumItems]</label2>
-						<!-- <onclick>noop</onclick> -->
 						<icon></icon>
 					</item>
 					<item id="6">
 						<label>$INFO[Window(home).Property(NextAired.205.Weekday)]</label>
 						<label2>$INFO[Container(205).NumItems]</label2>
-						<!-- <onclick>noop</onclick> -->
 						<icon></icon>
 					</item>
 					<item id="7">
 						<label>$INFO[Window(home).Property(NextAired.206.Weekday)]</label>
 						<label2>$INFO[Container(206).NumItems]</label2>
-						<!-- <onclick>noop</onclick> -->
 						<icon></icon>
 					</item>
 				</content>

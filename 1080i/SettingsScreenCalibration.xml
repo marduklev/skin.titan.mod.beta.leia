@@ -53,7 +53,7 @@
                 <posy>150</posy>
                 <width>100%</width>
                 <align>center</align>
-                <label>-</label>
+                <label></label>
                 <font>Light40</font>
                 <shadowcolor>FF000000</shadowcolor>
             </control>
@@ -63,7 +63,7 @@
                 <posy>210</posy>
                 <width>100%</width>
                 <align>center</align>
-                <label>-</label>
+                <label></label>
                 <font>Light40</font>
                 <shadowcolor>FF000000</shadowcolor>
             </control>

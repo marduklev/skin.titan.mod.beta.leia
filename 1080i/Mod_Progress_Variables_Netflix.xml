@@ -607,12 +607,7 @@
         <value condition="Integer.IsGreater(Control.GetLabel(3011),700)">HD</value>
         <value condition="Integer.IsLess(Control.GetLabel(3011),700)">SD</value>
     </variable>
-    <!-- next up thumb episode/tvshow based on setting preference -->
-    <variable name="NextUpThumb">
-		<value condition="!String.IsEmpty(Window.Property(fanart)) + Skin.HasSetting(PreferTvShowThumbWidget)">$INFO[Window.Property(fanart)]</value>
-        <value condition="!String.IsEmpty(Window.Property(thumb))">$INFO[Window.Property(thumb)]</value>
-        <value condition="!String.IsEmpty(Window.Property(fanart))">$INFO[Window.Property(fanart)]</value>
-    </variable>
+    
 	<!-- default fade animation -->
     <include name="Default_Fade">
         <animation effect="fade" time="200">Visible</animation>

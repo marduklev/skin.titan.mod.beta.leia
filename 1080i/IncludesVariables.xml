@@ -1326,7 +1326,15 @@
         <value condition="!String.IsEmpty(MusicPlayer.UserRating)">$INFO[MusicPlayer.UserRating,rating/,.png]</value>
     </variable>
 	<variable name="nextupbutton">
-        <value condition="Control.HasFocus(3012)">black</value>
+		<value condition="Control.HasFocus(3012)">black</value>
 		<value condition="!Control.HasFocus(3012)">white</value>
+    </variable>
+	<variable name="nextupbutton_TimeRemaining">
+		<value condition="Integer.IsGreater(Player.TimeRemaining(ss),30)">nextupicons/30.png</value>
+		<value condition="Integer.IsLessOrEqual(Player.TimeRemaining(ss),30)">$INFO[Player.TimeRemaining(ss),nextupicons/,.png]</value>
+    </variable>
+    <variable name="NextUpThumb">
+		<value condition="!String.IsEmpty(Window.Property(thumb))">$INFO[Window.Property(thumb)]</value>
+        <value condition="!String.IsEmpty(Window.Property(fanart))">$INFO[Window.Property(fanart)]</value>
     </variable>
 </includes>

@@ -73,17 +73,8 @@
                         <width>46</width>
                         <height>46</height>
                         <aspect>keep</aspect>
-                        <texture colordiffuse="$VAR[nextupbutton]">nextupicons/30.png</texture>
+                        <texture colordiffuse="$VAR[nextupbutton]">$VAR[nextupbutton_TimeRemaining]</texture>
                         <animation effect="slide" end="13,5" time="0" condition="true">Conditional</animation>
-                        <visible>Integer.IsGreater(Player.TimeRemaining(ss),30)</visible>
-                    </control>
-                    <control type="image">
-                        <width>46</width>
-                        <height>46</height>
-                        <aspect>keep</aspect>
-                        <texture colordiffuse="$VAR[nextupbutton]">$INFO[Player.TimeRemaining(ss),nextupicons/,.png]</texture>
-                        <animation effect="slide" end="13,5" time="0" condition="true">Conditional</animation>
-                        <visible>!Integer.IsGreater(Player.TimeRemaining(ss),30)</visible>
                     </control>
                 </control>
             </control>

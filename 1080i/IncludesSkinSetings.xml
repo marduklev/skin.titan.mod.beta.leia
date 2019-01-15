@@ -125,7 +125,7 @@
                 <description>No clearlogo in netflix home</description>
                 <include>SkinSettings_Button</include>
                 <label>31818</label>
-                <onclick>Skin.ToggleSetting(NoClearLogoNetflix)</onclick>
+                <onclick>Skin.ToggleSetting(NoClearLogoNetflixHome)</onclick>
                 <selected>Skin.HasSetting(NoClearLogoNetflixHome)</selected>
                 <visible>String.Contains(Skin.String(HomeLayout),netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
             </control>
@@ -1788,7 +1788,7 @@
             <!-- UpNext Skin related Settings 31670**-->
             <control type="label" id="3167000">
                 <include>SkinSettings_Header</include>
-                <label>[UPPERCASE]U p    N e x t    S k i n    r e l a t e d    S e t t i n g s[/UPPERCASE]</label>
+                <label>$ADDON[service.upnext 30008] $LOCALIZE[10035]</label>
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
 			<!-- Up Next Position - sh dialog ( bottom, center, top) 

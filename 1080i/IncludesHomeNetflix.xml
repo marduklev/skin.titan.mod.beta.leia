@@ -149,11 +149,8 @@
                 <top>675</top>
                 <height>55</height>
                 <width>180</width>
-                <animation type="VisibleChange">
-					<effect type="slide" start="0" end="-180" delay="1000" time="400"/>
-                </animation>
-                
-                <control type="image">
+                <animation effect="slide" start="0" end="-180" delay="1000" time="400">Visible</animation>
+				<control type="image">
                     <height>55</height>
                     <width>5</width>
                     <align>left</align>
@@ -163,7 +160,7 @@
 				<control type="image">
                     <left>10</left>
 					<height>55</height>
-                    <width>178</width>
+                    <width>200</width>
                     <texture colordiffuse="cc242424">colors/color_white.png</texture>
                 </control>
                 <control type="label" id="5633398">
@@ -482,7 +479,6 @@
                 </control>
                 <!-- ratings & studio -->
                 <control type="group">
-                    <visible>[Skin.HasSetting(showratingnetflixhome) + !Player.HasVideo] | [Player.HasVideo + !Skin.HasSetting(HideMediaFlagsTrailer)]</visible>
                     <right>20</right>
                     <top>475</top>
                     <height>150</height>
@@ -796,7 +792,7 @@
         <control type="panel" id="1508">
             <orientation>horizontal</orientation>
             <preloaditems>1</preloaditems>
-            <itemlayout width="1920" height="210">
+			<itemlayout width="1920" height="210">
             </itemlayout>
             <focusedlayout width="1920" height="210">
                 <control type="button">
@@ -1035,8 +1031,7 @@
                             <width>35</width>
                             <height>35</height>
                             <texture background="true">$INFO[ListItem.Icon]</texture>
-                            <colordiffuse>$INFO[Skin.String(MainMenuFocusTextColor)]</colordiffuse> <!-- add second color for icon -->
-                           
+                            <colordiffuse>$INFO[Skin.String(MainMenuFocusTextColor)]</colordiffuse> <!-- add second color for icon ?-->
                         </control>
                     </control>
                     <!-- menu item label -->

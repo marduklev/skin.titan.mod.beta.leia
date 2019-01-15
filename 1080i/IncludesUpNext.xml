@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan-->
+<includes>
+	<!-- U P     N E X T    F a n c y -->
+	<!-- Skin default - Netflix -->
+	<include name="UpNext_Fancy_Netflix">
+		
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="400" />
+			<effect type="slide" start="2050,0" end="0,0" time="800" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="400" />
+			<effect type="slide" start="0,0" end="2050,0" time="400" />
+		</animation>
+		<!-- Background Image -->
+		<control type="image">
+			<posx>1225</posx>
+			<bottom>0</bottom>
+			<height>650</height>
+			<width>1040</width>
+			<texture colordiffuse="ff000000">diffuse/gradient.png</texture>
+		</control>
+		<!-- Info / Artwork -->
+		<control type="grouplist">
+			<posx>1245</posx>
+			<posy>450</posy>
+			<height>600</height>
+			<width>1020</width>
+			<orientation>vertical</orientation>
+			<!-- title -->
+			<control type="label">
+				<left>20</left>
+				<width>500</width>
+				<height>30</height>
+				<align>left</align>
+				<textcolor>white</textcolor>
+				<font>Bold36</font>
+				<label>[B]$INFO[Window.Property(tvshowtitle)][/B]</label>
+			</control>
+			<!-- time -->
+			<control type="label">
+				<width>500</width>
+				<top>30</top>
+				<left>20</left>
+				<height>33</height>
+				<font>Bold24</font>
+				<aligny>center</aligny>
+				<textcolor>grey</textcolor>
+				<label>$INFO[Player.TimeRemaining(ss),Starting in , seconds...]</label>
+			</control>
+			<!-- Framed Thumb Image + E,S Info -->
+			<control type="group">
+				<left>20</left>
+				<top>65</top>
+				<width>500</width>
+				<height>282</height>
+				<control type="image">
+					<width>500</width>
+					<height>282</height>
+					<texture>$VAR[NextUpThumb]</texture>
+					<aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
+				</control>
+				<!-- optional ?? -->
+				<control type="image">
+					<visible>Skin.HasSetting(UpNext_ShowCountdownAtThumb)</visible>
+					<left>13</left>
+					<top>13</top>
+					<width>70</width>
+					<height>70</height>
+					<texture colordiffuse="e9ffffff">$VAR[nextupbutton_TimeRemaining]</texture>
+				</control>
+				
+				<control type="image">
+					<bottom>5</bottom>
+					<left>5</left>
+					<width>498</width>
+					<align>center</align>
+					<height>55</height>
+				   <texture colordiffuse="ff000000">diffuse/gradient.png</texture>
+				</control>
+				<control type="image">
+					<width>504</width>
+					<height>285</height>
+					<texture border="2">netflix/frame/slimframe_hardedge.png</texture>
+				</control>
+				<control type="label">
+					<bottom>25</bottom>
+					<left>25</left>
+					<height>20</height>
+					<width>auto</width>
+					<textcolor>white</textcolor>
+					<font>Bold26</font>
+					<label>$INFO[Window.Property(season),S,: ]$INFO[Window.Property(episode),E,]</label>
+				</control>
+			</control>
+			<!-- Infos -->
+			<control type="label">
+				<width>auto</width>
+				<height>25</height>
+				<aligny>center</aligny>
+				<font>Bold26</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>00000000</shadowcolor>
+				<label>$INFO[Window.Property(title)]</label> <!-- need var for se if integer lesser than 10 -->
+				<visible>!String.IsEmpty(Window.Property(title))</visible>
+			</control>
+			<control type="grouplist">
+				<orientation>horizontal</orientation>
+				<itemgap>10</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+				<height>42</height>
+				<control type="label">
+					<width>auto</width>
+					<height>40</height>
+					<aligny>center</aligny>
+					<font>Reg24</font>
+					<textcolor>eeffffff</textcolor>
+					<shadowcolor>00000000</shadowcolor>
+					<label>$INFO[Window.Property(year)]</label>
+					<visible>!String.IsEmpty(Window.Property(year))</visible>
+				</control>
+				<control type="group">
+					<width>105</width>
+					<control type="image">
+						<top>2</top>
+						<width>100</width>
+						<height>40</height>
+						<aspect>keep</aspect>
+						<texture align="center" border="2">netflix/frame/detail-framehardedge.png</texture>
+					</control>
+					<control type="label">
+						<width>100</width>
+						<height>40</height>
+						<aligny>center</aligny>
+						<align>center</align>
+						<font>Reg24</font>
+						<textcolor>eeffffff</textcolor>
+						<shadowcolor>00000000</shadowcolor>
+						<label>MPAA</label>
+					</control>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>40</height>
+					<aligny>center</aligny>
+					<font>Bold26</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>00000000</shadowcolor>
+					<label>HD</label>
+				</control>
+			</control>
+			<control type="label">
+				<wrapmultiline>true</wrapmultiline>
+				<width>650</width>
+				<height>80</height>
+				<aligny>top</aligny>
+				<font>Reg26</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>00000000</shadowcolor>
+				<label>$INFO[Window.Property(plot)]</label>
+			</control>
+		</control>
+		<!-- Buttons -->
+		<control type="grouplist">
+			<orientation>horizontal</orientation>
+			<posx>1245</posx>
+			<bottom>10</bottom>
+			<width>600</width>
+			<height>60</height>
+			<itemgap>20</itemgap>
+			<control type="radiobutton" id="3012">
+				<label>[B]$ADDON[service.upnext 30006][/B]</label>
+				<height>50</height>
+				<width>250</width>
+				<font>Bold18</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>black</focusedcolor>
+				<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
+				<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+				<textureradioonfocus></textureradioonfocus>
+				<textureradioofffocus></textureradioofffocus>
+				<textureradioonnofocus></textureradioonnofocus>
+				<textureradiooffnofocus></textureradiooffnofocus>
+				<radioposx>20</radioposx>
+				<radiowidth>35</radiowidth>
+				<radioheight>30</radioheight>
+			</control>
+			<control type="radiobutton" id="3013">
+				<label>$ADDON[service.upnext 30034]</label>
+				<height>50</height>
+				<width>250</width>
+				<font>Bold18</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>black</focusedcolor>
+				<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
+				<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+				<textureradioonfocus colordiffuse="black">touchcontrols/close.png</textureradioonfocus>
+				<textureradioofffocus colordiffuse="black">touchcontrols/close.png</textureradioofffocus>
+				<textureradioonnofocus colordiffuse="white">touchcontrols/close.png</textureradioonnofocus>
+				<textureradiooffnofocus colordiffuse="white">touchcontrols/close.png</textureradiooffnofocus>
+				<radioposx>20</radioposx>
+				<radiowidth>35</radiowidth>
+				<radioheight>30</radioheight>
+			</control>
+		</control>
+		<control type="image">
+			<posx>1255</posx>
+			<bottom>26</bottom>
+			<width>40</width>
+			<height>40</height>
+			<texture colordiffuse="$VAR[nextupbutton]">$VAR[nextupbutton_TimeRemaining]</texture>
+		</control>
+	</include>
+	<!-- Addon default  -->
+	<include name="UpNext_fancy_def">
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="400" />
+			<effect type="slide" start="0,-181" end="0,0" time="400" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="400" />
+			<effect type="slide" start="0,0" end="0,-181" time="400" />
+		</animation>
+		<control type="group">
+			<height>181</height>
+			<!-- Background -->
+			<control type="image">
+				<top>0</top>
+				<width>100%</width>
+				<height>181</height>
+				<texture colordiffuse="dd000000">bg.png</texture>
+			</control>
+			<!-- Thumb -->
+			<control type="group">
+				<top>20</top>
+				<left>20</left>
+				<control type="image">
+					<top>-2</top>
+					<left>-2</left>
+					<width>254</width>
+					<height>144</height>
+					<texture>shadow.png</texture>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>141</height>
+					<texture colordiffuse="FF12A0C7">white.jpg</texture>
+					<visible>String.IsEmpty(Window.Property(thumb)) + String.IsEmpty(Window.Property(landscape)) + String.IsEmpty(Window.Property(fanart))</visible>
+				</control>
+				<control type="textbox">
+					<top>10</top>
+					<left>10</left>
+					<width>230</width>
+					<height>121</height>
+					<font>font12</font>
+					<textcolor>ffffffff</textcolor>
+					<shadowcolor>00000000</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(tvshowtitle)]</label>
+					<visible>String.IsEmpty(Window.Property(thumb)) + String.IsEmpty(Window.Property(landscape)) + String.IsEmpty(Window.Property(fanart))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>141</height>
+					<texture>$INFO[Window.Property(landscape)]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>141</height>
+					<texture>$INFO[Window.Property(fanart)]</texture>
+					<aspectratio>scale</aspectratio>
+					<visible>String.IsEmpty(Window.Property(landscape))</visible>
+				</control>
+				<control type="image">
+					<width>250</width>
+					<height>141</height>
+					<texture>$INFO[Window.Property(thumb)]</texture>
+					<aspectratio>scale</aspectratio>
+					<visible>String.IsEmpty(Window.Property(landscape)) + String.IsEmpty(Window.Property(fanart))</visible>
+				</control>
+				<control type="progress" id="3014">
+					<width>250</width>
+					<top>136</top>
+					<height>5</height>
+					<reveal>true</reveal>
+					<righttexture></righttexture>
+					<overlaytexture></overlaytexture>
+					<lefttexture></lefttexture>
+					<texturebg colordiffuse="00ffffff">white.jpg</texturebg>
+					<midtexture colordiffuse="FFFF4081">white.jpg</midtexture>
+				</control>
+			</control>
+			<!-- Labels -->
+			<control type="group">
+				<top>20</top>
+				<left>290</left>
+				<right>20</right>
+				<!-- Time -->
+				<control type="label">
+					<width>auto</width>
+					<height>35</height>
+					<aligny>center</aligny>
+					<font>font25_title</font>
+					<textcolor>eeffffff</textcolor>
+					<shadowcolor>00000000</shadowcolor>
+					<label>$ADDON[service.upnext 30008] $ADDON[service.upnext 30036] [COLOR FFFF4081]$INFO[Player.TimeRemaining(ss),,][/COLOR] $ADDON[service.upnext 30035]</label>
+					<visible>!Integer.IsGreater(Player.TimeRemaining,59)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>35</height>
+					<aligny>center</aligny>
+					<font>font25_title</font>
+					<textcolor>eeffffff</textcolor>
+					<shadowcolor>00000000</shadowcolor>
+					<label>$ADDON[service.upnext 30008] $ADDON[service.upnext 30036] [COLOR FFFF4081]$INFO[Player.TimeRemaining,,][/COLOR]</label>
+					<visible>Integer.IsGreater(Player.TimeRemaining,59)</visible>
+				</control>
+				<!-- Details -->
+				<control type="grouplist">
+					<orientation>horizontal</orientation>
+					<height>35</height>
+					<top>40</top>
+					<itemgap>0</itemgap>
+					<control type="label">
+						<width>auto</width>
+						<height>35</height>
+						<aligny>center</aligny>
+						<font>font12</font>
+						<textcolor>eeffffff</textcolor>
+						<shadowcolor>00000000</shadowcolor>
+						<label>$INFO[Window.Property(tvshowtitle),, - ]$INFO[Window.Property(season),S,]$INFO[Window.Property(episode),E, - ]$INFO[Window.Property(title)]   </label>
+						<visible>!String.IsEmpty(Window.Property(title))</visible>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>35</height>
+						<aligny>center</aligny>
+						<font>font12</font>
+						<textcolor>eeffffff</textcolor>
+						<shadowcolor>00000000</shadowcolor>
+						<label>$INFO[Window.Property(year),,   ]</label>
+						<visible>!String.IsEmpty(Window.Property(year))</visible>
+					</control>
+					<control type="image">
+						<width>19</width>
+						<height>19</height>
+						<aspect>keep</aspect>
+						<texture colordiffuse="FFFF4081">star.png</texture>
+						<animation effect="slide" end="0,8" time="0" condition="true">Conditional</animation>
+						<visible>!String.IsEmpty(Window.Property(rating))</visible>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>35</height>
+						<aligny>center</aligny>
+						<label>$INFO[Window.Property(rating), ,   ]</label>
+						<font>font12</font>
+						<textcolor>eeffffff</textcolor>
+						<shadowcolor>00000000</shadowcolor>
+						<visible>!String.IsEmpty(Window.Property(rating))</visible>
+					</control>
+				</control>
+				<!-- Buttons -->
+				<control type="grouplist">
+					<orientation>horizontal</orientation>
+					<height>56</height>
+					<bottom>20</bottom>
+					<itemgap>10</itemgap>
+					<control type="button" id="3012">
+						<label>    $ADDON[service.upnext 30006]</label>
+						<height>56</height>
+						<width min="50">auto</width>
+						<font>font20_title</font>
+						<textoffsetx>55</textoffsetx>
+						<textcolor>ddffffff</textcolor>
+						<focusedcolor>eeffffff</focusedcolor>
+						<selectedcolor>ddffffff</selectedcolor>
+						<shadowcolor>22000000</shadowcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus border="10" colordiffuse="FF172A91">button.png</texturefocus>
+						<texturenofocus border="10" colordiffuse="FF212121">button.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="FF172A91">button.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="FF212121">button.png</alttexturenofocus>
+						<pulseonselect>no</pulseonselect>
+					</control>
+					<control type="button" id="3013">
+						<label>$ADDON[service.upnext 30034]</label>
+						<height>56</height>
+						<width min="50">auto</width>
+						<font>font20_title</font>
+						<textoffsetx>15</textoffsetx>
+						<textcolor>ddffffff</textcolor>
+						<focusedcolor>eeffffff</focusedcolor>
+						<selectedcolor>ddffffff</selectedcolor>
+						<shadowcolor>22000000</shadowcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus border="10" colordiffuse="FF172A91">button.png</texturefocus>
+						<texturenofocus border="10" colordiffuse="FF212121">button.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="FF172A91">button.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="FF212121">button.png</alttexturenofocus>
+						<pulseonselect>no</pulseonselect>
+					</control>
+				</control>
+				<control type="image">
+					<bottom>20</bottom>
+					<width>46</width>
+					<height>46</height>
+					<aspect>keep</aspect>
+					<texture colordiffuse="ddffffff">nextupicons/00.png</texture>
+					<animation effect="slide" end="13,-5" time="0" condition="true">Conditional</animation>
+				</control>
+			</control>
+		</control>
+	</include>
+	<!-- Custom , placeholder, actual netflix-->
+	<include name="UpNext_fancy_custom">
+	
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="400" />
+			<effect type="slide" start="2050,0" end="0,0" time="800" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="400" />
+			<effect type="slide" start="0,0" end="2050,0" time="400" />
+		</animation>
+		<!-- Background Image -->
+		<control type="image">
+			<posx>1225</posx>
+			<bottom>0</bottom>
+			<height>650</height>
+			<width>1040</width>
+			<texture colordiffuse="ff000000">diffuse/gradient.png</texture>
+		</control>
+		<!-- Info / Artwork -->
+		<control type="grouplist">
+			<posx>1245</posx>
+			<posy>450</posy>
+			<height>600</height>
+			<width>1020</width>
+			<orientation>vertical</orientation>
+			<!-- title -->
+			<control type="label">
+				<left>20</left>
+				<width>500</width>
+				<height>30</height>
+				<align>left</align>
+				<textcolor>white</textcolor>
+				<font>Bold36</font>
+				<label>[B]$INFO[Window.Property(tvshowtitle)][/B]</label>
+			</control>
+			<!-- time -->
+			<control type="label">
+				<width>500</width>
+				<top>30</top>
+				<left>20</left>
+				<height>33</height>
+				<font>Bold24</font>
+				<aligny>center</aligny>
+				<textcolor>grey</textcolor>
+				<label>$INFO[Player.TimeRemaining(ss),Starting in , seconds...]</label>
+			</control>
+			<!-- Framed Thumb Image + E,S Info -->
+			<control type="group">
+				<left>20</left>
+				<top>65</top>
+				<width>500</width>
+				<height>282</height>
+				<control type="image">
+					<width>500</width>
+					<height>282</height>
+					<texture>$VAR[NextUpThumb]</texture>
+					<aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
+				</control>
+				<!-- optional ?? 
+				<control type="image">
+					<left>13</left>
+					<top>13</top>
+					<width>70</width>
+					<height>70</height>
+					<texture colordiffuse="e9ffffff">$VAR[nextupbutton_TimeRemaining]</texture>
+				</control>
+				-->
+				<control type="image">
+					<bottom>5</bottom>
+					<left>5</left>
+					<width>498</width>
+					<align>center</align>
+					<height>55</height>
+				   <texture colordiffuse="ff000000">diffuse/gradient.png</texture>
+				</control>
+				<control type="image">
+					<width>504</width>
+					<height>285</height>
+					<texture border="2">netflix/frame/slimframe_hardedge.png</texture>
+				</control>
+				<control type="label">
+					<bottom>25</bottom>
+					<left>25</left>
+					<height>20</height>
+					<width>auto</width>
+					<textcolor>white</textcolor>
+					<font>Bold26</font>
+					<label>$INFO[Window.Property(season),S,: ]$INFO[Window.Property(episode),E,]</label>
+				</control>
+			</control>
+			<!-- Infos -->
+			<control type="label">
+				<width>auto</width>
+				<height>25</height>
+				<aligny>center</aligny>
+				<font>Bold26</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>00000000</shadowcolor>
+				<label>$INFO[Window.Property(title)]</label> <!-- need var for se if integer lesser than 10 -->
+				<visible>!String.IsEmpty(Window.Property(title))</visible>
+			</control>
+			<control type="grouplist">
+				<orientation>horizontal</orientation>
+				<itemgap>10</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+				<height>42</height>
+				<control type="label">
+					<width>auto</width>
+					<height>40</height>
+					<aligny>center</aligny>
+					<font>Reg24</font>
+					<textcolor>eeffffff</textcolor>
+					<shadowcolor>00000000</shadowcolor>
+					<label>$INFO[Window.Property(year)]</label>
+					<visible>!String.IsEmpty(Window.Property(year))</visible>
+				</control>
+				<control type="group">
+					<width>105</width>
+					<control type="image">
+						<top>2</top>
+						<width>100</width>
+						<height>40</height>
+						<aspect>keep</aspect>
+						<texture align="center" border="2">netflix/frame/detail-framehardedge.png</texture>
+					</control>
+					<control type="label">
+						<width>100</width>
+						<height>40</height>
+						<aligny>center</aligny>
+						<align>center</align>
+						<font>Reg24</font>
+						<textcolor>eeffffff</textcolor>
+						<shadowcolor>00000000</shadowcolor>
+						<label>MPAA</label>
+					</control>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>40</height>
+					<aligny>center</aligny>
+					<font>Bold26</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>00000000</shadowcolor>
+					<label>HD</label>
+				</control>
+			</control>
+			<control type="label">
+				<wrapmultiline>true</wrapmultiline>
+				<width>650</width>
+				<height>80</height>
+				<aligny>top</aligny>
+				<font>Reg26</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>00000000</shadowcolor>
+				<label>$INFO[Window.Property(plot)]</label>
+			</control>
+		</control>
+		<!-- Buttons -->
+		<control type="grouplist">
+			<orientation>horizontal</orientation>
+			<posx>1245</posx>
+			<bottom>10</bottom>
+			<width>600</width>
+			<height>60</height>
+			<itemgap>20</itemgap>
+			<control type="radiobutton" id="3012">
+				<label>[B]$ADDON[service.upnext 30006][/B]</label>
+				<height>50</height>
+				<width>250</width>
+				<font>Bold18</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>black</focusedcolor>
+				<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
+				<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+				<textureradioonfocus></textureradioonfocus>
+				<textureradioofffocus></textureradioofffocus>
+				<textureradioonnofocus></textureradioonnofocus>
+				<textureradiooffnofocus></textureradiooffnofocus>
+				<radioposx>20</radioposx>
+				<radiowidth>35</radiowidth>
+				<radioheight>30</radioheight>
+			</control>
+			<control type="radiobutton" id="3013">
+				<label>$ADDON[service.upnext 30034]</label>
+				<height>50</height>
+				<width>250</width>
+				<font>Bold18</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>black</focusedcolor>
+				<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
+				<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+				<textureradioonfocus colordiffuse="black">touchcontrols/close.png</textureradioonfocus>
+				<textureradioofffocus colordiffuse="black">touchcontrols/close.png</textureradioofffocus>
+				<textureradioonnofocus colordiffuse="white">touchcontrols/close.png</textureradioonnofocus>
+				<textureradiooffnofocus colordiffuse="white">touchcontrols/close.png</textureradiooffnofocus>
+				<radioposx>20</radioposx>
+				<radiowidth>35</radiowidth>
+				<radioheight>30</radioheight>
+			</control>
+		</control>
+		<control type="image">
+			<posx>1255</posx>
+			<bottom>26</bottom>
+			<width>40</width>
+			<height>40</height>
+			<texture colordiffuse="$VAR[nextupbutton]">$VAR[nextupbutton_TimeRemaining]</texture>
+		</control>
+	</include>
+
+	<!-- U P     N E X T    S I M P L E -->
+	<!-- Skin default -->
+	<include name="UpNext_simple_skindefault">		
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="600" />
+			<effect type="slide" start="0,-115" end="0,0" time="600" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="400" />
+			<effect type="slide" start="0,0" end="0,-115" time="400" />
+		</animation>
+		<control type="group">
+			<height>80</height>
+			<!-- Background -->
+			<control type="image">
+				<top>0</top>
+				<width>100%</width>
+				<height>80</height>
+				<texture flipy="true" colordiffuse="dd000000">diffuse/gradient.png</texture>
+			</control>
+			<control type="group">
+				<top>12</top>
+				<left>20</left>
+				<width>75%</width>
+				<!-- Buttons -->
+				<control type="grouplist">
+					<orientation>horizontal</orientation>
+					<height>56</height>
+					<itemgap>10</itemgap>
+					<align>left</align>
+					<control type="button" id="3012">
+						<label>    $ADDON[service.upnext 30037] [COLOR=ff009999]$INFO[Player.TimeRemaining(ss),,][/COLOR] $ADDON[service.upnext 30035]</label>
+						<height>56</height>
+						<width min="50">auto</width>
+						<font>font20_title</font>
+						<textoffsetx>55</textoffsetx>
+						<textcolor>white</textcolor>
+						<focusedcolor>black</focusedcolor>
+						<selectedcolor>ddffffff</selectedcolor>
+						<shadowcolor>22000000</shadowcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
+						<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="FF172A91">diffuse/panel.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="FF212121">netflix/frame/slimframe_hardedge.png</alttexturenofocus>
+						<pulseonselect>no</pulseonselect>
+					</control>
+					<control type="button" id="3013">
+						<label>$ADDON[service.upnext 30034]</label>
+						<height>56</height>
+						<width min="50">auto</width>
+						<font>font20_title</font>
+						<textoffsetx>15</textoffsetx>
+						<textcolor>white</textcolor>
+						<focusedcolor>black</focusedcolor>
+						<selectedcolor>ddffffff</selectedcolor>
+						<shadowcolor>22000000</shadowcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
+						<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="FF172A91">diffuse/panel.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="FF212121">netflix/frame/slimframe_hardedge.png</alttexturenofocus>
+						<pulseonselect>no</pulseonselect>
+					</control>
+				</control>
+				<control type="image">
+					<width>46</width>
+					<height>46</height>
+					<aspect>keep</aspect>
+					<texture colordiffuse="$VAR[nextupbutton]">$VAR[nextupbutton_TimeRemaining]</texture>
+					<animation effect="slide" end="13,5" time="0" condition="true">Conditional</animation>
+				</control>
+			</control>
+		</control>
+	</include>
+	<!-- Addon default  -->
+	<include name="UpNext_simple_addondefault">
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="600" />
+			<effect type="slide" start="0,-115" end="0,0" time="600" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="400" />
+			<effect type="slide" start="0,0" end="0,-115" time="400" />
+		</animation>
+		<control type="group">
+			<height>80</height>
+			<!-- Background -->
+			<control type="image">
+				<top>0</top>
+				<width>100%</width>
+				<height>80</height>
+				<texture colordiffuse="dd000000">bg.png</texture>
+			</control>
+			<control type="group">
+				<top>12</top>
+				<left>20</left>
+				<width>75%</width>
+				<!-- Buttons -->
+				<control type="grouplist">
+					<orientation>horizontal</orientation>
+					<height>56</height>
+					<itemgap>10</itemgap>
+					<align>left</align>
+					<control type="button" id="3012">
+						<label>    $ADDON[service.upnext 30037] [COLOR FFFF4081]$INFO[Player.TimeRemaining(ss),,][/COLOR] $ADDON[service.upnext 30035]</label>
+						<height>56</height>
+						<width min="50">auto</width>
+						<font>font20_title</font>
+						<textoffsetx>55</textoffsetx>
+						<textcolor>ddffffff</textcolor>
+						<focusedcolor>eeffffff</focusedcolor>
+						<selectedcolor>ddffffff</selectedcolor>
+						<shadowcolor>22000000</shadowcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus border="10" colordiffuse="FF172A91">button.png</texturefocus>
+						<texturenofocus border="10" colordiffuse="FF212121">button.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="FF172A91">button.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="FF212121">button.png</alttexturenofocus>
+						<pulseonselect>no</pulseonselect>
+					</control>
+					<control type="button" id="3013">
+						<label>$ADDON[service.upnext 30034]</label>
+						<height>56</height>
+						<width min="50">auto</width>
+						<font>font20_title</font>
+						<textoffsetx>15</textoffsetx>
+						<textcolor>ddffffff</textcolor>
+						<focusedcolor>eeffffff</focusedcolor>
+						<selectedcolor>ddffffff</selectedcolor>
+						<shadowcolor>22000000</shadowcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus border="10" colordiffuse="FF172A91">button.png</texturefocus>
+						<texturenofocus border="10" colordiffuse="FF212121">button.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="FF172A91">button.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="FF212121">button.png</alttexturenofocus>
+						<pulseonselect>no</pulseonselect>
+					</control>
+				</control>
+				<control type="image">
+					<width>46</width>
+					<height>46</height>
+					<aspect>keep</aspect>
+					<texture colordiffuse="ddffffff">nextupicons/30.png</texture>
+					<animation effect="slide" end="13,5" time="0" condition="true">Conditional</animation>
+					<visible>Integer.IsGreater(Player.TimeRemaining(ss),30)</visible>
+				</control>
+				<control type="image">
+					<width>46</width>
+					<height>46</height>
+					<aspect>keep</aspect>
+					<texture colordiffuse="ddffffff">$INFO[Player.TimeRemaining(ss),nextupicons/,.png]</texture>
+					<animation effect="slide" end="13,5" time="0" condition="true">Conditional</animation>
+					<visible>!Integer.IsGreater(Player.TimeRemaining(ss),30)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<!-- Custom , placeholder, actual skin default -->
+	<include name="UpNext_simple_custom">
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="600" />
+			<effect type="slide" start="0,-115" end="0,0" time="600" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" start="100" end="0" time="400" />
+			<effect type="slide" start="0,0" end="0,-115" time="400" />
+		</animation>
+		<control type="group">
+			<height>80</height>
+			<!-- Background -->
+			<control type="image">
+				<top>0</top>
+				<width>100%</width>
+				<height>80</height>
+				<texture flipy="true" colordiffuse="dd000000">diffuse/gradient.png</texture>
+			</control>
+			<control type="group">
+				<top>12</top>
+				<left>20</left>
+				<width>75%</width>
+				<!-- Buttons -->
+				<control type="grouplist">
+					<orientation>horizontal</orientation>
+					<height>56</height>
+					<itemgap>10</itemgap>
+					<align>left</align>
+					<control type="button" id="3012">
+						<label>    $ADDON[service.upnext 30037] [COLOR=ff009999]$INFO[Player.TimeRemaining(ss),,][/COLOR] $ADDON[service.upnext 30035]</label>
+						<height>56</height>
+						<width min="50">auto</width>
+						<font>font20_title</font>
+						<textoffsetx>55</textoffsetx>
+						<textcolor>white</textcolor>
+						<focusedcolor>black</focusedcolor>
+						<selectedcolor>ddffffff</selectedcolor>
+						<shadowcolor>22000000</shadowcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
+						<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="FF172A91">diffuse/panel.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="FF212121">netflix/frame/slimframe_hardedge.png</alttexturenofocus>
+						<pulseonselect>no</pulseonselect>
+					</control>
+					<control type="button" id="3013">
+						<label>$ADDON[service.upnext 30034]</label>
+						<height>56</height>
+						<width min="50">auto</width>
+						<font>font20_title</font>
+						<textoffsetx>15</textoffsetx>
+						<textcolor>white</textcolor>
+						<focusedcolor>black</focusedcolor>
+						<selectedcolor>ddffffff</selectedcolor>
+						<shadowcolor>22000000</shadowcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
+						<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="FF172A91">diffuse/panel.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="FF212121">netflix/frame/slimframe_hardedge.png</alttexturenofocus>
+						<pulseonselect>no</pulseonselect>
+					</control>
+				</control>
+				<control type="image">
+					<width>46</width>
+					<height>46</height>
+					<aspect>keep</aspect>
+					<texture colordiffuse="$VAR[nextupbutton]">$VAR[nextupbutton_TimeRemaining]</texture>
+					<animation effect="slide" end="13,5" time="0" condition="true">Conditional</animation>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

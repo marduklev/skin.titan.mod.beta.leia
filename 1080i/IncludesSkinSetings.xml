@@ -1785,7 +1785,50 @@
                 <onclick>Skin.ToggleSetting(OSDDisablePlaybackControls)</onclick>
                 <selected>Skin.HasSetting(OSDDisablePlaybackControls)</selected>
             </control>
-            
+            <!-- UpNext Skin related Settings 31670**-->
+            <control type="label" id="3167000">
+                <include>SkinSettings_Header</include>
+                <label>[UPPERCASE]U p    N e x t    S k i n    r e l a t e d    S e t t i n g s[/UPPERCASE]</label>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            </control>
+			<!-- Up Next Position - sh dialog ( bottom, center, top) 
+            <control type="button" id="3100701">
+                <include>SkinSettings_Button</include>
+                <label>$ADDON[service.upnext 30008] - $ADDON[service.upnext 30024]- Info Position</label>
+                <label2>$INFO[Skin.String(upnext_position.label)]</label2>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=upnext_position,header=Choose Info Position)</onclick>
+            </control>
+			-->
+			<!-- Hide Stop Button on Still Watching -->
+            <control type="radiobutton" id="3100702">
+                <include>SkinSettings_Button</include>
+                <label>Show 'Stop' Button in "$ADDON[service.upnext 30024]" Pop-Up</label>
+                <onclick>Skin.ToggleSetting(UpNext_ShowCancelButton)</onclick>
+                <selected>Skin.HasSetting(UpNext_ShowCancelButton)</selected>
+            </control>
+			<control type="radiobutton" id="3100705">
+                <include>SkinSettings_Button</include>
+                <label>Show Countdown Image (upper left at Thumb) in "$ADDON[service.upnext 30024]" Pop-Up </label>
+                <onclick>Skin.ToggleSetting(UpNext_ShowCountdownAtThumb)</onclick>
+                <selected>Skin.HasSetting(UpNext_ShowCountdownAtThumb)</selected>
+				<visible>Skin.String(upnext_fancy,upn_fancy_netflix)</visible>
+            </control>
+			<!-- Choose Fancy Layout (skinhelper dialog) $ADDON[service.upnext 30008] : -->
+			<control type="button" id="3100703">
+                <include>SkinSettings_Button</include>
+                <label>"$ADDON[service.upnext 30008]" : $LOCALIZE[22080] $ADDON[service.upnext 30039] Layout</label>
+				<!-- <label>$LOCALIZE[22080] $ADDON[service.upnext 30039] Layout ("$ADDON[service.upnext 30008]" Pop-Up)</label> -->
+                <label2>$INFO[Skin.String(upnext_fancy.label)]</label2>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=upnext_fancy,header=Choose Fancy Layout)</onclick>
+            </control>
+			<!-- Choose Simple Layout (skinhelper dialog) -->
+            <control type="button" id="3100704">
+                <include>SkinSettings_Button</include>
+                <label>"$ADDON[service.upnext 30008]" : $LOCALIZE[22080] $ADDON[service.upnext 30038] Layout</label>
+				<!-- <label>$LOCALIZE[22080] $ADDON[service.upnext 30038] Layout ("$ADDON[service.upnext 30008]" Pop-Up)</label> -->
+                <label2>$INFO[Skin.String(upnext_simple.label)]</label2>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=upnext_simple,header=Choose Simple Layout)</onclick>
+			</control>
             <!-- music playback -->
             <control type="label" id="31670">
                 <include>SkinSettings_Header</include>

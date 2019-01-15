@@ -8,6 +8,7 @@
     <include file="IncludesHomeWidgets.xml" />
 	<include file="IncludesHomeTitanTilesSubMenu.xml" />
     <include file="IncludesNowPlaying.xml" />
+	<include file="IncludesUpNext.xml" />
     <include file="View_10_SimplePVR.xml" />
     <include file="View_50_List.xml" />
 	<include file="View_51_BigList.xml" />

@@ -2762,7 +2762,7 @@
                 <onclick condition="!Skin.String(CustomLogoImage)">RunScript(script.skin.helper.service,action=SAVESKINIMAGE,skinstring=CustomLogoImage)</onclick>
                 <onclick condition="Skin.String(CustomLogoImage)">Skin.Reset(CustomLogoImage)</onclick>
                 <selected>Skin.String(CustomLogoImage)</selected>
-                <visible>String.Contains(Skin.String(general_header),logo) | String.Contains(Skin.String(home_header),logo)</visible>
+                <visible>String.Contains(Skin.String(general_header),logo) | String.Contains(Skin.String(home_header),logo) | Skin.String(HomeLayout,netflix2)</visible>
             </control>
             <!-- logo alignment-->
             <control type="button" id="123023">

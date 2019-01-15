@@ -40,48 +40,7 @@
 				<height>40</height>
 				<include>Netflix_Status</include>
 			</control>
-			<!-- currently plaing
-			<control type="group">
-				<visible>Player.HasVideo</visible>
-				<control type="image">
-					<posx>0</posx>
-					<posy>5</posy>
-					<width>100%</width>
-					<height>70</height>
-					<texture>netflix/frame/detail-framehardedgetest.png</texture></control>
-				<control type="videowindow">
-					<posx>125</posx>
-					<posy>10</posy>
-					<width>430</width>
-					<height>200</height>
-				</control>
-				<control type="image">
-					<posx>126</posx>
-					<posy>-8</posy>
-					<width>430</width>
-					<height>235</height>
-					<texture>netflix/frame/detail-frame.png</texture>
-				</control>
-				<control type="image">
-					<width>168</width>
-					<height>94</height>
-					<posx>10</posx>
-					<posy>5</posy>
-					<fadetime>200</fadetime>
-					<texture background="true">$INFO[Player.Art(tvshow.clearlogo)]</texture>
-					<aspectratio align="right" aligny="center">keep</aspectratio>
-				</control>
-				<control type="label">
-					<posx>540</posx>
-					<posy>7</posy>
-					<width>850</width>
-					<align>left</align>
-					<font>Bold28</font>
-					<textcolor>$INFO[Skin.String(SecondaryHeaderTextColor)]</textcolor>
-					<label>$VAR[NowPlayingTitle526]</label>
-					<scroll>false</scroll>
-				</control>
-			</control> -->
+			
 			<control type="group">
 				<control type="image" id="887768">
 					<height>207</height>
@@ -246,11 +205,11 @@
 					</control>
 				</itemlayout>
 			</control>
-		</control>
-		<!-- right list -->
-		<control type="group">
+		
+			<!-- right list -->
+			<control type="group">
 			<visible>Control.IsVisible(526)</visible>
-			<control type="fixedlist" id="5026">
+				<control type="fixedlist" id="5026">
 				<height>900</height>
 				<top>80</top>
 				<left>830</left>
@@ -487,34 +446,32 @@
 						</control>
 					</control>
 				</itemlayout>
-				<!-- content change test 
-				<content target="video" sortby="year" sortorder="ascending">videodb://tvshows/titles/$INFO[ListItem.DBID]/-1/,return)</content>
-				<content target="video" sortby="year" sortorder="ascending">$ESCINFO[Container(526).ListItem.FolderPath]</content> -->
 				<content target="video" sortby="year" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
-			</control>
-			<control type="image">
-				<top>303</top>
-				<right>50</right>
-				<width>1042</width>
-				<height>226</height>
-				<texture border="3.5">netflix/frame/slimframeFO.png</texture>
-				<colordiffuse>$VAR[NetflixViewDetailsBorderFocusColor]</colordiffuse>
-				<visible>Control.HasFocus(5026) + !Skin.HasSetting(View526_slimframe)</visible>
-			</control>
-			<control type="image">
-				<top>303</top>
-				<right>704</right>
-				<width>388</width>
-				<height>227</height>
-				<texture border="2">netflix/frame/slimframe_hardedge.png</texture>
-				<colordiffuse>$VAR[NetflixViewDetailsBorderFocusColor]</colordiffuse>
-				<visible>Control.HasFocus(5026) + Skin.HasSetting(View526_slimframe)</visible>
+				</control>
+				<control type="image">
+					<top>303</top>
+					<right>50</right>
+					<width>1042</width>
+					<height>226</height>
+					<texture border="3.5">netflix/frame/slimframeFO.png</texture>
+					<colordiffuse>$VAR[NetflixViewDetailsBorderFocusColor]</colordiffuse>
+					<visible>Control.HasFocus(5026) + !Skin.HasSetting(View526_slimframe)</visible>
+				</control>
+				<control type="image">
+					<top>303</top>
+					<right>704</right>
+					<width>388</width>
+					<height>227</height>
+					<texture border="2">netflix/frame/slimframe_hardedge.png</texture>
+					<colordiffuse>$VAR[NetflixViewDetailsBorderFocusColor]</colordiffuse>
+					<visible>Control.HasFocus(5026) + Skin.HasSetting(View526_slimframe)</visible>
+				</control>
 			</control>
 		</control>
 		<!-- check vertical Scrollbar not working atm
 		<control type="group">
 			<control type="scrollbar" id="60">
-				<visible>Control.IsVisible(5026) + Integer.IsGreater(Container.Numitems,0)</visible>
+				<visible>Control.IsVisible(5026) + Integer.IsGreater(Container(5026).Numitems,0)</visible>
 				<right>5</right>
 				<bottom>30</bottom>
 				<width>20</width>

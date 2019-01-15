@@ -923,10 +923,8 @@
                 <animation effect="slide" end="0,60" condition="Control.IsVisible(1)">Conditional</animation>
                 <include>animation_fade_visible_hidden</include>
                 <!-- logo -->
-                <!-- custom Logo image -->
-				<!-- check, add a button to choose custom logo here -->
                 <control type="image"> <!-- 325x125 -->
-					<visible>String.Contains(Skin.String(home_header),logo)</visible>
+					<visible>!Skin.HasSetting(DisableSkinIconMainMenu)</visible>
 					<left>10</left>
 					<height>80</height>
 					<width>275</width>
@@ -934,7 +932,7 @@
 					<texture background="true" fallback="home/kodi_logo_light.png">$INFO[Skin.String(CustomLogoImage)]</texture>
 				</control>
 				<control type="label">
-					<visible>String.Contains(Skin.String(home_header),logo) + !Skin.HasSetting(DisableProfileMainMenu)</visible>
+					<visible>!Skin.HasSetting(DisableSkinIconMainMenu) + !Skin.HasSetting(DisableProfileMainMenu)</visible>
 					<left>0</left>
 					<height>10</height>
 					<width>1</width>
@@ -945,7 +943,7 @@
                     <visible>!Skin.HasSetting(DisableProfileMainMenu)</visible>
 					<height>60</height>
 					<width>440</width>
-					<left>10</left>
+					<left>5</left>
                     <control type="button" id="40002">
                         <!-- localize & hardcoded color -->
                         <label>[B]$INFO[System.ProfileName][/B][CR][COLOR ffc0c0c0]Switch Profiles[/COLOR]</label>
@@ -1132,27 +1130,7 @@
 					</control>
 				</focusedlayout>
 				<content>
-					<include condition="!Window.IsActive(loginscreen)">skinshortcuts-group-powermenu</include>
-					<!-- shutdown menu options for loginscreen -->
-					<item id="997">
-						<label>$LOCALIZE[13009]</label>
-						<visible>System.ShowExitButton + Window.IsActive(loginscreen)</visible>
-						<onclick condition="Window.IsActive(shutdownmenu)">Close</onclick>
-						<onclick>Quit()</onclick>
-					</item>
-					<item id="998">
-						<property name="id">$NUM[4]</property>
-						<label>$LOCALIZE[13005]</label>
-						<visible>System.CanPowerDown + Window.IsActive(loginscreen)</visible>
-						<onclick condition="Window.IsActive(shutdownmenu)">Close</onclick>
-						<onclick>PowerDown</onclick>
-					</item>
-					<item id="999">
-						<label>$LOCALIZE[13013]</label>
-						<visible>System.CanReboot + Window.IsActive(loginscreen)</visible>
-						<onclick condition="Window.IsActive(shutdownmenu)">Close</onclick>
-						<onclick>Reboot</onclick>
-					</item>
+					<include>skinshortcuts-group-powermenu</include>
 				</content>
 			</control>
 		</control>

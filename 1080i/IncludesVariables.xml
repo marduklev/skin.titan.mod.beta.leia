@@ -1336,5 +1336,6 @@
     <variable name="NextUpThumb">
 		<value condition="!String.IsEmpty(Window.Property(thumb))">$INFO[Window.Property(thumb)]</value>
         <value condition="!String.IsEmpty(Window.Property(fanart))">$INFO[Window.Property(fanart)]</value>
+		<value>$INFO[Window.Property(landscape)]</value>
     </variable>
 </includes>

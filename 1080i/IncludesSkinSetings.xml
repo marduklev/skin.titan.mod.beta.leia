@@ -266,9 +266,17 @@
 			<!--Disable Profile Logo on MainMenu, re check-->
             <control type="radiobutton" id="31749">
                 <include>SkinSettings_Button</include>
-                <label>USE me for choose profile Logo</label>
+                <label>Dont Show profile Logo</label>
                 <onclick>Skin.ToggleSetting(DisableProfileMainMenu)</onclick>
                 <selected>Skin.HasSetting(DisableProfileMainMenu)</selected>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
+            </control>
+			<!--Disable Profile Logo on MainMenu, re check-->
+            <control type="radiobutton" id="31748">
+                <include>SkinSettings_Button</include>
+                <label>Dont Show Skin Logo in Home Menu Panel</label>
+                <onclick>Skin.ToggleSetting(DisableSkinIconMainMenu)</onclick>
+                <selected>Skin.HasSetting(DisableSkinIconMainMenu)</selected>
                 <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
             </control>
 

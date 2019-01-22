@@ -7,7 +7,7 @@
 		<control type="group">
 			<include condition="Skin.String(upnext_fancy,upn_fancy_netflix)">UpNext_Fancy_Netflix</include>
 			<include condition="Skin.String(upnext_fancy,upn_fancy_def)">UpNext_fancy_def</include>
-			<include condition="Skin.String(upnext_fancy,upn_fancy_custom)">UpNext_fancy_custom</include>
+			<include condition="Skin.String(upnext_fancy,upn_fancy_triangle)">UpNext_fancy_triangle</include>
 		</control>
 	</controls>
 </window>

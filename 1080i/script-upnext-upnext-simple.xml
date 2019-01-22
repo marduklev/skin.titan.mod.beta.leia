@@ -7,7 +7,7 @@
         <control type="group">
 			<include condition="Skin.String(upnext_simple,upn_simple_skindefault)">UpNext_simple_skindefault</include>
 			<include condition="Skin.String(upnext_simple,upn_simple_addondefault)">UpNext_simple_addondefault</include>
-			<include condition="Skin.String(upnext_simple,upn_simple_custom)">UpNext_simple_custom</include>
+			<include condition="Skin.String(upnext_simple,upn_simple_button)">UpNext_simple_button</include>
         </control>
         <control type="progress" id="3014">
             <visible>false</visible>

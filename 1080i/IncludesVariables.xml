@@ -1338,4 +1338,9 @@
         <value condition="!String.IsEmpty(Window.Property(fanart))">$INFO[Window.Property(fanart)]</value>
 		<value>$INFO[Window.Property(landscape)]</value>
     </variable>
+	<variable name="UpNextPanel">
+		<value condition="!Skin.HasSetting(UpNext_Use_Inked_Panel)">nextupicons/UpNext_corner.png</value> <!-- panel use just transparency, left border use color + transparency/diffuse -->
+        <value condition="Skin.HasSetting(UpNext_Use_Inked_Panel)">nextupicons/UpNext_corner_iverted.png</value> <!-- <texture colordiffuse="red">nextupicons/UpNext_corner_iverted.png</texture>  panel use color + transparency/diffuse-->
+	</variable>
+	
 </includes>

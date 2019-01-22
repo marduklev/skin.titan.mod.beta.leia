@@ -3,6 +3,7 @@
     <defaultcontrol always="true">3012</defaultcontrol>
     <onload>Dialog.Close(fullscreeninfo,true)</onload>
     <onload>Dialog.Close(videoosd,true)</onload>
+	<!-- stll watching intended auto close if no button presses -->
     <controls>
         <control type="group">
             <animation type="WindowOpen" reversible="false">
@@ -11,64 +12,66 @@
             <animation type="WindowClose" reversible="false">
                 <effect type="fade" start="100" end="0" time="100" />
             </animation>
-
+			
+			<control type="button" id="3013">
+				<include>HiddenButton</include>
+			</control>
+		
 			<!-- Background -->
 			<control type="image">
 				<top>350</top>
-				<width>100%</width>
-				<height>150</height>
-				<texture colordiffuse="ff000000">diffuse/gradient.png</texture>
+				<width>110%</width>
+				<height>170</height>
+				<texture colordiffuse="$INFO[Skin.String(upnext_panel)]">diffuse/gradient.png</texture>
 			</control>
 			<control type="image">
-				<top>500</top>
-				<width>100%</width>
-				<height>150</height>
-				<texture flipy="true" colordiffuse="ff000000">diffuse/gradient.png</texture>
+				<top>520</top>
+				<width>110%</width>
+				<height>170</height>
+				<texture flipy="true" colordiffuse="$INFO[Skin.String(upnext_panel)]">diffuse/gradient.png</texture>
 			</control>
 			<!-- Info / Artwork -->
 			<control type="group">
-				<top>360</top>
+				<top>370</top>
 				<width>100%</width>
 				<control type="label">
 					<height>35</height>
 					<aligny>top</aligny>
 					<align>center</align>
 					<font>font30_title</font>
-					<textcolor>white</textcolor>
+					<textcolor>$INFO[Skin.String(upnext_text)]</textcolor>
 					<label>[CAPITALIZE][B]$ADDON[service.upnext 30024][/B][/CAPITALIZE]</label>
 				</control>
+				<!-- art location - Thumb right, clear logo left -->
 				<control type="image">
-					<top>20</top>
-					<left>20</left>
+					<top>82</top>
+					<left>120</left>
 					<width>360</width>
-					<height>202.5</height>
+					<height>139.5</height>
 					<aspect>keep</aspect>
-					<texture background="true" fallback="$INFO[Window.Property(clearart)]">$VAR[NextUpThumb]</texture>
+					<include condition="Skin.HasSetting(Upnext_diffused_art)">Upnext_diffused_clearlogo</include>
+					<include condition="!Skin.HasSetting(Upnext_diffused_art)">Upnext_No_diffused_clearlogo</include>
 				</control>
+				
+				<!-- diffused image -->
 				<control type="image">
-					<top>20</top>
-					<left>20</left>
-					<width>360</width>
-					<height>202.5</height>
-					<aspect>keep</aspect>
-					<texture background="true" colordiffuse="ff000000">nextupicons/Vignette.png</texture>
+					<top>15</top>
+					<right>80</right>
+					<width>447.5</width>
+					<height>252.5</height>
+					<include condition="Skin.HasSetting(Upnext_diffused_art)">Upnext_diffused_thumb</include>
+					<include condition="!Skin.HasSetting(Upnext_diffused_art)">Upnext_No_diffused_thumb</include>
+					<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
 				</control>
-				<control type="image">
-					<top>180</top>
-					<left>80</left>
-					<width>260</width>
-					<height>100.75</height>
-					<texture colordiffuse="white">$INFO[Window.Property(clearlogo)]</texture> <!-- always jpg !? -->
-				</control>
+
 				<control type="label">
-					<top>230</top>
-					<left>380</left>
+					<top>210</top>
 					<height>20</height>
-					<width>auto</width>
-					<textcolor>grey</textcolor>
-					<font>Reg26</font>
-					<label>[B]$ADDON[service.upnext 30008] : [/B]$INFO[Window.Property(season),$LOCALIZE[20373] [B],[/B] • ]$INFO[Window.Property(episode),$LOCALIZE[20359] [B],[/B]]$INFO[Window.Property(title), • ,]</label>
-					<animation effect="fade" start="100" end="40" delay="500" time="900" pulse="true" condition="true">Conditional</animation>
+					<width>100%</width>
+					<align>center</align>
+					<textcolor>$INFO[Skin.String(upnext_text_secondary)]</textcolor>
+					<font>Reg28</font>
+					<label>[B]$LOCALIZE[31212][/B]$INFO[Window.Property(season), : $LOCALIZE[20373] [B],[/B] • ]$INFO[Window.Property(episode),$LOCALIZE[20359] [B],[/B]]$INFO[Window.Property(title), • ,]</label>
 				</control>
 			</control>
 			<!-- Buttons -->
@@ -77,50 +80,31 @@
 				<top>450</top>
 				<width>100%</width>
 				<height>256</height>
-				<itemgap>20</itemgap>
 				<align>center</align>
 				<aligny>bottom</aligny>
 				<control type="radiobutton" id="3012">
-					<label>   $ADDON[service.upnext 30010] $ADDON[service.upnext 30036] [COLOR=ff009999]$INFO[Player.TimeRemaining(ss),,][/COLOR] $ADDON[service.upnext 30035]</label>
-					<!-- <label>$ADDON[service.upnext 30010] $ADDON[service.upnext 30036] [COLOR=ff009999]$INFO[Player.TimeRemaining(ss),,][/COLOR] $ADDON[service.upnext 30035][CR][COLOR=grey]( $INFO[Window.Property(season),S,: ]$INFO[Window.Property(episode),E,]$INFO[Window.Property(title), • ,])[/COLOR]</label> -->
+					<label>$LOCALIZE[107] , $ADDON[service.upnext 30010]</label>
 					<height>100</height>
-					<width>550</width>
-					<font>Bold24</font>
-					<textcolor>white</textcolor>
-					<focusedcolor>black</focusedcolor>
-					<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
-					<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+					<width>660</width>
+					<font>Bold30</font>
+					<textcolor></textcolor>
+					<focusedcolor>$INFO[Skin.String(upnext_text)]</focusedcolor>
+					<texturefocus colordiffuse="$INFO[Skin.String(upnext_text)]" border="5">netflix/frame/detail-framehardedge.png</texturefocus> <!-- netflix/frame/slimframe_hardedge.png -->
+					<texturenofocus></texturenofocus>
 					<textureradioonfocus></textureradioonfocus>
 					<textureradioofffocus></textureradioofffocus>
 					<textureradioonnofocus></textureradioonnofocus>
 					<textureradiooffnofocus></textureradiooffnofocus>
-				</control>
-				<control type="radiobutton" id="3013">
-					<label>$ADDON[service.upnext 30034]</label>
-					<height>100</height>
-					<width>550</width>
-					<font>Bold24</font>
-					<textcolor>white</textcolor>
-					<focusedcolor>black</focusedcolor>
-					<texturefocus colordiffuse="white" border="5">diffuse/panel.png</texturefocus>
-					<texturenofocus colordiffuse="white" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
-					<textureradioonfocus colordiffuse="black">touchcontrols/close.png</textureradioonfocus>
-					<textureradioofffocus colordiffuse="black">touchcontrols/close.png</textureradioofffocus>
-					<textureradioonnofocus colordiffuse="white">touchcontrols/close.png</textureradioonnofocus>
-					<textureradiooffnofocus colordiffuse="white">touchcontrols/close.png</textureradiooffnofocus>
-					<radioposx>20</radioposx>
-					<radiowidth>55</radiowidth>
-					<radioheight>55</radioheight>
+					<onback>SendClick(3013)</onback>
 				</control>
 			</control>
-			<!-- var not possible in radiobutton, if reso not 16:9 it couldbe issue -->
 			<control type="image">
 				<top>460</top>
-				<left>410</left>
+				<left>645</left>
 				<width>80</width>
 				<height>80</height>
 				<aspect>keep</aspect>
-				<texture colordiffuse="$VAR[nextupbutton]">$VAR[nextupbutton_TimeRemaining]</texture>
+				<texture colordiffuse="$INFO[Skin.String(upnext_text)]">$VAR[nextupbutton_TimeRemaining]</texture>
 			</control>
         </control>
     </controls>

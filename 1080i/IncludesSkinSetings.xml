@@ -1791,45 +1791,80 @@
                 <label>$ADDON[service.upnext 30008] $LOCALIZE[10035]</label>
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
-			<!-- Up Next Position - sh dialog ( bottom, center, top) 
-            <control type="button" id="3100701">
-                <include>SkinSettings_Button</include>
-                <label>$ADDON[service.upnext 30008] - $ADDON[service.upnext 30024]- Info Position</label>
-                <label2>$INFO[Skin.String(upnext_position.label)]</label2>
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=upnext_position,header=Choose Info Position)</onclick>
-            </control>
-			-->
-			<!-- Hide Stop Button on Still Watching -->
+			<!-- Use Upnext_diffused_art -->
             <control type="radiobutton" id="3100702">
-                <include>SkinSettings_Button</include>
-                <label>Show 'Stop' Button in "$ADDON[service.upnext 30024]" Pop-Up</label>
-                <onclick>Skin.ToggleSetting(UpNext_ShowCancelButton)</onclick>
-                <selected>Skin.HasSetting(UpNext_ShowCancelButton)</selected>
+                <width>100%</width>
+				<align>left</align>
+				<height>100</height>
+				<font>arial26</font>
+				<textoffsetx>40</textoffsetx>
+				<textwidth>950</textwidth>
+				<wrapmultiline>true</wrapmultiline>
+                <label>Apply Panel Color Inking and use $ADDON[script.skin.helper.colorpicker 32049] for Artwork[CR][I]("$ADDON[service.upnext 30024]" Pop-Up + Tringle Layout)[/I]</label>
+                <onclick>Skin.ToggleSetting(Upnext_diffused_art)</onclick>
+                <selected>Skin.HasSetting(Upnext_diffused_art)</selected>
             </control>
+			<!-- Use Upnext_diffused_art -->
+			<control type="radiobutton" id="3100710">
+                <width>100%</width>
+				<align>left</align>
+				<height>100</height>
+				<font>arial26</font>
+				<textoffsetx>40</textoffsetx>
+				<textwidth>950</textwidth>
+				<wrapmultiline>true</wrapmultiline>
+                <label>Apply Panel Color Inking and use $ADDON[script.skin.helper.colorpicker 32049] for whole Panel [CR][I](instead of just inking the left border on a black Triangle panel)[/I]</label>
+                <onclick>Skin.ToggleSetting(UpNext_Use_Inked_Panel)</onclick>
+                <selected>Skin.HasSetting(UpNext_Use_Inked_Panel)</selected>
+				<visible>Skin.String(upnext_fancy,upn_fancy_triangle)</visible>
+            </control>
+			<!-- Upnext Show Countdown Image on thumb -->
 			<control type="radiobutton" id="3100705">
                 <include>SkinSettings_Button</include>
-                <label>Show Countdown Image (upper left at Thumb) in "$ADDON[service.upnext 30024]" Pop-Up </label>
+                <label>Show Countdown Image on Thumb in "$ADDON[service.upnext 30008]" Pop-Up </label>
                 <onclick>Skin.ToggleSetting(UpNext_ShowCountdownAtThumb)</onclick>
                 <selected>Skin.HasSetting(UpNext_ShowCountdownAtThumb)</selected>
-				<visible>Skin.String(upnext_fancy,upn_fancy_netflix)</visible>
+				<visible>!Skin.String(upnext_fancy,upn_fancy_def)</visible>
             </control>
-			<!-- Choose Fancy Layout (skinhelper dialog) $ADDON[service.upnext 30008] : -->
+			<!-- Choose Fancy Layout -->
 			<control type="button" id="3100703">
                 <include>SkinSettings_Button</include>
                 <label>"$ADDON[service.upnext 30008]" : $LOCALIZE[22080] $ADDON[service.upnext 30039] Layout</label>
-				<!-- <label>$LOCALIZE[22080] $ADDON[service.upnext 30039] Layout ("$ADDON[service.upnext 30008]" Pop-Up)</label> -->
-                <label2>$INFO[Skin.String(upnext_fancy.label)]</label2>
+				<label2>$INFO[Skin.String(upnext_fancy.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=upnext_fancy,header=Choose Fancy Layout)</onclick>
             </control>
-			<!-- Choose Simple Layout (skinhelper dialog) -->
+			<!-- Choose Simple Layout -->
             <control type="button" id="3100704">
                 <include>SkinSettings_Button</include>
                 <label>"$ADDON[service.upnext 30008]" : $LOCALIZE[22080] $ADDON[service.upnext 30038] Layout</label>
-				<!-- <label>$LOCALIZE[22080] $ADDON[service.upnext 30038] Layout ("$ADDON[service.upnext 30008]" Pop-Up)</label> -->
-                <label2>$INFO[Skin.String(upnext_simple.label)]</label2>
+				<label2>$INFO[Skin.String(upnext_simple.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=upnext_simple,header=Choose Simple Layout)</onclick>
 			</control>
-            <!-- music playback -->
+			
+			<!-- up next colors -->
+			<!-- $INFO[Skin.String(upnext_panel)]-->
+			 <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+				<param name="id" value="3100708" />
+				<param name="label" value="upnext_panel" />
+				<param name="skinsetting" value="upnext_panel" />
+				<param name="visible" value="!Skin.String(upnext_fancy,upn_fancy_def) | !Skin.String(upnext_simple,upn_simple_addondefault)" />
+			</include>
+			<!-- $INFO[Skin.String(upnext_text)]-->
+				<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+				<param name="id" value="3100706" />
+				<param name="label" value="upnext_text" />
+				<param name="skinsetting" value="upnext_text" />
+				<param name="visible" value="!Skin.String(upnext_fancy,upn_fancy_def) | !Skin.String(upnext_simple,upn_simple_addondefault)" />
+			</include>
+			<!-- $INFO[Skin.String(upnext_text_secondary)] -->
+			<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+				<param name="id" value="3100709" />
+				<param name="label" value="upnext_text_secondary" />
+				<param name="skinsetting" value="upnext_text_secondary" />
+				<param name="visible" value="[!Skin.String(upnext_fancy,upn_fancy_triangle) + !Skin.String(upnext_fancy,upn_fancy_def)] | Skin.String(upnext_simple,upn_simple_skindefault)" />
+			</include>
+			
+		    <!-- music playback -->
             <control type="label" id="31670">
                 <include>SkinSettings_Header</include>
                 <label>31670</label>

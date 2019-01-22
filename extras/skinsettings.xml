@@ -467,20 +467,16 @@
         <option id="videoinfo_button_panel" label="$LOCALIZE[31155]" condition="" default="true"/>
         <option id="videoinfo_button_myrating" label="My Rating" condition="" default="true"/>
     </setting>
-    <!-- UpNext Position style 
-    <setting id="upnext_position" value="center (default)" label="center (default)" condition="" icon="special://skin/extras/upnext/next_simple_def.jpg" description="" default="true"/>
-    <setting id="upnext_position" value="top" label="top" condition="" icon="special://skin/extras/upnext/still_fancy_def.jpg" description=""/>
-	<setting id="upnext_position" value="bottom" label="bottom" condition="" icon="special://skin/extras/upnext/still_fancy_def.jpg" description=""/>
-	-->
+    
 	<!-- UpNext Layout Simple style -->
     <setting id="upnext_simple" value="upn_simple_skindefault" label="Skin default" condition="" icon="special://skin/extras/upnext/next_simple_skindefault.jpg" description="" default="true"/>
     <setting id="upnext_simple" value="upn_simple_addondefault" label="Addon Default" condition="" icon="special://skin/extras/upnext/next_simple_addondefault.jpg" description=""/>
-	<setting id="upnext_simple" value="upn_simple_custom" label="Custom" condition="" icon="special://skin/extras/upnext/next_simple_custom.jpg" description=""/>
+	<setting id="upnext_simple" value="upn_simple_button" label="Just Button" condition="" icon="special://skin/extras/upnext/next_simple_custom.jpg" description=""/>
 	
 	<!-- UpNext Layout Fancy style -->
-	<setting id="upnext_fancy" value="upn_fancy_netflix" label="Netflix (Skin default)" condition="" icon="special://skin/extras/upnext/next_fancy_netflix.jpg" description="" default="true"/>
+	<setting id="upnext_fancy" value="upn_fancy_netflix" label="Netflix" condition="" icon="special://skin/extras/upnext/next_fancy_netflix.jpg" description="" default="true"/>
     <setting id="upnext_fancy" value="upn_fancy_def" label="Addon Default" condition="" icon="special://skin/extras/upnext/next_fancy_addondefault.jpg" description=""/>
-	<setting id="upnext_fancy" value="upn_fancy_custom" label="Custom" condition="" icon="special://skin/extras/upnext/next_fancy_custom.jpg" description=""/>
+	<setting id="upnext_fancy" value="upn_fancy_triangle" label="Triangle" condition="" icon="special://skin/extras/upnext/next_fancy_custom.jpg" description=""/>
 	 
     <!-- osd button style -->
     <setting id="osd_buttonstyle" value="rounded" label="$LOCALIZE[31493]" condition="" icon="special://skin/extras/images/button_round.jpg" description=""/>

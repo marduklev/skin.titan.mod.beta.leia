@@ -78,7 +78,7 @@
 					<width>498</width>
 					<align>center</align>
 					<height>55</height>
-				   <texture colordiffuse="$INFO[Skin.String(upnext_text)]">diffuse/gradient.png</texture>
+				   <texture colordiffuse="ff000000">diffuse/gradient.png</texture>
 				</control>
 				<control type="image">
 					<width>504</width>
@@ -90,7 +90,7 @@
 					<left>25</left>
 					<height>20</height>
 					<width>auto</width>
-					<textcolor>$INFO[Skin.String(upnext_text_secondary)]</textcolor>
+					<textcolor>$INFO[Skin.String(upnext_text)]</textcolor>
 					<font>Bold26</font>
 					<label>$INFO[Window.Property(season),S,: ]$INFO[Window.Property(episode),E,]</label>
 				</control>

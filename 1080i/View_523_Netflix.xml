@@ -149,7 +149,7 @@
 				
 				<!-- plot + genre + status -->
                 <control type="grouplist">
-                    <width>780</width>
+                    <width>38%</width>
                     <posx>71</posx>
                     <posy>350</posy>
                     <height>310</height>

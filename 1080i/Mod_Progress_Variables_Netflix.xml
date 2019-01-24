@@ -127,14 +127,14 @@
 			<height>30</height>
 			<aligny>bottom</aligny>
 			<texture>netflix/genre.png</texture>
-			<colordiffuse>$INFO[Skin.String(NetflixSecondaryTextColor)]</colordiffuse>
+			<colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
 		</control>
 		<control type="label">
 			<left>60</left>
 			<height>52</height>
 			<width>800</width>
 			<label>$VAR[ListItemGenre]</label>
-			<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
+			<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
 			<align>left</align>
 			<aligny>center</aligny>
 			<font>Reg24</font>

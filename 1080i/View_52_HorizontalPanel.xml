@@ -81,6 +81,7 @@
 				<control type="image">
 					<animation effect="slide" center="auto" end="0,-420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
 					<visible>!String.IsEmpty(ListItem.Label)</visible>
+					<visible>!Skin.HasSetting(DetailsTopHidepanel)</visible>
 					<posx>50</posx>
 					<height>820</height>
 					<width>1820</width>
@@ -90,7 +91,7 @@
 				<!--Info-->
 				<control type="grouplist">
 					<posx>60</posx>
-					<posy>0</posy>
+					<posy>10</posy>
 					<width>1920</width>
 					<height>400</height>
 					<orientation>horizontal</orientation>
@@ -106,11 +107,11 @@
 					<!-- Info -->
 					<control type="group">
 						<control type="label">
-							<top>10</top>
+							<top>0</top>
 							<left>20</left>
 							<width>1080</width>
 							<height>30</height>
-							<label>[UPPERCASE][B]$VAR[mediatitle][/UPPERCASE][/B]</label>
+							<label>[UPPERCASE][B]$VAR[mediatitle][/B][/UPPERCASE]</label>
 							<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 							<align>left</align>
 						</control>

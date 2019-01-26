@@ -2,9 +2,9 @@
 <!--Titan-->
 <window>
     <defaultcontrol always="true">9001</defaultcontrol>
-	<!-- <onload>SetProperty(shutdownmenuactive,true,Home)</onload>
+	<onload>SetProperty(shutdownmenuactive,true,Home)</onload>
 	<onunload>ClearProperty(shutdownmenuactive,Home)</onunload>
-    <onload>Dialog.Close(busydialog)</onload> -->
+    <!-- <onload>Dialog.Close(busydialog)</onload> , seems not needed check -->
     <controls>
 	<include>DialogOverlayExtra</include>
 

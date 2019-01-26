@@ -283,7 +283,7 @@
             <include>SideBladeMenuButton</include>
             <label>$LOCALIZE[31305]: $INFO[Container.Viewmode]</label>
             <onclick>XBMC.RunScript(script.skin.helper.service,action=SETVIEW)</onclick>
-            <onclick>ActivateWindow(busydialog)</onclick>
+            <!-- <onclick>ActivateWindow(busydialog)</onclick> , not needed , click force "dialogconfirm"-->
             <visible>!Window.IsActive(tvguide)</visible>
         </control>
         

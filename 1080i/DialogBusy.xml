@@ -7,8 +7,7 @@
 		<control type="group">
             <visible>![Skin.HasSetting(NetflixAutoTrailer) + Window.IsActive(Home)]</visible>
 			<visible>!Window.IsVisible(startup)</visible>
-			<!-- <visible>Window.IsActive(busydialognocancel)</visible> -->
-            <posx>960</posx>
+			<posx>960</posx>
             <posy>540</posy>
             <control type="multiimage">
                 <animation effect="fade" start="0" end="100" time="0">WindowOpen</animation>

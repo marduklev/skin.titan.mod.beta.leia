@@ -134,7 +134,7 @@
 			<height>52</height>
 			<width>800</width>
 			<label>$VAR[ListItemGenre]</label>
-			<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+			<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
 			<align>left</align>
 			<aligny>center</aligny>
 			<font>Reg24</font>

@@ -119,6 +119,14 @@
 		<onload condition="!Skin.String(ViewNetfixHighlightTextColor)">Skin.SetString(ViewNetfixHighlightTextColor,red)</onload>
         <onload condition="!Skin.String(ViewNetfixHighlightTextColor.name)">Skin.SetString(ViewNetfixHighlightTextColor.name,red)</onload>
 		<!-- ended order here -->
+		<onload condition="!Skin.String(ViewDetailsBGColor)">Skin.SetString(ViewDetailsBGColor, ff000000)</onload>
+        <onload condition="!Skin.String(ViewDetailsBGColor.name)">Skin.SetString(ViewDetailsBGColor.name, default)</onload>
+		<onload condition="!Skin.String(upnext_panel)">Skin.SetString(upnext_panel, cc000000)</onload>
+        <onload condition="!Skin.String(upnext_panel.name)">Skin.SetString(upnext_panel.name, default)</onload>
+		<onload condition="!Skin.String(upnext_text)">Skin.SetString(upnext_text, ffffffff)</onload>
+        <onload condition="!Skin.String(upnext_text.name)">Skin.SetString(upnext_text.name, default)</onload>
+		<onload condition="!Skin.String(upnext_text_secondary)">Skin.SetString(upnext_text_secondary, ffff4d4d)</onload>
+        <onload condition="!Skin.String(upnext_text_secondary.name)">Skin.SetString(upnext_text_secondary.name, default)</onload>
 		<onload condition="!Skin.String(ViewDetailsNetflixPanelColor)">Skin.SetString(ViewDetailsNetflixPanelColor, ff000000)</onload>
         <onload condition="!Skin.String(ViewDetailsNetflixPanelColor.name)">Skin.SetString(ViewDetailsNetflixPanelColor.name, default)</onload>
 		<onload condition="!Skin.String(HomeViewDetailsFocusColor)">Skin.SetString(HomeViewDetailsFocusColor, ff00b8ff)</onload>

@@ -167,14 +167,13 @@
     </include>
 	
     <include name="NowPlayingModern">
-	<include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>
+		<include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>
         <include condition="!Skin.HasSetting(DisableNowPlayingInfoBar)">NowPlayingInfoBar</include>
     </include>
 	
     <include name="NowPlayingInfoBar">
         <control type="group" id="88888">
             <!--Panel-->
-			<!-- <visible>String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))</visible> -->
 			<visible>!Skin.HasSetting(DisableNowPlayingInfoBar)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !ControlGroup(400).HasFocus() + !Control.IsVisible(77551)</visible>
 			<!-- <visible>[[Player.HasVideo + !String.IsEmpty(VideoPlayer.Title)] | [Player.HasAudio + String.IsEmpty(Window(home).Property(TVMelodies.isPlaying)) + !String.IsEmpty(MusicPlayer.Title)] | Player.IsInternetStream]</visible> -->
@@ -190,7 +189,7 @@
 					<visible>![Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(523) | Control.IsVisible(525)]</visible>
 					<posx>-300</posx>
 					<posy>-5</posy>
-					<width>100%</width>
+					<width>150%</width>
 					<height>145</height>
 					<texture border="5">diffuse/panel.png</texture>
 					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>

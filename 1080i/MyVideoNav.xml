@@ -6,16 +6,13 @@
     <include>allViewIds</include>
 	<onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
 	<onload>ClearProperty(ShowViewSubMenu, Home)</onload>
+	<!-- stop Widget Auto trailer -->
 	<onload condition="Skin.HasSetting(NetflixAutoTrailer) + System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onload>
-	<!-- check, maybe need condition if trailer, playing,will playing -->
-	<onunload condition="System.HasAlarm(themeplayback_delay)">PlayerControl(Stop)</onunload>
-	<onunload condition="System.HasAlarm(themeplayback_delay)">CancelAlarm(themeplayback_delay,true)</onunload>
+	<!-- clear trailer acript - check, maybe need condition if trailer, playing,will playing -->
 	<onunload condition="!String.IsEmpty(Window(home).Property(trailer_avail))">ClearProperty(trailer_avail,home)</onunload>
-	
 	<!-- return to infodialog if previous window -->
     <onunload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onunload>
 	<onunload condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunload>
-	
 	
 	<onunload>ClearProperty(ShowViewSubMenu, Home)</onunload>
     <controls>
@@ -155,12 +152,9 @@
 				</control>
              </control>
         </control>
-		
- 
-		<!--NowPlaying-->
-		<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(LowPerformanceMode)">NowPlayingInfoBar</include>
 
 		<!--NowPlaying-->
+		<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(LowPerformanceMode)">NowPlayingInfoBar</include>
         <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
         <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>

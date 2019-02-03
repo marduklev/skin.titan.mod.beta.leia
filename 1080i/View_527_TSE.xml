@@ -482,7 +482,7 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<content target="video" sortby="year" sortorder="ascending">$INFO[Container(5027).ListItem.FolderPath]</content>
+				<content target="ListItem.DBTYPE(episode)" sortby="year" sortorder="ascending">$INFO[Container(5027).ListItem.FolderPath]</content>
 			</control>
 		</control>
 	</include>

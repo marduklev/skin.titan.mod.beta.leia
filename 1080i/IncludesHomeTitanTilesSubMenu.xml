@@ -590,9 +590,9 @@
 				<posx>50</posx>
 				<width>600</width>
 				<height>60</height>
-				<textcolor>black</textcolor>
-				<selectedcolor>black</selectedcolor>
-				<disabledcolor>black</disabledcolor>
+				<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+				<selectedcolor>$INFO[Skin.String(MainMenuTextColor)]</selectedcolor>
+				<disabledcolor>dimgrey</disabledcolor>
 				<info>ListItem.Label</info>
 				<font>Reg28</font>
 			</control>
@@ -602,9 +602,9 @@
 				<posx>50</posx>
 				<width>600</width>
 				<height>60</height>
-				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-				<selectedcolor>white</selectedcolor>
-				<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+				<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+				<selectedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</selectedcolor>
+				<disabledcolor>dimgrey</disabledcolor>
 				<label>[B]$INFO[ListItem.Label][/B]</label>
 				<font>Reg28</font>
 			</control>
@@ -628,8 +628,8 @@
             <height>240</height>
             <texture border="15">diffuse/bgpanel.png</texture>
             <aspectratio scalediffuse="false" align="center" aligny="top">stretch</aspectratio>
-            <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
-        </control>
+            <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
+		</control>
 	</include>
 	
 	<include name="HomeMenuSubMenuLeft">

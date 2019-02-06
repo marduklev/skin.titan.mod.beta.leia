@@ -321,7 +321,7 @@
 							<include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
 						</control>
 						<control type="image">
-							<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$INFO[ListItem.Thumb]</texture>
+							<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="$INFO[ListItem.Art(tvshow.poster)]">$INFO[ListItem.Thumb]</texture>
 							<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
 							<bordersize>8</bordersize>
 						</control>
@@ -352,7 +352,7 @@
 							<include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
 						</control>
 						<control type="image">
-							<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$INFO[ListItem.Thumb]</texture>
+							<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="$INFO[ListItem.Art(tvshow.poster)]">$INFO[ListItem.Thumb]</texture>
 							<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
 							<bordersize>8</bordersize>
 						</control>

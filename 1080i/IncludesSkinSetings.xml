@@ -280,22 +280,13 @@
                 <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
             </control>
 
-			<!-- not needed, thumb is set in kodi setting
-			<include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
-                <param name="id" value="31749" />
-                <param name="label" value="WIP - USE me for choose profile Logo" />
-                <param name="action" value="RunScript(script.skin.helper.service,action=SAVESKINIMAGE,header=Custom Profile Logo,skinstring=CustomProfileLogo)" />
-                <param name="visible" value="true" />
-				e.g.
-				<texture background="true" fallback="$INFO[System.ProfileThumb]">$INFO[Skin.String(CustomProfileLogo)]</texture>
-            </include>-->
             <!--Disable Icons in Main Menu Items, re check-->
             <control type="radiobutton" id="31750">
                 <include>SkinSettings_Button</include>
                 <label>Disable Icons in Main Menu Items</label>
                 <onclick>Skin.ToggleSetting(DisableIconsMainMenu)</onclick>
                 <selected>Skin.HasSetting(DisableIconsMainMenu)</selected>
-                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix) | String.Contains(Skin.String(HomeLayout), win10)</visible>
             </control>
             <!--hide power warning-->
             <control type="label" id="23024">
@@ -3140,49 +3131,52 @@
             <param name="id" value="31743" />
             <param name="label" value="$LOCALIZE[31743]" />
             <param name="skinsetting" value="MainMenuTextColor" />
-            <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" />
+            <!-- <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" /> -->
         </include>
         <!--homemenu focused text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31744" />
             <param name="label" value="$LOCALIZE[31744]" />
             <param name="skinsetting" value="MainMenuFocusTextColor" />
-            <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" />
+            <!-- <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" /> -->
         </include>
 		<!--homemenu focused button color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31834" />
-            <param name="label" value="$LOCALIZE[31018] Main Menu Focus ButtonColor" />
+            <param name="label" value=" -- free color,ex Main Menu Focus ButtonColor" />
             <param name="skinsetting" value="MainMenuFocusButtonColor" />
             <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
         </include>
         <!--homemenu secondary focused button color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31835" />
-            <param name="label" value="$LOCALIZE[31018] Main Menu Power Menu Focus ButtonColor" />
+            <param name="label" value="$LOCALIZE[31018]" />
             <param name="skinsetting" value="MainMenuSecondaryFocusButtonColor" />
             <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
         </include>
-        <!--home button focus-->
+		 <!--home button focus-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31174" />
-            <param name="label" value="$LOCALIZE[31174]" />
+           <!--  <param name="label" value="$LOCALIZE[31174]" /> -->
+			 <param name="label" value="Widgets and Tiles - Background Color" />
             <param name="skinsetting" value="HomeViewDetailsFocusColor" />
         </include>
 		<!--home button border focus-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton"><!-- check the use of var -->
             <param name="id" value="31829" />
-            <param name="label" value="$LOCALIZE[31829]" />
+			<!-- <param name="label" value="$LOCALIZE[31829]" /> -->
+            <param name="label" value="Widgets and Tiles - focused Border Color" />
             <param name="skinsetting" value="HomeViewDetailsBorderFocusColor" />
         </include>
 		<!--label overlay text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31735" />
-            <param name="label" value="$LOCALIZE[31735]" />
+			<!-- <param name="label" value="$LOCALIZE[31735]" /> -->
+            <param name="label" value="Widgets and Tiles - unfocused Border Color" />
             <param name="skinsetting" value="HomeWidgetsBorderColor" />
         </include>
 		
-		<!--spotlight button unfocused color=textcolor-->
+        <!--spotlight button unfocused color=textcolor-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31850" />
             <param name="label" value="$LOCALIZE[31018] $LOCALIZE[31185]-$LOCALIZE[35103] unfocused Color" />
@@ -3232,13 +3226,7 @@
             <param name="label" value="secondary header $LOCALIZE[31219]" />
             <param name="skinsetting" value="SecondaryHeaderTextColor" />
         </include>
-		<!--2ndaryheader text shadow color
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
-            <param name="id" value="31302" />
-            <param name="label" value="secondary header $LOCALIZE[31220]" />
-            <param name="skinsetting" value="SecondaryHeaderTextShadowColor" />
-        </include>
-        -->
+		
 		<!-- F O O T E R color settings -->
         <control type="label" id="13030">
             <include>SkinSettings_Header</include>

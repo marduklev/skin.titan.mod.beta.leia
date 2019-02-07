@@ -20,8 +20,7 @@
                 <width>1030</width>
                 <height>531</height>
                 <texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-				
+				<colordiffuse>$INFO[Skin.String(DialogFrameColor)]</colordiffuse>				
             </control>
 			<control type="image">
                 <!--Panel-->
@@ -31,8 +30,7 @@
                 <height>531</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<bordersize>10</bordersize>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-				
+				<colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse>				
             </control>
 			
 			

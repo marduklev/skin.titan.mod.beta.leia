@@ -59,7 +59,7 @@
                 </animation>
 				<animation type="Conditional" condition="String.IsEqual(Window.Property(widgetstyle), landscapedetails2)">
                     <effect type="slide" start="0,0" end="0,210" time="0" delay="0"/>
-                </animation>																							  
+                </animation>
             </control>
             <control type="label">
                 <posx>405</posx>
@@ -156,7 +156,6 @@
             <animation effect="slide" start="0,0" end="0,-1000" time="300" tween="cubic" easing="inout" delay="0" condition="!String.IsEqual(Window(Home).Property(ShowWidget),show) + !Skin.HasSetting(AutoShowWidgets)">Conditional</animation>
             <animation effect="slide" start="0,-1000" end="0,0" time="300" tween="cubic" easing="inout" delay="0" condition="String.IsEqual(Window(Home).Property(ShowWidget),show) + !Skin.HasSetting(AutoShowWidgets)">Conditional</animation>
             
-            
             <!--  positioning for boxed layouts without infopanel -->
             <animation effect="slide" delay="0" start="0" end="0,175" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Window.Property(widgetstyle),widebox) + String.Contains(Skin.String(HomeLayout),horizontal) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,90" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Window.Property(widgetstyle),singlebox) + String.Contains(Skin.String(HomeLayout),horizontal) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
@@ -166,10 +165,10 @@
             <animation effect="slide" delay="0" start="0" end="0,-45" time="0" condition="String.IsEqual(Window.Property(widgetstyle),widebox) + String.Contains(Skin.String(HomeLayout),simplehor) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,-130" time="0" condition="String.IsEqual(Window.Property(widgetstyle),singlebox) + String.Contains(Skin.String(HomeLayout),simplehor) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,0" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),landscapedetails) | String.IsEqual(Window.Property(widgetstyle),landscapedetails2)] + String.Contains(Skin.String(HomeLayout),simplehor) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
-             <animation effect="slide" delay="0" start="0" end="0,-170" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidebox)] + String.Contains(Skin.String(HomeLayout),simplehor) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,-170" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidebox)] + String.Contains(Skin.String(HomeLayout),simplehor) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidebox)] + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
              
-             <animation effect="slide" delay="0" start="0" end="0,-300" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidebox)] + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,-300" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidebox)] + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,-180" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidebox)] + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
            
             <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),landscapedetails) | String.IsEqual(Window.Property(widgetstyle),landscapedetails2)]+ [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
@@ -183,8 +182,6 @@
             <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="String.IsEqual(Window.Property(widgetstyle),widebox) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,-175" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Window.Property(widgetstyle),widebox) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,-55" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Window.Property(widgetstyle),widebox) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
-
-            
             <include>skinshortcuts-template-Widgets</include>
         </control>
     </include>
@@ -259,7 +256,7 @@
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
-        </include>																																			   
+        </include>
     </include>
     <include name="widget_layout_None">
         <include name="widget_layout_default" content="widget_layout_default">
@@ -345,22 +342,20 @@
     
     <!-- widget poster details layout -->
     <include name="widget_layout_posterdetails">
-        
         <animation effect="slide" delay="0" start="0" end="0,-70" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,50" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-170" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-300" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
         
         <height>380</height>
         <orientation>horizontal</orientation>
         <itemlayout height="380" width="261">
           <control type="group">
             <width>250</width>
-            <height>370</height>
-            <include>PosterPanelLayout</include>
+            <height>370</height>          
+			<include>PosterPanelLayout</include>
             <control type="group">
                 <description>widget label overlay</description>
                 <include condition="!Skin.String(Widgets_DisplayTags,disable)">PosterTagOverlay</include>
@@ -403,29 +398,28 @@
     <include name="widget_layout_posterdetails_widebox">
         <!-- wide box widget -->
         <control type="group">
-
-            <control type="image">
+			<control type="image">
                 <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+                <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
             </control>
             <control type="image">
                 <texture border="5">diffuse/thinborder.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+                <colordiffuse>$INFO[Skin.String(HomeViewDetailsBorderFocusColor)]</colordiffuse>
             </control>
-            <!-- poster image -->
+			<!-- poster image -->
             <control type="group">
                 <width>250</width>
                 <height>370</height>
                 <include>PosterPanelLayout</include>
-              </control>
-            <control type="textbox">
+            </control>
+			<control type="textbox">
                 <left>260</left>
                 <right>30</right>
                 <top>8</top>
                 <aligny>top</aligny>
                 <height>40</height>
                 <font>Reg30</font>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoLabel]</label>
             </control>
             <control type="textbox">
@@ -437,11 +431,10 @@
                 <align>justify</align>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)" />
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)" />
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
-        </control>
-    
+        </control>   
     </include>
     
     <!-- widget small poster layout -->
@@ -455,7 +448,6 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-173" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-53" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
         
         <itemlayout height="253" width="182" condition="!String.Contains(Skin.String(HomeLayout),ver)">
             <control type="group">
@@ -560,7 +552,6 @@
         </focusedlayout>
         
         <animation effect="slide" start="0" end="140" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + Skin.HasSetting(VerticalHomeLargeWidget) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,7)">Conditional</animation>
-        
         <animation effect="slide" start="0" end="182" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,9)">Conditional</animation>
         <animation effect="slide" start="0" end="182" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,8)">Conditional</animation>
         <animation effect="slide" start="0" end="182" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,7)">Conditional</animation>
@@ -571,7 +562,6 @@
         <animation effect="slide" start="0" end="182" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
         <animation effect="slide" start="0" end="182" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
         <animation effect="slide" start="0" end="162" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,7)">Conditional</animation>
-        
         <animation effect="slide" start="0" end="162" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,6)">Conditional</animation>
         <animation effect="slide" start="0" end="162" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,5)">Conditional</animation>
         <animation effect="slide" start="0" end="162" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
@@ -599,8 +589,6 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-165" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-45" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
-
         <animation effect="slide" start="0" end="140" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + Skin.HasSetting(VerticalHomeLargeWidget) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
         <animation effect="slide" start="0" end="262" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,6) + !String.Contains(Skin.String(HomeLayout),ver)">Conditional</animation>
         <animation effect="slide" start="0" end="262" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,5) + !String.Contains(Skin.String(HomeLayout),ver)">Conditional</animation>
@@ -664,9 +652,6 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-51" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,69" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
-        
-        
         <animation effect="slide" start="0" end="130" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,13) + !String.Contains(Skin.String(HomeLayout),ver)">Conditional</animation>
         <animation effect="slide" start="0" end="130" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,12) + !String.Contains(Skin.String(HomeLayout),ver)">Conditional</animation>
         <animation effect="slide" start="0" end="130" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,11) + !String.Contains(Skin.String(HomeLayout),ver)">Conditional</animation>
@@ -720,10 +705,7 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-130" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-10" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
-        
         <animation effect="slide" start="0" end="140" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + Skin.HasSetting(VerticalHomeLargeWidget) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
-        
         <animation effect="slide" start="0" end="366" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
         <animation effect="slide" start="0" end="366" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
         <animation effect="slide" start="0" end="366" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
@@ -838,7 +820,6 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-190" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-70" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
         
         <itemlayout width="430" height="260">
             <control type="group">
@@ -895,7 +876,6 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-130" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-10" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
         
         <orientation>horizontal</orientation>
         <itemlayout width="366" height="210">
@@ -950,7 +930,6 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-130" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-10" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
         
         <orientation>horizontal</orientation>
         <itemlayout width="366" height="210">
@@ -994,17 +973,17 @@
                 </include>
             </control>
 		</focusedlayout>
-	</include>						 
+	</include>
     <include name="widget_layout_landscapelarge_widebox">
         <!-- wide box widget -->
         <control type="group">
             <control type="image">
                 <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+                <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
             </control>
             <control type="image">
                 <texture border="5">diffuse/thinborder.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+                <colordiffuse>$INFO[Skin.String(HomeViewDetailsBorderFocusColor)]</colordiffuse>
             </control>
             <!-- poster image -->
             <control type="group">
@@ -1019,7 +998,7 @@
                 <aligny>top</aligny>
                 <height>80</height>
                 <font>Reg30</font>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoLabel]</label>
             </control>
             <control type="textbox">
@@ -1032,11 +1011,10 @@
                 <align>justify</align>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)" />
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)" />
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
         </control>
-    
     </include>
     
     <!-- widget banner layout -->
@@ -1194,7 +1172,7 @@
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
         </focusedlayout>
-    </include>												
+    </include>
     <!-- widget landscapesmall layout -->
     <include name="widget_layout_landscapesmall">
         <include condition="$PARAM[multiRows]">widget_layout_landscapesmall_multi</include>
@@ -1206,17 +1184,13 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-68" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,52" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
-        
         <animation effect="slide" start="0" end="140" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + Skin.HasSetting(VerticalHomeLargeWidget) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
-        
         <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,6)">Conditional</animation>
         <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,5)">Conditional</animation>
         <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
         <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
         <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
         <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
-        
         <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
         <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
         <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
@@ -1302,7 +1276,7 @@
         </include>
     </include>
     
-    <!-- widget singlebox layout -->
+    <!-- widget singlebox layout panel -->
     <include name="widget_layout_singlebox">
         <height>340</height>
         
@@ -1313,74 +1287,47 @@
         <animation effect="slide" delay="0" start="0" end="0,-260" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-140" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
 
-        
+        <!-- home not vertical ,set to use cond width-->
         <itemlayout height="340" width="1820" condition="!String.Contains(Skin.String(HomeLayout),ver)">
-            <include>itemlayout_singlebox</include>
+            <include>itemlayout_singlebox_unfocus</include>
         </itemlayout>
         <focusedlayout height="340" width="1820" condition="!String.Contains(Skin.String(HomeLayout),ver)">
             <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                 <param name="widgetstyle" value="singlebox"/>
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
-            <control type="image">
-                <include condition="Skin.HasSetting(WidgetAlignRight)">widget_layout_singlebox_rightalign</include>
-                <bordersize>0</bordersize>
-                <height>330</height>
-                <width>940</width>
-                <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
-                <visible>Control.HasFocus($PARAM[widgetid])</visible>
-            </control>
             <include name="itemlayout_singlebox" content="itemlayout_singlebox">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
         </focusedlayout>
-        
+        <!-- vertical menu if large widget disabled -->
         <itemlayout height="340" width="1302" condition="String.Contains(Skin.String(HomeLayout),ver) + !Skin.HasSetting(VerticalHomeLargeWidget)">
-            <include>itemlayout_singlebox</include>
+            <include>itemlayout_singlebox_unfocus</include>
         </itemlayout>
         <focusedlayout height="340" width="1302" condition="String.Contains(Skin.String(HomeLayout),ver) + !Skin.HasSetting(VerticalHomeLargeWidget)">
             <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                 <param name="widgetstyle" value="singlebox"/>
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
-            <control type="image">
-                <include condition="Skin.HasSetting(WidgetAlignRight)">widget_layout_singlebox_rightalign</include>
-                <bordersize>0</bordersize>
-                <height>330</height>
-                <width>940</width>
-                <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
-                <visible>Control.HasFocus($PARAM[widgetid])</visible>
-            </control>
             <include name="itemlayout_singlebox" content="itemlayout_singlebox">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
         </focusedlayout>
-    
+		<!-- vertical menu if large widget enabled -->
         <itemlayout height="340" width="1440" condition="String.Contains(Skin.String(HomeLayout),ver) + Skin.HasSetting(VerticalHomeLargeWidget)">
-            <include>itemlayout_singlebox</include>
+            <include>itemlayout_singlebox_unfocus</include>
         </itemlayout>
         <focusedlayout height="340" width="1440" condition="String.Contains(Skin.String(HomeLayout),ver) + Skin.HasSetting(VerticalHomeLargeWidget)">
             <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                 <param name="widgetstyle" value="singlebox"/>
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
-            <control type="image">
-                <include condition="Skin.HasSetting(WidgetAlignRight)">widget_layout_singlebox_rightalign</include>
-                <bordersize>0</bordersize>
-                <height>330</height>
-                <width>940</width>
-                <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
-                <visible>Control.HasFocus($PARAM[widgetid])</visible>
-            </control>
-            <include name="itemlayout_singlebox" content="itemlayout_singlebox">
+			<include name="itemlayout_singlebox" content="itemlayout_singlebox">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
         </focusedlayout>
-    
     </include>
+	<!-- singlebox info layout -->
     <include name="itemlayout_singlebox">
         <!-- single box widget -->
         <control type="group">
@@ -1390,11 +1337,11 @@
             <control type="image">
                 <bordersize>4</bordersize>
                 <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
             </control>
             <control type="image">
                 <texture border="5">diffuse/thinborder.png</texture>
-                <colordiffuse>darkgrey</colordiffuse>
+                <colordiffuse>$INFO[Skin.String(HomeViewDetailsBorderFocusColor)]</colordiffuse>
                 <bordersize>4</bordersize>
                 <visible>skin.hastheme(skindefault)</visible>
             </control>
@@ -1413,7 +1360,7 @@
                 <aligny>center</aligny>
                 <height>60</height>
                 <font>Reg30</font>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoLabel]</label>
             </control>
             <control type="textbox">
@@ -1427,7 +1374,7 @@
                 <align>justify</align>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
             <control type="textbox">
@@ -1441,7 +1388,7 @@
                 <align>justify</align>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
             <control type="group">
@@ -1454,7 +1401,100 @@
                     <height>30</height>
                     <visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
                     <label>$VAR[VideoFileTypeVar,, • ]$VAR[VideoCodecVar,, • ]$VAR[VideoAspectVar,, • ]$VAR[VideoResolutionVar,, • ]$VAR[AudioCodecVar,, • ]$VAR[AudioChannelsVar]$VAR[AudioLanguageVar, • ]</label>
-                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                    <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                </control>
+            </control>
+            <control type="group">
+                <!--Watched Overlay-->
+                <right>8</right>
+                <top>8</top>
+                <animation effect="slide" end="-2,2" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
+                <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+                    <param name="width" value="80"/>
+                    <param name="height" value="80"/>
+                    <param name="font" value="indicator_normal"/>
+                    <param name="labeloffsetx" value="-30"/>
+                    <param name="labeloffsety" value="-4"/>
+                    <param name="overlay" value="normal"/>
+                    <param name="overlay_texture" value="diffuse/icon_overlay_landscape.png"/>
+                </include>
+            </control>
+        </control>
+    </include>
+	<include name="itemlayout_singlebox_unfocus">
+        <!-- single box widget -->
+        <control type="group">
+            <height>330</height>
+            <width>940</width>
+            <include condition="Skin.HasSetting(WidgetAlignRight)">widget_layout_singlebox_rightalign</include>
+            <control type="image">
+                <bordersize>4</bordersize>
+                <texture border="15">diffuse/bgpanel.png</texture>
+                <colordiffuse>43000000</colordiffuse><!-- let it hardcoded ?!-->
+            </control>
+            <control type="image">
+                <texture border="5">diffuse/thinborder.png</texture>
+                <colordiffuse>$INFO[Skin.String(HomeWidgetsBorderColor)]</colordiffuse>
+                <bordersize>4</bordersize>
+                <visible>skin.hastheme(skindefault)</visible>
+            </control>
+            <!-- poster image -->
+            <control type="image">
+                <width>240</width>
+                <height>329</height>
+                <texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
+                <aspectratio scalediffuse="true" aligny="top" align="left">keep</aspectratio>
+                <bordersize>12</bordersize>
+            </control>
+            <control type="label">
+                <left>251</left>
+                <top>0</top>
+                <width>650</width>
+                <aligny>center</aligny>
+                <height>60</height>
+                <font>Reg30</font>
+                <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                <label>$VAR[HomeMenuWidgetInfoLabel]</label>
+            </control>
+            <control type="textbox">
+                <!--description with mediaflags present -->
+                <visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
+                <left>251</left>
+                <width>650</width>
+                <top>60</top>
+                <bottom>70</bottom>
+                <font>Reg24</font>
+                <align>justify</align>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
+            </control>
+            <control type="textbox">
+                <!--description with no mediaflags -->
+                <visible>String.IsEmpty(ListItem.VideoCodec)</visible>
+                <left>251</left>
+                <width>650</width>
+                <top>60</top>
+                <bottom>17</bottom>
+                <font>Reg24</font>
+                <align>justify</align>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
+            </control>
+            <control type="group">
+                <height>36</height>
+                <left>251</left>
+                <bottom>10</bottom>
+                <control type="label">
+                    <font>flags</font>
+                    <width>auto</width>
+                    <height>30</height>
+                    <visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
+                    <label>$VAR[VideoFileTypeVar,, • ]$VAR[VideoCodecVar,, • ]$VAR[VideoAspectVar,, • ]$VAR[VideoResolutionVar,, • ]$VAR[AudioCodecVar,, • ]$VAR[AudioChannelsVar]$VAR[AudioLanguageVar, • ]</label>
+                    <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                 </control>
             </control>
             <control type="group">
@@ -1488,7 +1528,6 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-175" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-55" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
         
         <itemlayout height="265" width="1820" condition="!String.Contains(Skin.String(HomeLayout),ver)">
             <include>itemlayout_widebox</include>
@@ -1510,11 +1549,11 @@
             <control type="image">
                 <bordersize>4</bordersize>
                 <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+                <colordiffuse>43000000</colordiffuse>
             </control>
             <control type="image">
                 <texture border="5">diffuse/thinborder.png</texture>
-                <colordiffuse>darkgrey</colordiffuse>
+                <colordiffuse>$INFO[Skin.String(HomeWidgetsBorderColor)]</colordiffuse>
                 <bordersize>4</bordersize>
                 <visible>skin.hastheme(skindefault)</visible>
             </control>
@@ -1533,7 +1572,7 @@
                 <aligny>top</aligny>
                 <height>80</height>
                 <font>Reg30</font>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoLabel]</label>
             </control>
             <control type="textbox">
@@ -1546,7 +1585,7 @@
                 <align>justify</align>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
             <control type="group">
@@ -1571,12 +1610,67 @@
                 <param name="widgetstyle" value="widebox"/>
             <param name="widgetid" value="$PARAM[widgetid]"/>
         </include>
-        <control type="image">
-            <bordersize>0</bordersize>
-            <texture border="15">diffuse/bgpanel.png</texture>
-            <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+        <!-- wide box widget focus-->
+        <control type="group">
+            <height>255</height>
+            <control type="image">
+                <bordersize>4</bordersize>
+                <texture border="15">diffuse/bgpanel.png</texture>
+                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+            </control>
+            <control type="image">
+                <texture border="5">diffuse/thinborder.png</texture>
+                <colordiffuse>$INFO[Skin.String(HomeViewDetailsBorderFocusColor)]</colordiffuse>
+                <bordersize>4</bordersize>
+                <visible>skin.hastheme(skindefault)</visible>
+            </control>
+            <!-- poster image -->
+            <control type="image">
+                <width>190</width>
+                <height>100%</height>
+                <texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
+                <aspectratio scalediffuse="true" aligny="top" align="left">keep</aspectratio>
+                <bordersize>12</bordersize>
+            </control>
+            <control type="label">
+                <left>200</left>
+                <width>70%</width>
+                <top>12</top>
+                <aligny>top</aligny>
+                <height>80</height>
+                <font>Reg30</font>
+                <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                <label>$VAR[HomeMenuWidgetInfoLabel]</label>
+            </control>
+            <control type="textbox">
+                <left>200</left>
+                <right>30</right>
+                <right>10</right>
+                <top>60</top>
+                <height>145</height>
+                <font>Reg24</font>
+                <align>justify</align>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
+            </control>
+            <control type="group">
+                <!--Watched Overlay-->
+                <right>8</right>
+                <top>8</top>
+                <animation effect="slide" end="-2,2" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
+                <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+                    <param name="width" value="80"/>
+                    <param name="height" value="80"/>
+                    <param name="font" value="indicator_normal"/>
+                    <param name="labeloffsetx" value="-30"/>
+                    <param name="labeloffsety" value="-4"/>
+                    <param name="overlay" value="normal"/>
+                    <param name="overlay_texture" value="diffuse/icon_overlay_landscape.png"/>
+                </include>
+            </control>
         </control>
-        <include>itemlayout_widebox</include>
     </include>
 
      <!-- mod: leftalign adds left attribute to ** -->
@@ -1735,7 +1829,7 @@
     </include>
 	 <include name="widget_header_leftalign">
         <left>15</left>
-    </include>												  
+    </include>
     <include name="widget_header_enhancedhome">
         <font>Reg26</font>
         <align>left</align>
@@ -1907,7 +2001,7 @@
                         </include>
                     </control>
                 </control>
-				<!-- hidden trailer button, home enhanced -->				  
+				<!-- hidden trailer button, home enhanced -->
                 <control type="button">
                     <visible>false</visible>
                     <onfocus>Setproperty(SkinHelper.WidgetContainer,$PARAM[widgetid])</onfocus>
@@ -1917,7 +2011,7 @@
                         <param name="widgetid" value="$PARAM[widgetid]" />
                     </include>
                 </control>
-				<!-- end hidden trailer button -->					  
+				<!-- end hidden trailer button -->
             </focusedlayout>
             <animation condition="!Control.HasFocus(77777) + Skin.HasSetting(Widgets_Animation)" reversible="false" type="Visible">
                 <effect center="960,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom"/>

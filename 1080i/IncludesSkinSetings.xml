@@ -3069,7 +3069,7 @@
             <param name="skinsetting" value="GeneralHighlightTextColor" />
         </include>
 									   
-         <!--scrollbar background color-->
+        <!--scrollbar background color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31495" />
             <param name="label" value="$LOCALIZE[31495]" />
@@ -3098,6 +3098,12 @@
             <param name="id" value="31602" />
             <param name="label" value="$LOCALIZE[31602]" />
             <param name="skinsetting" value="SideBladeTextColor" />
+        </include>
+		<!-- homemenu focused button color -->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31834" />
+            <param name="label" value=" -- Dialog Frame/BG Color" />
+            <param name="skinsetting" value="DialogFrameColor" />
         </include>
          <!--label overlay panel color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
@@ -3129,50 +3135,40 @@
         <!--homemenu unfocused text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31743" />
-            <param name="label" value="$LOCALIZE[31743]" />
+            <param name="label" value="Widget Details/Tiles/$LOCALIZE[31743]" />
             <param name="skinsetting" value="MainMenuTextColor" />
             <!-- <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" /> -->
         </include>
         <!--homemenu focused text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31744" />
-            <param name="label" value="$LOCALIZE[31744]" />
+            <param name="label" value="Widget Details/Tiles/$LOCALIZE[31744]" />
             <param name="skinsetting" value="MainMenuFocusTextColor" />
             <!-- <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" /> -->
-        </include>
-		<!--homemenu focused button color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
-            <param name="id" value="31834" />
-            <param name="label" value=" -- free color,ex Main Menu Focus ButtonColor" />
-            <param name="skinsetting" value="MainMenuFocusButtonColor" />
-            <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
         </include>
         <!--homemenu secondary focused button color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31835" />
-            <param name="label" value="$LOCALIZE[31018]" />
+            <param name="label" value="Bottom Shutdown Menu focused BG (Windows10 and $LOCALIZE[31544])" />
             <param name="skinsetting" value="MainMenuSecondaryFocusButtonColor" />
             <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
         </include>
 		 <!--home button focus-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31174" />
-           <!--  <param name="label" value="$LOCALIZE[31174]" /> -->
-			 <param name="label" value="Widgets and Tiles - Background Color" />
+            <param name="label" value="Widgets and Tiles - Background Color" />
             <param name="skinsetting" value="HomeViewDetailsFocusColor" />
         </include>
 		<!--home button border focus-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton"><!-- check the use of var -->
             <param name="id" value="31829" />
-			<!-- <param name="label" value="$LOCALIZE[31829]" /> -->
-            <param name="label" value="Widgets and Tiles - focused Border Color" />
+			<param name="label" value="Widgets and Tiles - focused Border Color" />
             <param name="skinsetting" value="HomeViewDetailsBorderFocusColor" />
         </include>
 		<!--label overlay text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31735" />
-			<!-- <param name="label" value="$LOCALIZE[31735]" /> -->
-            <param name="label" value="Widgets and Tiles - unfocused Border Color" />
+			<param name="label" value="Widgets and Tiles - unfocused Border Color" />
             <param name="skinsetting" value="HomeWidgetsBorderColor" />
         </include>
 		

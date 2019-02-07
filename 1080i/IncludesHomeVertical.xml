@@ -20,7 +20,8 @@
 				<left>480</left>
                 <width>1810</width>
                 <visible>!Skin.HasSetting(HideWidgetDetailsPanel) + !Skin.HasSetting(VerticalHomeLargeWidget)</visible>
-                <visible>!String.Contains(Window(Home).Property(widgetstyle),box)</visible>
+                <visible>!String.EndsWith(Window(Home).Property(widgetstyle),box)</visible>
+				<visible>!String.EndsWith(Window(Home).Property(widgetstyle),details)</visible>
                 <visible>!Control.HasFocus(4446)</visible>
                 <visible>ControlGroup(77777).HasFocus() + !String.IsEqual(Container(300).ListItem.Property(widget),submenuaswidget)</visible>
                 <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>

@@ -113,19 +113,13 @@
         <onload condition="!Skin.String(TagOverlaysPanelColor.name)">Skin.SetString(TagOverlaysPanelColor.name,dimblack2)</onload>
         <onload condition="!Skin.String(TagOverlaysTextColor)">Skin.SetString(TagOverlaysTextColor,ffffffff)</onload>
         <onload condition="!Skin.String(TagOverlaysTextColor.name)">Skin.SetString(TagOverlaysTextColor.name,white)</onload>
-        <!-- nicht gesetzt, home menu color settings check, defaults-->
-				<onload condition="!Skin.String(MainMenuPanelColor) + !Skin.String(MainMenuPanelColor.name) + !Skin.HasSetting(HideWidgetDetailsPanel)">Skin.SetString(MainMenuPanelColor.name,$INFO[Skin.String(ViewDetailsPanelColor.name)])</onload>
-				<onload condition="!Skin.String(MainMenuPanelColor) + !Skin.HasSetting(HideWidgetDetailsPanel)">Skin.SetString(MainMenuPanelColor,$INFO[Skin.String(ViewDetailsPanelColor)])</onload>
-				<onload condition="!Skin.String(MainMenuPanelColor) + !Skin.String(MainMenuPanelColor.name) + Skin.HasSetting(HideWidgetDetailsPanel)">Skin.SetString(MainMenuPanelColor.name,None)</onload>
-				<onload condition="!Skin.String(MainMenuPanelColor) + Skin.HasSetting(HideWidgetDetailsPanel)">Skin.SetString(MainMenuPanelColor,None)</onload>      
-				<onload condition="!Skin.String(MainMenuTextColor)">Skin.SetString(MainMenuTextColor,$INFO[Skin.String(ViewDetailsTextColor)])</onload>       
-				<onload condition="!Skin.String(MainMenuTextColor) + !Skin.String(MainMenuTextColor.name)">Skin.SetString(MainMenuTextColor.name,$INFO[Skin.String(ViewDetailsTextColor.name)])</onload>
-				<onload condition="!Skin.String(MainMenuFocusTextColor)">Skin.SetString(MainMenuFocusTextColor,ff006bb3)</onload>
-				<onload condition="!Skin.String(MainMenuFocusTextColor) + !Skin.String(MainMenuFocusTextColor.name)">Skin.SetString(MainMenuFocusTextColor.name,ff006bb3)</onload>
-        <!-- end nicht gesetzt; missed end check, defaults -->
-		<onload condition="!Skin.String(MainMenuFocusButtonColor)">Skin.SetString(MainMenuFocusButtonColor,cc011222)</onload>
-        <onload condition="!Skin.String(MainMenuFocusButtonColor.name)">Skin.SetString(MainMenuFocusButtonColor.name,default)</onload>
-        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor)">Skin.SetString(MainMenuSecondaryFocusButtonColor,8c002e63)</onload>
+        <onload condition="!Skin.String(MainMenuPanelColor)">Skin.SetString(MainMenuPanelColor,33000000)</onload>
+        <onload condition="!Skin.String(MainMenuPanelColor.name)">Skin.SetString(MainMenuPanelColor.name,default)</onload>
+        <onload condition="!Skin.String(MainMenuTextColor)">Skin.SetString(MainMenuTextColor,7f8c8c8c)</onload>       
+		<onload condition="!Skin.String(MainMenuTextColor) + !Skin.String(MainMenuTextColor.name)">Skin.SetString(MainMenuTextColor.name,default)])</onload>
+		<onload condition="!Skin.String(MainMenuFocusTextColor)">Skin.SetString(MainMenuFocusTextColor,ff006bb3)</onload>
+		<onload condition="!Skin.String(MainMenuFocusTextColor) + !Skin.String(MainMenuFocusTextColor.name)">Skin.SetString(MainMenuFocusTextColor.name,ff006bb3)</onload>
+		<onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor)">Skin.SetString(MainMenuSecondaryFocusButtonColor,8c002e63)</onload>
         <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor.name)">Skin.SetString(MainMenuSecondaryFocusButtonColor.name,Custom)</onload>
 		
 		<!-- used for 

@@ -78,6 +78,8 @@
                 <include condition="Window.IsActive(Home) + String.Contains(Skin.String(home_header),-profile)">ProfileInfo</include>
                 <include condition="!Skin.HasSetting(LowPerformanceMode)">animation_fade_visible</include>
                 <visible>![Window.IsActive(volumebar)]</visible>
+				<animation effect="slide" start="0" end="1760,-20" time="0" condition="Skin.String(HomeLayout,win10)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.String(HomeLayout,win10) + [Control.HasFocus(300) | Control.HasFocus(40003)]">Conditional</animation>
             </control>
             
             <!-- Profile left -->
@@ -229,6 +231,7 @@
             <onclick condition="[Skin.String(HomeLayout,win10) | Skin.String(HomeLayout,netflix)]">SetFocus(300)</onclick>
             <onclick condition="![Skin.String(HomeLayout,win10) | Skin.String(HomeLayout,netflix)]">SetFocus(4444,0)</onclick>
             <visible>Window.IsActive(Home)</visible>
+			<visible>!Control.HasFocus(40003)</visible>
         </control>
         <control type="radiobutton" id="99227">
             <width>60</width>
@@ -260,6 +263,7 @@
             <radioheight>50</radioheight>
             <onclick>ActivateWindow(111)</onclick>
             <visible>!Skin.HasSetting(DisablePowerMenu) + Window.IsActive(Home)</visible>
+			<visible>!Control.HasFocus(40003)</visible>
             <visible allowhiddenfocus="true">!Skin.HasSetting(HidePowerMenu)</visible>
         </control>
         <control type="radiobutton" id="99225">

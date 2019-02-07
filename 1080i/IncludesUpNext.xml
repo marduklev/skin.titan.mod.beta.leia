@@ -83,7 +83,7 @@
 				<control type="image">
 					<width>504</width>
 					<height>285</height>
-					<texture colordiffuse="$INFO[Skin.String(upnext_text)]"border="2">netflix/frame/slimframe_hardedge.png</texture>
+					<texture colordiffuse="$INFO[Skin.String(upnext_text)]" border="2">netflix/frame/slimframe_hardedge.png</texture>
 				</control>
 				<control type="label">
 					<bottom>25</bottom>

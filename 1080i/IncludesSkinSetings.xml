@@ -713,7 +713,7 @@
                 <onclick>Skin.ToggleSetting(BackgroundAnimation)</onclick>
                 <selected>Skin.HasSetting(BackgroundAnimation)</selected>
             </control>
-            <!--enable wall backgrounds-->
+            <!--need check, enable wall backgrounds-->
             <control type="radiobutton" id="31812">
                 <include>SkinSettings_Button</include>
                 <label>31812</label>
@@ -1763,7 +1763,8 @@
                 <selected>Skin.HasSetting(OSDShowClearLogo)</selected>
                 <visible>Skin.HasSetting(UseNetflixOSDPanel)</visible>
             </control>
-            <control type="radiobutton" id="8012">
+			<!-- disable subtitles on video start -->
+			<control type="radiobutton" id="8012">
                 <include>SkinSettings_Button</include>
                 <label>31244</label>
                 <onclick>Skin.ToggleSetting(DisableSubtitles)</onclick>
@@ -1794,6 +1795,7 @@
                 <label>Apply Panel Color Inking and use $ADDON[script.skin.helper.colorpicker 32049] for Artwork[CR][I]("$ADDON[service.upnext 30024]" Pop-Up + Tringle Layout)[/I]</label>
                 <onclick>Skin.ToggleSetting(Upnext_diffused_art)</onclick>
                 <selected>Skin.HasSetting(Upnext_diffused_art)</selected>
+				<visible>System.HasAddon(service.upnext)</visible>
             </control>
 			<!-- Use Upnext_diffused_art -->
 			<control type="radiobutton" id="3100710">
@@ -1808,6 +1810,7 @@
                 <onclick>Skin.ToggleSetting(UpNext_Use_Inked_Panel)</onclick>
                 <selected>Skin.HasSetting(UpNext_Use_Inked_Panel)</selected>
 				<visible>Skin.String(upnext_fancy,upn_fancy_triangle)</visible>
+				<visible>System.HasAddon(service.upnext)</visible>
             </control>
 			<!-- Upnext Show Countdown Image on thumb -->
 			<control type="radiobutton" id="3100705">
@@ -1816,6 +1819,7 @@
                 <onclick>Skin.ToggleSetting(UpNext_ShowCountdownAtThumb)</onclick>
                 <selected>Skin.HasSetting(UpNext_ShowCountdownAtThumb)</selected>
 				<visible>!Skin.String(upnext_fancy,upn_fancy_def)</visible>
+				<visible>System.HasAddon(service.upnext)</visible>
             </control>
 			<!-- Choose Fancy Layout -->
 			<control type="button" id="3100703">
@@ -1823,13 +1827,15 @@
                 <label>"$ADDON[service.upnext 30008]" : $LOCALIZE[22080] $ADDON[service.upnext 30039] Layout</label>
 				<label2>$INFO[Skin.String(upnext_fancy.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=upnext_fancy,header=Choose Fancy Layout)</onclick>
-            </control>
+				<visible>System.HasAddon(service.upnext)</visible>
+			</control>
 			<!-- Choose Simple Layout -->
             <control type="button" id="3100704">
                 <include>SkinSettings_Button</include>
                 <label>"$ADDON[service.upnext 30008]" : $LOCALIZE[22080] $ADDON[service.upnext 30038] Layout</label>
 				<label2>$INFO[Skin.String(upnext_simple.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=upnext_simple,header=Choose Simple Layout)</onclick>
+				<visible>System.HasAddon(service.upnext)</visible>
 			</control>
 			
 			<!-- up next colors -->
@@ -1838,21 +1844,21 @@
 				<param name="id" value="3100708" />
 				<param name="label" value="upnext_panel" />
 				<param name="skinsetting" value="upnext_panel" />
-				<param name="visible" value="!Skin.String(upnext_fancy,upn_fancy_def) | !Skin.String(upnext_simple,upn_simple_addondefault)" />
+				<param name="visible" value="System.HasAddon(service.upnext) + [!Skin.String(upnext_fancy,upn_fancy_def) | !Skin.String(upnext_simple,upn_simple_addondefault)]" />
 			</include>
 			<!-- $INFO[Skin.String(upnext_text)]-->
 				<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
 				<param name="id" value="3100706" />
 				<param name="label" value="upnext_text" />
 				<param name="skinsetting" value="upnext_text" />
-				<param name="visible" value="!Skin.String(upnext_fancy,upn_fancy_def) | !Skin.String(upnext_simple,upn_simple_addondefault)" />
+				<param name="visible" value="System.HasAddon(service.upnext) + [!Skin.String(upnext_fancy,upn_fancy_def) | !Skin.String(upnext_simple,upn_simple_addondefault)]" />
 			</include>
 			<!-- $INFO[Skin.String(upnext_text_secondary)] -->
 			<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
 				<param name="id" value="3100709" />
 				<param name="label" value="upnext_text_secondary" />
 				<param name="skinsetting" value="upnext_text_secondary" />
-				<param name="visible" value="[!Skin.String(upnext_fancy,upn_fancy_triangle) + !Skin.String(upnext_fancy,upn_fancy_def)] | Skin.String(upnext_simple,upn_simple_skindefault)" />
+				<param name="visible" value="System.HasAddon(service.upnext) + [[!Skin.String(upnext_fancy,upn_fancy_triangle) + !Skin.String(upnext_fancy,upn_fancy_def)] | Skin.String(upnext_simple,upn_simple_skindefault)]" />
 			</include>
 			
 		    <!-- music playback -->
@@ -2116,32 +2122,26 @@
             <param name="id" value="31814" />
             <param name="label" value="$LOCALIZE[31814]" />
             <param name="skinsetting" value="LyricsTextColor" />
-            <param name="visible" value="Skin.String(LyricScript_Path)" />
         </include>
         <!-- Lyrics unfocused text shadow -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31816" />
             <param name="label" value="$LOCALIZE[31816]" />
             <param name="skinsetting" value="LyricsTextShadowColor" />
-            <param name="visible" value="Skin.String(LyricScript_Path)" />
         </include>
         <!-- Lyrics focused text -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31815" />
             <param name="label" value="$LOCALIZE[31815]" />
             <param name="skinsetting" value="LyricsFocusTextColor" />
-            <param name="visible" value="Skin.String(LyricScript_Path)" />
         </include>
         <!-- Lyrics focused text shadow -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31817" />
             <param name="label" value="$LOCALIZE[31817]" />
             <param name="skinsetting" value="LyricsFocusTextShadowColor" />
-            <param name="visible" value="Skin.String(LyricScript_Path)" />
         </include>
-        
-
-    </include>
+	</include>
     
     <include name="SkinSettings_PVR">
         <!-- PVR -->

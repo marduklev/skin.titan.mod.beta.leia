@@ -84,6 +84,8 @@
     <variable name="ClearLogoFallback">
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + String.Contains(ListItem.FileNameAndPath,pvr://)">http://localhost:52307/getthumb&amp;title=$ESCINFO[ListItem.Title]</value> 
+		<!-- untested, refer and thx to angelinas https://forum.kodi.tv/showthread.php?tid=235676&pid=2809690#pid2809690 -->
         <value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + String.Contains(ListItem.FileNameAndPath,pvr://) + !String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + !String.IsEmpty(ListItem.Thumb) + String.IsEqual(ListItem.Thumb,ListItem.Property(channellogo))">$INFO[ListItem.Thumb]</value>
     </variable>

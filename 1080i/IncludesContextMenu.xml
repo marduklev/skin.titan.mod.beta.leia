@@ -517,6 +517,14 @@
             </selected>
 			<visible>Control.IsVisible(507)</visible>
 		</control>
+		<control type="radiobutton" id="317933">
+			<include>SideBladeMenuButton</include>
+			<label>Use your Background Overlay Texture</label>
+			<onclick condition="Control.IsVisible(507)">Skin.ToggleSetting(507_UseOverlay)</onclick>
+			<selected>[Control.IsVisible(507) + Skin.HasSetting(507_UseOverlay)]
+            </selected>
+			<visible>Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>
+		</control>
 		<control type="radiobutton" id="317930">
 			<include>SideBladeMenuButton</include>
 			<label>Bello Showcase[CR](by Nessus)</label>

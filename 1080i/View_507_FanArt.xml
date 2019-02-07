@@ -16,13 +16,6 @@
 				<texture>colors/color_white.png</texture>
 				<colordiffuse>$INFO[Skin.String(ViewDetailsBGColor)]</colordiffuse>
 			</control>
-			<!-- fanart image frame -->
-			 <control type="image">
-				<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_framedFanart)</visible>
-				<include>DimensionsFullscreen</include>
-				<texture border="20">netflix/frame/slimframe_hardedge.png</texture>
-				<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse> 
-			</control>
 			<!-- fanart -->
             <control type="multiimage">
 				<visible>!Skin.HasSetting(FanArtViewShowInfo)</visible>
@@ -37,6 +30,21 @@
                 <randomize>true</randomize>
                 <loop>yes</loop>
             </control>
+			<!-- Overlay default-->
+			<control type="image">
+				<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_UseOverlay)</visible>
+				<!-- <visible>!Skin.HasSetting(FanArtViewShowInfo)</visible> -->
+				<include>DimensionsFullscreen</include>
+				<texture fallback="">$INFO[Skin.String(BackgroundOverlayTexture)]</texture>
+				<include condition="Skin.String(BackgroundOverlayColor) + !Skin.String(BackgroundOverlayColor,None)">bgOverlayDiffuse</include>
+			</control>
+			<!-- fanart image frame -->
+			 <control type="image">
+				<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_framedFanart)</visible>
+				<include>DimensionsFullscreen</include>
+				<texture border="20">netflix/frame/slimframe_hardedge.png</texture>
+				<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse> 
+			</control>
 			<!-- preview video window if info false -->
             <control type="group">
 				<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv) + Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>

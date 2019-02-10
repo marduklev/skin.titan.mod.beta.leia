@@ -354,6 +354,7 @@
         <value condition="Control.IsVisible(10) + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Fanart))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Poster)) + !Window.IsActive(tvguide) + !Control.IsVisible(10)">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Poster)]</value>
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Thumb))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
+        <value condition="!String.IsEmpty(ListItem.EPGEventIcon)">$INFO[ListItem.EPGEventIcon]</value>
         <value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>

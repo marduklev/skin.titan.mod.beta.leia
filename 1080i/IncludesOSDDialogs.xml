@@ -437,7 +437,7 @@
                 <left>35</left>
 				<width>30</width>
 				<height>30</height>
-				<texture colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">home/home_arrow_up.png</texture>
+				<texture colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">touchcontrols/menu.png</texture>
 			</control>
             <control type="image">
 				<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>
@@ -556,7 +556,7 @@
                         <selectedcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</selectedcolor>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <label>[B]$INFO[ListItem.Label]: [/B]$INFO[ListItem.Title]</label>
+                        <label>[B]$INFO[ListItem.Label]: [COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]$INFO[ListItem.Title][/COLOR][/B]</label>
                     </control>
                     
                     <!-- indicator -->

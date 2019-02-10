@@ -412,23 +412,18 @@
                 <top>0</top>
                 <height>60</height>
             </control>
-            <control type="togglebutton" id="10">
+            <control type="label">
 				<top>10</top>
                 <left>5</left>
 				<width>1100</width>
 				<height>45</height>
 				<align>left</align>
 				<font>Reg26</font>
-				<onleft>11</onleft>
-                <onright>11</onright>
-				<ondown>11</ondown>
-                <onup>11</onup>
 				<textoffsetx>90</textoffsetx>
 				<label>$LOCALIZE[19023] - $INFO[VideoPlayer.ChannelGroup]</label>
                 <altlabel>$LOCALIZE[19024] - $INFO[MusicPlayer.ChannelGroup]</altlabel>
                 <textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-                <onclick>PreviousChannelGroup</onclick>
                 <texturenofocus></texturenofocus>
                 <usealttexture>pvr.IsPlayingRadio</usealttexture>
 			</control>
@@ -504,7 +499,7 @@
                 <height>840</height>
                 <onup>11</onup>
                 <ondown>11</ondown>
-                <onleft>10</onleft>
+                <onleft>PreviousChannelGroup</onleft>
                 <onright>60</onright>
                 <viewtype label="535">list</viewtype>
                 <pagecontrol>60</pagecontrol>
@@ -659,7 +654,7 @@
 				<onup>60</onup>
 				<ondown>60</ondown>
 				<onleft>11</onleft>
-                <onright>11</onright>
+                <onright>NextChannelGroup</onright>
 				<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container(11).Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container(11).Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
 			</control>

@@ -175,7 +175,7 @@
 				 + [Control.HasFocus(60) | Control.HasFocus(6000)
 				 -->
 				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
-				<onright>5027</onright>
+				<onright>SetFocus(5027,0,absolute)</onright>
 				<onup>527</onup>
 				<ondown>527</ondown>
 				<!-- default , clearlogo-->
@@ -294,7 +294,7 @@
 				<movement>3</movement>
 				<focusposition>0</focusposition>
 				<onleft>527</onleft>
-				<onright>5127</onright>
+				<onright>SetFocus(5127,0,absolute)</onright>
 				<onup>5027</onup>
 				<ondown>5027</ondown>
 				<onback>527</onback>
@@ -371,7 +371,7 @@
 						</control><!--  $INFO[ListItem.Thumb] -->
 					</control>
 				</itemlayout>			
-				<content target="ListItem.DBTYPE(season)" sortby="year" sortorder="ascending">$INFO[Container(527).ListItem.FolderPath]</content>
+				<content target="videos" sortby="year" sortorder="ascending">$INFO[Container(527).ListItem.FolderPath]</content>
 			</control>
 
 			<!-- episodes -->
@@ -510,7 +510,7 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<content target="ListItem.DBTYPE(episode)" sortby="year" sortorder="ascending">$INFO[Container(5027).ListItem.FolderPath]</content>
+				<content target="videos" sortby="year" sortorder="ascending">$INFO[Container(5027).ListItem.FolderPath]</content>
 			</control>
 		</control>
 	</include>

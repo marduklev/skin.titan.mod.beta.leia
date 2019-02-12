@@ -142,7 +142,7 @@
 				<height>600</height>
 				<orientation>vertical</orientation>
 				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
-				<onright>5026</onright>
+				<onright>SetFocus(5026,0,absolute)</onright>
 				<onup>526</onup>
 				<ondown>526</ondown>
 				<focusedlayout height="65" width="480" condition="Container.Content(seasons)">
@@ -446,7 +446,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<content target="ListItem.DBTYPE(episode)" sortby="year" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
+				<content target="video" sortby="year" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
 				</control>
 				<control type="image">
 					<top>303</top>

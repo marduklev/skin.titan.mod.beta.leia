@@ -3191,7 +3191,7 @@
 					<font>Light24</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>dimgray</shadowcolor>
-					<label>$VAR[premiered_or_year]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</label>
+					<label>$VAR[OSDLabel9]</label>
 					<visible>!VideoPlayer.Content(movies)</visible>
 					<scroll>false</scroll>
 				</control>
@@ -3285,9 +3285,17 @@
 	<variable name="OSDLabel8">
 		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(Episodes)">$INFO[VideoPlayer.Season,$LOCALIZE[20373] , | ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] , | ][B]$INFO[VideoPlayer.Title][/B]</value>
 		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(Movies)">[B]$INFO[VideoPlayer.year][/B]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName][/B]</value>
+		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Season) + !String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - S$INFO[VideoPlayer.Season]E$INFO[VideoPlayer.Episode] - $INFO[VideoPlayer.EpisodeName][/B]</value>
+        <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - E$INFO[VideoPlayer.Episode] - $INFO[VideoPlayer.EpisodeName][/B]</value>
+        <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName][/B]</value>
+        <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Title)]">[B]$INFO[VideoPlayer.Title][/B]</value>
 	</variable>
-	
+
+    <variable name="OSDLabel9">
+        <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + !String.IsEqual(PVR.EpgEventDuration(mins),0) + VideoPlayer.HasEpg">[B]$INFO[PVR.EpgEventDuration(mins)]min[/B]</value>
+        <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv)"></value>
+        <value>$VAR[premiered_or_year]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</value>
+	</variable>
 	<variable name="playtime_format">
 		<value condition="String.IsEqual(Player.Time(hh),00)">$INFO[Player.Time(mm:ss)]</value>
 		<value>$INFO[Player.Time]</value>

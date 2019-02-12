@@ -19,7 +19,7 @@
 			<posx>10</posx>
 			<align>left</align>
 			<width>90%</width>
-			<label>[B]$INFO[ListItem.Label][/B]$VAR[ListDetails, • ]</label>
+			<label>[B]$VAR[ListChannelNumberPVR,, • ]$VAR[ListTitle][COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]$VAR[ListTitlePVR, ][/COLOR][/B]</label>
 			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
 			<font>Light30</font>
             <visible>[Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings) | Window.IsActive(addonbrowser)]</visible>
@@ -109,7 +109,7 @@
 			<posx>10</posx>
 			<align>left</align>
 			<width>90%</width>
-			<label>[B]$INFO[ListItem.Label][/B]$VAR[ListDetails, • ]</label>
+			<label>[B]$VAR[ListChannelNumberPVR,, • ]$VAR[ListTitle]$VAR[ListTitlePVR, ][/B]</label>
 			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
 			<font>Light30</font>
             <visible>[Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings) | Window.IsActive(addonbrowser)]</visible>

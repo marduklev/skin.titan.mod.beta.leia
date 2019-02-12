@@ -349,6 +349,8 @@
     <variable name="PVRThumb">
         <!-- use pvr provided thumb at episode level in pvr recordings -->
         <value condition="String.Contains(Container.FolderPath,pvr://recordings/active/) + !String.IsEqual(Container.FolderPath,pvr://recordings/active/) + !String.IsEmpty(ListItem.Art(thumb)) + !String.Contains(Pvr.BackendName, headend)">$INFO[ListItem.Art(thumb)]</value>
+        <!-- use pvr poster if available in backend -->
+        <value condition="!String.IsEmpty(ListItem.EPGEventIcon)">$INFO[ListItem.EPGEventIcon]</value>
         <!-- use rich artwork at main level -->
         <value condition="Control.IsVisible(10) + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Landscape))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Landscape)]</value>
         <value condition="Control.IsVisible(10) + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Fanart))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Fanart)]</value>

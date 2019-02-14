@@ -402,7 +402,7 @@
 					<font>Reg24</font>
 					<animation effect="slide" start="0" end="0,150" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 				</control>
-				<!-- PLOT en/dis able via OSD BUTTON-->
+				<!-- PLOT en/disable via OSD BUTTON-->
 				<control type="textbox">
 					<posx>480</posx>
 					<posy>105</posy>
@@ -524,7 +524,7 @@
 					<posy>40</posy>
 					<height>20</height>
 					<width>825</width>
-					<info>Player.Progress</info>
+					<info>Player.Progress</info> <!-- check pvr -->
 					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
@@ -3314,9 +3314,15 @@
 		<value>$INFO[Player.Time]</value>
 	</variable>
 
-	<variable name="timeremaining_format"> <!-- check pvr -->
+    <!-- PVR.Time => PVR.EpgEventElapsedTime
+    PVR.Duration => PVR.EpgEventDuration
+    PVR.Progress => PVR.EpgEventProgress -->
+
+
+	<variable name="timeremaining_format">
+		<value condition="[VideoPlayer.HasEpg + String.IsEqual(PVR.EpgEventRemainingTime(hh),00)]">$INFO[PVR.EpgEventRemainingTime(mm:ss)]</value>
 		<value condition="String.IsEqual(Player.TimeRemaining(hh),00)">$INFO[Player.TimeRemaining(mm:ss)]</value>
-		<value>$INFO[Player.TimeRemaining]</value>
+		<value>$VAR[PlayerTimeRemaining]</value>
 	</variable>
 
 	<variable name="premiered_or_year">

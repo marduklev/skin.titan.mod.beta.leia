@@ -106,7 +106,7 @@
 				<align>right</align>
 				<font>Light28</font>
 				<textcolor>FFfffeff</textcolor>
-				<label>- $INFO[Player.TimeRemaining]</label>
+				<label>$VAR[PlayerTimeRemaining]</label>
 			</control>
 
 			<!-- OSDLabel3 -->
@@ -578,7 +578,7 @@
 					<font>Light22</font>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-					<label>$INFO[Player.TimeRemaining,- ]</label>
+					<label>$VAR[PlayerTimeRemaining]</label>
 					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
@@ -1145,7 +1145,7 @@
 					<font>Light20</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<label>$INFO[Player.TimeRemaining]</label>
+					<label>$VAR[PlayerTimeRemaining]</label>
 					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
@@ -1953,7 +1953,7 @@
 				<align>right</align>
 				<font>Light28</font>
 				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-				<label>- $INFO[Player.TimeRemaining]</label>
+				<label>$VAR[PlayerTimeRemaining]</label>
 			</control>
 			
 			<control type="grouplist">
@@ -2946,7 +2946,7 @@
 				<align>right</align>
 				<font>Reg20</font>
 				<textcolor>white</textcolor>
-				<label>$INFO[Player.TimeRemaining,- ]</label>
+				<label>$VAR[PlayerTimeRemaining]</label>
 				<visible>!String.IsEmpty(Player.Duration)</visible>
 			</control>
 
@@ -3219,6 +3219,10 @@
 			</control>
 		</control>
 	</include>
+	<variable name="PlayerTimeRemaining">
+		<value condition="VideoPlayer.HasEpg + !VideoPlayer.Content(livetv)">$INFO[PVR.EpgEventRemainingTime, ,]</value>
+		<value>$INFO[Player.TimeRemaining, ,]</value>
+	</variable>
 	
     <variable name="OSDImage">
         <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.Player.AnimatedPoster)]</value>

@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan-->
+<includes>
+	<include name="MusicLayout1">
+		<control type="group">
+		<visible>!Window.IsVisible(yesnodialog) + !Window.IsActive(filebrowser)</visible>
+		<animation type="WindowOpen">
+			<effect type="slide" start="0,-1090" end="0,0" time="350" tween="linear" easing="inout" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="slide" start="0,0" end="0,-1090" time="350" tween="linear" easing="inout" />
+		</animation>
+		  
+		<!-- BG -->
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>100%</width>
+			<height>100%</height>
+			<texture border="15">diffuse/bgpanel.png</texture>
+			<colordiffuse>white</colordiffuse> <!-- for testing --> 
+			<!-- $INFO[Skin.String(GeneralPanelsColor)] need non diffisable bg color, use 507 ? bg -->
+		</control>
+		<!-- panel diffuse top -->
+		<control type="image">
+			<top>50</top>
+			<left>5</left>
+			<width>98%</width>
+			<height>500</height>
+			<texture border="15">diffuse/bgpanel_softedgeframe.png</texture>
+			<colordiffuse>99000000</colordiffuse>
+			<visible>Skin.HasSetting(MusicInfo_HidePanel)</visible> <!-- set !, when have setting -->
+		</control>
+			
+		<!-- close dialog -->
+		<control type="group">
+			<include>animation_fade_visible_hidden</include>
+			<right>10</right>
+			<width>60</width>
+			<posy>10</posy>
+			<include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
+		</control>
+
+		<!-- Header -->
+		<control type="label">
+			<description>Heading</description>
+			<posx>20</posx>
+			<posy>5</posy>
+			<width>1200</width>
+			<font>Bold20</font>
+			<textcolor>black</textcolor>
+			<!--  <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor> -->
+			<align>left</align>
+			<height>25</height>
+			<label>$VAR[DialogMusic_Header]</label>
+		</control>
+		 
+		<!-- heading title -->
+		<control type="label">
+			<posx>30</posx>
+			<posy>0</posy>
+			<width>100%</width>
+			<height>50</height>
+			<font>Bold40</font>
+			<align>center</align>
+			<textcolor>black</textcolor>
+			<!--  should be highlight color ?
+			<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor> -->
+			<label>$VAR[DialogMusic_Title,• [B],[/B] •]</label>
+		</control>
+		<!--      FANART  
+		https://kodi.wiki/view/Music_artwork
+		-->
+		<!-- Fanart - Artist -->
+		<control type="image">
+			<left>30</left>
+			<top>80</top>
+			<width>720</width>
+			<height>405</height>
+			<fadetime>300</fadetime>
+			<aspectratio align="center" aligny="center">keep</aspectratio>
+			<texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Art(fanart)]</texture> <!-- choose othe diffuse="diffuse/panel.png" -->
+			<visible></visible>
+			<visible>!String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
+		</control>
+		<!-- disc small -->
+		<control type="image">
+			<left>440</left>
+			<top>80</top>
+			<width>440</width>
+			<height>440</height>
+			<fadetime>300</fadetime>
+			<aspectratio align="center" aligny="center">keep</aspectratio>
+			<texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_big.png">$INFO[ListItem.Art(discart)]</texture>
+			<visible>Container.Content(Albums) | String.IsEqual(ListItem.DBType,album) | Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)</visible>
+		</control>
+		<!-- ARTIST Icon as Fallback,slide if not artistinfo -->
+		<control type="image">
+			<left>170</left>
+			<top>80</top>
+			<width>450</width>
+			<height>450</height>
+			<fadetime>300</fadetime>
+			<aspectratio align="center" aligny="center">stretch</aspectratio>
+			<texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Icon]</texture>
+			<visible>String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)] | ![Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
+			<animation effect="slide" end="-140,0" time="0" condition="![Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]">Conditional</animation>
+		</control>
+		<!-- clear logo ,1:0.388-->
+		<control type="image">
+			<left>60</left>
+			<top>380</top>
+			<width>194</width>
+			<height>500</height>
+			<fadetime>300</fadetime>
+			<aspectratio align="left" aligny="top">keep</aspectratio>
+			<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+			<visible>!String.IsEmpty(ListItem.Art(clearlogo))</visible>
+		</control>
+		<!-- seperate  div line 1 -->
+		<control type="image">
+			<top>50</top>
+			<left>50</left>
+			<width>1850</width>
+			<height>1</height>
+			<texture>colors/color_white.png</texture>
+			<colordiffuse>black</colordiffuse>
+		</control>
+		
+		<!-- info/description -->
+		<control type="group">
+			<left>900</left>
+			<top>80</top>
+			<control type="label" id="4">
+				<description>Plot value</description>
+				<width>900</width>
+				<height>250</height>
+				<align>center</align>
+				<label>$INFO[ListItem.Plot,[B],[/B]]</label><!-- ListItem.Property(Album_Description)  -->
+				<textcolor>black</textcolor>
+			</control>
+			<control type="textbox" id="55">
+				<description>Plot value fallback</description>
+				<width>900</width>
+				<height>400</height>
+				<align>center</align>
+				<textcolor>black</textcolor>
+				<label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot),[B],[/B]]</label>
+				<visible>String.IsEmpty(Control.GetLabel(4))</visible>
+			</control>
+		</control>
+		<!-- Info icon/label group -->
+		<!-- leader -->
+		<control type="grouplist">
+			<posx>50</posx>
+			<posy>560</posy>
+			<height>300</height>
+			<orientation>vertical</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<itemgap>20</itemgap>
+			<!-- 1st row -->
+			<control type="grouplist">
+				<height>50</height>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<itemgap>20</itemgap>
+				<!-- year -->
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Year)</visible>
+					<width>400</width>
+					<height>50</height>
+					<control type="image">
+						<top>5</top>
+						<width>50</width>
+						<height>50</height>
+						<colordiffuse>black</colordiffuse>
+						<texture>dialogs/videoinfo/premiered-icon.png</texture>
+					</control>
+					<control type="label">
+						<textcolor>black</textcolor>
+						<left>55</left>
+						<width>300</width>
+						<font>Bold30</font>
+						<align>left</align>
+						<label>[CAPITALIZE]$LOCALIZE[562]: [/CAPITALIZE]$INFO[ListItem.Year]</label>
+						<!-- <label>[CAPITALIZE]$LOCALIZE[562]: [/CAPITALIZE]$INFO[ListItem.Property(Artist_Formed)</label> -->
+						
+						<!-- var year for song or album, 
+						ListItem.Property(Artist_YearsActive) 
+						ListItem.Property(Artist_Born) 	Date of Birth of the currently selected Artist 	
+						ListItem.Property(Artist_Died) 	Date of Death of the currently selected Artist 	
+						ListItem.Property(Artist_Formed) 	Formation date of the currently selected Band 	
+						ListItem.Property(Artist_Disbanded) 	Disbanding date of the currently selected Band 
+						
+						ListItem.Duration[(format)]  -->
+						<scroll>false</scroll>
+					</control>
+				</control>
+				<!-- genre -->
+				<control type="group">
+					<width>600</width>
+					<height>50</height>
+					<control type="image">
+						<top>5</top>
+						<width>50</width>
+						<height>50</height>
+						<colordiffuse>black</colordiffuse>
+						<texture>dialogs/videoinfo/genre-icon.png</texture>
+					</control>
+					<control type="label">
+						<textcolor>black</textcolor>
+						<left>55</left>
+						<width>550</width>
+						<font>Bold30</font>
+						<align>left</align>
+						<label>[CAPITALIZE]$LOCALIZE[515]: [/CAPITALIZE]$INFO[ListItem.Genre]</label> 
+						
+						<!-- var year for song or album, 
+						ListItem.Property(Artist_YearsActive) 
+						ListItem.Property(Artist_Born) 	Date of Birth of the currently selected Artist 	
+						ListItem.Property(Artist_Died) 	Date of Death of the currently selected Artist 	
+						ListItem.Property(Artist_Formed) 	Formation date of the currently selected Band 	
+						ListItem.Property(Artist_Disbanded) 	Disbanding date of the currently selected Band 
+						
+						ListItem.Duration[(format)]  -->
+						<scroll>false</scroll>
+					</control>
+				</control>
+				<!-- album (songinformation) -->
+				<control type="group">
+					<visible>Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)</visible>
+					<width>550</width>
+					<height>50</height>
+					<control type="image">
+						<top>5</top>
+						<width>50</width>
+						<height>50</height>
+						<colordiffuse>black</colordiffuse>
+						<texture>dialogs/musicinfo/album.png</texture>
+					</control>
+					<control type="label">
+						<textcolor>black</textcolor>
+						<left>55</left>
+						<width>500</width>
+						<font>Bold30</font>
+						<align>left</align>
+						<label>[CAPITALIZE]$LOCALIZE[558]: [/CAPITALIZE]$INFO[ListItem.Album]</label> 
+						<scroll>false</scroll>
+					</control>
+				</control>
+				<!-- album !(songinformation) -->
+				<control type="group">
+					<visible>Container.Content(Albums) | String.IsEqual(ListItem.DBType,album)</visible>
+					<width>550</width>
+					<height>40</height>
+					<control type="image">
+						<width>200</width>
+						<height>60</height>
+						<aspectratio aligny="center" align="center">keep</aspectratio>
+						<colordiffuse>$INFO[Skin.String(GeneralTextColor)]</colordiffuse>
+						<texture fallback="leftrating/rating0.png">$VAR[musicrating_stars]</texture>
+					</control>
+					<control type="label">
+						<posx>60</posx>
+						<posy>0</posy>
+						<width>500</width>
+						<font>Bold30</font>
+						<align>left</align>
+						<label>[CAPITALIZE]$LOCALIZE[558]Tracks: [/CAPITALIZE]$INFO[Container(50).NumItems]</label>
+						<textcolor>black</textcolor>
+						<scroll>false</scroll>
+					</control>
+				</control>			
+			</control>
+		</control>
+	  
+	  
+	  <!-- Albums, Titles -->
+		<control type="list" id="50">
+			<top>680</top>
+			<left>40</left>
+			<height>300</height>
+			<width>1800</width>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<!-- <onclick>Dialog.Close</onclick> -->
+			<!-- ActivateWindow(window[,musicdb://artists/$INFO[ListItem.DBID],return]) -->
+			<!-- ActivateWindow(window[,dir,return]) -->
+			<!-- ReplaceWindowAndFocus(id1, id2,item1, id3,item2) -->
+			<!-- ActivateWindowAndFocus(id1, id2,item1, id3,item2) -->
+			<!-- ActivateWindowAndFocus(id1, id2,item1, id3,item2) -->
+			<orientation>horizontal</orientation>
+			
+			<itemlayout height="350" width="250">
+				<!-- bg/border -->
+				<control type="image">
+					<height>350</height>
+					<texture border="0">diffuse/poster.png</texture>
+					<colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+				</control>
+				<!-- overlay -->
+				<control type="image">
+					<height>250</height>
+					<!-- <colordiffuse>black</colordiffuse> -->
+					<texture border="1" diffuse="diffuse/cover_panel_matte_fo.png" background="true" fallback="defaultdvdfull.png">$INFO[ListItem.Thumb]</texture>
+					<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="label">
+					<font>reg20</font>
+					<label>$INFO[Container().ListItem.Label,[B],[/B]]</label>
+					<textcolor>white</textcolor>
+					<top>252</top>
+					<left>0</left>
+					<width>250</width>
+					<height>20</height>
+					<align>center</align>
+					<textoffsetx>0</textoffsetx>
+				</control>
+				<!--  -->
+				<control type="label">
+					<font>reg20</font>
+					<label>$INFO[Container().ListItem.Label2,(,)]</label>
+					<textcolor>cyan</textcolor>
+					<top>273</top>
+					<left>0</left>
+					<width>250</width>
+					<height>20</height>
+					<align>center</align>
+					<textoffsetx>0</textoffsetx>
+				</control>
+			</itemlayout>
+			<focusedlayout height="350" width="250">
+				<control type="group">
+					<!-- focus anim -->
+					<animation type="Focus" reversible="false" condition="true">
+						<effect type="zoom" end="115" time="100" tween="sine" easing="out" center="auto" />
+						<effect type="zoom" end="90" time="100" tween="sine" delay="150" easing="out" center="auto" />
+					</animation>
+					<!-- bg/border -->
+					<control type="image">
+						<height>350</height>
+						<texture border="0">diffuse/poster.png</texture>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+					</control>
+					<!-- overlay -->
+					<control type="image">
+						<height>250</height>
+						<texture border="1" diffuse="diffuse/cover_panel_matte_fo.png" background="true" fallback="defaultdvdfull.png">$INFO[ListItem.Thumb]</texture>
+						<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+						<bordersize>4</bordersize>
+					</control>
+					<!-- overlay -->
+					<control type="label">
+						<font>reg20</font>
+						<label>$INFO[Container().ListItem.Label,[B],[/B]]</label>
+						<textcolor>cyan</textcolor>
+						<top>252</top>
+						<left>0</left>
+						<width>250</width>
+						<height>20</height>
+						<align>center</align>
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<!--  -->
+					<control type="label">
+						<font>reg20</font>
+						<label>$INFO[Container().ListItem.Label2,[B](,)[/B]]</label>
+						<textcolor>cyan</textcolor>
+						<top>274</top>
+						<left>0</left>
+						<width>250</width>
+						<height>20</height>
+						<align>center</align>
+						<textoffsetx>0</textoffsetx>
+					</control>
+				</control>
+			</focusedlayout>
+			<!-- <content target="music">musicdb://artists/$INFO[ListItem.DBID]/</content> -->
+		</control>
+		
+		<!--Button Group-->
+		  <control type="grouplist" id="9000">
+			<posx>30</posx>
+			<posy>1000</posy>
+			<orientation>horizontal</orientation>
+			<itemgap>10</itemgap>
+			<defaultcontrol>5</defaultcontrol>
+			<!-- <onup condition="Control.IsVisible(60)">60</onup> -->
+			<width>99%</width>
+			<onup>50</onup>
+			<control type="button" id="11">
+			  <!--Cancel-->
+			  <width>290</width>
+			  <height>80</height>
+			  <align>center</align>
+			  <label>222</label>
+			  <include>DialogButtonOther</include>
+			  <onclick>Close</onclick>
+			</control>
+			<control type="button" id="12">
+			  <!--Album Info button-->
+			  <width>290</width>
+			  <height>80</height>
+			  <align>center</align>
+			  <include>DialogButtonOther</include>
+			  <label>10523</label>
+			</control>
+			<control type="button" id="10">
+			  <!--Get Thumb button-->
+			  <width>290</width>
+			  <height>80</height>
+			  <align>center</align>
+			  <include>DialogButtonOther</include>
+			  <label>13405</label>
+			  <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+			</control>
+			<!-- artwork beef -->
+			 <control type="button" id="8">
+				<label>AB:Select Artwork</label>           
+				<onclick condition="String.IsEqual(ListItem.DBType,artist) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=gui, mediatype=artist, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="String.IsEqual(ListItem.DBType,album) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=gui, mediatype=album, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="String.IsEqual(ListItem.DBType,song) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=gui, mediatype=song, dbid=$INFO[ListItem.DBID])</onclick>
+				<description>Get Artwork</description>
+				<include>DialogButtonOther</include>
+				<visible>[String.IsEqual(ListItem.DBType,album) | String.IsEqual(ListItem.DBType,song) | String.IsEqual(ListItem.DBType,artist)] + system.hasaddon(script.artwork.beef)</visible>
+			</control>
+			<control type="button" id="9">
+				<label>AB:DL All Artwork</label>
+				<onclick condition="String.IsEqual(ListItem.DBType,artist) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=auto, mediatype=artist, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="String.IsEqual(ListItem.DBType,album) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=auto, mediatype=album, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="String.IsEqual(ListItem.DBType,song) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=auto, mediatype=song, dbid=$INFO[ListItem.DBID])</onclick>
+				<description>Get Artwork</description>
+				<include>DialogButtonOther</include>
+				<visible>[String.IsEqual(ListItem.DBType,album) | String.IsEqual(ListItem.DBType,song) | String.IsEqual(ListItem.DBType,artist)] + system.hasaddon(script.artwork.beef)</visible>
+			</control>
+			<control type="button" id="7">
+			  <!--set personal rating-->
+			  <width>290</width>
+			  <height>80</height>
+			  <align>center</align>
+			  <include>DialogButtonOther</include>
+			  <label>38023</label>
+			  <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+			</control>
+			<control type="button" id="6">
+			  <!--update-->
+			  <width>290</width>
+			  <height>80</height>
+			  <align>center</align>
+			  <include>DialogButtonOther</include>
+			  <label>184</label>
+			  <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+			</control>
+		  </control>
+		</control>
+	</include>
+	
+	<include name="MusicLayout2"><!-- backup -->
+		<control type="group">
+		<visible>!Window.IsVisible(yesnodialog) + !Window.IsActive(filebrowser)</visible>
+		<animation type="WindowOpen">
+			<effect type="slide" start="0,-1090" end="0,0" time="350" tween="linear" easing="inout" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="slide" start="0,0" end="0,-1090" time="350" tween="linear" easing="inout" />
+		</animation>
+		  
+		  <!-- BG -->
+		  <control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>100%</width>
+			<height>100%</height>
+			<texture border="15">diffuse/bgpanel.png</texture>
+			<colordiffuse>white</colordiffuse> <!-- for testing --> 
+			<!-- $INFO[Skin.String(GeneralPanelsColor)] need non diffisable bg color, use 507 ? bg -->
+		  </control>
+		  <!-- panel diffuse top -->
+			<control type="image">
+				<top>50</top>
+				<left>5</left>
+				<width>98%</width>
+				<height>500</height>
+				<texture border="15">diffuse/bgpanel_softedgeframe.png</texture>
+				<colordiffuse>99000000</colordiffuse>
+				<!-- <visible>!Skin.HasSetting(View527_HidePanel)</visible> -->
+			</control>
+			<!-- panel diffuse bottom -->
+			<control type="image">
+				<bottom>-20</bottom>
+				<left>5</left>
+				<width>98%</width>
+				<height>370</height>
+				<texture border="15">diffuse/bgpanel_softedgeframe.png</texture>
+				<colordiffuse>99000000</colordiffuse>
+				<!-- <visible>!Skin.HasSetting(View527_HidePanel)</visible> -->
+			</control>
+		  <!-- close dialog -->
+		  <control type="group">
+			<include>animation_fade_visible_hidden</include>
+			<right>10</right>
+			<width>60</width>
+			<posy>10</posy>
+			<include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
+		  </control>
+
+		  <!-- Header -->
+		  <control type="label">
+			<description>Heading</description>
+			<posx>20</posx>
+			<posy>5</posy>
+			<width>1200</width>
+			<font>Bold20</font>
+			<textcolor>black</textcolor>
+			<!--  <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor> -->
+			<align>left</align>
+			<height>25</height>
+			<label>$VAR[DialogMusic_Header]</label>
+		  </control>
+		 
+		  <!-- heading title -->
+		  <control type="label">
+			<posx>30</posx>
+			<posy>0</posy>
+			<width>100%</width>
+			<height>50</height>
+			<font>Reg36</font>
+			<align>center</align>
+			<textcolor>red</textcolor>
+			<!--  should be highlight color ?
+			<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor> -->
+			<label>$VAR[DialogMusic_Title,• , •]</label>
+		  </control>
+	<!--      FANART  
+	https://kodi.wiki/view/Music_artwork
+	-->
+		  <!-- Fanart - Artist -->
+		  <control type="image">
+			<left>30</left>
+			<top>80</top>
+			<width>720</width>
+			<height>405</height>
+			<fadetime>300</fadetime>
+			<aspectratio align="center" aligny="center">keep</aspectratio>
+			<texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Art(fanart)]</texture> <!-- choose othe diffuse="diffuse/panel.png" -->
+			<visible></visible>
+			<visible>!String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
+		  </control>
+			 <!-- disc small -->
+			  <control type="image">
+				<left>440</left>
+				<top>80</top>
+				<width>440</width>
+				<height>440</height>
+				<fadetime>300</fadetime>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_big.png">$INFO[ListItem.Art(discart)]</texture>
+				<visible>Container.Content(Albums) | String.IsEqual(ListItem.DBType,album) | Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)</visible>
+			  </control>
+		  <!-- ARTIST Icon as Fallback,slide if not artist -->
+		<control type="image">
+			<left>170</left>
+			<top>80</top>
+			<width>450</width>
+			<height>450</height>
+			<fadetime>300</fadetime>
+			<aspectratio align="center" aligny="center">stretch</aspectratio>
+			<texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Icon]</texture>
+			<visible>String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)] | ![Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
+			<animation effect="slide" end="-140,0" time="0" condition="![Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]">Conditional</animation>
+		</control>
+		  
+		  
+		  <!-- clear logo ,1:0.388-->
+		  <control type="image">
+			<left>60</left>
+			<top>380</top>
+			<width>194</width>
+			<height>500</height>
+			<fadetime>300</fadetime>
+			<aspectratio align="left" aligny="top">keep</aspectratio>
+			<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+			<visible>!String.IsEmpty(ListItem.Art(clearlogo))</visible>
+		  </control>
+		 
+		  
+<!-- <property name="translatedPath">ActivateWindow(music,library://music/artists.xml/,return)</property> -->
+		<control type="grouplist">
+			<posx>800</posx>
+			<posy>620</posy>
+			<orientation>vertical</orientation>
+			<control type="button">
+			  <description>Genre</description>
+			  <width>300</width>
+			  <height>60</height>
+			  <align>left</align>
+			  <textoffsetx>20</textoffsetx>
+			  <textwidth>540</textwidth>
+			  <texturenofocus>dialogs/default/separator.png</texturenofocus>
+			  <label>$LOCALIZE[515]:</label>
+			  <label2>$INFO[ListItem.Genre]</label2>
+			  <enable>false</enable>
+			  <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+			</control>
+			<control type="button">
+			  <description>Year</description>
+			  <width>300</width>
+			  <height>60</height>
+			  <align>left</align>
+			  <textoffsetx>20</textoffsetx>
+			  <textwidth>540</textwidth>
+			  <texturenofocus>dialogs/default/separator.png</texturenofocus>
+			  <label>$LOCALIZE[562]:</label>
+			  <label2>$INFO[ListItem.Year]</label2>
+			  <enable>false</enable>
+			  <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+			</control>
+			<!-- <control type="button">
+			  <description>Album</description>
+			  <width>800</width>
+			  <height>60</height>
+			  <align>left</align>
+			  <textoffsetx>20</textoffsetx>
+			  <textwidth>540</textwidth>
+			  <texturenofocus>dialogs/default/separator.png</texturenofocus>
+			  <label>$LOCALIZE[558]:</label>
+			  <label2>$INFO[ListItem.Album]</label2>
+			  <enable>false</enable>
+			  <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+			  <visible></visible>
+			</control> -->
+			<control type="grouplist">
+			  <!-- Rating -->
+			  <orientation>horizontal</orientation>
+			  <control type="label">
+				<description>blank space</description>
+				<width>20</width>
+			  </control>
+			  <control type="label">
+				<description>Rating</description>
+				<width>305</width>
+				<height>60</height>
+				<align>left</align>
+				<label>$LOCALIZE[563]:</label>
+			  </control>
+			  <control type="image">
+				<!--Stars music-->
+				<width>200</width>
+				<height>60</height>
+				<aspectratio aligny="center" align="center">keep</aspectratio>
+				<colordiffuse>$INFO[Skin.String(GeneralTextColor)]</colordiffuse>
+				<texture fallback="leftrating/rating0.png">$VAR[musicrating_stars]</texture>
+			  </control>
+			</control>
+		</control>
+		<control type="group">
+			<animation effect="slide" end="100,0" time="0" condition="![Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]">Conditional</animation>
+			<left>800</left>
+			<top>80</top>
+			<control type="label" id="4">
+				<description>Plot value</description>
+				<width>850</width>
+				<height>250</height>
+				<align>center</align>
+				<label>$INFO[ListItem.Plot]</label>
+			</control>
+			<control type="textbox" id="55">
+				<description>Plot value fallback</description>
+				<width>850</width>
+				<height>100</height>
+				<align>center</align>
+				<label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</label>
+				<visible>String.IsEmpty(Control.GetLabel(4))</visible>
+			</control>
+		</control>
+	  <!-- Albums, Titles -->
+		<control type="list" id="50">
+			<top>680</top>
+			<left>40</left>
+			<height>300</height>
+			<width>1800</width>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<!-- <onclick>Dialog.Close</onclick> -->
+			<!-- ActivateWindow(window[,musicdb://artists/$INFO[ListItem.DBID],return]) -->
+			<!-- ActivateWindow(window[,dir,return]) -->
+			<!-- ReplaceWindowAndFocus(id1, id2,item1, id3,item2) -->
+			<!-- ActivateWindowAndFocus(id1, id2,item1, id3,item2) -->
+			<!-- ActivateWindowAndFocus(id1, id2,item1, id3,item2) -->
+			<orientation>horizontal</orientation>
+			
+			<itemlayout height="350" width="250">
+				<!-- bg/border -->
+				<control type="image">
+					<height>350</height>
+					<texture border="0">diffuse/poster.png</texture>
+					<colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+				</control>
+				<!-- overlay -->
+				<control type="image">
+					<height>250</height>
+					<!-- <colordiffuse>black</colordiffuse> -->
+					<texture border="1" diffuse="diffuse/cover_panel_matte_fo.png" background="true" fallback="defaultdvdfull.png">$INFO[ListItem.Thumb]</texture>
+					<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="label">
+					<font>reg20</font>
+					<label>$INFO[Container().ListItem.Label,[B],[/B]]</label>
+					<textcolor>white</textcolor>
+					<top>252</top>
+					<left>0</left>
+					<width>250</width>
+					<height>20</height>
+					<align>center</align>
+					<textoffsetx>0</textoffsetx>
+				</control>
+				<!--  -->
+				<control type="label">
+					<font>reg20</font>
+					<label>$INFO[Container().ListItem.Label2,(,)]</label>
+					<textcolor>cyan</textcolor>
+					<top>273</top>
+					<left>0</left>
+					<width>250</width>
+					<height>20</height>
+					<align>center</align>
+					<textoffsetx>0</textoffsetx>
+				</control>
+			</itemlayout>
+			<focusedlayout height="350" width="250">
+				<control type="group">
+					<!-- focus anim -->
+					<animation type="Focus" reversible="false" condition="true">
+						<effect type="zoom" end="115" time="100" tween="sine" easing="out" center="auto" />
+						<effect type="zoom" end="90" time="100" tween="sine" delay="150" easing="out" center="auto" />
+					</animation>
+					<!-- bg/border -->
+					<control type="image">
+						<height>350</height>
+						<texture border="0">diffuse/poster.png</texture>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+					</control>
+					<!-- overlay -->
+					<control type="image">
+						<height>250</height>
+						<texture border="1" diffuse="diffuse/cover_panel_matte_fo.png" background="true" fallback="defaultdvdfull.png">$INFO[ListItem.Thumb]</texture>
+						<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+						<bordersize>4</bordersize>
+					</control>
+					<!-- overlay -->
+					<control type="label">
+						<font>reg20</font>
+						<label>$INFO[Container().ListItem.Label,[B],[/B]]</label>
+						<textcolor>cyan</textcolor>
+						<top>252</top>
+						<left>0</left>
+						<width>250</width>
+						<height>20</height>
+						<align>center</align>
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<!--  -->
+					<control type="label">
+						<font>reg20</font>
+						<label>$INFO[Container().ListItem.Label2,[B](,)[/B]]</label>
+						<textcolor>cyan</textcolor>
+						<top>274</top>
+						<left>0</left>
+						<width>250</width>
+						<height>20</height>
+						<align>center</align>
+						<textoffsetx>0</textoffsetx>
+					</control>
+				</control>
+			</focusedlayout>
+			<!-- <content target="music">musicdb://artists/$INFO[ListItem.DBID]/</content> -->
+		</control>
+
+			
+		  
+		  <!-- <control type="scrollbar" id="60">
+			<right>5</right>
+			<posy>506</posy>
+			<height>388</height>
+			<onup>60</onup>
+			<ondown>60</ondown>
+			<onleft>9000</onleft>
+			<onright>9000</onright>
+			<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+		  </control> -->
+
+		  <!--Button Group-->
+		  <control type="grouplist" id="9000">
+			<posx>30</posx>
+			<posy>1000</posy>
+			<orientation>horizontal</orientation>
+			<itemgap>10</itemgap>
+			<defaultcontrol>5</defaultcontrol>
+			<!-- <onup condition="Control.IsVisible(60)">60</onup> -->
+			<width>99%</width>
+			<onup>50</onup>
+			<control type="button" id="11">
+			  <!--Cancel-->
+			  <width>290</width>
+			  <height>80</height>
+			  <align>center</align>
+			  <label>222</label>
+			  <include>DialogButtonOther</include>
+			  <onclick>Close</onclick>
+			</control>
+			<control type="button" id="12">
+			  <!--Album Info button-->
+			  <width>290</width>
+			  <height>80</height>
+			  <align>center</align>
+			  <include>DialogButtonOther</include>
+			  <label>10523</label>
+			</control>
+			<control type="button" id="10">
+			  <!--Get Thumb button-->
+			  <width>290</width>
+			  <height>80</height>
+			  <align>center</align>
+			  <include>DialogButtonOther</include>
+			  <label>13405</label>
+			  <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+			</control>
+			<!-- artwork beef -->
+			 <control type="button" id="8">
+				<label>AB:Select Artwork</label>           
+				<onclick condition="String.IsEqual(ListItem.DBType,artist) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=gui, mediatype=artist, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="String.IsEqual(ListItem.DBType,album) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=gui, mediatype=album, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="String.IsEqual(ListItem.DBType,song) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=gui, mediatype=song, dbid=$INFO[ListItem.DBID])</onclick>
+				<description>Get Artwork</description>
+				<include>DialogButtonOther</include>
+				<visible>[String.IsEqual(ListItem.DBType,album) | String.IsEqual(ListItem.DBType,song) | String.IsEqual(ListItem.DBType,artist)] + system.hasaddon(script.artwork.beef)</visible>
+			</control>
+			<control type="button" id="9">
+				<label>AB:DL All Artwork</label>
+				<onclick condition="String.IsEqual(ListItem.DBType,artist) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=auto, mediatype=artist, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="String.IsEqual(ListItem.DBType,album) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=auto, mediatype=album, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="String.IsEqual(ListItem.DBType,song) + System.HasAddon(script.artwork.beef)">XBMC.RunScript(script.artwork.beef, mode=auto, mediatype=song, dbid=$INFO[ListItem.DBID])</onclick>
+				<description>Get Artwork</description>
+				<include>DialogButtonOther</include>
+				<visible>[String.IsEqual(ListItem.DBType,album) | String.IsEqual(ListItem.DBType,song) | String.IsEqual(ListItem.DBType,artist)] + system.hasaddon(script.artwork.beef)</visible>
+			</control>
+			
+			
+			<control type="button" id="7">
+			  <!--set personal rating-->
+			  <width>290</width>
+			  <height>80</height>
+			  <align>center</align>
+			  <include>DialogButtonOther</include>
+			  <label>38023</label>
+			  <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+			</control>
+			<control type="button" id="6">
+			  <!--update-->
+			  <width>290</width>
+			  <height>80</height>
+			  <align>center</align>
+			  <include>DialogButtonOther</include>
+			  <label>184</label>
+			  <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+			</control>
+		  </control>
+		</control>
+	</include>
+	
+	
+</includes>

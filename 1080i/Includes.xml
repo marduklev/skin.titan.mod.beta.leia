@@ -3,6 +3,7 @@
     <include file="Defaults.xml" />
     <include file="IncludesVariables.xml" />
 	<include file="IncludesDialogVideoInfo.xml" />
+	<include file="IncludesDialogMusicInfo.xml" />
 	<include file="Mod_Progress_Variables_Netflix.xml" />
 	<include file="IncludesHomeTitanTiles.xml" />
     <include file="IncludesHomeWidgets.xml" />

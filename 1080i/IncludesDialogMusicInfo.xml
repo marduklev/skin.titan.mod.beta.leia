@@ -12,15 +12,18 @@
 		</animation>
 		  
 		<!-- BG -->
-		<control type="image">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>100%</width>
-			<height>100%</height>
-			<texture border="15">diffuse/bgpanel.png</texture>
-			<colordiffuse>white</colordiffuse> <!-- for testing --> 
+		<!-- <control type="image"> -->
+			<!-- <posx>0</posx> -->
+			<!-- <posy>0</posy> -->
+			<!-- <width>100%</width> -->
+			<!-- <height>100%</height> -->
+			<!-- <texture border="15">diffuse/bgpanel.png</texture> -->
+			<!-- <colordiffuse>white</colordiffuse> -->
+			<!-- for testing -->  
 			<!-- $INFO[Skin.String(GeneralPanelsColor)] need non diffisable bg color, use 507 ? bg -->
-		</control>
+		<!-- </control> -->
+		<!--Music Background-->
+        <include>GlobalBackground</include>
 		<!-- panel diffuse top -->
 		<control type="image">
 			<top>50</top>
@@ -48,8 +51,8 @@
 			<posy>5</posy>
 			<width>1200</width>
 			<font>Bold20</font>
-			<textcolor>black</textcolor>
-			<!--  <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor> -->
+			<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+			<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 			<align>left</align>
 			<height>25</height>
 			<label>$VAR[DialogMusic_Header]</label>
@@ -64,8 +67,8 @@
 			<font>Bold40</font>
 			<align>center</align>
 			<textcolor>black</textcolor>
-			<!--  should be highlight color ?
-			<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor> -->
+			<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+			<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 			<label>$VAR[DialogMusic_Title,• [B],[/B] •]</label>
 		</control>
 		<!--      FANART  
@@ -80,8 +83,33 @@
 			<fadetime>300</fadetime>
 			<aspectratio align="center" aligny="center">keep</aspectratio>
 			<texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Art(fanart)]</texture> <!-- choose othe diffuse="diffuse/panel.png" -->
-			<visible></visible>
 			<visible>!String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
+		</control>
+		
+		<control type="group">
+			<visible>Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)</visible>
+			<posx>600</posx>
+			<posy>400</posy>
+			<!-- disc small -->
+			<control type="image">
+				<left>130</left>
+				<top>0</top>
+				<width>170</width>
+				<height>170</height>
+				<fadetime>300</fadetime>
+				<aspectratio align="left" aligny="center">keep</aspectratio>
+				<texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_big.png">$INFO[Container(50).ListItem.Art(discart)]</texture>
+			</control>
+			<!-- ARTIST Icon as Fallback,slide if not artistinfo -->
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>180</width>
+				<height>180</height>
+				<fadetime>300</fadetime>
+				<aspectratio align="left" aligny="center">stretch</aspectratio>
+				<texture background="true" diffuse="diffuse/landscape.png">$INFO[Container(50).ListItem.Art(thumb)]</texture>
+			</control>
 		</control>
 		<!-- disc small -->
 		<control type="image">
@@ -124,7 +152,7 @@
 			<width>1850</width>
 			<height>1</height>
 			<texture>colors/color_white.png</texture>
-			<colordiffuse>black</colordiffuse>
+			<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
 		</control>
 		
 		<!-- info/description -->
@@ -137,14 +165,16 @@
 				<height>250</height>
 				<align>center</align>
 				<label>$INFO[ListItem.Plot,[B],[/B]]</label><!-- ListItem.Property(Album_Description)  -->
-				<textcolor>black</textcolor>
+				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+				<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 			</control>
 			<control type="textbox" id="55">
 				<description>Plot value fallback</description>
 				<width>900</width>
 				<height>400</height>
 				<align>center</align>
-				<textcolor>black</textcolor>
+				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+				<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 				<label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot),[B],[/B]]</label>
 				<visible>String.IsEmpty(Control.GetLabel(4))</visible>
 			</control>
@@ -173,11 +203,12 @@
 						<top>5</top>
 						<width>50</width>
 						<height>50</height>
-						<colordiffuse>black</colordiffuse>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
 						<texture>dialogs/videoinfo/premiered-icon.png</texture>
 					</control>
 					<control type="label">
-						<textcolor>black</textcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 						<left>55</left>
 						<width>300</width>
 						<font>Bold30</font>
@@ -204,11 +235,12 @@
 						<top>5</top>
 						<width>50</width>
 						<height>50</height>
-						<colordiffuse>black</colordiffuse>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
 						<texture>dialogs/videoinfo/genre-icon.png</texture>
 					</control>
 					<control type="label">
-						<textcolor>black</textcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 						<left>55</left>
 						<width>550</width>
 						<font>Bold30</font>
@@ -235,11 +267,12 @@
 						<top>5</top>
 						<width>50</width>
 						<height>50</height>
-						<colordiffuse>black</colordiffuse>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
 						<texture>dialogs/musicinfo/album.png</texture>
 					</control>
 					<control type="label">
-						<textcolor>black</textcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 						<left>55</left>
 						<width>500</width>
 						<font>Bold30</font>
@@ -257,7 +290,7 @@
 						<width>200</width>
 						<height>60</height>
 						<aspectratio aligny="center" align="center">keep</aspectratio>
-						<colordiffuse>$INFO[Skin.String(GeneralTextColor)]</colordiffuse>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
 						<texture fallback="leftrating/rating0.png">$VAR[musicrating_stars]</texture>
 					</control>
 					<control type="label">
@@ -267,7 +300,8 @@
 						<font>Bold30</font>
 						<align>left</align>
 						<label>[CAPITALIZE]$LOCALIZE[558]Tracks: [/CAPITALIZE]$INFO[Container(50).NumItems]</label>
-						<textcolor>black</textcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 						<scroll>false</scroll>
 					</control>
 				</control>			
@@ -279,7 +313,7 @@
 		<control type="list" id="50">
 			<top>680</top>
 			<left>40</left>
-			<height>300</height>
+			<height>320</height>
 			<width>1800</width>
 			<onup>9000</onup>
 			<ondown>9000</ondown>
@@ -291,85 +325,111 @@
 			<!-- ActivateWindowAndFocus(id1, id2,item1, id3,item2) -->
 			<orientation>horizontal</orientation>
 			
-			<itemlayout height="350" width="250">
-				<!-- bg/border -->
-				<control type="image">
-					<height>350</height>
-					<texture border="0">diffuse/poster.png</texture>
-					<colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-				</control>
-				<!-- overlay -->
-				<control type="image">
-					<height>250</height>
-					<!-- <colordiffuse>black</colordiffuse> -->
-					<texture border="1" diffuse="diffuse/cover_panel_matte_fo.png" background="true" fallback="defaultdvdfull.png">$INFO[ListItem.Thumb]</texture>
-					<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
-					<bordersize>4</bordersize>
-				</control>
-				<control type="label">
-					<font>reg20</font>
-					<label>$INFO[Container().ListItem.Label,[B],[/B]]</label>
-					<textcolor>white</textcolor>
-					<top>252</top>
-					<left>0</left>
-					<width>250</width>
-					<height>20</height>
-					<align>center</align>
-					<textoffsetx>0</textoffsetx>
-				</control>
-				<!--  -->
-				<control type="label">
-					<font>reg20</font>
-					<label>$INFO[Container().ListItem.Label2,(,)]</label>
-					<textcolor>cyan</textcolor>
-					<top>273</top>
-					<left>0</left>
-					<width>250</width>
-					<height>20</height>
-					<align>center</align>
-					<textoffsetx>0</textoffsetx>
-				</control>
-			</itemlayout>
-			<focusedlayout height="350" width="250">
+			<itemlayout height="320" width="260">
 				<control type="group">
-					<!-- focus anim -->
-					<animation type="Focus" reversible="false" condition="true">
-						<effect type="zoom" end="115" time="100" tween="sine" easing="out" center="auto" />
-						<effect type="zoom" end="90" time="100" tween="sine" delay="150" easing="out" center="auto" />
-					</animation>
+					<width>250</width>
+					<height>320</height>	
 					<!-- bg/border -->
 					<control type="image">
-						<height>350</height>
-						<texture border="0">diffuse/poster.png</texture>
-						<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+						<texture background="true">home/home_matte2.png</texture>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+						<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
+						<include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
+						<include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
+						<include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
 					</control>
-					<!-- overlay -->
+					<!-- thumb -->
 					<control type="image">
-						<height>250</height>
-						<texture border="1" diffuse="diffuse/cover_panel_matte_fo.png" background="true" fallback="defaultdvdfull.png">$INFO[ListItem.Thumb]</texture>
+						<width>245</width>
+						<height>245</height>
+						<left>2</left>
+						<bordersize>10</bordersize>
+						<texture diffuse="diffuse/cover_panel_matte_fo.png" background="true" fallback="defaultdvdfull.png">$INFO[ListItem.Thumb]</texture>
 						<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
-						<bordersize>4</bordersize>
 					</control>
-					<!-- overlay -->
+					<!-- label 1 -->
 					<control type="label">
 						<font>reg20</font>
 						<label>$INFO[Container().ListItem.Label,[B],[/B]]</label>
-						<textcolor>cyan</textcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<width>248</width>
 						<top>252</top>
 						<left>0</left>
-						<width>250</width>
+						<height>20</height>
+						<align>center</align>
+						<!-- <wrapmultiline>true</wrapmultiline> -->
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<!-- label 2 -->
+					<control type="label">
+						<font>reg20</font>
+						<label>$INFO[Container().ListItem.Label2,(,)]</label>
+						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+						<width>248</width>
+						<top>273</top>
+						<left>0</left>
 						<height>20</height>
 						<align>center</align>
 						<textoffsetx>0</textoffsetx>
 					</control>
-					<!--  -->
+				</control>
+			</itemlayout>
+			<focusedlayout height="320" width="260">
+				<control type="group">
+					<width>250</width>
+					<height>320</height>	
+					<!-- focus anim  -->
+					<animation type="Focus" reversible="false" condition="true">
+						<effect type="zoom" end="115" time="100" tween="sine" easing="out" center="auto" />
+						<effect type="zoom" end="90" time="100" tween="sine" delay="150" easing="out" center="auto" />
+					</animation>
+					
+					<!-- bg/border -->
+					<control type="image">
+						<texture background="true">home/home_matte2.png</texture>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
+						<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
+						<include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
+						<include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
+						<include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
+					</control>
+					<!-- extra frame -->
+					<control type="image">
+						<width>250</width>
+						<height>320</height>
+						<texture border="5">netflix/frame/slimframe_hardedge.png</texture>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+					</control>
+					<!-- thumb -->
+					<control type="image">
+						<width>245</width>
+						<height>245</height>
+						<left>3</left>
+						<bordersize>6</bordersize>
+						<texture diffuse="diffuse/cover_panel_matte_fo.png" background="true" fallback="defaultdvdfull.png">$INFO[ListItem.Thumb]</texture>
+						<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+					</control>
+					<!-- label 1 -->
 					<control type="label">
 						<font>reg20</font>
-						<label>$INFO[Container().ListItem.Label2,[B](,)[/B]]</label>
-						<textcolor>cyan</textcolor>
-						<top>274</top>
+						<label>$INFO[Container().ListItem.Label,[B],[/B]]</label>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<width>248</width>
+						<top>252</top>
 						<left>0</left>
-						<width>250</width>
+						<height>20</height>
+						<align>center</align>
+						<!-- <wrapmultiline>true</wrapmultiline> -->
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<!-- label 2 -->
+					<control type="label">
+						<font>reg20</font>
+						<label>$INFO[Container().ListItem.Label2,(,)]</label>
+						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+						<width>248</width>
+						<top>273</top>
+						<left>0</left>
 						<height>20</height>
 						<align>center</align>
 						<textoffsetx>0</textoffsetx>
@@ -690,16 +750,18 @@
 			<!-- ActivateWindowAndFocus(id1, id2,item1, id3,item2) -->
 			<orientation>horizontal</orientation>
 			
-			<itemlayout height="350" width="250">
+			<itemlayout height="350" width="280">
 				<!-- bg/border -->
 				<control type="image">
 					<height>350</height>
-					<texture border="0">diffuse/poster.png</texture>
+					<width>250</width>
+					<texture align="center" border="0">diffuse/poster.png</texture>
 					<colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
 				</control>
 				<!-- overlay -->
 				<control type="image">
 					<height>250</height>
+					<width>250</width>
 					<!-- <colordiffuse>black</colordiffuse> -->
 					<texture border="1" diffuse="diffuse/cover_panel_matte_fo.png" background="true" fallback="defaultdvdfull.png">$INFO[ListItem.Thumb]</texture>
 					<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>

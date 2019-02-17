@@ -85,7 +85,7 @@
 			<texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Art(fanart)]</texture> <!-- choose othe diffuse="diffuse/panel.png" -->
 			<visible>!String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
 		</control>
-		
+		<!-- Album and Disc in ArtistInfo -->
 		<control type="group">
 			<visible>Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)</visible>
 			<posx>600</posx>
@@ -100,7 +100,7 @@
 				<aspectratio align="left" aligny="center">keep</aspectratio>
 				<texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_big.png">$INFO[Container(50).ListItem.Art(discart)]</texture>
 			</control>
-			<!-- ARTIST Icon as Fallback,slide if not artistinfo -->
+			<!-- Album -->
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
@@ -111,7 +111,7 @@
 				<texture background="true" diffuse="diffuse/landscape.png">$INFO[Container(50).ListItem.Art(thumb)]</texture>
 			</control>
 		</control>
-		<!-- disc small -->
+		<!-- disc -->
 		<control type="image">
 			<left>440</left>
 			<top>80</top>
@@ -399,6 +399,7 @@
 						<height>320</height>
 						<texture border="5">netflix/frame/slimframe_hardedge.png</texture>
 						<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+						<!-- <animation effect="zoom" start="0,100" end="100,100" time="100" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation> -->
 					</control>
 					<!-- thumb -->
 					<control type="image">
@@ -408,6 +409,16 @@
 						<bordersize>6</bordersize>
 						<texture diffuse="diffuse/cover_panel_matte_fo.png" background="true" fallback="defaultdvdfull.png">$INFO[ListItem.Thumb]</texture>
 						<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+					</control>
+					<!-- seperate  div line 1 -->
+					<control type="image">
+						<top>243</top>
+						<left>13</left>
+						<width>222</width>
+						<height>3</height>
+						<texture>colors/color_white.png</texture>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+						<animation effect="zoom" start="0,100" end="100,100" time="200" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation>
 					</control>
 					<!-- label 1 -->
 					<control type="label">

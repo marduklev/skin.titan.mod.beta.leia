@@ -1,0 +1,16 @@
+*.pyc
+*.pyo
+.DS*
+.pylint_rc
+/node_modules
+/.idea
+/.project
+/.pydevproject
+/.settings
+/.dist
+Thumbs.db
+*~
+.cache
+.dist
+.addon
+package-lock.json

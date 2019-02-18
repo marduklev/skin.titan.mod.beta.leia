@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.titan.mod.beta.leia" version="__VERSION__" name="T i t a n - M O D (BETA) for LEIA" provider-name="mardukl,cartman.dos,marcelveldt,mgonzales">
+<addon id="skin.titan.mod.games.leia" version="18.1.10-alpha.1" name="T i t a n - M O D (GAMES) for LEIA" provider-name="mardukl,cartman.dos,marcelveldt,mgonzales">
 	<requires>
-		<import addon="xbmc.gui" version="5.14.0" />
+		<import addon="xbmc.gui" version="5.14.0"/>
 		<import addon="script.skinshortcuts" version="0.6.5"/>
 		<import addon="script.skin.helper.service" version="1.0.0"/>
         <import addon="script.skin.helper.widgets" version="1.0.0"/>
@@ -15,8 +15,8 @@
         <import addon="resource.images.backgroundoverlays.basic" version="1.0.0"/>
 	</requires>
 	<extension point="xbmc.gui.skin" debugging="false">		
-		<res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
-		<res width="1920" height="1200" aspect="16:10" default="false" folder="1080i" />
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
+		<res width="1920" height="1200" aspect="16:10" default="false" folder="1080i"/>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="bg_BG">Обликът "Titan MOD BETA for Kodi Leia" за MediaPortal адаптиран за Kodi, с много добавени функции.</summary>
@@ -45,14 +45,13 @@
 		<license>GPL v2.0</license>
 		<forum>https://forum.kodi.tv/showthread.php?tid=330749</forum>
 		<website>http://forum.kodi.tv/forumdisplay.php?fid=212</website>
-		<email></email>
-		<source></source>
+		<email/>
+		<source/>
 		<assets>
 			<icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
 			<screenshot>_screenshots/screenshot000.jpg</screenshot>
 			<screenshot>_screenshots/screenshot001.jpg</screenshot>
-			<screenshot>_screenshots/screenshot002.jpg</screenshot>
 			<screenshot>_screenshots/screenshot003.jpg</screenshot>
 			<screenshot>_screenshots/screenshot004.jpg</screenshot>
 			<screenshot>_screenshots/screenshot005.jpg</screenshot>
@@ -69,7 +68,6 @@
 			<screenshot>_screenshots/screenshot016.jpg</screenshot>
 			<screenshot>_screenshots/screenshot017.jpg</screenshot>
 			<screenshot>_screenshots/screenshot018.jpg</screenshot>
-			<screenshot>_screenshots/screenshot019.jpg</screenshot>
 		</assets>
 		<news>
             Follow the forum thread about the latest news for the skin.

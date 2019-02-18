@@ -2,7 +2,7 @@
 <!--Titan-->
 <window>
     <defaultcontrol always="true">3</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
+    
     <include>DefaultSkinSettings</include>
     <controls>
 

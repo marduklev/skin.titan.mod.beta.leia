@@ -457,10 +457,10 @@
         <option id="videoinfo_button_similar" label="$LOCALIZE[31622]" condition="" default="true"/>
         <option id="videoinfo_button_plot" label="$LOCALIZE[207]" condition="" default="true"/>
         <option id="videoinfo_button_extendedinfo" label="$LOCALIZE[31269]" condition="" default="true"/>
-        <option id="videoinfo_button_cinemavision" label="CinemaVision" condition="System.HasAddon(script.cinemavision)" default="true"/>
-        <option id="videoinfo_button_cinemaexperience" label="$INFO[System.AddonTitle(script.cinema.experience)]" condition="System.HasAddon(script.cinema.experience)" default="true"/>
-        <option id="videoinfo_button_videoextras" label="$INFO[System.AddonTitle(script.videoextras)]" condition="System.HasAddon(script.videoextras)" default="true"/>
-        <option id="videoinfo_button_artwork.beef" label="$LOCALIZE[31300]" condition="System.HasAddon(script.script.artwork.beef)" default="true"/>
+        <option id="videoinfo_button_cinemavision" label="CinemaVision" condition="System.HasAddon(script.cinemavision)" default=""/>
+        <option id="videoinfo_button_cinemaexperience" label="$INFO[System.AddonTitle(script.cinema.experience)]" condition="System.HasAddon(script.cinema.experience)" default=""/>
+        <option id="videoinfo_button_videoextras" label="$INFO[System.AddonTitle(script.videoextras)]" condition="System.HasAddon(script.videoextras)" default=""/>
+        <option id="videoinfo_button_artworkbeef" label="$LOCALIZE[31300]" condition="System.HasAddon(script.artwork.beef)" default="true"/>
         <option id="videoinfo_button_artwork" label="$LOCALIZE[13511]" condition="" default="true"/>
         <option id="videoinfo_button_refresh" label="$LOCALIZE[184]" condition="" default="true"/>
         <option id="videoinfo_button_discart" label="$LOCALIZE[31200]" condition="" default="true"/>
@@ -468,6 +468,16 @@
         <option id="videoinfo_button_myrating" label="My Rating" condition="" default="true"/>
     </setting>
     
+	<!-- UpNext Layout Simple style -->
+    <setting id="upnext_simple" value="upn_simple_skindefault" label="Skin default" condition="" icon="special://skin/extras/upnext/next_simple_skindefault.jpg" description="" default="true"/>
+    <setting id="upnext_simple" value="upn_simple_addondefault" label="Addon Default" condition="" icon="special://skin/extras/upnext/next_simple_addondefault.jpg" description=""/>
+	<setting id="upnext_simple" value="upn_simple_button" label="Just Button" condition="" icon="special://skin/extras/upnext/next_simple_custom.jpg" description=""/>
+	
+	<!-- UpNext Layout Fancy style -->
+	<setting id="upnext_fancy" value="upn_fancy_netflix" label="Netflix" condition="" icon="special://skin/extras/upnext/next_fancy_netflix.jpg" description="" default="true"/>
+    <setting id="upnext_fancy" value="upn_fancy_def" label="Addon Default" condition="" icon="special://skin/extras/upnext/next_fancy_addondefault.jpg" description=""/>
+	<setting id="upnext_fancy" value="upn_fancy_triangle" label="Triangle" condition="" icon="special://skin/extras/upnext/next_fancy_custom.jpg" description=""/>
+	 
     <!-- osd button style -->
     <setting id="osd_buttonstyle" value="rounded" label="$LOCALIZE[31493]" condition="" icon="special://skin/extras/images/button_round.jpg" description=""/>
     <setting id="osd_buttonstyle" value="slim" label="$LOCALIZE[31697]" condition="" icon="special://skin/extras/images/button_slim.jpg" description="" default="true"/>
@@ -490,24 +500,24 @@
     <setting id="general_header" value="-weather" label="$LOCALIZE[400]" condition="" icon="" description="Only show weather"/>
     
     <!-- home header options -->
-	<setting id="home_header" value="disable" label="$LOCALIZE[1223]" condition="" icon="" description="Completely disable the header" />																																	 
-    <setting id="home_header" value="logo-time" label="$LOCALIZE[31058] + $LOCALIZE[31705]" condition="![Skin.HasSetting(CompactHeader) + Skin.HasSetting(EnableTouchSupport)] + !Skin.HomeLayout(win10) + !Skin.String(HomeLayout,netflix2)" icon="" description="Show logo (left) and time (right)" default="!Skin.String(HomeLayout,win10) + !Skin.HasSetting(WeatherOnHome)"/>
-    <setting id="home_header" value="logo-slideweather-time" label="$LOCALIZE[31058] + $LOCALIZE[400] + $LOCALIZE[31705]" condition="![Skin.HasSetting(CompactHeader) + Skin.HasSetting(EnableTouchSupport)] + !Skin.HomeLayout(win10) + !Skin.String(HomeLayout,verticalbig) + !Skin.String(HomeLayout,netflix2)" icon="" description="Show logo + weather (left) and time (right)" default="!Skin.String(HomeLayout,win10) + !Skin.HasSetting(WeatherOnHome)"/>
+	<setting id="home_header" value="disable" label="$LOCALIZE[1223]" condition="" icon="" description="Completely disable the header" />
+    <setting id="home_header" value="logo-time" label="$LOCALIZE[31058] + $LOCALIZE[31705]" condition="![Skin.HasSetting(CompactHeader) + Skin.HasSetting(EnableTouchSupport)] + !Skin.HomeLayout(win10) + !Skin.String(HomeLayout,netflix2)" icon="" description="Show logo (left) and time (right)" default="!Skin.HasSetting(WeatherOnHome) + !Skin.String(HomeLayout,win10) + !Skin.String(HomeLayout,netflix2)"/>
+    <setting id="home_header" value="logo-slideweather-time" label="$LOCALIZE[31058] + $LOCALIZE[400] + $LOCALIZE[31705]" condition="![Skin.HasSetting(CompactHeader) + Skin.HasSetting(EnableTouchSupport)] + !Skin.HomeLayout(win10) + !Skin.String(HomeLayout,verticalbig) + !Skin.String(HomeLayout,netflix2)" icon="" description="Show logo + weather (left) and time (right)" default="!Skin.String(HomeLayout,win10) + !Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(WeatherOnHome)"/>
     <setting id="home_header" value="logo-weathclock" label="$LOCALIZE[31058] + $LOCALIZE[31705] + $LOCALIZE[400]" condition="![Skin.HasSetting(CompactHeader) + Skin.HasSetting(EnableTouchSupport)] + !Skin.HomeLayout(win10) + !Skin.String(HomeLayout,netflix2)" icon="" description="Show logo (left) and time + weather (right)" default=""/>
     <setting id="home_header" value="-weathclock" label="$LOCALIZE[31705] + $LOCALIZE[400]" condition="![Skin.HasSetting(CompactHeader) + Skin.HasSetting(EnableTouchSupport)] + !Skin.HomeLayout(win10)" icon="" description="Show time + weather (right)" default=""/>
     <setting id="home_header" value="logo-profile" label="$LOCALIZE[31058] + $LOCALIZE[31134]" condition="![Skin.HasSetting(CompactHeader) + Skin.HasSetting(EnableTouchSupport)] + !Skin.HomeLayout(win10) + !Skin.String(HomeLayout,netflix2)" icon="" description="Show logo (left) and profile (right)"/>
-    <setting id="home_header" value="logo-weather" label="$LOCALIZE[31058] + $LOCALIZE[400]" condition="![Skin.HasSetting(CompactHeader) + Skin.HasSetting(EnableTouchSupport)] + !Skin.HomeLayout(win10) + !Skin.String(HomeLayout,netflix2)" icon="" description="Show logo (left) and weather (right)"/>
+    <setting id="home_header" value="logo-weather" label="$LOCALIZE[31058] + $LOCALIZE[400]" condition="![Skin.HasSetting(CompactHeader) + Skin.HasSetting(EnableTouchSupport)] + !Skin.HomeLayout(win10)] + !Skin.String(HomeLayout,netflix2)" icon="" description="Show logo (left) and weather (right)"/>
     <setting id="home_header" value="title-time" label="$LOCALIZE[369] + $LOCALIZE[31705]" condition="!Skin.String(HomeLayout,netflix2)" icon="" description="Show header title (left) and time (right)"/>
     <setting id="home_header" value="title-weathclock" label="$LOCALIZE[369] + $LOCALIZE[31705] + $LOCALIZE[400]" condition="![Skin.HasSetting(CompactHeader) + Skin.HasSetting(EnableTouchSupport)] + !Skin.HomeLayout(win10) + !Skin.String(HomeLayout,netflix2)" icon="" description="Show title (left) and time + weather (right)" default=""/>
     <setting id="home_header" value="weather-time" label="$LOCALIZE[400] + $LOCALIZE[31705]" condition="!Skin.HasSetting(CompactHeader)" icon="" description="Show weather (left) and time (right)" default="!Skin.String(HomeLayout,win10) + Skin.HasSetting(WeatherOnHome) + !Skin.HasSetting(ShowProfile)"/>
-    <setting id="home_header" value="profile-time" label="$LOCALIZE[31134] + $LOCALIZE[31705]" condition="!Skin.HasSetting(CompactHeader) + !Skin.String(HomeLayout,netflix2)" icon="" description="Show profile (left) and time (right)" default=""/>
+    <setting id="home_header" value="profile-time" label="$LOCALIZE[31134] + $LOCALIZE[31705]" condition="!String.Contains(Skin.String(HomeLayout),netflix2) + !Skin.String(HomeLayout,win10)" icon="" description="Show profile (left) and time (right)" default=""/>
     <setting id="home_header" value="title-weather" label="$LOCALIZE[369] + $LOCALIZE[400]" condition="!Skin.String(HomeLayout,netflix2)" icon="" description="Show header Title (left) and Weather (right)"/>
     <setting id="home_header" value="time" label="$LOCALIZE[31705]" condition="" icon="" description="Only show time"/>
-    <setting id="home_header" value="logo" label="$LOCALIZE[31058]" condition="" icon="" description="Only show logo"/>
+    <setting id="home_header" value="logo" label="$LOCALIZE[31058]" condition="!Skin.String(HomeLayout,netflix2)" icon="" description="Only show logo"/>
     <setting id="home_header" value="weather-" label="$LOCALIZE[400]" condition="" icon="" description="Only show weather left" default=""/>
     <setting id="home_header" value="title" label="$LOCALIZE[369]" condition="!Skin.String(HomeLayout,netflix2)" icon="" description="Only show title"/>
     <setting id="home_header" value="-weather" label="$LOCALIZE[400]" condition="" icon="" description="Only show weather right" default="Skin.HomeLayout(win10)"/>
-    <setting id="home_header" value="-profile" label="$LOCALIZE[31134]" icon="" condition="" description="Only show profile"/>																																						   
+    <setting id="home_header" value="-profile" label="$LOCALIZE[31134]" icon="" condition="!Skin.String(HomeLayout,netflix2)" description="Only show profile"/>
     <!-- vertical home tiles heigth -->
     <setting id="verthome_tiles_height" value="170" label="Default (170)" icon="" condition="" description="" constantdefault="true"/>
     <setting id="verthome_tiles_height" value="||PROMPTNUMERIC||" label="Custom value" icon="" condition="" description="Set a custom heigth for the menu tiles. Note that the width is set to 370px and the border/spacing is 8px"/>

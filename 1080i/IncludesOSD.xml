@@ -106,7 +106,7 @@
 				<align>right</align>
 				<font>Light28</font>
 				<textcolor>FFfffeff</textcolor>
-				<label>- $INFO[Player.TimeRemaining]</label>
+				<label>$VAR[PlayerTimeRemaining]</label>
 			</control>
 
 			<!-- OSDLabel3 -->
@@ -402,7 +402,7 @@
 					<font>Reg24</font>
 					<animation effect="slide" start="0" end="0,150" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 				</control>
-				<!-- PLOT en/dis able via OSD BUTTON-->
+				<!-- PLOT en/disable via OSD BUTTON-->
 				<control type="textbox">
 					<posx>480</posx>
 					<posy>105</posy>
@@ -509,7 +509,7 @@
 					<height>20</height>
 					<width>825</width>
 					<info>Player.ProgressCache</info>
-					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.content(livetv)</visible>
+					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
 					<lefttexture></lefttexture>
@@ -524,7 +524,7 @@
 					<posy>40</posy>
 					<height>20</height>
 					<width>825</width>
-					<info>Player.Progress</info>
+					<info>Player.Progress</info> <!-- check pvr -->
 					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
@@ -578,7 +578,7 @@
 					<font>Light22</font>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-					<label>$INFO[Player.TimeRemaining,- ]</label>
+					<label>$VAR[PlayerTimeRemaining]</label>
 					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
@@ -1145,7 +1145,7 @@
 					<font>Light20</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<label>$INFO[Player.TimeRemaining]</label>
+					<label>$VAR[PlayerTimeRemaining]</label>
 					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
@@ -1230,7 +1230,7 @@
 					<height>15</height>
 					<width>1152</width>
 					<info>Player.ProgressCache</info>
-					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.content(livetv)</visible>
+					<visible>!String.IsEmpty(Player.Duration)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<!--colordiffuse changed to white -->
 					<texturebg border="5" colordiffuse="white">diffuse/panel.png</texturebg>
@@ -1953,7 +1953,7 @@
 				<align>right</align>
 				<font>Light28</font>
 				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-				<label>- $INFO[Player.TimeRemaining]</label>
+				<label>$VAR[PlayerTimeRemaining]</label>
 			</control>
 			
 			<control type="grouplist">
@@ -2889,7 +2889,7 @@
 				<align>left</align>
 				<font>Reg20</font>
 				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-				<label>$INFO[Player.Duration,[B]$LOCALIZE[180]: [/B]]</label>
+				<label>$VAR[PlayerDuration,[B]$LOCALIZE[180]: [/B]]</label>
 				<visible>!String.IsEmpty(Player.Duration)</visible>
 			</control>
 
@@ -2946,7 +2946,7 @@
 				<align>right</align>
 				<font>Reg20</font>
 				<textcolor>white</textcolor>
-				<label>$INFO[Player.TimeRemaining,- ]</label>
+				<label>$VAR[PlayerTimeRemaining]</label>
 				<visible>!String.IsEmpty(Player.Duration)</visible>
 			</control>
 
@@ -3219,7 +3219,28 @@
 			</control>
 		</control>
 	</include>
+	<variable name="PlayerTimeRemaining">
+		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventRemainingTime, ,]</value> <!--  + !VideoPlayer.Content(livetv) -->
+		<value>$INFO[Player.TimeRemaining, ,]</value>
+	</variable>
+	<variable name="PlayerFinishTime">
+		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventFinishTime]</value> <!--  + !VideoPlayer.Content(livetv) -->
+		<value>$INFO[Player.FinishTime]</value>
+	</variable>
+	<variable name="PlayerDuration">
+		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventDuration]</value> <!--  + !VideoPlayer.Content(livetv) -->
+		<value>$INFO[Player.Duration]</value>
+	</variable>
 	
+	<variable name="Player.Duration"> <!-- def osd, split from music ? -->
+		<value condition="player.hasaudio + !player.paused">$VAR[PlayerDuration,[B]$LOCALIZE[180]: [/B]]</value>
+		<value condition="VideoPlayer.HasEpg + !player.hasaudio + !player.paused">$INFO[PVR.EpgEventDuration(h),[B]$LOCALIZE[180]: [/B],h]$INFO[PVR.EpgEventDuration(mm),,min]</value>
+		<value condition="!player.hasaudio + !player.paused">$INFO[Player.Duration(h),[B]$LOCALIZE[180]: [/B],h]$INFO[Player.Duration(mm),,min]</value>
+		<value condition="player.hasaudio + player.paused">$VAR[PlayerDuration,[B]$LOCALIZE[180][CR][/B]]</value>
+		<value condition="VideoPlayer.HasEpg + !player.hasaudio + player.paused">$INFO[PVR.EpgEventDuration(h),[B]$LOCALIZE[180][CR][/B],h]$INFO[PVR.EpgEventDuration(mm),,min]</value>		
+		<value condition="!player.hasaudio + player.paused">$INFO[Player.Duration(h),[B]$LOCALIZE[180][CR][/B],h]$INFO[Player.Duration(mm),,min]</value>		
+	</variable>
+
     <variable name="OSDImage">
         <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.Player.AnimatedPoster)]</value>
 		<value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
@@ -3230,7 +3251,8 @@
 		<value>DefaultVideo.png</value>
 	 </variable>
 	<variable name="OSDImagePVR_Streams"> <!-- pvr stuff, $INFO[ListItem.EpgEventIcon], $INFO[PVR.EpgEventIcon] -->
-        <value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value> <!-- Player.Icon start with switc pr, thelogodb/1+1.png-->
+        <value condition="Skin.HasSetting(SkinHelper.EnablePVRThumbs)">http://localhost:52307/getthumb&amp;title=$ESCINFO[VideoPlayer.Title]</value>
+		<value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value> <!-- Player.Icon start with switc pr, thelogodb/1+1.png-->
 		<value>$INFO[VideoPlayer.Cover]</value>
 	</variable>
 	<variable name="OSDLabel1">
@@ -3287,36 +3309,22 @@
 		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName][/B]</value>
 	</variable>
 	
-	<variable name="playtime_format">
+	<variable name="playtime_format"> <!-- check pvr -->
 		<value condition="String.IsEqual(Player.Time(hh),00)">$INFO[Player.Time(mm:ss)]</value>
 		<value>$INFO[Player.Time]</value>
 	</variable>
 
-	<variable name="timeremaining_format">
-		<value condition="String.IsEqual(Player.TimeRemaining(hh),00)">$INFO[Player.TimeRemaining(mm:ss)]</value>
-		<value>$INFO[Player.TimeRemaining]</value>
-	</variable>
-<!-- 
- player time variables 
-	<variable name="playtime_format">
-		<value condition="Integer.IsLessOrEqual(Player.Time(hh),00)">$INFO[Player.Time(mm)]$INFO[Player.Time(ss),:,]</value>
-		<value condition="Integer.IsGreater(Player.Time(hh),00)">$INFO[Player.Time(h)]$INFO[Player.Time(mm),:,]$INFO[Player.Time(ss),:,]</value>
-		<value>$INFO[Player.Time]</value>
-	</variable>
+    <!-- PVR.Time => PVR.EpgEventElapsedTime
+    PVR.Duration => PVR.EpgEventDuration
+    PVR.Progress => PVR.EpgEventProgress -->
+
 
 	<variable name="timeremaining_format">
-		<value condition="Integer.IsLessOrEqual(Player.TimeRemaining(hh),00)">$INFO[Player.TimeRemaining(mm)]$INFO[Player.TimeRemaining(ss),:,]</value>
-		<value condition="Integer.IsGreater(Player.TimeRemaining(hh),00)">$INFO[Player.TimeRemaining(h)]$INFO[Player.TimeRemaining(mm),:,]$INFO[Player.TimeRemaining(ss),:,]</value>
-		<value>$INFO[Player.TimeRemaining]</value>
+		<value condition="[VideoPlayer.HasEpg + String.IsEqual(PVR.EpgEventRemainingTime(hh),00)]">$INFO[PVR.EpgEventRemainingTime(mm:ss)]</value>
+		<value condition="String.IsEqual(Player.TimeRemaining(hh),00)">$INFO[Player.TimeRemaining(mm:ss)]</value>
+		<value>$VAR[PlayerTimeRemaining]</value>
 	</variable>
--->
-	<variable name="Player.Duration">
-		<value condition="player.hasaudio + !player.paused">$INFO[Player.Duration,[B]$LOCALIZE[180]: [/B]]</value>
-		<value condition="!player.hasaudio + !player.paused">$INFO[Player.Duration(h),[B]$LOCALIZE[180]: [/B],h]$INFO[Player.Duration(mm),,min]</value>
-		<value condition="player.hasaudio + player.paused">$INFO[Player.Duration,[B]$LOCALIZE[180][CR][/B]]</value>
-		<value condition="!player.hasaudio + player.paused">$INFO[Player.Duration(h),[B]$LOCALIZE[180][CR][/B],h]$INFO[Player.Duration(mm),,min]</value>		
-	</variable>
-	
+
 	<variable name="premiered_or_year">
 		<value condition="!VideoPlayer.Content(Movies)">$INFO[VideoPlayer.Premiered]</value>
 		<value>$INFO[VideoPlayer.year]</value>
@@ -3326,7 +3334,7 @@
 		<value condition="[Player.Paused + Player.Caching] + !Player.Seeking">[B]$LOCALIZE[15107]:[/B] $INFO[Player.CacheLevel]%</value>
 		<value condition="!String.IsEmpty(Player.SeekStepSize) + ![player.forwarding | player.rewinding] + Player.seeking">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekStepSize]</value>
 		<value condition="Player.DisplayAfterSeek + ![player.forwarding | player.rewinding] + !String.IsEmpty(Player.SeekOffset)">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekOffset]</value>
-		<value condition="Player.seeking">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekTime] - $INFO[Player.Duration]</value>
+		<value condition="Player.seeking">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekTime] - $VAR[PlayerDuration]</value>
 		<value condition="player.forwarding2x">[B]$LOCALIZE[31253][/B] x2</value>
 		<value condition="player.forwarding4x">[B]$LOCALIZE[31253][/B] x4</value>
 		<value condition="player.forwarding8x">[B]$LOCALIZE[31253][/B] x8</value>
@@ -3337,9 +3345,9 @@
 		<value condition="player.rewinding8x">[B]$LOCALIZE[31254][/B] x8</value>
 		<value condition="player.rewinding16x">[B]$LOCALIZE[31254][/B] x16</value>
 		<value condition="player.rewinding32x">[B]$LOCALIZE[31254][/B] x32</value>
-		<value condition="Skin.HasSetting(UseSlimOSDPanel) + !String.IsEmpty(player.FinishTime) + [Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B] - $INFO[Player.FinishTime]</value>
-		<value condition="!String.IsEmpty(player.FinishTime) + Player.paused + !Skin.HasSetting(UseSlimOSDPanel) | !String.IsEmpty(player.FinishTime) + [Skin.HasSetting(UseSlimOSDPanel) + Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B][CR]$INFO[Player.FinishTime]</value>
-		<value condition="!String.IsEmpty(player.FinishTime)">[B]$LOCALIZE[31112][/B]: $INFO[Player.FinishTime]</value>
+		<value condition="Skin.HasSetting(UseSlimOSDPanel) + [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + [Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B] - $VAR[PlayerFinishTime]</value>
+		<value condition="!String.IsEmpty(player.FinishTime) + Player.paused + !Skin.HasSetting(UseSlimOSDPanel) | [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + [Skin.HasSetting(UseSlimOSDPanel) + Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B][CR]$VAR[PlayerFinishTime]</value>
+		<value condition="[!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)]">[B]$LOCALIZE[31112][/B]: $VAR[PlayerFinishTime]</value>
 	 </variable>
 	 
 	 <variable name="PlayerActionLabelSmall">
@@ -3348,7 +3356,7 @@
 		<value condition="Player.DisplayAfterSeek + ![player.forwarding | player.rewinding] + !String.IsEmpty(player.chaptercount) + !String.IsEqual(player.chaptercount,00)">$INFO[player.chapter,[B]$LOCALIZE[21396]:[/B] ,]$INFO[player.chaptercount,/,]</value>
 		<value condition="Player.DisplayAfterSeek + ![player.forwarding | player.rewinding] + !String.IsEmpty(Player.SeekOffset)">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekOffset]</value>
 		<value condition="Player.seeking + !String.IsEmpty(player.chaptercount) + !String.IsEqual(player.chaptercount,00)">$INFO[player.chapter,[B]$LOCALIZE[21396]:[/B] ,]$INFO[player.chaptercount,/,]</value>
-		<value condition="Player.seeking">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekTime] - $INFO[Player.Duration]</value>
+		<value condition="Player.seeking">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekTime] - $VAR[PlayerDuration]</value>
 		<value condition="player.forwarding2x">[B]$LOCALIZE[31253][/B] x2</value>
 		<value condition="player.forwarding4x">[B]$LOCALIZE[31253][/B] x4</value>
 		<value condition="player.forwarding8x">[B]$LOCALIZE[31253][/B] x8</value>
@@ -3359,14 +3367,14 @@
 		<value condition="player.rewinding8x">[B]$LOCALIZE[31254][/B] x8</value>
 		<value condition="player.rewinding16x">[B]$LOCALIZE[31254][/B] x16</value>
 		<value condition="player.rewinding32x">[B]$LOCALIZE[31254][/B] x32</value>
-		<value condition="!String.IsEmpty(player.FinishTime)">[B]$LOCALIZE[31112]:[/B] $INFO[Player.FinishTime]</value>
+		<value condition="[!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)]">[B]$LOCALIZE[31112]:[/B] $VAR[PlayerFinishTime]</value>
 	 </variable>
 	 
 	 <variable name="PlayerActionLabelLarge">
 		<value condition="[Player.Paused + Player.Caching] + !Player.Seeking">[B]$LOCALIZE[15107]:[/B] $INFO[Player.CacheLevel]%</value>
 		<value condition="!String.IsEmpty(Player.SeekStepSize) + ![player.forwarding | player.rewinding] + Player.seeking">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekStepSize]</value>
 		<value condition="Player.DisplayAfterSeek + ![player.forwarding | player.rewinding] + !String.IsEmpty(Player.SeekOffset)">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekOffset]</value>
-		<value condition="Player.seeking">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekTime] - $INFO[Player.Duration]</value>
+		<value condition="Player.seeking">[B]$LOCALIZE[31255][/B] $INFO[Player.SeekTime] - $VAR[PlayerDuration]</value>
 		<value condition="player.forwarding2x">[B]$LOCALIZE[31253][/B] x2</value>
 		<value condition="player.forwarding4x">[B]$LOCALIZE[31253][/B] x4</value>
 		<value condition="player.forwarding8x">[B]$LOCALIZE[31253][/B] x8</value>

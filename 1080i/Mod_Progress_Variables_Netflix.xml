@@ -127,14 +127,14 @@
 			<height>30</height>
 			<aligny>bottom</aligny>
 			<texture>netflix/genre.png</texture>
-			<colordiffuse>$INFO[Skin.String(NetflixSecondaryTextColor)]</colordiffuse>
+			<colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
 		</control>
 		<control type="label">
 			<left>60</left>
 			<height>52</height>
 			<width>800</width>
 			<label>$VAR[ListItemGenre]</label>
-			<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
+			<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
 			<align>left</align>
 			<aligny>center</aligny>
 			<font>Reg24</font>
@@ -601,18 +601,13 @@
     </variable>
 
     <!-- Next Up Notification vars -->
-    <!-- next up resolution -->
+    <!-- next up resolution ,check reso info UP-NEXT addon-->
     <variable name="NextUpResolution">
         <value condition="Integer.IsGreater(Control.GetLabel(3011),1080)">UHD</value>
         <value condition="Integer.IsGreater(Control.GetLabel(3011),700)">HD</value>
         <value condition="Integer.IsLess(Control.GetLabel(3011),700)">SD</value>
     </variable>
-    <!-- next up thumb episode/tvshow based on setting preference -->
-    <variable name="NextUpThumb">
-        <value condition="!String.IsEmpty(Control.GetLabel(3005)) + Skin.HasSetting(PreferTvShowThumbWidget)">$INFO[Control.GetLabel(3005)]</value>
-        <value condition="!String.IsEmpty(Control.GetLabel(3008))">$INFO[Control.GetLabel(3008)]</value>
-        <value condition="!String.IsEmpty(Control.GetLabel(3005))">$INFO[Control.GetLabel(3005)]</value>
-    </variable>
+    
 	<!-- default fade animation -->
     <include name="Default_Fade">
         <animation effect="fade" time="200">Visible</animation>

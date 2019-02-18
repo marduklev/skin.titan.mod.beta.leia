@@ -139,9 +139,7 @@
     <variable name="SquarePosterThumb">
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVarList]</value>
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)]">$VAR[MovieGenreIconVarList]</value>
-        <value condition="!String.IsEmpty(ListItem.Thumb) + [Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + !Window.IsActive(DialogVideoInfo.xml)">$INFO[ListItem.Thumb]</value>
-        <value condition="!String.IsEmpty(Listitem.Art(artist.thumb))">$INFO[Listitem.Art(artist.thumb)]</value>
-		<value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+        <value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>  <!-- thumb is good, and didnt need var conditions, as it choose correct content, https://forum.kodi.tv/showthread.php?tid=298565&pid=2693890#pid2693890-->
         <value condition="!String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows)]">$INFO[ListItem.Art(fanart)]</value>
         <value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack.png</value>
         <value condition="String.IsEqual(ListItem.Label,$LOCALIZE[21452])">dialogs/filebrowser/DefaultAddSource.png</value>

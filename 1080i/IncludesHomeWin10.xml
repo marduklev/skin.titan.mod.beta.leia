@@ -88,7 +88,7 @@
         </control>
         <control type="panel" id="4444">
             <viewtype label="31436">icons</viewtype>
-            <width>220</width>
+            <width>440</width>
             <height>880</height>
             <onfocus>ClearProperty(ShowViewSubMenu)</onfocus>
             <orientation>vertical</orientation>
@@ -131,113 +131,286 @@
     
     <include name="SideBladeMainMenu">
         <control type="group" id="9001">
-            <posx>-660</posx>
-			<posy>0</posy>
-			<visible>!Window.IsActive(virtualkeyboard)</visible>
-			<animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
-                <effect type="slide" start="0" end="660" time="300" delay="0" tween="cubic" easing="inout" />
+            <posx>-640</posx>
+            <posy>0</posy>
+            <visible>!Window.IsActive(virtualkeyboard)</visible>
+            <animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
+                <effect type="slide" start="0" end="640" time="300" delay="0" tween="cubic" easing="inout" />
             </animation>
-			<!--Panel-->
-            <control type="image">
+            <!-- panel -->
+            <control type="grouplist">
+                <orientation>horizontal</orientation>
                 <posy>-5%</posy>
                 <posx>-20</posx>
-                <width>425</width>
+                <width>405</width>
                 <height>110%</height>
-                <texture>colors/color_white.png</texture>
-                <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
-                <aspectratio>stretch</aspectratio>
+                <itemgap>0</itemgap>
+                <!-- bg -->
+                <control type="image">
+                    <width>404</width>
+                    <height>110%</height>
+                    <texture>colors/color_white.png</texture>
+                    <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+                <!-- panel border -->
+                <control type="image">
+                    <width>1</width>
+                    <height>110%</height>
+                    <texture>colors/color_white.png</texture>
+                    <colordiffuse>$INFO[Skin.String(MainMenuTextColor)]</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                </control>
             </control>
 
-            <!-- menu button -->
+            <!-- Touch: Menu Button -->
             <control type="button" id="1">
+                <visible>Skin.HasSetting(EnableTouchSupport)</visible>
+                <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
                 <label></label>
-                <posx>40</posx>
+                <posx>50</posx>
                 <top>20</top>
                 <include>animation_fade_visible_hidden</include>
-                <width>60</width>
-                <height>60</height>
+                <width>50</width>
+                <height>50</height>
                 <font></font>
-                <onright>2</onright>
+                <onright>40002</onright>
                 <ondown>300</ondown>
                 <onleft>77777</onleft>
                 <onback>77777</onback>
                 <onup>300</onup>
-                <texturefocus colordiffuse="$INFO[Skin.String(HomeViewDetailsFocusColor)]">common/menu.png</texturefocus>
+                <texturefocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">common/menu.png</texturefocus>
                 <texturenofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">common/menu.png</texturenofocus>
                 <onclick>ClearProperty(ShowViewSubMenu, Home)</onclick>
                 <onclick>SetFocus(9000)</onclick>
-                <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
-            </control>
-            
-            <control type="button" id="2">
-				<description>powerbutton</description>
-				<posx>115</posx>
-				<top>25</top>
-				<width>50</width>
-				<height>50</height>
-				<onup>300</onup>
-                <ondown>300</ondown>
-				<onleft>1</onleft>
-                <onright>77777</onright>
-                <onback>77777</onback>
-				<texturefocus colordiffuse="$INFO[Skin.String(HomeViewDetailsFocusColor)]">common/shutdown2.png</texturefocus>
-				<texturenofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">common/shutdown2.png</texturenofocus>
-				<onclick>ActivateWindow(111)</onclick>
-				<visible>!Skin.HasSetting(DisablePowerMenu)</visible>
-                <visible allowhiddenfocus="true">!Skin.HasSetting(HidePowerMenu)</visible>
-				<include>animation_fade_visible_hidden</include>		
 			</control>
+			<!-- Shutdown button removed for bottom menu -->
+            <!-- logo and bla,   make condition here and in depening on header setting  extras/skinsettinh.xml - home header options , also need bools on home load  if some settings are hidden -->
+            <control type="grouplist" id="40000">
+                <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
+                <posy>20</posy>
+				<posx>0</posx>
+                <width>440</width>
+                <height>150</height>
+				<orientation>vertical</orientation>
+                <animation effect="slide" end="0,60" condition="Control.IsVisible(1)">Conditional</animation>
+                <include>animation_fade_visible_hidden</include>
+                <!-- logo -->
+                <control type="image"> <!-- 325x125 -->
+					<visible>!Skin.HasSetting(DisableSkinIconMainMenu)</visible>
+					<left>10</left>
+					<height>80</height>
+					<width>275</width>
+					<aspectratio align="center">keep</aspectratio>
+					<texture background="true" fallback="home/kodi_logo_light.png">$INFO[Skin.String(CustomLogoImage)]</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(DisableSkinIconMainMenu) + !Skin.HasSetting(DisableProfileMainMenu)</visible>
+					<left>0</left>
+					<height>10</height>
+					<width>1</width>
+					<label></label>
+				</control>
+                <!-- user profile -->
+                <control type="group" id="40001">
+                    <visible>!Skin.HasSetting(DisableProfileMainMenu)</visible>
+					<height>60</height>
+					<width>440</width>
+					<left>5</left>
+                    <control type="button" id="40002">
+                        <!-- localize & hardcoded color -->
+                        <label>[B]$INFO[System.ProfileName][/B][CR][COLOR ffc0c0c0]Switch Profiles[/COLOR]</label>
+                        <textoffsetx>115</textoffsetx>
+                        <align>left</align>
+						<aligny>bottom</aligny>
+                        <width>384</width>
+                        <height>60</height>
+                        <font>Reg20</font>
+                        <ondown>300</ondown>
+                        <onback>ClearProperty(ShowViewSubMenu, Home)</onback>
+										
+                        <onback>77777</onback>
+                        <onright>ClearProperty(ShowViewSubMenu, Home)</onright>
+                        <onright>77777</onright>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
+                        <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
+                        <texturenofocus></texturenofocus>
+                        <onclick>ClearProperty(ShowViewSubMenu, Home)</onclick>
+                        <onclick>System.LogOff</onclick>
+																						  
+													  
+                    </control>
+                    <control type="image">
+                        <left>50</left>
+                        <top>5</top>
+                        <width>50</width>
+                        <height>50</height>
+                        <texture background="true">$INFO[System.ProfileThumb]</texture>
+					</control>
+                </control>
+            </control>
 
             <!--main menu 300-->
-			<control type="list" id="300">
-				<posx>15</posx>
-				<posy>15%</posy>
-				<width>370</width>
-				<height>85%</height>
-				<itemgap>0</itemgap>
-				<onleft>1</onleft>
+            <control type="list" id="300">
+				   
+                <posy>25%</posy>
+                <width>385</width>
+                <height>52%</height>
+                <itemgap>0</itemgap>
+					  
                 <onright condition="Integer.IsGreater(Container(4445).NumItems,0)">4444</onright>
-				<onright condition="!Integer.IsGreater(Container(4445).NumItems,0)">77777</onright>
-				<onright condition="!Integer.IsGreater(Container(4445).NumItems,0)">ClearProperty(ShowViewSubMenu, Home)</onright>
+                <onright condition="!Integer.IsGreater(Container(4445).NumItems,0)">77777</onright>
+                <onright condition="!Integer.IsGreater(Container(4445).NumItems,0)">ClearProperty(ShowViewSubMenu, Home)</onright>
                 <onback>ClearProperty(ShowViewSubMenu, Home)</onback>
-				<onback>77777</onback>
-				<onup>300</onup>
-				<ondown>300</ondown>
+                <onback>40003</onback>
+                <onup>300</onup>
+                <ondown condition="!Skin.HasSetting(EnhancedHome_Circular)">300</ondown>
+				<ondown condition="Skin.HasSetting(EnhancedHome_Circular)">40003</ondown>
+				<onleft>40003</onleft>
 				<orientation>vertical</orientation>
-				<itemlayout height="70" width="370">
+                <itemlayout height="80" width="385">
+                    <!-- menu item icon -->
+                    <control type="group">
+                        <visible>!Skin.HasSetting(DisableIconsMainMenu)</visible>
+                        <left>50</left>
+                        <height>100%</height>
+                        <top>20</top>
+                        <control type="image">
+                            <width>35</width>
+                            <height>35</height>
+                            <texture background="true">$INFO[ListItem.Icon]</texture>
+                            <colordiffuse>$INFO[Skin.String(MainMenuTextColor)]</colordiffuse>
+                            <animation end="70" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
+                        </control>
+                    </control>
+                    <!-- menu item label -->
+                    <control type="label">
+                        <width>230</width>
+                        <height>100%</height>
+                        <align>left</align>
+                        <left>135</left>
+                        <font>Light28</font>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                        <animation effect="slide" end="-50" time="0" delay="0" condition="Skin.HasSetting(DisableIconsMainMenu)">Conditional</animation>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="80" width="385">
+                    <!-- button focus color -->
+					<control type="image">
+                        <texture>colors/color_white.png</texture>
+                        <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
+						<visible>Control.HasFocus(300)</visible>
+                    </control>
+                    <!-- menu item icon -->
+                    <control type="group">
+                        <visible>!Skin.HasSetting(DisableIconsMainMenu)</visible>
+                        <left>50</left>
+                        <height>100%</height>
+                        <top>20</top>
+                        <control type="image"> <!-- to use skinicons wide - 910x515 ,*0,068, nice idea but wrong filled textures -->
+                            <width>35</width>
+                            <height>35</height>
+                            <texture background="true">$INFO[ListItem.Icon]</texture>
+                            <colordiffuse>$INFO[Skin.String(MainMenuFocusTextColor)]</colordiffuse> <!-- add second color for icon ?-->
+                        </control>
+                    </control>
+                    <!-- menu item label -->
+                    <control type="label">
+                        <width>230</width>
+                        <height>100%</height>
+                        <align>left</align>
+                        <left>135</left>
+                        <aligny>center</aligny>
+                        <font>Light28</font>
+                        <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                        <label>[B]$INFO[ListItem.Label][/B]</label>
+                        <animation effect="slide" end="-50" time="0" delay="0" condition="Skin.HasSetting(DisableIconsMainMenu)">Conditional</animation>
+                    </control>
+                    <!-- button border focus color -->
+                    <control type="image">
+                        <left>380</left>
+                        <width>5</width>
+                        <height>100%</height>
+                        <texture>colors/color_white.png</texture>
+                        <colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
+                        <aspectratio>stretch</aspectratio>
+                    </control>
+                    <!-- home behavior onfocus -->
+                    <include>HiddenHomeMenuButton</include>
+                </focusedlayout>
+                <include condition="Window.IsActive(Home)">MainMenuContent</include>
+                <include condition="Window.IsActive(3018)">netflix_mainmenu_movies</include>
+                <include condition="Window.IsActive(3017)">netflix_mainmenu_tvshows</include>
+            </control>
+
+			<!-- custom shutdown -->
+			<control type="list" id="40003">
+				<orientation>vertical</orientation>
+				<posy>85%</posy>
+				<width>384</width>
+				<height>125</height>
+				<onup condition="!Skin.HasSetting(EnhancedHome_Circular)">40003</onup>
+				<onup condition="Skin.HasSetting(EnhancedHome_Circular)">300</onup>
+				<ondown>40003</ondown>
+				<onright>ClearProperty(ShowViewSubMenu, Home)</onright>
+				<onright>77777</onright>
+				<onback>ClearProperty(ShowViewSubMenu, Home)</onback>
+				<onback>300</onback>
+				<onleft>300</onleft>
+				<visible>![Skin.HasSetting(DisablePowerMenu) | Skin.HasSetting(HidePowerMenu)]</visible>
+				<itemlayout width="384" height="45">
 					<control type="label">
-						<width>100%</width>
-						<left>25</left>
+						<width>384</width>
+						<height>45</height>
+						<textoffsetx>50</textoffsetx>
 						<align>left</align>
+						<aligny>center</aligny>
 						<font>Reg24</font>
 						<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
-				<focusedlayout height="70" width="370">
-					<control type="button">
-						<include>SideBladeMenuButton</include>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-                    <control type="image">
-                        <texture>colors/color_white.png</texture>
-                        <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
-                    </control>
-					<control type="label">
+				<focusedlayout width="384" height="45">
+					<control type="group">
 						<width>100%</width>
-						<left>25</left>
-						<align>left</align>
-						<font>Reg24</font>
-						<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
-						<label>$INFO[ListItem.Label]</label>
+						<height>100%</height>
+						<control type="image">
+							<width>384</width>
+							<height>45</height>
+							<texture colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texture>
+							<visible>Control.HasFocus(40003)</visible>
+						</control>
+						<control type="label">
+							<width>384</width>
+							<height>45</height>
+							<textoffsetx>50</textoffsetx>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>Reg24</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+							<visible>![Control.HasFocus(4444) | Control.HasFocus(77777) | Control.HasFocus(300)]</visible> <!-- cause Var and inculdes fail in that case -->
+						</control>
+						<control type="label">
+							<width>384</width>
+							<height>45</height>
+							<textoffsetx>50</textoffsetx>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>Reg24</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+							<visible>[Control.HasFocus(4444) | Control.HasFocus(77777) | Control.HasFocus(300)]</visible> <!-- cause Var and inculdes fail in that case -->
+						</control>
 					</control>
-                    <include>HiddenHomeMenuButton</include>
 				</focusedlayout>
-				<include condition="Window.IsActive(Home)">MainMenuContent</include>
-                <include condition="Window.IsActive(3018)">netflix_mainmenu_movies</include>
-                <include condition="Window.IsActive(3017)">netflix_mainmenu_tvshows</include>
+				<content>
+					<include>skinshortcuts-group-powermenu</include>
+				</content>
 			</control>
-        </control>
+		</control>
         <!-- check for error !! -->
         <include condition="String.Contains(Skin.String(HomeLayout),netflix)">SideBladeSubMenu</include>
     </include>

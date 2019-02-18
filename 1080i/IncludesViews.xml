@@ -4,7 +4,7 @@
     <include name="allViewIds">
         <views>10,50,51,52,501,502,503,504,505,53,54,55,506,56,57,58,59,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525,526,527,528</views>
         <menucontrol>9000</menucontrol>
-        <onunload condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunload>		
+        <onunload condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">PlayerControl(Stop)</onunload>		
     </include>
 
     <include name="playlistViewId">
@@ -148,7 +148,7 @@
         <!-- scrollbar vertical -->
         <control type="group" id="6000">
             <visible>![Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(523) | Control.IsVisible(524) | Control.IsVisible(525)]</visible>
-            <control type="button" id="6001">
+			<control type="button" id="6001">
                 <width>1</width>
                 <right>-1</right>
                 <bottom>0</bottom>
@@ -243,7 +243,8 @@
                 <right>-1</right>
                 <bottom>0</bottom>
                 <height>1</height>
-                <onfocus contition="!Control.IsVisible(507)">SetFocus(60)</onfocus>
+                <!-- defdault <onfocus>SetFocus(60)</onfocus> -->
+				<onfocus contition="!Control.IsVisible(507)">SetFocus(60)</onfocus>
 				<onfocus contition="Control.IsVisible(507)">SetFocus(9000)</onfocus>
                 <visible>!Control.IsVisible(7002)</visible>
             </control>
@@ -280,6 +281,7 @@
                 <onleft>7002</onleft>
                 <onright>7002</onright>
                 <onup>5000</onup>
+				<!--  default <ondown>60</ondown> -->
                 <ondown condition="!Control.IsVisible(507)">60</ondown>
 				<ondown condition="Control.IsVisible(507)">9000</ondown>
                 <onback>5000</onback>
@@ -1189,7 +1191,7 @@
         </control>
 
     </control>
-    <control type="group">
+    <control type="group"> <!-- check, adjust me for music, -->
         <visible>
         [Control.IsVisible(512) + Skin.HasSetting(View512_DetailsShowFanart)] |
         [Control.IsVisible(516) + Skin.HasSetting(View516_DetailsShowFanart)] |
@@ -1279,7 +1281,7 @@
 				<colordiffuse>ff000000</colordiffuse>
 			</control>
             <control type="videowindow">
-				<visible>Player.HasVideo</visible>
+				<!-- <visible>Player.HasVideo</visible> -->
 			</control>     
         </control>
 

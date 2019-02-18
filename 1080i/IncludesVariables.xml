@@ -370,10 +370,10 @@
 	</variable>
 	
 	<variable name="ListItemDuration">
-		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + !Skin.HasSetting(SkinHelper.DisableHoursDuration) + Integer.IsGreater(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,h ]$INFO[ListItem.Duration(m),,min]</value>		
-		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + Skin.HasSetting(SkinHelper.DisableHoursDuration) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),, min]</value>
-		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + !Skin.HasSetting(SkinHelper.DisableHoursDuration) + Integer.IsEqual(ListItem.Duration(h),0)">$INFO[ListItem.Duration(mins),, min]</value>
-		<value condition="[!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + !Skin.HasSetting(SkinHelper.DisableHoursDuration) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,, min]</value>	
+		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + !Skin.HasSetting(DisableHoursDuration) + Integer.IsGreater(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,h ]$INFO[ListItem.Duration(m),,min]</value>		
+		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),, min]</value>
+		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + !Skin.HasSetting(DisableHoursDuration) + Integer.IsEqual(ListItem.Duration(h),0)">$INFO[ListItem.Duration(mins),, min]</value>
+		<value condition="[!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + !Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,, min]</value>	
 	</variable>    	 
      <variable name="ListItemDurationWithEndTime">
         <value condition="!String.IsEmpty(ListItem.Duration) + !String.IsEmpty(ListItem.EndTimeResume)">$VAR[ListItemDuration,, ]$INFO[ListItem.EndTimeResume, - $LOCALIZE[31112]: ,]</value>
@@ -382,7 +382,7 @@
     </variable>
 	
 		<variable name="ListItemExtendedDuration">
-		<value condition="!Skin.HasSetting(SkinHelper.DisableHoursDuration) + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.DurationAndRunTimeExtended))">$INFO[Window(home).Property(SkinHelper.ListItem.DurationAndRunTimeExtended)]</value>
+		<value condition="!Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.DurationAndRunTimeExtended))">$INFO[Window(home).Property(SkinHelper.ListItem.DurationAndRunTimeExtended)]</value>
         <value condition="!String.IsEmpty(ListItem.Duration) + !String.Contains(ListItem.Duration,min) + !String.Contains(ListItem.Duration,:)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
     </variable>
@@ -650,7 +650,7 @@
 	<value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
 	<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 	<value condition="!String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>	
-   </variable>
+	</variable>
 	 
 	 <variable name="OSDInfoImage">
 		<value condition="!String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
@@ -1325,4 +1325,35 @@
         <value condition="!String.IsEmpty(MusicPlayer.StarRating)">$INFO[MusicPlayer.StarRating,leftrating/]</value>
         <value condition="!String.IsEmpty(MusicPlayer.UserRating)">$INFO[MusicPlayer.UserRating,rating/,.png]</value>
     </variable>
+	<variable name="nextupbutton">
+		<value condition="Control.HasFocus(3012)">black</value>
+		<value condition="!Control.HasFocus(3012)">white</value>
+    </variable>
+	<variable name="nextupbutton_TimeRemaining">
+		<value condition="Integer.IsGreater(Player.TimeRemaining(ss),30)">nextupicons/30.png</value>
+		<value condition="Integer.IsLessOrEqual(Player.TimeRemaining(ss),30)">$INFO[Player.TimeRemaining(ss),nextupicons/,.png]</value>
+    </variable>
+    <variable name="NextUpThumb">
+		<value condition="!String.IsEmpty(Window.Property(thumb))">$INFO[Window.Property(thumb)]</value>
+        <value condition="!String.IsEmpty(Window.Property(fanart))">$INFO[Window.Property(fanart)]</value>
+		<value>$INFO[Window.Property(landscape)]</value>
+    </variable>
+	<variable name="UpNextPanel">
+		<value condition="!Skin.HasSetting(UpNext_Use_Inked_Panel)">nextupicons/UpNext_corner.png</value> <!-- panel use just transparency, left border use color + transparency/diffuse -->
+        <value condition="Skin.HasSetting(UpNext_Use_Inked_Panel)">nextupicons/UpNext_corner_iverted.png</value> <!-- <texture colordiffuse="red">nextupicons/UpNext_corner_iverted.png</texture>  panel use color + transparency/diffuse-->
+	</variable>
+	<variable name="DialogMusic_Header">
+		<value condition="Container.Content(Artists) | String.IsEqual(ListItem.DBType,artist)">$LOCALIZE[24017]</value>
+		<value condition="Container.Content(Albums) | String.IsEqual(ListItem.DBType,album)">$LOCALIZE[24016]</value>
+		<value condition="Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)">$LOCALIZE[658]</value>
+		<!-- <value>$INFO[ListItem.Label]</value> -->
+	</variable>
+	<variable name="DialogMusic_Title">
+		<value condition="Container.Content(Artists) | String.IsEqual(ListItem.DBType,artist)">$INFO[ListItem.Artist]</value>
+		<value condition="Container.Content(Albums) | String.IsEqual(ListItem.DBType,album)">$INFO[ListItem.Album]</value>
+		<value condition="Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)">$INFO[ListItem.Title]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
+	
+	
 </includes>

@@ -125,7 +125,7 @@
                 <description>No clearlogo in netflix home</description>
                 <include>SkinSettings_Button</include>
                 <label>31818</label>
-                <onclick>Skin.ToggleSetting(NoClearLogoNetflix)</onclick>
+                <onclick>Skin.ToggleSetting(NoClearLogoNetflixHome)</onclick>
                 <selected>Skin.HasSetting(NoClearLogoNetflixHome)</selected>
                 <visible>String.Contains(Skin.String(HomeLayout),netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
             </control>
@@ -266,18 +266,27 @@
 			<!--Disable Profile Logo on MainMenu, re check-->
             <control type="radiobutton" id="31749">
                 <include>SkinSettings_Button</include>
-                <label>Disable Logo on Main Menu</label>
-                <onclick>Skin.ToggleSetting(DisableLogoMainMenu)</onclick>
-                <selected>Skin.HasSetting(DisableLogoMainMenu)</selected>
+                <label>Dont Show profile Logo</label>
+                <onclick>Skin.ToggleSetting(DisableProfileMainMenu)</onclick>
+                <selected>Skin.HasSetting(DisableProfileMainMenu)</selected>
                 <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
             </control>
+			<!--Disable Profile Logo on MainMenu, re check-->
+            <control type="radiobutton" id="31748">
+                <include>SkinSettings_Button</include>
+                <label>Dont Show Skin Logo in Home Menu Panel</label>
+                <onclick>Skin.ToggleSetting(DisableSkinIconMainMenu)</onclick>
+                <selected>Skin.HasSetting(DisableSkinIconMainMenu)</selected>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
+            </control>
+
             <!--Disable Icons in Main Menu Items, re check-->
             <control type="radiobutton" id="31750">
                 <include>SkinSettings_Button</include>
                 <label>Disable Icons in Main Menu Items</label>
                 <onclick>Skin.ToggleSetting(DisableIconsMainMenu)</onclick>
                 <selected>Skin.HasSetting(DisableIconsMainMenu)</selected>
-                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix) | String.Contains(Skin.String(HomeLayout), win10)</visible>
             </control>
             <!--hide power warning-->
             <control type="label" id="23024">
@@ -704,7 +713,7 @@
                 <onclick>Skin.ToggleSetting(BackgroundAnimation)</onclick>
                 <selected>Skin.HasSetting(BackgroundAnimation)</selected>
             </control>
-            <!--enable wall backgrounds-->
+            <!--need check, enable wall backgrounds-->
             <control type="radiobutton" id="31812">
                 <include>SkinSettings_Button</include>
                 <label>31812</label>
@@ -1754,7 +1763,8 @@
                 <selected>Skin.HasSetting(OSDShowClearLogo)</selected>
                 <visible>Skin.HasSetting(UseNetflixOSDPanel)</visible>
             </control>
-            <control type="radiobutton" id="8012">
+			<!-- disable subtitles on video start -->
+			<control type="radiobutton" id="8012">
                 <include>SkinSettings_Button</include>
                 <label>31244</label>
                 <onclick>Skin.ToggleSetting(DisableSubtitles)</onclick>
@@ -1767,8 +1777,91 @@
                 <onclick>Skin.ToggleSetting(OSDDisablePlaybackControls)</onclick>
                 <selected>Skin.HasSetting(OSDDisablePlaybackControls)</selected>
             </control>
-            
-            <!-- music playback -->
+            <!-- UpNext Skin related Settings 31670**-->
+            <control type="label" id="3167000">
+                <include>SkinSettings_Header</include>
+                <label>$ADDON[service.upnext 30008] $LOCALIZE[10035]</label>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            </control>
+			<!-- Use Upnext_diffused_art -->
+            <control type="radiobutton" id="3100702">
+                <width>100%</width>
+				<align>left</align>
+				<height>100</height>
+				<font>arial26</font>
+				<textoffsetx>40</textoffsetx>
+				<textwidth>950</textwidth>
+				<wrapmultiline>true</wrapmultiline>
+                <label>Apply Panel Color Inking and use $ADDON[script.skin.helper.colorpicker 32049] for Artwork[CR][I]("$ADDON[service.upnext 30024]" Pop-Up + Tringle Layout)[/I]</label>
+                <onclick>Skin.ToggleSetting(Upnext_diffused_art)</onclick>
+                <selected>Skin.HasSetting(Upnext_diffused_art)</selected>
+				<visible>System.HasAddon(service.upnext)</visible>
+            </control>
+			<!-- Use Upnext_diffused_art -->
+			<control type="radiobutton" id="3100710">
+                <width>100%</width>
+				<align>left</align>
+				<height>100</height>
+				<font>arial26</font>
+				<textoffsetx>40</textoffsetx>
+				<textwidth>950</textwidth>
+				<wrapmultiline>true</wrapmultiline>
+                <label>Apply Panel Color Inking and use $ADDON[script.skin.helper.colorpicker 32049] for whole Panel [CR][I](instead of just inking the left border on a black Triangle panel)[/I]</label>
+                <onclick>Skin.ToggleSetting(UpNext_Use_Inked_Panel)</onclick>
+                <selected>Skin.HasSetting(UpNext_Use_Inked_Panel)</selected>
+				<visible>Skin.String(upnext_fancy,upn_fancy_triangle)</visible>
+				<visible>System.HasAddon(service.upnext)</visible>
+            </control>
+			<!-- Upnext Show Countdown Image on thumb -->
+			<control type="radiobutton" id="3100705">
+                <include>SkinSettings_Button</include>
+                <label>Show Countdown Image on Thumb in "$ADDON[service.upnext 30008]" Pop-Up </label>
+                <onclick>Skin.ToggleSetting(UpNext_ShowCountdownAtThumb)</onclick>
+                <selected>Skin.HasSetting(UpNext_ShowCountdownAtThumb)</selected>
+				<visible>!Skin.String(upnext_fancy,upn_fancy_def)</visible>
+				<visible>System.HasAddon(service.upnext)</visible>
+            </control>
+			<!-- Choose Fancy Layout -->
+			<control type="button" id="3100703">
+                <include>SkinSettings_Button</include>
+                <label>"$ADDON[service.upnext 30008]" : $LOCALIZE[22080] $ADDON[service.upnext 30039] Layout</label>
+				<label2>$INFO[Skin.String(upnext_fancy.label)]</label2>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=upnext_fancy,header=Choose Fancy Layout)</onclick>
+				<visible>System.HasAddon(service.upnext)</visible>
+			</control>
+			<!-- Choose Simple Layout -->
+            <control type="button" id="3100704">
+                <include>SkinSettings_Button</include>
+                <label>"$ADDON[service.upnext 30008]" : $LOCALIZE[22080] $ADDON[service.upnext 30038] Layout</label>
+				<label2>$INFO[Skin.String(upnext_simple.label)]</label2>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=upnext_simple,header=Choose Simple Layout)</onclick>
+				<visible>System.HasAddon(service.upnext)</visible>
+			</control>
+			
+			<!-- up next colors -->
+			<!-- $INFO[Skin.String(upnext_panel)]-->
+			 <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+				<param name="id" value="3100708" />
+				<param name="label" value="upnext_panel" />
+				<param name="skinsetting" value="upnext_panel" />
+				<param name="visible" value="System.HasAddon(service.upnext) + [!Skin.String(upnext_fancy,upn_fancy_def) | !Skin.String(upnext_simple,upn_simple_addondefault)]" />
+			</include>
+			<!-- $INFO[Skin.String(upnext_text)]-->
+				<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+				<param name="id" value="3100706" />
+				<param name="label" value="upnext_text" />
+				<param name="skinsetting" value="upnext_text" />
+				<param name="visible" value="System.HasAddon(service.upnext) + [!Skin.String(upnext_fancy,upn_fancy_def) | !Skin.String(upnext_simple,upn_simple_addondefault)]" />
+			</include>
+			<!-- $INFO[Skin.String(upnext_text_secondary)] -->
+			<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+				<param name="id" value="3100709" />
+				<param name="label" value="upnext_text_secondary" />
+				<param name="skinsetting" value="upnext_text_secondary" />
+				<param name="visible" value="System.HasAddon(service.upnext) + [[!Skin.String(upnext_fancy,upn_fancy_triangle) + !Skin.String(upnext_fancy,upn_fancy_def)] | Skin.String(upnext_simple,upn_simple_skindefault)]" />
+			</include>
+			
+		    <!-- music playback -->
             <control type="label" id="31670">
                 <include>SkinSettings_Header</include>
                 <label>31670</label>
@@ -2029,32 +2122,26 @@
             <param name="id" value="31814" />
             <param name="label" value="$LOCALIZE[31814]" />
             <param name="skinsetting" value="LyricsTextColor" />
-            <param name="visible" value="Skin.String(LyricScript_Path)" />
         </include>
         <!-- Lyrics unfocused text shadow -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31816" />
             <param name="label" value="$LOCALIZE[31816]" />
             <param name="skinsetting" value="LyricsTextShadowColor" />
-            <param name="visible" value="Skin.String(LyricScript_Path)" />
         </include>
         <!-- Lyrics focused text -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31815" />
             <param name="label" value="$LOCALIZE[31815]" />
             <param name="skinsetting" value="LyricsFocusTextColor" />
-            <param name="visible" value="Skin.String(LyricScript_Path)" />
         </include>
         <!-- Lyrics focused text shadow -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31817" />
             <param name="label" value="$LOCALIZE[31817]" />
             <param name="skinsetting" value="LyricsFocusTextShadowColor" />
-            <param name="visible" value="Skin.String(LyricScript_Path)" />
         </include>
-        
-
-    </include>
+	</include>
     
     <include name="SkinSettings_PVR">
         <!-- PVR -->
@@ -2701,7 +2788,7 @@
                 <onclick condition="!Skin.String(CustomLogoImage)">RunScript(script.skin.helper.service,action=SAVESKINIMAGE,skinstring=CustomLogoImage)</onclick>
                 <onclick condition="Skin.String(CustomLogoImage)">Skin.Reset(CustomLogoImage)</onclick>
                 <selected>Skin.String(CustomLogoImage)</selected>
-                <visible>String.Contains(Skin.String(general_header),logo) | String.Contains(Skin.String(home_header),logo)</visible>
+                <visible>String.Contains(Skin.String(general_header),logo) | String.Contains(Skin.String(home_header),logo) | Skin.String(HomeLayout,netflix2)</visible>
             </control>
             <!-- logo alignment-->
             <control type="button" id="123023">
@@ -2982,7 +3069,7 @@
             <param name="skinsetting" value="GeneralHighlightTextColor" />
         </include>
 									   
-         <!--scrollbar background color-->
+        <!--scrollbar background color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31495" />
             <param name="label" value="$LOCALIZE[31495]" />
@@ -3011,6 +3098,12 @@
             <param name="id" value="31602" />
             <param name="label" value="$LOCALIZE[31602]" />
             <param name="skinsetting" value="SideBladeTextColor" />
+        </include>
+		<!-- homemenu focused button color -->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31834" />
+            <param name="label" value=" -- Dialog Frame/BG Color" />
+            <param name="skinsetting" value="DialogFrameColor" />
         </include>
          <!--label overlay panel color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
@@ -3042,51 +3135,44 @@
         <!--homemenu unfocused text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31743" />
-            <param name="label" value="$LOCALIZE[31743]" />
+            <param name="label" value="Widget Details/Tiles/$LOCALIZE[31743]" />
             <param name="skinsetting" value="MainMenuTextColor" />
-            <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" />
+            <!-- <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" /> -->
         </include>
         <!--homemenu focused text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31744" />
-            <param name="label" value="$LOCALIZE[31744]" />
+            <param name="label" value="Widget Details/Tiles/$LOCALIZE[31744]" />
             <param name="skinsetting" value="MainMenuFocusTextColor" />
-            <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" />
-        </include>
-		<!--homemenu focused button color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
-            <param name="id" value="31834" />
-            <param name="label" value="$LOCALIZE[31018] Main Menu Focus ButtonColor" />
-            <param name="skinsetting" value="MainMenuFocusButtonColor" />
-            <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
+            <!-- <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" /> -->
         </include>
         <!--homemenu secondary focused button color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31835" />
-            <param name="label" value="$LOCALIZE[31018] Main Menu Power Menu Focus ButtonColor" />
+            <param name="label" value="Bottom Shutdown Menu focused BG (Windows10 and $LOCALIZE[31544])" />
             <param name="skinsetting" value="MainMenuSecondaryFocusButtonColor" />
             <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
         </include>
-        <!--home button focus-->
+		 <!--home button focus-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31174" />
-            <param name="label" value="$LOCALIZE[31174]" />
+            <param name="label" value="Widgets and Tiles - Background Color" />
             <param name="skinsetting" value="HomeViewDetailsFocusColor" />
         </include>
 		<!--home button border focus-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton"><!-- check the use of var -->
             <param name="id" value="31829" />
-            <param name="label" value="$LOCALIZE[31829]" />
+			<param name="label" value="Widgets and Tiles - focused Border Color" />
             <param name="skinsetting" value="HomeViewDetailsBorderFocusColor" />
         </include>
 		<!--label overlay text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31735" />
-            <param name="label" value="$LOCALIZE[31735]" />
+			<param name="label" value="Widgets and Tiles - unfocused Border Color" />
             <param name="skinsetting" value="HomeWidgetsBorderColor" />
         </include>
 		
-		<!--spotlight button unfocused color=textcolor-->
+        <!--spotlight button unfocused color=textcolor-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31850" />
             <param name="label" value="$LOCALIZE[31018] $LOCALIZE[31185]-$LOCALIZE[35103] unfocused Color" />
@@ -3136,13 +3222,7 @@
             <param name="label" value="secondary header $LOCALIZE[31219]" />
             <param name="skinsetting" value="SecondaryHeaderTextColor" />
         </include>
-		<!--2ndaryheader text shadow color
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
-            <param name="id" value="31302" />
-            <param name="label" value="secondary header $LOCALIZE[31220]" />
-            <param name="skinsetting" value="SecondaryHeaderTextShadowColor" />
-        </include>
-        -->
+		
 		<!-- F O O T E R color settings -->
         <control type="label" id="13030">
             <include>SkinSettings_Header</include>
@@ -3235,7 +3315,7 @@
             </include>
             <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="31007" />
-                <param name="addon" value="service.nextup.notification" />
+                <param name="addon" value="service.upnext" />
             </include>
 			<include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="55143" />

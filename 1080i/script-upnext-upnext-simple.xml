@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">3012</defaultcontrol>
+    <onload>Dialog.Close(fullscreeninfo,true)</onload>
+    <onload>Dialog.Close(videoosd,true)</onload>
+    <controls>
+        <control type="group">
+			<include condition="Skin.String(upnext_simple,upn_simple_skindefault)">UpNext_simple_skindefault</include>
+			<include condition="Skin.String(upnext_simple,upn_simple_addondefault)">UpNext_simple_addondefault</include>
+			<include condition="Skin.String(upnext_simple,upn_simple_button)">UpNext_simple_button</include>
+        </control>
+        <control type="progress" id="3014">
+            <visible>false</visible>
+        </control>
+    </controls>
+</window>

@@ -283,7 +283,7 @@
             <include>SideBladeMenuButton</include>
             <label>$LOCALIZE[31305]: $INFO[Container.Viewmode]</label>
             <onclick>XBMC.RunScript(script.skin.helper.service,action=SETVIEW)</onclick>
-            <onclick>ActivateWindow(busydialog)</onclick>
+            <!-- <onclick>ActivateWindow(busydialog)</onclick> , not needed , click force "dialogconfirm"-->
             <visible>!Window.IsActive(tvguide)</visible>
         </control>
         
@@ -517,6 +517,14 @@
             </selected>
 			<visible>Control.IsVisible(507)</visible>
 		</control>
+		<control type="radiobutton" id="317933">
+			<include>SideBladeMenuButton</include>
+			<label>Use your Background Overlay Texture</label>
+			<onclick condition="Control.IsVisible(507)">Skin.ToggleSetting(507_UseOverlay)</onclick>
+			<selected>[Control.IsVisible(507) + Skin.HasSetting(507_UseOverlay)]
+            </selected>
+			<visible>Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>
+		</control>
 		<control type="radiobutton" id="317930">
 			<include>SideBladeMenuButton</include>
 			<label>Bello Showcase[CR](by Nessus)</label>
@@ -612,7 +620,7 @@
 			<label>31155</label>
 			<onclick>Skin.ToggleSetting(DetailsTopHidepanel)</onclick>
 			<selected>Skin.HasSetting(DetailsTopHidepanel)</selected>
-			<visible>[Skin.HasSetting(PanelViewShowInfo) + Control.IsVisible(52)] | [Skin.HasSetting(ShowCaseViewShowInfo) + Control.IsVisible(524)] | [Skin.HasSetting(LandscapeViewShowInfo) + Control.IsVisible(502)] | [Skin.HasSetting(LogoViewShowInfo) + Control.IsVisible(503)]</visible>
+			<visible>[Control.IsVisible(52) + [Skin.HasSetting(PanelViewShowInfo) | Skin.HasSetting(PanelViewShowFanart)]] | [Skin.HasSetting(ShowCaseViewShowInfo) + Control.IsVisible(524)] | [Skin.HasSetting(LandscapeViewShowInfo) + Control.IsVisible(502)] | [Skin.HasSetting(LogoViewShowInfo) + Control.IsVisible(503)]</visible>
 		</control>
         <control type="radiobutton" id="3054">
 			<!--Hide panel behind pvr guide-->
@@ -1207,6 +1215,7 @@
 				<animation type="Conditional" condition="!ControlGroup(9000).HasFocus()">
 					<effect type="fade" start="0" end="100" time="400" delay="600" />
 				</animation>
+			<!-- 883 = clearlogo top center in header, 888 = Profile Thumb Header -->
             <visible>
             [String.Contains(Window.Property(xmlfile), pvr) + [Control.IsVisible(10) | Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13) | Control.IsVisible(14) | Control.IsVisible(15) | Control.IsVisible(17)]] | 
             Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | 
@@ -1242,7 +1251,7 @@
         <!--Sub Menu Tab Top-->
         <control type="group">
 			<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
-			<visible>!Control.IsVisible(883) + !Control.IsVisible(888)</visible>
+			<!-- temp exclude 883 = clearlogo top center in header, 888 = Profile Thumb Header -->
             <visible>
             Control.IsVisible(524) | Control.IsVisible(52) | [Control.IsVisible(501) + Skin.HasSetting(View_501_HorizontalNavigation)] | 
             Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(58) | Control.IsVisible(507) | 

@@ -2,7 +2,7 @@
 <!--Titan-->
 <window>
     <defaultcontrol always="true">10</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
+	
 	<views>10</views>
     <menucontrol>9000</menucontrol>
     <onunload>ClearProperty(pvrGuideOnFullscreenVideo,home)</onunload>

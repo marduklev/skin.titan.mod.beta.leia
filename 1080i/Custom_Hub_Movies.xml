@@ -3,7 +3,6 @@
 <window type="window" id="3018">
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<onload>SetFocus(9000)</onload>
-	<allowoverlay>no</allowoverlay>
 	<onload>ClearProperty(ShowViewSubMenu, Home)</onload>
 	<onload>SetProperty(netflixview,active,Home)</onload>
 	<onunload>ClearProperty(ShowViewSubMenu, Home)</onunload>

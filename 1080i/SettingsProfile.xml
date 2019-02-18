@@ -2,8 +2,8 @@
 <!--Titan-->
 <window type="dialog">
     <defaultcontrol always="true">2</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
-	
+    
+	<!-- <onload condition - skin has disabled profiles - focus id 4 -->
     <controls>
          <!--Global Background-->
         <include>GlobalBackground</include>

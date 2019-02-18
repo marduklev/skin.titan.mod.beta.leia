@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">3012</defaultcontrol>
+	<onload>Dialog.Close(fullscreeninfo,true)</onload>
+	<onload>Dialog.Close(videoosd,true)</onload>
+	<controls>
+		<control type="group">
+			<include condition="Skin.String(upnext_fancy,upn_fancy_netflix)">UpNext_Fancy_Netflix</include>
+			<include condition="Skin.String(upnext_fancy,upn_fancy_def)">UpNext_fancy_def</include>
+			<include condition="Skin.String(upnext_fancy,upn_fancy_triangle)">UpNext_fancy_triangle</include>
+		</control>
+	</controls>
+</window>

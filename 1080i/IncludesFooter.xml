@@ -104,8 +104,8 @@
         <value>ffffffff</value>
     </variable>
 	<variable name="FooterImageColor">
-		<value condition="Skin.HasSetting(EnableWhiteRatingInFooter)">$VAR[AdvancedRatings_TextColor]</value>
-		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter)"></value>
+		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)]">$VAR[AdvancedRatings_TextColor]</value>
+		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)]"></value>
 	 </variable>
     
     <!-- includes layout ratings / studio -->
@@ -384,9 +384,10 @@
 				<bottom>15</bottom>
 				<width>70</width>
 				<height>70</height>
-				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) + Skin.HasSetting(RTRatingInFooter)</visible>					
+				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) +
+				[[Window.IsActive(videos) + Skin.HasSetting(RTRatingInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(showratingnetflixhome)]]
+				</visible>					
 				<include>MetaCriticRating</include>
-				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(RTRatingInFooter)</visible>		
 			</control>				
 			<!-- Tomatometer -->
 			<control type="group">	
@@ -394,7 +395,9 @@
 				<bottom>15</bottom>
 				<width>70</width>
 				<height>70</height>
-				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(RTRatingInFooter)</visible>						
+				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) +
+				[[Window.IsActive(videos) + Skin.HasSetting(RTRatingInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(showratingnetflixhome)]]
+				</visible>						
 	 			<include>TomatoMeter</include>														
 			</control>				
 			<!-- Tomatoaudience -->
@@ -403,7 +406,9 @@
 				<bottom>15</bottom>
 				<width>70</width>
 				<height>70</height>
-				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + Skin.HasSetting(RTRatingInFooter)</visible>					
+				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) +
+				[[Window.IsActive(videos) + Skin.HasSetting(RTRatingInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(showratingnetflixhome)]]
+				</visible>					
 				<include>TomatoAudience</include>
 			</control>				
 			<!-- tmdb -->				
@@ -412,7 +417,9 @@
 				<bottom>15</bottom>
 				<width>70</width>
 				<height>70</height>
-				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)) + Skin.HasSetting(TV_TMdbRatingInFooter)</visible>					
+				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)) +
+				[[Window.IsActive(videos) + Skin.HasSetting(TV_TMdbRatingInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(showratingnetflixhome)]]
+				</visible>					
 				<include>TMdb_footer</include>
 			</control>				
 			<!-- tvdb -->
@@ -421,7 +428,9 @@
 				<bottom>15</bottom>
 				<width>70</width>
 				<height>70</height>
-				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)) + Skin.HasSetting(TV_TMdbRatingInFooter)</visible> 					
+				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)) +
+				[[Window.IsActive(videos) + Skin.HasSetting(TV_TMdbRatingInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(showratingnetflixhome)]]
+				</visible> 					
 				<include>TVdb_footer</include>
 			</control>				
 			<!-- imdb -->
@@ -430,7 +439,9 @@
 				<bottom>15</bottom>
 				<width>90</width>
 				<height>70</height>
-				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB)) + Skin.HasSetting(IMDBRatingInFooter)</visible>					
+				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB)) +
+				[[Window.IsActive(videos) + Skin.HasSetting(IMDBRatingInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(showratingnetflixhome)]]
+				</visible>
 				<include>Imdb</include>
 			</control>
 			<!-- imdb top 250 -->
@@ -439,7 +450,9 @@
 				<bottom>15</bottom>
 				<width>90</width>
 				<height>70</height>
-				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)) + Skin.HasSetting(IMDBRatingInFooter)</visible>					
+				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)) + 
+				[[Window.IsActive(videos) + Skin.HasSetting(IMDBRatingInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(showratingnetflixhome)]]
+				</visible>					
 				<include>ImdbTop250</include>
 			</control>
 		</control>            
@@ -770,36 +783,36 @@
 	
 	<!-- images colored or white rating flags-->
 	<variable name="image_imdb">
-		<value condition="Skin.HasSetting(EnableWhiteRatingInFooter)">flags/white/white_imdb.png</value>   
-		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter)">flags/imdb_logo.png</value> 
+		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)]">flags/white/white_imdb.png</value>   
+		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)]">flags/imdb_logo.png</value> 
 	</variable>	
 	<variable name="image_imdb250">
-		<value condition="Skin.HasSetting(EnableWhiteRatingInFooter)">flags/white/white_imdb_logo_250.png</value>   
-		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter)">flags/imdb_logo_250.png</value>	  
+		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)]">flags/white/white_imdb_logo_250.png</value>   
+		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)]">flags/imdb_logo_250.png</value>	  
 	</variable>
 	<variable name="image_tvdb">
-		<value condition="Skin.HasSetting(EnableWhiteRatingInFooter)">flags/white/white_tvdbtrans.png</value>   
-		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter)">flags/flags_color/addratings/tvdbtrans.png</value>
+		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)]">flags/white/white_tvdbtrans.png</value>   
+		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)]">flags/flags_color/addratings/tvdbtrans.png</value>
 	</variable>	
 	<variable name="image_tmdb">
-		<value condition="Skin.HasSetting(EnableWhiteRatingInFooter)">flags/white/white_tmdb.png</value>   
-		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter)">flags/flags_color/addratings/tmdbtp.png</value>
+		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)]">flags/white/white_tmdb.png</value>   
+		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)]">flags/flags_color/addratings/tmdbtp.png</value>
 	</variable>
     <variable name="image_rotten_meter">
-		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)">flags/fresh.png</value>     
-		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter) + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)">flags/rotten.png</value>  
-		<value condition="Skin.HasSetting(EnableWhiteRatingInFooter) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)">flags/white/white_fresh.png</value>     
-		<value condition="Skin.HasSetting(EnableWhiteRatingInFooter) + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)">flags/white/white_rotten.png</value>   
+		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)] + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)">flags/fresh.png</value>     
+		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)] + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)">flags/rotten.png</value>  
+		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)] + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)">flags/white/white_fresh.png</value>     
+		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)] + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)">flags/white/white_rotten.png</value>   
 	</variable>	
 	<variable name="image_rotten_audience">
-		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)">flags/popcorn.png</value>     
-		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter) + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)">flags/popcorn2.png</value>  
-		<value condition="Skin.HasSetting(EnableWhiteRatingInFooter) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)">flags/white/white_popcorn.png</value>     
-		<value condition="Skin.HasSetting(EnableWhiteRatingInFooter) + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)">flags/white/white_popcorn2.png</value>   
+		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)] + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)">flags/popcorn.png</value>     
+		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)] + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)">flags/popcorn2.png</value>  
+		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)] + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)">flags/white/white_popcorn.png</value>     
+		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)] + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)">flags/white/white_popcorn2.png</value>   
 	</variable>
 	<variable name="image_metacritic">
-		<value condition="Skin.HasSetting(EnableWhiteRatingInFooter)">flags/white/white_metacritic.png</value>   
-		<value condition="!Skin.HasSetting(EnableWhiteRatingInFooter)">flags/metacritic.png</value>     
+		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)]">flags/white/white_metacritic.png</value>   
+		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)]">flags/metacritic.png</value>     
     </variable>  
 	<variable name="image_StudioLogo">
 		<value condition="Window.IsActive(programs)">resource://resource.images.game.studios/$INFO[ListItem.Studio].png</value>

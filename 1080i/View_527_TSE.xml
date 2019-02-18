@@ -175,7 +175,7 @@
 				 + [Control.HasFocus(60) | Control.HasFocus(6000)
 				 -->
 				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
-				<onright>5027</onright>
+				<onright>SetFocus(5027,0,absolute)</onright>
 				<onup>527</onup>
 				<ondown>527</ondown>
 				<!-- default , clearlogo-->
@@ -294,7 +294,7 @@
 				<movement>3</movement>
 				<focusposition>0</focusposition>
 				<onleft>527</onleft>
-				<onright>5127</onright>
+				<onright>SetFocus(5127,0,absolute)</onright>
 				<onup>5027</onup>
 				<ondown>5027</ondown>
 				<onback>527</onback>
@@ -320,7 +320,11 @@
 							<include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
 							<include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
 						</control>
-						<include>PosterThumbLayout</include>
+						<control type="image">
+							<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="$INFO[ListItem.Art(tvshow.poster)]">$INFO[ListItem.Thumb]</texture>
+							<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
+							<bordersize>8</bordersize>
+						</control>
 						<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
 						<control type="group">
 							<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
@@ -340,10 +344,34 @@
 						<width>218</width>
 						<height>312</height>
 						<animation effect="fade" start="0" end="60" time="0" reversible="false" condition="true">Conditional</animation>
-						<include>PosterPanelLayout</include>
+						<control type="image">
+							<include>PosterThumbBG</include>
+							<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
+							<include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
+							<include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
+							<include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
+						</control>
+						<control type="image">
+							<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="$INFO[ListItem.Art(tvshow.poster)]">$INFO[ListItem.Thumb]</texture>
+							<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
+							<bordersize>8</bordersize>
+						</control>
+						<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
+						<control type="group">
+							<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
+						</control>
+						<control type="group">
+							<!--Watched Overlay-->
+							<right>8</right>
+							<top>8</top>
+							<include>WatchedIndicatorNormal</include>
+							<animation type="Conditional" condition="skin.hastheme(classic)">
+								<effect type="slide" end="3,-3" time="0" />
+							</animation>
+						</control><!--  $INFO[ListItem.Thumb] -->
 					</control>
 				</itemlayout>			
-				<content target="ListItem.DBTYPE(season)" sortby="year" sortorder="ascending">$INFO[Container(527).ListItem.FolderPath]</content>
+				<content target="videos" sortby="year" sortorder="ascending">$INFO[Container(527).ListItem.FolderPath]</content>
 			</control>
 
 			<!-- episodes -->
@@ -482,7 +510,7 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<content target="video" sortby="year" sortorder="ascending">$INFO[Container(5027).ListItem.FolderPath]</content>
+				<content target="videos" sortby="year" sortorder="ascending">$INFO[Container(5027).ListItem.FolderPath]</content>
 			</control>
 		</control>
 	</include>

@@ -2,8 +2,7 @@
 <!--Titan-->
 <window>
     <defaultcontrol always="true">1000</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
-	 <coordinates>
+    <coordinates>
 		<system>1</system>
 		<left>0</left>
 		<top>0</top>
@@ -23,7 +22,7 @@
 				<width>1190</width>
 				<height>690</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse> <!-- check, need frther test, if just want frames over overlay of 2,wich imitate frame -->
+				<colordiffuse>$INFO[Skin.String(DialogFrameColor)]</colordiffuse> <!-- check, need frther test, if just want frames over overlay of 2,wich imitate frame -->
 			</control>
 			<!-- background panel -->
 			<control type="image">

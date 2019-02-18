@@ -76,6 +76,84 @@
         <include condition="Skin.String(HomeLayout, netflix2)">HomeNetflix2</include>
         <include condition="Skin.String(HomeLayout, win10)">HomeWin10</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
+		
+		<!-- check, WIP,  vertical custom shutdown, avoid autoclose setting after choosing it trough activate stutdown via on back -->
+		<control type="group" >
+			<include>DialogOverlayExtra</include>
+			<visible>String.Contains(Skin.String(HomeLayout), ver) + Control.HasFocus(311055)</visible>
+		</control>
+		<!-- <include name="home_shutdown_onback"> -->
+		<!-- CUSTOM/FAKE SHUTDOWN MENU -->
+		<control type="group" >
+			<visible>String.Contains(Skin.String(HomeLayout), ver)</visible>
+			<bottom>-200</bottom>
+			<posx>10</posx>
+			<height>110</height>
+			<scrolltime tween="cubic" easing="inout">500</scrolltime>
+			<animation effect="slide" center="auto" start="0,0" end="0,-100" time="200" >Focus</animation>
+			<animation effect="slide" center="auto" start="0,-100" end="0,0" time="200" >UnFocus</animation>
+			
+			<control type="image">
+				<bottom>100</bottom>
+				<left>10</left>
+				<width>1800</width>
+				<height>100</height>
+				<texture border="15">diffuse/bgpanel.png</texture>
+				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+			</control>
+			<!--Menu-Label-->
+			<control type="label">
+				<bottom>80</bottom>
+				<left>-20</left>
+				<label>[B]$INFO[Container(311055).ListItem.Label][/B]</label>
+				<width>560</width>
+				<height>130</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>Reg42</font>
+				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+			</control>	
+			
+			<control type="list" id="311055">
+				<posx>600</posx>
+				<bottom>100</bottom>
+				<width>1180</width>
+				<height>75</height>
+				<align>center</align>
+				<onup>Dialog.Close(shutdownmenu)</onup>
+				<ondown>Dialog.Close(shutdownmenu)</ondown>
+				<onup>300</onup>
+				<ondown>300</ondown>
+				<onright>311055</onright>
+				<onleft>311055</onleft>
+				<onback>ClearProperty(ShowViewSubMenu, Home)</onback>
+				<onback>300</onback>
+				<orientation>horizontal</orientation>
+				<include>DialogOverlayExtra</include>
+				
+				<itemlayout width="170" height="64">
+					<control type="image">
+						<width>64</width>
+						<height>64</height>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<colordiffuse>$INFO[Skin.String(GeneralTextColor)]</colordiffuse>
+						<animation end="50" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
+					</control>
+				</itemlayout>
+				<focusedlayout width="170" height="64">
+					<control type="image">
+						<width>64</width>
+						<height>64</height>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<colordiffuse>$INFO[Skin.String(GeneralTextColor)]</colordiffuse>
+					</control>
+				</focusedlayout>
+				<content>
+					<include condition="!Window.IsActive(loginscreen)">skinshortcuts-group-powermenu</include>
+				</content>
+			</control>
+		 <!-- </include> -->
+		</control>
         
 	</controls>
 </window>

@@ -2987,7 +2987,3 @@ msgstr "New"
 msgctxt "#31901"
 msgid "3 in 1"
 msgstr "3 in 1"
-
-msgctxt "#31910"
-msgid "Gameflix"
-msgstr "Gameflix"

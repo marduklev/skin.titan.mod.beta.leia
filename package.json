@@ -22,7 +22,7 @@
     "build-publish-patch": "npm run build-patch && addon repository",
     "build-publish-minor": "npm run build-minor && addon repository",
     "build-publish-major": "npm run build-major && addon repository",
-    "build-install": "npm run build && addon install",
+    "build-install": "npm run build && addon install --verbose --ignorefail",
     "build-install-alpha": "npm run build-alpha && addon install",
     "build-install-patch": "npm run build-patch && addon install",
     "build-install-minor": "npm run build-minor && addon install",

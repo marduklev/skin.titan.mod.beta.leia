@@ -26,7 +26,7 @@
 				<top>-1</top>
 				<width>10</width>
 				<height>50</height>
-				<visible>String.IsEmpty(ListItem.MPAA) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))</visible>	
+				<visible>String.IsEmpty(ListItem.MPAA) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) + String.IsEmpty(ListItem.Property(esrb))</visible>	
 				<control type="textbox">
 					<left>1</left>
 					<width>10</width>
@@ -42,7 +42,7 @@
 				<top>0</top>
 				<width>110</width>
 				<height>40</height>
-				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))</visible>
+				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) | !String.IsEmpty(ListItem.Property(esrb))</visible>
 				<control type="image">
 					<height>40</height>
 					<width>110</width>
@@ -114,6 +114,30 @@
 					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
 					<font>Bold26</font>
 				</control>
+			</control>
+			<!-- Games: Number of players -->
+			<control type="group">
+				<left>10</left>
+				<top>0</top>
+				<width>250</width>
+				<height>50</height>
+				<visible>!String.IsEmpty(ListItem.Property(nplayers))</visible>
+				<control type="image">
+					<top>-5</top>
+					<width>50</width>
+					<height>50</height>
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">DefaultActor.png</texture>
+				</control>
+				<control type="label">
+					<left>55</left>
+					<width>100%</width>
+					<label>$INFO[ListItem.Property(nplayers)]</label>
+					<height>40</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
+					<font>Bold26</font>
+				</control>	 
 			</control>
 		</control>
 	</include>

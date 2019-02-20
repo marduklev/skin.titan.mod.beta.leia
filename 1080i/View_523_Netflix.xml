@@ -106,7 +106,7 @@
                     <aligny>center</aligny>
                     <label>[UPPERCASE]$INFO[ListItem.Title][/UPPERCASE]</label>
                     <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
-                    <visible>[String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(sets)]</visible> 
+                    <visible>[String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(plugins)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(sets)]</visible> 
                 </control>
 				<!-- details -->
                 <control type="group">

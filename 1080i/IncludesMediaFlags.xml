@@ -1738,6 +1738,14 @@
         <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:16) | String.Contains(Window(Home).Property(ListItem.mpaa),16 anos)]">16</value>
         <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:18) | String.Contains(Window(Home).Property(ListItem.mpaa),18 anos)]">18</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.mpaa)) + !String.Contains(Window(Home).Property(ListItem.mpaa),not rated)">$INFO[Window(Home).Property(ListItem.MPAA)]</value>
+        <!-- ESRB -->
+        <value condition="String.Contains(ListItem.Property(esrb),RP)">RP</value>
+        <value condition="String.IsEqual(ListItem.Property(esrb),E) | String.Contains(ListItem.Property(esrb),Everyone)">E</value>
+        <value condition="String.Contains(ListItem.Property(esrb),10)">E-10+</value>
+        <value condition="String.Contains(ListItem.Property(esrb),Teen)">T</value>
+        <value condition="String.Contains(ListItem.Property(esrb),Mature)">M</value>
+        <value condition="String.Contains(ListItem.Property(esrb),Adult)">A</value>
+        <value condition="!String.IsEmpty(ListItem.Property(esrb))">$INFO[ListItem.Property(esrb)]</value>
         <!-- fallback -->
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) + !String.Contains(Window(Home).Property(SkinHelper.ListItem.MPAA),not rated)">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
 		<value condition="[ 

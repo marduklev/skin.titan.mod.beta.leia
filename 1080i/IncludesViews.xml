@@ -81,10 +81,10 @@
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.56) + Window.IsActive(MyVideoNav.xml)">View_56_BannerPlex</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.55) + Window.IsActive(MyVideoNav.xml)">View_55_BannerList</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.503) + Window.IsActive(MyVideoNav.xml)">View_503_Logos</include>
-            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.523) + Window.IsActive(MyVideoNav.xml)">View_523_Netflix</include>
-			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.525) + Window.IsActive(MyVideoNav.xml)">View_525_Netflix_Landscape</include>
-			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.526) + Window.IsActive(MyVideoNav.xml)">View_526_Wide_Netflix</include>
-			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.527) + Window.IsActive(MyVideoNav.xml)">View_527_TSE</include>
+            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.523)">View_523_Netflix</include>
+			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.525) + [Window.IsActive(MyVideoNav.xml) | Window.IsActive(programs)]">View_525_Netflix_Landscape</include>
+			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.526) + [Window.IsActive(MyVideoNav.xml) | Window.IsActive(programs)]">View_526_Wide_Netflix</include>
+			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.527) + [Window.IsActive(MyVideoNav.xml) | Window.IsActive(programs)]">View_527_TSE</include>
             
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.528)">View_528_Gameflix</include>
         </control>

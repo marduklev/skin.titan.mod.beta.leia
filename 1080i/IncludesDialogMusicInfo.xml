@@ -729,7 +729,7 @@
 				<control type="label">
 					<width>880</width>
 					<height>60</height>
-					<font>font12</font>
+					<font>Reg26</font>
 					<aligny>center</aligny>
 					<align>center</align>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -737,19 +737,26 @@
 				</control>
 			</itemlayout>
 			<focusedlayout height="35" width="900" condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">
-				<!-- check, on click play song -->
-				<!-- <control type="button">
-					<onclick condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">Playmedia($INFO[ListItem.FilenameAndPath])</onclick>
-			
-				</control> -->
-				<control type="label">
-					<width>880</width>
-					<height>60</height>
-					<font>font12</font>
-					<aligny>center</aligny>
-					<align>center</align>
-					<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
-					<label>$VAR[ListItemDisk]$INFO[ListItem.TrackNumber,[B],[/B] | ]$INFO[ListItem.Label]$INFO[ListItem.Duration,  (,)]</label>
+				<control type="group">
+					<!-- check, on click play song -->
+					<!-- <control type="button">
+							<onclick>Playmedia($INFO[ListItem.FilenameAndPath])</onclick>
+							<onclick>SendClick(155)</onclick>
+						</control> -->
+					<!-- focus anim  -->
+						<animation type="Focus" reversible="false" condition="true">
+							<effect type="zoom" end="115" time="100" tween="sine" easing="out" center="auto" />
+							<effect type="zoom" end="90" time="100" tween="sine" delay="150" easing="out" center="auto" />
+						</animation>
+					<control type="label">
+						<width>880</width>
+						<height>60</height>
+						<font>Bold26</font>
+						<aligny>center</aligny>
+						<align>center</align>
+						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+						<label>$VAR[ListItemDisk]$INFO[ListItem.TrackNumber,[B],[/B] | ]$INFO[ListItem.Label]$INFO[ListItem.Duration,  (,)]</label>
+					</control>
 				</control>
 			</focusedlayout>
 			

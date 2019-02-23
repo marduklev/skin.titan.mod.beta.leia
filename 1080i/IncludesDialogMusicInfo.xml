@@ -33,7 +33,7 @@
 			<height>87.5%</height>
 			<texture border="15">diffuse/bgpanel.png</texture>
 			<colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-			<visible>Skin.HasSetting(DialogMusicInfoHidePanel)</visible>
+			<visible>!Skin.HasSetting(DialogMusicInfoHidePanel)</visible>
 		</control>
 					
 		<!-- close dialog touch control-->

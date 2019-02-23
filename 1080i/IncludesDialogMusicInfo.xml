@@ -17,7 +17,7 @@
 		
 		<!-- Music Background if no Fanart avail (temp workaraound, check background building sometime later)-->
 		<control type="group">
-			<visible>String.IsEmpty(Control.GetLabel(99006) | String.IsEmpty(Control.GetLabel(99006)</visible>
+			<visible>String.IsEmpty(Control.GetLabel(99006) + String.IsEmpty(Control.GetLabel(99005)</visible><!--   + String.IsEmpty(Control.GetLabel(99005) -->
 			<control type="image">
 				<include>DimensionsFullscreen</include>
 				<texture fallback="colors/color_black.png">$INFO[Skin.String(CustomBackgroundSetting)]</texture>
@@ -25,7 +25,7 @@
 			<include>DialogOverlay</include>
 		</control>
 		
-		<!-- panel diffuse top -->
+		<!-- panel BG -->
 		<control type="image">
 			<posx>20</posx>
 			<posy>55</posy>
@@ -36,7 +36,7 @@
 			<visible>Skin.HasSetting(DialogMusicInfoHidePanel)</visible>
 		</control>
 					
-		<!-- close dialog -->
+		<!-- close dialog touch control-->
 		<control type="group">
 			<include>animation_fade_visible_hidden</include>
 			<right>10</right>
@@ -48,15 +48,14 @@
 		<!-- Dialog Header  -->
 		<control type="label">
 			<description>Heading</description>
+			<height>25</height>
 			<right>20</right>
 			<posy>15</posy>
-			<width>100%</width>
+			<width>400</width>
 			<font>Bold32</font>
 			<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 			<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-			<include condition="[Container.Content(Artists) | String.IsEqual(ListItem.DBType,artist)]">MucisInfoHeaderCenter</include>
-			<include condition="![Container.Content(Artists) | String.IsEqual(ListItem.DBType,artist)]">MucisInfoHeaderRight</include>
-			<height>25</height>
+			<align>right</align>
 			<label>$VAR[DialogMusic_Header]</label>
 		</control>
 		
@@ -82,7 +81,7 @@
             <texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_big.png">$VAR[DiscArtImage]</texture><!--  , $INFO[ListItem.Art(discart)] -->
 			<visible>Container.Content(Albums) | String.IsEqual(ListItem.DBType,album) | Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)</visible>
 		</control>
-		<!-- ARTIST thumb -->
+		<!-- artist / album thumb -->
 		<control type="image">
 			<left>190</left>
 			<top>160</top>
@@ -105,13 +104,13 @@
 			<texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Art(back)]</texture>
 			<visible>![Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
 		</control> -->
-		<!-- Album/Track Star Rating (album/songinfo),check again positioning -->
+		<!-- Album/Song Star Rating (album/songinfo) -->
 		<control type="image">
 			<visible>![Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
-			<posx>140</posx>
-			<posy>125</posy>
-			<width>230</width>
-			<height>40</height>
+			<posx>130</posx>
+			<posy>120</posy>
+			<width>250</width>
+			<height>50</height>
 			<aspectratio aligny="center" align="center">keep</aspectratio>
 			<colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
 			<texture fallback="leftrating/rating0.png">$VAR[musicrating_stars]</texture>
@@ -127,7 +126,6 @@
 			<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 			<visible>!String.IsEmpty(ListItem.Art(clearlogo))</visible>
 		</control>
-		
 		<!-- heading title, if Claer Logo N/A + artistinfo-->
 		<control type="label">
 			<left>60</left>
@@ -139,38 +137,40 @@
 			<aligny>bottom</aligny>
 			<font>Bold40</font>
 			<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
-			<label>$VAR[DialogMusic_Title,• [B],[/B] •]</label>
+			<label>$INFO[ListItem.Artist,• [B],[/B] •]</label>
 			<visible>String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
 		</control>
 		<!-- heading title, if not (artistiformation) -->
 		<control type="label">
 			<visible>![Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
-			<left>5</left>
-			<top>50</top>
-			<height>150</height>
-			<width>99%</width>
-			<wrapmultiline>true</wrapmultiline>
+			<left>50</left>
+			<top>70</top>
+			<height>50</height>
+			<width>95%</width>
 			<align>center</align>
-			<aligny>top</aligny>
+			<aligny>bottom</aligny>
+			<scroll>true</scroll>
+			<scrollsuffix></scrollsuffix>
 			<font>Bold35</font>
 			<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 			<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-			<label>$VAR[DialogMusic_Title,• [B],[/B] •]</label> <!-- [CR]$VAR[1stRowInfoLine], need find better pos -->
+			<label>$INFO[ListItem.Title,•[B] , •[/B]]</label>
 		</control>
-		<!-- <control type="label">
-						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-						<left>55</left>
-						<width>1880</width>
-						<height>50</height>
-						<font>font12</font>
-						<align>left</align>
-						<label>$VAR[1stRowInfoLine]</label>
-						
-					</control> -->
+		<!-- sub info Header(albumInfo)-->
+		<control type="label">
+			<top>5</top>
+			<left>55</left>
+			<width>1580</width>
+			<height>50</height>
+			<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+			<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+			<font>Reg26</font>
+			<align>left</align>
+			<label>$VAR[1stRowInfoLine]</label>
+		</control>
+					
 		<!-- seperate div line - Header -->
 		<control type="image">
-			<!-- <visible>![Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible> -->
 			<top>50</top>
 			<left>50</left>
 			<width>1850</width>
@@ -232,7 +232,37 @@
 				<animation effect="slide" end="0,25" time="0" condition="true">conditional</animation>
 			</control>
 		</control>
-		
+		<!-- fade frame scrollbar 17 -->
+		<control type="group">
+			<visible>[Container.Content(Albums) | String.IsEqual(ListItem.DBType,album)] + Control.HasFocus(17)</visible>
+			<animation type="Visible" >
+				<effect type="fade" start="0" end="100" time="300"/>
+			</animation>
+			<control type="image">
+				<left>20</left>
+				<bottom>80</bottom>
+				<width>1880</width>
+				<height>1</height>
+				<texture>colors/color_white.png</texture>
+				<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+			</control>
+			<control type="image">
+				<top>595</top>
+				<left>20</left>
+				<width>1</width>
+				<height>405</height>
+				<texture>colors/color_white.png</texture>
+				<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+			</control>
+			<control type="image">
+				<top>595</top>
+				<right>20</right>
+				<width>1</width>
+				<height>405</height>
+				<texture>colors/color_white.png</texture>
+				<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+			</control>
+		</control>
 		<!-- Album and Disc (artistiformation) -->
 		<control type="group">
 			<visible>Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)</visible>
@@ -305,7 +335,6 @@
 			</control>
 		</control>
 		
-		
 		<!-- info/description -->
 		<control type="group">
 			<left>900</left>
@@ -333,8 +362,7 @@
 				<height>360</height>
 				<align>center</align>
 				<pagecontrol>60</pagecontrol>
-				<label>$INFO[ListItem.Plot,[B],[/B]]</label>
-				<!-- check need of var, ListItem.Property(Album_Description)  -->
+				<label>$VAR[ListItemArtistAlbumDescription,[B],[/B]]</label>
 				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 			</control>
@@ -346,9 +374,89 @@
 				<pagecontrol>60</pagecontrol>
 				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-				<label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot),[B],[/B]]</label>
+				<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot),[B],[/B]]</label>
 				<visible>String.IsEmpty(Control.GetLabel(4))</visible>
 			</control>
+				
+			<!-- No Info Fallback -->
+			<control type="grouplist">
+				<height>360</height>
+				<orientation>vertical</orientation>
+				<itemgap>2</itemgap>
+				<visible>String.IsEmpty(Control.GetLabel(4)) + String.IsEmpty(Control.GetLabel(55)) + ![Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)]</visible>
+				<!-- artist --> 
+				<control type="label">
+					<visible>!String.IsEmpty(ListItem.Artist) + ![Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+					<width>auto</width>
+					<font>Reg30</font>
+					<align>left</align>
+					<label>[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$LOCALIZE[557][/COLOR]$INFO[ListItem.Artist, : ,]</label>
+					<scroll>false</scroll>
+				</control>
+				<!-- Artist Type -->
+				<control type="label">
+					<visible>!String.IsEmpty(Listitem.Property(Artist_Type)) + [Container.Content(Artist) | String.IsEqual(ListItem.DBType,artist)]</visible>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+					<left>55</left>
+					<width>auto</width>
+					<font>Reg30</font>
+					<align>left</align>
+					<label>[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]Artist Type[/COLOR]$INFO[Listitem.Property(Artist_Type), : ,]</label>
+					<scroll>false</scroll>
+				</control>
+				<!-- Rec Label --> 
+				<control type="label">
+					<visible>!String.IsEmpty(ListItem.Property(Album_Label))</visible>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+					<left>55</left>
+					<width>auto</width>
+					<font>Reg30</font>
+					<align>left</align>
+					<label>[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$LOCALIZE[572][/COLOR]$INFO[ListItem.Property(Album_Label), : ,]</label>
+					<scroll>false</scroll>
+				</control>
+				<!-- year -->
+				<control type="label">
+					<visible>!String.IsEmpty(ListItem.Year)</visible>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+					<left>55</left>
+					<width>auto</width>
+					<font>Reg30</font>
+					<align>left</align>
+					<label>[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$LOCALIZE[172][/COLOR]$INFO[ListItem.Year, : ,]</label>
+					<scroll>false</scroll>
+				</control>
+				<!-- genre -->
+				<control type="label">
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+					<left>55</left>
+					<width>auto</width>
+					<font>Reg30</font>
+					<align>left</align>
+					<label>[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$LOCALIZE[515][/COLOR]$INFO[ListItem.Genre, : ,]</label>
+					<scroll>false</scroll>
+				</control>
+				<!-- Duration -->
+				<control type="label">
+					<visible>!String.IsEmpty(ListItem.Duration)</visible>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+					<left>55</left>
+					<width>auto</width>
+					<font>Reg30</font>
+					<align>left</align>
+					<label>[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$LOCALIZE[180][/COLOR]$INFO[ListItem.Duration, : ,]</label>
+					<scroll>false</scroll>
+				</control>
+			</control>
+			
 			<control type="scrollbar" id="60">
 				<right>20</right>
 				<height>360</height>
@@ -361,23 +469,69 @@
 				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
 			</control>
 		</control>
+		<control type="group">
+			<visible>Control.HasFocus(17) + [Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)]</visible>
+			<control type="image">
+				<right>20</right>
+				<bottom>50</bottom>
+				<width>1000</width>
+				<height>460</height>
+				<texture colordiffuse="$INFO[Skin.String(ViewDetailsPanelColor)]" border="5">diffuse/wide.png</texture>
+			</control>
+			<control type="image">
+				<right>20</right>
+				<bottom>40</bottom>
+				<width>1010</width>
+				<height>465</height>
+				<texture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="10">netflix/frame/slimframe_hardedge.png</texture>
+			</control>
+		</control>
+		
+		<control type="group">
+			<visible>[Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)]</visible>
+			<animation effect="slide" start="0" end="550,0" time="0" condition="Integer.IsLess(Container(50).NumItems,1)">Conditional</animation>
+			<posx>350</posx>
+			<posy>630</posy>
+			<control type="label">
+				<height>400</height>
+				<width>450</width>
+				<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+				<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+				<font>Bold28</font>
+				<align>right</align>
+				<aligny>top</aligny>
+				<label>$LOCALIZE[557][CR]$LOCALIZE[558][CR]$LOCALIZE[554][CR]$LOCALIZE[172][CR]$LOCALIZE[515][CR]$LOCALIZE[572][CR]$LOCALIZE[180]</label> <!-- [CR]$LOCALIZE[21446] -->
+				<scroll>false</scroll>
+			</control>
+			<!-- right-->
+			<control type="label">
+				<height>600</height>
+				<width>700</width>
+				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+				<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+				<font>Bold28</font>
+				<align>left</align>
+				<aligny>top</aligny>
+				<label>$INFO[ListItem.Artist, | ,][CR]$INFO[ListItem.Album, | ,][CR]$INFO[ListItem.TrackNumber, | ,][CR]$INFO[ListItem.Year, | ,][CR]$INFO[ListItem.Genre, | ,][CR]$INFO[ListItem.Property(Album_Label), | ,][CR]$INFO[ListItem.Duration, | ,]</label> <!-- [CR]$INFO[ListItem.AudioCodec, | ,] -->
+				<scroll>false</scroll>
+			</control>
+		</control>
 		
 		<!-- max 2 rows Info group -->
 		<control type="grouplist">
 			<posx>50</posx>
 			<posy>570</posy>
-			<height>120</height>
+			<height>100</height>
 			<width>1890</width>
 			<orientation>vertical</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
-			<itemgap>5</itemgap>
+			<itemgap>0</itemgap>
 			<visible>[Container.Content(Artists) | String.IsEqual(ListItem.DBType,artist)]</visible>
+			<!-- 1st row -->
 			<control type="grouplist">
-				<height>50</height>
+				<height>45</height>
 				<orientation>horizontal</orientation>
-				<usecontrolcoords>true</usecontrolcoords>
 				<itemgap>20</itemgap>
-				
 				<control type="label">
 					<visible>!String.IsEmpty(ListItem.Genre)</visible>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -396,30 +550,47 @@
 					<width>auto</width>
 					<font>Reg30</font>
 					<align>left</align>
-					<label>[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]Years Active[/COLOR]$INFO[ListItem.Property(Artist_YearsActive), : ,]</label>
+					<label>[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$LOCALIZE[21898][/COLOR]$INFO[ListItem.Property(Artist_YearsActive), : ,]</label>
 					<scroll>false</scroll>
 				</control>
-				<!-- <control type="label">
+			</control>
+			<!-- 2nd row -->
+			<control type="grouplist">
+				<height>45</height>
+				<orientation>horizontal</orientation>
+				<itemgap>20</itemgap>
+				<control type="label">
 					<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-					<left>55</left>
 					<width>auto</width>
-					<font>Reg20</font>
+					<font>Reg22</font>
 					<align>left</align>
-					<label>$INFO[ListItem.Property(Artist_Formed),formed : , / ]$INFO[ListItem.Property(Artist_Disbanded),disbanded : ,]</label>
+					<label>[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$INFO[ListItem.Property(Artist_Formed),[B]$LOCALIZE[21894] :[/B][/COLOR] ,]</label>
 					<scroll>false</scroll>
-				</control> -->
+				</control>
+				<control type="label">
+					<visible>!String.IsEmpty(ListItem.Property(Artist_Disbanded))</visible>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+					<width>auto</width>
+					<font>Reg22</font>
+					<align>left</align>
+					<label>[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$INFO[ListItem.Property(Artist_Disbanded),[B]$LOCALIZE[21896] :[/B][/COLOR] ,]</label>
+					<scroll>false</scroll>
+				</control>
 			</control>
 		</control>
 	  
 	  <!-- native Album,Song,Info Panel  -->
 		<control type="panel" id="50">
-			<top>680</top>
-			<left>40</left>
-			<height>335</height>
-			<width>1800</width>
-			<animation effect="slide" end="0,-50" condition="[Container.Content(Albums) | String.IsEqual(ListItem.DBType,album)]">Conditional</animation>
+			<include condition="Container.Content(artists) | String.IsEqual(ListItem.DBType,artist)">Container50Pos_Artist</include>
+			<include condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">Container50Pos_Album</include>
+			<include condition="Container.Content(songs) | String.IsEqual(ListItem.DBType,song)">Container50Pos_Song</include>
+			<!-- check, on click play song -->
+			<!-- <onclick condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">Playmedia($ESCINFO[ListItem.FilenameAndPath])</onclick> 
+			,isdir
+			 -->
 			<onup condition="Control.IsVisible(60)">60</onup>
 			<onup condition="!Control.IsVisible(60)">9000</onup>
 			<ondown condition="Control.IsVisible(17)">17</ondown>
@@ -554,64 +725,105 @@
 				</control>
 			</focusedlayout>
 			<!-- ALBUMINFO -->
-			<itemlayout height="35" width="600" condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">
+			<itemlayout height="35" width="900" condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">
 				<control type="label">
-					<width>580</width>
+					<width>880</width>
 					<height>60</height>
 					<font>font12</font>
 					<aligny>center</aligny>
-					<!-- <align>center</align> -->
+					<align>center</align>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 					<label>$VAR[ListItemDisk]$INFO[ListItem.TrackNumber,[B],[/B] | ]$INFO[ListItem.Label]$INFO[ListItem.Duration,  (,)]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout height="35" width="600" condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">
+			<focusedlayout height="35" width="900" condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">
+				<!-- check, on click play song -->
+				<!-- <control type="button">
+					<onclick condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">Playmedia($INFO[ListItem.FilenameAndPath])</onclick>
+			
+				</control> -->
 				<control type="label">
-					<width>580</width>
+					<width>880</width>
 					<height>60</height>
 					<font>font12</font>
 					<aligny>center</aligny>
-					<!-- <align>center</align> optional -->
+					<align>center</align>
+					<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 					<label>$VAR[ListItemDisk]$INFO[ListItem.TrackNumber,[B],[/B] | ]$INFO[ListItem.Label]$INFO[ListItem.Duration,  (,)]</label>
 				</control>
 			</focusedlayout>
 			
 			<!-- songs -->
-			<itemlayout height="72.5" width="595" condition="Container.Content(songs) | String.IsEqual(ListItem.DBType,song)">
-				<control type="label">
-					<left>40</left>
-					<top>10</top>
-					<width>546</width>
-					<height>60</height>
-					<font>font12</font>
-					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label,[COLOR grey], - [/COLOR]]$INFO[ListItem.Label2]</label>
+			<itemlayout height="35" width="880" condition="Container.Content(songs) | String.IsEqual(ListItem.DBType,song)">
+				<control type="group">
+					<width>880</width>
+					<height>40</height>
+					<!-- left -->
+					<control type="label">
+						<width>250</width>
+						<height>40</height>
+						<font>Bold28</font>
+						<aligny>center</aligny>
+						<align>right</align>
+						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<!-- right -->
+					<control type="label">
+						<left>250</left>
+						<width>630</width>
+						<height>40</height>
+						<font>Bold28</font>
+						<aligny>center</aligny>
+						<align>left</align>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<label>$INFO[ListItem.Label2, | ,]</label>
+					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="72.5" width="595" condition="Container.Content(songs) | String.IsEqual(ListItem.DBType,song)">
-				<control type="label">
-					<left>40</left>
-					<top>10</top>
-					<width>546</width>
-					<height>60</height>
-					<font>font12</font>
-					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label,[COLOR white], - [/COLOR]]$INFO[ListItem.Label2]</label>
+			<focusedlayout height="35" width="880" condition="Container.Content(songs) | String.IsEqual(ListItem.DBType,song)">
+				<control type="group">
+					<width>880</width>
+					<height>40</height>
+					<!-- left -->
+					<control type="label">
+						<width>250</width>
+						<height>40</height>
+						<font>Bold28</font>
+						<aligny>center</aligny>
+						<align>right</align>
+						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<!-- right -->
+					<control type="label">
+						<left>250</left>
+						<width>630</width>
+						<height>40</height>
+						<font>Bold28</font>
+						<aligny>center</aligny>
+						<align>left</align>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<label>$INFO[ListItem.Label2, | ,]</label>
+					</control>
 				</control>
 			</focusedlayout>
 		</control>
 		<control type="scrollbar" id="17">
-			<left>30</left>
-			<bottom>50</bottom>
-			<width>1820</width>
-			<height>15</height>
-			<visible>[![Container.Content(artists) | String.IsEqual(ListItem.DBType,artist)] + Integer.IsGreater(Container(50).NumItems,27)] |
-			 [[Container.Content(artists) | String.IsEqual(ListItem.DBType,artist)] + Integer.IsGreater(Container(50).NumItems,7)]</visible>
+			<include condition="![Container.Content(songs) | String.IsEqual(ListItem.DBType,song)]">Scrollbar_17_Default</include>
+			<include condition="[Container.Content(songs) | String.IsEqual(ListItem.DBType,song)]">Scrollbar_17_Song</include>
+			<visible>
+			[[Container.Content(artists) | String.IsEqual(ListItem.DBType,artist)] + Integer.IsGreater(Container(50).NumItems,7)] |
+			[[Container.Content(albums) | String.IsEqual(ListItem.DBType,album)] + Integer.IsGreater(Container(50).NumItems,27)] |
+			[[Container.Content(songs) | String.IsEqual(ListItem.DBType,song)] + Integer.IsGreater(Container(50).NumItems,9)]
+			</visible>
 			<onup condition="[Container.Content(artists) | String.IsEqual(ListItem.DBType,artist)]">50</onup>
 			<onup condition="![Container.Content(artists) | String.IsEqual(ListItem.DBType,artist)] + Control.IsVisible(60)">60</onup>
 			<onup condition="![Container.Content(artists) | String.IsEqual(ListItem.DBType,artist)] + !Control.IsVisible(60)">9000</onup>
 			<ondown>9000</ondown>
 			<onleft>17</onleft>
 			<onright>17</onright>
+			<animation effect="slide" start="0" end="0,-40" time="0" condition="[Container.Content(albums) | String.IsEqual(ListItem.DBType,album)]">Conditional</animation>
 			<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(17) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
 			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(17) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
 			<orientation>horizontal</orientation>
@@ -652,16 +864,6 @@
 				<label>??</label>
 			</control> 
 			-->
-			<control type="button" id="10">
-			  <!-- 10 	button 	Get artist thumbnail / Get album thumbnail 
-			  choose art -->
-				<height>60</height>
-				<width>300</width>
-				<align>center</align>
-				<label>13405</label>
-				<textoffsetx>15</textoffsetx>
-				<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
-			</control>
 			<control type="button" id="12">
 			  <!-- 12 	button 	Get artist fanart image - wiki wrong
 				if song - go to album
@@ -672,6 +874,16 @@
 				<align>center</align>
 				<label>10523</label>
 				<textoffsetx>15</textoffsetx>
+			</control>
+			<control type="button" id="10">
+			  <!-- 10 	button 	Get artist thumbnail / Get album thumbnail 
+			  choose art -->
+				<height>60</height>
+				<width>300</width>
+				<align>center</align>
+				<label>13405</label>
+				<textoffsetx>15</textoffsetx>
+				<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 			</control>
 			<!-- <control type="button" id="13">
 			  - 13 	button 	Get song thumbnail, not working / wiki wrong -
@@ -736,63 +948,53 @@
 		</control>
 	</include>
 	
-	
-	
 	<variable name="ListItemDisk">
-	<!-- Integer.IsEqual([[InfoLabels|info]],number) -->
 		<value condition="String.Contains(ListItem.DiscNumber,2)">$INFO[ListItem.DiscNumber,[B]CD ,[/B] - ]</value>
 		<value></value>
 	</variable>
+
+	<variable name ="ListItemArtistAlbumDescription">
+		<value condition="[Container.Content(Albums) | String.IsEqual(ListItem.DBType,album)]">$INFO[ListItem.Property(Album_Description)]</value>
+		<value>$INFO[ListItem.Property(Artist_Description)]</value>
+	
+	</variable>
 	<variable name="1stRowInfoLine">
-		<value condition="[Container.Content(Artists) | String.IsEqual(ListItem.DBType,artist)]"></value>
-		<value condition="[Container.Content(Albums) | String.IsEqual(ListItem.DBType,album)]">[COLOR=$INFO[Skin.String(ViewDetailsTextColor)]]$LOCALIZE[557][/COLOR]$INFO[ListItem.Artist, • , • ][COLOR=$INFO[Skin.String(ViewDetailsTextColor)]]$LOCALIZE[172][/COLOR]$INFO[ListItem.Year, • , • ][COLOR=$INFO[Skin.String(ViewDetailsTextColor)]]$LOCALIZE[515][/COLOR]$INFO[ListItem.Genre, • , • ]</value>
-		<value condition="[Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)]">[COLOR=$INFO[Skin.String(ViewDetailsTextColor)]]$LOCALIZE[557][/COLOR]$INFO[ListItem.Artist, • , • ][COLOR=$INFO[Skin.String(ViewDetailsTextColor)]]$LOCALIZE[558][/COLOR]$INFO[ListItem.Album, • , • ][COLOR=$INFO[Skin.String(ViewDetailsTextColor)]]$LOCALIZE[172][/COLOR]$INFO[ListItem.Year, • , • ][COLOR=$INFO[Skin.String(ViewDetailsTextColor)]]$LOCALIZE[515][/COLOR]$INFO[ListItem.Genre, • , • ]</value>
+		<value condition="[Container.Content(Artists) | String.IsEqual(ListItem.DBType,artist)] + !String.IsEmpty(ListItem.Art(clearlogo))">[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$LOCALIZE[557][/COLOR]$INFO[ListItem.Artist,  [B],[/B]        ]</value>
+		<value condition="[Container.Content(Albums) | String.IsEqual(ListItem.DBType,album)] + ![String.IsEmpty(Control.GetLabel(4)) + String.IsEmpty(Control.GetLabel(55))]">[COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$LOCALIZE[557][/COLOR]$INFO[ListItem.Artist,  [B],[/B]        ][COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$LOCALIZE[172][/COLOR]$INFO[ListItem.Year,  [B],[/B]        ][COLOR=$INFO[Skin.String(ViewDetailsHighlightTextColor)]]$LOCALIZE[515][/COLOR]$INFO[ListItem.Genre,  [B],[/B]]</value>
+		<value></value>
 	</variable>
 	
-	<include name="MucisInfoHeaderCenter">
-		<align>center</align>
+	<include name="Container50Pos_Artist">
+		<top>680</top>
+		<left>40</left>
+		<height>335</height>
+		<width>1800</width>
 	</include>
-	<include name="MucisInfoHeaderRight">
-		<align>right</align>
+	<include name="Container50Pos_Album">
+		<top>630</top>
+		<left>40</left>
+		<height>335</height>
+		<width>1800</width>
+		<animation effect="slide" start="0" end="480,0" time="0" condition="Integer.IsLessOrEqual(Container(50).NumItems,9)">Conditional</animation>
+		<animation effect="slide" start="0" end="50,0" time="0" condition="Integer.IsGreater(Container(50).NumItems,9) + Integer.IsLessOrEqual(Container(50).NumItems,18)">Conditional</animation>
 	</include>
-	
-	<!-- personal note, test params within includes
-	use <include name="foobar"> to define an include 
-	
-	e.g. 
-					<include name="MusicLayout1">
-						<param name="height">800</heigth>
-						
-						<definition>
-						<control type="label">
-						<height>$PARAM[height]</height>
-						
-						</control>
-						</definition>
-					</include>
-
-	
-	
-	and <include content="foobar"> to call it 
-			(or <include>foobar</include> without passing params). 
-	
-	define
-	
-	e.g.
-					<include content="MusicLayout1" condition="Container.Content(xx)">
-						<param name="height" value="500"/>
-					</include>
-
-					<include content="MusicLayout1" condition="Container.Content(yy)">
-						<param name="height" value="600"/>
-					</include>
-
-					<include content="MusicLayout1" condition="Container.Content(zz)">
-						<param name="height" value="900"/>
-					</include>
-	
-	
-	call
-	-->
-	
+	<include name="Container50Pos_Song">
+		<top>630</top>
+		<left>920</left>
+		<height>345</height>
+		<width>880</width>
+	</include>
+	<include name="Scrollbar_17_Song">
+		<left>920</left>
+		<bottom>50</bottom>
+		<width>880</width>
+		<height>15</height>
+	</include>
+	<include name="Scrollbar_17_Default">
+		<left>40</left>
+		<bottom>50</bottom>
+		<width>1820</width>
+		<height>15</height>
+	</include>
+		
 </includes>

@@ -106,7 +106,7 @@
                     <aligny>center</aligny>
                     <label>[UPPERCASE]$INFO[ListItem.Title][/UPPERCASE]</label>
                     <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
-                    <visible>[String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(plugins)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(sets)]</visible> 
+                    <visible>[String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29478),color_transparent) + !String.IsEmpty(Control.GetLabel(5599))] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(sets)]</visible> 
                 </control>
 				<!-- details -->
                 <control type="group">
@@ -172,7 +172,7 @@
 						<include>Netflix_Status</include>
 					</control> -->
 				</control>
-			<!-- media flags if TV SHOWS/SEASONS -->
+				<!-- media flags if TV SHOWS/SEASONS -->
                 <control type="group">
                     <visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</visible>
 					<posx>1045</posx>
@@ -192,8 +192,8 @@
 							
 				<!-- rating -->
                 <control type="group">
-					<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,movie)]</visible>
-                    <right>60</right>
+					<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,movie) | !String.IsEmpty(Control.GetLabel(5599))]</visible>
+					<right>60</right>
                     <height>150</height>
                     <width>1000</width>
                     <top>530</top>
@@ -235,6 +235,68 @@
 					<focusedlayout></focusedlayout>
 					<content>$VAR[castInfo]</content>
                 </control>
+				<!-- Games: Popup of all game extras (trailer, title, snaps etc) -->
+				<control type="panel" id="5590"> 
+					<top>700</top>
+					<left>1050</left>
+					<height>300</height>
+					<width>790</width>
+					<ondown>Stop</ondown>
+					<ondown>523</ondown>
+					<onright>5590</onright>
+					<orientation>horizontal</orientation>
+					<visible>Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer) + !String.IsEmpty(Control.GetLabel(5599))</visible>
+					<animation effect="fade" start="0" end="100" delay="200" time="3000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+					<animation effect="slide" end="-400,0" time="0" pulse="false" condition="Skin.HasSetting(View523_SameHeight)">Conditional</animation>
+					
+					<itemlayout height="225" width="158">
+						<control type="image">
+							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultAddonGame.png">$INFO[Container(5590).ListItem.Thumb]</texture>
+							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="label">
+							<font>reg18</font>
+							<label>$INFO[ListItem.Label]</label>
+							<wrapmultiline>true</wrapmultiline>
+							<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+							<top>220</top>
+							<left>5</left>
+							<width>150</width>
+							<height>50</height>
+							<aligny>top</aligny>
+							<align>center</align>
+							<textoffsetx>0</textoffsetx>
+							<scroll>true</scroll>
+							<scrollspeed>20</scrollspeed>
+						</control>
+					</itemlayout>
+					<focusedlayout height="225" width="158">
+						<control type="image">
+							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultAddonGame.png">$INFO[Container(51).ListItem.Thumb]</texture>
+							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="label">
+							<font>reg18</font>
+							<label>$INFO[ListItem.Label]</label>
+							<wrapmultiline>true</wrapmultiline>
+							<textcolor>[B]$INFO[Skin.String(NetflixPrimaryTextColor)][/B]</textcolor>
+							<top>220</top>
+							<left>5</left>
+							<width>150</width>
+							<height>50</height>
+							<aligny>top</aligny>
+							<align>center</align>
+							<textoffsetx>0</textoffsetx>
+							<scroll>true</scroll>
+							<scrollspeed>20</scrollspeed>
+						</control>
+					</focusedlayout>
+					<content>
+						<include>Gameflix_extras</include>
+					</content>
+                </control>
 			</control>
             
             <!-- menu button -->
@@ -270,7 +332,8 @@
 				<pagecontrol>60</pagecontrol>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),523) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
 				<onleft>523</onleft>
-				<onright>523</onright>
+				<onright condition="!Control.IsVisible(5590)">523</onright>
+				<onright condition="!String.IsEmpty(Control.GetLabel(5599))">5590</onright>
 				<ondown condition="!Player.HasVideo + Integer.IsLessOrEqual(Container(523).NumItems,10)">9000</ondown><!-- need check for new titan default layout - maybe less items -->
 				<ondown condition="Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(523).NumItems,10) + !Player.HasVideo">7000</ondown>
 				<ondown condition="!Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(523).NumItems,10) + !Player.HasVideo">60</ondown>
@@ -334,7 +397,7 @@
 							</animation>
 						<animation effect="rotate" end="-360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 						<visible>Skin.HasSetting(View523_ShowCDart)</visible>
-						<visible>Container.Content(tvshows) | Container.Content(movies)</visible>
+						<visible>Container.Content(tvshows) | Container.Content(movies) | !String.IsEmpty(Control.GetLabel(5599))</visible>
 					</control>
 					<!-- disc reflection -->
 					<control type="image">

@@ -26,6 +26,12 @@
 
     <include name="allViews">
         
+        <!-- In GameMode Flag -->
+        <control type="label" id="5599">
+            <label>$VAR[GamesActive]</label>
+            <visible>false</visible>
+        </control>
+
         <!-- footer bar (in back) -->
         <control type="group">
             <visible>![Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(519) | Control.IsVisible(520)]</visible>

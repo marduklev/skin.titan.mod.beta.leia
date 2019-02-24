@@ -126,7 +126,7 @@
 					<top>-5</top>
 					<width>50</width>
 					<height>50</height>
-					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">DefaultActor.png</texture>
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">DefaultActor.png</texture>					
 				</control>
 				<control type="label">
 					<left>55</left>
@@ -636,5 +636,37 @@
     <include name="Default_Fade">
         <animation effect="fade" time="200">Visible</animation>
     </include>
+
+	<include name="Gameflix_extras">
+		<item id="5051">
+			<label>Trailer</label>
+			<visible>!String.IsEmpty(Container.ListItem.Trailer)</visible>
+		</item>
+	  	<item id="5052">
+			<label>Title</label>
+			<thumb>$INFO[Container.ListItem.Art(title)]</thumb>
+			<icon>$INFO[Container.ListItem.Art(title)]</icon>
+		</item>
+		<item id="5053">
+			<label>Snap</label>
+			<thumb>$INFO[Container.ListItem.Art(snap)]</thumb>
+			<icon>$INFO[Container.ListItem.Art(snap)]</icon>
+		</item>
+		<item id="5054">
+			<label>Front</label>
+			<thumb>$INFO[Container.ListItem.Art(boxfront)]</thumb>
+			<icon>$INFO[Container.ListItem.Art(boxfront)]</icon>
+		</item>
+		<item id="5055">
+			<label>Back</label>
+			<thumb>$INFO[Container.ListItem.Art(boxback)]</thumb>
+			<icon>$INFO[Container.ListItem.Art(boxback)]</icon>
+		</item>
+		<item id="5055">
+			<label>Map</label>
+			<thumb>$INFO[Container.ListItem.Art(map)]</thumb>
+			<icon>$INFO[Container.ListItem.Art(map)]</icon>
+		</item>
+	</include>
 </includes>
 

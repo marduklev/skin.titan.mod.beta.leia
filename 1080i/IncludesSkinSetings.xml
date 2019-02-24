@@ -62,6 +62,15 @@
                 <onclick>Skin.Reset(EnhancedHome_Circular)</onclick>
                 <visible>Skin.String(HomeLayout, simplehor)</visible>
             </control>
+			<!-- titan def vertical-->
+            <control type="radiobutton" id="13176001">
+                <include>SkinSettings_Button</include>
+                <label>"Titan $LOCALIZE[571] $LOCALIZE[31685]" $LOCALIZE[21480]</label>
+                <onclick>Skin.ToggleSetting(UseDefaultVerticalLayout)</onclick>
+				<!-- <onclick>ReloadSkin</onclick> -->
+                <visible>String.Contains(Skin.String(HomeLayout), simplever)</visible>
+                <selected>Skin.HasSetting(UseDefaultVerticalLayout)</selected>
+            </control>
             <!--left align simple home vertical-->
             <control type="radiobutton" id="131760">
                 <include>SkinSettings_Button</include>

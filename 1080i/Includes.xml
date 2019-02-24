@@ -60,6 +60,7 @@
 	<include file="IncludesHomeEnhanced.xml" />
 	<include file="IncludesHomeHorizontal.xml" />
 	<include file="IncludesHomeVertical.xml" />
+	<include file="IncludesHomeVerticalDefault.xml" />
 	<include file="IncludesHomeNetflix.xml" />
     <include file="IncludesHomeWin10.xml" />
 	<include file="IncludesTouchSupport.xml" />

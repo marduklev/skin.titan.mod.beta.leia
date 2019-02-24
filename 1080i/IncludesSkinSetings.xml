@@ -1039,7 +1039,18 @@
                 <onclick>Skin.ToggleSetting(EnableQuickJump)</onclick>
                 <selected>Skin.HasSetting(EnableQuickJump)</selected>
             </control>
-            
+             <!-- video information dialog -->
+            <control type="label" id="12001">
+                <include>SkinSettings_Header</include>
+                <label>$LOCALIZE[12001]</label>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            </control>
+            <control type="radiobutton" id="2015902">
+                <include>SkinSettings_Button</include>
+                <label>$LOCALIZE[14083] $LOCALIZE[12001]</label>
+                <onclick>Skin.ToggleSetting(UseFullscreenDialog)</onclick> 				
+                <selected>Skin.HasSetting(UseFullscreenDialog)</selected>
+            </control>
             <!-- video information dialog -->
             <control type="label" id="20159">
                 <include>SkinSettings_Header</include>

@@ -3,7 +3,7 @@
 <window>
   <defaultcontrol always="true">9000</defaultcontrol>
   <controls>
-	<include>MusicLayout1</include>
-	<!-- <include condition="Skin.HasSetting(***)">MusicLayout2</include> not done -->
+	<include condition="Skin.HasSetting(UseFullscreenDialog)">EnhancedFullsccreenLayoutMusicInfo</include>
+	<include condition="!Skin.HasSetting(UseFullscreenDialog)">TitanDefaultMusicInfo</include>
   </controls>
 </window>

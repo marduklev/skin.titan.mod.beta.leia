@@ -169,11 +169,9 @@
 				<orientation>vertical</orientation>
 				<movement>0</movement>
 				<focusposition>2</focusposition>
-				<!-- check need integrate panel  
+				<pagecontrol>60</pagecontrol>
 				<onleft condition="Skin.HasSetting(EnableQuickJump)">6000</onleft>
 				<onleft condition="!Skin.HasSetting(EnableQuickJump)">60</onleft>
-				 + [Control.HasFocus(60) | Control.HasFocus(6000)
-				 -->
 				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
 				<onright>SetFocus(5027,0,absolute)</onright>
 				<onup>527</onup>
@@ -513,6 +511,26 @@
 				<content target="videos" sortby="year" sortorder="ascending">$INFO[Container(5027).ListItem.FolderPath]</content>
 			</control>
 		</control>
+		
+			<control type="scrollbar" id="60">
+				<visible>Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,3)</visible>
+				<!-- Skin.HasSetting(LogoViewPreferClearArt) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
+				Skin.HasSetting(LogoViewPreferLandscape) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
+				Skin.HasSetting(LogoViewPreferBanner) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
+				Skin.HasSetting(LogoViewPreferClearArt) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
+				Skin.HasSetting(LogoViewPreferClearArt) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) -->
+				<left>40</left>
+				<top>80</top>
+				<width>15</width>
+				<height>950</height>
+				<onup>60</onup>
+				<ondown>60</ondown>
+				<onleft>9000</onleft>
+				<onright>526</onright>
+				<orientation>vertical</orientation>
+				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+			</control>
 	</include>
 
 	<variable name="527_Schow">

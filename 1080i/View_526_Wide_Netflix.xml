@@ -215,6 +215,8 @@
 				<left>830</left>
 				<orientation>vertical</orientation>
 				<focusposition>1</focusposition>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="cubic" easing="inout">400</scrolltime>
 				<onleft>526</onleft>
 				<onup>5026</onup>
 				<ondown>5026</ondown>
@@ -468,14 +470,14 @@
 				</control>
 			</control>
 		</control>
-		<!-- check vertical Scrollbar not working atm
+		<!-- episode  Scrollbar -->
 		<control type="group">
 			<control type="scrollbar" id="60">
-				<visible>Control.IsVisible(5026) + Integer.IsGreater(Container(5026).Numitems,0)</visible>
+				<visible>Control.IsVisible(5026) + Integer.IsGreater(Container(5026).Numitems,4)</visible>
 				<right>5</right>
-				<bottom>30</bottom>
+				<top>85</top>
 				<width>20</width>
-				<height>900</height>
+				<height>890</height>
 				<onup>60</onup>
 				<ondown>60</ondown>
 				<onleft>5026</onleft>
@@ -484,6 +486,6 @@
 				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
 			</control>
-		</control>-->
+		</control>
 	</include>
 </includes>

@@ -58,11 +58,26 @@
 					<top>0</top>
                     <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[netflixThumb]</texture>
                     <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-                    <visible>Skin.HasSetting(View523_DetailsShowFanart)</visible>
+                    <visible>Skin.HasSetting(View523_DetailsShowFanart) + !Control.IsVisible(5590)</visible>
 					<!-- move beyond clearlogo / title -->
 					<animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation>
 				</control>
                 
+				<!-- spotlight game asset -->
+                <control type="image">
+                    <fadetime>350</fadetime>
+                    <width>1280</width>
+					<height>770</height>
+                    <right>0</right>
+					<top>0</top>
+                    <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$INFO[Container(5590).ListItem.Thumb]</texture>
+                    <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+                    <visible>Control.HasFocus(5590) + !Player.HasVideo</visible>
+					<!-- move beyond clearlogo / title -->
+					<animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+				</control>
+                
+
                	<!-- preview video window -->
                	<control type="group">
 					<right>0</right>
@@ -241,18 +256,18 @@
 					<left>1050</left>
 					<height>300</height>
 					<width>790</width>
-					<ondown>Stop</ondown>
+					<ondown condition="Player.HasVideo">Stop</ondown>
 					<ondown>523</ondown>
-					<onright>5590</onright>
 					<orientation>horizontal</orientation>
-					<visible>Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer) + !String.IsEmpty(Control.GetLabel(5599))</visible>
+					<focusposition>0</focusposition>
+					<visible allowhiddenfocus="true">Skin.HasSetting(ShowCastOnTrailer) + !String.IsEmpty(Control.GetLabel(5599))</visible>
 					<animation effect="fade" start="0" end="100" delay="200" time="3000" pulse="false" condition="Player.HasVideo">Conditional</animation>
 					<animation effect="slide" end="-400,0" time="0" pulse="false" condition="Skin.HasSetting(View523_SameHeight)">Conditional</animation>
 					
 					<itemlayout height="225" width="158">
 						<control type="image">
 							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultAddonGame.png">$INFO[Container(5590).ListItem.Thumb]</texture>
-							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+							<aspectratio scalediffuse="true" aligny="top" align="center">keep</aspectratio>
 							<bordersize>4</bordersize>
 						</control>
 						<control type="label">
@@ -274,14 +289,14 @@
 					<focusedlayout height="225" width="158">
 						<control type="image">
 							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultAddonGame.png">$INFO[Container(51).ListItem.Thumb]</texture>
-							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+							<aspectratio scalediffuse="true" aligny="top" align="center">keep</aspectratio>
 							<bordersize>4</bordersize>
 						</control>
 						<control type="label">
-							<font>reg18</font>
-							<label>$INFO[ListItem.Label]</label>
+							<font>Reg24</font>
+							<label>[B]$INFO[ListItem.Label][/B]</label>
 							<wrapmultiline>true</wrapmultiline>
-							<textcolor>[B]$INFO[Skin.String(NetflixPrimaryTextColor)][/B]</textcolor>
+							<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 							<top>220</top>
 							<left>5</left>
 							<width>150</width>
@@ -332,8 +347,7 @@
 				<pagecontrol>60</pagecontrol>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),523) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
 				<onleft>523</onleft>
-				<onright condition="!Control.IsVisible(5590)">523</onright>
-				<onright condition="!String.IsEmpty(Control.GetLabel(5599))">5590</onright>
+				<onright>523</onright>
 				<ondown condition="!Player.HasVideo + Integer.IsLessOrEqual(Container(523).NumItems,10)">9000</ondown><!-- need check for new titan default layout - maybe less items -->
 				<ondown condition="Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(523).NumItems,10) + !Player.HasVideo">7000</ondown>
 				<ondown condition="!Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(523).NumItems,10) + !Player.HasVideo">60</ondown>
@@ -420,7 +434,7 @@
 							</animation>
 						<animation effect="rotate" end="360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 						<visible>Skin.HasSetting(View523_ShowCDart) + Skin.HasSetting(View523_DetailsShowFanart)</visible>
-						<visible>Container.Content(tvshows) | Container.Content(movies)</visible>	
+						<visible>Container.Content(tvshows) | Container.Content(movies) | !String.IsEmpty(Control.GetLabel(5599))</visible>	
 					</control>
 				</focusedlayout>
 				<itemlayout height="360" width="240" background="true" condition="Skin.HasSetting(View523_SameHeight)">
@@ -461,7 +475,7 @@
 							</animation>
 						<animation effect="rotate" end="-360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 						<visible>Skin.HasSetting(View523_ShowCDart)</visible>
-						<visible>Container.Content(tvshows) | Container.Content(movies)</visible>	
+						<visible>Container.Content(tvshows) | Container.Content(movies) | !String.IsEmpty(Control.GetLabel(5599))</visible>	
 					</control>
 				</focusedlayout>
 			</control>

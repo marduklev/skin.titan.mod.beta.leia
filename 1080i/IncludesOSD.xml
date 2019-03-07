@@ -388,7 +388,7 @@
 					<!-- <animation effect="slide" start="0,0" end="-220,120" time="0" condition="!Player.Paused + Skin.HasSetting(OSDLargeSeekingLabel) + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation> -->
 				</control>
 				
-				<!--   header -->
+				<!-- header -->
 				<control type="textbox">
 					<posx>480</posx>
 					<posy>70</posy>
@@ -509,7 +509,7 @@
 					<height>20</height>
 					<width>825</width>
 					<info>Player.ProgressCache</info>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!String.IsEmpty(Player.Duration) | !VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
 					<lefttexture></lefttexture>
@@ -525,7 +525,22 @@
 					<height>20</height>
 					<width>825</width>
 					<info>Player.Progress</info> <!-- check pvr -->
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.HasEpg</visible>
+					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
+					<lefttexture></lefttexture>
+					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
+					<righttexture></righttexture>
+					<overlaytexture></overlaytexture>
+				</control>
+				<control type="progress" id="23">
+					<description>Progress Bar</description>
+					<posx>570</posx>
+					<posy>40</posy>
+					<height>20</height>
+					<width>825</width>
+					<info>PVR.EpgEventProgress</info> <!-- check pvr -->
+					<visible>VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture></lefttexture>
@@ -539,7 +554,7 @@
 					<posy>40</posy>
 					<height>20</height>
 					<width>825</width>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!String.IsEmpty(Player.Duration)| VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarBorderColor)]">diffuse/thinborder.png</texture>
 				</control>
@@ -552,7 +567,7 @@
                     <texturesliderbar>colors/color_transparent.png</texturesliderbar>
                     <textureslidernib colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/seekslider_ball.png</textureslidernib>
                     <textureslidernibfocus>colors/color_white.png</textureslidernibfocus>
-                    <visible>Player.Seeking + Player.HasVideo</visible>
+                    <visible>Player.Seeking + [Player.HasVideo | VideoPlayer.HasEpg]</visible>
 					<!-- not working in music=always stay left- thats why i add + Player.HasVideo-->
                 </control>
 
@@ -566,7 +581,7 @@
 					<font>Light22</font>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-					<label>$INFO[Player.Time]</label>
+					<label>$VAR[PlayerTime]</label>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
 				<control type="label">
@@ -579,7 +594,7 @@
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<label>$VAR[PlayerTimeRemaining]</label>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!String.IsEmpty(Player.Duration) | VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
 				
@@ -589,7 +604,7 @@
 					<posy>290</posy>
 					<include>mediaflags</include>
 					<visible>![Window.IsActive(videoosd) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
-					<visible>player.hasvideo</visible>
+					<visible>player.hasvideo | VideoPlayer.HasEpg</visible>
 					<animation effect="fade" time="400" delay="500">Visible</animation>
 					<animation effect="slide" start="0" end="0,-150" time="0" condition="Player.HasVideo + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 				</control>
@@ -599,7 +614,7 @@
 					<posy>310</posy>
 					<include>mediaflagsAudio</include>
 					<visible>![Window.IsActive(musicosd) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
-					<visible>!player.hasvideo</visible>
+					<visible>!player.hasvideo | [Player.HasAudio + VideoPlayer.HasEpg]</visible>
 					<animation effect="fade" time="400" delay="500" reversible="false">Visible</animation>
 				</control>
 			</control>
@@ -647,8 +662,8 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[Player.Duration]</label>
-				<visible>!String.IsEmpty(Player.Duration)</visible>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>			
+				<visible>!String.IsEmpty(Player.Duration) | VideoPlayer.HasEpg</visible>
+				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 			</control>	
 				
 			<control type="image">
@@ -1090,7 +1105,7 @@
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarCacheColor)]">diffuse/panel.png</midtexture>
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!String.IsEmpty(Player.Duration) | !VideoPlayer.HasEpg</visible>
                     <visible>!Skin.String(OSDProgressBarCacheColor,None)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
@@ -1107,7 +1122,23 @@
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.HasEpg</visible>
+					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+				</control>
+				<control type="progress" id="23">
+					<description>Progress Bar</description>
+					<left>1</left>
+					<right>40</right>
+					<width>100%</width>
+					<posy>-40</posy>
+					<height>20</height>
+					<info>PVR.EpgEventProgress</info>
+					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
+					<lefttexture></lefttexture>
+					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
+					<righttexture></righttexture>
+					<overlaytexture></overlaytexture>
+					<visible>VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
                 <control type="slider" id="401">
@@ -1133,7 +1164,7 @@
 					<font>Light20</font>
 					<textcolor>white</textcolor>
 					<shadowcolor></shadowcolor>
-					<label>$INFO[Player.Time]</label>
+					<label>$VAR[PlayerTime]</label>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
 				<control type="label">
@@ -1146,7 +1177,7 @@
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<label>$VAR[PlayerTimeRemaining]</label>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!String.IsEmpty(Player.Duration) | !VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
 			</control>
@@ -1172,7 +1203,7 @@
 				<posy>100</posy>
 				<width>890</width>
 				<align>right</align>
-				<font>Reg32</font>		
+				<font>Reg32</font>
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerActionLabel]</label>
@@ -1230,7 +1261,7 @@
 					<height>15</height>
 					<width>1152</width>
 					<info>Player.ProgressCache</info>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<!--colordiffuse changed to white -->
 					<texturebg border="5" colordiffuse="white">diffuse/panel.png</texturebg>
@@ -1247,7 +1278,22 @@
 					<height>15</height>
 					<width>1152</width>
 					<info>Player.Progress</info>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.HasEpg</visible>
+					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
+					<lefttexture></lefttexture>
+					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
+					<righttexture></righttexture>
+					<overlaytexture></overlaytexture>
+				</control>
+				<control type="progress" id="23">
+					<description>Progress Bar</description>
+					<posx>384</posx>
+					<posy>165</posy>
+					<height>15</height>
+					<width>1152</width>
+					<info>PVR.EpgEventProgress</info>
+					<visible>VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture></lefttexture>
@@ -1261,7 +1307,7 @@
 					<posy>165</posy>
 					<height>15</height>
 					<width>1152</width>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!String.IsEmpty(Player.Duration) | VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarBorderColor)]">diffuse/thinborder.png</texture>
 				</control>
@@ -1553,17 +1599,13 @@
                         <aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
                 </control>
 			</control>
-       
-            
-            
 
-			
 			<!-- OSDLabel4 ALBUM YEAR - GENRE , must seperate genre and album, but actual its ok -->
                 <control type="label">
-					<posx>655</posx>			
+					<posx>655</posx>
 					<posy>90</posy>
 					<width>900</width>
-					<align>left</align>		
+					<align>left</align>
 					<font>light20</font>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
@@ -1599,7 +1641,7 @@
 					<visible>Window.IsActive(visualisation)</visible>
 					<visible>![Window.IsActive(musicosd) + !Window.IsVisible(OSDAudioSettings)]</visible>
 					<include>animation_fade_visible_hidden</include>
-				</control>		   
+				</control>
 				<!-- previous Title -->
 				<!--<control type="label">
 					<left>650</left>
@@ -1613,7 +1655,7 @@
 					<visible>Window.IsActive(visualisation)</visible>
 					<visible>![Window.IsActive(musicosd) + !Window.IsVisible(OSDAudioSettings)]</visible>
 					<include>animation_fade_visible_hidden</include>
-				</control>-->	 
+				</control>-->
                 <!-- media flags 
 				
                 <control type="group">
@@ -1654,7 +1696,22 @@
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<visible>!VideoPlayer.HasEpg + !String.IsEmpty(Player.Duration)</visible>
+				</control>
+				<control type="progress" id="23">
+					<description>Progress Bar</description>
+					<left>650</left>
+					<right>40</right>
+					<width>1230</width>
+					<posy>150</posy>
+					<height>20</height>
+					<info>PVR.EpgEventProgress</info>
+					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
+					<lefttexture></lefttexture>
+					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
+					<righttexture></righttexture>
+					<overlaytexture></overlaytexture>
+					<visible>VideoPlayer.HasEpg</visible>
 				</control>
 
 				<!-- NEW ADDED Border to Progress Bar Music Slim -->
@@ -1735,8 +1792,6 @@
                 <colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>
                 <texture fallback="leftrating/rating0.png">$VAR[musicrating_stars_player]</texture>
             </control>
-			
-            
 		</control>
     </include>
 		
@@ -1875,8 +1930,6 @@
 			<label>RWx32</label>
 			<visible>player.rewinding32x</visible>
 		</control>
-		
-		
 		<control type="group">
 			<bottom>20</bottom>
 			<height>376</height>
@@ -2528,12 +2581,12 @@
 			</control>
 			<control type="button" id="207">
 			  <width>$PARAM[size]</width>
-				<height>$PARAM[size]</height>
+			  <height>$PARAM[size]</height>
 			  <label>$LOCALIZE[486]$INFO[Playlist.Repeat, : ]</label>
 			  <font></font>
 			  <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]Repeat_fo.png</texturefocus>
 			  <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]Repeat.png</texturenofocus>
-			  <onclick>XBMC.PlayerControl(Repeat)</onclick>
+			  <onclick>PlayerControl(Repeat)</onclick>
 			  <visible>!Playlist.IsRepeatOne + !Playlist.IsRepeat</visible>
               <visible>!VideoPlayer.Content(livetv)</visible>
 			</control>
@@ -2544,7 +2597,7 @@
 			  <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]RepeatOne.png</texturenofocus>
 			  <visible>Playlist.IsRepeatOne</visible>
               <visible>!VideoPlayer.Content(livetv)</visible>
-			  <onclick>XBMC.PlayerControl(Repeat)</onclick>
+			  <onclick>PlayerControl(Repeat)</onclick>
 			</control>
 			<control type="button" id="210">
 			  <width>$PARAM[size]</width>
@@ -2553,7 +2606,7 @@
 			  <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]RepeatAll.png</texturenofocus>
 			  <visible>Playlist.IsRepeat</visible>
               <visible>!VideoPlayer.Content(livetv)</visible>
-			  <onclick>XBMC.PlayerControl(Repeat)</onclick>
+			  <onclick>PlayerControl(Repeat)</onclick>
 			</control>
 			<control type="togglebutton" id="212">
 			  <width>$PARAM[size]</width>
@@ -2566,7 +2619,7 @@
 			  <usealttexture>Playlist.IsRandom</usealttexture>
 			  <alttexturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]RandomOn_fo.png</alttexturefocus>
 			  <alttexturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]RandomOn.png</alttexturenofocus>
-			  <onclick>XBMC.PlayerControl(Random)</onclick>
+			  <onclick>PlayerControl(Random)</onclick>
 			  <visible>Player.HasAudio</visible>
 			</control>
 			<control type="togglebutton" id="10">
@@ -3219,6 +3272,10 @@
 			</control>
 		</control>
 	</include>
+	<variable name="PlayerTime">
+		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventElapsedTime]</value> <!--  + !VideoPlayer.Content(livetv) -->
+		<value>$INFO[Player.Time]</value>
+	</variable>
 	<variable name="PlayerTimeRemaining">
 		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventRemainingTime, ,]</value> <!--  + !VideoPlayer.Content(livetv) -->
 		<value>$INFO[Player.TimeRemaining, ,]</value>
@@ -3310,6 +3367,7 @@
 	</variable>
 	
 	<variable name="playtime_format"> <!-- check pvr -->
+		<value condition="VideoPlayer.HasEpg + String.IsEqual(PVR.EpgEventElapsedTime(hh),00)">$INFO[PVR.EpgEventElapsedTime(mm:ss)]</value>
 		<value condition="String.IsEqual(Player.Time(hh),00)">$INFO[Player.Time(mm:ss)]</value>
 		<value>$INFO[Player.Time]</value>
 	</variable>

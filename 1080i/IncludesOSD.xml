@@ -525,6 +525,7 @@
 					<height>20</height>
 					<width>825</width>
 					<info>Player.Progress</info> <!-- check pvr -->
+													<!-- !Player.ChannelPreviewActive	 -->				  
 					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
@@ -534,7 +535,7 @@
 					<overlaytexture></overlaytexture>
 				</control>
 				<control type="progress" id="23">
-					<description>Progress Bar</description>
+					<description>Progress Bar PVR</description>
 					<posx>570</posx>
 					<posy>40</posy>
 					<height>20</height>
@@ -567,7 +568,7 @@
                     <texturesliderbar>colors/color_transparent.png</texturesliderbar>
                     <textureslidernib colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/seekslider_ball.png</textureslidernib>
                     <textureslidernibfocus>colors/color_white.png</textureslidernibfocus>
-                    <visible>Player.Seeking + [Player.HasVideo | VideoPlayer.HasEpg]</visible>
+                    <visible>Player.Seeking + Player.HasVideo</visible>
 					<!-- not working in music=always stay left- thats why i add + Player.HasVideo-->
                 </control>
 
@@ -604,7 +605,7 @@
 					<posy>290</posy>
 					<include>mediaflags</include>
 					<visible>![Window.IsActive(videoosd) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
-					<visible>player.hasvideo | VideoPlayer.HasEpg</visible>
+					<visible>Player.HasVideo</visible>
 					<animation effect="fade" time="400" delay="500">Visible</animation>
 					<animation effect="slide" start="0" end="0,-150" time="0" condition="Player.HasVideo + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 				</control>
@@ -614,7 +615,7 @@
 					<posy>310</posy>
 					<include>mediaflagsAudio</include>
 					<visible>![Window.IsActive(musicosd) + ![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]]</visible>
-					<visible>!player.hasvideo | [Player.HasAudio + VideoPlayer.HasEpg]</visible>
+					<visible>!Player.HasVideo</visible>
 					<animation effect="fade" time="400" delay="500" reversible="false">Visible</animation>
 				</control>
 			</control>
@@ -1122,11 +1123,12 @@
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
+					<!-- <visible>!VideoPlayer.HasEpg + !Player.ChannelPreviewActive</visible> -->
 					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.HasEpg</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
 				<control type="progress" id="23">
-					<description>Progress Bar</description>
+					<description>Progress Bar PVR </description>
 					<left>1</left>
 					<right>40</right>
 					<width>100%</width>
@@ -1287,7 +1289,7 @@
 					<overlaytexture></overlaytexture>
 				</control>
 				<control type="progress" id="23">
-					<description>Progress Bar</description>
+					<description>Progress Bar PVR</description>
 					<posx>384</posx>
 					<posy>165</posy>
 					<height>15</height>
@@ -1600,6 +1602,10 @@
                 </control>
 			</control>
 
+			
+			
+
+   
 			<!-- OSDLabel4 ALBUM YEAR - GENRE , must seperate genre and album, but actual its ok -->
                 <control type="label">
 					<posx>655</posx>
@@ -1696,10 +1702,11 @@
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
+					<!-- !Player.ChannelPreviewActive -->
 					<visible>!VideoPlayer.HasEpg + !String.IsEmpty(Player.Duration)</visible>
 				</control>
 				<control type="progress" id="23">
-					<description>Progress Bar</description>
+					<description>Progress Bar PVR</description>
 					<left>650</left>
 					<right>40</right>
 					<width>1230</width>
@@ -1735,7 +1742,7 @@
 					<font>Reg20</font>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-					<label>$INFO[Player.Time]</label>
+					<label>$VAR[PlayerTime]</label>
 				</control>
 			
 				<control type="label">
@@ -1747,7 +1754,7 @@
 					<font>Reg20</font>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-					<label>$INFO[Player.Time] / $INFO[MusicPlayer.Duration] </label>
+					<label>$VAR[PlayerTime] / $INFO[MusicPlayer.Duration] </label>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
 			
@@ -1760,8 +1767,8 @@
 					<font>Reg20</font>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-					<label>$INFO[Player.TimeRemaining]</label>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
+					<label>$VAR[PlayerTimeRemaining]</label>
+					<visible>!String.IsEmpty(Player.Duration)  | VideoPlayer.HasEpg</visible>
 				</control>
 			</control>
             
@@ -1792,6 +1799,8 @@
                 <colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>
                 <texture fallback="leftrating/rating0.png">$VAR[musicrating_stars_player]</texture>
             </control>
+   
+			
 		</control>
     </include>
 		
@@ -1930,6 +1939,8 @@
 			<label>RWx32</label>
 			<visible>player.rewinding32x</visible>
 		</control>
+  
+  
 		<control type="group">
 			<bottom>20</bottom>
 			<height>376</height>
@@ -1996,7 +2007,7 @@
 				<align>left</align>
 				<font>Light28</font>
 				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-				<label>$INFO[Player.Time]</label>
+				<label>$VAR[PlayerTime]</label>
 			</control>
 			<control type="label">
 				<!--Right Time Remaining-->
@@ -2988,7 +2999,7 @@
 				<align>left</align>
 				<font>Reg20</font>
 				<textcolor>white</textcolor>
-				<label>$INFO[Player.Time]</label>
+				<label>$VAR[PlayerTime]</label>
 				<visible>!String.IsEmpty(Player.Duration)</visible>
 			</control>
 			<control type="label">
@@ -3156,15 +3167,15 @@
         </control>
     </include>
     
-    <include name="OSDInfoPanel">       
+    <include name="OSDInfoPanel">
         <control type="group" id="552233">
             <visible>Skin.HasSetting(EnableOSDInfo)</visible>
             <visible>[Player.Paused + Skin.HasSetting(OSDShowInfoOnPause)] | Player.ShowInfo | Window.IsActive(videoosd)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
             <include>HideOsdConditions</include>
-			<animation effect="fade" time="350">VisibleChange</animation>			
+			<animation effect="fade" time="350">VisibleChange</animation>
 			<include condition="Skin.HasSetting(UseNetflixOSDPanel) + Skin.HasSetting(EnableOSDInfo)">OSDInfoPanelNetflix</include>
-        </control>       
+        </control>
     </include>
 
 	<include name="OSDInfoPanelNetflix">
@@ -3289,7 +3300,7 @@
 		<value>$INFO[Player.Duration]</value>
 	</variable>
 	
-	<variable name="Player.Duration"> <!-- def osd, split from music ? -->
+	<variable name="Player.Duration">
 		<value condition="player.hasaudio + !player.paused">$VAR[PlayerDuration,[B]$LOCALIZE[180]: [/B]]</value>
 		<value condition="VideoPlayer.HasEpg + !player.hasaudio + !player.paused">$INFO[PVR.EpgEventDuration(h),[B]$LOCALIZE[180]: [/B],h]$INFO[PVR.EpgEventDuration(mm),,min]</value>
 		<value condition="!player.hasaudio + !player.paused">$INFO[Player.Duration(h),[B]$LOCALIZE[180]: [/B],h]$INFO[Player.Duration(mm),,min]</value>
@@ -3366,16 +3377,11 @@
 		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName][/B]</value>
 	</variable>
 	
-	<variable name="playtime_format"> <!-- check pvr -->
+	<variable name="playtime_format">
 		<value condition="VideoPlayer.HasEpg + String.IsEqual(PVR.EpgEventElapsedTime(hh),00)">$INFO[PVR.EpgEventElapsedTime(mm:ss)]</value>
 		<value condition="String.IsEqual(Player.Time(hh),00)">$INFO[Player.Time(mm:ss)]</value>
 		<value>$INFO[Player.Time]</value>
 	</variable>
-
-    <!-- PVR.Time => PVR.EpgEventElapsedTime
-    PVR.Duration => PVR.EpgEventDuration
-    PVR.Progress => PVR.EpgEventProgress -->
-
 
 	<variable name="timeremaining_format">
 		<value condition="[VideoPlayer.HasEpg + String.IsEqual(PVR.EpgEventRemainingTime(hh),00)]">$INFO[PVR.EpgEventRemainingTime(mm:ss)]</value>
@@ -3386,7 +3392,7 @@
 	<variable name="premiered_or_year">
 		<value condition="!VideoPlayer.Content(Movies)">$INFO[VideoPlayer.Premiered]</value>
 		<value>$INFO[VideoPlayer.year]</value>
-	</variable>								
+	</variable>
      
      <variable name="PlayerActionLabel">
 		<value condition="[Player.Paused + Player.Caching] + !Player.Seeking">[B]$LOCALIZE[15107]:[/B] $INFO[Player.CacheLevel]%</value>
@@ -3403,7 +3409,7 @@
 		<value condition="player.rewinding8x">[B]$LOCALIZE[31254][/B] x8</value>
 		<value condition="player.rewinding16x">[B]$LOCALIZE[31254][/B] x16</value>
 		<value condition="player.rewinding32x">[B]$LOCALIZE[31254][/B] x32</value>
-		<value condition="Skin.HasSetting(UseSlimOSDPanel) + [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + [Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B] - $VAR[PlayerFinishTime]</value>
+		<value condition="Skin.HasSetting(UseSlimOSDPanel) + [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + !Skin.HasSetting(EnableOSDInfo)">[B]$LOCALIZE[31112][/B]$VAR[PlayerFinishTime,[B]:-[/B]  ,]</value>
 		<value condition="!String.IsEmpty(player.FinishTime) + Player.paused + !Skin.HasSetting(UseSlimOSDPanel) | [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + [Skin.HasSetting(UseSlimOSDPanel) + Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B][CR]$VAR[PlayerFinishTime]</value>
 		<value condition="[!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)]">[B]$LOCALIZE[31112][/B]: $VAR[PlayerFinishTime]</value>
 	 </variable>
@@ -3450,15 +3456,13 @@
 		<value condition="!VideoPlayer.SubtitlesEnabled">$LOCALIZE[24022]</value>
 		<value>$LOCALIZE[209]</value>
 	 </variable>
-     
-    <include name="CurrentPlaylistSideBar">	 <!-- dont know where its used ??? -->
+    <include name="CurrentPlaylistSideBar">
         <!--fallback background -->
         <control type="group">
 			<include>GlobalBackground</include>
             <visible>[!Control.IsVisible(3333) | String.IsEmpty(Control.GetLabel(3333))] + [!Control.IsVisible(3334) | String.IsEmpty(Control.GetLabel(3334))]</visible>
 		</control>
          <include>NowPlayingBackground</include>
-
         <control type="group">
 			<include condition="skin.hastheme(classic)">MusicOSDClassic</include>
 			<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(UseSlimOSDPanel)">OSDPanelModern</include>
@@ -3526,8 +3530,6 @@
                 <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
             </control>
-
-		
             <!-- header -->
             <control type="label">
                 <posx>40</posx>
@@ -3550,8 +3552,6 @@
                 <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
                 <label>$INFO[Container.NumItems,, $LOCALIZE[31034]] - $INFO[Container.TotalTime]</label>
             </control>
-		
-		
             <!--Label Menu: -->
             <control type="image">
                 <!--Seperator-->
@@ -3673,9 +3673,7 @@
                     </control>
                 </focusedlayout>
             </control>
-
 		</control>
-		
     </include>
      
      <include name="HideOsdConditions">

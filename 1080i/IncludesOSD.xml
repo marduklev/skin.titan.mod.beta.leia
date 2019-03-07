@@ -349,7 +349,7 @@
                     <fadetime>200</fadetime>
                     <texture background="true">$VAR[OSDImage]</texture>
                     <aspectratio align="left" aligny="center">keep</aspectratio>
-					<visible>Player.HasVideo + [!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>	<!-- added	-->
+					<visible>Player.HasVideo + [!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
                 </control>
 				<!-- Cover livetv or poster n/a image -->
 				<control type="image">
@@ -3287,10 +3287,12 @@
         <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))">$INFO[Window(Home).Property(SkinHelper.Player.Art.Poster)]</value>
 		<value condition="!String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
 		<value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value>
+		<value condition="!String.IsEmpty(PVR.EpgEventIcon)">$INFO[PVR.EpgEventIcon]</value>
 		<value>DefaultVideo.png</value>
 	 </variable>
 	<variable name="OSDImagePVR_Streams"> <!-- pvr stuff, $INFO[ListItem.EpgEventIcon], $INFO[PVR.EpgEventIcon] -->
         <value condition="Skin.HasSetting(SkinHelper.EnablePVRThumbs)">http://localhost:52307/getthumb&amp;title=$ESCINFO[VideoPlayer.Title]</value>
+		<value condition="!String.IsEmpty(PVR.EpgEventIcon)">$INFO[PVR.EpgEventIcon]</value>
 		<value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value> <!-- Player.Icon start with switc pr, thelogodb/1+1.png-->
 		<value>$INFO[VideoPlayer.Cover]</value>
 	</variable>

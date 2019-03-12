@@ -210,7 +210,7 @@
 					<height>300</height>
 					<width>1260</width>
 					<orientation>horizontal</orientation>
-					<visible>Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,movie)]</visible>
+					<visible>Skin.HasSetting(View525_UseFixedLayout) + Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,movie)]</visible>
 					<animation effect="fade" start="0" end="100" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>
 					<itemlayout height="225" width="158">
 						<control type="image">
@@ -265,7 +265,7 @@
 				<left>48</left>
 				<width>484</width>
 				<height>274</height>
-				<texture border="2">netflix/frame/slimframe_hardedge.png</texture>
+				<texture border="2">$VAR[FocusFrame525]</texture>
 				<colordiffuse>$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</colordiffuse>
 				<visible>Skin.HasSetting(View525_UseFixedLayout)</visible>
 			</control>
@@ -274,7 +274,7 @@
 				<left>14</left>
 				<width>384</width>
 				<height>225</height>
-				<texture border="2">netflix/frame/slimframe_hardedge.png</texture> <!-- check,un-repack for themed(rounded) layout -->
+				<texture border="2">$VAR[FocusFrame525]</texture> <!-- check,un-repack for themed(rounded) layout instead of variable -->
 				<colordiffuse>$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</colordiffuse>
 				<visible>!Skin.HasSetting(View525_UseFixedLayout)</visible>
 				<animation effect="slide" start="0" end="-30,0" time="150" condition="Control.HasFocus(70) | Control.HasFocus(6002)">Conditional</animation>
@@ -381,7 +381,6 @@
 				<height>224</height>
 				<include>ThumbsViewItemLayout</include>
 				<animation effect="fade" start="100" end="20" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
 			</control> 
         </itemlayout>
         <focusedlayout width="380" height="220" condition="!Skin.HasSetting(View525_UseFixedLayout)">
@@ -421,4 +420,8 @@
         <value condition="Container.Content(episodes)">$INFO[ListItem.Label]</value>
         <value>$INFO[ListItem.TagLine]</value>
     </variable>
+	<variable name="FocusFrame525">
+		<value condition="Skin.HasTheme(modern_rounded)">netflix/frame/slimframe_modernrounded.png</value>
+        <value>netflix/frame/slimframe_hardedge.png</value>
+	</variable>
 </includes>

@@ -274,7 +274,7 @@
 				<left>14</left>
 				<width>384</width>
 				<height>225</height>
-				<texture border="2">netflix/frame/slimframe_hardedge.png</texture>
+				<texture border="2">netflix/frame/slimframe_hardedge.png</texture> <!-- check,un-repack for themed(rounded) layout -->
 				<colordiffuse>$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</colordiffuse>
 				<visible>!Skin.HasSetting(View525_UseFixedLayout)</visible>
 				<animation effect="slide" start="0" end="-30,0" time="150" condition="Control.HasFocus(70) | Control.HasFocus(6002)">Conditional</animation>
@@ -284,21 +284,17 @@
 				<animation effect="slide" end="1520,0" time="300" condition="Container(525).Column(4)">conditional</animation>
 			</control>
 			<!-- discart fixed visible delay -->
-			<control type="image">
+			 <control type="image"> 
 				<visible>Skin.HasSetting(View525_UseFixedLayout) + Skin.HasSetting(View525_ShowCDart)</visible>
                 <width>200</width>
                 <height>200</height>
 				<bottom>80</bottom>
-                <left>450</left>
+                <posx>480</posx>
+				<fadetime>300</fadetime>
 				<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
 				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-				
-				<animation type="Container(525).OnNext | Container(525).OnPrevious" condition="Skin.HasSetting(View525_ShowCDart)">
-					<effect type="slide" start="-900,0" end="0,0" tween="back" easing="inout" time="1200" delay="100" />
-					<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="false" />
-				</animation>
 				<visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>
-			</control>
+			</control> 
 			
          	<!-- Scrollbars-->
 			<control type="group">
@@ -344,10 +340,10 @@
 			 <bottom>120</bottom>
 			 <height>270</height>
 			 <pagecontrol>60</pagecontrol>
-			 <scrolltime tween="cubic" easing="inout">300</scrolltime>
 			 <ondown condition="!Player.HasVideo + !Control.IsVisible(60)">9000</ondown>
 			 <ondown condition="Skin.HasSetting(EnableQuickJump) + Control.IsVisible(60) + !Player.HasVideo">7000</ondown>
 			 <ondown condition="!Skin.HasSetting(EnableQuickJump) + Control.IsVisible(60) + !Player.HasVideo">60</ondown>
+			 <include>trailer_onup</include>
 			 <include>View525_layout</include>
 		</control>
 	</include>
@@ -356,7 +352,6 @@
 		<control type="panel" id="525">
 			 <orientation>vertical</orientation>
 			 <pagecontrol>70</pagecontrol>
-			 <scrolltime tween="cubic" easing="inout">300</scrolltime>
 			 <left>15</left>
 			 <bottom>10</bottom>
 			 <height>440</height>
@@ -364,6 +359,8 @@
 			 <onright condition="!Control.IsVisible(70)">525</onright>
 			 <onright condition="Skin.HasSetting(EnableQuickJump) + Control.IsVisible(70)">6000</onright>
 			 <onright condition="!Skin.HasSetting(EnableQuickJump) + Control.IsVisible(70)">70</onright>
+			 <onup>525</onup>
+			 <ondown>525</ondown>
 			 <include>View525_layout</include>
 			 <animation effect="slide" start="0" end="-30,0" time="150" condition="Control.HasFocus(70) | Control.HasFocus(6002)">Conditional</animation>
 		</control>
@@ -371,12 +368,12 @@
     
     <include name="View525_layout">
         <viewtype label="31018">icons</viewtype>
+		<scrolltime tween="cubic" easing="in">425</scrolltime>
         <width>1910</width>
         <preloaditems>2</preloaditems>
         <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),525) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
 		<onleft>525</onleft>
         <onright>525</onright>
-		<include>trailer_onup</include>
 		<!-- non fixed -->
         <itemlayout width="380" height="224" condition="!Skin.HasSetting(View525_UseFixedLayout)">
 			<control type="group">
@@ -412,41 +409,6 @@
 				<include>AutoTrailerButton</include>
 				<include>ThumbsViewItemLayout</include>
 			</control>
-			<!-- - D I S C A R T -
-            <control type="image">
-                <width>200</width>
-                <height>200</height>
-                <top>0</top>
-                <left>0</left>
-				<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
-				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-				<animation effect="slide" center="auto" end="405,150" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(View525_ShowCDart)">
-					<effect type="slide" start="-900,0" end="0,0" tween="back" easing="inout" time="1200" delay="100" />
-					<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />
-				</animation>
-				<animation effect="rotate" end="-360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-                <visible>Skin.HasSetting(View525_ShowCDart)</visible>
-				<visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>
-			</control>
-			- disc refcetion -
-			<control type="image">
-				<width>200</width>
-				<height>200</height>
-				<top>0</top>
-                <left>0</left>
-				<texture background="true" flipy="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
-				<colordiffuse>cf505050</colordiffuse>
-				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-				<animation effect="slide" center="auto" end="405,350" time="0" condition="true">Conditional</animation>
-				<animation type="Conditional" condition="Skin.HasSetting(View525_ShowCDart)">
-					<effect type="slide" start="-900,0" end="0,0" tween="back" easing="inout" time="1200" delay="100" />
-					<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />
-				</animation>
-				<animation effect="rotate" end="360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-                <visible>Skin.HasSetting(View525_ShowCDart)</visible>
-				<visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>
-			</control> -->
 		</focusedlayout>
 	</include>
     

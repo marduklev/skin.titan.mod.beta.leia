@@ -708,7 +708,7 @@
             <onclick condition="Control.IsVisible(516)">Skin.ToggleSetting(View516_ShowCDart)</onclick>
             <onclick condition="Control.IsVisible(522)">Skin.ToggleSetting(View522_ShowCDart)</onclick>
             <onclick condition="Control.IsVisible(523)">Skin.ToggleSetting(View523_ShowCDart)</onclick>
-			<onclick condition="Control.IsVisible(525)">Skin.ToggleSetting(View525_ShowCDart)</onclick>
+			<onclick condition="Control.IsVisible(525) + Skin.HasSetting(View525_UseFixedLayout)">Skin.ToggleSetting(View525_ShowCDart)</onclick>
             <onclick condition="Control.IsVisible(50)">Skin.ToggleSetting(View50_ShowCDart)</onclick>
 			<selected>
             [Control.IsVisible(50) + Skin.HasSetting(View50_ShowCDart)] | 
@@ -724,14 +724,14 @@
             [Control.IsVisible(516) + Skin.HasSetting(View516_ShowCDart)] | 
             [Control.IsVisible(522) + Skin.HasSetting(View522_ShowCDart)] | 
             [Control.IsVisible(523) + Skin.HasSetting(View523_ShowCDart)] | 			
-            [Control.IsVisible(525) + Skin.HasSetting(View525_ShowCDart)]
+            [[Control.IsVisible(525) + Skin.HasSetting(View525_UseFixedLayout)] + Skin.HasSetting(View525_ShowCDart)]
             </selected>
 			<visible>
             Control.IsVisible(504) | Control.IsVisible(58) | Control.IsVisible(508) | Control.IsVisible(59) | Control.IsVisible(522) | 
             Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(51) | Control.IsVisible(52) | 
-            Control.IsVisible(502) | Control.IsVisible(523) | [Control.IsVisible(50) + Container.Content(movies)] |
+            Control.IsVisible(502) | Control.IsVisible(523) | [Control.IsVisible(525) + Skin.HasSetting(View525_UseFixedLayout)] | [Control.IsVisible(50) + Container.Content(movies)] |
             [Control.IsVisible(516) + [Container.Content(albums) | Container.Content(songs)] + !String.IsEmpty(ListItem.Album) + !String.IsEmpty(ListItem.Thumb)]
-            </visible><!--  | Control.IsVisible(525) -->
+            </visible>
             <visible>!Control.IsVisible(88882) + !Control.IsVisible(88883)</visible>
 		</control>
 
@@ -763,8 +763,8 @@
             [Control.IsVisible(513) + Skin.HasSetting(View513_ShowCDart)] | 
             [Control.IsVisible(514) + Skin.HasSetting(View514_ShowCDart)] | 
             [Control.IsVisible(522) + Skin.HasSetting(View522_ShowCDart)] | 
-            [Control.IsVisible(523) + Skin.HasSetting(View523_ShowCDart)]<!--  | 
-			[Control.IsVisible(525) + Skin.HasSetting(View525_ShowCDart)] -->
+            [Control.IsVisible(523) + Skin.HasSetting(View523_ShowCDart)] | 
+			[[Skin.HasSetting(View525_UseFixedLayout) + Skin.HasSetting(View525_ShowCDart)] + Skin.HasSetting(View525_ShowCDart)]
 			</visible>
             <visible>!Control.IsVisible(88882) + !Control.IsVisible(88883)</visible>
 		</control>

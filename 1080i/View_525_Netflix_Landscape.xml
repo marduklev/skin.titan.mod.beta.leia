@@ -284,7 +284,7 @@
 				<animation effect="slide" end="1520,0" time="300" condition="Container(525).Column(4)">conditional</animation>
 			</control>
 			<!-- discart fixed visible delay -->
-			<!-- <control type="image">
+			<control type="image">
 				<visible>Skin.HasSetting(View525_UseFixedLayout) + Skin.HasSetting(View525_ShowCDart)</visible>
                 <width>200</width>
                 <height>200</height>
@@ -292,10 +292,15 @@
                 <left>450</left>
 				<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
 				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-				<animation effect="fade" start="0" end="100" center="auto" time="1200" reversible="false" condition="Skin.HasSetting(View525_ShowCDart) + !Control.IsVisible(5256153)">Conditional</animation>
-                <visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>
-			</control> -->
-			<!-- Scrollbars-->
+				
+				<animation type="Container(525).OnNext | Container(525).OnPrevious" condition="Skin.HasSetting(View525_ShowCDart)">
+					<effect type="slide" start="-900,0" end="0,0" tween="back" easing="inout" time="1200" delay="100" />
+					<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="false" />
+				</animation>
+				<visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>
+			</control>
+			
+         	<!-- Scrollbars-->
 			<control type="group">
 				<!-- horizontal -->
 				<control type="scrollbar" id="60">
@@ -313,7 +318,6 @@
 					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>					
 				</control>
 				<!-- vertical -->
-				<!-- make 2 includes with vis cond and call it, rather than define it every view ? -->
 				<control type="scrollbar" id="70">
 					<visible>!Skin.HasSetting(View525_UseFixedLayout) + Control.IsVisible(525) + Integer.IsGreater(Container.Numitems,10)</visible>
 					<right>5</right>
@@ -340,7 +344,7 @@
 			 <bottom>120</bottom>
 			 <height>270</height>
 			 <pagecontrol>60</pagecontrol>
-			 <scrolltime tween="cubic" easing="inout">400</scrolltime>
+			 <scrolltime tween="cubic" easing="inout">300</scrolltime>
 			 <ondown condition="!Player.HasVideo + !Control.IsVisible(60)">9000</ondown>
 			 <ondown condition="Skin.HasSetting(EnableQuickJump) + Control.IsVisible(60) + !Player.HasVideo">7000</ondown>
 			 <ondown condition="!Skin.HasSetting(EnableQuickJump) + Control.IsVisible(60) + !Player.HasVideo">60</ondown>
@@ -352,7 +356,7 @@
 		<control type="panel" id="525">
 			 <orientation>vertical</orientation>
 			 <pagecontrol>70</pagecontrol>
-			 <scrolltime tween="cubic" easing="inout">400</scrolltime>
+			 <scrolltime tween="cubic" easing="inout">300</scrolltime>
 			 <left>15</left>
 			 <bottom>10</bottom>
 			 <height>440</height>
@@ -408,7 +412,7 @@
 				<include>AutoTrailerButton</include>
 				<include>ThumbsViewItemLayout</include>
 			</control>
-			<!-- D I S C A R T -->
+			<!-- - D I S C A R T -
             <control type="image">
                 <width>200</width>
                 <height>200</height>
@@ -416,7 +420,7 @@
                 <left>0</left>
 				<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
 				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-				<animation effect="slide" center="auto" end="405,150" time="0" condition="true">Conditional</animation> <!-- to get image dont cut off -->
+				<animation effect="slide" center="auto" end="405,150" time="0" condition="true">Conditional</animation>
 				<animation type="Conditional" condition="Skin.HasSetting(View525_ShowCDart)">
 					<effect type="slide" start="-900,0" end="0,0" tween="back" easing="inout" time="1200" delay="100" />
 					<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />
@@ -425,7 +429,7 @@
                 <visible>Skin.HasSetting(View525_ShowCDart)</visible>
 				<visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>
 			</control>
-			<!-- disc refcetion -->
+			- disc refcetion -
 			<control type="image">
 				<width>200</width>
 				<height>200</height>
@@ -442,7 +446,7 @@
 				<animation effect="rotate" end="360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
                 <visible>Skin.HasSetting(View525_ShowCDart)</visible>
 				<visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>
-			</control>
+			</control> -->
 		</focusedlayout>
 	</include>
     

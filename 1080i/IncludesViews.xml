@@ -146,7 +146,7 @@
         <!-- scrollbar vertical -->
         <control type="group" id="6000">
 			<animation effect="slide" start="0" end="-1830" time="0" condition="Control.IsVisible(527)">Conditional</animation>
-			<visible>![Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(523) | Control.IsVisible(524) | Control.IsVisible(525)]</visible>
+			<visible>![Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(523) | Control.IsVisible(524) | [Control.IsVisible(525) + Skin.HasSetting(View525_UseFixedLayout)]]</visible>
 			<control type="button" id="6001">
                 <width>1</width>
                 <right>-1</right>
@@ -172,9 +172,10 @@
                 <bottom>0</bottom>
                 <height>100%</height>
                 <onleft condition="!Control.IsVisible(527)">5000</onleft>
-                <onright condition="!Control.IsVisible(527)">60</onright>
+                <onright condition="![Control.IsVisible(527) | [Control.IsVisible(525) + !Skin.HasSetting(View525_UseFixedLayout)]]">60</onright>
 				<onleft condition="Control.IsVisible(527)">60</onleft>
 				<onright condition="Control.IsVisible(527)">5000</onright>
+				<onright condition="Control.IsVisible(525) + !Skin.HasSetting(View525_UseFixedLayout)">70</onright>
 				<onup>6002</onup>
                 <ondown>6002</ondown>
                 <onback>5000</onback>
@@ -239,7 +240,7 @@
             <animation type="Conditional" condition="Control.IsVisible(507) + Skin.HasSetting(View_507_nofooterbar)">
 					<effect type="slide" start="0,0" end="0,100" time="300" tween="cubic" easing="inout" delay="0" />
 				</animation>
-			<visible>[Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(523) | Control.IsVisible(524) | Control.IsVisible(525)]</visible>
+			<visible>[Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(523) | Control.IsVisible(524) | [Control.IsVisible(525) + Skin.HasSetting(View525_UseFixedLayout)]]</visible>
             <control type="button" id="7001">
                 <width>1</width>
                 <right>-1</right>

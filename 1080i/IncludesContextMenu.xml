@@ -593,7 +593,7 @@
 		<control type="radiobutton" id="3051">
 			<!--fixed position-->
 			<include>SideBladeMenuButton</include>
-			<label>31511</label>
+			<label>$VAR[NetflixFixedVert]</label>
 			<onclick condition="Control.IsVisible(52)">Skin.ToggleSetting(View52_UseFixedLayout)</onclick>
 			<onclick condition="Control.IsVisible(525)">Skin.ToggleSetting(View525_UseFixedLayout)</onclick>
 			<selected>
@@ -1277,5 +1277,8 @@
 			</control>
 		</control>
     </include>
-
+	<variable name="NetflixFixedVert">
+		<value condition="Control.IsVisible(52)">$LOCALIZE[31511]</value>
+		<value condition="Control.IsVisible(525)">$LOCALIZE[31635]</value>
+	</variable>
 </includes>

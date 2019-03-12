@@ -271,15 +271,17 @@
 			</control>
 			<control type="image">
 				<bottom>225</bottom>
-				<left>48</left>
-				<width>406</width>
-				<height>226</height>
+				<left>14</left>
+				<width>384</width>
+				<height>225</height>
 				<texture border="2">netflix/frame/slimframe_hardedge.png</texture>
 				<colordiffuse>$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</colordiffuse>
 				<visible>!Skin.HasSetting(View525_UseFixedLayout)</visible>
-				<animation effect="slide" end="400,0" time="300" condition="Container(525).Column(1)" reversible="true">conditional</animation>
-				<animation effect="slide" end="800,0" time="300" condition="Container(525).Column(2)" reversible="true">conditional</animation>
-				<animation effect="slide" end="1200,0" time="300" condition="Container(525).Column(3)" reversible="true">conditional</animation>
+				<animation effect="slide" start="0" end="-30,0" time="150" condition="Control.HasFocus(70) | Control.HasFocus(6002)">Conditional</animation>
+				<animation effect="slide" end="380,0" time="300" condition="Container(525).Column(1)">conditional</animation>
+				<animation effect="slide" end="760,0" time="300" condition="Container(525).Column(2)">conditional</animation>
+				<animation effect="slide" end="1140,0" time="300" condition="Container(525).Column(3)">conditional</animation>
+				<animation effect="slide" end="1520,0" time="300" condition="Container(525).Column(4)">conditional</animation>
 			</control>
 			<!-- discart fixed visible delay -->
 			<!-- <control type="image">
@@ -293,8 +295,7 @@
 				<animation effect="fade" start="0" end="100" center="auto" time="1200" reversible="false" condition="Skin.HasSetting(View525_ShowCDart) + !Control.IsVisible(5256153)">Conditional</animation>
                 <visible>!Container.Content(episodes) | Container.Content(tvshows) | Container.Content(movies)</visible>
 			</control> -->
-			
-            <!-- Scrollbars-->
+			<!-- Scrollbars-->
 			<control type="group">
 				<!-- horizontal -->
 				<control type="scrollbar" id="60">
@@ -314,10 +315,10 @@
 				<!-- vertical -->
 				<!-- make 2 includes with vis cond and call it, rather than define it every view ? -->
 				<control type="scrollbar" id="70">
-					<visible>!Skin.HasSetting(View525_UseFixedLayout) + Control.IsVisible(525) + Integer.IsGreater(Container.Numitems,8)</visible>
-					<right>200</right>
+					<visible>!Skin.HasSetting(View525_UseFixedLayout) + Control.IsVisible(525) + Integer.IsGreater(Container.Numitems,10)</visible>
+					<right>5</right>
 					<bottom>5</bottom>
-					<width>20</width>
+					<width>17</width>
 					<height>430</height>
 					<onleft>525</onleft>
 					<onright>9000</onright>
@@ -335,6 +336,7 @@
 		<control type="fixedlist" id="525">
             <focusposition>0</focusposition>
 			 <orientation>horizontal</orientation>
+			 <left>50</left>
 			 <bottom>120</bottom>
 			 <height>270</height>
 			 <pagecontrol>60</pagecontrol>
@@ -351,19 +353,20 @@
 			 <orientation>vertical</orientation>
 			 <pagecontrol>70</pagecontrol>
 			 <scrolltime tween="cubic" easing="inout">400</scrolltime>
+			 <left>15</left>
 			 <bottom>10</bottom>
 			 <height>440</height>
 			 <onleft>9000</onleft>
-			 <onright condition="!Player.HasVideo + !Control.IsVisible(70)">9000</onright>
-			 <onright condition="Control.IsVisible(70) + !Player.HasVideo">70</onright>
-			  <!-- stay without no alphabet bar ? -->
-             <include>View525_layout</include>
+			 <onright condition="!Control.IsVisible(70)">525</onright>
+			 <onright condition="Skin.HasSetting(EnableQuickJump) + Control.IsVisible(70)">6000</onright>
+			 <onright condition="!Skin.HasSetting(EnableQuickJump) + Control.IsVisible(70)">70</onright>
+			 <include>View525_layout</include>
+			 <animation effect="slide" start="0" end="-30,0" time="150" condition="Control.HasFocus(70) | Control.HasFocus(6002)">Conditional</animation>
 		</control>
 	</include>
     
     <include name="View525_layout">
         <viewtype label="31018">icons</viewtype>
-        <left>50</left>
         <width>1910</width>
         <preloaditems>2</preloaditems>
         <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),525) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
@@ -371,18 +374,18 @@
         <onright>525</onright>
 		<include>trailer_onup</include>
 		<!-- non fixed -->
-        <itemlayout width="400" height="224" condition="!Skin.HasSetting(View525_UseFixedLayout)">
+        <itemlayout width="380" height="224" condition="!Skin.HasSetting(View525_UseFixedLayout)">
 			<control type="group">
-				<width>400</width>
+				<width>382</width>
 				<height>224</height>
 				<include>ThumbsViewItemLayout</include>
 				<animation effect="fade" start="100" end="20" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
 			</control> 
         </itemlayout>
-        <focusedlayout width="400" height="224" condition="!Skin.HasSetting(View525_UseFixedLayout)">
+        <focusedlayout width="380" height="220" condition="!Skin.HasSetting(View525_UseFixedLayout)">
 			<control type="group">
-				<width>400</width>
+				<width>382</width>
 				<height>224</height>
 				<include>AutoTrailerButton</include>
 				<include>ThumbsViewItemLayout</include>
@@ -406,7 +409,7 @@
 				<include>ThumbsViewItemLayout</include>
 			</control>
 			<!-- D I S C A R T -->
-            <control type="image" id="5256153">
+            <control type="image">
                 <width>200</width>
                 <height>200</height>
                 <top>0</top>

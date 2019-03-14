@@ -3389,6 +3389,14 @@
                 <param name="id" value="31017" />
                 <param name="addon" value="plugin.video.plexbmc" />
             </include>
+            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+                <param name="id" value="31020" />
+                <param name="addon" value="resource.images.gamestudios.grayscale" />
+            </include>
+            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+                <param name="id" value="31021" />
+                <param name="addon" value="plugin.program.advanced.emulator.launcher" />
+            </include>
         </control>
         <control type="scrollbar" id="3199"> 
             <right>-45</right>

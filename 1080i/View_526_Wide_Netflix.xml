@@ -158,6 +158,16 @@
 							<label>$INFO[ListItem.Label,[B],[/B]]</label>
 							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 						</control>
+						<control type="image">
+							<visible>Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0)</visible>
+							<right>-65</right>
+							<top>10</top>
+							<height>40</height>
+							<width>40</width>
+							<right>30</right>
+							<aligny>center</aligny>
+							<texture colordiffuse="$VAR[ToggleNetflixViewDetailsTextColor]">netflix/tickmark.png</texture>
+						</control>
 						<control type="label">
 							<top>20</top>
 							<height>40</height>
@@ -191,6 +201,16 @@
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label,[B],[/B]]</label>
 							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
+						</control>
+						<control type="image">
+							<visible>Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0)</visible>
+							<right>-65</right>
+							<top>10</top>
+							<height>40</height>
+							<width>40</width>
+							<right>30</right>
+							<aligny>center</aligny>
+							<texture colordiffuse="$VAR[ToggleNetflixViewDetailsTextColor]">netflix/tickmark.png</texture>
 						</control>
 						<control type="label">
 							<top>20</top>

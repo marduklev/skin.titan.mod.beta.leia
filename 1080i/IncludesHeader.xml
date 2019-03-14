@@ -222,7 +222,7 @@
             <selected>Control.HasFocus(99223)</selected>
             <texturefocus></texturefocus>
             <texturenofocus></texturenofocus>
-            <textureradiofocus colordiffuse="$INFO[Skin.String(HomeViewDetailsFocusColor)]">common/menu.png</textureradiofocus>
+            <textureradiofocus colordiffuse="$INFO[Skin.String(SecondaryHeaderTextColor)]">common/menu.png</textureradiofocus>
             <textureradionofocus colordiffuse="$INFO[Skin.String(HeaderTextColor)]">common/menu.png</textureradionofocus>
             <radiowidth>60</radiowidth>
             <radioheight>60</radioheight>
@@ -240,7 +240,7 @@
             <selected>Control.HasFocus(99227)</selected>
             <texturefocus></texturefocus>
             <texturenofocus></texturenofocus>
-            <textureradiofocus colordiffuse="$INFO[Skin.String(HomeViewDetailsFocusColor)]">touchcontrols/widget.png</textureradiofocus>
+            <textureradiofocus colordiffuse="$INFO[Skin.String(SecondaryHeaderTextColor)]">touchcontrols/widget.png</textureradiofocus>
             <textureradionofocus colordiffuse="$INFO[Skin.String(HeaderTextColor)]">touchcontrols/widget.png</textureradionofocus>
             <radiowidth>50</radiowidth>
             <radioheight>50</radioheight>
@@ -257,7 +257,7 @@
             <selected>Control.HasFocus(99224)</selected>
             <texturefocus></texturefocus>
             <texturenofocus></texturenofocus>
-            <textureradiofocus colordiffuse="$INFO[Skin.String(HomeViewDetailsFocusColor)]">common/shutdown2.png</textureradiofocus>
+            <textureradiofocus colordiffuse="$INFO[Skin.String(SecondaryHeaderTextColor)]">common/shutdown2.png</textureradiofocus>
             <textureradionofocus colordiffuse="$INFO[Skin.String(HeaderTextColor)]">common/shutdown2.png</textureradionofocus>
             <radiowidth>50</radiowidth>
             <radioheight>50</radioheight>
@@ -273,7 +273,7 @@
             <selected>Control.HasFocus(99225)</selected>
             <texturefocus></texturefocus>
             <texturenofocus></texturenofocus>
-            <textureradiofocus colordiffuse="$INFO[Skin.String(HomeViewDetailsFocusColor)]">touchcontrols/back.png</textureradiofocus>
+            <textureradiofocus colordiffuse="$INFO[Skin.String(SecondaryHeaderTextColor)]">touchcontrols/back.png</textureradiofocus>
             <textureradionofocus colordiffuse="$INFO[Skin.String(HeaderTextColor)]">touchcontrols/back.png</textureradionofocus>
             <radiowidth>50</radiowidth>
             <radioheight>50</radioheight>
@@ -289,7 +289,7 @@
             <selected>Control.HasFocus(99226)</selected>
             <texturefocus></texturefocus>
             <texturenofocus></texturenofocus>
-            <textureradiofocus colordiffuse="$INFO[Skin.String(HomeViewDetailsFocusColor)]">touchcontrols/home.png</textureradiofocus>
+            <textureradiofocus colordiffuse="$INFO[Skin.String(SecondaryHeaderTextColor)]">touchcontrols/home.png</textureradiofocus>
             <textureradionofocus colordiffuse="$INFO[Skin.String(HeaderTextColor)]">touchcontrols/home.png</textureradionofocus>
             <radiowidth>50</radiowidth>
             <radioheight>50</radioheight>
@@ -588,8 +588,8 @@
             <font>Reg26</font>
             <label>$VAR[ProfileLabel]</label>
             <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
-            <focusedcolor>$INFO[Skin.String(HomeViewDetailsFocusColor)]</focusedcolor>
-            <textureradiofocus colordiffuse="$INFO[Skin.String(HomeViewDetailsFocusColor)]">common/profil/avatar.png</textureradiofocus>
+            <focusedcolor>$INFO[Skin.String(SecondaryHeaderTextColor)]</focusedcolor>
+            <textureradiofocus colordiffuse="$INFO[Skin.String(SecondaryHeaderTextColor)]">common/profil/avatar.png</textureradiofocus>
             <textureradionofocus colordiffuse="$INFO[Skin.String(HeaderTextColor)]">common/profil/avatar.png</textureradionofocus>
             <textoffsetx>70</textoffsetx>
             <radioposx>0</radioposx>

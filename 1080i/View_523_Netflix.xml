@@ -72,7 +72,7 @@
 					<top>0</top>
                     <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$INFO[Container(5590).ListItem.Thumb]</texture>
                     <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-                    <visible>Control.HasFocus(5590) + !Player.HasVideo</visible>
+                    <visible>Control.IsVisible(5590) + !Player.HasVideo</visible>
 					<!-- move beyond clearlogo / title -->
 					<animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation>
 				</control>
@@ -260,8 +260,9 @@
 					<ondown>523</ondown>
 					<orientation>horizontal</orientation>
 					<focusposition>0</focusposition>
-					<visible allowhiddenfocus="true">Skin.HasSetting(ShowCastOnTrailer) + !String.IsEmpty(Control.GetLabel(5599))</visible>
-					<animation effect="fade" start="0" end="100" delay="200" time="3000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+					<defaultcontrol always="true">5051</defaultcontrol>
+					<visible allowhiddenfocus="true">Control.HasFocus(5590) + !String.IsEmpty(Control.GetLabel(5599))</visible>
+					<animation effect="fade" start="0" end="100" delay="200" time="3000" pulse="false" condition="Control.HasFocus(5590)">Conditional</animation>
 					<animation effect="slide" end="-400,0" time="0" pulse="false" condition="Skin.HasSetting(View523_SameHeight)">Conditional</animation>
 					
 					<itemlayout height="225" width="158">
@@ -287,10 +288,15 @@
 						</control>
 					</itemlayout>
 					<focusedlayout height="225" width="158">
+						<control type="button">
+							<visible allowhiddenfocus="true">false</visible>
+							<onfocus condition="!Player.HasVideo + String.IsEqual(Container(5590).ListItem.Property(contenttype),video)">PlayMedia($INFO[Container(5590).ListItem.Property(video)],1)</onfocus>
+							<onunfocus condition="Player.HasVideo">PlayerControl(Stop)</onunfocus>
+						</control>
 						<control type="image">
-							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultAddonGame.png">$INFO[Container(51).ListItem.Thumb]</texture>
+							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultAddonGame.png">$INFO[Container(5590).ListItem.Thumb]</texture>
 							<aspectratio scalediffuse="true" aligny="top" align="center">keep</aspectratio>
-							<bordersize>4</bordersize>
+							<bordersize>4</bordersize>							
 						</control>
 						<control type="label">
 							<font>Reg24</font>
@@ -362,8 +368,8 @@
 						<bottom>-200</bottom>
 						<include>PosterPanelLayoutNetflix</include>
 						<include>PosterThumbLayoutNonFocus</include>
-						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
-						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="Player.HasVideo">Conditional</animation>							
+						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)] + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
+						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
 					</control>		   
 					<!-- reflections -->
 					<control type="group">
@@ -371,8 +377,8 @@
 						<height>247</height>
 						<bottom>-433</bottom>
 						<include>PosterThumbLayoutNonFocusReflection</include>
-						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
-						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="Player.HasVideo">Conditional</animation>							
+						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)] + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
+						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
 					</control>		   
 				</itemlayout>		
 				<focusedlayout height="347" width="270" condition="!Skin.HasSetting(View523_SameHeight)">
@@ -405,7 +411,7 @@
 							<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />
 						</animation>
 							<!-- when cast active -->
-							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">
+							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + [[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | [Control.IsVisible(5590)]]">
 								<effect type="slide" start="0,0" end="-350,0" tween="back" easing="out" time="900" delay="100" />
 								<effect type="rotate" end="-360" center="auto" time="900" loop="true" reversible="true" />
 							</animation>
@@ -428,7 +434,7 @@
 							<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />
 						</animation>
 							<!-- when cast active -->
-							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">
+							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + [[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | [Control.IsVisible(5590)]]">
 								<effect type="slide" start="0,0" end="-350,0" tween="back" easing="out" time="900" delay="100" />
 								<effect type="rotate" end="-360" center="auto" time="900" loop="true" reversible="true" />
 							</animation>
@@ -443,8 +449,8 @@
 					<height>100%</height>
 					<bottom>-200</bottom>
 					<include>PosterPanelLayout</include>
-					<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
-					<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="Player.HasVideo">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)] + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
+					<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>
 				  </control>
 				</itemlayout>
 				<focusedlayout height="360" width="240" condition="Skin.HasSetting(View523_SameHeight)">
@@ -469,7 +475,7 @@
 							<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />
 						</animation>
 							<!-- when cast active -->
-							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">
+							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + [[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | [Control.IsVisible(5590)]">
 								<effect type="slide" start="0,0" end="-350,0" tween="back" easing="out" time="900" delay="100" />
 								<effect type="rotate" end="-360" center="auto" time="900" loop="true" reversible="true" />
 							</animation>

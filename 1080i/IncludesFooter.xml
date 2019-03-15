@@ -815,7 +815,7 @@
 		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)]">flags/metacritic.png</value>     
     </variable>  
 	<variable name="image_StudioLogo">
-		<value condition="!String.IsEmpty(Control.GetLabel(5599))">resource://resource.images.gamestudios.grayscale/$INFO[ListItem.Studio,,.png]</value>
+		<value condition="Skin.String(gamemode)">resource://resource.images.gamestudios.grayscale/$INFO[ListItem.Studio,,.png]</value>
 		<value condition="Skin.HasSetting(NoSHStudioInFooter)">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Studio].png</value>
         <value>$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value>				
 	</variable>

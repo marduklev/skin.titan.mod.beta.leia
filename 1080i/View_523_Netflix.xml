@@ -121,7 +121,7 @@
                     <aligny>center</aligny>
                     <label>[UPPERCASE]$INFO[ListItem.Title][/UPPERCASE]</label>
                     <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
-                    <visible>[String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29478),color_transparent) + !String.IsEmpty(Control.GetLabel(5599))] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(sets)]</visible> 
+                    <visible>[String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Skin.String(gamemode))] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(sets)]</visible> 
                 </control>
 				<!-- details -->
                 <control type="group">
@@ -207,7 +207,7 @@
 							
 				<!-- rating -->
                 <control type="group">
-					<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,movie) | !String.IsEmpty(Control.GetLabel(5599))]</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,movie) | Skin.String(gamemode)]</visible>
 					<right>60</right>
                     <height>150</height>
                     <width>1000</width>
@@ -261,7 +261,7 @@
 					<orientation>horizontal</orientation>
 					<focusposition>0</focusposition>
 					<defaultcontrol always="true">5051</defaultcontrol>
-					<visible allowhiddenfocus="true">Control.HasFocus(5590) + !String.IsEmpty(Control.GetLabel(5599))</visible>
+					<visible allowhiddenfocus="true">Control.HasFocus(5590) + Skin.String(gamemode)</visible>
 					<animation effect="fade" start="0" end="100" delay="200" time="3000" pulse="false" condition="Control.HasFocus(5590)">Conditional</animation>
 					<animation effect="slide" end="-400,0" time="0" pulse="false" condition="Skin.HasSetting(View523_SameHeight)">Conditional</animation>
 					
@@ -368,7 +368,7 @@
 						<bottom>-200</bottom>
 						<include>PosterPanelLayoutNetflix</include>
 						<include>PosterThumbLayoutNonFocus</include>
-						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)] + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
 					</control>		   
 					<!-- reflections -->
@@ -377,7 +377,7 @@
 						<height>247</height>
 						<bottom>-433</bottom>
 						<include>PosterThumbLayoutNonFocusReflection</include>
-						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)] + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
 					</control>		   
 				</itemlayout>		
@@ -411,13 +411,13 @@
 							<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />
 						</animation>
 							<!-- when cast active -->
-							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + [[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | [Control.IsVisible(5590)]]">
+							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + [[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)]">
 								<effect type="slide" start="0,0" end="-350,0" tween="back" easing="out" time="900" delay="100" />
 								<effect type="rotate" end="-360" center="auto" time="900" loop="true" reversible="true" />
 							</animation>
 						<animation effect="rotate" end="-360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 						<visible>Skin.HasSetting(View523_ShowCDart)</visible>
-						<visible>Container.Content(tvshows) | Container.Content(movies) | !String.IsEmpty(Control.GetLabel(5599))</visible>
+						<visible>Container.Content(tvshows) | Container.Content(movies) | Skin.String(gamemode)</visible>
 					</control>
 					<!-- disc reflection -->
 					<control type="image">
@@ -434,13 +434,13 @@
 							<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />
 						</animation>
 							<!-- when cast active -->
-							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + [[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | [Control.IsVisible(5590)]]">
+							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + [[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)]">
 								<effect type="slide" start="0,0" end="-350,0" tween="back" easing="out" time="900" delay="100" />
 								<effect type="rotate" end="-360" center="auto" time="900" loop="true" reversible="true" />
 							</animation>
 						<animation effect="rotate" end="360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 						<visible>Skin.HasSetting(View523_ShowCDart) + Skin.HasSetting(View523_DetailsShowFanart)</visible>
-						<visible>Container.Content(tvshows) | Container.Content(movies) | !String.IsEmpty(Control.GetLabel(5599))</visible>	
+						<visible>Container.Content(tvshows) | Container.Content(movies) | Skin.String(gamemode)</visible>	
 					</control>
 				</focusedlayout>
 				<itemlayout height="360" width="240" background="true" condition="Skin.HasSetting(View523_SameHeight)">
@@ -449,7 +449,7 @@
 					<height>100%</height>
 					<bottom>-200</bottom>
 					<include>PosterPanelLayout</include>
-					<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)] + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 					<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>
 				  </control>
 				</itemlayout>
@@ -475,13 +475,13 @@
 							<effect type="rotate" end="-360" center="auto" time="1200" loop="true" reversible="true" />
 						</animation>
 							<!-- when cast active -->
-							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + [[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | [Control.IsVisible(5590)]">
+							<animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart) + [[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)]">
 								<effect type="slide" start="0,0" end="-350,0" tween="back" easing="out" time="900" delay="100" />
 								<effect type="rotate" end="-360" center="auto" time="900" loop="true" reversible="true" />
 							</animation>
 						<animation effect="rotate" end="-360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 						<visible>Skin.HasSetting(View523_ShowCDart)</visible>
-						<visible>Container.Content(tvshows) | Container.Content(movies) | !String.IsEmpty(Control.GetLabel(5599))</visible>	
+						<visible>Container.Content(tvshows) | Container.Content(movies) | Skin.String(gamemode)</visible>	
 					</control>
 				</focusedlayout>
 			</control>

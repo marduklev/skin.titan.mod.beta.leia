@@ -573,6 +573,8 @@
 			<include>SideBladeMenuButton</include>
 			<label>31447</label>
 			<onclick>Skin.ToggleSetting(LogoViewPreferClearArt)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferLandscape)">Skin.ToggleSetting(LogoViewPreferLandscape)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferBanner)">Skin.ToggleSetting(LogoViewPreferBanner)</onclick>
 			<selected>Skin.HasSetting(LogoViewPreferClearArt)</selected>
 			<visible>Control.IsVisible(503) | Control.IsVisible(527)</visible>
 		</control>
@@ -581,6 +583,8 @@
 			<include>SideBladeMenuButton</include>
 			<label>Prefer Landscape</label>
 			<onclick>Skin.ToggleSetting(LogoViewPreferLandscape)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferBanner)">Skin.ToggleSetting(LogoViewPreferBanner)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferClearArt)">Skin.ToggleSetting(LogoViewPreferClearArt)</onclick>
 			<selected>Skin.HasSetting(LogoViewPreferLandscape)</selected>
 			<visible>Control.IsVisible(527)</visible>
 		</control>
@@ -589,6 +593,8 @@
 			<include>SideBladeMenuButton</include>
 			<label>Prefer Banner</label>
 			<onclick>Skin.ToggleSetting(LogoViewPreferBanner)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferLandscape)">Skin.ToggleSetting(LogoViewPreferLandscape)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferClearArt)">Skin.ToggleSetting(LogoViewPreferClearArt)</onclick>
 			<selected>Skin.HasSetting(LogoViewPreferBanner)</selected>
 			<visible>Control.IsVisible(527)</visible>
 		</control>

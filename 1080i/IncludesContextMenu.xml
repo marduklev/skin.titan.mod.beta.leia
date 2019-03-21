@@ -111,8 +111,7 @@
 				<include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
 			</control>
 			
-			
-            <control type="grouplist" id="996">
+			<control type="grouplist" id="996">
                 <width>458</width>
                 <posx>21</posx>
                 <posy>180</posy>
@@ -644,7 +643,7 @@
             <label>31719</label>
             <onclick>Skin.ToggleSetting(EnableInfoOverlay)</onclick>
             <selected>Skin.HasSetting(EnableInfoOverlay)</selected>
-            <visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)] + ![Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527)]</visible>
+            <visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)]</visible>
         </control>
 		<control type="radiobutton" id="33450">
         <!--netflix poster same height-->

@@ -223,7 +223,6 @@
 							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 						</control>
 					</control>
-					
 				</itemlayout>
 			</control>
 		

@@ -181,7 +181,6 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerActionLabel]</label>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 			</control>
 			
 			<control type="image">
@@ -241,7 +240,7 @@
 				<width>810</width>
 				<info>PVR.EpgEventProgress</info>
 				<visible>VideoPlayer.HasEpg</visible>
-			</control>		
+			</control>
 		</control>
 	</include>
     
@@ -517,8 +516,7 @@
 					<height>20</height>
 					<width>825</width>
 					<info>Player.ProgressCache</info>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 					<texturebg border="5" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
 					<lefttexture></lefttexture>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarCacheColor)]">diffuse/panel.png</midtexture>
@@ -534,8 +532,7 @@
 					<width>825</width>
 					<info>Player.Progress</info>
 					<!-- !Player.ChannelPreviewActive -->
-					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					<visible>!VideoPlayer.HasEpg</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture></lefttexture>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
@@ -550,7 +547,6 @@
 					<width>825</width>
 					<info>PVR.EpgEventProgress</info>
 					<visible>VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture></lefttexture>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
@@ -563,8 +559,7 @@
 					<posy>40</posy>
 					<height>20</height>
 					<width>825</width>
-					<visible>!String.IsEmpty(Player.Duration) | VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 					<texture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarBorderColor)]">diffuse/thinborder.png</texture>
 				</control>
                 <control type="slider" id="401">
@@ -590,7 +585,7 @@
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<label>$VAR[PlayerTime]</label>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 				</control>
 				<control type="label">
 					<!--Play Time Remain-->
@@ -602,8 +597,7 @@
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<label>$VAR[PlayerTimeRemaining]</label>
-					<visible>!String.IsEmpty(Player.Duration) | VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 				</control>
 				
 				<!-- media flags -->
@@ -654,7 +648,7 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerActionLabel]</label>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+				 
 			</control>
 				
 			<control type="label">
@@ -670,8 +664,7 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerDurationHoursMins]</label>
-				<visible>!String.IsEmpty(Player.Duration) | VideoPlayer.HasEpg</visible>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+				 
 			</control>	
 				
 			<control type="image">
@@ -721,7 +714,7 @@
 				<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
 				<visible>!Skin.HasSetting(EnableTouchSupport)</visible>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+				 
 				<animation type="Conditional" condition="player.paused | player.forwarding | player.rewinding">
 					<effect type="slide" start="0,0" end="0,-10" time="200" tween="cubic" easing="inout" delay="0" />
 				</animation>
@@ -1111,9 +1104,8 @@
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarCacheColor)]">diffuse/panel.png</midtexture>
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
-                    <visible>!Skin.String(OSDProgressBarCacheColor,None)</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					<visible>!Skin.String(OSDProgressBarCacheColor,None)</visible>
+					 
 				</control>
 				<control type="progress" id="23">
 					<description>Progress Bar</description>
@@ -1129,8 +1121,7 @@
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
 					<!-- <visible>!VideoPlayer.HasEpg + !Player.ChannelPreviewActive</visible> -->
-					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					<visible>!VideoPlayer.HasEpg</visible>
 				</control>
 				<control type="progress" id="23">
 					<description>Progress Bar PVR </description>
@@ -1146,7 +1137,6 @@
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
 					<visible>VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
                 <control type="slider" id="401">
                     <description>Seek Slider</description>
@@ -1172,7 +1162,7 @@
 					<textcolor>white</textcolor>
 					<shadowcolor></shadowcolor>
 					<label>$VAR[PlayerTime]</label>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 				</control>
 				<control type="label">
 					<!-- Play Time Remain -->
@@ -1184,8 +1174,7 @@
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<label>$VAR[PlayerTimeRemaining]</label>
-					<visible>!String.IsEmpty(Player.Duration) | VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 				</control>
 			</control>
 
@@ -1214,7 +1203,7 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerActionLabel]</label>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+				 
 				<animation effect="slide" center="auto" end="0,-200" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 			</control>
 			<!-- Label 3 - SHOWS GENRE INFO/Chapter -->
@@ -1227,7 +1216,7 @@
 				<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[OSDLabel3]</label>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show) + Skin.HasSetting(OSDLargeSeekingLabel) + Skin.HasSetting(EnableOSDInfo)</visible>
+				<visible>Skin.HasSetting(OSDLargeSeekingLabel) + Skin.HasSetting(EnableOSDInfo)</visible>
 			</control>
 			<!-- Label 3 - SHOWS GENRE INFO/Chapter BIG OFF-->
             <control type="label">
@@ -1239,7 +1228,7 @@
 				<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[OSDLabel3]</label>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show) + !Skin.HasSetting(OSDLargeSeekingLabel)</visible>
+				<visible>!Skin.HasSetting(OSDLargeSeekingLabel)</visible>
 			</control>
 		</control>
     </include>
@@ -1266,8 +1255,7 @@
 					<height>15</height>
 					<width>1152</width>
 					<info>Player.ProgressCache</info>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 					<!-- check, colordiffuse changed from white to custom -->
 					<texturebg border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarCacheColor)]">diffuse/panel.png</texturebg>
 					<lefttexture></lefttexture>
@@ -1283,8 +1271,7 @@
 					<height>15</height>
 					<width>1152</width>
 					<info>Player.Progress</info>
-					<visible>!String.IsEmpty(Player.Duration) + !VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					<visible>!VideoPlayer.HasEpg</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture></lefttexture>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
@@ -1299,7 +1286,6 @@
 					<width>1152</width>
 					<info>PVR.EpgEventProgress</info>
 					<visible>VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture></lefttexture>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
@@ -1312,8 +1298,7 @@
 					<posy>165</posy>
 					<height>15</height>
 					<width>1152</width>
-					<visible>!String.IsEmpty(Player.Duration) | VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 					<texture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarBorderColor)]">diffuse/thinborder.png</texture>
 				</control>
 				<control type="slider" id="401">
@@ -1340,7 +1325,7 @@
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<label>[B]$VAR[playtime_format][/B]</label>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 				</control>
 				<control type="label">
 					<!-- Play Time remaining -->
@@ -1352,7 +1337,7 @@
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<label>[B]$VAR[timeremaining_format][/B]</label>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 				</control>
 
 				<!-- media flags -->
@@ -1375,7 +1360,7 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerActionLabelLarge]</label>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+				 
 				<visible>!Skin.HasSetting(OSDLargeSeekingLabel)</visible>
 			</control>
 
@@ -1545,7 +1530,7 @@
 				<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
 				<visible>Skin.HasSetting(ShowClockRemainingTimeNetflixOSD)</visible>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+				 
 			</control>
 			<!-- SHOWS END TIME RIGHT ,check strange behaviour, uses animation from other include - e.g. normal have animation, slim has not -->
 		    <control type="label">
@@ -1558,7 +1543,7 @@
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerActionLabel]</label>
 				<visible>Skin.HasSetting(ShowClockRemainingTimeNetflixOSD)</visible>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+				 
 			</control>
 		</control>
 	</include>
@@ -1593,14 +1578,14 @@
                 </control>
 				<!-- cover background + cover image-->
                 <control type="image">
-						<posx>2</posx>
-						<bottom>3</bottom>
-						<width>330</width>
-						<height>330</height>
-                        <fadetime>200</fadetime>
-                        <bordersize>2</bordersize>
-                        <texture background="true" border="2" fallback="DefaultMusicSongs.png" diffuse="diffuse/music_cover_cd.png">$VAR[AudioPlayerCoverImage]</texture>
-                        <aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+					<posx>2</posx>
+					<bottom>3</bottom>
+					<width>330</width>
+					<height>330</height>
+					<fadetime>200</fadetime>
+					<bordersize>2</bordersize>
+					<texture background="true" border="2" fallback="DefaultMusicSongs.png" diffuse="diffuse/music_cover_cd.png">$VAR[AudioPlayerCoverImage]</texture>
+					<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
                 </control>
 			</control>
 
@@ -1646,20 +1631,7 @@
 					<visible>![Window.IsActive(musicosd) + !Window.IsVisible(OSDAudioSettings)]</visible>
 					<include>animation_fade_visible_hidden</include>
 				</control>
-				<!-- previous Title -->
-				<!--<control type="label">
-					<left>650</left>
-					<posy>-85</posy>
-					<width>890</width>
-					<align>left</align>
-					<font>Reg20</font>
-					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
-					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-					<label>[I][COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]vorheriger Track • [/COLOR][/I]$INFO[MusicPlayer.Offset(-1).Artist] - $INFO[MusicPlayer.Offset(-1).Title] • [COLOR=$INFO[Skin.String(OSDSecondaryTextColor)]]$LOCALIZE[554]:[/COLOR] $INFO[MusicPlayer.Offset(-1).PlaylistPosition]/$INFO[MusicPlayer.PlaylistLength]</label>
-					<visible>Window.IsActive(visualisation)</visible>
-					<visible>![Window.IsActive(musicosd) + !Window.IsVisible(OSDAudioSettings)]</visible>
-					<include>animation_fade_visible_hidden</include>
-				</control>-->
+				
                 <!-- media flags 
 				
                 <control type="group">
@@ -1684,8 +1656,7 @@
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarCacheColor)]">diffuse/panel.png</midtexture>
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
-					<visible>!String.IsEmpty(Player.Duration)</visible>
-                    <visible>!Skin.String(OSDProgressBarCacheColor,None)</visible>
+					<visible>!Skin.String(OSDProgressBarCacheColor,None)</visible>
 				</control>
 				<control type="progress" id="23">
 					<description>Progress Bar</description>
@@ -1701,7 +1672,7 @@
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
 					<!-- !Player.ChannelPreviewActive -->
-					<visible>!VideoPlayer.HasEpg + !String.IsEmpty(Player.Duration)</visible>
+					<visible>!VideoPlayer.HasEpg</visible>
 				</control>
 				<control type="progress" id="23">
 					<description>Progress Bar PVR</description>
@@ -1726,8 +1697,7 @@
 					<width>1230</width>
 					<posy>150</posy>
 					<height>20</height>
-					<visible>!String.IsEmpty(Player.Duration) | VideoPlayer.HasEpg</visible>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 					<texture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarBorderColor)]">diffuse/thinborder.png</texture>
 				</control>
 				<!--Process/Seekbar-->
@@ -1753,7 +1723,7 @@
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<label>$VAR[PlayerTime] / $VAR[MusicPlayerDuration]</label>
-					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+					 
 				</control>
 			
 				<control type="label">
@@ -1766,7 +1736,6 @@
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<label>$VAR[PlayerTimeRemaining]</label>
-					<visible>!String.IsEmpty(Player.Duration)  | VideoPlayer.HasEpg</visible>
 				</control>
 			</control>
             
@@ -2173,7 +2142,15 @@
 				<posy>205</posy>
 				<width>800</width>
 				<info>Player.Progress</info>
-				<visible>true</visible>
+				<visible>!VideoPlayer.HasEpg</visible>
+			</control>
+			<control type="progress" id="23">
+				<description>PVR Progress Bar</description>
+				<posx>700</posx>
+				<posy>205</posy>
+				<width>800</width>
+				<info>PVR.EpgEventProgress</info>
+				<visible>VideoPlayer.HasEpg</visible>
 			</control>
 		</control>
 	</include>
@@ -2854,7 +2831,7 @@
 			<texturesliderbar>colors/color_transparent.png</texturesliderbar>
 			<textureslidernib colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/seekslider_ball.png</textureslidernib>
 			<textureslidernibfocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">diffuse/seekslider_ball.png</textureslidernibfocus>
-			<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show) + !VideoPlayer.Content(LiveTV)</visible>
+			<visible>!VideoPlayer.Content(LiveTV)</visible>
 			<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(selectdialog)]</visible>     		
 			<animation effect="slide" center="auto" end="0,220" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 		</control>
@@ -2872,7 +2849,7 @@
 			<texturesliderbar>colors/color_transparent.png</texturesliderbar>
 			<textureslidernib colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/seekslider_ball.png</textureslidernib>
 			<textureslidernibfocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">diffuse/seekslider_ball.png</textureslidernibfocus>
-			<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show) + !VideoPlayer.Content(LiveTV)</visible>
+			<visible>!VideoPlayer.Content(LiveTV)</visible>
             <animation effect="slide" end="50" time="0" condition="player.hasaudio + !Skin.HasSetting(HideOSDDisc)">Conditional</animation>
 			<animation effect="slide" start="0" end="0,150" time="350" condition="Player.HasVideo + !Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
             <visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(selectdialog)]</visible>     		
@@ -2891,7 +2868,7 @@
 			<texturesliderbar>colors/color_transparent.png</texturesliderbar>
 			<textureslidernib colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/seekslider_ball.png</textureslidernib>
 			<textureslidernibfocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">diffuse/seekslider_ball.png</textureslidernibfocus>	<!-- diffuse/panel.png -->
-			<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show) + !VideoPlayer.Content(LiveTV)</visible>
+			<visible>!VideoPlayer.Content(LiveTV)</visible>
 			<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(selectdialog)]</visible>     		
         </control>
 	</include>
@@ -2926,7 +2903,7 @@
 				<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerActionLabelSmall]</label>
-				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
+				 
 			</control>
 			<!-- total runtime -->
 			<control type="label">
@@ -2937,7 +2914,6 @@
 				<font>Reg20</font>
 				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 				<label>$VAR[PlayerDuration,[B]$LOCALIZE[180]: [/B]]</label>
-				<visible>!String.IsEmpty(Player.Duration)</visible>
 			</control>
 
 			<control type="image">
@@ -2982,7 +2958,6 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerTime]</label>
-				<visible>!String.IsEmpty(Player.Duration)</visible>
 			</control>
 			<control type="label">
 				<!--remaining Time-->
@@ -2994,7 +2969,6 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerTimeRemaining]</label>
-				<visible>!String.IsEmpty(Player.Duration)</visible>
 			</control>
 			<control type="progress">
 				<description>ProgressbarCache</description>
@@ -3261,40 +3235,41 @@
 		</control>
 	</include>
 	<variable name="PlayerTime">
-		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventElapsedTime]</value> <!--  + !VideoPlayer.Content(livetv) -->
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !String.IsEmpty(PVR.EpgEventElapsedTime)">$INFO[PVR.EpgEventElapsedTime]</value> <!--  + !VideoPlayer.Content(livetv) -->
 		<value>$INFO[Player.Time]</value>
 	</variable>
 	<variable name="PlayerTimeRemaining">
-		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventRemainingTime, ,]</value> <!--  + !VideoPlayer.Content(livetv) -->
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !String.IsEmpty(PVR.EpgEventRemainingTime)">$INFO[PVR.EpgEventRemainingTime, ,]</value> <!--  + !VideoPlayer.Content(livetv) -->
 		<value>$INFO[Player.TimeRemaining, ,]</value>
 	</variable>
 	<variable name="PlayerFinishTime">
-		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventFinishTime]</value> <!--  + !VideoPlayer.Content(livetv) -->
+		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.EndTime]</value> <!--  $INFO[PVR.EpgEventFinishTime] + !VideoPlayer.Content(livetv) -->
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !String.IsEmpty(PVR.EpgEventFinishTime)">$INFO[PVR.EpgEventFinishTime]</value> <!--  $INFO[PVR.EpgEventFinishTime] + !VideoPlayer.Content(livetv) -->
 		<value>$INFO[Player.FinishTime]</value>
 	</variable>
 	<variable name="PlayerDuration">
-		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventDuration]</value> <!--  + !VideoPlayer.Content(livetv) -->
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !String.IsEmpty(PVR.EpgEventDuration)">$INFO[PVR.EpgEventDuration]</value> <!--  + !VideoPlayer.Content(livetv) -->
 		<value>$INFO[Player.Duration]</value>
 	</variable>
 	<variable name="MusicPlayerDuration">
-		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventDuration]</value>
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !String.IsEmpty(PVR.EpgEventDuration)">$INFO[PVR.EpgEventDuration]</value>
 		<value condition="player.hasaudio">$INFO[MusicPlayer.Duration]</value>
 	</variable>
 	<variable name="PlayerDurationHoursMins">
 		<value condition="player.hasaudio + !player.paused">$VAR[PlayerDuration,[B]$LOCALIZE[180]: [/B]]</value>
-		<value condition="VideoPlayer.HasEpg + !player.hasaudio + !player.paused">$INFO[PVR.EpgEventDuration(h),[B]$LOCALIZE[180]: [/B],h]$INFO[PVR.EpgEventDuration(mm),,min]</value>
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !player.hasaudio + !player.paused">$INFO[PVR.EpgEventDuration(h),[B]$LOCALIZE[180]: [/B],h]$INFO[PVR.EpgEventDuration(mm),,min]</value>
 		<value condition="!player.hasaudio + !player.paused">$INFO[Player.Duration(h),[B]$LOCALIZE[180]: [/B],h]$INFO[Player.Duration(mm),,min]</value>
 		<value condition="player.hasaudio + player.paused">$VAR[PlayerDuration,[B]$LOCALIZE[180][CR][/B]]</value>
-		<value condition="VideoPlayer.HasEpg + !player.hasaudio + player.paused">$INFO[PVR.EpgEventDuration(h),[B]$LOCALIZE[180][CR][/B],h]$INFO[PVR.EpgEventDuration(mm),,min]</value>		
-		<value condition="!player.hasaudio + player.paused">$INFO[Player.Duration(h),[B]$LOCALIZE[180][CR][/B],h]$INFO[Player.Duration(mm),,min]</value>		
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !player.hasaudio + player.paused">$INFO[PVR.EpgEventDuration(h),[B]$LOCALIZE[180][CR][/B],h]$INFO[PVR.EpgEventDuration(mm),,min]</value>
+		<value condition="!player.hasaudio + player.paused">$INFO[Player.Duration(h),[B]$LOCALIZE[180][CR][/B],h]$INFO[Player.Duration(mm),,min]</value>
 	</variable>
 	<variable name="playtime_format">
-		<value condition="VideoPlayer.HasEpg + String.IsEqual(PVR.EpgEventElapsedTime(hh),00)">$INFO[PVR.EpgEventElapsedTime(mm:ss)]</value>
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + String.IsEqual(PVR.EpgEventElapsedTime(hh),00)">$INFO[PVR.EpgEventElapsedTime(mm:ss)]</value>
 		<value condition="String.IsEqual(Player.Time(hh),00)">$INFO[Player.Time(mm:ss)]</value>
 		<value>$INFO[Player.Time]</value>
 	</variable>
 	<variable name="timeremaining_format">
-		<value condition="[VideoPlayer.HasEpg + String.IsEqual(PVR.EpgEventRemainingTime(hh),00)]">$INFO[PVR.EpgEventRemainingTime(mm:ss)]</value>
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + String.IsEqual(PVR.EpgEventRemainingTime(hh),00)">$INFO[PVR.EpgEventRemainingTime(mm:ss)]</value>
 		<value condition="String.IsEqual(Player.TimeRemaining(hh),00)">$INFO[Player.TimeRemaining(mm:ss)]</value>
 		<value>$VAR[PlayerTimeRemaining]</value>
 	</variable>
@@ -3317,9 +3292,9 @@
 	</variable>
 	<variable name="OSDLabel1">
         <value condition="Player.HasVideo + String.IsEqual(Window(Home).Property(subtitlemenu), show)">$LOCALIZE[287]</value>
-        <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumberLabel,, - ]$INFO[VideoPlayer.ChannelName]</value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + Player.IsInternetStream + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName)) + String.IsEmpty(VideoPlayer.TvShowTitle)">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
-        <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(episodes) + !String.IsEmpty(VideoPlayer.TvShowTitle)">$INFO[VideoPlayer.TVShowTitle] • $LOCALIZE[20373] $INFO[VideoPlayer.Season]</value>
+        <value condition="Player.HasVideo + VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumberLabel,, - ]$INFO[VideoPlayer.ChannelName]</value>
+		<value condition="Player.HasVideo + Player.IsInternetStream + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName)) + String.IsEmpty(VideoPlayer.TvShowTitle)">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
+        <value condition="Player.HasVideo + VideoPlayer.Content(episodes) + !String.IsEmpty(VideoPlayer.TvShowTitle)">$INFO[VideoPlayer.TVShowTitle] • $LOCALIZE[20373] $INFO[VideoPlayer.Season]</value>
         <value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]</value>
         <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.ChannelName)">$INFO[MusicPlayer.ChannelName]</value>
         <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.ChannelName) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName))">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
@@ -3327,9 +3302,9 @@
 	 </variable>
      
 	<variable name="OSDLabel2">
-        <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(Episodes)">$INFO[VideoPlayer.Episode]. $INFO[VideoPlayer.Title]</value>
-        <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName]</value>
-        <value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show)">$INFO[VideoPlayer.Title]</value>
+        <value condition="Player.HasVideo + VideoPlayer.Content(Episodes)">$INFO[VideoPlayer.Episode]. $INFO[VideoPlayer.Title]</value>
+        <value condition="Player.HasVideo + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName]</value>
+        <value condition="Player.HasVideo">$INFO[VideoPlayer.Title]</value>
     </variable>
     <variable name="OSDLabel3">
         <value condition="Player.HasVideo + VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.NextTitle) + !Window.IsActive(VideoOSD)">$LOCALIZE[19031]: $INFO[VideoPlayer.NextTitle]</value>
@@ -3355,18 +3330,18 @@
 		
 	<variable name="OSDLabel7">
 		<value condition="Player.HasVideo + String.IsEqual(Window(Home).Property(subtitlemenu), show)"></value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumberLabel,,: ]$INFO[VideoPlayer.ChannelName]</value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + Player.IsInternetStream + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName)) + String.IsEmpty(VideoPlayer.TvShowTitle)">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(episodes) + !String.IsEmpty(VideoPlayer.TvShowTitle)">$INFO[VideoPlayer.TVShowTitle]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumberLabel,,: ]$INFO[VideoPlayer.ChannelName]</value>
+		<value condition="Player.HasVideo + Player.IsInternetStream + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName)) + String.IsEmpty(VideoPlayer.TvShowTitle)">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(episodes) + !String.IsEmpty(VideoPlayer.TvShowTitle)">$INFO[VideoPlayer.TVShowTitle]</value>
 		<value condition="Player.HasAudio + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName))">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show)">$INFO[VideoPlayer.Title]</value>
+		<value condition="Player.HasVideo">$INFO[VideoPlayer.Title]</value>
 		<value>$LOCALIZE[31040]</value>
 	</variable>
 
 	<variable name="OSDLabel8">
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(Episodes)">$INFO[VideoPlayer.Season,$LOCALIZE[20373] , | ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] , | ][B]$INFO[VideoPlayer.Title][/B]</value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(Movies)">[B]$INFO[VideoPlayer.year][/B]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName][/B]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(Episodes)">$INFO[VideoPlayer.Season,$LOCALIZE[20373] , | ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] , | ][B]$INFO[VideoPlayer.Title][/B]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(Movies)">[B]$INFO[VideoPlayer.year][/B]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName][/B]</value>
 	</variable>
 	
 	<variable name="premiered_or_year">

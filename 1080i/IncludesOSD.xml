@@ -458,7 +458,7 @@
 				
 				<!-- OSD label 3 Genre Chapter Info , BIG OFF-->
 				<control type="label">
-					<right>435</right>
+					<right>440</right>
 					<posy>10</posy>
 					<font>Reg26</font>
 					<width>800</width>

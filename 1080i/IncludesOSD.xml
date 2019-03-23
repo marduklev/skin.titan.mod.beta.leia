@@ -2485,7 +2485,7 @@
 			<onright>200</onright>
 			<orientation>horizontal</orientation>
 			<animation effect="slide" end="180,-50" time="0" condition="player.hasaudio + Skin.HasSetting(UseSlimOSDPanel)">Conditional</animation>	
-			<animation effect="slide" end="70,15" time="0" condition="player.hasaudio + !Skin.HasSetting(UseSlimOSDPanel)">Conditional</animation>
+			<animation effect="slide" end="70,-5" time="0" condition="player.hasaudio + !Skin.HasSetting(UseSlimOSDPanel)">Conditional</animation>
 			<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(selectdialog)]</visible>
 			<control type="togglebutton" id="201">
 				<description>Skip Back or previous channel</description>

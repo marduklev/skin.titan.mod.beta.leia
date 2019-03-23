@@ -665,7 +665,7 @@
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerDurationHoursMins]</label>
 				 
-			</control>	
+			</control>
 				
 			<control type="image">
 				<visible>player.paused</visible>
@@ -1203,9 +1203,20 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerActionLabel]</label>
-				 
 				<animation effect="slide" center="auto" end="0,-200" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
 			</control>
+			<!--Total duration-->
+			<!-- <control type="label">
+				<animation effect="slide" center="auto" end="0,-400" time="350" condition="!Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+				<right>60</right>
+				<bottom>5</bottom>
+				<width>890</width>
+				<align>right</align>
+				<font>Light30</font>
+				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
+				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
+				<label>$VAR[PlayerDurationHoursMins]</label>
+			</control> -->
 			<!-- Label 3 - SHOWS GENRE INFO/Chapter -->
             <control type="label">
 				<posx>1630</posx>
@@ -3364,7 +3375,7 @@
 		<value condition="player.rewinding8x">[B]$LOCALIZE[31254][/B] x8</value>
 		<value condition="player.rewinding16x">[B]$LOCALIZE[31254][/B] x16</value>
 		<value condition="player.rewinding32x">[B]$LOCALIZE[31254][/B] x32</value>
-		<value condition="Skin.HasSetting(UseSlimOSDPanel) + [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + !Skin.HasSetting(EnableOSDInfo)">[B]$LOCALIZE[31112][/B]$VAR[PlayerFinishTime,[B]:-[/B]  ,]</value>
+		<value condition="Skin.HasSetting(UseSlimOSDPanel) + [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + !Skin.HasSetting(EnableOSDInfo)">[B]$LOCALIZE[31112][/B]$VAR[PlayerFinishTime,[B]:[/B]  ,]</value> <!-- doesnt fit in slim $VAR[PlayerDuration,[B]$LOCALIZE[180]: [/B]] -->
 		<value condition="!String.IsEmpty(player.FinishTime) + Player.paused + !Skin.HasSetting(UseSlimOSDPanel) | [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + [Skin.HasSetting(UseSlimOSDPanel) + Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B][CR]$VAR[PlayerFinishTime]</value>
 		<value condition="[!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)]">[B]$LOCALIZE[31112][/B]: $VAR[PlayerFinishTime]</value>
 	 </variable>

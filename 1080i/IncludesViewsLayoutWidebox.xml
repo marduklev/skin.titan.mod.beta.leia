@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+
+	<!-- WIDEBOX LAYOUT -->
+	<include name="WideboxLayout">
+		<control type="image">
+			<colordiffuse>ff4c0000</colordiffuse>
+			<include>WideboxThumbBG</include>
+			<include condition="Skin.String(thumbsborder_unfocused, 2) | Skin.String(thumbsborder_unfocused, 4) | Skin.String(thumbsborder_unfocused, 6)">thumbborder_2</include>
+			<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
+		</control>
+		<include>WideBoxThumbLayout</include>
+		<!--
+		<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
+		<control type="group">
+			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
+		</control>
+		-->
+		<control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorNormal</include>
+			<animation type="Conditional" condition="skin.hastheme(classic)">
+				<effect type="slide" end="3,-3" time="0" />
+			</animation>
+		</control>
+	</include>
+
+	<include name="WideboxLayoutFocus">
+		<control type="image">
+			<!--
+			<animation effect="zoom" end="102,102" time="0" condition="Skin.HasSetting(CaseOverlays)">Conditional</animation>
+			-->
+			<include>WideboxThumbFO</include>
+			<include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
+			<include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
+			<include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
+		</control>
+		<include>WideBoxThumbLayout</include>
+		<!--
+		<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
+		<control type="group">
+			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
+		</control>
+		-->
+		<control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorNormal</include><!-- check make side menu option or skinotion to choose small or default <include>WatchedIndicatorSmall</include> -->
+			<animation type="Conditional" condition="skin.hastheme(classic)">
+				<effect type="slide" end="3,-3" time="0" />
+			</animation>
+			<animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
+				<effect type="slide" end="6,0" time="0" />
+			</animation>
+		</control>
+	</include>
+
+	<include name="WideboxLayoutNonFocus">
+		<control type="image">
+			<description>Normal widebox thumb stretched aspect</description>
+			<texture border="1" background="true" diffuse="diffuse/wide.png" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+			<colordiffuse>cf505050</colordiffuse>			
+			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
+			<bordersize>8</bordersize>
+		</control>
+	</include>
+
+	<!-- add reflections-->
+	<include name="WideboxLayoutNonFocusReflection">
+		<control type="image">
+			<description>Normal widebox thumb stretched aspect</description>
+			<texture border="1" background="true" diffuse="diffuse/wide.png" flipy="true" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+			<colordiffuse>cf505050</colordiffuse>
+			<aspectratio scalediffuse="true" aligny="top" align="center">stretch</aspectratio>
+			<bordersize>8</bordersize>
+		</control>
+	</include>
+
+	<include name="WideBoxThumbLayout">
+		<control type="image">
+			<description>Widebox thumb stretched aspect</description>
+			<texture border="1" background="true" diffuse="diffuse/wide.png" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
+			<bordersize>8</bordersize>
+		</control>
+	</include>
+
+	<include name="WideboxThumbLayoutReflection">
+		<control type="image">
+			<description>Normal widebox thumb stretched aspect</description>
+			<texture border="1" background="true" diffuse="diffuse/wide.png" flipy="true" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+			<colordiffuse></colordiffuse>		
+			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
+			<bordersize>8</bordersize>
+		</control>
+	</include>
+	<!-- SMALL POSTER LAYOUT -->
+	<include name="SmallPosterPanelLayout">
+		<control type="image">
+			<include>PosterThumbBG</include>
+			<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
+			<include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
+			<include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
+			<include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
+		</control>
+		<include>PosterThumbLayout</include>
+		<include condition="!Window.IsActive(Home)">SmallPosterTagOverlay</include>
+		<control type="group">
+			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
+		</control>
+		<control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorSmall</include>
+			<animation type="Conditional" condition="skin.hastheme(classic)">
+				<effect type="slide" end="3,-3" time="0" />
+			</animation>
+		</control>
+	</include>
+	<include name="SmallPosterPanelLayoutFocus">
+		<control type="image">
+			<include>PosterThumbFO</include>
+			<include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
+			<include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
+			<include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
+		</control>
+		<include>PosterThumbLayout</include>
+		<include condition="!Window.IsActive(Home)">SmallPosterTagOverlay</include>
+		<control type="group">
+			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
+		</control>
+		<control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorSmall</include>
+			<animation type="Conditional" condition="skin.hastheme(classic)">
+				<effect type="slide" end="3,-3" time="0" />
+			</animation>
+		</control>
+	</include>
+
+	<!-- GENERIC LAYOUT FOR WIDEBOXES -->
+	<include name="WideboxThumbBG">
+		<texture border="0">diffuse/wide.png</texture>
+		<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+	</include>
+	<include name="WideboxThumbFO">
+		<texture border="0">diffuse/wide.png</texture>
+		<colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+	</include>
+	
+	<!-- Poster thumb vars -->
+	<variable name="PosterThumb">
+		<value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster)]</value>
+		<value condition="Container.Content(seasons) + String.StartsWith(ListItem.Label,*) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + !String.IsEmpty(Container.Art(season.poster)) + !String.Contains(Container.FolderPath,season=-)">$INFO[Container.Art(season.poster)]</value>
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(Container.Art(poster))">$INFO[Container.Art(poster)]</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(Container.Art(tvshow.poster))">$INFO[Container.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Poster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(poster))">$INFO[ListItem.Property(poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(tvshow.poster))">$INFO[ListItem.Property(tvshow.poster)]</value>
+		<value condition="String.Contains(Container.FolderPath,pvr://) + String.IsEqual(Container.ListItem.Label,ListItem.Label)">$VAR[PVRThumb]</value>
+		<value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+		<value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack.png</value>
+		<value condition="String.IsEqual(ListItem.Label,$LOCALIZE[21452])">dialogs/filebrowser/DefaultAddSource.png</value>
+		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + !String.Contains(ListItem.FolderPath,music)">$VAR[MovieGenreIconVar]</value>
+		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVar]</value>
+		<value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)] + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.StudioLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value>
+		<!-- $INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Label].png
+		default <value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)] + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.StudioLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value> -->
+		<value condition="Container.Content(actors) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
+		<value condition="Container.Content(directors) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(countries)">DefaultCountry.png</value>
+	  	<!-- 
+		<value condition="Container.Content(countries)">resource://resource.images.skinicons.wide/Country.png</value> -->
+		<value condition="Container.Content(tags)">DefaultTags.png</value>
+		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+	</variable>
+
+</includes>

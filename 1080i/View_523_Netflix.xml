@@ -121,7 +121,7 @@
                     <aligny>center</aligny>
                     <label>[UPPERCASE]$INFO[ListItem.Title][/UPPERCASE]</label>
                     <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
-                    <visible>[String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Skin.String(gamemode)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(sets)]</visible> 
+                    <visible>[String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29478),color_transparent) + $EXP[InGameMode]] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(sets)]</visible> 
                 </control>
 				<!-- details -->
                 <control type="group">
@@ -169,9 +169,9 @@
                     <posy>350</posy>
                     <height>310</height>
                     <orientation>vertical</orientation>
-                    <control type="textbox">
+					<control type="textbox">
                         <height>200</height>
-                        <label>$VAR[Plots]</label>
+						<label>$VAR[Plots]</label>
                         <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
                         <align>justify</align>
                         <font>Reg24</font>
@@ -207,7 +207,7 @@
 							
 				<!-- rating -->
                 <control type="group">
-					<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,movie) | Skin.String(gamemode)]</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,movie) | $EXP[InGameMode]]</visible>
 					<right>60</right>
                     <height>150</height>
                     <width>1000</width>
@@ -261,7 +261,7 @@
 					<orientation>horizontal</orientation>
 					<focusposition>0</focusposition>
 					<defaultcontrol always="true">5051</defaultcontrol>
-					<visible allowhiddenfocus="true">Control.HasFocus(5590) + Skin.String(gamemode)</visible>
+					<visible allowhiddenfocus="true">Control.HasFocus(5590) + $EXP[InGameMode]</visible>
 					<animation effect="fade" start="0" end="100" delay="200" time="3000" pulse="false" condition="Control.HasFocus(5590)">Conditional</animation>
 					<animation effect="slide" end="-400,0" time="0" pulse="false" condition="Skin.HasSetting(View523_SameHeight)">Conditional</animation>
 					
@@ -360,6 +360,7 @@
 				
 				<include>trailer_onup</include>
 				
+				<!-- Netflix Poster shapes -->
 				<itemlayout height="247" width="170" background="true" condition="!Skin.HasSetting(View523_SameHeight)">
 					
 					<control type="group">
@@ -417,7 +418,7 @@
 							</animation>
 						<animation effect="rotate" end="-360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 						<visible>Skin.HasSetting(View523_ShowCDart)</visible>
-						<visible>Container.Content(tvshows) | Container.Content(movies) | Skin.String(gamemode)</visible>
+						<visible>Container.Content(tvshows) | Container.Content(movies) | $EXP[InGameMode]</visible>
 					</control>
 					<!-- disc reflection -->
 					<control type="image">
@@ -440,9 +441,11 @@
 							</animation>
 						<animation effect="rotate" end="360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 						<visible>Skin.HasSetting(View523_ShowCDart) + Skin.HasSetting(View523_DetailsShowFanart)</visible>
-						<visible>Container.Content(tvshows) | Container.Content(movies) | Skin.String(gamemode)</visible>	
+						<visible>Container.Content(tvshows) | Container.Content(movies) | $EXP[InGameMode]</visible>	
 					</control>
 				</focusedlayout>
+
+				<!-- Titan (same height) shapes -->
 				<itemlayout height="360" width="240" background="true" condition="Skin.HasSetting(View523_SameHeight)">
 				  <control type="group">
 					<width>100%</width>
@@ -481,9 +484,51 @@
 							</animation>
 						<animation effect="rotate" end="-360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 						<visible>Skin.HasSetting(View523_ShowCDart)</visible>
-						<visible>Container.Content(tvshows) | Container.Content(movies) | Skin.String(gamemode)</visible>	
+						<visible>Container.Content(tvshows) | Container.Content(movies) | $EXP[InGameMode]</visible>	
 					</control>
 				</focusedlayout>
+
+				<!-- Widebox shapes (snes, n64 etc) -->	
+				<itemlayout width="300" height="430" background="true" condition="String.IsEqual($VAR[ThumbShapeBasedOnSystem], wide)">
+				
+					<control type="group">
+						<width>300</width>
+						<height>220</height>
+						<bottom>-200</bottom>
+						<include>WideboxLayout</include>
+						<include>WideboxLayoutNonFocus</include>
+						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
+						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
+					</control>		   
+					<!-- reflections -->
+					<control type="group">
+						<width>300</width>
+						<height>220</height>
+						<bottom>-433</bottom>
+						<include>WideboxLayoutNonFocusReflection</include>
+						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
+						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
+					</control>		
+				</itemlayout>	
+				<focusedlayout height="300" width="430" condition="String.IsEqual($VAR[ThumbShapeBasedOnSystem], wide)">
+					<control type="group">
+						<width>300</width>
+						<height>220</height>
+						<right>2</right>
+						<bottom>-100</bottom>
+						<include>WideboxLayoutFocus</include>
+						<include>AutoTrailerButton</include>
+					</control>
+					<!-- reflection -->
+					<control type="group">
+						<width>300</width>
+						<height>220</height>
+						<right>2</right>
+						<bottom>-468</bottom>
+						<include>WideboxThumbLayoutReflection</include>
+					</control>
+				</focusedlayout>
+				
 			</control>
 
             <!--horizontal Scrollbar-->

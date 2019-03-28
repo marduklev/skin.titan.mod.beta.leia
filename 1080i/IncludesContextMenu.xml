@@ -647,7 +647,7 @@
             <visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)] + ![Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527)]</visible>
         </control>
 		<control type="radiobutton" id="33450">
-        <!--netflix poster same height-->
+            <!--netflix poster same height-->
             <include>SideBladeMenuButton</include>
             <label>Use Titan Default Layout</label>
             <onclick>Skin.ToggleSetting(View523_SameHeight)</onclick>
@@ -656,7 +656,7 @@
 			<visible>Control.IsVisible(523)</visible>
 			<onclick condition="Control.IsVisible(523)">Container.SetViewMode(523)</onclick>
         </control>	
-		<!-- in progress
+        <!-- in progress
 		<control type="radiobutton" id="666667">
             3 Shelf
             <include>SideBladeMenuButton</include>

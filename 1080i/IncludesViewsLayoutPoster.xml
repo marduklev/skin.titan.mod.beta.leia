@@ -459,5 +459,4 @@
 		<value condition="Container.Content(tags)">DefaultTags.png</value>
 		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 	</variable>
-
 </includes>

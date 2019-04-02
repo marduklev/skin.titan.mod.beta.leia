@@ -26,7 +26,13 @@
     </include>
 
     <include name="allViews">
-                
+
+        <!-- Thumb shape to be used -->
+        <control type="label" id="5595">
+            <visible>no</visible>
+            <label>$VAR[ThumbShapeBasedOnSystem]</label>
+        </control>
+
         <!-- footer bar (in back) -->
         <control type="group">
             <visible>![Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(519) | Control.IsVisible(520)]</visible>

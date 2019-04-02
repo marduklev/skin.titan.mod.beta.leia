@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+
+	<!-- List data of available game assets -->
+	<include name="GameAssets">
+		<item id="5051">
+			<label>Trailer</label>
+			<thumb>DefaultAddonMovieInfo.png</thumb>
+			<visible>!String.IsEmpty(Container.ListItem.Trailer)</visible>
+			<property name="contenttype">video</property>
+			<property name="video">$INFO[Container.ListItem.Trailer]</property>
+			<onclick>PlayMedia($INFO[Container.ListItem.Trailer],1)</onclick>
+		</item>
+		<item id="5052">
+			<label>Title</label>
+			<thumb>$INFO[Container.ListItem.Art(title)]</thumb>
+			<visible>!String.IsEmpty(Container.ListItem.Art(title))</visible>
+			<property name="contenttype">image</property>
+			<onclick>ShowPicture($INFO[Container.ListItem.Art(title)])</onclick>
+		</item>
+		<item id="5053">
+			<label>Snap</label>
+			<thumb>$INFO[Container.ListItem.Art(snap)]</thumb>
+			<visible>!String.IsEmpty(Container.ListItem.Art(snap))</visible>
+			<property name="contenttype">image</property>
+			<onclick>ShowPicture($INFO[Container.ListItem.Art(snap)])</onclick>
+		</item>
+		<item id="5054">
+			<label>Front</label>
+			<thumb>$INFO[Container.ListItem.Art(boxfront)]</thumb>
+			<visible>!String.IsEmpty(Container.ListItem.Art(boxfront))</visible>
+			<property name="contenttype">image</property>
+			<onclick>ShowPicture($INFO[Container.ListItem.Art(boxfront)])</onclick>
+		</item>
+		<item id="5055">
+			<label>Back</label>
+			<thumb>$INFO[Container.ListItem.Art(boxback)]</thumb>
+			<visible>!String.IsEmpty(Container.ListItem.Art(boxback))</visible>
+			<property name="contenttype">image</property>
+			<onclick>ShowPicture($INFO[Container.ListItem.Art(boxback)])</onclick>
+		</item>
+		<item id="5056">
+			<label>Flyer</label>
+			<thumb>$INFO[Container.ListItem.Art(poster)]</thumb>
+			<visible>!String.IsEmpty(Container.ListItem.Art(poster))</visible>
+			<property name="contenttype">image</property>
+			<onclick>ShowPicture($INFO[Container.ListItem.Art(poster)])</onclick>
+		</item>
+		<item id="5057">
+			<label>Map</label>
+			<thumb>$INFO[Container.ListItem.Art(map)]</thumb>
+			<visible>!String.IsEmpty(Container.ListItem.Art(map))</visible>
+			<property name="contenttype">image</property>
+			<onclick>ShowPicture($INFO[Container.ListItem.Art(map)])</onclick>
+		</item>
+		<item id="5058">
+			<label>Cartridge/Disc</label>
+			<thumb>$INFO[Container.ListItem.Art(cartridge)]</thumb>
+			<visible>!String.IsEmpty(Container.ListItem.Art(cartridge))</visible>
+			<property name="contenttype">image</property>
+			<onclick>ShowPicture($INFO[Container.ListItem.Art(cartridge)])</onclick>
+		</item>
+	</include>
+
+	<include name="GameAssetsPanelComplete">
+		<control type="panel" id="5590">
+			<top>700</top>
+			<left>1200</left>
+			<height>300</height>
+			<width>1200</width>
+			<ondown condition="Player.HasVideo">Stop</ondown>
+			<ondown>523</ondown>
+			<visible allowhiddenfocus="true">Control.HasFocus(5590) + $EXP[InGameMode]</visible>
+			<focusposition>0</focusposition>	
+			<orientation>horizontal</orientation>
+			<animation effect="fade" start="0" end="100" delay="200" time="3000" pulse="false" condition="Control.HasFocus(5590)">Conditional</animation>
+			<animation effect="slide" end="-400,0" time="0" pulse="false" condition="!$EXP[UseTitanShape]">Conditional</animation>
+			<itemlayout height="225" width="158"> 
+				<control type="image">
+					<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultAddonGame.png">$INFO[Container(5590).ListItem.Thumb]</texture>
+					<aspectratio scalediffuse="true" aligny="top" align="center">keep</aspectratio>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="label">
+					<font>reg18</font>
+					<label>$INFO[ListItem.Label]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+					<top>220</top>
+					<left>5</left>
+					<width>150</width>
+					<height>50</height>
+					<aligny>top</aligny>
+					<align>center</align>
+					<textoffsetx>0</textoffsetx>
+					<scroll>true</scroll>
+					<scrollspeed>20</scrollspeed>
+				</control>
+			</itemlayout>
+			<focusedlayout height="225" width="158">
+				<control type="button">
+					<visible allowhiddenfocus="true">false</visible>
+					<onfocus condition="!Player.HasVideo + String.IsEqual(Container(5590).ListItem.Property(contenttype),video)">PlayMedia($INFO[Container(5590).ListItem.Property(video)],1)</onfocus>
+					<onunfocus condition="Player.HasVideo">PlayerControl(Stop)</onunfocus>
+				</control>
+				<control type="image">
+					<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultAddonGame.png">$INFO[Container(5590).ListItem.Thumb]</texture>
+					<aspectratio scalediffuse="true" aligny="top" align="center">keep</aspectratio>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="label">
+					<font>Reg24</font>
+					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+					<top>220</top>
+					<left>5</left>
+					<width>150</width>
+					<height>50</height>
+					<aligny>top</aligny>
+					<align>center</align>
+					<textoffsetx>0</textoffsetx>
+					<scroll>true</scroll>
+					<scrollspeed>20</scrollspeed>
+				</control>
+			</focusedlayout>
+			<content>
+				<include>GameAssets</include>
+			</content>
+		</control>	
+	</include>
+
+</includes>

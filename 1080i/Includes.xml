@@ -2,16 +2,13 @@
 <includes>
     <include file="Defaults.xml" />
 
-    <expression name="InGameMode">String.Contains(Container.FolderPath,plugin://plugin.program.ael) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher)</expression>
-    
-    <expression name="hasPosterShape">Skin.String($INFO[Container.FolderPath],poster)</expression>
-    <expression name="hasWideShape">Skin.String($INFO[Container.FolderPath],wide)</expression>
-
+    <include file="IncludesExpressions.xml" />
     <include file="IncludesVariables.xml" />
     
 	<include file="IncludesDialogVideoInfo.xml" />
 	<include file="IncludesDialogMusicInfo.xml" />
 	<include file="Mod_Progress_Variables_Netflix.xml" />
+    <include file="IncludesGames.xml" />
 	<include file="IncludesHomeTitanTiles.xml" />
     <include file="IncludesHomeWidgets.xml" />
 	<include file="IncludesHomeTitanTilesSubMenu.xml" />
@@ -62,6 +59,7 @@
     <include file="IncludesViewsLayoutSquare.xml" />
     <include file="IncludesViewsLayoutBanner.xml" />
     <include file="IncludesViewsLayoutWidebox.xml" />
+    <include file="IncludesViewsLayoutBluRay.xml" />
     <include file="IncludesOSD.xml" />
     <include file="IncludesSkinSetings.xml" />
     <include file="IncludesContextMenu.xml" />

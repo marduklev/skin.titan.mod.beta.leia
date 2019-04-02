@@ -1358,17 +1358,13 @@
 
     <variable name="ThumbShapeBasedOnSystem">
         <value condition="Skin.HasSetting(View523_SameHeight)">titan</value>
-        <value condition="$EXP[InGameMode] + [String.Contains(ListItem.Property(platform),SNES) | String.Contains(ListItem.Property(platform),Nintendo 64)]">wide</value>
-        <value condition="$EXP[InGameMode] + String.Contains(ListItem.Property(platform),DS)">3ds</value>
-        <value condition="$EXP[InGameMode] + String.Contains(ListItem.Property(platform),GameBoy)">3ds</value>
-        <value condition="$EXP[InGameMode] + String.Contains(ListItem.Property(platform),Sega)">poster</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),SNES)">wide</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),Nintendo 64)">wide</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),DS)">3ds</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),GameBoy)">square</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),Dreamcast)">square</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),Sega)">poster</value>
         <value>poster</value>
-    </variable>
-
-    <variable name="SelectedThumbShape">
-        <value condition="$EXP[hasPosterShape]">1</value>
-        <value condition="$EXP[hasWideShape]">6</value>
-        <value>99</value>
     </variable>
     
 </includes>

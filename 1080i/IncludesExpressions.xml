@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+    <expression name="InGameMode">String.Contains(Container.FolderPath,plugin://plugin.program.ael) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher)</expression>
+    
+    <!-- Preferred thumb shapes -->
+    <expression name="UsePosterShape">String.IsEqual(Control.GetLabel(5595),poster)</expression>
+    <expression name="UseTitanShape">String.IsEqual(Control.GetLabel(5595),titan)</expression>
+    <expression name="UseWideShape">String.IsEqual(Control.GetLabel(5595),wide)</expression>
+    <expression name="Use3dsShape">String.IsEqual(Control.GetLabel(5595),3ds)</expression>
+    <expression name="UseSquareShape">String.IsEqual(Control.GetLabel(5595),square)</expression>
+    <expression name="UseSlimShape">String.IsEqual(Control.GetLabel(5595),slim)</expression>
+    <expression name="UseBlurayShape">String.IsEqual(Control.GetLabel(5595),bluray)</expression>
+    <expression name="UseBannerShape">String.IsEqual(Control.GetLabel(5595),banner)</expression>
+
+</includes>

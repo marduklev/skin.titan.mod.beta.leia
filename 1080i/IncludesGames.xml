@@ -65,9 +65,10 @@
 	<include name="GameAssetsPanelComplete">
 		<control type="panel" id="5590">
 			<top>700</top>
-			<left>1200</left>
+			<left>1500</left>
+			<right>150</right>
 			<height>300</height>
-			<width>1200</width>
+			<width>800</width>
 			<ondown condition="Player.HasVideo">Stop</ondown>
 			<ondown>523</ondown>
 			<visible allowhiddenfocus="true">Control.HasFocus(5590) + $EXP[InGameMode]</visible>

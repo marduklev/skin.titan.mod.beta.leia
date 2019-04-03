@@ -278,8 +278,8 @@
 			<control type="fixedlist" id="523">
 				<!-- <include condition="!$EXP[InGameMode] + !$EXP[UseTitanShape]">focused4</include> -->
 				<!-- <include condition="$EXP[InGameMode] | $EXP[UseTitanShape]">focused1</include> -->
-				<!-- <include condition="!$EXP[InGameMode]">focused4</include> -->
-				<include>focused2</include>
+				<include condition="$EXP[InVideoMode]">focused4</include>
+				<include condition="!$EXP[InVideoMode]">focused2</include>
 				<viewtype label="31018">icons</viewtype>
 				<left>60</left>
 				<bottom>0</bottom>
@@ -439,7 +439,7 @@
 					<control type="group">
 						<height>200</height>
 						<width>280</width>
-						<bottom>-410</bottom>
+						<bottom>-400</bottom>
 						<include>WideboxLayoutNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
@@ -459,7 +459,7 @@
 						<height>300</height>
 						<width>380</width>
 						<right>2</right>
-						<bottom>-510</bottom>
+						<bottom>-500</bottom>
 						<include>WideboxThumbLayoutReflection</include>
 					</control>
 				</focusedlayout>
@@ -479,7 +479,7 @@
 					<control type="group">
 						<width>250</width>
 						<height>250</height>
-						<bottom>-445</bottom>
+						<bottom>-435</bottom>
 						<include>SquarePosterPanelLayoutNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
@@ -499,7 +499,7 @@
 						<height>350</height>
 						<width>350</width>
 						<right>2</right>
-						<bottom>-495</bottom>
+						<bottom>-490</bottom>
 						<include>SquarePosterPanelLayoutReflection</include>
 					</control>
 				</focusedlayout>

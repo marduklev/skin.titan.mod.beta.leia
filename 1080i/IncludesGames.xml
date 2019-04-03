@@ -65,8 +65,7 @@
 	<include name="GameAssetsPanelComplete">
 		<control type="panel" id="5590">
 			<top>700</top>
-			<left>1500</left>
-			<right>150</right>
+			<left>1400</left>
 			<height>300</height>
 			<width>800</width>
 			<ondown condition="Player.HasVideo">Stop</ondown>

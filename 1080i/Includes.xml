@@ -60,6 +60,7 @@
     <include file="IncludesViewsLayoutBanner.xml" />
     <include file="IncludesViewsLayoutWidebox.xml" />
     <include file="IncludesViewsLayoutBluRay.xml" />
+    <include file="IncludesViewsLayoutSlim.xml" />
     <include file="IncludesOSD.xml" />
     <include file="IncludesSkinSetings.xml" />
     <include file="IncludesContextMenu.xml" />

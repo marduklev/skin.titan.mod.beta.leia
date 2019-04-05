@@ -519,7 +519,7 @@
 					<control type="group">
 						<height>240</height>
 						<width>200</width>
-						<bottom>-433</bottom>
+						<bottom>-423</bottom>
 						<include>BluRayNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
@@ -530,7 +530,7 @@
 						<height>340</height>
 						<width>300</width>
 						<right>2</right>
-						<bottom>-100</bottom>
+						<bottom>-130</bottom>
 						<include>BluRayLayoutFocus</include>
 						<include>AutoTrailerButton</include>
 					</control>
@@ -539,8 +539,48 @@
 						<height>340</height>
 						<width>300</width>
 						<right>2</right>
-						<bottom>-468</bottom>
-						<include>BluRayLayoutReflection</include>
+						<bottom>-452</bottom>
+						<include>BluRayReflection</include>
+					</control>
+				</focusedlayout>
+
+				<!-- Slim cover -->	
+				<itemlayout height="260" width="130" background="true" condition="$EXP[UseSlimShape]">
+					<control type="group">
+						<height>260</height>
+						<width>130</width>
+						<bottom>-200</bottom>
+						<include>SlimLayout</include>
+						<include>SlimNonFocus</include>
+						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
+						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
+					</control>		   
+					<!-- reflections -->
+					<control type="group">
+						<height>260</height>
+						<width>130</width>
+						<bottom>-433</bottom>
+						<include>SlimNonFocusReflection</include>
+						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
+						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
+					</control>		
+				</itemlayout>	
+				<focusedlayout height="360" width="230" condition="$EXP[UseSlimShape]">
+					<control type="group">
+						<height>360</height>
+						<width>230</width>
+						<right>2</right>
+						<bottom>-130</bottom>
+						<include>SlimLayoutFocus</include>
+						<include>AutoTrailerButton</include>
+					</control>
+					<!-- reflection -->
+					<control type="group">
+						<height>360</height>
+						<width>230</width>
+						<right>2</right>
+						<bottom>-478</bottom>
+						<include>SlimReflection</include>
 					</control>
 				</focusedlayout>
 

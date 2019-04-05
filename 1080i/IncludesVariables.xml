@@ -1362,6 +1362,11 @@
         <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),Nintendo 64)">wide</value>
         <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),DS)">3ds</value>
         <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),GameBoy)">square</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),Switch)">slim</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),PlayStation 3)">bluray</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),PlayStation 2)">poster</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),PlayStation Portable)">slim</value>
+        <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),PlayStation)">square</value>
         <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),Dreamcast)">square</value>
         <value condition="$EXP[InGameMode] + String.Contains(Container.ListItem(1).Property(platform),Sega)">poster</value>
         <value>poster</value>

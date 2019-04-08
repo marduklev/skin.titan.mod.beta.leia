@@ -425,11 +425,11 @@
 				</focusedlayout>
 
 				<!-- Widebox shapes (snes, n64 etc) -->	
-				<itemlayout height="200" width="280" background="true" condition="$EXP[UseWideShape]">
+				<itemlayout height="202" width="280" background="true" condition="$EXP[UseWideShape]">
 					<control type="group">
-						<height>200</height>
+						<height>202</height>
 						<width>280</width>
-						<bottom>-210</bottom>
+						<bottom>-212</bottom>
 						<include>WideboxLayout</include>
 						<include>WideboxLayoutNonFocus</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
@@ -437,29 +437,29 @@
 					</control>		   
 					<!-- reflections -->
 					<control type="group">
-						<height>200</height>
+						<height>202</height>
 						<width>280</width>
-						<bottom>-400</bottom>
+						<bottom>-402</bottom>
 						<include>WideboxLayoutNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
 					</control>		
 				</itemlayout>	
-				<focusedlayout height="300" width="380" condition="$EXP[UseWideShape]">
+				<focusedlayout height="274" width="380" condition="$EXP[UseWideShape]">
 					<control type="group">
-						<height>300</height>
+						<height>274</height>
 						<width>380</width>
 						<right>2</right>
-						<bottom>-210</bottom>
+						<bottom>-180</bottom>
 						<include>WideboxLayoutFocus</include>
 						<include>AutoTrailerButton</include>
 					</control>
 					<!-- reflection -->
 					<control type="group">
-						<height>300</height>
+						<height>274</height>
 						<width>380</width>
 						<right>2</right>
-						<bottom>-500</bottom>
+						<bottom>-440</bottom>
 						<include>WideboxThumbLayoutReflection</include>
 					</control>
 				</focusedlayout>
@@ -525,10 +525,10 @@
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
 					</control>		
 				</itemlayout>	
-				<focusedlayout height="340" width="300" condition="$EXP[UseBlurayShape]">
+				<focusedlayout height="340" width="283" condition="$EXP[UseBlurayShape]">
 					<control type="group">
 						<height>340</height>
-						<width>300</width>
+						<width>283</width>
 						<right>2</right>
 						<bottom>-130</bottom>
 						<include>BluRayLayoutFocus</include>
@@ -537,7 +537,7 @@
 					<!-- reflection -->
 					<control type="group">
 						<height>340</height>
-						<width>300</width>
+						<width>283</width>
 						<right>2</right>
 						<bottom>-451</bottom>
 						<include>BluRayReflection</include>
@@ -545,10 +545,10 @@
 				</focusedlayout>
 
 				<!-- Slim cover -->	
-				<itemlayout height="260" width="130" background="true" condition="$EXP[UseSlimShape]">
+				<itemlayout height="260" width="144" background="true" condition="$EXP[UseSlimShape]">
 					<control type="group">
 						<height>260</height>
-						<width>130</width>
+						<width>144</width>
 						<bottom>-200</bottom>
 						<include>SlimLayout</include>
 						<include>SlimNonFocus</include>
@@ -558,17 +558,17 @@
 					<!-- reflections -->
 					<control type="group">
 						<height>260</height>
-						<width>130</width>
+						<width>144</width>
 						<bottom>-433</bottom>
 						<include>SlimNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
 					</control>		
 				</itemlayout>	
-				<focusedlayout height="360" width="230" condition="$EXP[UseSlimShape]">
+				<focusedlayout height="360" width="200" condition="$EXP[UseSlimShape]">
 					<control type="group">
 						<height>360</height>
-						<width>230</width>
+						<width>200</width>
 						<right>2</right>
 						<bottom>-130</bottom>
 						<include>SlimLayoutFocus</include>
@@ -577,7 +577,7 @@
 					<!-- reflection -->
 					<control type="group">
 						<height>360</height>
-						<width>230</width>
+						<width>200</width>
 						<right>2</right>
 						<bottom>-478</bottom>
 						<include>SlimReflection</include>
@@ -585,10 +585,10 @@
 				</focusedlayout>
 
 				<!-- (3)DS cover -->	
-				<itemlayout height="225" width="275" background="true" condition="$EXP[Use3dsShape]">
+				<itemlayout height="225" width="248" background="true" condition="$EXP[Use3dsShape]">
 					<control type="group">
 						<height>225</height>
-						<width>275</width>
+						<width>248</width>
 						<bottom>-200</bottom>
 						<include>NdsLayout</include>
 						<include>NdsNonFocus</include>
@@ -598,17 +598,17 @@
 					<!-- reflections -->
 					<control type="group">
 						<height>225</height>
-						<width>275</width>
+						<width>248</width>
 						<bottom>-410</bottom>
 						<include>NdsNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
 					</control>		
 				</itemlayout>	
-				<focusedlayout height="325" width="375" condition="$EXP[Use3dsShape]">
+				<focusedlayout height="325" width="358" condition="$EXP[Use3dsShape]">
 					<control type="group">
 						<height>325</height>
-						<width>375</width>
+						<width>358</width>
 						<right>2</right>
 						<bottom>-130</bottom>
 						<include>NdsLayoutFocus</include>
@@ -617,7 +617,7 @@
 					<!-- reflection -->
 					<control type="group">
 						<height>325</height>
-						<width>375</width>
+						<width>358</width>
 						<right>2</right>
 						<bottom>-440</bottom>
 						<include>NdsReflection</include>

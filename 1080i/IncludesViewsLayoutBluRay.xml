@@ -55,7 +55,7 @@
 	<include name="BluRayNonFocus">
 		<control type="image">
 			<description>Normal BluRay thumb stretched aspect</description>
-			<texture border="1" background="true" diffuse="diffuse/wide.png" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
 			<colordiffuse>cf505050</colordiffuse>			
 			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
 			<bordersize>8</bordersize>
@@ -66,7 +66,7 @@
 	<include name="BluRayNonFocusReflection">
 		<control type="image">
 			<description>Normal BluRay thumb stretched aspect</description>
-			<texture border="1" background="true" diffuse="diffuse/wide.png" flipy="true" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+			<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
 			<colordiffuse>cf505050</colordiffuse>
 			<aspectratio scalediffuse="true" aligny="top" align="center">stretch</aspectratio>
 			<bordersize>8</bordersize>
@@ -85,7 +85,7 @@
 	<include name="BluRayReflection">
 		<control type="image">
 			<description>Normal BluRay thumb stretched aspect</description>
-			<texture border="1" background="true" diffuse="diffuse/poster.png" flipy="true" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+			<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
 			<colordiffuse></colordiffuse>		
 			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
 			<bordersize>8</bordersize>

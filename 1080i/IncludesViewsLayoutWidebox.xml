@@ -66,7 +66,7 @@
 	<include name="WideboxLayoutNonFocusReflection">
 		<control type="image">
 			<description>Normal widebox thumb stretched aspect</description>
-			<texture border="1" background="true" diffuse="diffuse/poster.png" flipy="true" fallback="DefaultGames.png">$INFO[ListItem.Icon]</texture>
+			<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultGames.png">$INFO[ListItem.Icon]</texture>
 			<colordiffuse>cf505050</colordiffuse>
 			<aspectratio scalediffuse="true" aligny="top" align="center">stretch</aspectratio>
 			<bordersize>8</bordersize>
@@ -84,8 +84,8 @@
 
 	<include name="WideboxThumbLayoutReflection">
 		<control type="image">
-			<description>Normal widebox thumb stretched aspect</description>
-			<texture border="1" background="true" diffuse="diffuse/poster.png" flipy="true" fallback="DefaultGames.png">$INFO[ListItem.Icon]</texture>
+			<description>Reflection of current selected widebox thumb</description>
+			<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultGames.png">$INFO[ListItem.Icon]</texture>
 			<colordiffuse></colordiffuse>		
 			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
 			<bordersize>8</bordersize>

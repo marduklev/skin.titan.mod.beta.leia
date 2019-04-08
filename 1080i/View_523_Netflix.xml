@@ -279,7 +279,7 @@
 				<!-- <include condition="!$EXP[InGameMode] + !$EXP[UseTitanShape]">focused4</include> -->
 				<!-- <include condition="$EXP[InGameMode] | $EXP[UseTitanShape]">focused1</include> -->
 				<include condition="$EXP[InVideoMode]">focused4</include>
-				<include condition="!$EXP[InVideoMode]">focused2</include>
+				<include condition="!$EXP[InVideoMode]">focused1</include>
 				<viewtype label="31018">icons</viewtype>
 				<left>60</left>
 				<bottom>0</bottom>
@@ -621,6 +621,46 @@
 						<right>2</right>
 						<bottom>-440</bottom>
 						<include>NdsReflection</include>
+					</control>
+				</focusedlayout>
+
+				<!-- Steam banner cover -->	
+				<itemlayout height="168" width="360" background="true" condition="$EXP[UseSteamShape]">
+					<control type="group">
+						<height>168</height>
+						<width>360</width>
+						<bottom>-250</bottom>
+						<include>SteamLayout</include>
+						<include>SteamNonFocus</include>
+						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
+						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
+					</control>		   
+					<!-- reflections -->
+					<control type="group">
+						<height>168</height>
+						<width>360</width>
+						<bottom>-404</bottom>
+						<include>SteamNonFocusReflection</include>
+						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
+						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
+					</control>		
+				</itemlayout>	
+				<focusedlayout height="215" width="460" condition="$EXP[UseSteamShape]">
+					<control type="group">
+						<height>215</height>
+						<width>460</width>
+						<right>2</right>
+						<bottom>-230</bottom>
+						<include>SteamLayoutFocus</include>
+						<include>AutoTrailerButton</include>
+					</control>
+					<!-- reflection -->
+					<control type="group">
+						<height>215</height>
+						<width>460</width>
+						<right>2</right>
+						<bottom>-432</bottom>
+						<include>SteamReflection</include>
 					</control>
 				</focusedlayout>
 

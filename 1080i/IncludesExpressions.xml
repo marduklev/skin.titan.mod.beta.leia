@@ -13,5 +13,6 @@
     <expression name="UseSlimShape">String.IsEqual(Control.GetLabel(5595),slim)</expression>
     <expression name="UseBlurayShape">String.IsEqual(Control.GetLabel(5595),bluray)</expression>
     <expression name="UseBannerShape">String.IsEqual(Control.GetLabel(5595),banner)</expression>
+    <expression name="UseSteamShape">String.IsEqual(Control.GetLabel(5595),steam)</expression>
 
 </includes>

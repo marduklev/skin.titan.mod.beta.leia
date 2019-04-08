@@ -439,7 +439,7 @@
 					<control type="group">
 						<height>202</height>
 						<width>280</width>
-						<bottom>-402</bottom>
+						<bottom>-401</bottom>
 						<include>WideboxLayoutNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
@@ -459,7 +459,7 @@
 						<height>274</height>
 						<width>380</width>
 						<right>2</right>
-						<bottom>-440</bottom>
+						<bottom>-441</bottom>
 						<include>WideboxThumbLayoutReflection</include>
 					</control>
 				</focusedlayout>
@@ -479,7 +479,7 @@
 					<control type="group">
 						<width>250</width>
 						<height>250</height>
-						<bottom>-435</bottom>
+						<bottom>-437</bottom>
 						<include>SquarePosterPanelLayoutNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
@@ -499,7 +499,7 @@
 						<height>350</height>
 						<width>350</width>
 						<right>2</right>
-						<bottom>-488</bottom>
+						<bottom>-487</bottom>
 						<include>SquarePosterPanelLayoutReflection</include>
 					</control>
 				</focusedlayout>
@@ -519,7 +519,7 @@
 					<control type="group">
 						<height>240</height>
 						<width>200</width>
-						<bottom>-423</bottom>
+						<bottom>-427</bottom>
 						<include>BluRayNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
@@ -539,7 +539,7 @@
 						<height>340</height>
 						<width>283</width>
 						<right>2</right>
-						<bottom>-451</bottom>
+						<bottom>-457</bottom>
 						<include>BluRayReflection</include>
 					</control>
 				</focusedlayout>
@@ -559,7 +559,7 @@
 					<control type="group">
 						<height>260</height>
 						<width>144</width>
-						<bottom>-433</bottom>
+						<bottom>-447</bottom>
 						<include>SlimNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
@@ -579,7 +579,7 @@
 						<height>360</height>
 						<width>200</width>
 						<right>2</right>
-						<bottom>-478</bottom>
+						<bottom>-477</bottom>
 						<include>SlimReflection</include>
 					</control>
 				</focusedlayout>
@@ -599,7 +599,7 @@
 					<control type="group">
 						<height>225</height>
 						<width>248</width>
-						<bottom>-410</bottom>
+						<bottom>-412</bottom>
 						<include>NdsNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
@@ -619,7 +619,7 @@
 						<height>325</height>
 						<width>358</width>
 						<right>2</right>
-						<bottom>-440</bottom>
+						<bottom>-442</bottom>
 						<include>NdsReflection</include>
 					</control>
 				</focusedlayout>
@@ -639,7 +639,7 @@
 					<control type="group">
 						<height>168</height>
 						<width>360</width>
-						<bottom>-404</bottom>
+						<bottom>-405</bottom>
 						<include>SteamNonFocusReflection</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							

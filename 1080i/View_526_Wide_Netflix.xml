@@ -159,7 +159,7 @@
 							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 						</control>
 						<control type="image">
-							<visible>Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0)</visible>
+							<visible>Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEqual(ListItem.Label,..)</visible>
 							<right>-65</right>
 							<top>10</top>
 							<height>40</height>
@@ -203,7 +203,7 @@
 							<textcolor>$VAR[ToggleNetflixViewDetailsTextColor]</textcolor>
 						</control>
 						<control type="image">
-							<visible>Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0)</visible>
+							<visible>Integer.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEqual(ListItem.Label,..)</visible>
 							<right>-65</right>
 							<top>10</top>
 							<height>40</height>

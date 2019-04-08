@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.titan.mod.beta.leia" version="18.1.11-alpha.2" name="T i t a n - M O D (BETA) for LEIA" provider-name="mardukl,cartman.dos,marcelveldt,mgonzales">
+<addon id="skin.titan.mod.beta.leia" version="18.1.11" name="T i t a n - M O D (BETA) for LEIA" provider-name="mardukl,cartman.dos,marcelveldt,mgonzales">
 	<requires>
 		<import addon="xbmc.gui" version="5.14.0"/>
 		<import addon="script.skinshortcuts" version="0.6.5"/>
@@ -14,9 +14,9 @@
         <import addon="resource.images.skinicons.wide" version="1.0.0"/>
         <import addon="resource.images.backgroundoverlays.basic" version="1.0.0"/>
 	</requires>
-	<extension point="xbmc.gui.skin" debugging="false">		
-		<res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
-		<res width="1920" height="1200" aspect="16:10" default="false" folder="1080i"/>
+	<extension point="xbmc.gui.skin" debugging="false">
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
+		<res width="1920" height="1200" aspect="16:10" default="false" folder="1080i" />
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="bg_BG">Обликът "Titan MOD BETA for Kodi Leia" за MediaPortal адаптиран за Kodi, с много добавени функции.</summary>

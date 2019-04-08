@@ -111,8 +111,7 @@
 				<include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
 			</control>
 			
-			
-            <control type="grouplist" id="996">
+			<control type="grouplist" id="996">
                 <width>458</width>
                 <posx>21</posx>
                 <posy>180</posy>
@@ -574,6 +573,8 @@
 			<include>SideBladeMenuButton</include>
 			<label>31447</label>
 			<onclick>Skin.ToggleSetting(LogoViewPreferClearArt)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferLandscape)">Skin.ToggleSetting(LogoViewPreferLandscape)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferBanner)">Skin.ToggleSetting(LogoViewPreferBanner)</onclick>
 			<selected>Skin.HasSetting(LogoViewPreferClearArt)</selected>
 			<visible>Control.IsVisible(503) | Control.IsVisible(527)</visible>
 		</control>
@@ -582,6 +583,8 @@
 			<include>SideBladeMenuButton</include>
 			<label>Prefer Landscape</label>
 			<onclick>Skin.ToggleSetting(LogoViewPreferLandscape)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferBanner)">Skin.ToggleSetting(LogoViewPreferBanner)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferClearArt)">Skin.ToggleSetting(LogoViewPreferClearArt)</onclick>
 			<selected>Skin.HasSetting(LogoViewPreferLandscape)</selected>
 			<visible>Control.IsVisible(527)</visible>
 		</control>
@@ -590,6 +593,8 @@
 			<include>SideBladeMenuButton</include>
 			<label>Prefer Banner</label>
 			<onclick>Skin.ToggleSetting(LogoViewPreferBanner)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferLandscape)">Skin.ToggleSetting(LogoViewPreferLandscape)</onclick>
+			<onclick condition="Skin.HasSetting(LogoViewPreferClearArt)">Skin.ToggleSetting(LogoViewPreferClearArt)</onclick>
 			<selected>Skin.HasSetting(LogoViewPreferBanner)</selected>
 			<visible>Control.IsVisible(527)</visible>
 		</control>
@@ -644,7 +649,7 @@
             <label>31719</label>
             <onclick>Skin.ToggleSetting(EnableInfoOverlay)</onclick>
             <selected>Skin.HasSetting(EnableInfoOverlay)</selected>
-            <visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)] + ![Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527)]</visible>
+            <visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(sets)]</visible>
         </control>
 		<control type="radiobutton" id="33450">
             <!--netflix poster same height-->

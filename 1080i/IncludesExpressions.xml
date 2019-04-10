@@ -4,6 +4,21 @@
     <expression name="InVideoMode">Window.IsActive(Videos)</expression>
     <expression name="InGameMode">String.Contains(Container.FolderPath,plugin://plugin.program.ael) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher)</expression>
     
+    <!-- Game platforms -->
+    <expression name="PlatformIsWindows">String.Contains(Container.ListItem(1).Property(platform),Windows)</expression>
+    <expression name="PlatformIsDos">String.Contains(Container.ListItem(1).Property(platform),Dos)</expression>
+    <expression name="PlatformIsSNES">String.Contains(Container.ListItem(1).Property(platform),SNES)</expression>
+    <expression name="PlatformIsNES">String.IsEqual(Container.ListItem(1).Property(platform),Nintendo NES)</expression>
+    <expression name="PlatformIsN64">String.Contains(Container.ListItem(1).Property(platform),Nintendo 64)</expression>
+    <expression name="PlatformIsNDS">String.Contains(Container.ListItem(1).Property(platform),DS)</expression>
+    <expression name="PlatformIsGameboy">String.Contains(Container.ListItem(1).Property(platform),GameBoy)</expression>
+    <expression name="PlatformIsSwitch">String.Contains(Container.ListItem(1).Property(platform),Switch)</expression>
+    <expression name="PlatformIsPs3">String.Contains(Container.ListItem(1).Property(platform),PlayStation 3)</expression>
+    <expression name="PlatformIsPs2">String.Contains(Container.ListItem(1).Property(platform),PlayStation 2)</expression>
+    <expression name="PlatformIsPSP">String.Contains(Container.ListItem(1).Property(platform),PlayStation Portable)</expression>
+    <expression name="PlatformIsPS1">String.IsEqual(Container.ListItem(1).Property(platform),Sony PlayStation)</expression>
+    <expression name="PlatformIsDreamcast">String.Contains(Container.ListItem(1).Property(platform),Dreamcast)</expression>
+
     <!-- Preferred thumb shapes -->
     <expression name="UsePosterShape">String.IsEqual(Control.GetLabel(5595),poster)</expression>
     <expression name="UseTitanShape">String.IsEqual(Control.GetLabel(5595),titan)</expression>

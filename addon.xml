@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="skin.titan.mod.beta.leia" version="18.1.11" name="T i t a n - M O D (BETA) for LEIA" provider-name="mardukl,cartman.dos,marcelveldt,mgonzales">
 	<requires>
-		<import addon="xbmc.gui" version="5.14.0" />
+		<import addon="xbmc.gui" version="5.14.0"/>
 		<import addon="script.skinshortcuts" version="0.6.5"/>
 		<import addon="script.skin.helper.service" version="1.0.0"/>
         <import addon="script.skin.helper.widgets" version="1.0.0"/>
@@ -45,14 +45,13 @@
 		<license>GPL v2.0</license>
 		<forum>https://forum.kodi.tv/showthread.php?tid=330749</forum>
 		<website>http://forum.kodi.tv/forumdisplay.php?fid=212</website>
-		<email></email>
-		<source></source>
+		<email/>
+		<source/>
 		<assets>
 			<icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
 			<screenshot>_screenshots/screenshot000.jpg</screenshot>
 			<screenshot>_screenshots/screenshot001.jpg</screenshot>
-			<screenshot>_screenshots/screenshot002.jpg</screenshot>
 			<screenshot>_screenshots/screenshot003.jpg</screenshot>
 			<screenshot>_screenshots/screenshot004.jpg</screenshot>
 			<screenshot>_screenshots/screenshot005.jpg</screenshot>
@@ -69,7 +68,6 @@
 			<screenshot>_screenshots/screenshot016.jpg</screenshot>
 			<screenshot>_screenshots/screenshot017.jpg</screenshot>
 			<screenshot>_screenshots/screenshot018.jpg</screenshot>
-			<screenshot>_screenshots/screenshot019.jpg</screenshot>
 		</assets>
 		<news>
             Follow the forum thread about the latest news for the skin.

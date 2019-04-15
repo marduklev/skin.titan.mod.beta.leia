@@ -373,7 +373,7 @@
 				<width>400</width>
 				<height>110</height>
 				<aspectratio aligny="center" align="right">keep</aspectratio>
-				<visible>[[Window.IsActive(videos) + Skin.HasSetting(StudioInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(NetflixHomeStudio)]]</visible>
+				<visible>[[Window.IsActive(videos) + Skin.HasSetting(StudioInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(NetflixHomeStudio)] | [Window.IsActive(programs) + Skin.HasSetting(StudioInFooter)]]</visible>
 				<visible>!Control.IsVisible(527)</visible>
 				<include>studiologo_image</include>
 				<bordersize>1</bordersize>
@@ -815,8 +815,9 @@
 		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)]">flags/metacritic.png</value>     
     </variable>  
 	<variable name="image_StudioLogo">
+		<value condition="Skin.String(gamemode)">resource://resource.images.gamestudios.grayscale/$INFO[ListItem.Studio,,.png]</value>
 		<value condition="Skin.HasSetting(NoSHStudioInFooter)">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Studio].png</value>
-		<value>$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value>				
+        <value>$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value>				
 	</variable>
 	
     <include name="StarRatingMusicFooter">

@@ -4,6 +4,13 @@
     <include name="allViewIds">
         <views>10,50,51,52,501,502,503,504,505,53,54,55,506,56,57,58,59,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525,526,527</views>
         <menucontrol>9000</menucontrol>
+        
+        <!-- In GameMode Flag -->
+        <onload>Skin.SetString(gamemode,)</onload>
+        <onload condition="String.Contains(Container.FolderPath,plugin://plugin.program.ael)">Skin.SetString(gamemode, AEL)</onload>
+        <onload condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher)">Skin.SetString(gamemode, AL)</onload>
+        <onload condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher)">Skin.SetString(gamemode, AEL)</onload>
+
         <onunload condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">PlayerControl(Stop)</onunload>		
     </include>
 
@@ -25,7 +32,13 @@
     </include>
 
     <include name="allViews">
-        
+                
+        <!-- In GameMode Flag -->
+        <control type="label" id="5599">
+            <label>Skin.String(gamemode,)</label>
+            <visible>false</visible>
+        </control>
+
         <!-- footer bar (in back) -->
         <control type="group">
             <visible>![Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(519) | Control.IsVisible(520)]</visible>
@@ -81,10 +94,10 @@
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.56) + Window.IsActive(MyVideoNav.xml)">View_56_BannerPlex</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.55) + Window.IsActive(MyVideoNav.xml)">View_55_BannerList</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.503) + Window.IsActive(MyVideoNav.xml)">View_503_Logos</include>
-            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.523) + Window.IsActive(MyVideoNav.xml)">View_523_Netflix</include>
-			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.525) + Window.IsActive(MyVideoNav.xml)">View_525_Netflix_Landscape</include>
-			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.526) + Window.IsActive(MyVideoNav.xml)">View_526_Wide_Netflix</include>
-			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.527) + Window.IsActive(MyVideoNav.xml)">View_527_TSE</include>
+            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.523)">View_523_Netflix</include>
+			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.525) + [Window.IsActive(MyVideoNav.xml) | Window.IsActive(programs)]">View_525_Netflix_Landscape</include>
+			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.526) + [Window.IsActive(MyVideoNav.xml) | Window.IsActive(programs)]">View_526_Wide_Netflix</include>
+			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.527) + [Window.IsActive(MyVideoNav.xml) | Window.IsActive(programs)]">View_527_TSE</include>
         </control>
         
         <!-- footer bar (in front) -->

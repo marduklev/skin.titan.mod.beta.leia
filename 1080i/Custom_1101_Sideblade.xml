@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan Mod-->
+<window type="dialog" id="1101">
+    <defaultcontrol always="true">7160</defaultcontrol>
+    <onload></onload>
+	<controls>
+        <control type="group">
+			<height>100%</height>
+            <width>470</width>
+			<animation type="WindowOpen">
+				<effect type="slide" start="-660" end="0" time="250" tween="cubic" easing="inout" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-660" time="250" tween="cubic" easing="inout" />
+			</animation>
+			<!--Panel-->
+			<control type="image">
+				<posy>-250</posy>
+				<posx>-20</posx>
+				<width>520</width>
+				<height>1750</height>
+				<texture border="5">diffuse/panel.png</texture>
+				<colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<!-- header -->
+			<control type="label">
+				<posx>61</posx>
+				<posy>10</posy>
+				<width min="80" max="1100">auto</width>
+				<height>100</height>
+				<font>Bold45</font>
+				<align>left</align>
+				<textcolor>$INFO[Skin.String(SideBladeTextColor)]</textcolor>
+				<label>[UPPERCASE]$LOCALIZE[33061][/UPPERCASE]</label>
+				<visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog)</visible>
+			</control>
+			<control type="grouplist" id="7160">
+				<posx>15</posx>
+				<posy>220</posy>
+				<onleft>Dialog.Close(1101)</onleft>
+				<onright>Dialog.Close(1101)</onright>
+				<orientation>vertical</orientation>
+				<itemgap>5</itemgap>
+				<control type="button" id="388">
+                    <!--Button Search-->
+                    <include>SideBladeMenuButton</include>
+                    <label>137</label>
+					<onclick>Skin.Reset(SearchTerm)</onclick>
+					<onclick>Skin.SetString(SearchTerm)</onclick>
+					<!-- <onclick>ActivateWindow(1100)</onclick> -->
+					<onclick>Dialog.Close(1101)</onclick>
+					<onclick>ReloadSkin</onclick>
+				</control>
+				<control type="radiobutton" id="50001">
+					<!--Prefer widget info -->
+					<include>SideBladeMenuButton</include>
+					<label>$LOCALIZE[36427] ($LOCALIZE[31499])</label>
+					<onclick>Skin.ToggleSetting(search_info_widget)</onclick>
+					<!-- <onclick>ActivateWindow(1100)</onclick> -->
+					<onclick>Dialog.Close(1101)</onclick>
+					<onclick condition="Skin.HasSetting(search_info_spotlight)">Skin.ToggleSetting(search_info_spotlight)</onclick>
+					<onclick>ReloadSkin</onclick>
+					<selected>Skin.HasSetting(search_info_widget)</selected>
+				</control>
+				<control type="radiobutton" id="50002">
+					<!--Prefer widget info -->
+					<include>SideBladeMenuButton</include>
+					<label>$LOCALIZE[36427] ($LOCALIZE[31185])</label>
+					<onclick>Skin.ToggleSetting(search_info_spotlight)</onclick>
+					<!-- <onclick>ActivateWindow(1100)</onclick> -->
+					<onclick>Dialog.Close(1101)</onclick>
+					<onclick condition="Skin.HasSetting(search_info_widget)">Skin.ToggleSetting(search_info_widget)</onclick>
+					<onclick>ReloadSkin</onclick>
+					<selected>Skin.HasSetting(search_info_spotlight)</selected>
+				</control>
+			</control>
+		</control>	
+    </controls>
+</window>

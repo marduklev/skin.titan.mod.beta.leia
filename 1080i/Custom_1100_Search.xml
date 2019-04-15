@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1100">
+    <defaultcontrol always="true">5600</defaultcontrol>
+    <onload condition="String.IsEmpty(Skin.String(SearchTerm))">Back</onload>
+	<onunload>Skin.Reset(SearchTerm)</onunload>
+	<!-- <onunload>Dialog.Close(1101)</onunload> -->
+	<!-- <onunload condition="String.IsEmpty(Skin.String(SearchTerm))">Back</onunload> -->
+    <controls>
+        <!-- Background -->
+        <include>GlobalBackground</include>
+		<!-- Header -->
+		<!-- <include>Header</include> -->
+		<!-- need adjust label -->
+ 		<!-- NowPlaying -->
+        <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
+        <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
+		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+        <!--Sub Menu Tab Left-->
+        <control type="group">
+			<animation type="Conditional" condition="ControlGroup(9000).HasFocus()">
+				<effect type="fade" start="100" end="0" time="100" />
+			</animation>
+			<animation type="Conditional" condition="!ControlGroup(9000).HasFocus()">
+				<effect type="fade" start="0" end="100" time="400" delay="600" />
+			</animation>
+			<control type="button" id="99001">
+				<posx>0</posx>
+				<posy>470</posy>
+				<width>32</width>
+				<height>140</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$LOCALIZE[33063][/UPPERCASE]</label>
+				<textoffsetx>0</textoffsetx>
+				<textoffsety>23</textoffsety>
+				<angle>90</angle>
+				<textwidth>140</textwidth>
+				<font>Reg20</font>
+				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+				<texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="15">diffuse/bgpanel_half.png</texturefocus>
+				<texturenofocus colordiffuse="$INFO[Skin.String(GeneralPanelsColor)]" border="15">diffuse/bgpanel_half.png</texturenofocus>
+				<onclick>ActivateWindow(1101)</onclick>
+				<animation effect="fade" start="100" end="80" time="0" condition="!Control.HasFocus(99001)">Conditional</animation>
+			</control>
+		</control>
+		
+		<!-- spotlight info WIP -->
+		<control type="group">
+			<visible>Skin.HasSetting(search_info_spotlight)</visible>
+			<control type="image">
+				<fadetime>350</fadetime>
+				<width>1152</width>
+				<height>693</height>
+				<left>0</left>
+				<top>0</top>
+				<texture background="true" diffuse="diffuse/LeftTopCorner.png">$VAR[netflixThumb]</texture>
+				<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+			</control>
+			
+			<control type="grouplist">
+				<orientation>vertical</orientation>
+				<itemgap>10</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+				<width>700</width>
+				<posx>1100</posx>
+				<posy>50</posy>
+					<control type="label">
+						<visible>String.IsEmpty(Control.GetLabel(5888))</visible>
+						<width>auto</width>
+						<visible></visible>
+						<height max="70">auto</height>
+						<font>Bold30</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+						<selectedcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</selectedcolor>
+						<label>$INFO[ListItem.Label,[B],[/B]]$INFO[ListItem.Year, (,) ]</label>
+					</control>
+					<control type="image" id="5888">
+						<visible>!String.IsEmpty(Control.GetLabel(5888))</visible>
+						<height>120</height>
+						<texture background="true">$VAR[ListItemClearLogo]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+					</control>
+					<control type="image" id="5889">
+						<visible>!String.IsEmpty(Control.GetLabel(5889))</visible>
+						<height>35</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<colordiffuse>$VAR[NetfixViewHighlightTextColor]</colordiffuse>
+						<texture background="true">$VAR[rating_value_texture]</texture>
+					</control>
+					<control type="label">
+						<visible>!String.IsEmpty(Control.GetLabel(5888))</visible>
+						<height>35</height>
+						<width>auto</width>
+						<height>40</height>
+						<font>Bold30</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+						<selectedcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</selectedcolor>
+						<label>$INFO[ListItem.Year,• , •]</label>
+					</control>
+					<control type="textbox">
+						<width>auto</width>
+						<height max="200">auto</height>
+						<wrapmultiline>true</wrapmultiline>
+						<align>center</align>
+						<aligny>top</aligny>
+						<label>$VAR[SearchInfoWidget_Description]</label>
+						<font>Reg28</font>
+						<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+						<selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+						<autoscroll delay="4000" time="4000" repeat="2000">!Skin.HasSetting(DisablePlotAutoScroll)</autoscroll>
+					</control>
+					<control type="image">
+						<height>130</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<colordiffuse>red</colordiffuse>
+						<texture background="true">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Studio,,.png]</texture>
+					</control>
+					
+				</control>
+		</control>
+		
+		<control type="group">
+            <top>160</top>
+            <bottom>120</bottom>
+            <left>80</left>
+            <right>80</right>
+			<animation type="WindowOpen" reversible="false"  condition="!Window.Previous(SettingsCategory.xml) + !Window.Previous(SettingsSystemInfo.xml) + !Window.Previous(SkinSettings.xml) + !Window.Previous(SettingsProfile.xml) + !Window.Previous(eventlog)">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+				<effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
+			</animation>
+			<animation type="WindowClose" reversible="false" condition="!Window.Next(SettingsCategory.xml) + !Window.Next(SettingsSystemInfo.xml) + !Window.Next(SkinSettings.xml) + !Window.Next(SettingsProfile.xml) + !Window.Next(eventlog)">
+				<effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
+				<effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+			</animation>
+			<animation type="Visible" reversible="false">
+				<effect type="fade" start="0" end="100" time="300" delay="300" tween="sine" easing="in" />
+				<effect type="zoom" start="115" end="100" time="300" delay="300" center="auto" tween="sine" easing="out" />
+			</animation>
+			<animation type="Hidden" reversible="false" condition="[![!Window.IsVisible(script-script.extendedinfo-VideoList.xml) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(DialogAddonInfo.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(DialogPVRGuideInfo.xml) + !Window.IsVisible(DialogMusicInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)]]">
+				<effect type="zoom" start="100" end="85" center="auto" tween="sine" delay="0" easing="out" time="300" />
+				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+			</animation>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogMusicInfo.xml) + !Window.IsVisible(DialogAddonInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+			
+			<control type="grouplist" id="5600">
+                <left>-15</left>
+			    <include condition="!Skin.HasSetting(search_info_spotlight)">SearchInfoDefPos</include>
+			    <include condition="Skin.HasSetting(search_info_spotlight)">SearchInfoSpotlighPos</include>
+				<right>-25</right>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <onup>300</onup>
+                <ondown>6000</ondown>
+				<onleft>ActivateWindow(1101)</onleft>
+                <orientation>vertical</orientation>
+                <itemgap>-35</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                
+			<!-- MOVIES TITLES contains SearchString 21400 1411-->
+				<include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7501" />
+                    <param name="id" value="5001" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20338]-$LOCALIZE[369] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5001).NumItems, (,)]" />
+                    <visible>Control.IsVisible(5001)</visible>
+                </include>
+				<include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+                    <param name="id" value="5001" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+					<param name="visible" value="Integer.IsGreater(Container(5001).NumItems,0) | Container(5001).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5001).NumItems,0) | Container(5001).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+                    <param name="id" value="5001" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+					<param name="visible" value="Integer.IsGreater(Container(5001).NumItems,0) | Container(5001).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5001).NumItems,0) | Container(5001).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                </include>
+		<!-- TV shows TITLES contains SearchString-->
+				<include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7502" />
+                    <param name="id" value="5002" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20343]-$LOCALIZE[369] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5002).NumItems, (,)]" />
+                    <visible>Control.IsVisible(5002)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5002" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5002).NumItems,0) | Container(5002).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5002).NumItems,0) | Container(5002).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5002" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5002).NumItems,0) | Container(5002).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5002).NumItems,0) | Container(5002).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+			<!-- Episodes TITLES contains SearchString-->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7503" />
+                    <param name="id" value="5003" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20360]-$LOCALIZE[369] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5002).NumItems, (,)]" />
+                    <visible>Control.IsVisible(5003)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5003" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5003).NumItems,0) | Container(5003).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5003).NumItems,0) | Container(5003).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5003" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5003).NumItems,0) | Container(5003).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5003).NumItems,0) | Container(5003).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</content>
+                </include>
+		<!-- Episodes - ACTOR - contains SearchString-->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7517" />
+                    <param name="id" value="5017" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20360] $LOCALIZE[1411] $LOCALIZE[20337] &quot;[CAPITALIZE] , [/CAPITALIZE]&quot;]$INFO[Container(5017).NumItems, (,)]" />
+					<visible>Control.IsVisible(5017)</visible>
+                </include>
+				<include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+                    <param name="id" value="5017" />
+                    <param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5017).NumItems,0) | Container(5017).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5017).NumItems,0) | Container(5017).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5017" />
+                    <param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5017).NumItems,0) | Container(5017).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5017).NumItems,0) | Container(5017).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</content>
+                </include>
+		<!-- MOVIE and TV SHOW - GENRE - contains SearchString $LOCALIZE[515]-->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7507" />
+                    <param name="id" value="5007" />
+					<param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[135] $LOCALIZE[1411] &quot;[CAPITALIZE],[/CAPITALIZE]&quot;]$INFO[Container(5007).NumItems, (,)]" />
+                   <visible>Control.IsVisible(5007)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+                    <param name="id" value="5007" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5007).NumItems,0) | Container(5007).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5007).NumItems,0) | Container(5007).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5007" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5007).NumItems,0) | Container(5007).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5007).NumItems,0) | Container(5007).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+			<!-- MOVIE and TV SHOW - YEAR - contains SearchString -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7510" />
+                    <param name="id" value="5010" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[562]  &quot; , &quot;  ]$INFO[Container(5010).NumItems, (,)]" />
+                    <visible>Control.IsVisible(5010)</visible>
+                </include>
+               <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+                    <param name="id" value="5010" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5010).NumItems,0) | Container(5010).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5010).NumItems,0) | Container(5010).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+                    <param name="id" value="5010" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5010).NumItems,0) | Container(5010).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5010).NumItems,0) | Container(5010).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+		<!-- MOVIE and TV SHOW - STUDIO - contains SearchString -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7511" />
+                    <param name="id" value="5011" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[572] &quot;[CAPITALIZE],[/CAPITALIZE]&quot;]$INFO[Container(5011).NumItems, (,)]" />
+                    <visible>Control.IsVisible(5011)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+                    <param name="id" value="5011" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5011).NumItems,0) | Container(5011).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5011).NumItems,0) | Container(5011).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+                    <param name="id" value="5011" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5011).NumItems,0) | Container(5011).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5011).NumItems,0) | Container(5011).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+		<!-- MOVIE and TV SHOW - COUNTRY - contains SearchString -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7512" />
+                    <param name="id" value="5012" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[574] &quot;[CAPITALIZE],[/CAPITALIZE]&quot;]$INFO[Container(5012).NumItems, (,)]" />
+                    <visible>Control.IsVisible(5012)</visible>
+                </include>
+              <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+                    <param name="id" value="5012" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5012).NumItems,0) | Container(5012).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5012).NumItems,0) | Container(5012).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <!-- <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content> -->
+				</include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+                    <param name="id" value="5012" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5012).NumItems,0) | Container(5012).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5012).NumItems,0) | Container(5012).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+				</include>
+		<!-- MOVIE and TV SHOW - Actors Named, 
+				msgctxt "#344"
+				msgid "Actors"				-->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7508" />
+                    <param name="id" value="5008" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[342] &amp; $LOCALIZE[20343] $LOCALIZE[1411] $LOCALIZE[344] &quot;[CAPITALIZE],[/CAPITALIZE]&quot;]$INFO[Container(5008).NumItems, (,)]" />
+					<visible>Control.IsVisible(5008)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+                    <param name="id" value="5008" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+					<param name="visible" value="Integer.IsGreater(Container(5008).NumItems,0) | Container(5008).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5008).NumItems,0) | Container(5008).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+                    <param name="id" value="5008" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+					<param name="visible" value="Integer.IsGreater(Container(5008).NumItems,0) | Container(5008).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5008).NumItems,0) | Container(5008).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+			<!-- MOVIE and TV SHOW By Directors Named
+				msgctxt "#20348"
+				msgid "Directors"
+				msgstr "Regisseure" -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7513" />
+                    <param name="id" value="5013" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[342] made by $LOCALIZE[20348] &quot;[CAPITALIZE],[/CAPITALIZE]&quot;]$INFO[Container(5013).NumItems, (,)]" />
+                    <visible>Control.IsVisible(5013)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+                    <param name="id" value="5013" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5013).NumItems,0) | Container(5013).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5013).NumItems,0) | Container(5013).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+                    <param name="id" value="5013" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
+					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="670" />
+					<param name="info_plotwidth" value="420" />
+					<param name="info_plotheight" value="210" />
+                    <param name="visible" value="Integer.IsGreater(Container(5013).NumItems,0) | Container(5013).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5013).NumItems,0) | Container(5013).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                </include>
+		<!-- Albums -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7504" />
+                    <param name="id" value="5004" />
+                    <param name="label" value="$INFO[Container(5004).NumItems,$LOCALIZE[132] (,)]" />
+                    <visible>Control.IsVisible(5004)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5004" />
+					<param name="width" value="265" />
+					<param name="height" value="265" />
+					<param name="focusedlayout" value="SquarePosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="SquarePosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="750" />
+					<param name="info_plotwidth" value="440" />
+					<param name="info_plotheight" value="155" />
+                    <param name="visible" value="Integer.IsGreater(Container(5004).NumItems,0) | Container(5004).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5004).NumItems,0) | Container(5005).IsUpdating">Conditional</animation>
+                    <content target="music">musicdb://albums/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22album%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22albums%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5004" />
+					<param name="width" value="265" />
+					<param name="height" value="265" />
+					<param name="focusedlayout" value="SquarePosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="SquarePosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="750" />
+					<param name="info_plotwidth" value="440" />
+					<param name="info_plotheight" value="155" />
+                    <param name="visible" value="Integer.IsGreater(Container(5004).NumItems,0) | Container(5004).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5004).NumItems,0) | Container(5005).IsUpdating">Conditional</animation>
+                    <content target="music">musicdb://albums/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22album%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22albums%22%7D</content>
+                </include>
+		<!-- Artists -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7505" />
+                    <param name="id" value="5005" />
+                    <param name="label" value="$INFO[Container(5005).NumItems,$LOCALIZE[133] (,)]" />
+                    <visible>Control.IsVisible(5005)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5005" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5005).NumItems,0) | Container(5005).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5005).NumItems,0) | Container(5005).IsUpdating">Conditional</animation>
+                    <content target="music">musicdb://artists/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22artists%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5005" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5005).NumItems,0) | Container(5005).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5005).NumItems,0) | Container(5005).IsUpdating">Conditional</animation>
+                    <content target="music">musicdb://artists/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22artists%22%7D</content>
+                </include>
+		<!-- Albums by Artist focused befor/above -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7506" />
+                    <param name="id" value="5006" />
+                    <param name="label" value="$INFO[Container(5005).ListItem.Label,$LOCALIZE[132] by ,]$INFO[Container(5006).NumItems, (,)]" />
+                    <visible>Control.IsVisible(5006)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5006" />
+					<param name="width" value="265" />
+					<param name="height" value="265" />
+					<param name="focusedlayout" value="SquarePosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="SquarePosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="750" />
+					<param name="info_plotwidth" value="440" />
+					<param name="info_plotheight" value="155" />
+                    <param name="visible" value="!String.IsEmpty(Container(5005).ListItem.Label) + [Integer.IsGreater(Container(5006).NumItems,0) | Container(5006).IsUpdating]" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5006).NumItems,0) | Container(5006).IsUpdating">Conditional</animation>
+                    <content target="music">musicdb://albums/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(5005).ListItem.Label]%22%5D%7D%5D%7D%2C%22type%22%3A%22albums%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5006" />
+					<param name="width" value="265" />
+					<param name="height" value="265" />
+					<param name="focusedlayout" value="SquarePosterPanelLayoutFocus" />
+					<param name="unfocusedlayout" value="SquarePosterPanelLayout" />
+					<param name="layouticon" value="$VAR[PosterThumb]" />
+					<param name="info_panelwidth" value="750" />
+					<param name="info_plotwidth" value="440" />
+					<param name="info_plotheight" value="155" />
+                    <param name="visible" value="!String.IsEmpty(Container(5005).ListItem.Label) + [Integer.IsGreater(Container(5006).NumItems,0) | Container(5006).IsUpdating]" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5006).NumItems,0) | Container(5006).IsUpdating">Conditional</animation>
+                    <content target="music">musicdb://albums/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(5005).ListItem.Label]%22%5D%7D%5D%7D%2C%22type%22%3A%22albums%22%7D</content>
+                </include>
+		<!-- MUSICVIDEOS is SearchString in Title -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7515" />
+                    <param name="id" value="5015" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20391]-$LOCALIZE[369] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5001).NumItems, (,)]" />
+                   <visible>Control.IsVisible(5015)</visible>
+                </include>
+				<include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5015" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5015).NumItems,0) | Container(5015).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5015).NumItems,0) | Container(5015).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(SearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5015" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5015).NumItems,0) | Container(5015).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5015).NumItems,0) | Container(5015).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(SearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</content>
+                </include>
+		<!-- MUSICVIDEOS is SearchString in Artist -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7516" />
+                    <param name="id" value="5016" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20391] - $LOCALIZE[133] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5001).NumItems, (,)]" />
+                <visible>Control.IsVisible(5016)</visible>
+                </include>
+				<include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5016" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5016).NumItems,0) | Container(5016).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5016).NumItems,0) | Container(5016).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22artist%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(SearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5016" />
+					<param name="type" value="fixedlist" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5016).NumItems,0) | Container(5016).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5016).NumItems,0) | Container(5016).IsUpdating">Conditional</animation>
+                    <content target="videos">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22artist%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(SearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</content>
+                </include>
+		<!-- youtube -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7509" />
+                    <param name="id" value="5009" />
+                    <param name="label" value="$INFO[Container(5009).NumItems,$LOCALIZE[31062] $LOCALIZE[36913] (,)]" />
+                    <visible>Control.IsVisible(5009)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5009" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5009).NumItems,0) | Container(5009).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5009).NumItems,0) | Container(5009).IsUpdating">Conditional</animation>
+                    <content target="videos" sortby="file" limit="25">plugin://plugin.video.youtube/search/?q=$INFO[Skin.String(SearchTerm)]</content>
+                    <visible>System.HasAddon(plugin.video.youtube)</visible>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5009" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5009).NumItems,0) | Container(5009).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5009).NumItems,0) | Container(5009).IsUpdating">Conditional</animation>
+                    <content target="videos" sortby="file" limit="25">plugin://plugin.video.youtube/search/?q=$INFO[Skin.String(SearchTerm)]</content>
+                    <visible>System.HasAddon(plugin.video.youtube)</visible>
+                </include>
+		<!-- Addons -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7514" />
+                    <param name="id" value="5014" />
+                    <param name="label" value="$INFO[Container(5014).NumItems,$LOCALIZE[24001] (,)]" />
+                    <visible>Control.IsVisible(5014)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5014" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5014).NumItems,0) | Container(5014).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5014).NumItems,0) | Container(5014).IsUpdating">Conditional</animation>
+                    <content target="addons">addons://search/$INFO[Skin.String(SearchTerm)]</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5014" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5014).NumItems,0) | Container(5014).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5014).NumItems,0) | Container(5014).IsUpdating">Conditional</animation>
+                    <content target="addons">addons://search/$INFO[Skin.String(SearchTerm)]</content>
+                </include>
+            </control>
+        </control>
+    </controls>
+</window>

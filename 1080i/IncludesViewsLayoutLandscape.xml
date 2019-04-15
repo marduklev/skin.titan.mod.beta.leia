@@ -65,7 +65,8 @@
             <include condition="Skin.HasSetting(RandomizeBackground)">randomizeImages</include>
             <visible>!String.IsEmpty(ListItem.Property(defaultID))</visible>
         </control>
-        <include condition="!Window.IsActive(Home)">ThumbsTagOverlay</include>
+        <include condition="!Window.IsActive(Home) + !Window.IsActive(1100)">ThumbsTagOverlay</include>
+		<include condition="Window.IsActive(1100)">ThumbsTagOverlaySearch</include>
         <control type="group">
             <!--Watched Overlay-->
             <right>8</right>

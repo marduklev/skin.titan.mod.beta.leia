@@ -123,9 +123,11 @@
                     <!--Button Search-->
                     <include>SideBladeMenuButton</include>
                     <label>137</label>
-					<onclick>RunScript(script.skin.helper.service,action=VIDEOSEARCH)</onclick>
-					<visible>!String.Contains(Container.FolderPath,plugin://plugin.video)</visible>
-                </control>
+					<onclick>Skin.Reset(SearchTerm)</onclick>
+					<onclick>Skin.SetString(SearchTerm)</onclick>
+					 <!--conditional choice script.globalsearch-->
+					<onclick>ActivateWindow(1100)</onclick>
+				</control>
 				<control type="button" id="4401">
                     <!--current playlist-->
                     <include>SideBladeMenuButton</include>

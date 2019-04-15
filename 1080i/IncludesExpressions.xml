@@ -6,7 +6,7 @@
     
     <!-- Game platforms -->
     <expression name="PlatformIsWindows">String.Contains(Container.ListItem(1).Property(platform),Windows)</expression>
-    <expression name="PlatformIsDos">String.Contains(Container.ListItem(1).Property(platform),Dos)</expression>
+    <expression name="PlatformIsDos">String.Contains(Container.ListItem(1).Property(platform),DOS)</expression>
     <expression name="PlatformIsSNES">String.Contains(Container.ListItem(1).Property(platform),SNES)</expression>
     <expression name="PlatformIsNES">String.IsEqual(Container.ListItem(1).Property(platform),Nintendo NES)</expression>
     <expression name="PlatformIsN64">String.Contains(Container.ListItem(1).Property(platform),Nintendo 64)</expression>
@@ -18,6 +18,11 @@
     <expression name="PlatformIsPSP">String.Contains(Container.ListItem(1).Property(platform),PlayStation Portable)</expression>
     <expression name="PlatformIsPS1">String.IsEqual(Container.ListItem(1).Property(platform),Sony PlayStation)</expression>
     <expression name="PlatformIsDreamcast">String.Contains(Container.ListItem(1).Property(platform),Dreamcast)</expression>
+    <expression name="PlatformIsSaturn">String.Contains(Container.ListItem(1).Property(platform),Saturn)</expression>
+    <expression name="PlatformIsMasterSystem">String.Contains(Container.ListItem(1).Property(platform),Master System)</expression>
+    <expression name="PlatformIsMegadrive">String.Contains(Container.ListItem(1).Property(platform),Megadrive) | String.Contains(Container.ListItem(1).Property(platform),Genesis)</expression>
+    <expression name="PlatformIsGameGear">String.Contains(Container.ListItem(1).Property(platform),Game Gear)</expression>
+    <expression name="PlatformIs32X">String.Contains(Container.ListItem(1).Property(platform),32X)</expression>
 
     <!-- Preferred thumb shapes -->
     <expression name="UsePosterShape">String.IsEqual(Control.GetLabel(5595),poster)</expression>

@@ -1549,7 +1549,15 @@
             <param name="overlay_texture" value="diffuse/icon_overlay.png" />
         </include>
     </include>
-    
+    <include name="WatchedIndicatorExtraSmall">
+        <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+            <param name="width" value="50" />
+            <param name="height" value="50" />
+            <param name="font" value="indicator_small" />
+            <param name="overlay" value="normal" />
+            <param name="overlay_texture" value="diffuse/icon_overlay.png" />
+        </include>
+	</include>
 	<include name="WatchedIndicatorSmall">
         <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
             <param name="width" value="60" />

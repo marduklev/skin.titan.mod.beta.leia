@@ -273,8 +273,10 @@
 	<variable name="ListItemClearLogo">
 		<value condition="Control.IsVisible(503)"></value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(artist.clearlogo))">$INFO[ListItem.Art(artist.clearlogo)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(albumartist.clearlogo))">$INFO[ListItem.Art(albumartist.clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-        <value condition="!String.IsEmpty(Container(999).ListItem.Art(clearlogo))">$INFO[Container(999).ListItem.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(Container(999).ListItem.Art(clearlogo))">$INFO[Container(999).ListItem.Art(clearlogo)]</value>
 		<value condition="Control.IsVisible(200) + !String.IsEmpty(Container(200).ListItem.Property(Art(clearlogo)))">$INFO[Container(200).ListItem.Property(Art(clearlogo))]</value>
 		<value condition="Control.IsVisible(201) + !String.IsEmpty(Container(201).ListItem.Property(Art(clearlogo)))">$INFO[Container(201).ListItem.Property(Art(clearlogo))]</value>
 		<value condition="Control.IsVisible(202) + !String.IsEmpty(Container(202).ListItem.Property(Art(clearlogo)))">$INFO[Container(202).ListItem.Property(Art(clearlogo))]</value>
@@ -1355,12 +1357,10 @@
 		<value condition="Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)">$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
-	
-    <variable name="GamesActive">
+	<variable name="GamesActive">
         <value condition="String.Contains(Container.FolderPath,plugin://plugin.program.ael)">AEL</value>
         <value condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher)">AL</value>
         <value condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher)">AEL</value>
         <value></value>
     </variable>
-	
 </includes>

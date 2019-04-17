@@ -51,7 +51,7 @@
 					<onclick>Skin.SetString(SearchTerm)</onclick>
 					<!-- <onclick>ActivateWindow(1100)</onclick> -->
 					<onclick>Dialog.Close(1101)</onclick>
-					<onclick>ReloadSkin</onclick>
+					<!-- <onclick>ReloadSkin</onclick> -->
 				</control>
 				<control type="radiobutton" id="50001">
 					<width>560</width>

@@ -18,13 +18,7 @@
                 <height>52</height>
                 <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
                 <nested />
-				<!--  add busy -->
-				<!--  <control type="group">
-                    <top>52</top>
-                    <height>360.5</height>
-                    <visible>Container($PARAM[id]).IsUpdating</visible>
-                </control> -->
-                <control type="grouplist">
+				<control type="grouplist">
                     <height>52</height>
                     <orientation>horizontal</orientation>
                     <usecontrolcoords>true</usecontrolcoords>
@@ -54,12 +48,10 @@
                         <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Label)</visible>
                         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) + !Container($PARAM[id]).IsUpdating</visible>
                     </control>
-					<!-- need merge to one label and use var instead -->
-                    <control type="label">
+					<control type="label">
                         <top>20</top>
                         <width>auto</width>
-                       <!--  <label>$INFO[Container($PARAM[id]).ListItem.Label]</label> -->
-					   <label>$VAR[SearchInfoHeader_Title]</label>
+						<label>$VAR[SearchInfoHeader_Title]</label>
                         <aligny>center</aligny>
                          <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
@@ -68,19 +60,6 @@
                         <visible>Control.HasFocus($PARAM[id]) | Control.HasFocus($PARAM[altid])</visible>
                         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) + !Container($PARAM[id]).IsUpdating</visible>
                     </control>
-                    <!-- <control type="label">
-                        <top>20</top>
-                        <width>auto</width>
-                        <label>[B]$INFO[Container($PARAM[id]).ListItem.TvShowTitle,,  •  ]$INFO[Container($PARAM[id]).ListItem.Season,$LOCALIZE[20373]  , • ]$INFO[Container($PARAM[id]).ListItem.Episode, $LOCALIZE[20359]  , • ]$INFO[Container($PARAM[id]).ListItem.Title][/B]</label>
-                        <aligny>center</aligny>
-                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                        <font>Reg28</font>
-                        <height>24</height>
-                        <visible>Control.HasFocus($PARAM[id]) | Control.HasFocus($PARAM[altid])</visible>
-                        <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) + !Container($PARAM[id]).IsUpdating</visible>
-                        <visible>String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode)</visible>
-                    </control> -->
                 </control>
             </control>
         </definition>
@@ -112,7 +91,7 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="$PARAM[height]" width="$PARAM[width]" condition="!Skin.HasSetting(search_info_widget)">
+			<focusedlayout height="$PARAM[height]" width="$PARAM[width]" condition="!Skin.HasSetting(search_info_widget) | [Skin.HasSetting(search_info_widget) + !Control.HasFocus($PARAM[id])]">
 				<control type="group">
 					<width>$PARAM[width]</width>
 					<height>$PARAM[height]</height>
@@ -173,7 +152,7 @@
 						<left>15</left>
 						<texture background="true">$VAR[ClearLogoFallback]</texture>
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
-						<visible>String.IsEqual(ListItem.DBTYPE,episode)</visible>
+						<visible>String.IsEqual(ListItem.DBTYPE,episode)  | [String.IsEqual(ListItem.DBTYPE,musicvideo) + String.IsEmpty(ListItem.Art(Landscape))]</visible>
 					</control>
 					<control type="label">
 						<right>20</right>
@@ -186,6 +165,7 @@
 						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 						<selectedcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</selectedcolor>
 						<label>$INFO[ListItem.Label,[B],[/B]]</label>
+						<!-- <label>$VAR[SearchInfoHeader_Title]</label> -->
 					</control>
 					<control type="image">
 						<top>45</top>
@@ -210,7 +190,7 @@
 					</control>
 					<control type="label">
 						<width>$PARAM[info_plotwidth]</width>
-						<right>10</right>
+						<right>15</right>
 						<height>38</height>
 						<bottom>8</bottom>
 						<aligny>center</aligny>
@@ -218,7 +198,7 @@
 						<font>Bold24</font>
 						<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
 						<selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
-						<label>$VAR[SearchInfoWidget_BottomInfo,[B],[/B]]</label>
+						<label>$VAR[SearchInfoWidget_BottomInfo]</label>
 					</control>
 					<control type="group">
 						<right>5</right>
@@ -255,7 +235,7 @@
 		</control>
     </include>
 	<variable name="SearchInfoHeader_Title">
-		<value condition="Control.HasFocus(5009)">$INFO[ListItem.Title,[B],[/B]]</value>
+		<value condition="Control.HasFocus(5009)">$INFO[ListItem.Label,[B],[/B]]</value>
 		<value condition="String.IsEqual(ListItem.DBType,musicvideo)">$INFO[ListItem.Artist,[B],[/B]]$INFO[ListItem.Title,  [B]•  ,[/B]]</value>
 		<value condition="String.IsEqual(ListItem.DBType,episode)">$INFO[ListItem.TvShowTitle,[B],  |  [/B]]$INFO[ListItem.Season,[B]$LOCALIZE[20373]  , • [/B]]$INFO[ListItem.Episode, [B]$LOCALIZE[20359]  , • [/B]]$INFO[ListItem.Title,[B],[/B]]</value>
 		<value condition="Control.HasFocus(5007)">$INFO[ListItem.Genre, &quot; , &quot;   |  ]$INFO[ListItem.Label,[B],[/B]]</value>
@@ -266,19 +246,19 @@
 		<value>$INFO[ListItem.Label,[B],[/B]]</value>
 	</variable>
 	<variable name="SearchInfoWidget_Description">
-		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,movie)]">$INFO[ListItem.Plot,, • ]</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,album)">$INFO[ListItem.Property(Album_Description),, • ]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,album) + !String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)][CR]$INFO[ListItem.ContributorAndRole]</value>
 		<value condition="[String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,artist)]">$INFO[ListItem.Property(Artist_Description)][CR]$INFO[ListItem.ContributorAndRole]</value>
 		<value condition="!String.IsEmpty(ListItem.AddonName)">$INFO[ListItem.AddonDescription]</value>
-		<value>$INFO[ListItem.Plot]</value>
+		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+		<value>$LOCALIZE[19055]</value>
 	</variable>
 	<variable name="SearchInfoWidget_BottomInfo">
-		<value condition="[String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,movie)]">$VAR[premiere_date,, • ]$VAR[ListItemDuration]</value> <!-- $INFO[ListItem.Rating, •,] -->
-		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">$INFO[ListItem.Premiered,, • ]$VAR[ListItemDuration]$INFO[ListItem.Rating, •,]</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,movie)]">$VAR[premiere_date,, • ]$VAR[ListItemDuration]$INFO[ListItem.Rating, • ,]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">$INFO[ListItem.Premiered,, • ]$VAR[ListItemDuration]$INFO[ListItem.Rating, • ,]</value>
 		<value condition="[String.IsEqual(ListItem.DBTYPE,musicvideo) | String.IsEqual(ListItem.DBTYPE,album)]">$INFO[ListItem.Year,, • ]$INFO[ListItem.Artist]$INFO[ListItem.Genre, • ,]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,artist)">$INFO[ListItem.Property(Artist_YearsActive),, •]$INFO[ListItem.Property(Artist_Formed),$LOCALIZE[21894] :, ]$INFO[ListItem.Property(Artist_Disbanded),$LOCALIZE[21896] :,]</value> 
 		<value condition="!String.IsEmpty(ListItem.AddonName)">$INFO[ListItem.AddonType]$INFO[ListItem.Property(Addon.Status),  •,•]</value>
-		<!-- yt video -->
+		<value condition="Control.HasFocus(5009)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration(m),,m ]$INFO[ListItem.Duration(ss),,sec]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,song)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ,]$INFO[ListItem.Year, • (,)]</value>
 		<value>$LOCALIZE[19055]</value>
 	</variable>

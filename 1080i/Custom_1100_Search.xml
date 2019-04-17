@@ -9,12 +9,9 @@
         <!-- Background -->
         <include>GlobalBackground</include>
 		<!-- Header -->
-		<!-- <include>Header</include> -->
-		<!-- need adjust label -->
- 		<!-- NowPlaying -->
-        <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
-        <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+		<include condition="!Skin.HasSetting(search_info_spotlight)">Header</include>
+		<!-- NowPlaying -->
+        <include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(search_info_spotlight)">NowPlayingModern</include>
         <!--Sub Menu Tab Left-->
         <control type="group">
 			<animation type="Conditional" condition="ControlGroup(9000).HasFocus()">
@@ -119,7 +116,6 @@
 						<colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
 						<texture background="true">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Studio,,.png]</texture>
 					</control>
-					
 				</control>
 		</control>
 		
@@ -159,11 +155,11 @@
                 <itemgap>-35</itemgap>
                 <usecontrolcoords>true</usecontrolcoords>
                 
-			<!-- MOVIES TITLES contains SearchString 21400 1411-->
+			<!-- MOVIES TITLES contains SearchString 21400 1411 $INFO[Skin.String(SearchTerm),$LOCALIZE[20338]-$LOCALIZE[369] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5001).NumItems, (,)]  -->
 				<include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7501" />
                     <param name="id" value="5001" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20338]-$LOCALIZE[369] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5001).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[342]  $LOCALIZE[1411]  &quot; , &quot;]" />
                     <visible>Control.IsVisible(5001)</visible>
                 </include>
 				<include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -200,7 +196,7 @@
 				<include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7502" />
                     <param name="id" value="5002" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20343]-$LOCALIZE[369] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5002).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20343]  $LOCALIZE[1411]  &quot; , &quot;]" />
                     <visible>Control.IsVisible(5002)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -237,7 +233,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7503" />
                     <param name="id" value="5003" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20360]-$LOCALIZE[369] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5002).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20360]  $LOCALIZE[1411]  &quot; , &quot;]" />
                     <visible>Control.IsVisible(5003)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -274,7 +270,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7517" />
                     <param name="id" value="5017" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20360] $LOCALIZE[1411] $LOCALIZE[20337] &quot;[CAPITALIZE] , [/CAPITALIZE]&quot;]$INFO[Container(5017).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20360] - $LOCALIZE[1411] $LOCALIZE[344]  &quot; , &quot;]" />
 					<visible>Control.IsVisible(5017)</visible>
                 </include>
 				<include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -311,7 +307,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7507" />
                     <param name="id" value="5007" />
-					<param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[135] $LOCALIZE[1411] &quot;[CAPITALIZE],[/CAPITALIZE]&quot;]$INFO[Container(5007).NumItems, (,)]" />
+					<param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[135] $LOCALIZE[1411]  &quot; , &quot;]" />
                    <visible>Control.IsVisible(5007)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -350,7 +346,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7510" />
                     <param name="id" value="5010" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[562]  &quot; , &quot;  ]$INFO[Container(5010).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[562]  &quot; , &quot;  ]" />
                     <visible>Control.IsVisible(5010)</visible>
                 </include>
                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -389,7 +385,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7511" />
                     <param name="id" value="5011" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[572] &quot;[CAPITALIZE],[/CAPITALIZE]&quot;]$INFO[Container(5011).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20388] $LOCALIZE[1411]  &quot; , &quot;]" />
                     <visible>Control.IsVisible(5011)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -428,7 +424,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7512" />
                     <param name="id" value="5012" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[574] &quot;[CAPITALIZE],[/CAPITALIZE]&quot;]$INFO[Container(5012).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[574] $LOCALIZE[1411]  &quot; , &quot;]" />
                     <visible>Control.IsVisible(5012)</visible>
                 </include>
               <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -461,7 +457,7 @@
                     <param name="visible" value="Integer.IsGreater(Container(5012).NumItems,0) | Container(5012).IsUpdating" />
                     <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5012).NumItems,0) | Container(5012).IsUpdating">Conditional</animation>
                     <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
-                    <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                   <!--  <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content> -->
 				</include>
 		<!-- MOVIE and TV SHOW - Actors Named, 
 				msgctxt "#344"
@@ -469,7 +465,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7508" />
                     <param name="id" value="5008" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[342] &amp; $LOCALIZE[20343] $LOCALIZE[1411] $LOCALIZE[344] &quot;[CAPITALIZE],[/CAPITALIZE]&quot;]$INFO[Container(5008).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[342] &amp; $LOCALIZE[20343] - $LOCALIZE[1411] $LOCALIZE[344]  &quot; , &quot;]" />
 					<visible>Control.IsVisible(5008)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -511,7 +507,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7513" />
                     <param name="id" value="5013" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[342] made by $LOCALIZE[20348] &quot;[CAPITALIZE],[/CAPITALIZE]&quot;]$INFO[Container(5013).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[342] $LOCALIZE[19156] $LOCALIZE[20339]  &quot;,&quot;]" />
                     <visible>Control.IsVisible(5013)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -550,7 +546,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7504" />
                     <param name="id" value="5004" />
-                    <param name="label" value="$INFO[Container(5004).NumItems,$LOCALIZE[132] (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[132]  $LOCALIZE[1411]  &quot; , &quot;]" />
                     <visible>Control.IsVisible(5004)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -587,7 +583,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7505" />
                     <param name="id" value="5005" />
-                    <param name="label" value="$INFO[Container(5005).NumItems,$LOCALIZE[133] (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[133]  $LOCALIZE[1411]  &quot; , &quot;]" />
                     <visible>Control.IsVisible(5005)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -624,7 +620,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7506" />
                     <param name="id" value="5006" />
-                    <param name="label" value="$INFO[Container(5005).ListItem.Label,$LOCALIZE[132] by ,]$INFO[Container(5006).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Container(5005).ListItem.Label,$LOCALIZE[132] $LOCALIZE[19156] ,]" />
                     <visible>Control.IsVisible(5006)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -661,7 +657,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7515" />
                     <param name="id" value="5015" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20391]-$LOCALIZE[369] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5001).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),[CAPITALIZE]$LOCALIZE[36909][/CAPITALIZE]  $LOCALIZE[1411]  &quot; , &quot;]" />
                    <visible>Control.IsVisible(5015)</visible>
                 </include>
 				<include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -698,7 +694,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7516" />
                     <param name="id" value="5016" />
-                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[20391] - $LOCALIZE[133] $LOCALIZE[21400]  &quot; , &quot; ] $INFO[Container(5001).NumItems, (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),[CAPITALIZE]$LOCALIZE[36909][/CAPITALIZE] - $LOCALIZE[19159] $LOCALIZE[133]  &quot; , &quot; ]" />
                 <visible>Control.IsVisible(5016)</visible>
                 </include>
 				<include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -736,7 +732,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7509" />
                     <param name="id" value="5009" />
-                    <param name="label" value="$INFO[Container(5009).NumItems,$LOCALIZE[31062] $LOCALIZE[36913] (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[31062] [CAPITALIZE]$LOCALIZE[36913][/CAPITALIZE]  $LOCALIZE[1411]  &quot; , &quot;]" />
                     <visible>Control.IsVisible(5009)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
@@ -775,7 +771,7 @@
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7514" />
                     <param name="id" value="5014" />
-                    <param name="label" value="$INFO[Container(5014).NumItems,$LOCALIZE[24001] (,)]" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[24001]  $LOCALIZE[1411]  &quot; , &quot;]" />
                     <visible>Control.IsVisible(5014)</visible>
                 </include>
                 <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">

@@ -301,6 +301,7 @@
     <include name="HeaderTitle">
 	
         <control type="group">
+			<visible>!Window.IsActive(1100)</visible>
             <control type="image">
                 <visible>skin.hastheme(classic)</visible>
                 <posx>61</posx>
@@ -358,6 +359,7 @@
 			<fadetime>600</fadetime>
 			<aspectratio align="right" aligny="center">keep</aspectratio>
 			<texture background="true">$VAR[ListItemClearLogo]</texture>
+			<visible>!Window.IsActive(1100)</visible>
 			<visible>!String.IsEmpty(Control.GetLabel(881)) + Skin.String(ClearLogoLocation, topright)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
 			<animation type="Conditional" condition="Window.IsActive(volumebar)">
@@ -374,6 +376,7 @@
 			<fadetime>600</fadetime>
 			<aspectratio align="left" aligny="center">keep</aspectratio>
 			<texture background="true">$VAR[ListItemClearLogo]</texture>
+			<visible>!Window.IsActive(1100)</visible>
 			<visible>!String.IsEmpty(Control.GetLabel(882)) + Skin.String(ClearLogoLocation, topleft)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
 		</control>
@@ -387,7 +390,8 @@
 			<fadetime>600</fadetime>
 			<aspectratio align="center" aligny="center">keep</aspectratio>
 			<texture background="true">$VAR[ListItemClearLogo]</texture>
-            <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
+            <visible>!Window.IsActive(1100)</visible>
+			<visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
             <visible>![Skin.String(View514_DisplayInfo,small) + Control.IsVisible(514)] + ![Control.IsVisible(514) + Skin.String(View514_DisplayInfo,small_delayed) + System.IdleTime(3)]</visible>
             <visible>![Skin.String(View513_DisplayInfo,small) + Control.IsVisible(513)] + ![Control.IsVisible(513) + Skin.String(View513_DisplayInfo,small_delayed) + System.IdleTime(3)]</visible>
 			<visible>!String.IsEmpty(Control.GetLabel(883)) + Skin.String(ClearLogoLocation, topcenter) + !Skin.HasSetting(ShowMovieTitleHeader)</visible>

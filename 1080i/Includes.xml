@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
     <include file="Defaults.xml" />
+
+    <include file="IncludesExpressions.xml" />
     <include file="IncludesVariables.xml" />
+    
 	<include file="IncludesDialogVideoInfo.xml" />
 	<include file="IncludesDialogMusicInfo.xml" />
 	<include file="IncludesCustomSearch.xml" />
 	<include file="Mod_Progress_Variables_Netflix.xml" />
+    <include file="IncludesGames.xml" />
 	<include file="IncludesHomeTitanTiles.xml" />
     <include file="IncludesHomeWidgets.xml" />
 	<include file="IncludesHomeTitanTilesSubMenu.xml" />
@@ -55,6 +59,11 @@
     <include file="IncludesViewsLayoutLandscape.xml" />
     <include file="IncludesViewsLayoutSquare.xml" />
     <include file="IncludesViewsLayoutBanner.xml" />
+    <include file="IncludesViewsLayoutWidebox.xml" />
+    <include file="IncludesViewsLayoutBluRay.xml" />
+    <include file="IncludesViewsLayoutSlim.xml" />
+    <include file="IncludesViewsLayoutSteam.xml" />
+    <include file="IncludesViewsLayoutNds.xml" />
     <include file="IncludesOSD.xml" />
     <include file="IncludesSkinSetings.xml" />
     <include file="IncludesContextMenu.xml" />

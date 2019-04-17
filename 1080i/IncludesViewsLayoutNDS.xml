@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+
+	<!-- Nds LAYOUT -->
+	<include name="NdsLayout">
+		<control type="image">
+			<colordiffuse>ff4c0000</colordiffuse>
+			<include>NdsThumbBG</include>
+			<include condition="Skin.String(thumbsborder_unfocused, 2) | Skin.String(thumbsborder_unfocused, 4) | Skin.String(thumbsborder_unfocused, 6)">thumbborder_2</include>
+			<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
+		</control>
+		<include>NdsThumbLayout</include>
+		<control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorNormal</include>
+			<animation type="Conditional" condition="skin.hastheme(classic)">
+				<effect type="slide" end="3,-3" time="0" />
+			</animation>
+		</control>
+	</include>
+
+	<include name="NdsLayoutFocus">
+		<control type="image">
+			<!--
+			<animation effect="zoom" end="102,102" time="0" condition="Skin.HasSetting(CaseOverlays)">Conditional</animation>
+			-->
+			<include>NdsThumbFO</include>
+			<include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
+			<include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
+			<include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
+		</control>
+		<include>NdsThumbLayout</include>
+		<!--
+		<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
+		<control type="group">
+			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
+		</control>
+		-->
+		<control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorNormal</include><!-- check make side menu option or skinotion to choose small or default <include>WatchedIndicatorSmall</include> -->
+			<animation type="Conditional" condition="skin.hastheme(classic)">
+				<effect type="slide" end="3,-3" time="0" />
+			</animation>
+			<animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
+				<effect type="slide" end="6,0" time="0" />
+			</animation>
+		</control>
+	</include>
+
+	<include name="NdsNonFocus">
+		<control type="image">
+			<description>Normal Nds thumb stretched aspect</description>
+			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultGames.png">$INFO[ListItem.Icon]</texture>
+			<colordiffuse>cf505050</colordiffuse>			
+			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
+			<bordersize>8</bordersize>
+		</control>
+	</include>
+
+	<!-- add reflections-->
+	<include name="NdsNonFocusReflection">
+		<control type="image">
+			<description>Normal Nds thumb stretched aspect</description>
+			<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultGames.png">$INFO[ListItem.Icon]</texture>
+			<colordiffuse>cf505050</colordiffuse>
+			<aspectratio scalediffuse="true" aligny="top" align="center">stretch</aspectratio>
+			<bordersize>8</bordersize>
+		</control>
+	</include>
+
+	<include name="NdsThumbLayout">
+		<control type="image">
+			<description>Nds thumb stretched aspect</description>
+			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultGames.png">$INFO[ListItem.Icon]</texture>
+			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
+			<bordersize>8</bordersize>
+		</control>
+	</include>
+
+	<include name="NdsReflection">
+		<control type="image">
+			<description>Normal Nds thumb stretched aspect</description>
+			<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultGames.png">$INFO[ListItem.Icon]</texture>
+			<colordiffuse></colordiffuse>		
+			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
+			<bordersize>8</bordersize>
+		</control>
+	</include>
+
+	<!-- GENERIC LAYOUT FOR BLU-RAY -->
+	<include name="NdsThumbBG">
+		<texture border="0">diffuse/poster.png</texture>
+		<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+	</include>
+	<include name="NdsThumbFO">
+		<texture border="0">diffuse/poster.png</texture>
+		<colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+	</include>
+
+
+
+</includes>

@@ -5,12 +5,6 @@
         <views>10,50,51,52,501,502,503,504,505,53,54,55,506,56,57,58,59,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525,526,527</views>
         <menucontrol>9000</menucontrol>
         
-        <!-- In GameMode Flag -->
-        <onload>Skin.SetString(gamemode,)</onload>
-        <onload condition="String.Contains(Container.FolderPath,plugin://plugin.program.ael)">Skin.SetString(gamemode, AEL)</onload>
-        <onload condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher)">Skin.SetString(gamemode, AL)</onload>
-        <onload condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher)">Skin.SetString(gamemode, AEL)</onload>
-
         <onunload condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">PlayerControl(Stop)</onunload>		
     </include>
 
@@ -32,11 +26,11 @@
     </include>
 
     <include name="allViews">
-                
-        <!-- In GameMode Flag -->
-        <control type="label" id="5599">
-            <label>Skin.String(gamemode,)</label>
-            <visible>false</visible>
+
+        <!-- Thumb shape to be used -->
+        <control type="label" id="5595">
+            <visible>no</visible>
+            <label>$VAR[ThumbShapeBasedOnSystem]</label>
         </control>
 
         <!-- footer bar (in back) -->

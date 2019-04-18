@@ -89,7 +89,20 @@
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
 						<visible>String.IsEqual(ListItem.DBTYPE,episode)</visible>
 					</control>
+					<control type="group">
+						<visible>!Skin.HasSetting(search_info_spotlight) + !Skin.HasSetting(search_info_widget)</visible>
+						<width>$PARAM[width]</width>
+						<height>$PARAM[height]</height>
+						<top>$PARAM[height]</top>
+						<control type="textbox">
+							<align>center</align>
+							<label>$VAR[ThumbListDetails]</label>
+							<font>Reg20</font>
+							<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
+						</control>
+					</control>
 				</control>
+				
 			</itemlayout>
 			<focusedlayout height="$PARAM[height]" width="$PARAM[width]" condition="!Skin.HasSetting(search_info_widget) | [Skin.HasSetting(search_info_widget) + !Control.HasFocus($PARAM[id])]">
 				<control type="group">
@@ -117,6 +130,18 @@
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
 						<visible>String.IsEqual(ListItem.DBTYPE,episode)</visible>
 					</control>
+					<control type="group">
+						<visible>!Skin.HasSetting(search_info_spotlight) + !Skin.HasSetting(search_info_widget)</visible>
+						<width>$PARAM[width]</width>
+						<height>$PARAM[height]</height>
+						<top>$PARAM[height]</top>
+						<control type="textbox">
+							<align>center</align>
+							<label>$VAR[ThumbListDetails]</label>
+							<font>Reg20</font>
+							<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
+						</control>
+					</control>
 				</control>
 			</focusedlayout>
 			<focusedlayout height="$PARAM[height]" width="$PARAM[info_panelwidth]" condition="Skin.HasSetting(search_info_widget) + Control.HasFocus($PARAM[id])">
@@ -134,7 +159,7 @@
 					</control>
 					<control type="image">
 						<width>$PARAM[info_panelwidth]</width>
-						<texture border="5">netflix/frame/slimframe_hardedge.png</texture>
+						<texture border="8">$VAR[FocusFrame525]</texture>
 						<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
 						<animation effect="zoom" start="0,100" end="100,100" time="100" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation>
 					</control>
@@ -210,7 +235,7 @@
 		</control>
 	</include>
 	
-	<include name="ThumbsTagOverlaySearch">
+	<!-- <include name="ThumbsTagOverlaySearch">
         <control type="group">
 			<visible>!String.IsEqual(ListItem.DBTYPE,episode)</visible>
 			<control type="image">
@@ -233,7 +258,7 @@
 				<include condition="!Window.IsActive(Home)">LandscapeTagOverlayVisibility</include>
 			</control>
 		</control>
-    </include>
+    </include> -->
 	<variable name="SearchInfoHeader_Title">
 		<value condition="Control.HasFocus(5009)">$INFO[ListItem.Label,[B],[/B]]</value>
 		<value condition="String.IsEqual(ListItem.DBType,musicvideo)">$INFO[ListItem.Artist,[B],[/B]]$INFO[ListItem.Title,  [B]•  ,[/B]]</value>

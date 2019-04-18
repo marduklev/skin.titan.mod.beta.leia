@@ -73,6 +73,14 @@
 					<onclick>ReloadSkin</onclick>
 					<selected>Skin.HasSetting(search_info_spotlight)</selected>
 				</control>
+				<control type="radiobutton" id="50003">
+					<width>560</width>
+					<include>SideBladeMenuButton</include>
+					<label>Show Media Flags</label>
+					<onclick>Skin.ToggleSetting(search_info_mediaflags)</onclick>
+					<onclick>Dialog.Close(1101)</onclick>
+					<selected>Skin.HasSetting(search_info_mediaflags)</selected>
+				</control>
 			</control>
 		</control>	
     </controls>

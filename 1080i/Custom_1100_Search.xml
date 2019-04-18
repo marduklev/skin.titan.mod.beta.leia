@@ -40,7 +40,14 @@
 				<animation effect="fade" start="100" end="80" time="0" condition="!Control.HasFocus(99001)">Conditional</animation>
 			</control>
 		</control>
-		
+		<control type="group">
+			<posx>630</posx>
+			<height>50</height>
+			<bottom>5</bottom>
+			<animation effect="zoom" alignx="true" end="75,75" time="0" condition="Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color)">Conditional</animation>
+			<visible>Skin.HasSetting(search_info_mediaflags)</visible>
+			<include>mediaflags</include>
+		</control>
 		<!-- spotlight info WIP -->
 		<control type="group">
 			<visible>Skin.HasSetting(search_info_spotlight)</visible>

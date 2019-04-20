@@ -6,7 +6,7 @@
 	<controls>
         <control type="group">
 			<height>100%</height>
-            <width>470</width>
+            <width>570</width>
 			<animation type="WindowOpen">
 				<effect type="slide" start="-660" end="0" time="250" tween="cubic" easing="inout" />
 			</animation>
@@ -17,7 +17,7 @@
 			<control type="image">
 				<posy>-250</posy>
 				<posx>-20</posx>
-				<width>520</width>
+				<width>620</width>
 				<height>1750</height>
 				<texture border="5">diffuse/panel.png</texture>
 				<colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse>
@@ -44,35 +44,42 @@
 				<itemgap>5</itemgap>
 				<control type="button" id="388">
                     <!--Button Search-->
+					<width>650</width>
                     <include>SideBladeMenuButton</include>
-                    <label>137</label>
+					<label>137</label>
 					<onclick>Skin.Reset(SearchTerm)</onclick>
 					<onclick>Skin.SetString(SearchTerm)</onclick>
 					<!-- <onclick>ActivateWindow(1100)</onclick> -->
 					<onclick>Dialog.Close(1101)</onclick>
-					<onclick>ReloadSkin</onclick>
+					<!-- <onclick>ReloadSkin</onclick> -->
 				</control>
 				<control type="radiobutton" id="50001">
-					<!--Prefer widget info -->
-					<include>SideBladeMenuButton</include>
+					<width>560</width>
+                    <include>SideBladeMenuButton</include>
 					<label>$LOCALIZE[36427] ($LOCALIZE[31499])</label>
 					<onclick>Skin.ToggleSetting(search_info_widget)</onclick>
-					<!-- <onclick>ActivateWindow(1100)</onclick> -->
 					<onclick>Dialog.Close(1101)</onclick>
 					<onclick condition="Skin.HasSetting(search_info_spotlight)">Skin.ToggleSetting(search_info_spotlight)</onclick>
 					<onclick>ReloadSkin</onclick>
 					<selected>Skin.HasSetting(search_info_widget)</selected>
 				</control>
 				<control type="radiobutton" id="50002">
-					<!--Prefer widget info -->
+					<width>560</width>
 					<include>SideBladeMenuButton</include>
 					<label>$LOCALIZE[36427] ($LOCALIZE[31185])</label>
 					<onclick>Skin.ToggleSetting(search_info_spotlight)</onclick>
-					<!-- <onclick>ActivateWindow(1100)</onclick> -->
 					<onclick>Dialog.Close(1101)</onclick>
 					<onclick condition="Skin.HasSetting(search_info_widget)">Skin.ToggleSetting(search_info_widget)</onclick>
 					<onclick>ReloadSkin</onclick>
 					<selected>Skin.HasSetting(search_info_spotlight)</selected>
+				</control>
+				<control type="radiobutton" id="50003">
+					<width>560</width>
+					<include>SideBladeMenuButton</include>
+					<label>Show Media Flags</label>
+					<onclick>Skin.ToggleSetting(search_info_mediaflags)</onclick>
+					<onclick>Dialog.Close(1101)</onclick>
+					<selected>Skin.HasSetting(search_info_mediaflags)</selected>
 				</control>
 			</control>
 		</control>	

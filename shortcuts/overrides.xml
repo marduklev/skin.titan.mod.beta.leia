@@ -8,7 +8,8 @@
 
 		<!-- common items -->
 		<node label="32029" condition="String.IsEmpty(Window(home).Property(netflixmenu))">
-			<shortcut label="32022" grouping="32029" icon="resource://resource.images.skinicons.wide/livetv.png" condition="PVR.HasTVChannels">ActivateWindow(TVGuide)</shortcut>
+			<shortcut label="137" grouping="32029" icon="resource://resource.images.skinicons.wide/search.png">ActivateWindow(1100,return)</shortcut>
+                        <shortcut label="32022" grouping="32029" icon="resource://resource.images.skinicons.wide/livetv.png" condition="PVR.HasTVChannels">ActivateWindow(TVGuide)</shortcut>
 			<shortcut label="342" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]">ActivateWindow(10025,videodb://movies/titles/,return)</shortcut>
 			<shortcut label="20343" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]">ActivateWindow(10025,videodb://tvshows/titles/,return)</shortcut>
             <shortcut label="TV-Shows HUB" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]">ActivateWindow(3017,return)</shortcut>
@@ -307,7 +308,12 @@
 	<condition>true</condition>
 	<action>SetFocus(4444,0)</action>
 </override>
-
+<override action="ActivateWindow(1100,return)">
+	<condition>true</condition>
+	<action>Skin.Reset(SearchTerm)</action>
+	<action>Skin.SetString(SearchTerm)</action>
+	<action>ActivateWindow(1100),return</action>
+</override>
 <override action="globaloverride" group="mainmenu">
 	<condition>![Skin.HasSetting(OpenSubMenuOnClick) + Integer.IsGreater(Container(4445).NumItems,0) + ![String.Contains(Skin.String(HomeLayout), netflix) | String.Contains(Skin.String(HomeLayout), win10)]]</condition>
 	<action>::ACTION::</action>

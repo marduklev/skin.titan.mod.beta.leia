@@ -67,7 +67,7 @@
 				<usecontrolcoords>true</usecontrolcoords>
 				<width>700</width>
 				<posx>1100</posx>
-				<posy>50</posy>
+				<posy>25</posy>
 					<control type="label">
 						<visible>String.IsEmpty(Control.GetLabel(5888))</visible>
 						<width>auto</width>
@@ -113,8 +113,8 @@
 						<aligny>top</aligny>
 						<label>$VAR[SearchInfoWidget_Description]</label>
 						<font>Reg28</font>
-						<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
-						<selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<selectedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</selectedcolor>
 						<autoscroll delay="4000" time="4000" repeat="2000">!Skin.HasSetting(DisablePlotAutoScroll)</autoscroll>
 					</control>
 					<control type="image">
@@ -158,7 +158,7 @@
                 <onup>300</onup>
                 <ondown>6000</ondown>
 				<onleft>ActivateWindow(1101)</onleft>
-                <orientation>vertical</orientation>
+				<orientation>vertical</orientation>
                 <itemgap>-35</itemgap>
                 <usecontrolcoords>true</usecontrolcoords>
                 
@@ -508,46 +508,6 @@
                     <content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
                     <content target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
                 </include>
-				<!-- ACTORS by selected MOVIE above test -->
-                <include content="SkinSearch_ContainerHeader">
-                    <param name="groupid" value="7567" />
-                    <param name="id" value="5067" />
-                    <param name="label" value="$LOCALIZE[344] $LOCALIZE[19159] $INFO[Container(5008).ListItem.Title,&quot;,&quot;]" />
-					<visible>Control.IsVisible(5008)</visible>
-                </include>
-				<include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
-                    <param name="type" value="panel" />
-                    <param name="id" value="5067" />
-                    <param name="width" value="216" />
-					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
-					<param name="layouticon" value="$VAR[PosterThumb]" />
-					<param name="info_panelwidth" value="670" />
-					<param name="info_plotwidth" value="420" />
-					<param name="info_plotheight" value="210" />
-                    <param name="visible" value="Control.IsVisible(5008) + [Integer.IsGreater(Container(5067).NumItems,0) | Container(5067).IsUpdating]" />
-                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5067).NumItems,0) | Container(5067).IsUpdating">Conditional</animation>
-                    <content target="videos">plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;dbid=$INFO[Container(5008).ListItem.DBID]</content>
-					<content target="videos">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[Container(5008).ListItem.DBID]</content>
-				</include>
-				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
-                    <param name="type" value="fixedlist" />
-					<param name="id" value="5067" />
-					<param name="width" value="216" />
-					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
-					<param name="layouticon" value="$VAR[PosterThumb]" />
-					<param name="info_panelwidth" value="670" />
-					<param name="info_plotwidth" value="420" />
-					<param name="info_plotheight" value="210" />
-                    <param name="visible" value="Control.IsVisible(5008) + [Integer.IsGreater(Container(5067).NumItems,0) | Container(5067).IsUpdating]" />
-                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5067).NumItems,0) | Container(5067).IsUpdating">Conditional</animation>
-                    <content target="videos">plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;dbid=$INFO[Container(5008).ListItem.DBID]</content>
-					<content target="videos">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[Container(5008).ListItem.DBID]</content>
-                
-				</include>
 			<!-- MOVIE and TV SHOW By Directors Named
 				msgctxt "#20348"
 				msgid "Directors"

@@ -43,15 +43,15 @@
 				<orientation>vertical</orientation>
 				<itemgap>5</itemgap>
 				<control type="button" id="388">
-                    <!--Button Search-->
+                    <!-- Button Search-->
 					<width>650</width>
                     <include>SideBladeMenuButton</include>
 					<label>137</label>
 					<onclick>Skin.Reset(SearchTerm)</onclick>
 					<onclick>Skin.SetString(SearchTerm)</onclick>
-					<!-- <onclick>ActivateWindow(1100)</onclick> -->
 					<onclick>Dialog.Close(1101)</onclick>
-					<!-- <onclick>ReloadSkin</onclick> -->
+					<!-- <onclick>Container.Refresh($PARAM[groupid])</onclick> -->
+					<onclick>ReloadSkin</onclick>
 				</control>
 				<control type="radiobutton" id="50001">
 					<width>560</width>

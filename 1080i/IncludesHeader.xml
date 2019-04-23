@@ -28,7 +28,7 @@
             
             <!-- Header Logo left -->
             <control type="group">
-                <include condition="[!Window.IsActive(Home) + String.Contains(Skin.String(general_header),logo)] | [Window.IsActive(Home) + String.Contains(Skin.String(home_header),logo)]">HeaderLogo</include>
+                <include condition="[!Window.IsActive(Home) + String.Contains(Skin.String(general_header),logo)] | [Window.IsActive(Home) + String.Contains(Skin.String(home_header),logo) + !Window.IsActive(1100)]">HeaderLogo</include>
                 <include condition="!Skin.HasSetting(LowPerformanceMode)">animation_fade_visible</include>
                 <visible>![String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.IsVisible(882) | !String.IsEmpty(Control.GetLabel(29476))]</visible>
                 <animation effect="slide" end="434" time="0" tween="cubic" easing="inout" delay="0" condition="Window.IsActive(Home) + Skin.String(HomeLayout,verticalbig)">Conditional</animation>
@@ -116,7 +116,7 @@
             
             <!-- Header Logo left -->
             <control type="group">
-                <include condition="Skin.HasSetting(CompactHeader)">HeaderLogo</include>
+                <include condition="Skin.HasSetting(CompactHeader) + !Window.IsActive(1100)">HeaderLogo</include>
                 <visible>![Window.IsActive(Home) + Skin.String(HomeLayout,verticalbig)]</visible>
                 <include condition="!Skin.HasSetting(LowPerformanceMode)">animation_fade_visible</include>
                 <visible>![String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.IsVisible(882)]</visible>

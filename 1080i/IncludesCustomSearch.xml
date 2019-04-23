@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<include name="SearchInfoDefPos">
-		<top>-80</top>
+		<top>-30</top>
 		<height>870</height>
 	</include>
 	<include name="SearchInfoSpotlighPos">
-		<top>400</top>
-		<height>448</height>
+		<top>395</top>
+		<height>438</height>
 	</include>
 	
 	<!-- HEADER -->
@@ -53,7 +53,7 @@
                         <width>auto</width>
 						<label>$VAR[SearchInfoHeader_Title]</label>
                         <aligny>center</aligny>
-                         <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                         <font>Reg30</font>
                         <height>24</height>
@@ -92,13 +92,15 @@
 					<control type="group">
 						<visible>!Skin.HasSetting(search_info_spotlight) + !Skin.HasSetting(search_info_widget)</visible>
 						<width>$PARAM[width]</width>
-						<height>$PARAM[height]</height>
+						<height>50</height>
 						<top>$PARAM[height]</top>
 						<control type="textbox">
 							<align>center</align>
 							<label>$VAR[ThumbListDetails]</label>
 							<font>Reg20</font>
-							<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
+							<autoscroll>false</autoscroll>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 						</control>
 					</control>
 				</control>
@@ -130,19 +132,20 @@
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
 						<visible>String.IsEqual(ListItem.DBTYPE,episode)</visible>
 					</control>
-					<control type="group">
+					<control type="textbox">
 						<visible>!Skin.HasSetting(search_info_spotlight) + !Skin.HasSetting(search_info_widget)</visible>
 						<width>$PARAM[width]</width>
-						<height>$PARAM[height]</height>
+						<height>55</height>
 						<top>$PARAM[height]</top>
-						<control type="textbox">
-							<align>center</align>
-							<label>$VAR[ThumbListDetails]</label>
-							<font>Reg20</font>
-							<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-						</control>
+						<align>center</align>
+						<label>$VAR[ThumbListDetails,[B],[/B]]</label>
+						<font>Reg22</font>
+						<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 					</control>
 				</control>
+				
 			</focusedlayout>
 			<focusedlayout height="$PARAM[height]" width="$PARAM[info_panelwidth]" condition="Skin.HasSetting(search_info_widget) + Control.HasFocus($PARAM[id])">
 				<control type="group">
@@ -235,30 +238,6 @@
 		</control>
 	</include>
 	
-	<!-- <include name="ThumbsTagOverlaySearch">
-        <control type="group">
-			<visible>!String.IsEqual(ListItem.DBTYPE,episode)</visible>
-			<control type="image">
-				<bordersize>8</bordersize>
-				<texture diffuse="home/home_matte2.png">diffuse/home_overlay.png</texture>
-				<include condition="!Window.IsActive(Home)">LandscapeTagOverlayVisibility</include>
-				<colordiffuse>$INFO[Skin.String(TagOverlaysPanelColor)]</colordiffuse>
-			</control>
-			<control type="textbox">
-				<left>16</left>
-				<right>16</right>
-				<bottom>10</bottom>
-				<height>50</height>
-				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-				<align>left</align>
-				<aligny>center</aligny>
-				<label>$VAR[ThumbListDetails]</label>
-				<font>Reg20</font>
-				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-				<include condition="!Window.IsActive(Home)">LandscapeTagOverlayVisibility</include>
-			</control>
-		</control>
-    </include> -->
 	<variable name="SearchInfoHeader_Title">
 		<value condition="Control.HasFocus(5009)">$INFO[ListItem.Label,[B],[/B]]</value>
 		<value condition="String.IsEqual(ListItem.DBType,musicvideo)">$INFO[ListItem.Artist,[B],[/B]]$INFO[ListItem.Title,  [B]•  ,[/B]]</value>

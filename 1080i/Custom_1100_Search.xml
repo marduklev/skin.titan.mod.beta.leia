@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="window" id="1100">
     <defaultcontrol always="true">5600</defaultcontrol>
-    <onload condition="String.IsEmpty(Skin.String(SearchTerm))">Back</onload>
-	<onunload>Skin.Reset(SearchTerm)</onunload>
-	<!-- <onunload>Dialog.Close(1101)</onunload> -->
-	<!-- <onunload condition="String.IsEmpty(Skin.String(SearchTerm))">Back</onunload> -->
-    <controls>
+    <onunload>Skin.Reset(SearchTerm)</onunload>
+	<controls>
         <!-- Background -->
         <include>GlobalBackground</include>
 		<!-- Header -->
@@ -60,7 +57,6 @@
 				<texture background="true" diffuse="diffuse/LeftTopCorner.png">$VAR[netflixThumb]</texture>
 				<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
 			</control>
-			
 			<control type="grouplist">
 				<orientation>vertical</orientation>
 				<itemgap>10</itemgap>
@@ -735,6 +731,43 @@
                     <param name="visible" value="Integer.IsGreater(Container(5016).NumItems,0) | Container(5016).IsUpdating" />
                     <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5016).NumItems,0) | Container(5016).IsUpdating">Conditional</animation>
                     <content target="videos">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22artist%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(SearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</content>
+                </include>
+				<!-- games -->
+                <include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7518" />
+                    <param name="id" value="5018" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[31062] [CAPITALIZE]$LOCALIZE[36913][/CAPITALIZE]  $LOCALIZE[1411]  &quot; , &quot;]" />
+                    <visible>Control.IsVisible(5018)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5018" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5018).NumItems,0) | Container(5018).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5018).NumItems,0) | Container(5018).IsUpdating">Conditional</animation>
+					<content target="games">games,addons://sources/game/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22artist%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(SearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22games%22%7d</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5018" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
+					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5018).NumItems,0) | Container(5018).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5018).NumItems,0) | Container(5018).IsUpdating">Conditional</animation>
+                    <content target="games">games,addons://sources/game/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22artist%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(SearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22games%22%7d</content>
                 </include>
 		<!-- youtube -->
                 <include content="SkinSearch_ContainerHeader">

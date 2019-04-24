@@ -22,7 +22,7 @@
     <expression name="PlatformIsMasterSystem">String.Contains(Container.ListItem(1).Property(platform),Master System)</expression>
     <expression name="PlatformIsMegadrive">String.Contains(Container.ListItem(1).Property(platform),Megadrive) | String.Contains(Container.ListItem(1).Property(platform),Genesis)</expression>
     <expression name="PlatformIsGameGear">String.Contains(Container.ListItem(1).Property(platform),Game Gear)</expression>
-    <expression name="PlatformIs32X">String.Contains(Container.ListItem(1).Property(platform),32X)</expression>
+    <expression name="PlatformIs32x">String.Contains(Container.ListItem(1).Property(platform),32X)</expression>
 
     <!-- Preferred thumb shapes -->
     <expression name="UsePosterShape">String.IsEqual(Control.GetLabel(5595),poster)</expression>

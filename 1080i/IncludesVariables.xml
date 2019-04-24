@@ -1394,8 +1394,12 @@
         <value condition="$EXP[InGameMode] + $EXP[PlatformIsMasterSystem] + Skin.String(game.thumbshape.msys)">$INFO[Skin.String(game.thumbshape.msys)]</value>
         <value condition="$EXP[InGameMode] + $EXP[PlatformIsMegadrive] + [Skin.String(game.thumbshape.megadr,auto) | !Skin.String(game.thumbshape.megadr)]">poster</value>
         <value condition="$EXP[InGameMode] + $EXP[PlatformIsMegadrive] + Skin.String(game.thumbshape.megadr)">$INFO[Skin.String(game.thumbshape.megadr)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsSaturn] + [Skin.String(game.thumbshape.saturn,auto) | !Skin.String(game.thumbshape.saturn)]">poster</value>
+        <value condition="$EXP[InGameMode] + $EXP[PlatformIs32x] + [Skin.String(game.thumbshape.32x,auto) | !Skin.String(game.thumbshape.32x)]">poster</value>
+        <value condition="$EXP[InGameMode] + $EXP[PlatformIs32x] + Skin.String(game.thumbshape.32x)">$INFO[Skin.String(game.thumbshape.32x)]</value>
+        <value condition="$EXP[InGameMode] + $EXP[PlatformIsSaturn] + [Skin.String(game.thumbshape.saturn,auto) | !Skin.String(game.thumbshape.saturn)]">slim</value>
         <value condition="$EXP[InGameMode] + $EXP[PlatformIsSaturn] + Skin.String(game.thumbshape.saturn)">$INFO[Skin.String(game.thumbshape.saturn)]</value>
+        <value condition="$EXP[InGameMode] + $EXP[PlatformIsGameGear] + [Skin.String(game.thumbshape.gear,auto) | !Skin.String(game.thumbshape.gear)]">poster</value>
+        <value condition="$EXP[InGameMode] + $EXP[PlatformIsGameGear] + Skin.String(game.thumbshape.gear)">$INFO[Skin.String(game.thumbshape.gear)]</value>
         
         <value condition="$EXP[InGameMode] + [Skin.String(game.thumbshape.default) + !Skin.String(game.thumbshape.default,auto)]">$INFO[Skin.String(game.thumbshape.default)]</value>
         <value condition="$EXP[InGameMode]">square</value>

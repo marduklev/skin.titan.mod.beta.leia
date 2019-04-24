@@ -9,7 +9,7 @@
 		<!-- common items -->
 		<node label="32029" condition="String.IsEmpty(Window(home).Property(netflixmenu))">
 			<shortcut label="137" grouping="32029" icon="resource://resource.images.skinicons.wide/search.png">ActivateWindow(1100,return)</shortcut>
-                        <shortcut label="32022" grouping="32029" icon="resource://resource.images.skinicons.wide/livetv.png" condition="PVR.HasTVChannels">ActivateWindow(TVGuide)</shortcut>
+            <shortcut label="32022" grouping="32029" icon="resource://resource.images.skinicons.wide/livetv.png" condition="PVR.HasTVChannels">ActivateWindow(TVGuide)</shortcut>
 			<shortcut label="342" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]">ActivateWindow(10025,videodb://movies/titles/,return)</shortcut>
 			<shortcut label="20343" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]">ActivateWindow(10025,videodb://tvshows/titles/,return)</shortcut>
             <shortcut label="TV-Shows HUB" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]">ActivateWindow(3017,return)</shortcut>
@@ -30,7 +30,16 @@
 			<shortcut label="31062" grouping="32029" type="youtube" icon="resource://resource.images.skinicons.wide/youtube.png" condition="System.HasAddon(plugin.video.youtube)">ActivateWindow(10025,plugin://plugin.video.youtube,return)</shortcut>
 			<shortcut label="32032" type="playdvd" grouping="32029" icon="resource://resource.images.skinicons.wide/videos.png">XBMC.PlayDVD()</shortcut>
 		</node>
-
+		<!-- playlists items-->
+		<node label="559">
+			<node label="32030">
+				<content>playlist-video</content>
+			</node>
+			<node label="32031">
+				<content>playlist-audio</content>
+			</node>
+		</node>
+		
 		<!-- video library-->
 		<node label="32030">
 			<shortcut label="19140" grouping="1211" type="1211" condition="String.IsEmpty(Window(home).Property(netflixmenu))">RunScript(script.skin.helper.service,action=VIDEOSEARCH)</shortcut>
@@ -162,6 +171,15 @@
 	</groupings>
     
     <widget-groupings>
+		<!-- Smart Playlist Widgets -->
+		<node label="559">
+			<node label="32030">
+				<content>playlist-video</content>
+			</node>
+			<node label="32031">
+				<content>playlist-audio</content>
+			</node>
+		</node>
         <!-- script.skin.helper.service default widgets -->
         <shortcut label="$LOCALIZE[31799]" type="32010" condition="System.HasAddon(script.skin.helper.service) + Window.IsActive(script-skinshortcuts.xml)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,smartshortcuts,extendedinfo,librarydataprovider,smartishwidgets,favourites,static</shortcut>
         <shortcut label="$LOCALIZE[31799]" type="32010" condition="System.HasAddon(script.skin.helper.service) + !Window.IsActive(script-skinshortcuts.xml)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,smartshortcuts,extendedinfo,librarydataprovider,smartishwidgets,favourites</shortcut>

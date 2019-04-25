@@ -104,6 +104,20 @@
 			<content>picturesources</content>
 		</node>
 		
+        <!-- games -->
+        <node label="Games" icon="DefaultGames.png">
+			<shortcut label="Games (Retroplayer)" type="32009" icon="DefaultGames.png">ActivateWindow(Games,return)</shortcut>
+			<node label="Advanced Emulator Launcher" condition="System.HasAddon(plugin.program.advanced.emulator.launcher)">
+				<shortcut label="Categories"	 type="32009">||BROWSE||plugin.program.advanced.emulator.launcher/?com=SHOW_ALL_CATEGORIES</shortcut>
+				<shortcut label="Launchers"		 type="32009">||BROWSE||plugin.program.advanced.emulator.launcher/?com=SHOW_ALL_LAUNCHERS</shortcut>
+				<shortcut label="Favorite games" type="32009">ActivateWindow(Programs,"plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_FAVOURITES",return)</shortcut>
+				<shortcut label="Genres"		 type="32009">ActivateWindow(Programs,"plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_genre",return)</shortcut>
+				<shortcut label="Developers"	 type="32009">ActivateWindow(Programs,"plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_developer",return)</shortcut>
+				<shortcut label="Titles"		 type="32009">ActivateWindow(Programs,"plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_title",return)</shortcut>
+				<shortcut label="Years"			 type="32009">ActivateWindow(Programs,"plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_year",return)</shortcut>
+			</node>
+        </node>								 
+		
         <!-- addons -->
         <node label="32007">
 			<node label="32009">

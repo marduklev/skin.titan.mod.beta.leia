@@ -568,6 +568,8 @@
     <setting id="game.thumbshape.dcast" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
     <setting id="game.thumbshape.gear" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
     <setting id="game.thumbshape.gear" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
+    <setting id="game.thumbshape.saturn" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
+    <setting id="game.thumbshape.saturn" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
     
     <setting id="game.thumbshapes" value="poster" label="Poster" condition="" icon="" description="Apply poster type of thumbnail"/>
     <setting id="game.thumbshapes" value="bluray" label="Blu-ray" condition="" icon="" description="Apply Blu-ray type of thumbnail"/>

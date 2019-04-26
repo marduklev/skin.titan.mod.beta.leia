@@ -67,6 +67,14 @@
 		<action>ActivateWindow(pictures,return)</action>
 		<visible>!Skin.HasSetting(HomeMenuUsePlexforPictures)</visible>
 	</shortcut>
+	<!-- games tile -->
+	<shortcut>
+		<label>Games</label>
+		<label2>Games</label2>
+		<icon>resource://resource.images.skinicons.wide/games.png</icon>
+		<thumb />
+		<action>ActivateWindow(Games,return)</action>
+	</shortcut>
 	<!-- addons tile -->
 	<shortcut>
 		<label>$LOCALIZE[10040]</label>

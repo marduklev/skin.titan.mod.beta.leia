@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<label>Kodi Games</label>
+		<label2>Games</label2>
+		<icon />
+		<action>ActivateWindow(Games,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>Advanced Emulator Launcher</label>
+		<label2>Games</label2>
+		<icon />
+		<action>ActivateWindow(Programs,plugin://plugin.program.advanced.emulator.launcher,return)</action>
+		<visible>System.HasAddon(plugin.program.advanced.emulator.launcher)</visible>
+	</shortcut>
+	<shortcut>
+		<label>AEL Favorites</label>
+		<label2>Favorites</label2>
+		<icon />
+		<action>ActivateWindow(Programs,"plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_FAVOURITES",return)</action>
+		<visible>System.HasAddon(plugin.program.advanced.emulator.launcher)</visible>
+	</shortcut>
+    <shortcut>
+        <label>AEL Genres</label>
+        <label2>Browse by genre</label2>
+        <icon />
+		<action>ActivateWindow(Programs,"plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_genre",return)</action>
+        <visible>System.HasAddon(plugin.program.advanced.emulator.launcher)</visible>
+    </shortcut>
+    <shortcut>
+        <label>AEL Studios</label>
+        <label2>Browse by developer</label2>
+		<icon />
+		<action>ActivateWindow(Programs,"plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_developer",return)</action>
+        <visible>System.HasAddon(plugin.program.advanced.emulator.launcher)</visible>
+    </shortcut>
+    <shortcut>
+        <label>AEL Titles</label>
+        <label2>Browse by titles</label2>
+		<icon />
+        <action>ActivateWindow(Programs,"plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_title",return)</action>
+        <visible>System.HasAddon(plugin.program.advanced.emulator.launcher)</visible>
+    </shortcut>
+    <shortcut>
+        <label>AEL Years</label>
+        <label2>Browse by year</label2>
+		<icon />
+		<action>ActivateWindow(Programs,"plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_year",return)</action>
+        <visible>System.HasAddon(plugin.program.advanced.emulator.launcher)</visible>
+    </shortcut>
+</shortcuts>

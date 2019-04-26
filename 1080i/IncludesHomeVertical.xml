@@ -1005,78 +1005,90 @@
         <top>10</top>
     </include>
     <include name="VerticalHomeSquareSubMenu">
-        <control type="panel" id="4446">
-            <visible>String.IsEqual(Container(300).ListItem.Property(squaresubmenu),enable)</visible>
-            <width>100%</width>
-            <height>220</height>
-			<!-- check, maybe conditional - items, e.g. tiles, multiple artwork(listitemabsolute,1...)-->
-            <orientation>horizontal</orientation>
-            <animation effect="slide" start="0" end="10" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,11) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,10) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,9) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,8) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,7) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,6) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,5) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,4) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,3) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,2) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,1) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            
-            <animation effect="slide" start="0" end="5" time="0" condition="Skin.HasSetting(WidgetAlignRight) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,12) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,11) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,10) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,9) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,8) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,7) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,6) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,5) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,4) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,3) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,2) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,1) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
-            
-            <itemlayout height="150" width="158">
-              <control type="group">
-                    <width>150</width>
-                    <height>150</height>
-                    <include>SquarePosterPanelLayout</include>
-					<control type="textbox">
+        <control type="grouplist">
+		<visible>String.IsEqual(Container(300).ListItem.Property(squaresubmenu),enable)</visible>
+		<height>270</height>
+		<width>100%</width>
+			<control type="label">
+				<height>50</height>
+				<label>S U B M E N U</label>
+				<aligny>center</aligny>
+				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+				<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+				<font>Bold30</font>
+				<height>24</height>
+			</control>
+			<control type="panel" id="4446">
+				<height>220</height>
+				<!-- check, maybe conditional - items, e.g. tiles, multiple artwork(listitemabsolute,1...)-->
+				<orientation>horizontal</orientation>
+				<animation effect="slide" start="0" end="10" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,11) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,10) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,9) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,8) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,7) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,6) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,5) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,4) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,3) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,2) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,1) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				
+				<animation effect="slide" start="0" end="5" time="0" condition="Skin.HasSetting(WidgetAlignRight) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,12) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,11) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,10) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,9) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,8) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,7) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,6) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,5) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,4) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,3) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,2) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				<animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,1) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+				
+				<itemlayout height="150" width="158">
+				  <control type="group">
 						<width>150</width>
-						<height>50</height>
-						<top>150</top>
-						<align>center</align>
-						<label>$INFO[ListItem.Label]</label>
-						<font>Reg18</font>
-						<autoscroll>false</autoscroll>
-						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+						<height>150</height>
+						<include>SquarePosterPanelLayout</include>
+						<control type="textbox">
+							<width>150</width>
+							<height>50</height>
+							<top>150</top>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Reg18</font>
+							<autoscroll>false</autoscroll>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+						</control>
 					</control>
-                </control>
-            </itemlayout>
-            <focusedlayout height="150" width="158">
-                <control type="group">
-					<include>Widgets_Zoom_Animation</include>
-                    <width>150</width>
-                    <height>150</height>
-                    <include>SquarePosterPanelLayoutFocus</include>
-					<control type="textbox">
+				</itemlayout>
+				<focusedlayout height="150" width="158">
+					<control type="group">
+						<include>Widgets_Zoom_Animation</include>
 						<width>150</width>
-						<height>50</height>
-						<top>150</top>
-						<align>center</align>
-						<label>$INFO[ListItem.Label,[B],[/B]]</label>
-						<font>Reg18</font>
-						<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
-						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+						<height>150</height>
+						<include>SquarePosterPanelLayoutFocus</include>
+						<control type="textbox">
+							<width>150</width>
+							<height>50</height>
+							<top>150</top>
+							<align>center</align>
+							<label>$INFO[ListItem.Label,[B],[/B]]</label>
+							<font>Reg18</font>
+							<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+						</control>
 					</control>
-                </control>
-			</focusedlayout>
-            <content><include>skinshortcuts-submenu</include></content> 
-        </control>
+				</focusedlayout>
+				<content><include>skinshortcuts-submenu</include></content> 
+			</control>
+		</control>
     </include>
     
  </includes>

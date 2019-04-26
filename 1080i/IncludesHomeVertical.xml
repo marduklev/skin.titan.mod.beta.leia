@@ -1005,27 +1005,11 @@
         <top>10</top>
     </include>
     <include name="VerticalHomeSquareSubMenu">
-        <control type="group" id="14446">
-            <width>100%</width>
-            <height>1</height>
-            <visible>Control.HasFocus(4446)</visible>
-            <control type="label">
-                <right>0</right>
-                <posy>0</posy>
-                <width>100%</width>
-                <height>100</height>
-                <include condition="Skin.HasSetting(WidgetAlignRight)">align_left</include>
-                <align>right</align>
-                <info>Container(4446).ListItem.Label</info>
-                <font>Reg36</font>
-                <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
-                <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
-            </control>
-        </control>
         <control type="panel" id="4446">
             <visible>String.IsEqual(Container(300).ListItem.Property(squaresubmenu),enable)</visible>
             <width>100%</width>
-            <height>100</height>
+            <height>220</height>
+			<!-- check, maybe conditional - items, e.g. tiles, multiple artwork(listitemabsolute,1...)-->
             <orientation>horizontal</orientation>
             <animation effect="slide" start="0" end="10" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
             <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,11) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
@@ -1054,37 +1038,44 @@
             <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,2) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
             <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,1) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
             
-            <itemlayout height="100" width="108" condition="!Skin.HasSetting(VerticalHomeLargeWidget)">
+            <itemlayout height="150" width="158">
               <control type="group">
-                    <width>100</width>
-                    <height>100</height>
+                    <width>150</width>
+                    <height>150</height>
                     <include>SquarePosterPanelLayout</include>
+					<control type="textbox">
+						<width>150</width>
+						<height>50</height>
+						<top>150</top>
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Reg18</font>
+						<autoscroll>false</autoscroll>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+					</control>
                 </control>
             </itemlayout>
-            <focusedlayout height="100" width="108" condition="!Skin.HasSetting(VerticalHomeLargeWidget)">
-              <control type="group">
-                    <width>100</width>
-                    <height>100</height>
+            <focusedlayout height="150" width="158">
+                <control type="group">
+					<include>Widgets_Zoom_Animation</include>
+                    <width>150</width>
+                    <height>150</height>
                     <include>SquarePosterPanelLayoutFocus</include>
+					<control type="textbox">
+						<width>150</width>
+						<height>50</height>
+						<top>150</top>
+						<align>center</align>
+						<label>$INFO[ListItem.Label,[B],[/B]]</label>
+						<font>Reg18</font>
+						<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+					</control>
                 </control>
-            </focusedlayout>
-            <itemlayout height="100" width="111" condition="Skin.HasSetting(VerticalHomeLargeWidget)">
-              <control type="group">
-                    <width>100</width>
-                    <height>100</height>
-                    <include>SquarePosterPanelLayout</include>
-                </control>
-            </itemlayout>
-            <focusedlayout height="100" width="111" condition="Skin.HasSetting(VerticalHomeLargeWidget)">
-              <control type="group">
-                    <width>100</width>
-                    <height>100</height>
-                    <include>SquarePosterPanelLayoutFocus</include>
-                </control>
-            </focusedlayout>
-            <content>
-                <include>skinshortcuts-submenu</include>
-            </content> 
+			</focusedlayout>
+            <content><include>skinshortcuts-submenu</include></content> 
         </control>
     </include>
     

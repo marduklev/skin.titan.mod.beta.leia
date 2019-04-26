@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
-
+	<!-- HOME -->
+	<expression name="Notag_NetflixHome">![Skin.String(HomeLayout,netflix) | Skin.String(HomeLayout,netflix2)]</expression>
+	
     <expression name="InVideoMode">Window.IsActive(Videos)</expression>
     <expression name="InGameMode">String.Contains(Container.FolderPath,plugin://plugin.program.ael) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher)</expression>
     

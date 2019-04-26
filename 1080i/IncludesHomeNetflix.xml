@@ -904,7 +904,6 @@
         </control>
 		<control type="panel" id="$PARAM[widgetid]">
             <width>100%</width>
-            <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
             <orientation>horizontal</orientation>
             <animation condition="!Control.HasFocus(77777) + Skin.HasSetting(Widgets_Animation)" reversible="false" type="Visible">
                 <effect center="960,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom"/>

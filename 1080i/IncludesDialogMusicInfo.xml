@@ -591,6 +591,7 @@
 			<!-- <onclick condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">Playmedia($ESCINFO[ListItem.FilenameAndPath])</onclick> 
 			,isdir
 			 -->
+			
 			<onup condition="Control.IsVisible(60)">60</onup>
 			<onup condition="!Control.IsVisible(60)">9000</onup>
 			<ondown condition="Control.IsVisible(17)">17</ondown>
@@ -736,26 +737,27 @@
 					<label>$VAR[ListItemDisk]$INFO[ListItem.TrackNumber,[B],[/B] | ]$INFO[ListItem.Label]$INFO[ListItem.Duration,  (,)]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout height="35" width="900" condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">
+			<focusedlayout height="35" width="1600" condition="Container.Content(albums) | String.IsEqual(ListItem.DBType,album)">
+				<!-- <control type="button">
+					<visible>true</visible>
+					<onclick>PlayMedia($INFO[ListItem.Filenameandpath])</onclick>
+				</control> -->
 				<control type="group">
-					<!-- check, on click play song -->
-					<!-- <control type="button">
-							<onclick>Playmedia($INFO[ListItem.FilenameAndPath])</onclick>
-							<onclick>SendClick(155)</onclick>
-						</control> -->
+					
 					<!-- focus anim  -->
 						<animation type="Focus" reversible="false" condition="true">
 							<effect type="zoom" end="115" time="100" tween="sine" easing="out" center="auto" />
 							<effect type="zoom" end="90" time="100" tween="sine" delay="150" easing="out" center="auto" />
 						</animation>
 					<control type="label">
-						<width>880</width>
+						<width>1600</width>
 						<height>60</height>
 						<font>Bold26</font>
 						<aligny>center</aligny>
-						<align>center</align>
+						<align>left</align>
 						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 						<label>$VAR[ListItemDisk]$INFO[ListItem.TrackNumber,[B],[/B] | ]$INFO[ListItem.Label]$INFO[ListItem.Duration,  (,)]</label>
+						<!-- <label>$INFO[ListItem.Filenameandpath]</label> -->
 					</control>
 				</control>
 			</focusedlayout>
@@ -844,6 +846,7 @@
 			<align>center</align>
 			<itemgap>10</itemgap>
 			<defaultcontrol>5</defaultcontrol>
+			<onup condition="[Container.Content(albums) | String.IsEqual(ListItem.DBType,albums)] + !Control.IsVisible(17)">50</onup>
 			<onup condition="Control.IsVisible(17)">17</onup>
 			<onup condition="!Control.IsVisible(17) + [Container.Content(artists) | String.IsEqual(ListItem.DBType,artist)]">50</onup>
 			<onup condition="!Control.IsVisible(17) + Control.IsVisible(60) + ![Container.Content(artists) | String.IsEqual(ListItem.DBType,artist)]">60</onup>
@@ -857,6 +860,7 @@
 				<height>60</height>
 				<width>300</width>
 				<onclick condition="String.IsEmpty(ListItem.DBID)">PlayMedia($INFO[ListItem.FilenameAndPath])</onclick>
+				<!-- script broken ? -->
 				<onclick condition="System.HasAddon(script.playalbum) + String.IsEqual(ListItem.DBType,album)">RunScript(script.playalbum,albumid=$INFO[ListItem.DBID])</onclick>
 				<onclick condition="System.HasAddon(script.playalbum) + String.IsEqual(ListItem.DBType,song)">RunScript(script.playalbum,songid=$INFO[ListItem.DBID])</onclick>
 				<onclick condition="System.HasAddon(script.playalbum)">Action(close)</onclick>

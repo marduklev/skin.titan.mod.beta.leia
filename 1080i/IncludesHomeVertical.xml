@@ -6,6 +6,7 @@
 			<posx>140</posx>     <!-- added line to get distance from left main menu, start at 0(end of left panel) !-->
             <width>120%</width>
             <height>100%</height>
+			<!-- <bottom>15</bottom> -->
             <!-- fade Widget when submenu active -->
             <animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(4444)] + !Control.HasFocus(77777)">
                 <effect type="fade" start="100" end="0" time="1000" delay="0" tween="cubic" easing="inout" />
@@ -1009,7 +1010,9 @@
 			<visible>String.IsEqual(Container(300).ListItem.Property(squaresubmenu),enable)</visible>
 			<height>70</height>
 			<label> $LOCALIZE[1034]</label>
-			<align>left</align>
+			<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
+			<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
+			<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
 			<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 			<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 			<font>Bold34</font>

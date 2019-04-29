@@ -367,6 +367,12 @@
                 <label>Home Screen Widgets</label>
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
+			<!-- use submenui as widget layout -->
+            <control type="button" id="23721">
+                <include>SkinSettings_Button</include>
+                <label>Layout for Submenu Widget</label>
+				<!-- PLACEHOLDER - square, Landscape, .. -->
+            </control>
 			<!-- widget layout-->
             <control type="button" id="23719">
                 <include>SkinSettings_Button</include>
@@ -460,7 +466,17 @@
                 <include>SkinSettings_Button</include>
                 <label>31712</label>
                 <onclick>Skin.ToggleSetting(WidgetAlignRight)</onclick>
+				<onclick condition="Skin.HasSetting(WidgetCentered)">Skin.ToggleSetting(WidgetCentered)</onclick>
                 <selected>Skin.HasSetting(WidgetAlignRight)</selected>
+                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
+            </control>
+			<!-- auto centered align widgets -->
+            <control type="radiobutton" id="31713">
+                <include>SkinSettings_Button</include>
+                <label>auto centered align widgets</label>
+                <onclick>Skin.ToggleSetting(WidgetCentered)</onclick>
+				<onclick condition="Skin.HasSetting(WidgetAlignRight)">Skin.ToggleSetting(WidgetAlignRight)</onclick>
+                <selected>Skin.HasSetting(WidgetCentered)</selected>
                 <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
             </control>
             <!-- widget rotate-->
@@ -3119,7 +3135,7 @@
             <param name="label" value=" -- Dialog Frame/BG Color" />
             <param name="skinsetting" value="DialogFrameColor" />
         </include>
-         <!--label overlay panel color-->
+         <!--label overlay panel color , Secondary Tag Color?-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31603" />
             <param name="label" value="$LOCALIZE[31603]" />

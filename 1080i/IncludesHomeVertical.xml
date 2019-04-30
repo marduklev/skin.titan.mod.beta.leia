@@ -3,7 +3,7 @@
     <include name="VerticalHome">
         <!-- widgets -->
         <control type="group">
-			<posx>140</posx>     <!-- added line to get distance from left main menu, start at 0(end of left panel) !-->
+			<posx>140</posx>
             <width>120%</width>
             <height>100%</height>
 			<!-- <bottom>15</bottom> -->
@@ -899,11 +899,11 @@
     </include>
 
     <!--  includes for widgets -->
-    <include name="VerticalWidgets">	<!-- normal widget layout - NO BIG -->
+    <include name="VerticalWidgets">
         <control type="grouplist" id="77777">
             <left>470</left>
-            <right>0</right>
-            <top>180</top>
+            <right>20</right>
+            <top>145</top>
             <bottom>50</bottom>
             <ondown>77777</ondown>
             <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">300</onleft>
@@ -956,7 +956,7 @@
             <left>470</left>
             <right>0</right>
             <include condition="Skin.String(home_header,disable)">VerticalWidgetsExtraLarge</include>
-            <top>130</top>
+            <top>145</top>
             <bottom>0</bottom>
             <ondown>77777</ondown>
             <itemgap>0</itemgap>

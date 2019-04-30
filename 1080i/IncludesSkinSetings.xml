@@ -162,14 +162,7 @@
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=SubmenuLayout,header=$LOCALIZE[31312])</onclick>
                 <visible>[Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 2) | Skin.String(HomeLayout, 3) | Skin.String(HomeLayout, 1small) | Skin.String(HomeLayout, 2small) | Skin.String(HomeLayout, 3small)]</visible>
             </control>
-            
-
-            <!-- HOMESCREEN Main Menu OPTIONS ,check-->
-            <control type="label" id="23011">
-                <include>SkinSettings_Header</include>
-                <label>31122</label>
-            </control>
-            <!--toggle rss feed-->
+             <!--toggle rss feed-->
             <control type="radiobutton" id="23720">
                 <include>SkinSettings_Button</include>
                 <label>13305</label>
@@ -177,7 +170,12 @@
                 <selected>system.getbool(lookandfeel.enablerssfeeds)</selected>
                 <visible>![Skin.String(HomeLayout, win10) | String.Contains(Skin.String(HomeLayout), netflix)]</visible>
             </control>
-            <!-- open submenu on click-->
+			<!-- HOMESCREEN Main Menu OPTIONS ,check-->
+            <control type="label" id="23011">
+                <include>SkinSettings_Header</include>
+                <label>Main and Sub Layout</label>
+            </control>
+			<!-- open submenu on click-->
             <control type="radiobutton" id="23012">
                 <include>SkinSettings_Button</include>
                 <label>31561</label>
@@ -227,15 +225,6 @@
                 <selected>Skin.HasSetting(VerticalHomeInlineSubmenu)</selected>
                 <visible>[Skin.String(HomeLayout, simplever) | Skin.String(HomeLayout, simplever_tiles)]</visible>
                 <visible>!Skin.HasSetting(DisableAllSubmenus)</visible>
-            </control>
-
-            <!--disable all widgets-->
-            <control type="radiobutton" id="23016">
-                <include>SkinSettings_Button</include>
-                <label>31264</label>
-                <onclick>Skin.ToggleSetting(DisableAllWidgets)</onclick>
-                <selected>Skin.HasSetting(DisableAllWidgets)</selected>
-                <visible>!Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, 3) + !String.Contains(Skin.String(HomeLayout), netflix)</visible>
             </control>
             <!--disable all submenus-->
             <control type="radiobutton" id="23017">
@@ -320,8 +309,7 @@
                 <selected>Skin.HasSetting(HidePowerMenu)</selected>
                 <visible>!Skin.HasSetting(DisablePowerMenu)</visible>
 			</control>
-
-            <!--no titles on home tiles-->
+			<!--no titles on home tiles-->
             <control type="radiobutton" id="13014">
                 <include>SkinSettings_Button</include>
                 <label>31086</label>
@@ -329,13 +317,26 @@
                 <onclick>Skin.ToggleSetting(NoTitleOnHomeMenuTiles)</onclick>
                 <selected>Skin.HasSetting(NoTitleOnHomeMenuTiles)</selected>
             </control>
-            <!--hide widget panel-->
+            <!--hide main menu panel-->
 			<control type="radiobutton" id="13006">
                 <include>SkinSettings_Button</include>
-                <label>Hide Main Panel Background</label>
+                <label>Hide Main Menu Panel Background</label>
                 <onclick>Skin.ToggleSetting(HideMainPanelBackground)</onclick>
                 <selected>Skin.HasSetting(HideMainPanelBackground)</selected>
                 <visible>String.Contains(Skin.String(HomeLayout), ver)</visible>
+            </control>
+			<control type="label" id="23005">
+                <include>SkinSettings_Header</include>
+                <label>Home Screen Widgets</label>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            </control>
+			<!--disable all widgets-->
+            <control type="radiobutton" id="23016">
+                <include>SkinSettings_Button</include>
+                <label>31264</label>
+                <onclick>Skin.ToggleSetting(DisableAllWidgets)</onclick>
+                <selected>Skin.HasSetting(DisableAllWidgets)</selected>
+                <visible>!Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, 3) + !String.Contains(Skin.String(HomeLayout), netflix)</visible>
             </control>
 			<!--hide widget panel-->
             <control type="radiobutton" id="13004">
@@ -361,11 +362,6 @@
                 <selected>Skin.HasSetting(HideHomeTileIndicators)</selected>
                 <visible>[Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 2) | Skin.String(HomeLayout, 1small) | Skin.String(HomeLayout, 2small) | Skin.String(HomeLayout, simplever)]</visible>
                 <visible>![Skin.HasSetting(DisableAllWidgets) + Skin.HasSetting(DisableAllSubmenus)]</visible>
-            </control>
-			<control type="label" id="23005">
-                <include>SkinSettings_Header</include>
-                <label>Home Screen Widgets</label>
-                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
 			<!-- use submenui as widget layout -->
             <control type="button" id="23721">

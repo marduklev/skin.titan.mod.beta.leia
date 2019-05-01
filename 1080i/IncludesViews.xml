@@ -87,7 +87,7 @@
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.524) + Window.IsActive(MyVideoNav.xml)">View_524_Showcase</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.56) + Window.IsActive(MyVideoNav.xml)">View_56_BannerPlex</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.55) + Window.IsActive(MyVideoNav.xml)">View_55_BannerList</include>
-            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.503) + Window.IsActive(MyVideoNav.xml)">View_503_Logos</include>
+            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.503) + [Window.IsActive(MyVideoNav.xml) | Window.IsActive(programs) | Window.IsActive(games)]">View_503_Logos</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.523)">View_523_Netflix</include>
 			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.525) + [Window.IsActive(MyVideoNav.xml) | Window.IsActive(programs)]">View_525_Netflix_Landscape</include>
 			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.526) + [Window.IsActive(MyVideoNav.xml) | Window.IsActive(programs)]">View_526_Wide_Netflix</include>

@@ -7,6 +7,7 @@
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
 		<value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 		<value condition="String.IsEqual(ListItem.Label,..)">DefaultFolderBack.png</value>
 		<value>DefaultMovies.png</value>
 	</variable>
@@ -35,7 +36,7 @@
 					<onright>503</onright>
 					<onup>9000</onup>
 					<ondown condition="Skin.HasSetting(EnableQuickJump)">7000</ondown>
-                <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
+                	<ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
 					<focusposition>1</focusposition>
 					<pagecontrol>60</pagecontrol>
 					<preloaditems>2</preloaditems>

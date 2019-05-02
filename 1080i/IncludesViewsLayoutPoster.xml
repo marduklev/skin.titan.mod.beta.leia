@@ -158,7 +158,7 @@
 			<include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
 		</control>
 		<include>PosterThumbLayout</include>
-		<include condition="!Window.IsActive(Home)">SmallPosterTagOverlay</include>
+		<include condition="!Window.IsActive(Home) + !$EXP[TagOverlayVisability]">PosterTagOverlay</include>
 		<control type="group">
 			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
 		</control>
@@ -180,7 +180,7 @@
 			<include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
 		</control>
 		<include>PosterThumbLayout</include>
-		<include condition="!Window.IsActive(Home)">SmallPosterTagOverlay</include>
+		<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
 		<control type="group">
 			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
 		</control>
@@ -237,55 +237,14 @@
             [Control.IsVisible(523) + Skin.String(View523.Tags,enable)] | 
             [[String.Contains(Window.Property(xmlfile),Nav) | Window.Isactive(Home)] + String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))] | 
             [Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) + String.IsEmpty(ListItem.Art(fanart))] | 
-            [!String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Season) + !Container.Content(seasons) + !String.IsEqual(ListItem.Label, ListItem.TvshowTitle) + Skin.HasSetting(ShowLabelsPosterEpisodes)]
-		</visible>
+        </visible>
 	</include>
 	<include name="PosterTagOverlay">
 		<control type="group">
 			<include condition="!Window.IsActive(Home)">PosterTagOverlayVisibility</include>
 			<!--Panel-->
 			<control type="image">
-				<bottom>0</bottom>
-				<height>80</height>
-				<bordersize>8</bordersize>
-				<texture border="1">diffuse/poster_tag.png</texture>
-				<colordiffuse>$INFO[Skin.String(TagOverlaysPanelColor)]</colordiffuse>
-			</control>
-			<control type="textbox">
-				<left>15</left>
-				<right>15</right>
-				<bottom>10</bottom>
-				<height>65</height>
-				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-				<align>left</align>
-				<aligny>center</aligny>
-				<label>$VAR[ThumbListDetailsPoster]</label>
-				<font>Reg22</font>
-				<autoscroll delay="2000" time="2000" repeat="500">false</autoscroll>
-				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-				<visible>!String.IsEqual(System.CurrentControl,ListItem.Label)</visible>
-			</control>
-			<control type="textbox">
-				<left>15</left>
-				<right>15</right>
-				<bottom>10</bottom>
-				<height>65</height>
-				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-				<align>left</align>
-				<aligny>center</aligny>
-				<label>$VAR[ThumbListDetailsPoster]</label>
-				<font>Reg22</font>
-				<autoscroll delay="2000" time="2000" repeat="500">true</autoscroll>
-				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-				<visible>String.IsEqual(System.CurrentControl,ListItem.Label)</visible>
-			</control>
-		</control>
-	</include>
-	<include name="SmallPosterTagOverlay">
-		<control type="group">
-			<include condition="!Window.IsActive(Home)">PosterTagOverlayVisibility</include>
-			<!--Panel-->
-			<control type="image">
+				<visible>Window.IsActive(Home) + Skin.String(HomeLayout, win10)</visible>
 				<bottom>0</bottom>
 				<height>80</height>
 				<bordersize>8</bordersize>

@@ -52,8 +52,7 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(pvrGuideOnFullscreenVideo)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(enableArtistBio)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowLabelsPosterEpisodes)</onload>
-		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View523_DetailsShowFanart)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View523_DetailsShowFanart)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View525_DetailsShowFanart)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(WatchedIndicator.Playing)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>

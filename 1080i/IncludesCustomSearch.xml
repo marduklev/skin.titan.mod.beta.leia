@@ -214,7 +214,7 @@
 						<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
 						<selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
 						<label>$VAR[SearchInfoWidget_Description]</label>
-						<autoscroll delay="4000" time="4000" repeat="2000">!Skin.HasSetting(DisablePlotAutoScroll)</autoscroll>
+						<autoscroll delay="4000" time="4000" repeat="2000">true</autoscroll>
 					</control>
 					<control type="label">
 						<width>$PARAM[info_plotwidth]</width>

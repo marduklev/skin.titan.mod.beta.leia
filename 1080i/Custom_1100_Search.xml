@@ -93,7 +93,6 @@
 						<visible>!String.IsEmpty(Control.GetLabel(5888))</visible>
 						<height>35</height>
 						<width>auto</width>
-						<height>40</height>
 						<font>Bold30</font>
 						<align>center</align>
 						<aligny>top</aligny>
@@ -111,7 +110,7 @@
 						<font>Reg28</font>
 						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<selectedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</selectedcolor>
-						<autoscroll delay="4000" time="4000" repeat="2000">!Skin.HasSetting(DisablePlotAutoScroll)</autoscroll>
+						<autoscroll delay="4000" time="4000" repeat="2000">true</autoscroll>
 					</control>
 					<control type="image">
 						<height>130</height>

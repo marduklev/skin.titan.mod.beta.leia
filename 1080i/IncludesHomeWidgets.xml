@@ -461,8 +461,8 @@
 					<bottom>20</bottom>
 					<font>Reg24</font>
 					<align>justify</align>
-					<autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)" />
-					<autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)" />
+					<autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510)" />
+					<autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus(510)" />
 					<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
 					<label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
 				</control>
@@ -1044,7 +1044,6 @@
 				<height>40</height>
 				<font>Bold28</font>
 				<autoscroll>false</autoscroll>
-				<!-- <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)" /> -->
 				<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
 				<label>$VAR[HomeMenuWidgetInfoLabel]</label>
 			</control>
@@ -1056,7 +1055,7 @@
 				<height>149</height>
 				<font>Reg26</font>
 				<align>justify</align>
-				<autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)" />
+				<autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510)" />
 				<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
 				<label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
 			</control>
@@ -1432,8 +1431,8 @@
                 <bottom>70</bottom>
                 <font>Reg24</font>
                 <align>justify</align>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid])"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid])"/>
                 <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
@@ -1446,8 +1445,8 @@
                 <bottom>17</bottom>
                 <font>Reg24</font>
                 <align>justify</align>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid])"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid])"/>
                 <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
@@ -1525,8 +1524,8 @@
                 <bottom>70</bottom>
                 <font>Reg24</font>
                 <align>justify</align>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid])"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid])"/>
                 <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
@@ -1539,8 +1538,8 @@
                 <bottom>17</bottom>
                 <font>Reg24</font>
                 <align>justify</align>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid]) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus($PARAM[widgetid])"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus($PARAM[widgetid])"/>
                 <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
@@ -1653,8 +1652,8 @@
                 <height>145</height>
                 <font>Reg24</font>
                 <align>justify</align>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus(510)"/>
                 <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
@@ -1719,8 +1718,8 @@
                 <height>145</height>
                 <font>Reg24</font>
                 <align>justify</align>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus(510) + !Skin.HasSetting(DisablePlotAutoScroll)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Control.HasFocus(510)"/>
+                <autoscroll delay="4000" time="3000" repeat="10000" condition="Control.HasFocus(510)"/>
                 <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
@@ -2073,7 +2072,7 @@
                 <control type="button">
                     <visible>false</visible>
                     <onfocus>Setproperty(SkinHelper.WidgetContainer,$PARAM[widgetid])</onfocus>
-                    <onfocus condition="Skin.HasSetting(SpotLightTrailers)">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)],WIDGETCONTAINER=$PARAM[widgetid])</onfocus>
+                    <onfocus condition="Skin.HasSetting(SpotLightTrailers)">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=true,WIDGETCONTAINER=$PARAM[widgetid])</onfocus>
                     <onunfocus condition="Skin.HasSetting(SpotLightTrailers) + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunfocus>
                     <include name="WidgetProperties" content="WidgetProperties">
                         <param name="widgetid" value="$PARAM[widgetid]" />

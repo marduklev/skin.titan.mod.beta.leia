@@ -369,14 +369,14 @@
                 <label>Layout for Submenu Widget</label>
 				<!-- PLACEHOLDER - square, Landscape, .. -->
             </control>
-			<!-- widget layout-->
-            <control type="button" id="23719">
+			<!-- widget layout, should just be set in shortcut section, use hidden if needed-->
+            <!-- <control type="button" id="23719">
                 <include>SkinSettings_Button</include>
                 <label>31507</label>
                 <label2>$INFO[Skin.String(widgetstyle.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=widgetstyle,header=$LOCALIZE[31507])</onclick>
                 <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
-            </control>
+            </control> -->
             <!--large widget area-->
             <control type="radiobutton" id="31761">
                 <include>SkinSettings_Button</include>
@@ -2678,6 +2678,7 @@
                 <onclick>Skin.ToggleSetting(KioskMode.Enabled)</onclick>
                 <selected>Skin.HasSetting(KioskMode.Enabled)</selected>
             </control>
+			<!-- check, merge visibility into touch support ? -->
             <control type="radiobutton" id="5162">
                 <description>show scrollbars</description>
                 <include>SkinSettings_Button</include>
@@ -2686,6 +2687,7 @@
                 <selected>Skin.HasSetting(alwaysShowScrollbars)</selected>
                 <visible>!Skin.HasSetting(DisableScrollbars)</visible>
             </control>
+			<!-- check, really needed ? -->
             <control type="radiobutton" id="31764">
                 <description>show scrollbars</description>
                 <include>SkinSettings_Button</include>
@@ -2701,6 +2703,7 @@
                 <selected>Skin.HasSetting(smallContextMenu)</selected>
                 <visible>!Skin.HasTheme(classic)</visible>
             </control>
+			<!-- check, improve?-->
             <control type="radiobutton" id="5163">
                 <description>use extended weather screen</description>
                 <include>SkinSettings_Button</include>
@@ -2708,7 +2711,7 @@
                 <onclick>Skin.ToggleSetting(useExtendedWeatherScreen)</onclick>
                 <selected>Skin.HasSetting(useExtendedWeatherScreen)</selected>
             </control>
-            <!--no footer-->
+            <!--no footer, check homelayouts and divide from home and lib ?-->
             <control type="radiobutton" id="13714">
                 <include>SkinSettings_Button</include>
                 <label>31029</label>
@@ -2736,7 +2739,7 @@
                 <onclick>Skin.ToggleSetting(SpinnerDimScreen)</onclick>
                 <selected>Skin.HasSetting(SpinnerDimScreen)</selected>
             </control>
-            <!--thumbs label alignment-->
+            <!--thumbs label alignment, check localiced - tag center-left,split widget - lib? -->
             <control type="radiobutton" id="5168">
                 <include>SkinSettings_Button</include>
                 <label>$LOCALIZE[31600]</label>
@@ -2998,29 +3001,8 @@
                 <onclick>Skin.ToggleSetting(EmbyCovertArtEnabled)</onclick>
                 <selected>Skin.HasSetting(EmbyCovertArtEnabled)</selected>
             </control>
-            <control type="radiobutton" id="31766">
-                <description>Disable auto scroll for plots/descriptions</description>
-                <include>SkinSettings_Button</include>
-                <label>31771</label>
-                <onclick>Skin.ToggleSetting(DisablePlotAutoScroll)</onclick>
-                <selected>Skin.HasSetting(DisablePlotAutoScroll)</selected>
-            </control>
-            <control type="radiobutton" id="31796">
-                <description>Allow youtube lookup for trailers</description>
-                <include>SkinSettings_Button</include>
-                <label>31796</label>
-                <onclick condition="!Skin.String(AutoYoutubeTrailer,true)">Skin.SetString(AutoYoutubeTrailer,true)</onclick>
-                <onclick condition="Skin.String(AutoYoutubeTrailer,true)">Skin.SetString(AutoYoutubeTrailer,false)</onclick>
-                <selected>Skin.String(AutoYoutubeTrailer,true)</selected>
-            </control>
-            
-            <control type="radiobutton" id="31648">
-                <include>SkinSettings_Button</include>
-                <label>31648</label>
-                <onclick>Skin.ToggleSetting(ShowLabelsPosterEpisodes)</onclick>
-                <selected>Skin.HasSetting(ShowLabelsPosterEpisodes)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
-            </control>
+			<!-- free id="31766" -->
+			<!-- free id="31796" -->
         </control>
 
         <!--scrollbar for general settings-->

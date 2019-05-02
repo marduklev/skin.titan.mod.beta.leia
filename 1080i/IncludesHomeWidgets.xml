@@ -304,9 +304,8 @@
 					<param name="tagtop" value="360" />
 				</include>
 				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="Poster"/><!-- check, over other layouts -->
+					<param name="prefix" value="Poster"/>
 				</include>
-				<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include><!-- check, over other layouts -->
 			</control>
 		</itemlayout>
         <focusedlayout height="435" width="261" condition="!Control.HasFocus($PARAM[widgetid])">
@@ -324,12 +323,11 @@
 				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 					<param name="prefix" value="Poster"/>
 				</include>
-				<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 			</control>
 			</focusedlayout>
         <focusedlayout height="435" width="261" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
-				<include>Widgets_Zoom_Animation</include>
+				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
                 <width>250</width>
                 <height>360</height>
                 <include>PosterPanelLayoutFocus</include>
@@ -346,7 +344,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Poster"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
             </control>
 			
@@ -387,7 +384,6 @@
 				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 					<param name="prefix" value="Poster"/>
 				</include>
-				<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 			</control>
           </control>
         </itemlayout>
@@ -405,7 +401,6 @@
 				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 					<param name="prefix" value="Poster"/>
 				</include>
-				<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 			</control>
             <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                 <param name="widgetstyle" value="posterdetails" />
@@ -416,7 +411,7 @@
         <focusedlayout width="780" height="380" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
 				<width>750</width>
-				<include>Widgets_Zoom_Animation</include>
+				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include name="widget_layout_posterdetails_widebox" content="widget_layout_posterdetails_widebox">
 					<param name="widgetid" value="$PARAM[widgetid]" />
 				</include>
@@ -506,7 +501,6 @@
 				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 					<param name="prefix" value="Poster"/>
 				</include>
-				<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 			</control>
             </control>
         </itemlayout>
@@ -524,13 +518,12 @@
 				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 					<param name="prefix" value="Poster"/>
 				</include>
-				<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
-			</control>
+				</control>
             </control>
         </focusedlayout>
         <focusedlayout height="305" width="162" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
-				<include>Widgets_Zoom_Animation</include>
+				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
                 <width>162</width>
                 <height>240</height>
                 <include>SmallPosterPanelLayoutFocus</include>
@@ -543,7 +536,6 @@
 				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 					<param name="prefix" value="Poster"/>
 				</include>
-				<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 			</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="smallposter"/>
@@ -608,9 +600,8 @@
 					<param name="tagtop" value="240" />
 				</include>
 				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="Poster"/>
+					<param name="prefix" value="SquarePoster"/>
 				</include>
-				<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 			</control>
             </control>
         </itemlayout>
@@ -618,7 +609,7 @@
             <control type="group">
                 <width>240</width>
                 <height>240</height>
-                <include>Widgets_Zoom_Animation</include>
+                <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include>SquarePosterPanelLayoutFocus</include>
 				<control type="group">
 					<description>widget label overlay</description>
@@ -627,9 +618,8 @@
 						<param name="tagtop" value="240" />
 					</include>
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
+						<param name="prefix" value="SquarePoster"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="square"/>
@@ -682,9 +672,8 @@
 						<param name="tagtop" value="120" />
 					</include>
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/><!-- check, over other layouts -->
+						<param name="prefix" value="SquarePoster"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include><!-- check, over other layouts -->
 				</control>
             </control>
         </itemlayout>
@@ -700,9 +689,8 @@
 						<param name="tagtop" value="120" />
 					</include>
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/><!-- check, over other layouts -->
+						<param name="prefix" value="SquarePoster"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include><!-- check, over other layouts -->
 				</control>
             </control>
         </focusedlayout>
@@ -710,7 +698,7 @@
             <control type="group">
                 <width>120</width>
                 <height>120</height>
-                <include>Widgets_Zoom_Animation</include>
+                <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include>SquarePosterPanelLayoutFocus</include>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="minisquare"/>
@@ -723,9 +711,8 @@
 					<param name="tagtop" value="120" />
 				</include>
 				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="Poster"/><!-- check, over other layouts -->
+					<param name="prefix" value="SquarePoster"/>
 				</include>
-				<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include><!-- check, over other layouts -->
 			</control>
             </control>
         </focusedlayout>
@@ -770,9 +757,8 @@
 						<param name="tagtop" value="210" />
 					</include>
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
+						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
             </control>
         </itemlayout>
@@ -788,9 +774,8 @@
 						<param name="tagtop" value="210" />
 					</include>
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
+						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
             </control>
         </focusedlayout>
@@ -798,7 +783,7 @@
             <control type="group">
                 <width>370</width>
                 <height>210</height>
-                <include>Widgets_Zoom_Animation</include>
+                <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include>ThumbsViewLayoutFocus</include>
                 <control type="group">
 					<description>widget label overlay</description>
@@ -807,9 +792,8 @@
 						<param name="tagtop" value="210" />
 					</include>
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
+						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscape"/>
@@ -852,7 +836,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
             </control>
         </itemlayout>
@@ -860,7 +843,7 @@
             <control type="group">
                 <width>430</width>
                 <height>260</height>
-                <include>Widgets_Zoom_Animation</include>
+                <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include>ThumbsViewLayoutFocus</include>
                 <control type="group">
 					<description>widget label overlay</description>
@@ -871,7 +854,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapelarge" />
@@ -883,7 +865,7 @@
             <control type="group">
                 <width>430</width>
                 <height>260</height>
-                <include>Widgets_Zoom_Animation</include>
+                <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include>ThumbsViewLayoutFocus</include>
                 <control type="group">
 					<description>widget label overlay</description>
@@ -894,7 +876,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapelarge" />
@@ -942,7 +923,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
             </control>
 		</itemlayout>
@@ -960,7 +940,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapedetails" />
@@ -971,7 +950,7 @@
 		<focusedlayout width="1090" height="225" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
 				<width>1050</width>
-				<include>Widgets_Zoom_Animation</include>
+				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include>widget_layout_landscapelarge_widebox</include>
 				<include name="HiddenWidgetButton" content="HiddenWidgetButton">
 					<param name="widgetstyle" value="landscapedetails" />
@@ -1126,7 +1105,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Poster"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
 				<include>BannerLayout</include>
 			</control>
@@ -1153,7 +1131,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Poster"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
 				<include>BannerLayout</include>
 			</control>
@@ -1162,7 +1139,7 @@
 			<control type="group">
 				<width>660</width>
 				<height>146</height>
-                <include>Widgets_Zoom_Animation</include>
+                <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<control type="image">
                     <texture border="5">diffuse/banner.png</texture>
                     <colordiffuse>$INFO[Skin.String(HomeViewDetailsBorderFocusColor)]</colordiffuse>
@@ -1181,7 +1158,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Poster"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="banner"/>
@@ -1225,7 +1201,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Poster"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
             </control>
         </itemlayout>
@@ -1243,7 +1218,6 @@
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
 						<param name="prefix" value="Poster"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapewidebox" />
@@ -1278,9 +1252,8 @@
 						<param name="tagtop" value="420" />
 					</include>
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
+						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
             </control>
             <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -1332,9 +1305,8 @@
 						<param name="tagtop" value="150" />
 					</include>
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
+						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
             </control>
         </itemlayout>
@@ -1342,7 +1314,7 @@
             <control type="group">
                <width>260</width>
                 <height>150</height>
-                <include>Widgets_Zoom_Animation</include>
+                <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include>ThumbsViewLayoutFocus</include>
                <control type="group">
 					<description>widget label overlay</description>
@@ -1351,9 +1323,8 @@
 						<param name="tagtop" value="150" />
 					</include>
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
+						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapesmall"/>
@@ -1365,7 +1336,7 @@
             <control type="group">
                 <width>260</width>
                 <height>150</height>
-                <include>Widgets_Zoom_Animation</include>
+                <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include>ThumbsViewLayoutFocus</include>
                 <control type="group">
 					<description>widget label overlay</description>
@@ -1374,9 +1345,8 @@
 						<param name="tagtop" value="150" />
 					</include>
 					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
+						<param name="prefix" value="Landscape"/>
 					</include>
-					<include condition="Skin.String(Widgets_DisplayTags,auto)">PosterTagOverlayVisibility</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapesmall"/>
@@ -2078,7 +2048,7 @@
                     <control type="group">
                         <description>widget label overlay</description>
                         <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>
-                        <include condition="Skin.String(Widgets_DisplayTags,auto)">LandscapeTagOverlayVisibility</include>
+                        <!-- check for issues <include condition="Skin.String(Widgets_DisplayTags,auto)">LandscapeTagOverlayVisibility</include> -->
                         <include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
                             <param name="prefix" value="Landscape" />
                         </include>
@@ -2093,7 +2063,7 @@
                     <control type="group">
                         <description>widget label overlay</description>
                         <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>
-                        <include condition="Skin.String(Widgets_DisplayTags,auto)">LandscapeTagOverlayVisibility</include>
+                        <!-- <include condition="Skin.String(Widgets_DisplayTags,auto)">LandscapeTagOverlayVisibility</include> -->
                         <include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
                             <param name="prefix" value="Landscape" />
                         </include>
@@ -2765,23 +2735,14 @@
     <include name="WidgetTagOverlayDisable">
         <visible>false</visible>
     </include>
-	<!-- WidgetTagOverlayAuto-->
-    <include name="WidgetTagOverlayAuto">
-        <include>$PARAM[prefix]TagOverlayVisibility</include>
-    </include>
-    <include name="Widgets_Zoom_Animation">
-		<animation type="Focus" reversible="false" condition="Skin.HasSetting(WidgetsZoomFocus)">
-			<effect type="zoom" end="115,115" time="200" tween="sine" easing="out" center="auto" />
-			<effect type="zoom" end="92,92" time="100" tween="sine" delay="200" easing="out" center="auto" />
-		</animation>
-    </include>
 	<include name="Widgets_Tag_Focus">
 		<control type="textbox">
 			<visible>$EXP[Notag_NetflixHome]</visible>
 			<width>$PARAM[tagwidth]</width>
 			<top>$PARAM[tagtop]</top>
 			<height>50</height>
-			<align>center</align>
+			<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
+			<align>left</align>
 			<label>$VAR[ThumbListDetails]</label>
 			<font>Reg20</font>
 			<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
@@ -2794,7 +2755,8 @@
 			<width>$PARAM[tagwidth]</width>
 			<top>$PARAM[tagtop]</top>
 			<height>50</height>
-			<align>center</align>
+			<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
+			<align>left</align>
 			<label>$VAR[ThumbListDetails]</label>
 			<font>Reg20</font>
 			<autoscroll>false</autoscroll>
@@ -2804,6 +2766,12 @@
 	<include name="DetailsWidgets_FocusAnim">
 		<animation effect="zoom" start="0,100" end="100,100" time="100" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation>
 	</include>
+	<include name="Focus_Zoom_Animation">
+		<animation type="Focus" reversible="false">
+			<effect type="zoom" end="115,115" time="200" tween="sine" easing="out" center="auto" />
+			<effect type="zoom" end="93,93" time="100" tween="sine" delay="200" easing="out" center="auto" />
+	</animation>
+    </include>
 	
 	<include name="widget_header_rightalign">
         <align>right</align>

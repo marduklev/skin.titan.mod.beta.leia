@@ -913,7 +913,7 @@
             <animation time="100" effect="fade" start="0" end="100" reversible="false" easing="inout" condition="!Skin.HasSetting(Widgets_Animation)">Visible</animation>
             <include name="$PARAM[widgetStyle]" content="$PARAM[widgetStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
-                <param name="widgetTags" value="WidgetTagOverlayAuto" />
+                <param name="widgetTags" value="WidgetTagOverlayDisable" />
                 <param name="multiRows" value="false" />
             </include>
             <content target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>

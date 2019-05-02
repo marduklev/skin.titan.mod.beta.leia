@@ -499,14 +499,9 @@
                 <selected>Skin.HasSetting(widgets_rotate_pause)</selected>
                 <visible>!Skin.HasSetting(DisableAllWidgets) + Skin.String(widgets_rotate) + !Skin.String(widgets_rotate,disabled) + !String.Contains(Skin.String(HomeLayout),netflix)</visible>
             </control>
-			<!-- display tags on widgets -->
-            <control type="button" id="31675">
-                <include>SkinSettings_Button</include>
-                <label>31675</label>
-                <label2>$INFO[Skin.String(Widgets_DisplayTags.label)]</label2>
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=Widgets_DisplayTags,header=$LOCALIZE[31675])</onclick>
-                <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
-            </control>
+			<!-- en-disable tags on widgets removed, let shortcut decide -->
+			<!--   free id="31675" -->
+               
 			<!-- prefer plot outline -->
             <control type="radiobutton" id="31794">
                 <include>SkinSettings_Button</include>

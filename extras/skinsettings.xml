@@ -397,10 +397,8 @@
     <setting id="widgets_rotate" value="override" label="$LOCALIZE[31731]" condition="!String.Contains(Skin.String(HomeLayout),netflix)" icon="" description="Use the shortcuts editor to enable rotation for a widget"/>
     
     <!-- display tags on widgets -->
-    <setting id="Widgets_DisplayTags" value="auto" label="$LOCALIZE[14061]" condition="" icon="" description="Let skin decide based on content/artwork" default="true"/>
-    <setting id="Widgets_DisplayTags" value="disable" label="$LOCALIZE[1223]" condition="" icon="" description="Never show tags on widget"/>
+	<setting id="Widgets_DisplayTags" value="disable" label="$LOCALIZE[1223]" condition="" icon="" description="Never show tags on widget" default="true"/>
     <setting id="Widgets_DisplayTags" value="enable" label="$LOCALIZE[305]" condition="" icon="" description="Always show tags on widget"/>
-    <setting id="Widgets_DisplayTags" value="override" label="$LOCALIZE[31731]" condition="!Window.IsActive(script-skinshortcuts.xml)" icon="" description=""/>
     
     <!-- display tags in Views -->
     <setting id="Views_DisplayTags" value="" label="$LOCALIZE[14061]" condition="" icon="" description="Let skin decide based on content/artwork"/>
@@ -568,8 +566,6 @@
     <setting id="game.thumbshape.dcast" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
     <setting id="game.thumbshape.gear" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
     <setting id="game.thumbshape.gear" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
-    <setting id="game.thumbshape.saturn" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.saturn" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
     
     <setting id="game.thumbshapes" value="poster" label="Poster" condition="" icon="" description="Apply poster type of thumbnail"/>
     <setting id="game.thumbshapes" value="bluray" label="Blu-ray" condition="" icon="" description="Apply Blu-ray type of thumbnail"/>

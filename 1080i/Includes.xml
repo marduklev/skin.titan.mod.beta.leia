@@ -548,7 +548,6 @@
             <textoffsetx>10</textoffsetx>
             <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[31675],property=widgetTags$PARAM[widgetprop],setting=Widgets_DisplayTags)</onclick>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
-            <visible>Skin.String(Widgets_DisplayTags,override)</visible>
             <!-- <visible>!String.EndsWith(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),box) + ![String.IsEmpty(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop])) + String.Contains(Skin.String(widgetstyle),box)]</visible> -->
         </control>
         <control type="radiobutton" id="900$PARAM[widgetpos]6"> 

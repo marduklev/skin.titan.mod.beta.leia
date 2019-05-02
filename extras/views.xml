@@ -31,10 +31,10 @@
     <view id="Extended" value="506" languageid="31433" type="all" />
     <view id="Cards" value="517" languageid="31658" type="all" />
     <view id="Wide" value="518" languageid="31659" type="all" />
-	<view id="Logos" value="503" languageid="31461" type="movies,setmovies,tvshows,musicvideos" />
+	<view id="Logos" value="503" languageid="31461" type="movies,setmovies,tvshows,musicvideos,addons,files,games" />
 	<view id="FanArt" value="507" languageid="31434" type="movies,setmovies,tvshows,musicvideos,seasons,sets,pictures" />
 	<view id="Netflix" value="523" languageid="31018" type="!episodes,all" />
 	<view id="Netflix Landscape" value="525" languageid="31918" type="all" />
-	<view id="Wide Netflix" value="526" languageid="31827" type="seasons" />
+	<view id="Wide Netflix" value="526" languageid="31827" type="seasons,addons" />
 	<view id="TSE" value="527" languageid="31901" type="tvshows" />	
 </views>

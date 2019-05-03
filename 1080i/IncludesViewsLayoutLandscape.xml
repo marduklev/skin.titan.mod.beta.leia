@@ -45,13 +45,18 @@
             <visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
         </control>
         <control type="image">
-            <!--fallback logo image-->
-            <bordersize>30</bordersize>
-            <texture background="true">$VAR[ClearLogoFallback]</texture>
+            <!--fallback logo image, revisit -->
+			<width>300</width>
+			<height>100</height>
+			<left>10</left>
+			<bottom>10</bottom>
+			<aspectratio align="left" aligny="bottom">keep</aspectratio>
+			<texture background="true">$VAR[ClearLogoFallback]</texture>
             <aspectratio scalediffuse="false" align="center" aligny="bottom">keep</aspectratio>
-            <visible>String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.Property(DBTYPE),episode) + !Container.Content(episodes) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)</visible>
+            <visible>[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] | [String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)]</visible>
             <visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
-        </control>
+			<visible>!Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+		</control>
         <control type="multiimage">
             <!--thumb image for home tiles-->
             <left>8</left>
@@ -82,9 +87,9 @@
     </include>
     
     <variable name="ClearLogoFallback">
-        <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-		<value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + String.Contains(ListItem.FileNameAndPath,pvr://)">http://localhost:52307/getthumb&amp;title=$ESCINFO[ListItem.Title]</value> 
+		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+        <value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + String.Contains(ListItem.FileNameAndPath,pvr://)">http://localhost:52307/getthumb&amp;title=$ESCINFO[ListItem.Title]</value> 
 		<!-- untested, refer and thx to angelinas https://forum.kodi.tv/showthread.php?tid=235676&pid=2809690#pid2809690 -->
         <value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + String.Contains(ListItem.FileNameAndPath,pvr://) + !String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + !String.IsEmpty(ListItem.Thumb) + String.IsEqual(ListItem.Thumb,ListItem.Property(channellogo))">$INFO[ListItem.Thumb]</value>

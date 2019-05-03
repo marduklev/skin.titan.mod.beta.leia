@@ -1393,7 +1393,9 @@
                             <control type="group">
                                 <width>230</width>
                                 <height>342</height>
-                                <include>PosterPanelLayout</include>
+                               <include content="PosterPanelLayout">
+						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+					</include>
                             </control>
 							<control type="image">
                                 <bottom>2</bottom>
@@ -1418,7 +1420,9 @@
                             <control type="group">
                                 <width>240</width>
                                 <height>362</height>
-                                <include>PosterPanelLayoutFocus</include>
+                               <include content="PosterPanelLayoutFocus">
+						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+					</include>
 								<animation effect="slide" end="-3,25" center="auto" time="50">focus</animation>
                             </control>
 							<control type="image">

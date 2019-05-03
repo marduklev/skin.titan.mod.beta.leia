@@ -31,7 +31,9 @@
                     <control type="group">
                         <width>169</width>
                         <height>258</height>
-                        <include>SmallPosterPanelLayout</include>
+                        <include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
+						</include>
                       </control>
                 </itemlayout>
                 <!-- focussed layout movies -->
@@ -39,7 +41,9 @@
                     <control type="group">
                         <width>169</width>
                         <height>258</height>
-						<include>SmallPosterPanelLayoutFocus</include>
+						<include content="PosterPanelLayoutFocus">
+							<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
+						</include>
                       </control>
                 </focusedlayout>
 			</control>

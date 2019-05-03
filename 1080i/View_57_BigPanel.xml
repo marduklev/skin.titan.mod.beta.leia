@@ -26,7 +26,9 @@
           <control type="group">
             <width>259</width>
             <height>380</height>
-            <include>PosterPanelLayout</include>
+           <include content="PosterPanelLayout">
+						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+					</include>
           </control>
         </itemlayout>
         <focusedlayout height="380" width="262">

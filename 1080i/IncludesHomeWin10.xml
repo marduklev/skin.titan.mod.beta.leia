@@ -718,7 +718,9 @@
     </include>
     <include name="win10_widget_layout_small_poster">
         <itemlayout height="220" width="165">
-            <include>SmallPosterPanelLayout</include>
+            <include content="PosterPanelLayout">
+				<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
+			</include>
             <control type="group">
                 <description>widget label overlay</description>
                 <include condition="!Skin.String(Widgets_DisplayTags,disable)">PosterTagOverlay</include>
@@ -729,7 +731,9 @@
             </control>
         </itemlayout>
         <focusedlayout height="220" width="165">
-            <include>SmallPosterPanelLayoutFocus</include>
+            <include content="PosterPanelLayoutFocus">
+				<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
+			</include>
             <control type="group">
                 <description>widget label overlay</description>
                 <include condition="!Skin.String(Widgets_DisplayTags,disable)">PosterTagOverlay</include>

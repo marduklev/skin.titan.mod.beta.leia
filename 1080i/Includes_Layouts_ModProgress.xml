@@ -3,6 +3,16 @@
 <!-- Main File to sort .re add updated and edited includes,variables,etc  for testing purpose -->
  <!--    RECODE PROJECT -->
 	
+	<!-- info line layouts for list views
+	
+	2 rows - all lists,except SlimList
+	
+	3 rows 	+ info 
+	2 rows 	+ info
+	1 row 	+ info
+	-->
+	
+	
 	<!-- TAGs -->
 	<!-- temp workaraound for tags used for widgets library -->
 	
@@ -54,19 +64,19 @@
 	<!-- Scrollbars -->
 		<!-- merge vertical id="60 and horizontal  Scollbar " 
 		alphabet scrollbar-Jump to letter $PARAM[id_alphabet]-->
-		<include name="vertical_scollbar">
+		<include name="scollbar">
 			<control type="scrollbar" id="$PARAM[id]">
 				<visible>
 				[Control.IsVisible(54) + Integer.IsGreater(Container.Numitems,0)]
 				</visible>
-				<!-- check setting, disable all scrollbars -->
-				<right>$PARAM[right]</right>
+				<right>$PARAM[right]%</right>
 				<bottom>$PARAM[bottom]</bottom>
 				<width>$PARAM[width]</width>
 				<height>$PARAM[height]</height>
 				<onup>$PARAM[onup]</onup>
 				<ondown>$PARAM[ondown]</ondown>
 				<onleft>$PARAM[onleft]</onleft>
+				<orientation>$PARAM[orientation}</orientation>
 				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus($PARAM[id]) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible($PARAM[id_alphabet])">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus($PARAM[id]) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible($PARAM[id_alphabet])">Conditional</animation>
 			</control>

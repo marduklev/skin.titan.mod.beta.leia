@@ -16,7 +16,7 @@
                 <ondown>521</ondown>
                 <onleft>9000</onleft>
                 <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
-        <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+				<onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
                 <pagecontrol>60</pagecontrol>
                 <viewtype label="31681">icons</viewtype>
                 <scrolltime tween="Cubic" easing="inout">500</scrolltime>
@@ -29,7 +29,9 @@
                     <control type="group">
                         <width>162</width>
                         <height>240</height>
-                        <include>SmallPosterPanelLayout</include>
+                        <include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
+						</include>
                       </control>
                 </itemlayout>
                 <!-- focussed layout movies -->
@@ -37,7 +39,9 @@
                     <control type="group">
                         <width>162</width>
                         <height>240</height>
-						<include>SmallPosterPanelLayoutFocus</include>
+						<include content="PosterPanelLayoutFocus">
+							<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
+						</include>
                         <animation type="focus">
 							<effect type="zoom" start="100" end="115" center="auto" time="150" />
 						</animation>

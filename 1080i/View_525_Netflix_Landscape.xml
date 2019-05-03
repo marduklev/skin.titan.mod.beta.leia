@@ -367,7 +367,7 @@
 	</include>
     
     <include name="View525_layout">
-        <viewtype label="31018">icons</viewtype>
+        <viewtype label="31918">icons</viewtype>
 		<scrolltime tween="cubic" easing="in">425</scrolltime>
         <width>1910</width>
         <preloaditems>2</preloaditems>

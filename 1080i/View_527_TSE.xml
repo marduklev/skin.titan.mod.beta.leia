@@ -161,6 +161,7 @@
 
 			<!-- SHOWS -->
 			<control type="fixedlist" id="527">
+				<viewtype label="31901">icons</viewtype>
 				<top>100</top>
 				<left>80</left>
 				<width>37%</width>

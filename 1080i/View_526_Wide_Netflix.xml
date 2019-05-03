@@ -136,6 +136,7 @@
 			</control>
 			<!-- left list -->
 			<control type="list" id="526">
+				<viewtype label="31827">icons</viewtype>
 				<left>50</left>
 				<top>310</top>
 				<width>41%</width>

@@ -1,84 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- TITAN MOD -->
 <includes>
     <include name="View_54_Panel">
 	
-		<!-- panel no info -->
-        <control type="group">
-            <visible>Control.IsVisible(54)</visible>
-            <include>animation_view_change</include>
-			
-			<control type="panel" id="54">
-                <posx>40</posx>
-                <bottom>13%</bottom>
-                <height>798</height>
-                <width>1860</width>
-                <onup>54</onup>
-                <ondown>54</ondown>
-                <onleft>9000</onleft>
-                <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
-                <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
-                <pagecontrol>60</pagecontrol>
-                <viewtype label="31680">icons</viewtype>
-                <scrolltime tween="Cubic" easing="inout">500</scrolltime>
-                <orientation>vertical</orientation>
-                <preloaditems>2</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),54) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-                <!-- itemlayout movies -->
-                <itemlayout height="266" width="185" condition="!Skin.HasSetting(View54_ShowTags)">
-                    <control type="group">
-                        <width>183</width>
-                        <height>264</height>
-                        <include>SmallPosterPanelLayout</include>
-                      </control>
-                </itemlayout>
-                <!-- focussed layout movies -->
-                <focusedlayout height="266" width="185" condition="!Skin.HasSetting(View54_ShowTags)">
-                    <control type="group">
-						<include>Focus_Zoom_Animation</include>
-                        <width>183</width>
-                        <height>264</height>
-                        <include>SmallPosterPanelLayoutFocus</include>
-					</control>
-                </focusedlayout>
-				<!-- itemlayout movies tags-->
-                <itemlayout height="316" width="185" condition="Skin.HasSetting(View54_ShowTags)">
-                    <control type="group">
-                        <width>183</width>
-                        <height>264</height>
-                        <include>SmallPosterPanelLayout</include>
-						<include content="Tag_NF">
-							<param name="tagwidth" value="183"/>
-							<param name="tagtop" value="264" />
-						</include>
-					</control>
-				</itemlayout>
-                <!-- focussed layout movies tags-->
-                <focusedlayout height="316" width="185" condition="Skin.HasSetting(View54_ShowTags)">
-                    <control type="group">
-						<include>Focus_Zoom_Animation</include>
-                        <width>183</width>
-                        <height>264</height>
-                        <include>SmallPosterPanelLayoutFocus</include>
-						<include content="Tag_FO">
-							<param name="tagwidth" value="183" />
-							<param name="tagtop" value="260" />
-						</include>
-					</control>
-				</focusedlayout>
-			</control>
+	<!-- panel no info -->
+	<control type="group">
+		<visible>Control.IsVisible(54)</visible>
+		<include>animation_view_change</include>
 		
-			<include content="vertical_scollbar">
-				<param name="id" value="60" />
-				<param name="id_alphabet" value="6002" />
-				<param name="right" value="5" />
-				<param name="bottom" value="140" />
-				<param name="height" value="770" />
-				<param name="width" value="15" />
-				<param name="onup" value="60" />
-				<param name="ondown" value="6000" />
-				<param name="onleft" value="54" />
+		<control type="panel" id="54">
+			<left>40</left>
+			<right>60</right>
+			<bottom>15</bottom>
+			<include condition="Skin.HasSetting(NoFooterBar)" name="top" content="top">
+				<param name="top" value="125" />
 			</include>
+			<top>140</top>
+			<include condition="Skin.HasSetting(NoFooterBar)" name="height" content="height">
+				<param name="height" value="948" />
+			</include>
+			<height>800</height>
+			<width>1860</width>
+			<onup>54</onup>
+			<ondown>54</ondown>
+			<onleft>9000</onleft>
+			<onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
+			<onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+			<pagecontrol>60</pagecontrol>
+			<viewtype label="31680">icons</viewtype>
+			<scrolltime tween="cubic" easing="in">300</scrolltime>
+			<orientation>vertical</orientation>
+			<preloaditems>2</preloaditems>
+			<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),54) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
+			<!-- itemlayout movies -->
+			<itemlayout height="266" width="185" condition="!Skin.HasSetting(View54_ShowTags)">
+				<control type="group">
+					<width>183</width>
+					<height>264</height>
+					<include>SmallPosterPanelLayout</include>
+				  </control>
+			</itemlayout>
+			<!-- focussed layout movies -->
+			<focusedlayout height="266" width="185" condition="!Skin.HasSetting(View54_ShowTags)">
+				<control type="group">
+					<include>Focus_Zoom_Animation</include>
+					<width>183</width>
+					<height>264</height>
+					<include>SmallPosterPanelLayoutFocus</include>
+				</control>
+			</focusedlayout>
+			<!-- itemlayout movies tags-->
+			<itemlayout height="316" width="185" condition="Skin.HasSetting(View54_ShowTags)">
+				<control type="group">
+					<width>183</width>
+					<height>264</height>
+					<include>SmallPosterPanelLayout</include>
+					<include content="Tag_NF">
+						<param name="tagwidth" value="183"/>
+						<param name="tagtop" value="264" />
+					</include>
+				</control>
+			</itemlayout>
+			<!-- focussed layout movies tags-->
+			<focusedlayout height="316" width="185" condition="Skin.HasSetting(View54_ShowTags)">
+				<control type="group">
+					<include>Focus_Zoom_Animation</include>
+					<width>183</width>
+					<height>264</height>
+					<include>SmallPosterPanelLayoutFocus</include>
+					<include content="Tag_FO">
+						<param name="tagwidth" value="183" />
+						<param name="tagtop" value="260" />
+					</include>
+				</control>
+			</focusedlayout>
 		</control>
+	
+		<include content="vertical_scollbar">
+			<param name="id" value="60" />
+			<param name="id_alphabet" value="6002" />
+			<param name="right" value="5" />
+			<param name="bottom" value="140" />
+			<param name="height" value="770" />
+			<param name="width" value="15" />
+			<param name="onup" value="60" />
+			<param name="ondown" value="6000" />
+			<param name="onleft" value="54" />
+		</include>
+	</control>
 
     </include>
 </includes>

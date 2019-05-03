@@ -299,7 +299,7 @@
 			</control>
 			<control type="group">
 				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 					<param name="tagwidth" value="250"/>
 					<param name="tagtop" value="360" />
 				</include>
@@ -316,7 +316,7 @@
             </control>
 			<control type="group">
 				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 					<param name="tagwidth" value="250"/>
 					<param name="tagtop" value="360" />
 				</include>
@@ -337,7 +337,7 @@
                 </include>
 				<control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_Focus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
 						<param name="tagwidth" value="250"/>
 						<param name="tagtop" value="360" />
 					</include>
@@ -377,7 +377,7 @@
 			<include>PosterPanelLayout</include>
             <control type="group">
 				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 					<param name="tagwidth" value="250"/>
 					<param name="tagtop" value="370" />
 				</include>
@@ -394,7 +394,7 @@
             <include>PosterPanelLayout</include>
             <control type="group">
 				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 					<param name="tagwidth" value="250"/>
 					<param name="tagtop" value="370" />
 				</include>
@@ -494,7 +494,7 @@
                 <include>SmallPosterPanelLayout</include>
                 <control type="group">
 				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 					<param name="tagwidth" value="162"/>
 					<param name="tagtop" value="240" />
 				</include>
@@ -511,7 +511,7 @@
                 <include>SmallPosterPanelLayout</include>
                <control type="group">
 				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 					<param name="tagwidth" value="162"/>
 					<param name="tagtop" value="240" />
 				</include>
@@ -529,7 +529,7 @@
                 <include>SmallPosterPanelLayoutFocus</include>
                 <control type="group">
 				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_Focus">
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
 					<param name="tagwidth" value="162"/>
 					<param name="tagtop" value="240" />
 				</include>
@@ -595,7 +595,7 @@
                 <include>SquarePosterPanelLayout</include>
                 <control type="group">
 				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_Focus">
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
 					<param name="tagwidth" value="240"/>
 					<param name="tagtop" value="240" />
 				</include>
@@ -613,7 +613,7 @@
 				<include>SquarePosterPanelLayoutFocus</include>
 				<control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_Focus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
 						<param name="tagwidth" value="240"/>
 						<param name="tagtop" value="240" />
 					</include>
@@ -667,7 +667,7 @@
                 <include>SquarePosterPanelLayout</include>
 				<control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="130"/>
 						<param name="tagtop" value="120" />
 					</include>
@@ -684,7 +684,7 @@
                 <include>SquarePosterPanelLayout</include>
 				<control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="130"/>
 						<param name="tagtop" value="120" />
 					</include>
@@ -706,7 +706,7 @@
                 </include>
 				<control type="group">
 				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_Focus">
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
 					<param name="tagwidth" value="130"/>
 					<param name="tagtop" value="120" />
 				</include>
@@ -752,7 +752,7 @@
                 <include>ThumbsViewLayout</include>
 				<control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="375"/>
 						<param name="tagtop" value="210" />
 					</include>
@@ -769,7 +769,7 @@
                 <include>ThumbsViewLayout</include>
 				<control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="375"/>
 						<param name="tagtop" value="210" />
 					</include>
@@ -787,7 +787,7 @@
 				<include>ThumbsViewLayoutFocus</include>
                 <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_Focus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
 						<param name="tagwidth" value="375"/>
 						<param name="tagtop" value="210" />
 					</include>
@@ -829,7 +829,7 @@
                 <include>ThumbsViewLayout</include>
                 <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="430"/>
 						<param name="tagtop" value="260" />
 					</include>
@@ -847,7 +847,7 @@
 				<include>ThumbsViewLayoutFocus</include>
                 <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="430"/>
 						<param name="tagtop" value="260" />
 					</include>
@@ -869,7 +869,7 @@
 				<include>ThumbsViewLayoutFocus</include>
                 <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_Focus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
 						<param name="tagwidth" value="430"/>
 						<param name="tagtop" value="260" />
 					</include>
@@ -916,7 +916,7 @@
                 <include>ThumbsViewLayout</include>
                 <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="354"/>
 						<param name="tagtop" value="200" />
 					</include>
@@ -933,7 +933,7 @@
                 <include>ThumbsViewLayout</include>
                 <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="354"/>
 						<param name="tagtop" value="200" />
 					</include>
@@ -1097,7 +1097,7 @@
 				</control>
 				<control type="group">
 						<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="650"/>
 						<param name="tagtop" value="146" />
 					</include>
@@ -1123,7 +1123,7 @@
 				</control>
 				<control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="650"/>
 						<param name="tagtop" value="146" />
 					</include>
@@ -1150,7 +1150,7 @@
                 <include>BannerLayout</include>
 				<control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_Focus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
 						<param name="tagwidth" value="650"/>
 						<param name="tagtop" value="146" />
 					</include>
@@ -1193,7 +1193,7 @@
                 <include>PosterPanelLayout</include>
                 <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="280"/>
 						<param name="tagtop" value="420" />
 					</include>
@@ -1210,7 +1210,7 @@
                 <include>PosterPanelLayout</include>
                 <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="280"/>
 						<param name="tagtop" value="420" />
 					</include>
@@ -1246,7 +1246,7 @@
                 
 				<control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="720"/>
 						<param name="tagtop" value="420" />
 					</include>
@@ -1299,7 +1299,7 @@
                 <include>ThumbsViewLayout</include>
                 <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="261"/>
 						<param name="tagtop" value="150" />
 					</include>
@@ -1317,7 +1317,7 @@
 				<include>ThumbsViewLayoutFocus</include>
                <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_NoFocus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="261"/>
 						<param name="tagtop" value="150" />
 					</include>
@@ -1339,7 +1339,7 @@
 				<include>ThumbsViewLayoutFocus</include>
                 <control type="group">
 					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Widgets_Tag_Focus">
+					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
 						<param name="tagwidth" value="261"/>
 						<param name="tagtop" value="150" />
 					</include>
@@ -2734,43 +2734,7 @@
     <include name="WidgetTagOverlayDisable">
         <visible>false</visible>
     </include>
-	<include name="Widgets_Tag_Focus">
-		<control type="textbox">
-			<visible>$EXP[Notag_NetflixHome]</visible>
-			<width>$PARAM[tagwidth]</width>
-			<top>$PARAM[tagtop]</top>
-			<height>50</height>
-			<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-			<align>left</align>
-			<label>$VAR[ThumbListDetails]</label>
-			<font>Reg20</font>
-			<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
-			<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-		</control>
-	</include>
-	<include name="Widgets_Tag_NoFocus">
-		<control type="textbox">
-			<visible>$EXP[Notag_NetflixHome]</visible>
-			<width>$PARAM[tagwidth]</width>
-			<top>$PARAM[tagtop]</top>
-			<height>50</height>
-			<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-			<align>left</align>
-			<label>$VAR[ThumbListDetails]</label>
-			<font>Reg20</font>
-			<autoscroll>false</autoscroll>
-			<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-		</control>
-	</include>
-	<include name="DetailsWidgets_FocusAnim">
-		<animation effect="zoom" start="0,100" end="100,100" time="100" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation>
-	</include>
-	<include name="Focus_Zoom_Animation">
-		<animation type="Focus" reversible="false">
-			<effect type="zoom" end="115,115" time="200" tween="sine" easing="out" center="auto" />
-			<effect type="zoom" end="93,93" time="100" tween="sine" delay="200" easing="out" center="auto" />
-	</animation>
-    </include>
+	
 	
 	<include name="widget_header_rightalign">
         <align>right</align>

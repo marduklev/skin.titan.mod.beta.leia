@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
     <include file="Defaults.xml" />
-
-    <include file="IncludesExpressions.xml" />
+	<include file="IncludesExpressions.xml" />
     <include file="IncludesVariables.xml" />
-    
+    <include file="Includes_Layouts_ModProgress.xml" />
 	<include file="IncludesDialogVideoInfo.xml" />
 	<include file="IncludesDialogMusicInfo.xml" />
 	<include file="IncludesCustomSearch.xml" />

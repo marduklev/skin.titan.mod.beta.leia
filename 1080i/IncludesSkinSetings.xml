@@ -729,7 +729,9 @@
                 <onclick>Skin.ToggleSetting(BackgroundAnimation)</onclick>
                 <selected>Skin.HasSetting(BackgroundAnimation)</selected>
             </control>
-            <!--need check, enable wall backgrounds-->
+            <!--need check, enable wall backgrounds is alway set by default, resource hungry? 
+			https://github.com/kodi-community-addons/script.skin.helper.backgrounds
+			-->
             <control type="radiobutton" id="31812">
                 <include>SkinSettings_Button</include>
                 <label>31812</label>
@@ -741,7 +743,7 @@
                 <param name="id" value="31531" />
                 <param name="addon" value="script.skin.helper.backgrounds" />
             </include>
-            <!--background randomize-->
+            <!--background randomize, check, set always true ?-->
             <control type="radiobutton" id="31747">
                 <include>SkinSettings_Button</include>
                 <label>31747</label>
@@ -2994,6 +2996,7 @@
                 <onclick>Skin.ToggleSetting(KeepWidgetFocus)</onclick>
                 <selected>Skin.HasSetting(KeepWidgetFocus)</selected>
             </control>
+			<!-- check, still valid function ? -->
             <control type="radiobutton" id="31765">
                 <description>Emby CoverArt compatability</description>
                 <include>SkinSettings_Button</include>

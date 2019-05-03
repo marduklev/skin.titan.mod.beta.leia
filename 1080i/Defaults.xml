@@ -220,7 +220,7 @@
         <textureslidernibfocus border="5" colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/modern/slider/nib_focus.png</textureslidernibfocus>
     </default>
     <default type="scrollbar">
-        <width>25</width>
+        <width>15</width> <!-- check, delete me,when include finished -->
         <texturesliderbackground border="5" colordiffuse="$INFO[Skin.String(ScrollbarBackgroundColor)]">diffuse/panel.png</texturesliderbackground>
 		<texturesliderbar colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]" border="5">diffuse/panel.png</texturesliderbar>
 		<texturesliderbarfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]" border="2">diffuse/panel.png</texturesliderbarfocus>

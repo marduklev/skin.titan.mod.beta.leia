@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+<!-- Main File to sort .re add updated and edited includes,variables,etc  for testing purpose -->
+ <!--    RECODE PROJECT -->
+	
+	<!-- TAGs -->
+	<!-- temp workaraound for tags used for widgets library -->
+	
+		<!-- itemlayout -->
+		<include name="Tag_NF">
+			<control type="textbox">
+				<visible>$EXP[Notag_NetflixHome]</visible>
+				<width>$PARAM[tagwidth]</width>
+				<top>$PARAM[tagtop]</top>
+				<left>5</left>
+				<right>5</right>
+				<height>48</height>
+				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
+				<align>left</align>
+				<label>$VAR[ThumbListDetails]</label>
+				<font>Reg18</font>
+				<autoscroll>false</autoscroll>
+				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
+			</control>
+		</include>
+		<!-- focusedlayout -->
+		<include name="Tag_FO">
+			<control type="textbox">
+				<visible>$EXP[Notag_NetflixHome]</visible>
+				<width>$PARAM[tagwidth]</width>
+				<top>$PARAM[tagtop]</top>
+				<height>50</height>
+				<left>5</left>
+				<right>5</right>
+				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
+				<align>left</align>
+				<label>$VAR[ThumbListDetails]</label>
+				<font>Reg20</font>
+				<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
+				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
+			</control>
+		</include>
+		<!-- Tag Label Var -->
+		<variable name=""></variable>
+	
+	<!-- Zoom-InOut On focused Item ,includesanimations.xml -->
+		<include name="Focus_Zoom_Animation">
+			<animation type="Focus" reversible="false">
+				<effect type="zoom" end="115,115" time="200" tween="sine" easing="out" center="auto" />
+				<effect type="zoom" end="93,93" time="100" tween="sine" delay="200" easing="out" center="auto" />
+			</animation>
+		</include>
+	
+	<!-- Scrollbars -->
+		<!-- merge vertical id="60 and horizontal  Scollbar " 
+		alphabet scrollbar-Jump to letter $PARAM[id_alphabet]-->
+		<include name="vertical_scollbar">
+			<control type="scrollbar" id="$PARAM[id]">
+				<visible>
+				[Control.IsVisible(54) + Integer.IsGreater(Container.Numitems,0)]
+				</visible>
+				<!-- check setting, disable all scrollbars -->
+				<right>$PARAM[right]</right>
+				<bottom>$PARAM[bottom]</bottom>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<onup>$PARAM[onup]</onup>
+				<ondown>$PARAM[ondown]</ondown>
+				<onleft>$PARAM[onleft]</onleft>
+				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus($PARAM[id]) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible($PARAM[id_alphabet])">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus($PARAM[id]) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible($PARAM[id_alphabet])">Conditional</animation>
+			</control>
+		</include>
+		
+		
+	<!-- HOME -->
+		<!-- Zoom Animation for Detail Widgets, includesHomewidgets.xml -->
+		<include name="DetailsWidgets_FocusAnim">
+			<animation effect="zoom" start="0,100" end="100,100" time="100" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation>
+		</include>
+</includes>

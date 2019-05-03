@@ -24,7 +24,7 @@
                 <preloaditems>2</preloaditems>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),54) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <!-- itemlayout movies -->
-                <itemlayout height="266" width="185">
+                <itemlayout height="266" width="185" condition="!Skin.HasSetting(View54_ShowTags)">
                     <control type="group">
                         <width>183</width>
                         <height>264</height>
@@ -32,28 +32,52 @@
                       </control>
                 </itemlayout>
                 <!-- focussed layout movies -->
-                <focusedlayout height="266" width="185">
+                <focusedlayout height="266" width="185" condition="!Skin.HasSetting(View54_ShowTags)">
                     <control type="group">
+						<include>Focus_Zoom_Animation</include>
                         <width>183</width>
                         <height>264</height>
                         <include>SmallPosterPanelLayoutFocus</include>
 					</control>
                 </focusedlayout>
+				<!-- itemlayout movies tags-->
+                <itemlayout height="316" width="185" condition="Skin.HasSetting(View54_ShowTags)">
+                    <control type="group">
+                        <width>183</width>
+                        <height>264</height>
+                        <include>SmallPosterPanelLayout</include>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="183"/>
+							<param name="tagtop" value="264" />
+						</include>
+					</control>
+				</itemlayout>
+                <!-- focussed layout movies tags-->
+                <focusedlayout height="316" width="185" condition="Skin.HasSetting(View54_ShowTags)">
+                    <control type="group">
+						<include>Focus_Zoom_Animation</include>
+                        <width>183</width>
+                        <height>264</height>
+                        <include>SmallPosterPanelLayoutFocus</include>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="183" />
+							<param name="tagtop" value="260" />
+						</include>
+					</control>
+				</focusedlayout>
 			</control>
 		
-			<!--vertical Scollbar-->
-			<control type="scrollbar" id="60">
-				<visible>Control.IsVisible(54) + Integer.IsGreater(Container.Numitems,0)</visible>
-				<right>5</right>
-				<bottom>140</bottom>
-				<height>770</height>
-				<onup>60</onup>
-				<ondown>6000</ondown>
-				<onleft>54</onleft>
-				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
-			</control>
-    
+			<include content="vertical_scollbar">
+				<param name="id" value="60" />
+				<param name="id_alphabet" value="6002" />
+				<param name="right" value="5" />
+				<param name="bottom" value="140" />
+				<param name="height" value="770" />
+				<param name="width" value="15" />
+				<param name="onup" value="60" />
+				<param name="ondown" value="6000" />
+				<param name="onleft" value="54" />
+			</include>
 		</control>
 
     </include>

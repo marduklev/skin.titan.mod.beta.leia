@@ -148,11 +148,14 @@
 
             <!-- Main menu -->
             <control type="image">
+			<animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(300) | Control.HasFocus(311055)] + !Control.HasFocus(77777)">
+                <effect type="slide" start="-520" end="0" time="900" delay="0" tween="back" easing="inout" />
+            </animation>
                 <!-- arrow up -->
                 <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
                 <animation effect="slide" start="0" end="-325" time="0" delay="0" condition="Skin.HasSetting(SimpleVerHomeLeftAlign)">Conditional</animation>
-                <left>355</left>
-                <posy>70</posy>
+                <left>255</left>
+                <posy>80</posy>
                 <width>25</width>
                 <height>60</height>
                 <aspectratio>keep</aspectratio>
@@ -161,10 +164,13 @@
                 <visible>Container(300).HasPrevious + !Skin.HasSetting(HideHomeTileIndicators)</visible>
             </control>
             <control type="image">
+			<animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(300) | Control.HasFocus(311055)] + !Control.HasFocus(77777)">
+                <effect type="slide" start="-520" end="0" time="900" delay="0" tween="back" easing="inout" />
+            </animation>
                 <!-- arrow down -->
                 <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
                 <animation effect="slide" start="0" end="-325" time="0" delay="0" condition="Skin.HasSetting(SimpleVerHomeLeftAlign)">Conditional</animation>
-                <left>355</left>
+                <left>255</left>
                 <posy>1000</posy>
                 <width>25</width>
                 <height>60</height>

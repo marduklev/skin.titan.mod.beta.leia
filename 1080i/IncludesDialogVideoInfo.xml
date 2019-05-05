@@ -1393,9 +1393,9 @@
                             <control type="group">
                                 <width>230</width>
                                 <height>342</height>
-                               <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+								<include content="PosterPanelLayout">
+									<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+								</include>
                             </control>
 							<control type="image">
                                 <bottom>2</bottom>
@@ -1421,8 +1421,8 @@
                                 <width>240</width>
                                 <height>362</height>
                                <include content="PosterPanelLayoutFocus">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+									<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+								</include>
 								<animation effect="slide" end="-3,25" center="auto" time="50">focus</animation>
                             </control>
 							<control type="image">
@@ -2689,14 +2689,18 @@
 						<control type="group">
 							<width>233</width>
 							<height>342</height>
-							<include>PosterPanelLayout</include>
+							<include content="PosterPanelLayout">
+								<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="357" width="240">
 						<control type="group">
 							<width>233</width>
 							<height>342</height>
-							<include>PosterPanelLayoutFocus</include>
+							<include content="PosterPanelLayoutFocus">
+								<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							</include>
 						</control>
 					</focusedlayout>
 					<content>$VAR[similarInfo]</content>

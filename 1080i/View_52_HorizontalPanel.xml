@@ -26,7 +26,9 @@
 				<control type="group">
 					<width>233</width>
 					<height>340</height>
-					<include>PosterPanelLayout</include>
+					<include content="PosterPanelLayout">
+						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+					</include>
 				</control>
 			</itemlayout>
 			<focusedlayout height="345" width="258">
@@ -42,7 +44,9 @@
 						<effect type="zoom" end="135" time="150" tween="sine" easing="out" center="auto" />
 						<effect type="zoom" end="90" time="100" tween="sine" delay="150" easing="out" center="auto" />
 					</animation>
-					<include>PosterPanelLayoutFocus</include>
+					<include content="PosterPanelLayoutFocus">
+						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+					</include>
 					<include>AutoTrailerButton</include>
 				</control>
 			</focusedlayout>

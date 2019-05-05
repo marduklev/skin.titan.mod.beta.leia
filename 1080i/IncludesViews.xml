@@ -905,7 +905,7 @@
         <height>736</height>
         <control type="image">
             <texture border="15">diffuse/bgpanel.png</texture>
-            <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
             <visible>!Control.IsVisible(522)</visible>
             <visible>[!Skin.HasSetting(DetailsLeftHidepanel) + !Control.IsVisible(516) + !Control.IsVisible(51) + !Control.IsVisible(504)] | [!Skin.HasSetting(View516_HidePanel) + Control.IsVisible(516)] | [!Skin.HasSetting(View51_HidePanel) + Control.IsVisible(51)] | [!Skin.HasSetting(View504_HidePanel) + Control.IsVisible(504)]</visible>
         </control>

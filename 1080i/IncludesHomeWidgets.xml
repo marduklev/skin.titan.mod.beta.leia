@@ -295,9 +295,9 @@
             <control type="group">
                 <width>250</width>
                 <height>360</height>
-               <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+				<include content="PosterPanelLayout">
+					<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+				</include>
 			</control>
 			<control type="group">
 				<description>widget label overlay</description>
@@ -314,9 +314,9 @@
             <control type="group">
                 <width>250</width>
 				<height>360</height>
-               <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+				<include content="PosterPanelLayout">
+					<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+				</include>
             </control>
 			<control type="group">
 				<description>widget label overlay</description>
@@ -334,9 +334,9 @@
 				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
                 <width>250</width>
                 <height>360</height>
-               <include content="PosterPanelLayoutFocus">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+				<include content="PosterPanelLayoutFocus">
+					<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+				</include>
 				<include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="poster"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
@@ -380,7 +380,9 @@
           <control type="group">
             <width>250</width>
             <height>370</height>          
-			<include>PosterPanelLayout</include>
+			<include content="PosterPanelLayout">
+				<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+			</include>
             <control type="group">
 				<description>widget label overlay</description>
 				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -397,9 +399,9 @@
           <control type="group">
             <width>250</width>
             <height>370</height>
-           <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+			<include content="PosterPanelLayout">
+				<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+			</include>
             <control type="group">
 				<description>widget label overlay</description>
 				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -448,7 +450,9 @@
 				<control type="group">
 					<width>250</width>
 					<height>370</height>
-					<include>PosterPanelLayout</include>
+					<include content="PosterPanelLayout">
+						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+					</include>
 				</control>
 				<control type="textbox">
 					<include>DetailsWidgets_FocusAnim</include>
@@ -1204,9 +1208,9 @@
             <control type="group">
                 <width>280</width>
                 <height>420</height>
-               <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+				<include content="PosterPanelLayout">
+					<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+				</include>
                 <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -1223,9 +1227,9 @@
            <control type="group">
                 <width>280</width>
                 <height>420</height>
-               <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+				<include content="PosterPanelLayout">
+					<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+				</include>
                 <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">

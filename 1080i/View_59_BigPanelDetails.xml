@@ -32,7 +32,9 @@
 						<width>238</width>
 						<bottom>9%</bottom>
 						<height>342</height>
-						<include>PosterPanelLayout</include>
+						<include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+						</include>
 					</control>
 				</itemlayout>
 				<focusedlayout height="405" width="268" condition="Skin.HasSetting(View59_ShowCDart)">
@@ -41,7 +43,9 @@
 						<height>365</height>
 						<right>20</right>
 						<bottom>10%</bottom>
-						<include>PosterPanelLayoutFocus</include>
+						<include content="PosterPanelLayoutFocus">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+						</include>
 						<include>AutoTrailerButton</include>
 					</control>
 
@@ -63,14 +67,18 @@
 					<control type="group">
 						<width>100%</width>  
 						<height>100%</height>
-						<include>PosterPanelLayout</include>
+						<include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+						</include>
 					</control>
 				</itemlayout>
 				<focusedlayout height="405" width="268" condition="!Skin.HasSetting(View59_ShowCDart)">
 					<control type="group">
 						<width>100%</width>
 						<height>100%</height>
-						<include>PosterPanelLayoutFocus</include>
+						<include content="PosterPanelLayoutFocus">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+						</include>
 						<include>AutoTrailerButton</include>
 					</control>
 				</focusedlayout>

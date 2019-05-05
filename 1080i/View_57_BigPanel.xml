@@ -26,16 +26,18 @@
           <control type="group">
             <width>259</width>
             <height>380</height>
-           <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+			<include content="PosterPanelLayout">
+				<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+			</include>
           </control>
         </itemlayout>
         <focusedlayout height="380" width="262">
           <control type="group">
             <width>259</width>
             <height>380</height>
-			<include>PosterPanelLayoutFocus</include>
+			<include content="PosterPanelLayoutFocus">
+				<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+			</include>
           </control>
         </focusedlayout>
         </control>

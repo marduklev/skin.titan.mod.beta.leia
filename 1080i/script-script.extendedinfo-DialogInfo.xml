@@ -453,19 +453,19 @@
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+									<include content="PosterPanelLayout">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
                                   </control>
                             </itemlayout>
                             <focusedlayout height="357" width="240">
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayoutFocus">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
-                                  </control>
+									<include content="PosterPanelLayoutFocus">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
+								</control>
                             </focusedlayout>
                             <content>plugin://script.skin.helper.service/?action=getcastmedia&amp;name=$INFO[Window.Property(Title)]</content>
                         </control>
@@ -489,18 +489,18 @@
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
-                                  </control>
+									<include content="PosterPanelLayout">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
+								</control>
                             </itemlayout>
                             <focusedlayout height="357" width="240">
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayoutFocus">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
+									<include content="PosterPanelLayoutFocus">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
                                   </control>
                             </focusedlayout>
                         </control>
@@ -524,19 +524,19 @@
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
-                                  </control>
+									<include content="PosterPanelLayout">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
+								</control>
                             </itemlayout>
                             <focusedlayout height="357" width="240">
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayoutFocus">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
-                                  </control>
+									<include content="PosterPanelLayoutFocus">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
+								</control>
                             </focusedlayout>
                         </control>
                                           <!-- actor movie crew -->
@@ -559,19 +559,19 @@
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
-                                  </control>
+								   <include content="PosterPanelLayout">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
+								</control>
                             </itemlayout>
                             <focusedlayout height="357" width="240">
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayoutFocus">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
-                                  </control>
+									<include content="PosterPanelLayoutFocus">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
+								</control>
                             </focusedlayout>
                         </control>
                                           <!-- actor tv crew -->
@@ -594,19 +594,19 @@
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
-                                  </control>
+									<include content="PosterPanelLayout">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
+								</control>
                             </itemlayout>
                             <focusedlayout height="357" width="240">
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayoutFocus">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
-                                  </control>
+									<include content="PosterPanelLayoutFocus">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
+								</control>
                             </focusedlayout>
                         </control>
                                          <!-- youtube videos -->
@@ -691,24 +691,23 @@
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
-                                  </control>
+									<include content="PosterPanelLayout">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
+								</control>
                             </itemlayout>
                             <focusedlayout height="357" width="240">
                                 <control type="group">
                                     <width>233</width>
                                     <height>342</height>
-                                   <include content="PosterPanelLayoutFocus">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-					</include>
-                                  </control>
+									<include content="PosterPanelLayoutFocus">
+										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									</include>
+								</control>
                             </focusedlayout>
                         </control>
-                                     </control>
-
-                                 				</control>
+					</control>
+				</control>
 			</control>
 		</control>
 	</controls>

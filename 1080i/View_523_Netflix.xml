@@ -324,7 +324,9 @@
 						<height>381</height>
 						<right>2</right>
 						<bottom>-180</bottom>
-						<include>PosterPanelLayoutFocus</include>
+						<include content="PosterPanelLayoutFocus">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+						</include>
 						<include>AutoTrailerButton</include>
 					</control>
 					<!-- reflection -->
@@ -387,7 +389,9 @@
 					<width>100%</width>
 					<height>100%</height>
 					<bottom>-200</bottom>
-					<include>PosterPanelLayout</include>
+					<include content="PosterPanelLayout">
+						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+					</include>
 					<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 					<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>
 				  </control>
@@ -397,7 +401,9 @@
 						<width>100%</width>
 						<height>100%</height>
 						<bottom>-200</bottom>
-						<include>PosterPanelLayoutFocus</include>
+						<include content="PosterPanelLayoutFocus">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+						</include>
 						<include>AutoTrailerButton</include>
 						<animation effect="zoom" end="112,112" center="auto" time="100">focus</animation>
 					</control>

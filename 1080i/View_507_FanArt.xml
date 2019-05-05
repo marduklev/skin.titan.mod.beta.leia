@@ -233,8 +233,7 @@
 						 <height>40</height>
 						 <width>480</width>
 						  <font>Reg31</font>
-						  <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-						  <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+						  <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
 						  <label>$VAR[Details]</label>
 					</control>
 					<control type="textbox">
@@ -242,8 +241,7 @@
 						<width>480</width>
 						<height>660</height>
 						<label>$VAR[Plots]</label>
-						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
 						<align>justify</align>
 						<font>Light28</font>
 					</control>

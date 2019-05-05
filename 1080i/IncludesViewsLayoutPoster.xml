@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- TITAN MOD -->
 <includes>
 
 	<!-- POSTER LAYOUT -->
 	<include name="PosterPanelLayout">
 		<control type="image">
+			<animation effect="zoom" end="102,102" time="0" condition="Skin.HasSetting(CaseOverlays)">Conditional</animation>
 			<include>PosterThumbBG</include>
 			<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
 			<include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
@@ -24,29 +26,7 @@
 			</animation>
 		</control>
 	</include>
-	<include name="PosterPanelLayoutNetflix">
-		<control type="image">
-			<colordiffuse>ff4c0000</colordiffuse>
-			<include>PosterThumbBG</include>
-			<include condition="Skin.String(thumbsborder_unfocused, 2) | Skin.String(thumbsborder_unfocused, 4) | Skin.String(thumbsborder_unfocused, 6)">thumbborder_2</include>
-			<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
-		</control>
-		<include>PosterThumbLayout</include>
-		<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
-		<control type="group">
-			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
-		</control>
-		<control type="group">
-			<!--Watched Overlay-->
-			<right>8</right>
-			<top>8</top>
-			<include>WatchedIndicatorNormal</include>
-			<animation type="Conditional" condition="skin.hastheme(classic)">
-				<effect type="slide" end="3,-3" time="0" />
-			</animation>
-		</control>
-	</include>
-
+	
 	<include name="PosterPanelLayoutFocus">
 		<control type="image">
 			<animation effect="zoom" end="102,102" time="0" condition="Skin.HasSetting(CaseOverlays)">Conditional</animation>
@@ -72,7 +52,28 @@
 			</animation>
 		</control>
 	</include>
-
+	<include name="PosterPanelLayoutNetflix">
+		<control type="image">
+			<colordiffuse>ff4c0000</colordiffuse>
+			<include>PosterThumbBG</include>
+			<include condition="Skin.String(thumbsborder_unfocused, 2) | Skin.String(thumbsborder_unfocused, 4) | Skin.String(thumbsborder_unfocused, 6)">thumbborder_2</include>
+			<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
+		</control>
+		<include>PosterThumbLayout</include>
+		<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
+		<control type="group">
+			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
+		</control>
+		<control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorNormal</include>
+			<animation type="Conditional" condition="skin.hastheme(classic)">
+				<effect type="slide" end="3,-3" time="0" />
+			</animation>
+		</control>
+	</include>
 	<include name="PosterThumbLayoutNonFocus">
 		<control type="image">
 			<description>Normal Poster thumb stretched aspect</description>
@@ -174,17 +175,16 @@
 		[Control.IsVisible(520) + Skin.HasSetting(View520_ShowTags)] 
 	-->
 		
-	
 	<include name="PosterTagOverlayVisibility">
 		<visible>!String.IsEqual(ListItem.Label,..)</visible>
 		<visible>!Window.IsActive(script-skin_helper_service-CustomSearch.xml)</visible>
-		
 		<visible>
             [[String.Contains(Window.Property(xmlfile),Nav) | Window.Isactive(Home)] + String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))] | 
             [Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) + String.IsEmpty(ListItem.Art(fanart))] | 
             [!String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Season) + !Container.Content(seasons) + !String.IsEqual(ListItem.Label, ListItem.TvshowTitle) + Skin.HasSetting(ShowLabelsPosterEpisodes)]
 		</visible>
 	</include>
+	<!-- rework needed, ..-->
 	<include name="PosterTagOverlay">
 		<control type="group">
 			<include condition="!Window.IsActive(Home)">PosterTagOverlayVisibility</include>
@@ -226,48 +226,7 @@
 			</control>
 		</control>
 	</include>
-	<include name="SmallPosterTagOverlay">
-		<control type="group">
-			<include condition="!Window.IsActive(Home)">PosterTagOverlayVisibility</include>
-			<!--Panel-->
-			<control type="image">
-				<bottom>0</bottom>
-				<height>80</height>
-				<bordersize>8</bordersize>
-				<texture border="1">diffuse/poster_tag.png</texture>
-				<colordiffuse>$INFO[Skin.String(TagOverlaysPanelColor)]</colordiffuse>
-			</control>
-			<control type="textbox">
-				<left>15</left>
-				<right>15</right>
-				<bottom>10</bottom>
-				<height>65</height>
-				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-				<align>left</align>
-				<aligny>center</aligny>
-				<label>$VAR[ThumbListDetailsPoster]</label>
-				<font>Reg18</font>
-				<autoscroll delay="2000" time="2000" repeat="500">false</autoscroll>
-				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-				<visible>!String.IsEqual(System.CurrentControl,ListItem.Label)</visible>
-			</control>
-			<control type="textbox">
-				<left>15</left>
-				<right>15</right>
-				<bottom>10</bottom>
-				<height>65</height>
-				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-				<align>left</align>
-				<aligny>center</aligny>
-				<label>$VAR[ThumbListDetailsPoster]</label>
-				<font>Reg18</font>
-				<autoscroll delay="2000" time="2000" repeat="500">true</autoscroll>
-				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-				<visible>String.IsEqual(System.CurrentControl,ListItem.Label)</visible>
-			</control>
-		</control>
-	</include>
-
+	
 	<!-- CASE OVERLAYS -->
 	<include name="PosterCaseOverlay">
 		<control type="group">
@@ -283,7 +242,7 @@
 			<control type="image">
 				<texture diffuse="diffuse/poster.png">cases/default_top2.png</texture>
 				<!-- border left,top,right,bottom  -->
-				<bordersize>7</bordersize>
+				<bordersize>7,7,7,7</bordersize>
 				<colordiffuse>$INFO[Skin.String(CaseOverlays.Color)]</colordiffuse>
 				<animation effect="zoom" end="102.1,102" time="0" condition="true">Conditional</animation>
 			</control>
@@ -295,42 +254,12 @@
 				<height>9%</height>
 				<aspectratio aligny="center" align="center">keep</aspectratio>
 				<!-- border left,top,right,bottom  -->
-				<bordersize>2</bordersize>
+				<bordersize>2,2,2,2</bordersize>
 				<colordiffuse>$INFO[Skin.String(CaseOverlays.TextColor)]</colordiffuse>
 			</control>
 		</control>
 	</include>
-	<include name="PosterCaseOverlayFocus">
-		<control type="group">
-			<visible>
-                !String.IsEqual(Skin.String(CaseOverlays.Fallback),None) | 
-                String.Contains(ListItem.Filenameandpath,.3d) | 
-                Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).Filenameandpath,4k) |
-                [String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)] | 
-                String.EndsWith(ListItem.Filenameandpath,dvd) | String.EndsWith(ListItem.Filenameandpath,.ifo) | String.Contains(ListItem.Filenameandpath,.iso) | 
-                String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,540) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,720) | String.IsEqual(ListItem.VideoResolution,1080) | String.StartsWith(ListItem.Path,videodb://movies/sets)
-			</visible>
-			<visible>!String.IsEqual(Container(300).ListItem.Property(widget),weather) + !String.IsEqual(Container(300).ListItem.Property(widget),systeminfo) + !String.IsEqual(Container(300).ListItem.Property(widget),youtube) + ![String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(fanart))]</visible>
-			<control type="image">
-				<texture diffuse="diffuse/poster.png">cases/default_top2.png</texture>
-				<!-- border left,top,right,bottom  -->
-				<bordersize>8</bordersize>
-				<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-				<animation effect="zoom" end="102,102" time="0" condition="true">Conditional</animation>
-			</control>
-			<control type="image">
-				<texture background="true">$VAR[PosterCaseOverlayVar]</texture>
-				<top>3</top>
-				<left>33%</left>
-				<width>33%</width>
-				<height>6%</height>
-				<aspectratio aligny="top" align="center">keep</aspectratio>
-				<!-- border left,top,right,bottom  -->
-				<bordersize>0</bordersize>
-				<colordiffuse>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</colordiffuse>
-			</control>
-		</control>
-	</include>
+	
 	<variable name="PosterCaseOverlayVar">
 		<value condition="String.Contains(ListItem.Filenameandpath,.3d)">cases/3dbd.png</value>
 		<value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).Filenameandpath,4k)">cases/4k.png</value>

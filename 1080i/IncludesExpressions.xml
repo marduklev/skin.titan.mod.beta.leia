@@ -3,8 +3,17 @@
 	<!-- Tags -->
 	<expression name="Notag_NetflixHome">!Window.IsActive(Home) | [Window.IsActive(Home) + !String.Contains(Skin.String(HomeLayout),netflix)]</expression>
 	<!-- Home -->
-   
-		
+	
+	<!-- Playing -->
+	<expression name="PayerHasVideo">[Player.HasVideo | Player.HasGame]</expression>
+	
+	<!-- Content -->
+	<expression name="IsTVShow">String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</expression>
+	<expression name="IsEpisode">String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)</expression>
+	<expression name="IsMovie">String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),movie) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,movie)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),movie)</expression>
+	
+	<!-- ArtWork -->
+	
 	<!-- Games -->
 	<expression name="InVideoMode">Window.IsActive(Videos)</expression>
     <expression name="InGameMode">String.Contains(Container.FolderPath,plugin://plugin.program.ael) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher)</expression>

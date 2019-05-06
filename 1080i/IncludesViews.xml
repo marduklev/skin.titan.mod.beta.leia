@@ -480,7 +480,7 @@
                 <width>1820</width>
                 <texture border="15">diffuse/bgpanel.png</texture>
                 <visible>!Skin.HasSetting(DetailsTopHidepanel)</visible>
-				<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse><!-- COLOR CHECK intended to use an unfocused panel color = ViewDetailsPanelColor, but, test ViewDetailsFocusColor -->
+				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 			</control>
 			
             <!--Info-->

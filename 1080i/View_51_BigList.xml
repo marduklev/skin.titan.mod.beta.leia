@@ -359,7 +359,9 @@
                 <height>736</height>
                 <width>500</width>
                 <control type="image">
-                    <include>PosterThumbBG</include>
+                    <include content="PosterThumb">
+						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]"/>
+					</include>
                     <visible>!Skin.HasSetting(View51_HidePanel)</visible>
                 </control>
                 <control type="image">

@@ -258,8 +258,10 @@
                 <height>736</height>
                 <width>500</width>
                 <control type="image">
-                    <include>PosterThumbBG</include>
-                    <visible>!Skin.HasSetting(View_HidePosterPanel)</visible>
+                    <include content="PosterThumb">
+						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]"/>
+					</include>
+				<visible>!Skin.HasSetting(View_HidePosterPanel)</visible>
                 </control>
                 <control type="image">
 					<!--cdart image music-->

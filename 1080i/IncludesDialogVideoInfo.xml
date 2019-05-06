@@ -60,7 +60,9 @@
 					<visible>!Player.HasVideo</visible>
                     <itemlayout height="178" width="120">
 							<control type="image">
-								<include>PosterThumbBG</include>
+								<include content="PosterThumb">
+									<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]"/>
+								</include>
 							</control>
 							<control type="image">
 								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
@@ -91,7 +93,9 @@
 					</itemlayout>
                     <focusedlayout height="180" width="122">
 							<control type="image">
-								<include>PosterThumbFO</include>
+								<include content="PosterThumb">
+									<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+								</include>
 							</control>
 							<control type="image">
 								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
@@ -130,7 +134,9 @@
 					<visible>!Player.HasVideo</visible>
                     <itemlayout height="243" width="158">
 						<control type="image">
-							<include>PosterThumbBG</include>
+							<include content="PosterThumb">
+								<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]"/>
+							</include>
 						</control>
 						<control type="image">
 							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
@@ -160,7 +166,9 @@
 					</itemlayout>
                     <focusedlayout height="257" width="173">
 						<control type="image">
-							<include>PosterThumbFO</include>
+							<include content="PosterThumb">
+								<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							</include>
 						</control>
 						<control type="image">
 							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
@@ -1289,7 +1297,9 @@
                                 <width>260</width>
                                 <height>388</height>
                                 <control type="image">
-                                    <include>PosterThumbBG</include>
+                                    <include content="PosterThumb">
+										<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]"/>
+									</include>
                                 </control>
                                 <control type="image">
                                     <texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
@@ -1299,7 +1309,9 @@
                             </control>
 							<control type="image">
 								<texture>diffuse/bgpanel.png</texture>
-								<include>PosterThumbBG</include> <!-- <include>PosterThumbBG</include> or  <colordiffuse>$INFO[Skin.String(ButtonColor)]</colordiffuse> -->
+								<include content="PosterThumb">
+									<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]"/>
+								</include>
 								<visible>true</visible>
 								<top>330</top>
 								<left>0</left>
@@ -1324,7 +1336,9 @@
                                 <width>260</width>
                                 <height>388</height>
                                 <control type="image">
-                                    <include>PosterThumbFO</include>
+                                    <include content="PosterThumb">
+									<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+								</include>
                                 </control>
                                 <control type="image">
                                     <texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
@@ -1394,7 +1408,9 @@
                                 <width>230</width>
                                 <height>342</height>
 								<include content="PosterPanelLayout">
-									<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+									<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+									<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+									<param name="border" value="thumbsborder_unfocused" />
 								</include>
                             </control>
 							<control type="image">
@@ -1420,8 +1436,10 @@
                             <control type="group">
                                 <width>240</width>
                                 <height>362</height>
-                               <include content="PosterPanelLayoutFocus">
-									<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+								<include content="PosterPanelLayout">
+									<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
+									<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+									<param name="border" value="thumbsborder_focused" />
 								</include>
 								<animation effect="slide" end="-3,25" center="auto" time="50">focus</animation>
                             </control>
@@ -2582,7 +2600,9 @@
 							<width>233</width>
 							<height>342</height>
 							<control type="image">
-								<include>PosterThumbBG</include>
+								<include content="PosterThumb">
+									<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]"/>
+								</include>
 							</control>
 							<control type="image">
 								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
@@ -2596,7 +2616,9 @@
 							<width>233</width>
 							<height>342</height>
 							<control type="image">
-								<include>PosterThumbFO</include>
+								<include content="PosterThumb">
+									<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+								</include>
 							</control>
 							<control type="image">
 								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
@@ -2690,7 +2712,9 @@
 							<width>233</width>
 							<height>342</height>
 							<include content="PosterPanelLayout">
-								<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+								<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+								<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+								<param name="border" value="thumbsborder_unfocused" />
 							</include>
 						</control>
 					</itemlayout>
@@ -2698,8 +2722,10 @@
 						<control type="group">
 							<width>233</width>
 							<height>342</height>
-							<include content="PosterPanelLayoutFocus">
-								<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<include content="PosterPanelLayout">
+								<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+								<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+								<param name="border" value="thumbsborder_focused" />
 							</include>
 						</control>
 					</focusedlayout>

@@ -314,7 +314,9 @@
 						<animation effect="zoom" center="auto" start="110" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
 						<control type="image">
 							<visible>Control.HasFocus(5027) | Control.HasFocus(5127)</visible>
-							<include>PosterThumbFO</include>
+							<include content="PosterThumb">
+								<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							</include>
 							<include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
 							<include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
 							<include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
@@ -324,7 +326,7 @@
 							<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
 							<bordersize>8</bordersize>
 						</control>
-						<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
+						<include>PosterTagOverlay</include>
 						<control type="group">
 							<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
 						</control>
@@ -344,7 +346,9 @@
 						<height>312</height>
 						<animation effect="fade" start="0" end="60" time="0" reversible="false" condition="true">Conditional</animation>
 						<control type="image">
-							<include>PosterThumbBG</include>
+							<include content="PosterThumb">
+								<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]"/>
+							</include>
 							<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
 							<include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
 							<include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
@@ -355,7 +359,7 @@
 							<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
 							<bordersize>8</bordersize>
 						</control>
-						<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
+						<include>PosterTagOverlay</include>
 						<control type="group">
 							<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
 						</control>
@@ -367,7 +371,7 @@
 							<animation type="Conditional" condition="skin.hastheme(classic)">
 								<effect type="slide" end="3,-3" time="0" />
 							</animation>
-						</control><!--  $INFO[ListItem.Thumb] -->
+						</control>
 					</control>
 				</itemlayout>			
 				<content target="videos" sortby="year" sortorder="ascending">$INFO[Container(527).ListItem.FolderPath]</content>
@@ -513,25 +517,26 @@
 			</control>
 		</control>
 		
-			<control type="scrollbar" id="60">
-				<visible>Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,3)</visible>
-				<!-- Skin.HasSetting(LogoViewPreferClearArt) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
-				Skin.HasSetting(LogoViewPreferLandscape) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
-				Skin.HasSetting(LogoViewPreferBanner) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
-				Skin.HasSetting(LogoViewPreferClearArt) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
-				Skin.HasSetting(LogoViewPreferClearArt) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) -->
-				<left>40</left>
-				<top>80</top>
-				<width>15</width>
-				<height>950</height>
-				<onup>60</onup>
-				<ondown>60</ondown>
-				<onleft>9000</onleft>
-				<onright>526</onright>
-				<orientation>vertical</orientation>
-				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-			</control>
+		<control type="scrollbar" id="60">
+			<visible>Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,3)</visible>
+			<!-- Skin.HasSetting(LogoViewPreferClearArt) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
+			Skin.HasSetting(LogoViewPreferLandscape) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
+			Skin.HasSetting(LogoViewPreferBanner) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
+			Skin.HasSetting(LogoViewPreferClearArt) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) |
+			Skin.HasSetting(LogoViewPreferClearArt) + Control.IsVisible(527) + Integer.IsGreater(Container(527).Numitems,4) -->
+			<right>-</right>
+			<left>40</left>
+			<top>80</top>
+			<width>15</width>
+			<height>950</height>
+			<onup>60</onup>
+			<ondown>60</ondown>
+			<onleft>9000</onleft>
+			<onright>526</onright>
+			<orientation>vertical</orientation>
+			<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+		</control>
 	</include>
 
 	<variable name="527_Schow">

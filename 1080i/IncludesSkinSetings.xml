@@ -1322,22 +1322,30 @@
             <label>$LOCALIZE[31221]</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
-        <!--viewdetails UNFOCUSED panel -->
+        
+		
+		<!--listitem border focus color / focused bg Artwork-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
-            <param name="id" value="31472" />
-            <param name="label" value="$LOCALIZE[31472] (Unfocused Color)" />
-            <param name="skinsetting" value="ViewDetailsPanelColor" />
+            <param name="id" value="31828" />
+            <param name="label" value="Media listitem Border Color (Focused)" />
+            <param name="skinsetting" value="ViewDetailsBorderFocusColor" />
         </include>
-		 <!--viewdetails FOCUS panel color -->
+		<!--viewdetails FOCUS panel color -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31571" />
             <param name="label" value="$LOCALIZE[31472] ($LOCALIZE[31180]) " />
             <param name="skinsetting" value="ViewDetailsFocusColor" />
         </include>
+		<!--viewdetails UNFOCUSED panel / unfocused bg -->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31472" />
+            <param name="label" value="Media details panel and Border Color (Unfocused)" />
+            <param name="skinsetting" value="ViewDetailsPanelColor" />
+        </include>
 		<!--viewdetails BG color overlay of fanart , needed for 507 (523,525,526,527 use netflix colors) -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31575" />
-            <param name="label" value="WIP -view507 + ... $LOCALIZE[745]" />
+            <param name="label" value="Media $LOCALIZE[745]" />
             <param name="skinsetting" value="ViewDetailsBGColor" />
         </include>
 		<!--viewdetails text color-->
@@ -1376,12 +1384,7 @@
             <param name="label" value="$LOCALIZE[31570]" />
             <param name="skinsetting" value="ViewDetailsListItemTextFocusColor" />
         </include>
-        <!--listitem border focus color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
-            <param name="id" value="31828" />
-            <param name="label" value="$LOCALIZE[31828]" />
-            <param name="skinsetting" value="ViewDetailsBorderFocusColor" />
-        </include>
+        
 		<!-- Netflix VIEWS -->
 		<control type="label" id="19991">
             <include>SkinSettings_Header</include>

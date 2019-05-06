@@ -33,7 +33,9 @@
 						<bottom>9%</bottom>
 						<height>342</height>
 						<include content="PosterPanelLayout">
-							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
 						</include>
 					</control>
 				</itemlayout>
@@ -43,8 +45,10 @@
 						<height>365</height>
 						<right>20</right>
 						<bottom>10%</bottom>
-						<include content="PosterPanelLayoutFocus">
+						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
 						</include>
 						<include>AutoTrailerButton</include>
 					</control>
@@ -68,7 +72,9 @@
 						<width>100%</width>  
 						<height>100%</height>
 						<include content="PosterPanelLayout">
-							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
 						</include>
 					</control>
 				</itemlayout>
@@ -76,8 +82,10 @@
 					<control type="group">
 						<width>100%</width>
 						<height>100%</height>
-						<include content="PosterPanelLayoutFocus">
+						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
 						</include>
 						<include>AutoTrailerButton</include>
 					</control>

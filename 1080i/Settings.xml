@@ -51,7 +51,7 @@
                 <width>500</width>
                 <height>250</height>
                 <font>Light30</font>
-                <align>left</align>
+                <align>center</align>
                 <label>$INFO[Container(9000).ListItem.Label2]</label>
             </control>
             
@@ -61,7 +61,7 @@
             <control type="panel" id="9000">
                 <viewtype label="31437">icons</viewtype>
                 <right>80</right>
-                <top>20</top>
+                <top>10</top>
                 <height>780</height>
                 <width>1200</width>
                 <orientation>vertical</orientation>
@@ -70,19 +70,58 @@
                 <preloaditems>4</preloaditems>
                 <itemlayout height="260" width="300">
                     <control type="group">
-                        <width>280</width>
-                        <height>240</height>
-                        <include>SquarePosterPanelLayout</include>
-                    </control>
+                       <width>230</width>
+                        <height>230</height>
+						<control type="image">
+							<texture border="0">diffuse/roundmask.png</texture>
+							<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+						</control>
+						<control type="image">
+							<description>Normal Poster thumb stretched aspect</description>
+							<texture border="1" background="true" diffuse="diffuse/roundmask.png" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+							<aspectratio scalediffuse="false" aligny="bottom" align="center">scale</aspectratio>
+							<colordiffuse>$INFO[Skin.String(ViewDetailsListItemTextColor)]</colordiffuse>
+							<bordersize>20</bordersize>
+						</control>
+						<!-- <control type="textbox">
+							<wrapmultiline>true</wrapmultiline>
+							<font>Reg30</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+							<selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control> -->
+					</control>
                 </itemlayout>
                 <focusedlayout height="260" width="300">
-                    <control type="group">
-                        <width>280</width>
-                        <height>240</height>
-                        <include>SquarePosterPanelLayoutFocus</include>
+					<control type="group">
+						<include>Focus_Zoom_Animation</include>
+                        <width>230</width>
+                        <height>230</height>
+						<control type="image">
+							<texture border="0">diffuse/roundmask.png</texture>
+							<colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+							<aspect>keep</aspect>
+						</control>
+						<control type="image">
+							<!-- <animation effect="fade" start="100" end="60" time="250" condition="true">focus</animation> -->
+							<texture border="1" colordiffuse="$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]" background="true" diffuse="diffuse/roundmask.png">$INFO[ListItem.Icon]</texture>
+							<aspectratio scalediffuse="false" aligny="bottom" align="center">scale</aspectratio>
+							<bordersize>20</bordersize>
+						</control>
+						<!-- <control type="textbox">
+							<wrapmultiline>true</wrapmultiline>
+							<font>Bold30</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+							<selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control> -->
                     </control>
-                </focusedlayout>
-                <content>
+				</focusedlayout>
+				<content>
                     <item id="11">
                         <description>Skin Settings</description>
                         <label>20077</label>

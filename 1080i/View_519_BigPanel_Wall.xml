@@ -29,7 +29,9 @@
             <width>236</width>
             <height>350</height>
 			<include content="PosterPanelLayout">
-				<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+				<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+				<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+				<param name="border" value="thumbsborder_unfocused" />
 			</include>
           </control>
         </itemlayout>
@@ -37,8 +39,10 @@
           <control type="group">
             <width>236</width>
             <height>350</height>
-			<include content="PosterPanelLayoutFocus">
+			<include content="PosterPanelLayout">
 				<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+				<param name="border" value="thumbsborder_focused" />
 			</include>
           </control>
         </focusedlayout>

@@ -6,36 +6,29 @@
 	<include name="PosterPanelLayout">
 		<control type="image">
 			<animation effect="zoom" end="102,102" time="0" condition="Skin.HasSetting(CaseOverlays)">Conditional</animation>
-			<include>PosterThumbBG</include>
-			<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
-			<include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
-			<include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
-			<include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
+			<texture border="0">diffuse/poster.png</texture>
+			<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+			<include condition="Skin.String($PARAM[border], 0)">thumbborder_0</include>
+			<include condition="Skin.String($PARAM[border], 2)">thumbborder_2</include>
+			<include condition="Skin.String($PARAM[border], 4)">thumbborder_4</include>
+			<include condition="Skin.String($PARAM[border], 6)">thumbborder_6</include>
 		</control>
-		<include>PosterThumbLayout</include>
-		<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
-		<control type="group">
-			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
-		</control>
-		<control type="group">
-			<right>8</right>
-			<top>8</top>
-			<include>$PARAM[WatchedIndicator]</include>
-			<animation type="Conditional" condition="skin.hastheme(classic)">
-				<effect type="slide" end="3,-3" time="0" />
-			</animation>
-		</control>
-	</include>
-	
-	<include name="PosterPanelLayoutFocus">
 		<control type="image">
-			<animation effect="zoom" end="102,102" time="0" condition="Skin.HasSetting(CaseOverlays)">Conditional</animation>
-			<include>PosterThumbFO</include>
-			<include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
-			<include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
-			<include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
+			<colordiffuse></colordiffuse>
+			<description>Normal Poster thumb stretched aspect</description>
+			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
+			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
+			<bordersize>8</bordersize>
+			<visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
 		</control>
-		<include>PosterThumbLayout</include>
+		<control type="image">
+			<colordiffuse></colordiffuse>
+			<description>Fallback Poster thumb keep aspect for all other</description>
+			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
+			<aspectratio scalediffuse="false" aligny="top" align="center">keep</aspectratio>
+			<bordersize>8</bordersize>
+			<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+		</control>
 		<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
 		<control type="group">
 			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
@@ -52,129 +45,13 @@
 			</animation>
 		</control>
 	</include>
-	<include name="PosterPanelLayoutNetflix">
-		<control type="image">
-			<colordiffuse>ff4c0000</colordiffuse>
-			<include>PosterThumbBG</include>
-			<include condition="Skin.String(thumbsborder_unfocused, 2) | Skin.String(thumbsborder_unfocused, 4) | Skin.String(thumbsborder_unfocused, 6)">thumbborder_2</include>
-			<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
-		</control>
-		<include>PosterThumbLayout</include>
-		<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
-		<control type="group">
-			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
-		</control>
-		<control type="group">
-			<!--Watched Overlay-->
-			<right>8</right>
-			<top>8</top>
-			<include>WatchedIndicatorNormal</include>
-			<animation type="Conditional" condition="skin.hastheme(classic)">
-				<effect type="slide" end="3,-3" time="0" />
-			</animation>
-		</control>
-	</include>
-	<include name="PosterThumbLayoutNonFocus">
-		<control type="image">
-			<description>Normal Poster thumb stretched aspect</description>
-			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-			<colordiffuse>cf505050</colordiffuse>			
-			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
-			<bordersize>8</bordersize>
-			<visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-		</control>
-		<control type="image">
-			<description>Fallback Poster thumb keep aspect for all other</description>
-			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="center">keep</aspectratio>
-			<bordersize>8</bordersize>
-			<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-		</control>
-	</include>
-
-	<!-- add reflections-->
-	<include name="PosterThumbLayoutNonFocusReflection">
-		<control type="image">
-			<description>Normal Poster thumb stretched aspect</description>
-			<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-			<colordiffuse>cf505050</colordiffuse>
-			<aspectratio scalediffuse="true" aligny="top" align="center">stretch</aspectratio>
-			<bordersize>8</bordersize>
-			<visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-		</control>
-		<control type="image">
-			<description>Fallback Poster thumb keep aspect for all other</description>
-			<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-			<colordiffuse></colordiffuse>
-			<aspectratio scalediffuse="false" aligny="top" align="center">keep</aspectratio>
-			<bordersize>8</bordersize>
-			<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-		</control>
-	</include>
-
-	<include name="PosterThumbLayout">
-		<control type="image">
-			<description>Normal Poster thumb stretched aspect</description>
-			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
-			<bordersize>8</bordersize>
-			<visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-		</control>
-		<control type="image">
-			<description>Fallback Poster thumb keep aspect for all other</description>
-			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="center">keep</aspectratio>
-			<bordersize>8</bordersize>
-			<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-		</control>
-	</include>
-	<include name="PosterThumbLayoutReflection">
-		<control type="image">
-			<description>Normal Poster thumb stretched aspect</description>
-			<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-			<colordiffuse></colordiffuse>		
-			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
-			<bordersize>8</bordersize>
-			<visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-		</control>
-		<control type="image">
-			<description>Fallback Poster thumb keep aspect for all other</description>
-			<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-			<colordiffuse></colordiffuse>	
-			<aspectratio scalediffuse="false" aligny="top" align="center">keep</aspectratio>
-			<bordersize>8</bordersize>
-			<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-		</control>
-	</include>
 	
 	<!-- GENERIC LAYOUT FOR POSTERS -->
-	<include name="PosterThumbBG">
+	<include name="PosterThumb">
 		<texture border="0">diffuse/poster.png</texture>
-		<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+		<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 	</include>
-	<include name="PosterThumbFO">
-		<texture border="0">diffuse/poster.png</texture>
-		<colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-	</include>
-	<!-- TAG OVERLAYS -->
-	<!-- 
-		[Control.IsVisible(52) + Skin.HasSetting(View52_ShowTags)] |
-		[Control.IsVisible(53) + Skin.HasSetting(View53_ShowTags)] |
-		[Control.IsVisible(54) + Skin.HasSetting(View54_ShowTags)] |
-		[Control.IsVisible(55) + Skin.HasSetting(View55_ShowTags)] |
-		[Control.IsVisible(59) + Skin.HasSetting(View59_ShowTags)] |
-		[Control.IsVisible(501) + Skin.HasSetting(View501_ShowTags)] |
-		[Control.IsVisible(505) + Skin.HasSetting(View505_ShowTags)] |
-		[Control.IsVisible(508) + Skin.HasSetting(View508_ShowTags)] |
-		[Control.IsVisible(509) + Skin.HasSetting(View509_ShowTags)] |
-		[Control.IsVisible(510) + Skin.HasSetting(View510_ShowTags)] |
-		[Control.IsVisible(511) + Skin.HasSetting(View511_ShowTags)] |
-		[Control.IsVisible(512) + Skin.HasSetting(View512_ShowTags)] |
-		[Control.IsVisible(514) + Skin.HasSetting(View514_ShowTags)] |
-		[Control.IsVisible(519) + Skin.HasSetting(View519_ShowTags)] |
-		[Control.IsVisible(520) + Skin.HasSetting(View520_ShowTags)] 
-	-->
-		
+	
 	<include name="PosterTagOverlayVisibility">
 		<visible>!String.IsEqual(ListItem.Label,..)</visible>
 		<visible>!Window.IsActive(script-skin_helper_service-CustomSearch.xml)</visible>

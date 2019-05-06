@@ -6,8 +6,7 @@
         <control type="group">
             <width>100%</width>
             <height>100%</height>
-            <visible>Control.IsVisible(523)</visible>
-            <visible>Integer.IsGreater(Container.NumItems,0)</visible>
+            <visible>Control.IsVisible(523) + Integer.IsGreater(Container.NumItems,0)</visible>
             <include>animation_view_change</include>
 			<animation effect="rotatey" center="auto" end="10" time="0" condition="Skin.HasSetting(3dLayout)">Conditional</animation>
 			<animation effect="rotatey" center="auto" end="-10" time="1500" condition="Player.HasVideo + Skin.HasSetting(3dLayout)">Conditional</animation>
@@ -72,26 +71,29 @@
 					<top>0</top>
                     <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$INFO[Container(5590).ListItem.Thumb]</texture>
                     <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-                    <visible>Control.IsVisible(5590) + !Player.HasVideo</visible>
+                    <visible>Control.IsVisible(5590) + !EXP[PayerHasVideo]</visible>
 					<!-- move beyond clearlogo / title -->
 					<animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation>
 				</control>
                 
-
-               	<!-- preview video window -->
+				<!-- preview video window -->
                	<control type="group">
 					<right>0</right>
 					<top>0</top>
 					<width>1280</width>
                     <height>720</height>
-					<visible>Player.HasVideo</visible>
+					
 					<visible>!skin.hastheme(classic)</visible>
 					<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
 					<control type="videowindow">
-					</control>	
+						<visible>Player.HasVideo</visible>
+					</control>
+					<control type="gamewindow">
+						<visible>Player.HasGame</visible>
+					</control>						
 					<control type="image">
 						<top>-50</top>
-						<texture colordiffuse="$VAR[Netflix2_PanelColor]" border="20">overlay/Netflix_origin.png</texture> <!-- $VAR[Netflix2_PanelColor], also check again texture, need stronger diffuse on bottom -->
+						<texture colordiffuse="$VAR[Netflix2_PanelColor]" border="20">overlay/Netflix_origin.png</texture>
                     </control>
 				</control>
 				 
@@ -223,7 +225,7 @@
 					<orientation>horizontal</orientation>
 					<visible>Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie)]</visible>
 					<animation effect="fade" start="0" end="100" delay="200" time="3000" pulse="false" condition="Player.HasVideo">Conditional</animation>
-					<animation effect="slide" end="-400,0" time="0" pulse="false" condition="!$EXP[UseTitanShape]">Conditional</animation>
+					<animation effect="slide" end="-400,0" time="0" pulse="false" condition="$EXP[UseTitanShape]">Conditional</animation>
 					
 					<itemlayout height="225" width="158">
 						<control type="image">
@@ -297,14 +299,19 @@
 				
 				<include>trailer_onup</include>
 				
-				<!-- Netflix Poster shapes -->
+				<!-- Netflix Poster shapes 
+				name="colordiffuse" value="ff4c0000" vs $VAR[ViewDetailsPanelColor] -->
 				<itemlayout height="247" width="170" background="true" condition="$EXP[UsePosterShape]">					
 					<control type="group">
+						<animation effect="fade" start="100" end="70" condition="true">Conditional</animation>
 						<width>170</width>
 						<height>247</height>
 						<bottom>-220</bottom>
-						<include>PosterPanelLayoutNetflix</include>
-						<include>PosterThumbLayoutNonFocus</include>
+						<include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
+							<param name="colordiffuse" value="0a4c0000" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
 					</control>		   
@@ -313,7 +320,13 @@
 						<width>170</width>
 						<height>247</height>
 						<bottom>-453</bottom>
-						<include>PosterThumbLayoutNonFocusReflection</include>
+						<control type="image">
+							<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
+							<!-- <colordiffuse>ff07070</colordiffuse> -->
+							<animation effect="fade" start="100" end="60" condition="true">Conditional</animation>
+							<aspectratio scalediffuse="false" aligny="top" align="center">keep</aspectratio>
+							<bordersize>8</bordersize>
+						</control>
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
 					</control>		   
@@ -324,8 +337,10 @@
 						<height>381</height>
 						<right>2</right>
 						<bottom>-180</bottom>
-						<include content="PosterPanelLayoutFocus">
+						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
 						</include>
 						<include>AutoTrailerButton</include>
 					</control>
@@ -335,13 +350,26 @@
 						<height>381</height>
 						<right>2</right>
 						<bottom>-548</bottom>
-						<include>PosterThumbLayoutReflection</include>
+						<control type="image">
+							<description>Normal Poster thumb stretched aspect</description>
+							<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
+							<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
+							<bordersize>8</bordersize>
+							<visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+						</control>
+						<control type="image">
+							<description>Fallback Poster thumb keep aspect for all other</description>
+							<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
+							<aspectratio scalediffuse="false" aligny="top" align="center">keep</aspectratio>
+							<bordersize>8</bordersize>
+							<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+						</control>
 					</control>
 					<!-- D I S C A R T -->
 					<control type="image">
 						<width>250</width>
 						<height>250</height>
-						<top>240</top>
+						<top>280</top>
 						<left>200</left>
 						<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
 						<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
@@ -362,7 +390,7 @@
 					<control type="image">
 						<width>250</width>
 						<height>250</height>
-						<top>230</top>
+						<top>270</top>
 						<left>200</left>
 						<texture background="true" flipy="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
 						<colordiffuse>cf505050</colordiffuse>
@@ -390,7 +418,9 @@
 					<height>100%</height>
 					<bottom>-200</bottom>
 					<include content="PosterPanelLayout">
-						<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+						<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+						<param name="border" value="thumbsborder_unfocused" />
 					</include>
 					<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 					<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>
@@ -401,8 +431,10 @@
 						<width>100%</width>
 						<height>100%</height>
 						<bottom>-200</bottom>
-						<include content="PosterPanelLayoutFocus">
+						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
 						</include>
 						<include>AutoTrailerButton</include>
 						<animation effect="zoom" end="112,112" center="auto" time="100">focus</animation>

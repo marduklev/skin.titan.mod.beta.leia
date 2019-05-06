@@ -86,8 +86,10 @@
                 <height>736</height>
                 <width>500</width>
                 <control type="image">
-                    <include>PosterThumbBG</include>
-                  </control>
+                    <include content="PosterThumb">
+						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]"/>
+					</include>
+				</control>
                 <control type="image">
 					<!--cdart image-->
                     <width>500</width>

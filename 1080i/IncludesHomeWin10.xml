@@ -720,6 +720,8 @@
         <itemlayout height="220" width="165">
             <include content="PosterPanelLayout">
 				<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
+				<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+				<param name="border" value="thumbsborder_unfocused" />
 			</include>
             <control type="group">
                 <description>widget label overlay</description>
@@ -731,8 +733,10 @@
             </control>
         </itemlayout>
         <focusedlayout height="220" width="165">
-            <include content="PosterPanelLayoutFocus">
+			<include content="PosterPanelLayout">
 				<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
+				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+				<param name="border" value="thumbsborder_focused" />
 			</include>
             <control type="group">
                 <description>widget label overlay</description>

@@ -24,20 +24,13 @@
                 <posx>50</posx>
                 <width>1820</width>
                 <texture border="15">diffuse/bgpanel.png</texture>
-            <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
             </control>
-            
-            <control type="image">
-                <posx>50</posx>
-                <width>560</width>
-                <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-            </control>
-            
+           
             <!--Picture	(Fanart)-->
             <control type="image">
                 <posx>80</posx>
-                <posy>30</posy>
+                <posy>140</posy>
                 <width>500</width>
                 <height>300</height>
                 <texture background="true">$INFO[Container(9000).ListItem.ActualIcon]</texture>
@@ -47,7 +40,7 @@
             <!--InfoText-->
             <control type="textbox">
                 <posx>80</posx>
-                <posy>360</posy>
+                <posy>470</posy>
                 <width>500</width>
                 <height>250</height>
                 <font>Light30</font>
@@ -55,9 +48,7 @@
                 <label>$INFO[Container(9000).ListItem.Label2]</label>
             </control>
             
-            
-            
-            <!--List 9000-->
+			<!--List 9000-->
             <control type="panel" id="9000">
                 <viewtype label="31437">icons</viewtype>
                 <right>80</right>
@@ -83,15 +74,6 @@
 							<colordiffuse>$INFO[Skin.String(ViewDetailsListItemTextColor)]</colordiffuse>
 							<bordersize>20</bordersize>
 						</control>
-						<!-- <control type="textbox">
-							<wrapmultiline>true</wrapmultiline>
-							<font>Reg30</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
-							<selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
-							<label>$INFO[ListItem.Label]</label>
-						</control> -->
 					</control>
                 </itemlayout>
                 <focusedlayout height="260" width="300">
@@ -110,16 +92,7 @@
 							<aspectratio scalediffuse="false" aligny="bottom" align="center">scale</aspectratio>
 							<bordersize>20</bordersize>
 						</control>
-						<!-- <control type="textbox">
-							<wrapmultiline>true</wrapmultiline>
-							<font>Bold30</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
-							<selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
-							<label>$INFO[ListItem.Label]</label>
-						</control> -->
-                    </control>
+					</control>
 				</focusedlayout>
 				<content>
                     <item id="11">
@@ -168,7 +141,7 @@
                         <label2>31408</label2>
                         <onclick>activatewindow(AddonBrowser)</onclick>
                         <icon>resource://resource.images.skinbackgrounds.titanium/settings_addons.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/program.png</thumb>
+                        <thumb>defaultvideoplugins.png</thumb>
                     </item>
                     <item id="8">
                         <description>Network/Services</description>
@@ -208,7 +181,7 @@
                         <label2>$LOCALIZE[15016]</label2>
                         <onclick>ActivateWindow(GameSettings)</onclick>
                         <icon>resource://resource.images.skinbackgrounds.titanium/settings_addons.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/addon.png</thumb>
+                        <thumb>defaultaddongame.png</thumb>
                         <!-- <visible>System.GetBool(gamesgeneral.enable)</visible> -->
                     </item>
                 </content>

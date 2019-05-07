@@ -25,7 +25,10 @@
 			<control type="group">
                 <width>354</width>
                 <height>185</height>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
             </control>
         </itemlayout>
         <focusedlayout height="192" width="364" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
@@ -38,7 +41,10 @@
 				</animation>
                 <width>354</width>
                 <height>185</height>
-				<include>ThumbsViewLayoutFocus</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
 			</control>
         </focusedlayout>
          <itemlayout height="256" width="455" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
@@ -46,7 +52,10 @@
                 <width>356</width>
                 <height>246</height>
                 <left>40</left>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
             </control>
         </itemlayout>
         <focusedlayout height="256" width="455" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
@@ -60,7 +69,10 @@
                 <width>356</width>
                 <height>246</height>
                 <left>40</left>
-				<include>ThumbsViewLayoutFocus</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
 			</control>
         </focusedlayout>
 	  </control>

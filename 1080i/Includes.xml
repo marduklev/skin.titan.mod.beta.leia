@@ -54,8 +54,7 @@
 	<include file="View_527_TSE.xml" />	
     <include file="IncludesViews.xml" />
     <include file="IncludesMediaFlags.xml" />
-    <include file="IncludesViewsLayoutPoster.xml" />
-    <include file="IncludesViewsLayoutLandscape.xml" />
+    <include file="Includes_Layouts.xml" />
     <include file="IncludesViewsLayoutSquare.xml" />
     <include file="IncludesViewsLayoutBanner.xml" />
     <include file="IncludesViewsLayoutWidebox.xml" />

@@ -379,7 +379,10 @@
 			<control type="group">
 				<width>382</width>
 				<height>224</height>
-				<include>ThumbsViewItemLayout</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
 				<animation effect="fade" start="100" end="20" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>
 			</control> 
         </itemlayout>
@@ -388,7 +391,10 @@
 				<width>382</width>
 				<height>224</height>
 				<include>AutoTrailerButton</include>
-				<include>ThumbsViewItemLayout</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="none" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
 			</control>
 		</focusedlayout>
 		<!-- fixed -->
@@ -396,7 +402,10 @@
 			<control type="group">
 				<width>480</width>
 				<height>269</height>
-				<include>ThumbsViewItemLayout</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="none" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
 				<animation effect="fade" start="100" end="20" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
 			</control>
@@ -406,7 +415,10 @@
 				<width>480</width>
 				<height>269</height>
 				<include>AutoTrailerButton</include>
-				<include>ThumbsViewItemLayout</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="none" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
 			</control>
 		</focusedlayout>
 	</include>

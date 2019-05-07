@@ -33,14 +33,22 @@
                     <control type="group">
                         <width>565</width>
                         <height>325</height>
-                        <include>LandscapeLayout</include>
+                        <!-- check, merge with thumb sometime -->
+						<include content="LandscapeLayout">
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
                     </control>
 				</itemlayout>
 				<focusedlayout width="620" height="350" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 					<control type="group">
                         <width>565</width>
                         <height>325</height>
-						<include>LandscapeLayoutFocus</include>
+						<!-- check, merge with thumb sometime -->
+						<include content="LandscapeLayout">
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
 					</control>
 				</focusedlayout>
                 <itemlayout width="620" height="350" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
@@ -48,7 +56,11 @@
                         <width>493</width>
                         <left>30</left>
                         <height>340</height>
-                        <include>LandscapeLayout</include>
+                        <!-- check, merge with thumb sometime -->
+						<include content="LandscapeLayout">
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
                     </control>
 				</itemlayout>
 				<focusedlayout width="620" height="350" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
@@ -56,7 +68,11 @@
                         <width>493</width>
                         <height>340</height>
                         <left>30</left>
-						<include>LandscapeLayoutFocus</include>
+						<!-- check, merge with thumb sometime -->
+						<include content="LandscapeLayout">
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
 					</control>
 				</focusedlayout>
 			</control>

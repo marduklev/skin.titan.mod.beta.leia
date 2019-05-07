@@ -350,14 +350,13 @@
     <setting id="thumbsborder_unfocused" value="2" label="$LOCALIZE[31729]" condition="" icon="" description="" default="true" />
     <setting id="thumbsborder_unfocused" value="4" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
     <setting id="thumbsborder_unfocused" value="6" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
-    <setting id="thumbsborder_unfocused" value="8" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
     
     <!--thumbs border size focused-->
-    <setting id="thumbsborder_focused" value="2" label="$LOCALIZE[31729]" condition="" icon="" description="" default="true" />
-    <setting id="thumbsborder_focused" value="4" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
+    <setting id="thumbsborder_focused" value="0" label="$LOCALIZE[1223]" condition="" icon="" description=""/>
+    <setting id="thumbsborder_focused" value="2" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
+    <setting id="thumbsborder_focused" value="4" label="$LOCALIZE[31729]" condition="" icon="" description="" default="true" />
     <setting id="thumbsborder_focused" value="6" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
-    <setting id="thumbsborder_focused" value="8" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
-
+    
     <!-- default focus position for home -->
     <setting id="home.defaultfocus" value="" label="$LOCALIZE[231]" condition="" icon="" description="" default="true"/>
     <setting id="home.defaultfocus" value="0" label="$LOCALIZE[31728]" condition="" icon="" description=""/>
@@ -438,7 +437,6 @@
     <!-- cast select action in videoinfo -->
     <setting id="videoinfo_castaction" value="library" label="$LOCALIZE[31690]" condition="" icon="" description=""/>
     <setting id="videoinfo_castaction" value="extendedinfo" label="$LOCALIZE[31691]" condition="" icon="" description="" default="true"/>
-    
     <!-- options to show in videoinfo - multiselect -->
     <setting id="videoinfo_buttons" value="||MULTISELECT||" label="" condition="" icon="" description="">
         <option id="videoinfo_button_play" label="$LOCALIZE[208]" condition="" default="true"/>

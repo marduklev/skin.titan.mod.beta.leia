@@ -1,6 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Titan-->
 <includes>
+	<!-- ====== -->
+    <!-- ARTWORK -->
+    <!-- ====== -->
+	<variable name="ClearLogoFallback">
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + String.Contains(ListItem.FileNameAndPath,pvr://)">http://localhost:52307/getthumb&amp;title=$ESCINFO[ListItem.Title]</value> 
+		<!-- untested, refer and thx to angelinas https://forum.kodi.tv/showthread.php?tid=235676&pid=2809690#pid2809690 -->
+		<value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + String.Contains(ListItem.FileNameAndPath,pvr://) + !String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+		<value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + !String.IsEmpty(ListItem.Thumb) + String.IsEqual(ListItem.Thumb,ListItem.Property(channellogo))">$INFO[ListItem.Thumb]</value>
+	</variable>
+	
+	<variable name="LandscapeImage">
+		<value condition="!String.IsEmpty(ListItem.Thumb) + [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ![Window.IsActive(home) + Skin.HasSetting(PreferTvShowThumbWidget)]">$INFO[ListItem.Thumb]</value>
+        <value condition="!String.IsEmpty(ListItem.Thumb) + [String.Contains(ListItem.Path,youtube) | String.Contains(ListItem.Path,botchamania)]">$INFO[ListItem.Thumb]</value>
+        <value condition="Skin.HasSetting(PreferClearArtOverLandscape) + !String.IsEmpty(ListItem.Art(clearart)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(clearart)]</value>
+        <value condition="Skin.HasSetting(PreferClearArtOverLandscape) + !String.IsEmpty(ListItem.Art(tvshow.clearart)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(tvshow.clearart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(season.landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(season.landscape)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(landscape)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(tvshow.landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(tvshow.landscape)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(landscape))">$INFO[ListItem.Property(landscape)]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(fanart))">$INFO[ListItem.Property(fanart)]</value>
+		<value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack2.png</value>
+        <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.Folderpath,video)">$VAR[MovieGenreIconVarList]</value>
+        <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + [Window.IsActive(music) | String.Contains(ListItem.Folderpath,music)]">$VAR[MusicGenreIconVarList]</value>
+        <value condition="Window.IsActive(tvrecordings) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Thumb]</value>
+		<value condition="Container.Content(studios)">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Label].png</value>
+		<value condition="Container.Content(actors) + String.IsEmpty(ListItem.Thumb)">resource://resource.images.skinicons.wide/ActorPoster.png</value>
+		<value condition="Container.Content(directors) + String.IsEmpty(ListItem.Thumb)">resource://resource.images.skinicons.wide/ActorPoster.png</value>
+		<value condition="Container.Content(artists) + String.IsEmpty(ListItem.Thumb)">resource://resource.images.skinicons.wide/artist.png</value>
+        <value condition="Container.Content(years)">resource://resource.images.skinicons.wide/year.png</value>
+		<value condition="Container.Content(countries)">resource://resource.images.skinicons.wide/Country.png</value>
+		<value condition="Container.Content(tags)">resource://resource.images.skinicons.wide/Tags.png</value>
+        <value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+    </variable>
+	<variable name="FanartLandscapeImage">
+		<value condition="!String.IsEmpty(ListItem.Thumb) + [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ![Window.IsActive(home) + Skin.HasSetting(PreferTvShowThumbWidget)]">$INFO[ListItem.Thumb]</value>
+        <value condition="!String.IsEmpty(ListItem.Thumb) + [String.Contains(ListItem.Path,youtube) | String.Contains(ListItem.Path,botchamania)]">$INFO[ListItem.Thumb]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(fanart))">$INFO[ListItem.Property(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(landscape))">$INFO[ListItem.Property(landscape)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(season.landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(season.landscape)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(landscape)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(tvshow.landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(tvshow.landscape)]</value>
+		<value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack2.png</value>
+        <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.Folderpath,video)">$VAR[MovieGenreIconVarList]</value>
+        <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + [Window.IsActive(music) | String.Contains(ListItem.Folderpath,music)]">$VAR[MusicGenreIconVarList]</value>
+        <value condition="Window.IsActive(tvrecordings) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Thumb]</value>
+		<value condition="Container.Content(studios)">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Label].png</value>
+		<value condition="Container.Content(actors) + String.IsEmpty(ListItem.Thumb)">resource://resource.images.skinicons.wide/ActorPoster.png</value>
+		<value condition="Container.Content(directors) + String.IsEmpty(ListItem.Thumb)">resource://resource.images.skinicons.wide/ActorPoster.png</value>
+		<value condition="Container.Content(artists) + String.IsEmpty(ListItem.Thumb)">resource://resource.images.skinicons.wide/artist.png</value>
+        <value condition="Container.Content(years)">resource://resource.images.skinicons.wide/year.png</value>
+		<value condition="Container.Content(countries)">resource://resource.images.skinicons.wide/Country.png</value>
+		<value condition="Container.Content(tags)">resource://resource.images.skinicons.wide/Tags.png</value>
+        <value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+    </variable>
+	
+	
+	<!-- Poster thumb vars -->
+	<variable name="PosterThumb">
+		<value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster)]</value>
+		<value condition="Container.Content(seasons) + String.StartsWith(ListItem.Label,*) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + !String.IsEmpty(Container.Art(season.poster)) + !String.Contains(Container.FolderPath,season=-)">$INFO[Container.Art(season.poster)]</value>
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(Container.Art(poster))">$INFO[Container.Art(poster)]</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(Container.Art(tvshow.poster))">$INFO[Container.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Poster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(poster))">$INFO[ListItem.Property(poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(tvshow.poster))">$INFO[ListItem.Property(tvshow.poster)]</value>
+		<value condition="String.Contains(Container.FolderPath,pvr://) + String.IsEqual(Container.ListItem.Label,ListItem.Label)">$VAR[PVRThumb]</value>
+		<value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+		<value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack.png</value>
+		<value condition="String.IsEqual(ListItem.Label,$LOCALIZE[21452])">dialogs/filebrowser/DefaultAddSource.png</value>
+		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + !String.Contains(ListItem.FolderPath,music)">$VAR[MovieGenreIconVar]</value>
+		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVar]</value>
+		<value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)] + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.StudioLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value>
+		<!-- $INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Label].png
+		default <value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)] + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.StudioLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value> -->
+		<value condition="Container.Content(actors) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
+		<value condition="Container.Content(directors) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(countries)">DefaultCountry.png</value>
+	  	<!-- 
+		<value condition="Container.Content(countries)">resource://resource.images.skinicons.wide/Country.png</value> -->
+		<value condition="Container.Content(tags)">DefaultTags.png</value>
+		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+	</variable>
+
+	<variable name="PosterThumbList"> <!-- check e.g PreferColorStudioLogos - just a bool inside themes, not found in skinsettings itself -->
+		<value condition="$EXP[InGameMode]">$INFO[ListItem.Icon]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(poster)) + ListItem.IsCollection + String.Contains(ListItem.Art(poster),emby)">$INFO[ListItem.Art(poster)]&amp;EnableImageEnhancers=false</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(ListItem.Art(animatedposter)) + !Window.IsActive(Home) + !Skin.HasSetting(AnimatedPostersDisableList)">$INFO[ListItem.Art(animatedposter)]</value>
+		<value condition="Container.Content(seasons) + String.StartsWith(ListItem.Label,*) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(poster))">$INFO[ListItem.Property(poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+		<value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack.png</value>
+		<value condition="String.IsEqual(ListItem.Label,$LOCALIZE[21452])">dialogs/filebrowser/DefaultAddSource.png</value>
+		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVarList]</value>
+		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)]">$VAR[MovieGenreIconVarList]</value>
+		<value condition="Container.Content(studios)">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Label].png</value>
+		<value condition="Container.Content(actors) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
+		<value condition="Container.Content(directors) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
+		<value condition="!String.IsEmpty(ListItem.Property(character)) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
+		<value condition="!String.IsEmpty(ListItem.Property(job)) + String.IsEmpty(ListItem.Thumb)">DefaultActorPoster.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(countries)">DefaultCountry.png</value>
+		<value condition="Container.Content(tags)">DefaultTags.png</value>
+		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+	</variable>
+	
+	<!-- ============= -->
+    <!-- CASE OVERLAY -->
+    <!-- ============= -->
+	
+	<variable name="PosterCaseOverlayVar">
+		<value condition="String.Contains(ListItem.Filenameandpath,.3d)">cases/3dbd.png</value>
+		<value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).Filenameandpath,4k)">cases/4k.png</value>
+		<value condition="[String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)]">cases/bluray.png</value>
+		<value condition="String.EndsWith(ListItem.Filenameandpath,dvd) | String.EndsWith(ListItem.Filenameandpath,.ifo) | String.EndsWith(ListItem.Filenameandpath,.iso)">cases/dvd.png</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,480)">cases/480.png</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,540)">cases/540.png</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,576)">cases/576.png</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,720)">cases/720.png</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,1080)">cases/1080.png</value>
+		<value condition="String.StartsWith(ListItem.Path,videodb://movies/sets)">cases/set.png</value>
+		<value condition="String.IsEqual(Skin.String(CaseOverlays.Fallback),HD1080)">cases/1080.png</value>
+		<value condition="String.IsEqual(Skin.String(CaseOverlays.Fallback),DVD)">cases/dvd.png</value>
+		<value condition="String.IsEqual(Skin.String(CaseOverlays.Fallback),Bluray)">cases/bluray.png</value>
+	</variable>
+
+	
     <!-- ====== -->
     <!-- Header -->
     <!-- ====== -->
@@ -590,7 +732,7 @@
 		<value condition="Control.HasFocus(890)">[B]$INFO[System.ProfileName][/B]</value>
    </variable>
    
-   <variable name="ViewDetailsFocusColor"><!-- check, used as panel bg for all panel views instead the default ViewDetailsPanelColor-->
+   <variable name="ViewDetailsFocusColor">
         <value condition="Window.IsActive(home)">$INFO[Skin.String(HomeViewDetailsFocusColor)]</value>
         <value>$INFO[Skin.String(ViewDetailsFocusColor)]</value>
    </variable>
@@ -600,7 +742,7 @@
         <value condition="Control.IsVisible(523) | Control.IsVisible(525) | [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]</value>
 		<value>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</value>
     </variable>
-	<variable name="ViewDetailsPanelColor"><!-- check, used as panel bg for all panel views instead the default ViewDetailsPanelColor-->
+	<variable name="ViewDetailsPanelColor">
         <value condition="Window.IsActive(script-skin_helper_service-CustomInfo.xml)">$INFO[Skin.String(ViewDetailsPanelColor)]</value>
         <value condition="Window.IsActive(home) + Skin.String(HomeWidgetsBorderColor)">$INFO[Skin.String(HomeWidgetsBorderColor)]</value>
         <value condition="Window.IsActive(home)">$INFO[Skin.String(GeneralPanelsColor)]</value>
@@ -856,7 +998,7 @@
         <value condition="!String.IsEmpty(ListItem.Property(IMDBNumber)) + !String.IsEmpty(ListItem.TvShowTitle)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=tvshows&amp;imdbid=$INFO[ListItem.Property(IMDBNumber)]&amp;limit=10</value>
 		<value condition="!String.IsEmpty(ListItem.Property(IMDBNumber))">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;imdbid=$INFO[ListItem.Property(IMDBNumber)]&amp;limit=10</value>
 	 </variable>
-     
+     <!-- action= extendedinfo vs library ,check how get custom action-->
      <variable name="castInfo">
 		<value condition="!String.IsEmpty(ListItem.DBTYPE) + !String.IsEmpty(ListItem.DBID)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.DBID]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]&amp;castaction=$INFO[Skin.String(videoinfo_castaction)]</value>
         <value condition="!String.IsEmpty(ListItem.DBTYPE)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]&amp;castaction=$INFO[Skin.String(videoinfo_castaction)]</value>
@@ -864,7 +1006,37 @@
         <value condition="!String.IsEmpty(ListItem.Property(DBTYPE))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]&amp;castaction=$INFO[Skin.String(videoinfo_castaction)]</value>
         <value condition="!String.IsEmpty(Container.Content)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[Container.Content]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]&amp;castaction=$INFO[Skin.String(videoinfo_castaction)]</value>
      </variable>
-     
+     <!-- Embcon/Native DB vars -->
+<!-- 	<variable name="View_Cast_Content">
+		<value condition="!String.IsEmpty(Container.Pluginname) + !String.StartsWith(Container.Folderpath,plugin://plugin.video.embycon)">-</value>
+		<value condition="String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) + Container.Content(seasons) + ListItem.IsParentFolder">plugin://plugin.video.embycon?mode=WIDGET_CONTENT_CAST&amp;id=$INFO[ListItem(1).Property(id)]</value>
+		<value condition="String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)">plugin://plugin.video.embycon?mode=WIDGET_CONTENT_CAST&amp;id=$INFO[ListItem.Property(id)]</value>
+		<value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.DBID) + !String.IsEqual(ListItem.DBID,0)">plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;dbid=$INFO[ListItem.DBID]</value>
+		<value condition="String.IsEqual(ListItem.DBType,movie) + String.IsEqual(ListItem.DBID,0)">plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;title='$ESCINFO[ListItem.Title]'</value>
+		<value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.DBID) + !String.IsEqual(ListItem.DBID,0)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[ListItem.DBID]</value>
+		<value condition="String.IsEqual(ListItem.DBType,tvshow) + String.IsEqual(ListItem.DBID,0)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;title='$ESCINFO[ListItem.TVShowTitle]'</value>
+		<value condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season)] + !String.IsEmpty(ListItem.DBID)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;title='$ESCINFO[ListItem.TVShowTitle]'</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem(1).DBID)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;title='$ESCINFO[ListItem(1).TVShowTitle]'</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem(2).DBID)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;title='$ESCINFO[ListItem(2).TVShowTitle]'</value>
+		<value>-</value>
+		
+		actions
+		
+		<onclick condition="$PARAM[use_custom_onclick] + [!Skin.HasSetting(DoNotUseExtendedInfo) + System.HasAddon(script.extendedinfo)]">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onclick>
+		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)] + Window.IsVisible(fullscreeninfo)">SetProperty(DoNotUnpause,1,home)</onclick>
+		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)] + [Window.IsVisible(movieinformation) | Window.IsVisible(fullscreeninfo)]">close</onclick>
+		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)]">SetProperty(CustomSearch,1,home)</onclick>
+		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)]">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
+		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)]">Skin.SetString(CustomSearchEmbyID,$INFO[ListItem.Property(id)])</onclick>
+		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)]">ActivateWindow(1115)</onclick>
+		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)]">AlarmClock(Wait,ClearProperty(CustomSearch,home),00:01,silent)</onclick>
+						
+		
+		
+		
+		
+		
+	</variable> -->
      <variable name="channellogo"><!-- check, pvr changes, definetly need revisit -->
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 		<value condition="window.isactive(tvchannels) | window.isactive(tvguide)">$INFO[ListItem.ChannelName,resource://resource.images.thelogodb/,.png]</value>

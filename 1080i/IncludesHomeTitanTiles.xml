@@ -178,7 +178,11 @@
                 <width>590</width>
                 <height>240</height>
                 <posy>25</posy>
-                <include>LandscapeLayout</include>
+				<!-- check, merge with thumb sometime -->
+				<include content="LandscapeLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
                 <control type="group">
                     <description>label overlay</description>
                     <include>LandscapeTagOverlay</include>
@@ -194,8 +198,13 @@
                 <width>590</width>
                 <height>240</height>
                 <posy>25</posy>
-                <include>LandscapeLayoutFocus</include>
-                <control type="group">
+				<include condition="Skin.HasSetting(Home_TransParentTiles)">Home_BG_TransParentTiles</include>
+                <!-- check, merge with thumb sometime -->
+				<include content="LandscapeLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
+				<control type="group">
                     <description>label overlay</description>
                     <include>LandscapeTagOverlay</include>
                     <include>LandscapeTagOverlayVisibility</include>
@@ -210,7 +219,10 @@
                 <width>337</width>
                 <height>175</height>
                 <posy>25</posy>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
                 <control type="group">
                     <description>label overlay</description>
                     <include>ThumbsTagOverlay</include>
@@ -224,7 +236,11 @@
                 <width>337</width>
                 <height>175</height>
                 <posy>25</posy>
-                <include>ThumbsViewLayoutFocus</include>
+                <include condition="Skin.HasSetting(Home_TransParentTiles)">Home_BG_TransParentTiles</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
                 <control type="group">
                     <description>label overlay</description>
                     <include>ThumbsTagOverlay</include>

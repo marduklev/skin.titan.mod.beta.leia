@@ -30,14 +30,20 @@
             <control type="group">
                 <width>290</width>
                 <height>178</height>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
             </control>
         </itemlayout>
         <focusedlayout height="186" width="298" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 			<control type="group">
                 <width>290</width>
                 <height>178</height>
-				<include>ThumbsViewLayoutFocus</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
                 <include>AutoTrailerButton</include>
 			</control>
         </focusedlayout>
@@ -46,7 +52,10 @@
                 <width>356</width>
                 <height>240</height>
                 <left>20</left>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
             </control>
         </itemlayout>
         <focusedlayout height="248" width="397" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
@@ -60,7 +69,10 @@
                 <width>356</width>
                 <height>240</height>
                 <left>20</left>
-				<include>ThumbsViewLayoutFocus</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
 			</control>
         </focusedlayout>
  	  </control>

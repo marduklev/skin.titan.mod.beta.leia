@@ -121,6 +121,14 @@
                 <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow) + !Skin.HasSetting(NetflixHomeDisableRating)</visible>
                 <selected>Skin.HasSetting(EnableWhiteRatingInHome)</selected>
             </control>
+			<!--home alternate borders-->
+            <control type="radiobutton" id="31638">
+                <include>SkinSettings_Button</include>
+                <label>$LOCALIZE[31638]</label>
+                <onclick>Skin.ToggleSetting(Home_TransParentTiles)</onclick>
+                <selected>Skin.HasSetting(Home_TransParentTiles)</selected>
+                <visible>Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small) | Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small) | Skin.String(HomeLayout,enhanced)</visible>
+            </control>
 			<!--no footer on home , non netflix home 1 and 2, need check to other home wich dont have/need footer -->
             <control type="radiobutton" id="5164">
                 <include>SkinSettings_Button</include>
@@ -2765,16 +2773,7 @@
                 <label2>$INFO[Skin.String(thumbsborder_focused.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=thumbsborder_focused,header=$LOCALIZE[31003])</onclick>
             </control>
-            <!--home alternate borders-->
-            <control type="radiobutton" id="31638">
-                <include>SkinSettings_Button</include>
-                <label>$LOCALIZE[31638]</label>
-                <onclick>Skin.ToggleSetting(Home_TransParentTiles)</onclick>
-                <selected>Skin.HasSetting(Home_TransParentTiles)</selected>
-                <visible>Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small) | Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small) | Skin.String(HomeLayout,enhanced)</visible>
-            </control>
-            
-            <!-- header settings -->
+           <!-- header settings -->
             <control type="label" id="31704">
                 <include>SkinSettings_Header</include>
                 <label>31704</label>

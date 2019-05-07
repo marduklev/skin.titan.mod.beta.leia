@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+	<!-- TITAN MOD -->
 <includes>
 <!-- Main File to sort .re add updated and edited includes,variables,etc  for testing purpose -->
  <!--    RECODE PROJECT -->
@@ -11,73 +12,6 @@
 	2 rows 	+ info
 	1 row 	+ info
 	-->
-	
-	<!-- CIRCLED + Logo/Label -->
-	<include name="Circled_Art_Layout_FO">
-		<control type="image">
-			<texture border="0">diffuse/roundmask.png</texture>
-			<colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-			<aspect>keep</aspect>
-		</control>
-		<control type="image">
-			<texture border="1" background="true" diffuse="diffuse/roundmask.png" fallback="DefaultVideo.png">$VAR[FanartLandscapeImage]</texture>
-			<aspectratio scalediffuse="false" aligny="bottom" align="center">scale</aspectratio>
-			<bordersize>4</bordersize>
-		</control>
-		<control type="image">
-			<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) | [[$EXP[IsTVShow] | $EXP[IsEpisode]] + !String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]</visible>
-			<bottom>-70</bottom>
-			<height>120</height>
-			<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
-			<aspectratio align="center" aligny="center">keep</aspectratio>
-		</control>
-		<control type="textbox">
-			<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | [[$EXP[IsTVShow] | $EXP[IsEpisode]] + String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]</visible>
-			<bottom>-90</bottom>
-			<width>240</width>
-			<wrapmultiline>true</wrapmultiline>
-			<height max="120">auto</height>
-			<font>Bold30</font>
-			<align>center</align>
-			<aligny>center</aligny>
-			<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
-			<selectedcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</selectedcolor>
-			<label>$INFO[ListItem.Label,[B],[/B]]</label>
-		</control>
-	</include>
-	<include name="Circled_Art_Layout_NF">
-		<control type="image">
-			<texture border="0">diffuse/roundmask.png</texture>
-			<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-		</control>
-		<control type="image">
-			<description>Normal Poster thumb stretched aspect</description>
-			<texture border="1" background="true" diffuse="diffuse/roundmask.png" fallback="DefaultVideo.png">$VAR[FanartLandscapeImage]</texture>
-			<aspectratio scalediffuse="false" aligny="bottom" align="center">scale</aspectratio>
-			<bordersize>2</bordersize>
-		</control>
-		<control type="image">
-			<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) | [[$EXP[IsTVShow] | $EXP[IsEpisode]] + !String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]</visible>
-			<bottom>-70</bottom>
-			<height>50%</height>
-			<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
-			<aspectratio align="center" aligny="center">keep</aspectratio>
-		</control>
-		<control type="textbox">
-			<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | [[$EXP[IsTVShow] | $EXP[IsEpisode]] + String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]</visible>
-			<bottom>-90</bottom>
-			<wrapmultiline>true</wrapmultiline>
-			<height max="120">auto</height>
-			<font>Bold30</font>
-			<align>center</align>
-			<aligny>center</aligny>
-			<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
-			<selectedcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</selectedcolor>
-			<label>$INFO[ListItem.Label,[B],[/B]]</label>
-		</control>
-	</include>
-	
-	
 	<!-- TAGs -->
 	<!-- temp workaraound for tags used for widgets library -->
 	

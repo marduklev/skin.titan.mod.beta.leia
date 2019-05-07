@@ -755,7 +755,10 @@
     </include>
     <include name="win10_widget_layout_landscape">
         <itemlayout height="220" width="330">
-            <include>ThumbsViewLayout</include>
+            <include content="ThumbsViewLayout">
+				<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+				<param name="border" value="thumbsborder_unfocused" />
+			</include>
             <control type="group">
                 <description>widget label overlay</description>
                 <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>
@@ -766,7 +769,10 @@
             </control>
         </itemlayout>
         <focusedlayout height="220" width="330">
-            <include>ThumbsViewLayoutFocus</include>
+            <include content="ThumbsViewLayout">
+				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+				<param name="border" value="thumbsborder_focused" />
+			</include>
             <control type="group">
                 <description>widget label overlay</description>
                 <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>

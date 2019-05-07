@@ -154,8 +154,11 @@
 					<control type="group">
                         <width>337</width>
                         <height>195</height>
-                        <include>ThumbsViewLayout</include>
-                        <control type="group">
+                        <include content="ThumbsViewLayout">
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
+						<control type="group">
                             <description>label overlay</description>
                             <include>ThumbsTagOverlay</include>
                             <include>LandscapeTagOverlayVisibility</include>
@@ -166,7 +169,10 @@
 					<control type="group">
                         <width>337</width>
                         <height>195</height>
-                        <include>ThumbsViewLayout</include>
+                        <include content="ThumbsViewLayout">
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
                         <control type="group">
                             <description>label overlay</description>
                             <include>ThumbsTagOverlay</include>
@@ -179,7 +185,11 @@
 						<control type="group">
                         <width>337</width>
                         <height>195</height>
-                        <include>ThumbsViewLayoutFocus</include>
+                        <include condition="Skin.HasSetting(Home_TransParentTiles)">Home_BG_TransParentTiles</include>
+						<include content="ThumbsViewLayout">
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
                         <control type="group">
                             <description>label overlay</description>
                             <include>ThumbsTagOverlay</include>
@@ -371,7 +381,10 @@
             <control type="group">
                 <width>337</width>
                 <height>195</height>
-                <include>ThumbsViewLayout</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
                 <control type="group">
                     <description>label overlay</description>
                     <include>ThumbsTagOverlay</include>
@@ -383,7 +396,10 @@
             <control type="group">
                 <width>337</width>
                 <height>195</height>
-                <include>ThumbsViewLayout</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
                 <control type="group">
                     <description>label overlay</description>
                     <include>ThumbsTagOverlay</include>
@@ -395,9 +411,13 @@
             <control type="group">
                 <width>337</width>
                 <height>195</height>
-                <include>ThumbsViewLayoutFocus</include>
+                <include condition="Skin.HasSetting(Home_TransParentTiles)">Home_BG_TransParentTiles</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
                 <control type="group">
-                    <description>label overlay</description>
+                    <description>label overlay - check me again</description>
                     <include>ThumbsTagOverlay</include>
                     <include>LandscapeTagOverlayVisibility</include>
                 </control>

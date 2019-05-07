@@ -649,14 +649,20 @@
 								<control type="group">
                                     <width>95%</width>
                                     <height>95%</height>
-                                    <include>ThumbsViewLayout</include>
+                                    <include content="ThumbsViewLayout">
+										<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+										<param name="border" value="thumbsborder_unfocused" />
+									</include>
                                 </control>
 							</itemlayout>
 							<focusedlayout width="400" height="238">
 								<control type="group">
                                     <width>95%</width>
                                     <height>95%</height>
-                                    <include>ThumbsViewLayoutFocus</include>
+									<include content="ThumbsViewLayout">
+										<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+										<param name="border" value="thumbsborder_focused" />
+									</include>
                                 </control>
 							</focusedlayout>
                         </control>
@@ -680,14 +686,20 @@
 								<control type="group">
                                     <width>95%</width>
                                     <height>95%</height>
-                                    <include>ThumbsViewLayout</include>
+                                    <include content="ThumbsViewLayout">
+										<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+										<param name="border" value="thumbsborder_unfocused" />
+									</include>
                                 </control>
 							</itemlayout>
 							<focusedlayout width="400" height="238">
 								<control type="group">
                                     <width>95%</width>
                                     <height>95%</height>
-                                    <include>ThumbsViewLayoutFocus</include>
+                                    <include content="ThumbsViewLayout">
+										<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+										<param name="border" value="thumbsborder_focused" />
+									</include>
                                 </control>
 							</focusedlayout>
                         </control>

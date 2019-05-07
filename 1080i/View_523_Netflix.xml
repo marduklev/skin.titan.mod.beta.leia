@@ -225,7 +225,7 @@
 					<orientation>horizontal</orientation>
 					<visible>Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie)]</visible>
 					<animation effect="fade" start="0" end="100" delay="200" time="3000" pulse="false" condition="Player.HasVideo">Conditional</animation>
-					<animation effect="slide" end="-400,0" time="0" pulse="false" condition="$EXP[UseTitanShape]">Conditional</animation>
+					<animation effect="slide" end="-400,0" time="0" pulse="false" condition="$EXP[UseTitanShape] | Skin.HasSetting(View523_SameHeight)">Conditional</animation>
 					
 					<itemlayout height="225" width="158">
 						<control type="image">
@@ -252,8 +252,8 @@
 					<focusedlayout></focusedlayout>
 					<content>$VAR[castInfo]</content>
                 </control>
-				<!-- Games: Popup of all game assets (trailer, title, snaps etc) -->
-				<include>GameAssetsPanelComplete</include>
+				<!-- check need to be conditional - Games: Popup of all game assets (trailer, title, snaps etc) -->
+				<include condition="$EXP[InGameMode]">GameAssetsPanelComplete</include>
 
 			</control>
             
@@ -278,10 +278,9 @@
             
             <!-- View 523 -->
 			<control type="fixedlist" id="523">
-				<!-- <include condition="!$EXP[InGameMode] + !$EXP[UseTitanShape]">focused4</include> -->
-				<!-- <include condition="$EXP[InGameMode] | $EXP[UseTitanShape]">focused1</include> -->
-				<include condition="$EXP[InVideoMode]">focused4</include>
-				<include condition="!$EXP[InVideoMode]">focused1</include>
+				<include condition="$EXP[InVideoMode] + !Skin.HasSetting(View523_SameHeight)">focused4</include>
+				<include condition="$EXP[UseTitanShape] | Skin.HasSetting(View523_SameHeight)">focused1</include>
+				<include condition="$EXP[InGameMode]">focused1</include>
 				<viewtype label="31018">icons</viewtype>
 				<left>60</left>
 				<bottom>0</bottom>
@@ -306,7 +305,7 @@
 						<animation effect="fade" start="100" end="70" condition="true">Conditional</animation>
 						<width>170</width>
 						<height>247</height>
-						<bottom>-220</bottom>
+						<bottom>-200</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
 							<param name="colordiffuse" value="0a4c0000" />
@@ -319,7 +318,7 @@
 					<control type="group">
 						<width>170</width>
 						<height>247</height>
-						<bottom>-453</bottom>
+						<bottom>-433</bottom>
 						<control type="image">
 							<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
 							<!-- <colordiffuse>ff07070</colordiffuse> -->
@@ -336,7 +335,7 @@
 						<width>264</width>
 						<height>381</height>
 						<right>2</right>
-						<bottom>-180</bottom>
+						<bottom>-100</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
@@ -349,7 +348,7 @@
 						<width>264</width>
 						<height>381</height>
 						<right>2</right>
-						<bottom>-548</bottom>
+						<bottom>-468</bottom>
 						<control type="image">
 							<description>Normal Poster thumb stretched aspect</description>
 							<texture border="1" background="true" diffuse="diffuse/poster_reflect-mod.3.png" flipy="true" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
@@ -369,7 +368,7 @@
 					<control type="image">
 						<width>250</width>
 						<height>250</height>
-						<top>280</top>
+						<top>240</top>
 						<left>200</left>
 						<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
 						<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
@@ -390,7 +389,7 @@
 					<control type="image">
 						<width>250</width>
 						<height>250</height>
-						<top>270</top>
+						<top>230</top>
 						<left>200</left>
 						<texture background="true" flipy="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
 						<colordiffuse>cf505050</colordiffuse>
@@ -725,9 +724,6 @@
  	</include>  
 	<include name="focused4">
 		<focusposition>4</focusposition>
-	</include>
-	<include name="focused2">
-		<focusposition>2</focusposition>
 	</include>
 	<include name="focused1">
 		<focusposition>1</focusposition>

@@ -373,8 +373,7 @@
 					</include>
 				</control>
             </control>
-			
-        </focusedlayout>
+		</focusedlayout>
     </include>
        
     <!-- widget poster details layout -->
@@ -473,6 +472,8 @@
 				</control>
 				<!-- poster image -->
 				<control type="group">
+					<left>5</left>
+					<top>5</top>
 					<width>250</width>
 					<height>370</height>
 					<include content="PosterPanelLayout">
@@ -800,7 +801,10 @@
             <control type="group">
                 <width>370</width>
                 <height>210</height>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
 				<control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -817,7 +821,10 @@
             <control type="group">
                 <width>370</width>
                 <height>210</height>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
 				<control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -835,7 +842,10 @@
                 <width>370</width>
                 <height>210</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
-				<include>ThumbsViewLayoutFocus</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
                 <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
@@ -877,7 +887,10 @@
             <control type="group">
                 <width>430</width>
                 <height>260</height>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
                 <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -895,7 +908,10 @@
                 <width>430</width>
                 <height>260</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
-				<include>ThumbsViewLayoutFocus</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
                 <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -917,7 +933,10 @@
                 <width>430</width>
                 <height>260</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
-				<include>ThumbsViewLayoutFocus</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
                 <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
@@ -964,7 +983,10 @@
 			<control type="group">
                 <width>354</width>
                 <height>200</height>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
                 <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -981,7 +1003,10 @@
 			<control type="group">
                 <width>354</width>
                 <height>200</height>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
                 <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -1028,21 +1053,33 @@
 			<control type="group">
                 <width>240</width>
                 <height>240</height>
-                <include>Circled_Art_Layout_NF</include>
+                <include content="Circle_Layout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+                    <param name="bordersize" value="3" />
+                    <param name="autoscroll" value="false" />
+                </include>
             </control>
 		</itemlayout>
         <focusedlayout height="320" width="260" condition="!Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <width>240</width>
                 <height>240</height>
-                <include>Circled_Art_Layout_NF</include>
+                <include content="Circle_Layout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+                    <param name="bordersize" value="3" />
+                    <param name="autoscroll" value="false" />
+                </include>
             </control>
         </focusedlayout>
 		<focusedlayout height="320" width="260" condition="Control.HasFocus($PARAM[widgetid])">
 			 <control type="group">
                 <width>240</width>
                 <height>240</height>
-                <include>Circled_Art_Layout_FO</include>
+                <include content="Circle_Layout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+                    <param name="bordersize" value="6" />
+                    <param name="autoscroll" value="true" />
+                </include>
 				<include>Focus_Zoom_Animation</include>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="circle" />
@@ -1070,7 +1107,10 @@
 				<left>5</left>
 				<width>354</width>
 				<height>200</height>
-				<include>ThumbsViewLayout</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
 			</control>
 			<control type="textbox">
 				<include>DetailsWidgets_FocusAnim</include>
@@ -1283,14 +1323,17 @@
                     <!--Panel Normal-->
                     <texture background="true">home/home_matte2.png</texture>
                     <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+					<include condition="Skin.String(thumbsborder_focused, 0)">thumbborder_0</include>
                     <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
                     <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
                     <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
-                    <visible>![Window.IsActive(Home) + Skin.HasSetting(Home_TransParentTiles)]</visible>
                 </control>
-                <include>LandscapeLayout</include>
-                
-				<control type="group">
+                <!-- check, merge with thumb sometime -->
+				<include content="LandscapeLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
+                <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="720"/>
@@ -1342,7 +1385,10 @@
             <control type="group">
                 <width>260</width>
                 <height>150</height>
-                <include>ThumbsViewLayout</include>
+                <include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
                 <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -1360,8 +1406,11 @@
                <width>260</width>
                 <height>150</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
-				<include>ThumbsViewLayoutFocus</include>
-               <control type="group">
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
+				<control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
 						<param name="tagwidth" value="261"/>
@@ -1382,7 +1431,10 @@
                 <width>260</width>
                 <height>150</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
-				<include>ThumbsViewLayoutFocus</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
                 <control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
@@ -2089,7 +2141,10 @@
                 <control type="group">
                     <width>337</width>
                     <height>195</height>
-                    <include>ThumbsViewLayout</include>
+                    <include content="ThumbsViewLayout">
+						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+						<param name="border" value="thumbsborder_unfocused" />
+					</include>
                     <control type="group">
                         <description>widget label overlay</description>
                         <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>
@@ -2104,7 +2159,10 @@
                 <control type="group">
                     <width>337</width>
                     <height>195</height>
-                    <include>ThumbsViewLayoutFocus</include>
+					<include content="ThumbsViewLayout">
+						<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+						<param name="border" value="thumbsborder_focused" />
+					</include>
                     <control type="group">
                         <description>widget label overlay</description>
                         <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>

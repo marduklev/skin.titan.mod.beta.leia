@@ -79,8 +79,12 @@
 				<control type="group">
 					<width>$PARAM[width]</width>
 					<height>$PARAM[height]</height>
-					<include>$PARAM[unfocusedlayout]</include>
-					<control type="image">
+					<include content="$PARAM[layout]">
+						<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+						<param name="border" value="thumbsborder_unfocused" />
+					</include>
+					<!-- <control type="image">
 						<width>200</width>
 						<height>100</height>
 						<bottom>7</bottom>
@@ -88,11 +92,11 @@
 						<texture background="true">$VAR[ClearLogoFallback]</texture>
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
 						<visible>String.IsEqual(ListItem.DBTYPE,episode)</visible>
-					</control>
+					</control> -->
 					<control type="group">
 						<visible>!Skin.HasSetting(search_info_spotlight) + !Skin.HasSetting(search_info_widget)</visible>
 						<width>$PARAM[width]</width>
-						<height>50</height>
+						<height>60</height>
 						<top>$PARAM[height]</top>
 						<control type="textbox">
 							<align>center</align>
@@ -117,13 +121,21 @@
 					<!-- workaround for unfocused fixedlist check -->
 					<control type="group">
 						<visible>Control.HasFocus($PARAM[id])</visible>
-						<include>$PARAM[focusedlayout]</include>
+						<include content="$PARAM[layout]">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
 					</control>
 					<control type="group">
 						<visible>!Control.HasFocus($PARAM[id])</visible>
-						<include>$PARAM[unfocusedlayout]</include>
+						<include content="$PARAM[layout]">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
 					</control>
-					<control type="image">
+					<!-- <control type="image">
 						<width>200</width>
 						<height>100</height>
 						<bottom>7</bottom>
@@ -131,15 +143,15 @@
 						<texture background="true">$VAR[ClearLogoFallback]</texture>
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
 						<visible>String.IsEqual(ListItem.DBTYPE,episode)</visible>
-					</control>
+					</control> -->
 					<control type="textbox">
 						<visible>!Skin.HasSetting(search_info_spotlight) + !Skin.HasSetting(search_info_widget)</visible>
 						<width>$PARAM[width]</width>
-						<height>55</height>
+						<height>60</height>
 						<top>$PARAM[height]</top>
 						<align>center</align>
-						<label>$VAR[ThumbListDetails,[B],[/B]]</label>
-						<font>Reg22</font>
+						<label>$VAR[ThumbListDetails]</label>
+						<font>Reg20</font>
 						<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
 						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>

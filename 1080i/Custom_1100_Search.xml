@@ -169,8 +169,7 @@
                     <param name="id" value="5001" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -184,8 +183,7 @@
                     <param name="id" value="5001" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -206,8 +204,7 @@
 					<param name="id" value="5002" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -221,8 +218,7 @@
 					<param name="id" value="5002" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -318,8 +314,7 @@
                     <param name="id" value="5007" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -334,8 +329,7 @@
 					<param name="id" value="5007" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -357,8 +351,7 @@
                     <param name="id" value="5010" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -373,8 +366,7 @@
                     <param name="id" value="5010" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -396,8 +388,7 @@
                     <param name="id" value="5011" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -412,8 +403,7 @@
                     <param name="id" value="5011" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -435,8 +425,7 @@
                     <param name="id" value="5012" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -451,8 +440,7 @@
                     <param name="id" value="5012" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -476,8 +464,7 @@
                     <param name="id" value="5008" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -492,8 +479,7 @@
                     <param name="id" value="5008" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -518,8 +504,7 @@
                     <param name="id" value="5013" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />
@@ -534,8 +519,7 @@
                     <param name="id" value="5013" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="focusedlayout" value="PosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="PosterPanelLayout" />
+					<param name="layout" value="PosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="670" />
 					<param name="info_plotwidth" value="420" />

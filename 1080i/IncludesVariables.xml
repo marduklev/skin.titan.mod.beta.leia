@@ -95,9 +95,10 @@
 		<value condition="Container.Content(tags)">DefaultTags.png</value>
 		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 	</variable>
-
-	<variable name="PosterThumbList"> <!-- check e.g PreferColorStudioLogos - just a bool inside themes, not found in skinsettings itself -->
-		<value condition="$EXP[InGameMode]">$INFO[ListItem.Icon]</value>
+	<!-- check e.g PreferColorStudioLogos - just a bool inside themes, not found in skinsettings itself -->
+	<variable name="PosterThumbList">
+		<value condition="$EXP[InGameMode] + !String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+		<value condition="$EXP[InGameMode] + String.IsEmpty(ListItem.Icon)">DefaultGames.png</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster)) + ListItem.IsCollection + String.Contains(ListItem.Art(poster),emby)">$INFO[ListItem.Art(poster)]&amp;EnableImageEnhancers=false</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(ListItem.Art(animatedposter)) + !Window.IsActive(Home) + !Skin.HasSetting(AnimatedPostersDisableList)">$INFO[ListItem.Art(animatedposter)]</value>
 		<value condition="Container.Content(seasons) + String.StartsWith(ListItem.Label,*) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
@@ -121,6 +122,18 @@
 		<value condition="Container.Content(tags)">DefaultTags.png</value>
 		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 	</variable>
+	<!-- Square thumb vars -->
+	<variable name="SquarePosterThumb">
+        <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVarList]</value>
+        <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)]">$VAR[MovieGenreIconVarList]</value>
+        <value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>  <!-- thumb is good, and didnt need var conditions, as it choose correct content, https://forum.kodi.tv/showthread.php?tid=298565&pid=2693890#pid2693890-->
+        <value condition="!String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows)]">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack.png</value>
+        <value condition="String.IsEqual(ListItem.Label,$LOCALIZE[21452])">dialogs/filebrowser/DefaultAddSource.png</value>
+        <value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+        <value condition="Window.IsActive(Music) | Container.Content(albums) | Container.Content(songs)">dialogs/filebrowser/DefaultAudio.png</value>
+        <value condition="!String.IsEmpty(ListItem.Property(FanArt))">$INFO[ListItem.Property(FanArt)]</value>
+    </variable>
 	
 	<!-- ============= -->
     <!-- CASE OVERLAY -->
@@ -762,6 +775,7 @@
 	<variable name="NetflixViewDetailsPanelColor">
 		<value condition="[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(NetflixViewDetailsPanelColor)]</value>
 		<value condition="[Control.IsVisible(526) + !Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + !Skin.HasSetting(View527_DisableFanArt)]">$INFO[Skin.String(ViewDetailsPanelColor)]</value>
+		<value>$INFO[Skin.String(NetflixViewDetailsPanelColor)]</value>
 	</variable>
 	
 	<variable name="ToggleNetflixViewDetailsTextColor">

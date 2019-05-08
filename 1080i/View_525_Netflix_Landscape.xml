@@ -70,13 +70,8 @@
                     <visible>Skin.HasSetting(View525_DetailsShowFanart)</visible>
 					<animation effect="fade" start="100" end="0" delay="200" time="1500" pulse="false" condition="Player.HasVideo">Conditional</animation>
                 </control>
-                <!-- rating STARS -->
-				<control type="group">
-                    <posx>65</posx>
-                    <top>288</top>
-                    <include>StarRatingNetflix</include>
-                </control>
-                 <!-- clearlogo -->
+               
+                <!-- clearlogo -->
                 <control type="image" id="29477">
                     <height>230</height>
                     <width>700</width>
@@ -101,7 +96,7 @@
 				</control>
 				<!-- details -->
                 <control type="group">
-                    <posx>250</posx>
+                    <posx>70</posx>
                     <top>297</top>
                     <include>Netflix_FlagsDetails</include>
 					<animation effect="slide" start="0" end="-168,0" condition="String.IsEmpty(ListItem.UserRating) + String.IsEmpty(Window(Home).Property(ListItem.UserRating)) + String.IsEmpty(Window(Home).Property(ListItem.UserRating))

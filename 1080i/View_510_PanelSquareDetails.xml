@@ -30,14 +30,20 @@
             <control type="group">
                 <width>240</width>
                 <height>240</height>
-                <include>SquarePosterPanelLayout</include>
+                <include content="SquarePosterPanelLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
             </control>
         </itemlayout>
         <focusedlayout height="250" width="240">
 		  <control type="group">
                 <width>240</width>
                 <height>240</height>
-                <include>SquarePosterPanelLayoutFocus</include>
+				<include content="SquarePosterPanelLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
                 <include>AutoTrailerButton</include>
             </control>
         </focusedlayout>

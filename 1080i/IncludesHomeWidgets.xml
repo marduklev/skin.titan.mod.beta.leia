@@ -644,7 +644,10 @@
             <control type="group">
                 <width>240</width>
                 <height>240</height>
-                <include>SquarePosterPanelLayout</include>
+                <include content="SquarePosterPanelLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
                 <control type="group">
 				<description>widget label overlay</description>
 				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
@@ -657,12 +660,35 @@
 			</control>
             </control>
         </itemlayout>
-        <focusedlayout height="313" width="262">
+		<focusedlayout height="313" width="262" condition="!Control.HasFocus($PARAM[widgetid])">
+            <control type="group">
+                <width>240</width>
+                <height>240</height>
+				<include content="SquarePosterPanelLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
+                <control type="group">
+				<description>widget label overlay</description>
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
+					<param name="tagwidth" value="240"/>
+					<param name="tagtop" value="240" />
+				</include>
+				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
+					<param name="prefix" value="SquarePoster"/>
+				</include>
+			</control>
+            </control>
+        </focusedlayout>
+        <focusedlayout height="313" width="262" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <width>240</width>
                 <height>240</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
-				<include>SquarePosterPanelLayoutFocus</include>
+				<include content="SquarePosterPanelLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
 				<control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
@@ -716,7 +742,10 @@
             <control type="group">
                 <width>120</width>
                 <height>120</height>
-                <include>SquarePosterPanelLayout</include>
+                <include content="SquarePosterPanelLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
 				<control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -733,7 +762,10 @@
             <control type="group">
                 <width>120</width>
                 <height>120</height>
-                <include>SquarePosterPanelLayout</include>
+                <include content="SquarePosterPanelLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
 				<control type="group">
 					<description>widget label overlay</description>
 					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
@@ -751,7 +783,10 @@
                 <width>120</width>
                 <height>120</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
-				<include>SquarePosterPanelLayoutFocus</include>
+				<include content="SquarePosterPanelLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="minisquare"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>

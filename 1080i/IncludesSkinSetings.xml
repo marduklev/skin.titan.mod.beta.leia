@@ -1399,11 +1399,11 @@
             <label>$LOCALIZE[31018] $LOCALIZE[31221]</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
-		<!-- netflix views/home bg viewdetails panel color-->
+		<!-- netflix views/home bg color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31303" />
             <param name="label" value="$LOCALIZE[31018] $LOCALIZE[745]" />
-            <param name="skinsetting" value="ViewDetailsNetflixPanelColor" />
+            <param name="skinsetting" value="NetflixBGColor" />
         </include>
 		 <!--Netflix viewdetails panel color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">

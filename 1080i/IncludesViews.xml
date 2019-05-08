@@ -29,7 +29,7 @@
 
         <!-- Thumb shape to be used -->
         <control type="label" id="5595">
-            <visible>no</visible>
+            <include>HiddenObject</include>
             <label>$VAR[ThumbShapeBasedOnSystem]</label>
         </control>
 
@@ -1346,7 +1346,10 @@
     <include name="aligncenter">
         <align>center</align>
     </include>
-    
+    <!-- check for later test and fix -->
+	<include name="thumbborder_Netflix523">
+        <bordersize>7.2,7.2,7.2,9</bordersize>
+    </include>
     <include name="thumbborder_0">
         <bordersize>9</bordersize>   
     </include>

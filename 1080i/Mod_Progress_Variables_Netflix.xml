@@ -9,10 +9,18 @@
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
 			<itemgap>0</itemgap>
+			
+			<!-- rating STARS -->
+			<control type="group">
+				<left>0</left>
+				<top>-8</top>
+				<width>170</width>
+				<include>StarRatingNetflix</include>
+            </control>
 			<!-- year -->
 			<control type="label">
 				<visible>!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.Premiered) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Premiered)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>	
-				<left>5</left>
+				<left>15</left>
 				<width>auto</width>
 				<label>[B]$VAR[premiered][/B]</label>
 				<height>40</height>
@@ -37,7 +45,7 @@
 				</control>	
 			</control>
 			<!-- mpaa Group -->
-			<control type="group">
+			<!-- <control type="group">
 				<left>5</left>
 				<top>0</top>
 				<width>110</width>
@@ -58,6 +66,23 @@
 					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
 					<font>Reg26</font>
 				</control>
+			</control> -->
+			<control type="button">
+				<left>5</left>
+				<animation effect="slide" end="0,-2" time="0" condition="true">Conditional</animation>
+				<width min="50">auto</width>
+				<height>45</height>
+				<font>Reg24</font>
+				<label>$VAR[RatingFlagVar]</label>
+				<textoffsetx>18</textoffsetx>
+				<textoffsety>4</textoffsety>
+				<aligny>top</aligny>
+				<align>center</align>
+				<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
+				<disabledcolor>$VAR[CodecSameLabelColorAsFrames]</disabledcolor>
+				<texturenofocus border="-2" colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texturenofocus>
+				<enable>false</enable>
+				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) | !String.IsEmpty(ListItem.Property(esrb))</visible>
 			</control>
 			<!-- var, details -->
 			<control type="label">

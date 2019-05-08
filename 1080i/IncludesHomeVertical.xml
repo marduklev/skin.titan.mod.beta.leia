@@ -1062,7 +1062,10 @@
 				<control type="group">
 					<width>180</width>
 					<height>180</height>
-					<include>SquarePosterPanelLayout</include>
+					<include content="SquarePosterPanelLayout">
+						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+						<param name="border" value="thumbsborder_unfocused" />
+					</include>
 				</control>
 				<control type="textbox">
 					<width>180</width>
@@ -1081,7 +1084,10 @@
 					<include>Widgets_Zoom_Animation</include>
 					<width>180</width>
 					<height>180</height>
-					<include>SquarePosterPanelLayoutFocus</include>
+					<include content="SquarePosterPanelLayout">
+						<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+						<param name="border" value="thumbsborder_focused" />
+					</include>
 					<control type="textbox">
 						<width>180</width>
 						<height>55</height>

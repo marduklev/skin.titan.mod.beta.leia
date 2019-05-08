@@ -1528,7 +1528,7 @@
 	
 	<include name="NetflixInfo">
 		<control type="group">
-			<visible>![Skin.HasSetting(UseExtendedInfoDialog) + System.HasAddon(script.extendedinfo)]</visible>
+			
 			<!-- base bg ,check unsure if half cut is that great-->
 			<control type="image">
 				<width>100%</width>

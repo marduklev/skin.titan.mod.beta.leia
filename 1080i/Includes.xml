@@ -55,13 +55,6 @@
     <include file="IncludesViews.xml" />
     <include file="IncludesMediaFlags.xml" />
     <include file="Includes_Layouts.xml" />
-    <include file="IncludesViewsLayoutSquare.xml" />
-    <include file="IncludesViewsLayoutBanner.xml" />
-    <include file="IncludesViewsLayoutWidebox.xml" />
-    <include file="IncludesViewsLayoutBluRay.xml" />
-    <include file="IncludesViewsLayoutSlim.xml" />
-    <include file="IncludesViewsLayoutSteam.xml" />
-    <include file="IncludesViewsLayoutNds.xml" />
     <include file="IncludesOSD.xml" />
     <include file="IncludesSkinSetings.xml" />
     <include file="IncludesContextMenu.xml" />
@@ -101,8 +94,8 @@
 
     <!--Common-->
     <include name="HiddenButton">
-        <posx>-20</posx>
-        <posy>-20</posy>
+        <posx>-2000</posx>
+        <posy>-2000</posy>
         <width>1</width>
         <height>1</height>
         <label></label>

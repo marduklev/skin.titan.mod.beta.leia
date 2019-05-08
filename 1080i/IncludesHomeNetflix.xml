@@ -574,7 +574,7 @@
 
     <!-- Netflix2 Panel Color -->
     <variable name="Netflix2_PanelColor">
-        <value condition="Skin.String(ViewDetailsNetflixPanelColor.base)">$INFO[Skin.String(ViewDetailsNetflixPanelColor)]</value>
+        <value condition="Skin.String(NetflixBGColor.base)">$INFO[Skin.String(NetflixBGColor)]</value>
         <value>ff000000</value>
     </variable>
 

@@ -99,7 +99,10 @@
                 <control type="group">
                     <width>220</width>
                     <height>220</height>
-                    <include>SquarePosterPanelLayout</include>
+                    <include content="SquarePosterPanelLayout">
+						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+						<param name="border" value="thumbsborder_unfocused" />
+					</include>
                     <control type="group">
                         <description>label overlay</description>
                         <include>SquarePosterTagOverlay</include>
@@ -111,7 +114,10 @@
               <control type="group">
                     <width>220</width>
                     <height>220</height>
-                    <include>SquarePosterPanelLayoutFocus</include>
+					<include content="SquarePosterPanelLayout">
+						<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+						<param name="border" value="thumbsborder_focused" />
+					</include>
                     <control type="group">
                         <description>label overlay</description>
                         <include>SquarePosterTagOverlay</include>
@@ -689,7 +695,10 @@
     <!-- supported widget styles -->
     <include name="win10_widget_layout_square">
         <itemlayout height="220" width="220">
-            <include>SquarePosterPanelLayout</include>
+            <include content="SquarePosterPanelLayout">
+				<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+				<param name="border" value="thumbsborder_unfocused" />
+			</include>
             <control type="group">
                 <description>widget label overlay</description>
                 <include condition="!Skin.String(Widgets_DisplayTags,disable)">SquarePosterTagOverlay</include>
@@ -700,20 +709,23 @@
             </control>
         </itemlayout>
         <focusedlayout height="220" width="220">
-            <include>SquarePosterPanelLayoutFocus</include>
-            <control type="group">
-                <description>widget label overlay</description>
-                <include condition="!Skin.String(Widgets_DisplayTags,disable)">SquarePosterTagOverlay</include>
-                <include condition="Skin.String(Widgets_DisplayTags,auto)">SquarePosterTagOverlayVisibility</include>
-                <include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-                    <param name="prefix" value="SquarePoster" />
-                </include>
-            </control>
-            <control type="button">
-                <visible>false</visible>
-                <onfocus>Setproperty(SkinHelper.WidgetContainer,$PARAM[widgetid])</onfocus>
-                <onfocus>ClearProperty(ShowViewSubMenu)</onfocus>
-            </control>
+			<include content="SquarePosterPanelLayout">
+				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+				<param name="border" value="thumbsborder_focused" />
+			</include>
+			<control type="group">
+				<description>widget label overlay</description>
+				<include condition="!Skin.String(Widgets_DisplayTags,disable)">SquarePosterTagOverlay</include>
+				<include condition="Skin.String(Widgets_DisplayTags,auto)">SquarePosterTagOverlayVisibility</include>
+				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
+					<param name="prefix" value="SquarePoster" />
+				</include>
+			</control>
+			<control type="button">
+				<visible>false</visible>
+				<onfocus>Setproperty(SkinHelper.WidgetContainer,$PARAM[widgetid])</onfocus>
+				<onfocus>ClearProperty(ShowViewSubMenu)</onfocus>
+			</control>
         </focusedlayout>
     </include>
     <include name="win10_widget_layout_small_poster">

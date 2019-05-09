@@ -9,6 +9,7 @@
 		<include>animation_view_change</include>
 		
 		<control type="panel" id="54">
+			<animation effect="slide" start="0" end="-20,0" time="150" condition="Control.HasFocus(60) | Control.HasFocus(6002)">Conditional</animation>
 			<left>40</left>
 			<right>60</right>
 			<bottom>15</bottom>
@@ -58,51 +59,55 @@
 				</control>
 			</focusedlayout>
 			<!-- itemlayout movies tags-->
-			<itemlayout height="316" width="185" condition="Skin.HasSetting(View54_ShowTags)">
+			<itemlayout height="320" width="185" condition="Skin.HasSetting(View54_ShowTags)">
 				<control type="group">
-					<width>183</width>
-					<height>264</height>
+					<width>173</width>
+					<height>260</height>
 					<include content="PosterPanelLayout">
 						<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
 						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 						<param name="border" value="thumbsborder_unfocused" />
 					</include>
 					<include content="Tag_NF">
-						<param name="tagwidth" value="183"/>
-						<param name="tagtop" value="264" />
+						<param name="tagwidth" value="173"/>
+						<param name="tagtop" value="262" />
 					</include>
 				</control>
 			</itemlayout>
 			<!-- focussed layout movies tags -->
-			<focusedlayout height="316" width="185" condition="Skin.HasSetting(View54_ShowTags)">
+			<focusedlayout height="320" width="185" condition="Skin.HasSetting(View54_ShowTags)">
 				<control type="group">
 					<include>Focus_Zoom_Animation</include>
-					<width>183</width>
-					<height>264</height>
+					<width>173</width>
+					<height>260</height>
 					<include content="PosterPanelLayout">
 						<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
 						<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 						<param name="border" value="thumbsborder_focused" />
 					</include>
 					<include content="Tag_FO">
-						<param name="tagwidth" value="183" />
-						<param name="tagtop" value="260" />
+						<param name="tagwidth" value="173" />
+						<param name="tagtop" value="262" />
 					</include>
 				</control>
+				
 			</focusedlayout>
 		</control>
 	
 		<include content="scollbar">
+			<param name="view_id" value="54" />
+			<param name="visibleitems" value="30" />
 			<param name="id" value="60" />
 			<param name="id_alphabet" value="6002" />
 			<param name="orientation" value="vertical" />
-			<param name="right" value="0.5" />
+			<param name="right" value="1" />
 			<param name="bottom" value="140" />
-			<param name="height" value="770" />
+			<param name="height" value="780" />
 			<param name="width" value="15" />
 			<param name="onup" value="60" />
-			<param name="ondown" value="6000" />
+			<param name="ondown" value="60" />
 			<param name="onleft" value="54" />
+			<param name="onright" value="54" />
 		</include>
 	</control>
 

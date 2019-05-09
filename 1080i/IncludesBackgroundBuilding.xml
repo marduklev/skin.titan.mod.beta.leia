@@ -318,6 +318,7 @@
         
     <variable name="backgroundVar">
 
+		<value condition="Window.IsActive(Settings)">$INFO[Container(9000).ListItem.ActualIcon]</value>
         <value condition="[Window.IsActive(LoginScreen.xml) | Window.IsActive(StartUp.xml)] + Skin.String(LoginBackground)">$INFO[Skin.String(LoginBackground)]</value>
         <!-- animated fanart background -->
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)) + Skin.HasSetting(AnimatedFanart)">$INFO[Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)]</value>

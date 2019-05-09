@@ -18,33 +18,36 @@
 		<!-- itemlayout -->
 		<include name="Tag_NF">
 			<control type="textbox">
-				<visible>$EXP[Notag_NetflixHome]</visible>
 				<width>$PARAM[tagwidth]</width>
 				<top>$PARAM[tagtop]</top>
 				<left>5</left>
 				<right>5</right>
-				<height>48</height>
+				<height>47</height>
 				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
 				<align>left</align>
 				<label>$VAR[ThumbListDetails]</label>
-				<font>Reg18</font>
+				<font>TEST_TAGS</font>
 				<autoscroll>false</autoscroll>
 				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
 			</control>
 		</include>
-		<!-- focusedlayout -->
+		<!-- focusedlayout 
+		<font>Reg20</font>
+		<font>TEST_TAGS</font>
+		better font,shitty top align
+		-->
 		<include name="Tag_FO">
 			<control type="textbox">
-				<visible>$EXP[Notag_NetflixHome]</visible>
+				
 				<width>$PARAM[tagwidth]</width>
 				<top>$PARAM[tagtop]</top>
-				<height>50</height>
+				<height>45</height>
 				<left>5</left>
 				<right>5</right>
 				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
 				<align>left</align>
 				<label>$VAR[ThumbListDetails]</label>
-				<font>Reg20</font>
+				<font>TEST_TAGS</font>
 				<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
 				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
 			</control>
@@ -61,30 +64,60 @@
 		</include>
 	
 	<!-- Scrollbars -->
-		<!-- merge vertical id="60 and horizontal  Scollbar " 
-		alphabet scrollbar-Jump to letter $PARAM[id_alphabet]-->
-		<include name="scollbar">
-			<control type="scrollbar" id="$PARAM[id]">
-				<visible>
-				[Control.IsVisible(54) + Integer.IsGreater(Container.Numitems,0)]
-				</visible>
-				<right>$PARAM[right]%</right>
-				<bottom>$PARAM[bottom]</bottom>
-				<width>$PARAM[width]</width>
-				<height>$PARAM[height]</height>
-				<onup>$PARAM[onup]</onup>
-				<ondown>$PARAM[ondown]</ondown>
-				<onleft>$PARAM[onleft]</onleft>
-				<orientation>$PARAM[orientation}</orientation>
-				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus($PARAM[id]) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible($PARAM[id_alphabet])">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus($PARAM[id]) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible($PARAM[id_alphabet])">Conditional</animation>
-			</control>
-		</include>
-		
+	<include name="scollbar">
+		<control type="scrollbar" id="$PARAM[id]">
+			<visible>Control.IsVisible($PARAM[view_id]) + Integer.IsGreater(Container.Numitems,$PARAM[visibleitems])</visible>
+			<right>$PARAM[right]%</right>
+			<bottom>$PARAM[bottom]</bottom>
+			<width>$PARAM[width]</width>
+			<height>$PARAM[height]</height>
+			<onup>$PARAM[onup]</onup>
+			<ondown>$PARAM[ondown]</ondown>
+			<onleft>$PARAM[onleft]</onleft>
+			<onright>$PARAM[onright]</onright>
+			<orientation>$PARAM[orientation}</orientation>
+			<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus($PARAM[id]) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible($PARAM[id_alphabet])">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus($PARAM[id]) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible($PARAM[id_alphabet])">Conditional</animation>
+		</control>
+	</include>
 		
 	<!-- HOME -->
-		<!-- Zoom Animation for Detail Widgets, includesHomewidgets.xml -->
-		<include name="DetailsWidgets_FocusAnim">
-			<animation effect="zoom" start="0,100" end="100,100" time="100" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation>
-		</include>
+	<!-- Zoom Animation for Detail Widgets, includesHomewidgets.xml -->
+	<include name="DetailsWidgets_FocusAnim">
+		<animation effect="zoom" start="0,100" end="100,100" time="100" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation>
+	</include>
+	
+	<!-- FONTS -->
+	<include name="TEST12">
+		<font>
+			<name>TEST12</name>  
+			<filename>Alcubierre.ttf</filename>
+			<size>28</size>
+			<style>bold</style>
+			<aspect>1.0</aspect>
+			<linespacing>1.0</linespacing>
+		  </font>
+	</include>
+	
+	<!-- FONTS -->
+	<include name="TEST_TAGS">
+		<font>
+			<name>TEST_TAGS</name>  
+			<filename>Alcubierre.ttf</filename>
+			<size>19</size>
+			<style>bold</style>
+			<aspect>1.0</aspect>
+			<linespacing>1.0</linespacing>
+		  </font>
+	</include>
+	
+	<!-- FONTS -->
+	<include name="Title_CircleC_Header70">
+		<font>
+            <name>Title_CircleC_Header70</name>
+            <filename>circlec.ttf</filename>
+            <size>70</size>
+        </font>
+	</include>
+	
 </includes>

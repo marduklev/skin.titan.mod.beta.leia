@@ -17,12 +17,13 @@
         <include>Header</include>
         <control type="group">
             <include>animation_window_open_close</include>
-            <bottom>125</bottom>
+            <bottom>118</bottom>
             <height>75%</height>
-            <!--Panel-->
-            <control type="image">
-                <posx>50</posx>
-                <width>1820</width>
+            
+			<!--Panel-->
+			<control type="image">
+                <width>100%</width>
+				
                 <texture border="15">diffuse/bgpanel.png</texture>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
             </control>
@@ -43,16 +44,17 @@
                 <posy>470</posy>
                 <width>500</width>
                 <height>250</height>
-                <font>Light30</font>
+                <font>TEST12</font>
                 <align>center</align>
                 <label>$INFO[Container(9000).ListItem.Label2]</label>
+				<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
             </control>
             
 			<!--List 9000-->
             <control type="panel" id="9000">
                 <viewtype label="31437">icons</viewtype>
                 <right>80</right>
-                <top>10</top>
+                <top>30</top>
                 <height>780</height>
                 <width>1200</width>
                 <orientation>vertical</orientation>
@@ -60,9 +62,10 @@
                 <ondown>9000</ondown>
                 <preloaditems>4</preloaditems>
                 <itemlayout height="260" width="300">
-                    <control type="group">
-                       <width>230</width>
-                        <height>230</height>
+                   
+					<control type="group">
+						<width>200</width>
+                        <height>200</height>
 						<control type="image">
 							<texture border="0">diffuse/roundmask.png</texture>
 							<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
@@ -70,17 +73,28 @@
 						<control type="image">
 							<description>Normal Poster thumb stretched aspect</description>
 							<texture border="1" background="true" diffuse="diffuse/roundmask.png" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
-							<aspectratio scalediffuse="false" aligny="bottom" align="center">scale</aspectratio>
+							<aspectratio scalediffuse="false" align="center">scale</aspectratio>
 							<colordiffuse>$INFO[Skin.String(ViewDetailsListItemTextColor)]</colordiffuse>
-							<bordersize>20</bordersize>
+							<bordersize>17</bordersize>
 						</control>
 					</control>
+					<control type="textbox">
+						<width>200</width>
+						<height>50</height>
+						<top>205</top>
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Reg22</font>
+						<autoscroll delay="3000" time="3000" repeat="500">false</autoscroll>
+						<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+					</control>
+					
                 </itemlayout>
                 <focusedlayout height="260" width="300">
 					<control type="group">
 						<include>Focus_Zoom_Animation</include>
-                        <width>230</width>
-                        <height>230</height>
+                        <width>200</width>
+                        <height>200</height>
 						<control type="image">
 							<texture border="0">diffuse/roundmask.png</texture>
 							<colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
@@ -90,7 +104,17 @@
 							<!-- <animation effect="fade" start="100" end="60" time="250" condition="true">focus</animation> -->
 							<texture border="1" colordiffuse="$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]" background="true" diffuse="diffuse/roundmask.png">$INFO[ListItem.Icon]</texture>
 							<aspectratio scalediffuse="false" aligny="bottom" align="center">scale</aspectratio>
-							<bordersize>20</bordersize>
+							<bordersize>15</bordersize>
+						</control>
+						<control type="textbox">
+							<width>200</width>
+							<height>50</height>
+							<top>205</top>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Bold22</font>
+							<autoscroll delay="3000" time="3000" repeat="500">false</autoscroll>
+							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
 						</control>
 					</control>
 				</focusedlayout>
@@ -143,6 +167,15 @@
                         <icon>resource://resource.images.skinbackgrounds.titanium/settings_addons.jpg</icon>
                         <thumb>defaultvideoplugins.png</thumb>
                     </item>
+					<item id="13"><!-- check -->
+                        <description>Games</description>
+                        <label>$LOCALIZE[15016]</label>
+                        <label2>$LOCALIZE[15016]</label2>
+                        <onclick>ActivateWindow(GameSettings)</onclick>
+                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_addons.jpg</icon>
+                        <thumb>defaultaddongame.png</thumb>
+                        <!-- <visible>System.GetBool(gamesgeneral.enable)</visible> -->
+                    </item>
                     <item id="8">
                         <description>Network/Services</description>
                         <label>14036</label>
@@ -174,15 +207,6 @@
                         <onclick>activatewindow(Profiles)</onclick>
                         <icon>resource://resource.images.skinbackgrounds.titanium/settings_profiles.jpg</icon>
                         <thumb>resource://resource.images.skinicons.wide/actor.png</thumb>
-                    </item>
-                    <item id="13"><!-- check -->
-                        <description>Games</description>
-                        <label>$LOCALIZE[15016]</label>
-                        <label2>$LOCALIZE[15016]</label2>
-                        <onclick>ActivateWindow(GameSettings)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_addons.jpg</icon>
-                        <thumb>defaultaddongame.png</thumb>
-                        <!-- <visible>System.GetBool(gamesgeneral.enable)</visible> -->
                     </item>
                 </content>
             </control>

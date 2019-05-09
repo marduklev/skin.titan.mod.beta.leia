@@ -112,10 +112,10 @@
                     <width>800</width>
                     <left>70</left>
                     <top>20</top>
-                    <font>Bold55</font>
+                    <font>Header30</font>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE]$INFO[ListItem.Title][/UPPERCASE]</label>
+                    <label>$INFO[ListItem.Title,[B],[/B]]</label>
                     <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
                     <visible>[String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29478),color_transparent) + $EXP[InGameMode]] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(sets)]</visible> 
                 </control>

@@ -106,7 +106,7 @@
             <visible>!Skin.HasSetting(EnableTouchSupport)</visible>
             
             <control type="fadelabel">
-                <left></left>
+                <left>0</left>
                 <bottom>0</bottom>
                 <width>100%</width>
                 <height>100</height>
@@ -266,6 +266,14 @@
         </include>
     </include>
     
+	<!-- PARAM[widgetTags] conditional tag visibility -->
+    <include name="WidgetTagOverlayEnable">
+        <visible>true</visible>
+    </include>
+    <include name="WidgetTagOverlayDisable">
+        <visible>false</visible>
+    </include>
+	
     <include name="widget_layout_poster">
         <include condition="$PARAM[multiRows]" name="height" content="height">
             <param name="height" value="840" />
@@ -276,14 +284,12 @@
         <include condition="![$PARAM[multiRows]] + !String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
             <param name="height" value="435" />
         </include>
-		<!-- auto show widgets -->
 		<animation effect="slide" delay="0" start="0" end="0,-70" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,50" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-170" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-410" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-300" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-		<!-- right align widgets -->
 		<animation effect="slide" start="0" end="140" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + Skin.HasSetting(VerticalHomeLargeWidget) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
         <animation effect="slide" start="0" end="261" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,6) + !String.Contains(Skin.String(HomeLayout),ver)">Conditional</animation>
         <animation effect="slide" start="0" end="261" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,5) + !String.Contains(Skin.String(HomeLayout),ver)">Conditional</animation>
@@ -292,20 +298,6 @@
         <animation effect="slide" start="0" end="261" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
         <animation effect="slide" start="0" end="261" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
         
-		<!-- param="colordiffuse" $PARAM[colordiffuse] $VAR[ViewDetailsPanelColor] / $VAR[ViewDetailsBorderFocusColor]
-	    - 
-	param="border" $PARAM[border] =thumbsborder_unfocused /  =thumbsborder_focused 
-	nf
-	<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
-	<param name="border" value="thumbsborder_unfocused" />
-					
-	fo=
-	
-	<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
-	<param name="border" value="thumbsborder_focused" />
-	
-	-->
-		
 		<itemlayout height="435" width="261">
             <control type="group">
                 <width>250</width>
@@ -317,13 +309,10 @@
 				</include>
 			</control>
 			<control type="group">
-				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_NF">
 					<param name="tagwidth" value="250"/>
 					<param name="tagtop" value="360" />
-				</include>
-				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="Poster"/>
 				</include>
 			</control>
 		</itemlayout>
@@ -338,13 +327,10 @@
 				</include>
             </control>
 			<control type="group">
-				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_NF">
 					<param name="tagwidth" value="250"/>
 					<param name="tagtop" value="360" />
-				</include>
-				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="Poster"/>
 				</include>
 			</control>
 			</focusedlayout>
@@ -363,13 +349,10 @@
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
 				<control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
-						<param name="tagwidth" value="250" />
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
+						<param name="tagwidth" value="250"/>
 						<param name="tagtop" value="360" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
 					</include>
 				</control>
             </control>
@@ -406,13 +389,10 @@
 				<param name="border" value="thumbsborder_unfocused" />
 			</include>
             <control type="group">
-				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_NF">
 					<param name="tagwidth" value="250"/>
 					<param name="tagtop" value="370" />
-				</include>
-				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="Poster"/>
 				</include>
 			</control>
           </control>
@@ -427,13 +407,10 @@
 				<param name="border" value="thumbsborder_unfocused" />
 			</include>
             <control type="group">
-				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_NF">
 					<param name="tagwidth" value="250"/>
 					<param name="tagtop" value="370" />
-				</include>
-				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="Poster"/>
 				</include>
 			</control>
             <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -537,13 +514,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
 				<control type="group">
-				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_NF">
 					<param name="tagwidth" value="162"/>
 					<param name="tagtop" value="240" />
-				</include>
-				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="Poster"/>
 				</include>
 			</control>
             </control>
@@ -558,13 +532,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
 				<control type="group">
-				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_NF">
 					<param name="tagwidth" value="162"/>
 					<param name="tagtop" value="240" />
-				</include>
-				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="Poster"/>
 				</include>
 				</control>
             </control>
@@ -580,15 +551,12 @@
 					<param name="border" value="thumbsborder_focused" />
 				</include>
                 <control type="group">
-				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_FO">
 					<param name="tagwidth" value="162"/>
 					<param name="tagtop" value="240" />
 				</include>
-				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="Poster"/>
-				</include>
-			</control>
+				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="smallposter"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
@@ -649,15 +617,12 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
                 <control type="group">
-				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_FO">
 					<param name="tagwidth" value="240"/>
 					<param name="tagtop" value="240" />
 				</include>
-				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="SquarePoster"/>
-				</include>
-			</control>
+				</control>
             </control>
         </itemlayout>
 		<focusedlayout height="313" width="262" condition="!Control.HasFocus($PARAM[widgetid])">
@@ -669,15 +634,12 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
                 <control type="group">
-				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_FO">
 					<param name="tagwidth" value="240"/>
 					<param name="tagtop" value="240" />
 				</include>
-				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="SquarePoster"/>
-				</include>
-			</control>
+				</control>
             </control>
         </focusedlayout>
         <focusedlayout height="313" width="262" condition="Control.HasFocus($PARAM[widgetid])">
@@ -690,13 +652,10 @@
 					<param name="border" value="thumbsborder_focused" />
 				</include>
 				<control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_FO">
 						<param name="tagwidth" value="240"/>
 						<param name="tagtop" value="240" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="SquarePoster"/>
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -747,13 +706,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
 				<control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="130"/>
 						<param name="tagtop" value="120" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="SquarePoster"/>
 					</include>
 				</control>
             </control>
@@ -767,13 +723,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
 				<control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="130"/>
 						<param name="tagtop" value="120" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="SquarePoster"/>
 					</include>
 				</control>
             </control>
@@ -792,15 +745,12 @@
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
 				<control type="group">
-				<description>widget label overlay</description>
-				<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_FO">
 					<param name="tagwidth" value="130"/>
 					<param name="tagtop" value="120" />
 				</include>
-				<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-					<param name="prefix" value="SquarePoster"/>
-				</include>
-			</control>
+				</control>
             </control>
         </focusedlayout>
     </include>
@@ -841,13 +791,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
 				<control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="375"/>
 						<param name="tagtop" value="210" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
             </control>
@@ -861,13 +808,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
 				<control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="375"/>
 						<param name="tagtop" value="210" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
             </control>
@@ -882,13 +826,10 @@
 					<param name="border" value="thumbsborder_focused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_FO">
 						<param name="tagwidth" value="375"/>
 						<param name="tagtop" value="210" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -927,13 +868,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="430"/>
 						<param name="tagtop" value="260" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
             </control>
@@ -948,13 +886,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="430"/>
 						<param name="tagtop" value="260" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -973,13 +908,10 @@
 					<param name="border" value="thumbsborder_focused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_FO">
 						<param name="tagwidth" value="430"/>
 						<param name="tagtop" value="260" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -1004,9 +936,7 @@
             <param name="height" value="260" />
         </include>
 		
-		
-		
-        <animation effect="slide" delay="0" start="0" end="0,100" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
+		<animation effect="slide" delay="0" start="0" end="0,100" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,220" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,0" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
@@ -1023,13 +953,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="354"/>
 						<param name="tagtop" value="200" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
             </control>
@@ -1043,13 +970,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="354"/>
 						<param name="tagtop" value="200" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -1209,13 +1133,10 @@
 					<include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
 				</control>
 				<control type="group">
-						<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="650"/>
 						<param name="tagtop" value="146" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
 					</include>
 				</control>
 				<include>BannerLayout</include>
@@ -1235,13 +1156,10 @@
 					<include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
 				</control>
 				<control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="650"/>
 						<param name="tagtop" value="146" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
 					</include>
 				</control>
 				<include>BannerLayout</include>
@@ -1262,13 +1180,10 @@
                 </control>
                 <include>BannerLayout</include>
 				<control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_FO">
 						<param name="tagwidth" value="650"/>
 						<param name="tagtop" value="146" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -1309,13 +1224,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="280"/>
 						<param name="tagtop" value="420" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
 					</include>
 				</control>
             </control>
@@ -1330,13 +1242,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="280"/>
 						<param name="tagtop" value="420" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Poster"/>
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -1369,13 +1278,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="720"/>
 						<param name="tagtop" value="420" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
             </control>
@@ -1415,7 +1321,6 @@
         <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
         <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
         
-        
         <itemlayout width="261" height="210">
             <control type="group">
                 <width>260</width>
@@ -1425,13 +1330,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="261"/>
 						<param name="tagtop" value="150" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
             </control>
@@ -1446,13 +1348,10 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
 				<control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_NF">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
 						<param name="tagwidth" value="261"/>
 						<param name="tagtop" value="150" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -1471,13 +1370,10 @@
 					<param name="border" value="thumbsborder_focused" />
 				</include>
                 <control type="group">
-					<description>widget label overlay</description>
-					<include condition="!Skin.String(Widgets_DisplayTags,disable)" content="Tag_FO">
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_FO">
 						<param name="tagwidth" value="261"/>
 						<param name="tagtop" value="150" />
-					</include>
-					<include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-						<param name="prefix" value="Landscape"/>
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -1519,7 +1415,7 @@
             </include>
         </focusedlayout>
 	</include>
-	<!-- singlebox info layout -->
+	<!-- check, merging singlebox info layout -->
     <include name="itemlayout_singlebox">
         <!-- single box widget -->
         <control type="group">
@@ -2181,7 +2077,7 @@
 						<param name="border" value="thumbsborder_unfocused" />
 					</include>
                     <control type="group">
-                        <description>widget label overlay</description>
+                        <include>$PARAM[widgetTags]</include>
                         <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>
                         <!-- check for issues <include condition="Skin.String(Widgets_DisplayTags,auto)">LandscapeTagOverlayVisibility</include> -->
                         <include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
@@ -2199,7 +2095,7 @@
 						<param name="border" value="thumbsborder_focused" />
 					</include>
                     <control type="group">
-                        <description>widget label overlay</description>
+                        <include>$PARAM[widgetTags]</include>
                         <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>
                         <!-- <include condition="Skin.String(Widgets_DisplayTags,auto)">LandscapeTagOverlayVisibility</include> -->
                         <include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
@@ -2866,13 +2762,7 @@
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Icon))">$INFO[Window(Home).Property(SkinHelper.ListItem.Icon)]</value>
     </variable>
-    <!-- conditional tags visible -->
-    <include name="WidgetTagOverlayEnable">
-        <visible>true</visible>
-    </include>
-    <include name="WidgetTagOverlayDisable">
-        <visible>false</visible>
-    </include>
+    
 	
 	
 	<include name="widget_header_rightalign">

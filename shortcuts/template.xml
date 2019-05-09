@@ -54,7 +54,6 @@
         <property name="widgetName1" tag="property" attribute="name|widgetName" />
         <property name="widgetTags1" tag="property" attribute="name|widgetTags" value="enable">WidgetTagOverlayEnable</property>
         <property name="widgetTags1" tag="property" attribute="name|widgetTags" value="disable">WidgetTagOverlayDisable</property>
-        <property name="widgetTags1">WidgetTagOverlayEnable</property>
         <property name="widgetStyle1" tag="property" attribute="name|widgetstyle" />
         <property name="widgetStyle1">default</property>
         <property name="widgetInfoPanel1" tag="property" attribute="name|widgetInfoPanel" />
@@ -75,7 +74,6 @@
         <property name="widgetName2" tag="property" attribute="name|widgetName.1" />
         <property name="widgetTags2" tag="property" attribute="name|widgetTags.1" value="enable">WidgetTagOverlayEnable</property>
         <property name="widgetTags2" tag="property" attribute="name|widgetTags.1" value="disable">WidgetTagOverlayDisable</property>
-        <property name="widgetTags2">WidgetTagOverlayEnable</property>
         <property name="widgetStyle2" tag="property" attribute="name|widgetstyle.1" />
         <property name="widgetStyle2">default</property>
         <property name="widgetInfoPanel2" tag="property" attribute="name|widgetInfoPanel.1" />
@@ -96,7 +94,6 @@
         <property name="widgetName3" tag="property" attribute="name|widgetName.2" />
         <property name="widgetTags3" tag="property" attribute="name|widgetTags.2" value="enable">WidgetTagOverlayEnable</property>
         <property name="widgetTags3" tag="property" attribute="name|widgetTags.2" value="disable">WidgetTagOverlayDisable</property>
-        <property name="widgetTags3">WidgetTagOverlayEnable</property>
         <property name="widgetStyle3" tag="property" attribute="name|widgetstyle.2" />
         <property name="widgetStyle3">default</property>
         <property name="widgetInfoPanel3" tag="property" attribute="name|widgetInfoPanel.2" />
@@ -117,7 +114,6 @@
         <property name="widgetName4" tag="property" attribute="name|widgetName.3" />
         <property name="widgetTags4" tag="property" attribute="name|widgetTags.3" value="enable">WidgetTagOverlayEnable</property>
         <property name="widgetTags4" tag="property" attribute="name|widgetTags.3" value="disable">WidgetTagOverlayDisable</property>
-        <property name="widgetTags4">WidgetTagOverlayEnable</property>
         <property name="widgetStyle4" tag="property" attribute="name|widgetstyle.3" />
         <property name="widgetStyle4">default</property>
         <property name="widgetInfoPanel4" tag="property" attribute="name|widgetInfoPanel.3" />
@@ -138,7 +134,6 @@
         <property name="widgetName5" tag="property" attribute="name|widgetName.4" />
         <property name="widgetTags5" tag="property" attribute="name|widgetTags.4" value="enable">WidgetTagOverlayEnable</property>
         <property name="widgetTags5" tag="property" attribute="name|widgetTags.4" value="disable">WidgetTagOverlayDisable</property>
-        <property name="widgetTags5">WidgetTagOverlayEnable</property>
         <property name="widgetStyle5" tag="property" attribute="name|widgetstyle.4" />
         <property name="widgetStyle5">default</property>
         <property name="widgetInfoPanel5" tag="property" attribute="name|widgetInfoPanel.4" />
@@ -159,7 +154,6 @@
         <property name="widgetName6" tag="property" attribute="name|widgetName.5" />
         <property name="widgetTags6" tag="property" attribute="name|widgetTags.5" value="enable">WidgetTagOverlayEnable</property>
         <property name="widgetTags6" tag="property" attribute="name|widgetTags.5" value="disable">WidgetTagOverlayDisable</property>
-        <property name="widgetTags6">WidgetTagOverlayEnable</property>
         <property name="widgetStyle6" tag="property" attribute="name|widgetstyle.5" />
         <property name="widgetStyle6">default</property>
         <property name="widgetInfoPanel6" tag="property" attribute="name|widgetInfoPanel.5" />
@@ -180,7 +174,6 @@
         <property name="widgetName7" tag="property" attribute="name|widgetName.6" />
         <property name="widgetTags7" tag="property" attribute="name|widgetTags.6" value="enable">WidgetTagOverlayEnable</property>
         <property name="widgetTags7" tag="property" attribute="name|widgetTags.6" value="disable">WidgetTagOverlayDisable</property>
-        <property name="widgetTags7">WidgetTagOverlayEnable</property>
         <property name="widgetStyle7" tag="property" attribute="name|widgetstyle.6" />
         <property name="widgetStyle7">default</property>
         <property name="widgetInfoPanel7" tag="property" attribute="name|widgetInfoPanel.6" />
@@ -201,7 +194,6 @@
         <property name="widgetName8" tag="property" attribute="name|widgetName.7" />
         <property name="widgetTags8" tag="property" attribute="name|widgetTags.7" value="enable">WidgetTagOverlayEnable</property>
         <property name="widgetTags8" tag="property" attribute="name|widgetTags.7" value="disable">WidgetTagOverlayDisable</property>
-        <property name="widgetTags8">WidgetTagOverlayEnable</property>
         <property name="widgetStyle8" tag="property" attribute="name|widgetstyle.7" />
         <property name="widgetStyle8">default</property>
         <property name="widgetInfoPanel8" tag="property" attribute="name|widgetInfoPanel.7" />
@@ -239,7 +231,7 @@
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName1]" />
             </include>
             <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath1 else 'false']">
-                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle1 in 'details' or 'enabled' in widgetFixedFocus1 else 'panel']" />
+                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle1 in 'details' or 'enabled' or 'landscapewide' in widgetFixedFocus1 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle1]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]510" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName1]" />
@@ -260,7 +252,7 @@
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName2]" />
             </include>
             <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath2 else 'false']">
-                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle2 in 'details' or 'enabled' in widgetFixedFocus2 else 'panel']" />
+                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle2 in 'details' or 'enabled' or 'landscapewide' in widgetFixedFocus2 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle2]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]520" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName2]" />
@@ -281,7 +273,7 @@
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName3]" />
             </include>
             <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath3 else 'false']">
-                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle3 in 'details' or 'enabled' in widgetFixedFocus3 else 'panel']" />
+                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle3 in 'details' or 'enabled' or 'landscapewide' in widgetFixedFocus3 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle3]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]530" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName3]" />
@@ -302,7 +294,7 @@
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName4]" />
             </include>
             <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath4 else 'false']">
-                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle4 in 'details' or 'enabled' in widgetFixedFocus4 else 'panel']" />
+                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle4 in 'details' or 'enabled' or 'landscapewide' in widgetFixedFocus4 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle4]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]540" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName4]" />
@@ -323,7 +315,7 @@
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName5]" />
             </include>
             <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath5 else 'false']">
-                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle5 in 'details' or 'enabled' in widgetFixedFocus5 else 'panel']" />
+                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle5 in 'details' or 'enabled' or 'landscapewide' in widgetFixedFocus5 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle5]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]550" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName5]" />
@@ -344,7 +336,7 @@
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName6]" />
             </include>
             <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath6 else 'false']">
-                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle6 in 'details' or 'enabled' in widgetFixedFocus6 else 'panel']" />
+                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle6 in 'details' or 'enabled' or 'landscapewide' in widgetFixedFocus6 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle6]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]560" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName6]" />
@@ -365,7 +357,7 @@
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName7]" />
             </include>
             <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath7 else 'false']">
-                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle7 in 'details' or 'enabled' in widgetFixedFocus7 else 'panel']" />
+                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle7 in 'details' or 'enabled' or 'landscapewide' in widgetFixedFocus7 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle7]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]570" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName7]" />
@@ -386,7 +378,7 @@
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName8]" />
             </include>
             <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath8 else 'false']">
-                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle8 in 'details' or 'enabled' in widgetFixedFocus8 else 'panel']" />
+                <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle8 in 'details' or 'enabled' or 'landscapewide' in widgetFixedFocus8 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle8]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]580" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName8]" />

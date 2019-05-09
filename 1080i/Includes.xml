@@ -539,7 +539,7 @@
             <textoffsetx>10</textoffsetx>
             <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[31675],property=widgetTags$PARAM[widgetprop],setting=Widgets_DisplayTags)</onclick>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
-            <!-- <visible>!String.EndsWith(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),box) + ![String.IsEmpty(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop])) + String.Contains(Skin.String(widgetstyle),box)]</visible> -->
+            <visible>![String.EndsWith(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),box) | String.EndsWith(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),circle)] + ![String.IsEmpty(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop])) + String.Contains(Skin.String(widgetstyle),box) | String.Contains(Skin.String(widgetstyle),circle)]</visible>
         </control>
         <control type="radiobutton" id="900$PARAM[widgetpos]6"> 
             <description>widget force refresh</description>
@@ -594,7 +594,7 @@
             <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled)">SetProperty(customProperty, widgetFixedFocus$PARAM[widgetprop])</onclick>
             <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled)">SetProperty(customValue, "")</onclick>
             <onclick>SendClick(404)</onclick>
-            <selected>String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled) | String.Contains(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),details) | String.Contains(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),landscapewidebox)</selected>
+            <selected>String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled) | String.Contains(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),details) | String.Contains(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),landscapewide)</selected>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
         </control>
     </include>

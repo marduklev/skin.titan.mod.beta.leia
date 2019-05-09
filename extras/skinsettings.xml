@@ -163,7 +163,7 @@
     <setting id="widgetstyle" value="landscapedetails" label="Landscape Details" condition="!Skin.String(HomeLayout,win10)" icon="special://skin/extras/viewthumbs/widget_landscapedetails.jpg" description=""/>
 	<setting id="widgetstyle" value="circle" label="Circle" condition="!Skin.String(HomeLayout,win10)" icon="special://skin/extras/viewthumbs/widget_circle.jpg" description=""/>
 	<setting id="widgetstyle" value="posterdetails" label="Poster Details" condition="!Skin.String(HomeLayout,win10)" icon="special://skin/extras/viewthumbs/widget_posterdetails.jpg" description=""/>
-	<setting id="widgetstyle" value="landscapewidebox" label="Landscape Widebox" condition="!Skin.String(HomeLayout,win10)" icon="special://skin/extras/viewthumbs/widget_landscapewidebox.jpg" description=""/>
+	<setting id="widgetstyle" value="landscapewide" label="Landscape Wide" condition="!Skin.String(HomeLayout,win10)" icon="special://skin/extras/viewthumbs/widget_landscapewide.jpg" description=""/>
 
 	<!-- media flags -->
     <setting id="mediaflagsstyle" value="classic" label="Classic" condition="" icon="special://skin/extras/viewthumbs/flags_classic.jpg" description="">

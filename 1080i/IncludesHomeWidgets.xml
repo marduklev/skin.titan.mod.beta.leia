@@ -440,12 +440,12 @@
 				<control type="image">
 					<include>DetailsWidgets_FocusAnim</include>
 					<texture border="5">diffuse/panel.png</texture>
-					<colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
+					<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 				</control>
 				<control type="image">
 					<include>DetailsWidgets_FocusAnim</include>
 					<texture border="5">diffuse/thinborder.png</texture>
-					<colordiffuse>$INFO[Skin.String(HomeViewDetailsBorderFocusColor)]</colordiffuse>
+					<colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
 				</control>
 				<!-- poster image -->
 				<control type="group">
@@ -453,12 +453,14 @@
 					<top>5</top>
 					<width>250</width>
 					<height>370</height>
+					<!-- check- border needed? -->
 					<include content="PosterPanelLayout">
 						<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
 						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 						<param name="border" value="thumbsborder_unfocused" />
 					</include>
 				</control>
+				<!-- check, layout generel, no artwork frame  -->
 				<control type="textbox">
 					<include>DetailsWidgets_FocusAnim</include>
 					<left>260</left>
@@ -1194,7 +1196,7 @@
         </focusedlayout>
     </include>
     
-	<!-- widget Netflix Widebox Landscape layout -->
+	<!-- widget Netflix Wide(box) Landscape layout -->
     <include name="widget_layout_landscapewide">
 		<include condition="$PARAM[multiRows]" name="height" content="height">
             <param name="height" value="480" />
@@ -1258,24 +1260,13 @@
             <control type="group">
 				<width>714</width>
                 <height>420</height>
-                <animation effect="zoom" start="30,100" end="100,100" time="200" center="auto" tween="quadratic" easing="out" reversible="false">Focus</animation>
-                <control type="image">
-					<left>-1.5</left>
-					<top>-2</top>
-					<width>100.5%</width>
-					<height>101%</height>
-                    <!--Panel Normal-->
-                    <texture background="true">home/home_matte2.png</texture>
-                    <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-					<include condition="Skin.String(thumbsborder_focused, 0)">thumbborder_0</include>
-                    <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
-                    <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
-                    <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
-                </control>
-                <!-- check, merge with thumb sometime -->
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" start="30,100" end="100,100" time="200" center="auto" tween="quadratic" easing="out" />
+				</animation>
+				<!-- check, merge with thumb sometime -->
 				<include content="LandscapeLayout">
-					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
-					<param name="border" value="thumbsborder_unfocused" />
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
 				</include>
                 <control type="group">
 					<include>$PARAM[widgetTags]</include>

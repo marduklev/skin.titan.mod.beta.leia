@@ -164,7 +164,7 @@
     </include>
 
     <include name="disabledFanart">
-        <!-- disabled fanart per view -->
+        <!-- disabled fanart per view check, why and-ing instead or-ing, also why not use EXP instead of include call -->
         <visible>
             ![Control.IsVisible(10) + Skin.HasSetting(View10_DisableFanArt)] + 
             ![Control.IsVisible(50) + Skin.HasSetting(View50_DisableFanArt)] + 

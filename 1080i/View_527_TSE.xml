@@ -315,7 +315,7 @@
 						<control type="image">
 							<visible>Control.HasFocus(5027) | Control.HasFocus(5127)</visible>
 							<include content="PosterThumb">
-								<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+								<param name="colordiffuse" value="$VAR[NetflixViewDetailsBorderFocusColor]" />
 							</include>
 							<include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
 							<include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
@@ -344,10 +344,11 @@
 						<top>20</top>
 						<width>218</width>
 						<height>312</height>
-						<animation effect="fade" start="0" end="60" time="0" reversible="false" condition="true">Conditional</animation>
+						<!-- <animation effect="fade" start="0" end="40" time="0" reversible="false" condition="!Control.HasFocus(5027) | !Control.HasFocus(5127)">Conditional</animation> -->
 						<control type="image">
+							<visible>Control.HasFocus(5027) | Control.HasFocus(5127)</visible>
 							<include content="PosterThumb">
-								<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]"/>
+								<param name="colordiffuse" value="None"/>
 							</include>
 							<include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
 							<include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>

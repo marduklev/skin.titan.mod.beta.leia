@@ -102,7 +102,7 @@
 					<height>820</height>
 					<width>1820</width>
 					<texture border="15">diffuse/bgpanel.png</texture>
-					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+					<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 				</control>
 				<!--Info-->
 				<control type="grouplist">

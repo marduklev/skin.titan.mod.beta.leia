@@ -3597,7 +3597,7 @@
                         <posy>0</posy>
                         <texture border="5">diffuse/panel.png</texture>
                         <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
-                    </control>
+					</control>
                     <!--Title-->
                     <control type="label">
                         <posx>100</posx>

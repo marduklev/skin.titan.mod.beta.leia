@@ -4,6 +4,7 @@
 	<!-- THUMB LAYOUT -->
 	<include name="ThumbsViewLayout">
         <control type="image">
+			<visible>!String.EndsWith(Window(Home).Property(widgetstyle),details)</visible>
             <texture background="true">home/home_matte2.png</texture>
             <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
             <include condition="Skin.String($PARAM[border], 0)">thumbborder_0</include>
@@ -195,6 +196,7 @@
 	<!-- POSTER LAYOUT -->
 	<include name="PosterPanelLayout">
 		<control type="image">
+			<visible>!String.EndsWith(Window(Home).Property(widgetstyle),details)</visible>
 			<animation effect="zoom" end="102,102" time="0" condition="Skin.HasSetting(CaseOverlays)">Conditional</animation>
 			<texture border="0">diffuse/poster.png</texture>
 			<colordiffuse>$PARAM[colordiffuse]</colordiffuse>

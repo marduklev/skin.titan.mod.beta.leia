@@ -375,7 +375,7 @@
 				<width>382</width>
 				<height>224</height>
 				<include content="ThumbsViewLayout">
-					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="colordiffuse" value="none" />
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
 				<animation effect="fade" start="100" end="20" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>

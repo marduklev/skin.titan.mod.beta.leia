@@ -24,7 +24,6 @@
                 <width>1030</width>
                 <height>730</height>
                 <texture border="15">diffuse/bgpanel.png</texture>
-				<!-- <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse> -->
 				<colordiffuse>$INFO[Skin.String(DialogFrameColor)]</colordiffuse>
             </control>
 			<control type="image">

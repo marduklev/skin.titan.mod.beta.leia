@@ -192,7 +192,7 @@
 					<width>550</width>
 					<height>830</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
-					<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+					<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 					<animation effect="slide" center="auto" end="1350,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 				</control>
 				<control type="image">

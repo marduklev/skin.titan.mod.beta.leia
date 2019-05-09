@@ -27,7 +27,7 @@
                             <height>330</height>
                             <control type="image">
                                 <texture>diffuse/wide.png</texture>
-                                <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                                 <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
@@ -89,7 +89,7 @@
                             <height>330</height>
                             <control type="image">
                                 <texture>diffuse/wide.png</texture>
-                                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+                                <colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
                                 <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
@@ -152,7 +152,7 @@
                             <height>330</height>
                             <control type="image">
                                 <texture>diffuse/wide.png</texture>
-                                <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                                 <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
@@ -214,7 +214,7 @@
                             <height>330</height>
 							<control type="image">
                                 <texture>diffuse/wide.png</texture>
-                                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+                                <colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
                                 <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>

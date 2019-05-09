@@ -54,7 +54,7 @@
 			<posy>0</posy>
 			<height>115</height>
 			<texture border="5">diffuse/panel.png</texture>
-			<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+			<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 			
 		</control>
 		<!--Title-->
@@ -144,7 +144,7 @@
 			<posx>0</posx>
 			<posy>0</posy>
 			<texture border="5">diffuse/panel.png</texture>
-			<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+			<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 			
 		</control>
 		<!--Title-->
@@ -196,7 +196,7 @@
 				<posx>50</posx>
 				<width>1820</width>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+				<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 				<visible>!Skin.HasSetting(View515_HidePanel)</visible>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
 			</control>
@@ -204,7 +204,7 @@
 				<posx>1200</posx>
 				<width>670</width>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+				<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 				<visible>!Skin.HasSetting(View515_HidePanel)</visible>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
 			</control>
@@ -248,7 +248,7 @@
                         <height>160</height>
                         <control type="image">
                             <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                            <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                             <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
                             <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
                             <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>

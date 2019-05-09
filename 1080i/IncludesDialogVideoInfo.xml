@@ -15,10 +15,10 @@
 					<posx>40</posx>
 					<posy>145</posy>
 					<width>1820</width>
-					<height>86%</height>
+					<height>80%</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
                     <visible>!Skin.HasSetting(DialogVideoInfoHidePanel)</visible>
-					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+					<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 				</control>
                 
                 <!-- clearlogo at top left-->
@@ -284,11 +284,11 @@
 							<height>40</height>
 							<align>center</align>
 							<textoffsetx>0</textoffsetx>
-							<onclick>Dialog.Close(DialogVideoInfo.xml)</onclick>
-                            <visible>Skin.HasSetting(videoinfo_button_play)</visible>
+							<visible>Skin.HasSetting(videoinfo_button_play) + !String.IsEpmty(ListItem.Dbid)</visible>
 							<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
+							<!-- check, need netflix videoaddon workaround -->
 						</control>
-						
+						<!-- check, need netflix videoaddon workaround -->
 						<control type="button" id="9">
 							<!--Resume-->
 							<label>13404</label>
@@ -296,8 +296,7 @@
 							<height>40</height>
 							<align>center</align>
 							<textoffsetx>0</textoffsetx>
-							<visible>ListItem.IsResumable</visible>
-                            <visible>Skin.HasSetting(videoinfo_button_play)</visible>
+							<visible>Skin.HasSetting(videoinfo_button_play) + ListItem.IsResumable</visible>
 							<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 						</control>
 						

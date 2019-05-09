@@ -30,17 +30,20 @@
                 <control type="image">
                     <texture border="15">diffuse/bgpanel.png</texture>
                     <visible>!Skin.HasSetting(HideWidgetPanelBackground)</visible>
-                    <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse> <!-- $INFO[Skin.String(ViewDetailsPanelColor)] -->
+                    <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                     <aspectratio>stretch</aspectratio>
-                    <height>180</height>
+                    <width>1930</width>
+					<height>180</height>
                     <visible>!Skin.HasSetting(LargeWidgetDetailsPanel)</visible>
                 </control>
                 <control type="image">
 					<texture border="15">diffuse/bgpanel.png</texture>
                     <visible>!Skin.HasSetting(HideWidgetPanelBackground)</visible>
-                    <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+                    <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                     <aspectratio>stretch</aspectratio>
-                    <height>100%</height>
+                    <left>-90</left>
+					<width>1910</width>
+					<height>100%</height>
                     <visible>Skin.HasSetting(LargeWidgetDetailsPanel)</visible>
                 </control>
                 <control type="label">

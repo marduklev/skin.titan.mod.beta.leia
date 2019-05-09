@@ -18,6 +18,7 @@
 		<!-- itemlayout -->
 		<include name="Tag_NF">
 			<control type="textbox">
+				<visible>$EXP[Notag_NetflixHome]</visible>
 				<width>$PARAM[tagwidth]</width>
 				<top>$PARAM[tagtop]</top>
 				<left>5</left>
@@ -38,7 +39,7 @@
 		-->
 		<include name="Tag_FO">
 			<control type="textbox">
-				
+				<visible>$EXP[Notag_NetflixHome]</visible>
 				<width>$PARAM[tagwidth]</width>
 				<top>$PARAM[tagtop]</top>
 				<height>45</height>

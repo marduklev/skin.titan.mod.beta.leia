@@ -76,7 +76,7 @@
 					<height>67%</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
                     <visible>!Skin.HasSetting(DialogVideoInfoHidePanel)</visible>
-					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+					<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 				</control>
 				
 				<control type="group">

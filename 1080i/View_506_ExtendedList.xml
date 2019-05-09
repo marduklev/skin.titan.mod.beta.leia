@@ -42,7 +42,7 @@
 							<width>443</width>
 							<height>765</height>
 							<texture border="15">diffuse/bgpanel.png</texture>
-							<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+							<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 						</control>
 						
 						<control type="image">
@@ -110,7 +110,7 @@
 							<width>443</width>
 							<height>765</height>
 							<texture border="15">diffuse/bgpanel.png</texture>
-							<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+							<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 						</control>
 						
 						<control type="image">

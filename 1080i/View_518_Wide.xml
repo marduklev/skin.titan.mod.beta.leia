@@ -40,7 +40,7 @@
                             <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
                             <control type="image">
                                 <texture border="5">diffuse/wide.png</texture>
-                                <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                                 <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
@@ -106,7 +106,7 @@
                             <height>310</height>
 							<control type="image">
                                 <texture border="5">diffuse/wide.png</texture>
-                                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse> <!-- merge <colordiffuse>b3ffffff</colordiffuse>  , change to hardcoded, def ia also for focused in views-->
+                                <colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse> <!-- merge <colordiffuse>b3ffffff</colordiffuse>  , change to hardcoded, def ia also for focused in views-->
                                 <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
                                 <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>

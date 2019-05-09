@@ -112,7 +112,7 @@
                     <width>800</width>
                     <left>70</left>
                     <top>20</top>
-                    <font>Header30</font>
+                    <font>Title_Header70</font>
                     <align>left</align>
                     <aligny>center</aligny>
                     <label>$INFO[ListItem.Title,[B],[/B]]</label>
@@ -302,7 +302,7 @@
 							<bottom>-200</bottom>
 							<include content="PosterPanelLayout">
 								<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
-								<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsPanelColor)]" />
+								<param name="colordiffuse" value="$VAR[NetflixViewDetailsPanelColor]" />
 								<param name="border" value="thumbsborder_unfocused" />
 							</include>
 						</control>	   
@@ -323,7 +323,7 @@
 						<bottom>-100</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 					</control>
@@ -400,7 +400,7 @@
 						<bottom>-200</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 						<animation effect="zoom" end="112,112" center="auto" time="150">focus</animation>
@@ -457,7 +457,7 @@
 						<bottom>-180</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 					</control>
@@ -503,7 +503,7 @@
 						<bottom>-150</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 					</control>
@@ -549,7 +549,7 @@
 						<bottom>-130</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 					</control>
@@ -595,7 +595,7 @@
 						<bottom>-130</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 					</control>
@@ -641,7 +641,7 @@
 						<bottom>-130</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 					</control>
@@ -687,7 +687,7 @@
 						<bottom>-230</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
-							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 					</control>

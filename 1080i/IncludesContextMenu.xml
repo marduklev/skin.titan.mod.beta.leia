@@ -848,7 +848,7 @@
 		</control>
 		
 		<control type="radiobutton" id="19001">
-			<!--Disable fanart-->
+			<!--Disable fanart -->
 			<include>SideBladeMenuButton</include>
 			<label>31268</label>
             <onclick condition="Control.IsVisible(10)">Skin.ToggleSetting(View10_DisableFanArt)</onclick>
@@ -890,8 +890,7 @@
             [Skin.HasSetting(View57_DisableFanArt) + Control.IsVisible(57)] |
             [Skin.HasSetting(View58_DisableFanArt) + Control.IsVisible(58)] |
             [Skin.HasSetting(View59_DisableFanArt) + Control.IsVisible(59)] |
-            [Skin.HasSetting(View524_DisableFanArt) + Control.IsVisible(524)] |
-            [Skin.HasSetting(View501_DisableFanArt) + Control.IsVisible(501)] |
+			[Skin.HasSetting(View501_DisableFanArt) + Control.IsVisible(501)] |
             [Skin.HasSetting(View502_DisableFanArt) + Control.IsVisible(502)] |
             [Skin.HasSetting(View505_DisableFanArt) + Control.IsVisible(505)] |
             [Skin.HasSetting(View506_DisableFanArt) + Control.IsVisible(506)] |
@@ -903,8 +902,9 @@
             [Skin.HasSetting(View512_DisableFanArt) + Control.IsVisible(512)] |
             [Skin.HasSetting(View513_DisableFanArt) + Control.IsVisible(513)] |
             [Skin.HasSetting(View514_DisableFanArt) + Control.IsVisible(514)] |
-            [Skin.HasSetting(View515_DisableFanArt) + Control.IsVisible(515)] |
-			[Skin.HasSetting(View526_DisableFanArt) + Control.IsVisible(526)] |
+            [Skin.HasSetting(View515_DisableFanArt) + Control.IsVisible(515)] | 
+			[Skin.HasSetting(View524_DisableFanArt) + Control.IsVisible(524)] |
+            [Skin.HasSetting(View526_DisableFanArt) + Control.IsVisible(526)] |
 			[Skin.HasSetting(View527_DisableFanArt) + Control.IsVisible(527)]													 
             </selected>
 			<visible>Skin.HasSetting(ShowFanartBackground) + !String.IsEmpty(ListItem.Art(FanArt))</visible>

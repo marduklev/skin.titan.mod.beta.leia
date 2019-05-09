@@ -16,7 +16,7 @@
                 <bottom>13%</bottom>
                 <height>736</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+				<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                 <visible>!Skin.HasSetting(View522_HidePanel)</visible>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
 			</control>
@@ -67,7 +67,7 @@
 						<height>86</height>
 						<width>100%</width>
 						<texture border="5">diffuse/panel.png</texture>
-						<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 					</control>
                     <control type="label">
                         <!--Label 1-->

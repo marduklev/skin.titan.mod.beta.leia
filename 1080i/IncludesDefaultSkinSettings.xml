@@ -23,6 +23,7 @@
 		<!-- <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DetailsShowFanart)</onload> -->
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View502_ShowCDart)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View514_ShowCDart)</onload>
+		<!-- new setting - submenu widget layout - vertical home - 23721 - WIP -->
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View513_ShowCDart)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View508_ShowCDart)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View58_ShowCDart)</onload>
@@ -243,6 +244,8 @@
         <onload condition="!Skin.String(ViewDetailsFocusColor.name)">Skin.SetString(ViewDetailsFocusColor.name, mainblue)</onload>
 		<onload condition="!Skin.String(ViewDetailsBGColor)">Skin.SetString(ViewDetailsBGColor, ff000000)</onload>
         <onload condition="!Skin.String(ViewDetailsBGColor.name)">Skin.SetString(ViewDetailsBGColor.name, default)</onload>
+		<onload condition="!Skin.String(ViewListAndDetailPanelColorNF)">Skin.SetString(ViewListAndDetailPanelColorNF, 3c373737)</onload>
+        <onload condition="!Skin.String(ViewListAndDetailPanelColorNF.name)">Skin.SetString(ViewListAndDetailPanelColorNF.name, default)</onload>
 		<onload condition="!Skin.String(ViewDetailsTextColor)">Skin.SetString(ViewDetailsTextColor,ffffffff)</onload>
         <onload condition="!Skin.String(ViewDetailsTextColor.name)">Skin.SetString(ViewDetailsTextColor.name, white)</onload>
         <onload condition="!Skin.String(ViewDetailsTextShadowColor)">Skin.SetString(ViewDetailsTextShadowColor, None)</onload>

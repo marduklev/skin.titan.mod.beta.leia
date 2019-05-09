@@ -90,7 +90,7 @@
 			<posx>0</posx>
 			<posy>0</posy>
 			<texture border="5">diffuse/panel.png</texture>
-			<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+			<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 			
 		</control>
 		<!--Title-->
@@ -190,7 +190,7 @@
 				<width>1180</width>
                 <height>736</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+				<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 				<visible>!Skin.HasSetting(View516_HidePanel) + Skin.HasSetting(SlimListViewShowInfo)</visible>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
                 <animation effect="slide" end="-637" time="0" condition="Skin.HasSetting(View516_ShowInfoRight) + Skin.HasSetting(SlimListViewShowInfo)">Conditional</animation>
@@ -201,7 +201,7 @@
 				<width>1302</width>
                 <height>736</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+				<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 				<visible>!Skin.HasSetting(View516_HidePanel) + !Skin.HasSetting(SlimListViewShowInfo)</visible>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
                 <animation effect="slide" end="-627" time="0" condition="Skin.HasSetting(View516_ShowInfoRight) + Skin.HasSetting(SlimListViewShowInfo)">Conditional</animation>

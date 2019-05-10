@@ -24,7 +24,7 @@
         <pagecontrol>60</pagecontrol>
         <animation effect="slide" end="0,80" time="0" condition="skin.hassetting(nofooterbar) + String.IsEqual(Skin.AspectRatio,16:10)">Conditional</animation>
 		<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),519) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-        <itemlayout height="352" width="238">
+        <itemlayout height="352" width="238" condition="!Skin.HasSetting(View519_ShowTags)">
           <control type="group">
             <width>236</width>
             <height>350</height>
@@ -35,7 +35,7 @@
 			</include>
           </control>
         </itemlayout>
-        <focusedlayout height="252" width="238">
+        <focusedlayout height="352" width="238" condition="!Skin.HasSetting(View519_ShowTags)">
           <control type="group">
             <width>236</width>
             <height>350</height>
@@ -43,6 +43,36 @@
 				<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
 				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 				<param name="border" value="thumbsborder_focused" />
+			</include>
+          </control>
+        </focusedlayout>
+		<itemlayout height="352" width="238" condition="Skin.HasSetting(View519_ShowTags)">
+          <control type="group">
+            <width>200</width>
+            <height>300</height>
+			<include content="PosterPanelLayout">
+				<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+				<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+				<param name="border" value="thumbsborder_unfocused" />
+			</include>
+			<include content="Tag_NF">
+				<param name="tagwidth" value="200"/>
+				<param name="tagtop" value="300" />
+			</include>
+          </control>
+        </itemlayout>
+        <focusedlayout height="352" width="238" condition="Skin.HasSetting(View519_ShowTags)">
+          <control type="group">
+            <width>200</width>
+            <height>300</height>
+			<include content="PosterPanelLayout">
+				<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+				<param name="border" value="thumbsborder_focused" />
+			</include>
+			<include content="Tag_FO">
+				<param name="tagwidth" value="200"/>
+				<param name="tagtop" value="300" />
 			</include>
           </control>
         </focusedlayout>

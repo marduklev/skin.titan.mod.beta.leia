@@ -239,8 +239,7 @@
 					<param name="id" value="5003" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -254,8 +253,7 @@
 					<param name="id" value="5003" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -276,8 +274,7 @@
                     <param name="id" value="5017" />
                     <param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -291,8 +288,7 @@
 					<param name="id" value="5017" />
                     <param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -541,8 +537,7 @@
 					<param name="id" value="5004" />
 					<param name="width" value="265" />
 					<param name="height" value="265" />
-					<param name="focusedlayout" value="SquarePosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="SquarePosterPanelLayout" />
+					<param name="layout" value="SquarePosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="750" />
 					<param name="info_plotwidth" value="440" />
@@ -556,8 +551,7 @@
 					<param name="id" value="5004" />
 					<param name="width" value="265" />
 					<param name="height" value="265" />
-					<param name="focusedlayout" value="SquarePosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="SquarePosterPanelLayout" />
+					<param name="layout" value="SquarePosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="750" />
 					<param name="info_plotwidth" value="440" />
@@ -578,8 +572,7 @@
 					<param name="id" value="5005" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -593,8 +586,7 @@
 					<param name="id" value="5005" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -615,8 +607,7 @@
 					<param name="id" value="5006" />
 					<param name="width" value="265" />
 					<param name="height" value="265" />
-					<param name="focusedlayout" value="SquarePosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="SquarePosterPanelLayout" />
+					<param name="layout" value="SquarePosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="750" />
 					<param name="info_plotwidth" value="440" />
@@ -630,8 +621,7 @@
 					<param name="id" value="5006" />
 					<param name="width" value="265" />
 					<param name="height" value="265" />
-					<param name="focusedlayout" value="SquarePosterPanelLayoutFocus" />
-					<param name="unfocusedlayout" value="SquarePosterPanelLayout" />
+					<param name="layout" value="SquarePosterPanelLayout" />
 					<param name="layouticon" value="$VAR[PosterThumb]" />
 					<param name="info_panelwidth" value="750" />
 					<param name="info_plotwidth" value="440" />
@@ -652,8 +642,7 @@
 					<param name="id" value="5015" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -667,8 +656,7 @@
 					<param name="id" value="5015" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -689,8 +677,7 @@
 					<param name="id" value="5016" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -705,8 +692,7 @@
 					<param name="type" value="fixedlist" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -727,8 +713,7 @@
 					<param name="id" value="5018" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -742,8 +727,7 @@
 					<param name="id" value="5018" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -764,8 +748,7 @@
 					<param name="id" value="5009" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -780,8 +763,7 @@
 					<param name="id" value="5009" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -803,8 +785,7 @@
 					<param name="id" value="5014" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />
@@ -818,8 +799,7 @@
 					<param name="id" value="5014" />
 					<param name="width" value="425" />
 					<param name="height" value="250" />
-					<param name="focusedlayout" value="ThumbsViewLayoutFocus" />
-					<param name="unfocusedlayout" value="ThumbsViewLayout" />
+					<param name="layout" value="ThumbsViewLayout" />
 					<param name="layouticon" value="$VAR[LandscapeImage]" />
 					<param name="info_panelwidth" value="900" />
 					<param name="info_plotwidth" value="445" />

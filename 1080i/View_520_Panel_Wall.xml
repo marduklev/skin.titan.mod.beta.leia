@@ -17,7 +17,7 @@
                 <ondown>520</ondown>
                 <onleft>9000</onleft>
                 <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
-        <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+				<onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
                 <pagecontrol>60</pagecontrol>
                 <viewtype label="31423">icons</viewtype>
                 <scrolltime tween="Cubic" easing="inout">500</scrolltime>
@@ -27,7 +27,7 @@
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),520) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <animation effect="slide" end="0,80" time="0" condition="skin.hassetting(nofooterbar) + String.IsEqual(Skin.AspectRatio,16:10)">Conditional</animation>
                 <!-- itemlayout movies -->
-                <itemlayout height="260" width="171">
+                <itemlayout height="260" width="171" condition="!Skin.HasSetting(View520_ShowTags)">
                     <control type="group">
                         <width>169</width>
                         <height>258</height>
@@ -39,14 +39,48 @@
                       </control>
                 </itemlayout>
                 <!-- focussed layout movies -->
-                <focusedlayout height="260" width="171">
+                <focusedlayout height="260" width="171" condition="!Skin.HasSetting(View520_ShowTags)">
                     <control type="group">
+						<include>Focus_Zoom_Animation</include>
                         <width>169</width>
                         <height>258</height>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
+						</include>
+                      </control>
+                </focusedlayout>
+				 <!-- itemlayout movies -->
+                <itemlayout height="350" width="171" condition="Skin.HasSetting(View520_ShowTags)">
+                    <control type="group">
+                        <width>169</width>
+                        <height>258</height>
+						<include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="169"/>
+							<param name="tagtop" value="260" />
+						</include>
+                      </control>
+                </itemlayout>
+                <!-- focussed layout movies -->
+                <focusedlayout height="350" width="171" condition="Skin.HasSetting(View520_ShowTags)">
+                    <control type="group">
+					<include>Focus_Zoom_Animation</include>
+                        <width>169</width>
+                        <height>258</height>
+						<include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="169"/>
+							<param name="tagtop" value="260" />
 						</include>
                       </control>
                 </focusedlayout>

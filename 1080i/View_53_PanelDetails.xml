@@ -4,16 +4,16 @@
   <include name="View_53_PanelDetails">
 	
     <control type="group">
-      <visible>Control.IsVisible(53)</visible>
-      <include>animation_view_change</include>
+		<visible>Control.IsVisible(53)</visible>
+		<include>animation_view_change</include>
       
-    <include>MovieDetailsLeft</include>
+		<include>MovieDetailsLeft</include>
 	  
-	  <control type="panel" id="53">
-                <animation effect="slide" end="-625" time="250" condition="Skin.HasSetting(View53_ShowInfoRight)">Conditional</animation>
+		<control type="panel" id="53">
+				<animation effect="slide" end="-625" time="250" condition="Skin.HasSetting(View53_ShowInfoRight)">Conditional</animation>
                 <right>50</right>
 				<bottom>12%</bottom>
-                <height>744</height>
+                <height>744</height> <!-- cond -->
 				<width>1190</width>
 				<orientation>vertical</orientation>
                 <onup>53</onup>
@@ -27,8 +27,41 @@
                 <focusposition>6</focusposition>
                 <preloaditems>2</preloaditems>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),53) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-               <!-- itemlayout movies -->
-                <itemlayout height="248" width="170" condition="container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)">
+				<itemlayout height="300" width="170" condition="Skin.HasSetting(View53_ShowTags) + [container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)]">
+                    <control type="group">
+                        <width>162</width>
+                        <height>240</height>
+                        <include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
+                    </control>
+					<include content="Tag_NF">
+						<param name="tagwidth" value="162"/>
+						<param name="tagtop" value="245" />
+					</include>
+                </itemlayout>
+                <focusedlayout height="300" width="170" condition="Skin.HasSetting(View53_ShowTags) + [container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)]">
+                    <control type="group">
+                        <include>Focus_Zoom_Animation</include>
+						<width>162</width>
+                        <height>240</height>
+                        <include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
+                        <include>AutoTrailerButton</include>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="162"/>
+							<param name="tagtop" value="243" />
+						</include>
+					</control>
+					
+                </focusedlayout>
+				<!-- itemlayout movies -->
+                <itemlayout height="248" width="170" condition="!Skin.HasSetting(View53_ShowTags) + [container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)]">
                     <control type="group">
                         <width>162</width>
                         <height>240</height>
@@ -40,9 +73,10 @@
                       </control>
                 </itemlayout>
                 <!-- focussed layout movies -->
-                <focusedlayout height="248" width="170" condition="container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)">
+                <focusedlayout height="248" width="170" condition="!Skin.HasSetting(View53_ShowTags) + [container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)]">
                     <control type="group">
-                        <width>162</width>
+                        <include>Focus_Zoom_Animation</include>
+						<width>162</width>
                         <height>240</height>
                         <include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>

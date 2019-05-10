@@ -211,6 +211,8 @@
 		<value condition="String.Contains(Container.FolderPath,movies)">[UPPERCASE]$LOCALIZE[342][/UPPERCASE] $INFO[Container.FolderName,• ,]</value>
 		<value condition="String.Contains(Container.FolderPath,tvshows)">[UPPERCASE]$LOCALIZE[20343][/UPPERCASE] $INFO[Container.FolderName,• ,]</value>
 		
+		<!-- <value condition="Window.IsActive(1100) | Window.IsActive(1101)">TITAN search</value> -->
+		
 		<value condition="Window.IsActive(Videos)">[UPPERCASE]$LOCALIZE[3][/UPPERCASE] $INFO[Container.FolderName,• ,]</value>
         <value condition="Window.IsActive(weather)">[UPPERCASE]$LOCALIZE[8][/UPPERCASE]</value>
         <value condition="Window.IsActive(pictures )">[UPPERCASE]$LOCALIZE[1213][/UPPERCASE]</value>

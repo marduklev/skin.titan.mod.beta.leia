@@ -95,17 +95,19 @@
 					</control> -->
 					<control type="group">
 						<visible>!Skin.HasSetting(search_info_spotlight) + !Skin.HasSetting(search_info_widget)</visible>
-						<width>$PARAM[width]</width>
 						<height>60</height>
-						<top>$PARAM[height]</top>
-						<control type="textbox">
+						<include content="Tag_NF">
+							<param name="tagwidth" value="$PARAM[width]"/>
+							<param name="tagtop" value="$PARAM[height].9" />
+						</include>
+						<!-- <control type="textbox">
 							<align>center</align>
 							<label>$VAR[ThumbListDetails]</label>
 							<font>Reg20</font>
 							<autoscroll>false</autoscroll>
 							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-						</control>
+						</control> -->
 					</control>
 				</control>
 				
@@ -135,26 +137,14 @@
 							<param name="border" value="thumbsborder_unfocused" />
 						</include>
 					</control>
-					<!-- <control type="image">
-						<width>200</width>
-						<height>100</height>
-						<bottom>7</bottom>
-						<left>15</left>
-						<texture background="true">$VAR[ClearLogoFallback]</texture>
-						<aspectratio align="left" aligny="bottom">keep</aspectratio>
-						<visible>String.IsEqual(ListItem.DBTYPE,episode)</visible>
-					</control> -->
-					<control type="textbox">
+					
+					<control type="group">
 						<visible>!Skin.HasSetting(search_info_spotlight) + !Skin.HasSetting(search_info_widget)</visible>
-						<width>$PARAM[width]</width>
 						<height>60</height>
-						<top>$PARAM[height]</top>
-						<align>center</align>
-						<label>$VAR[ThumbListDetails]</label>
-						<font>Reg20</font>
-						<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
-						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="$PARAM[width]"/>
+							<param name="tagtop" value="$PARAM[height]" />
+						</include>
 					</control>
 				</control>
 				

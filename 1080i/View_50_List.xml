@@ -491,16 +491,15 @@
                         <width>680</width>
                         <height>138</height>
                         <right>90</right>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
-                        </control>
-                        <include>BannerLayout</include>
+                        <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="650"/>
+							<param name="tagtop" value="146" />
+						</include>
 					</control>
                 </itemlayout>
                 <focusedlayout height="138" width="1900" condition="Skin.HasSetting(View50_ShowBanners) + container.content(tvshows)">
@@ -508,15 +507,15 @@
                         <width>680</width>
                         <height>138</height>
                         <right>90</right>
-						<control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
-                            <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
-                            <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
-                        </control>
-                        <include>BannerLayout</include>
+						<include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="650"/>
+							<param name="tagtop" value="146" />
+						</include>
 					</control>
 					
                 </focusedlayout>

@@ -10,7 +10,7 @@
     <include name="Header_Normal">
         <!-- Header Normal -->
         <control type="group">
-            <visible>![Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | [Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)]]</visible>
+            <visible>![Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(520) |  Control.IsVisible(519) | [Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)]]</visible>
 			<visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(77551) + !Control.IsVisible(88888) + !Control.IsVisible(88883)</visible>
             <visible>![[String.Contains(Skin.String(HomeLayout), 2) | String.Contains(Skin.String(HomeLayout), 1)] + !Skin.HasSetting(AutoShowWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show) + Skin.HasSetting(HideWidgetDetailsPanel)]</visible>
             <!-- header panel -->
@@ -18,7 +18,7 @@
 				<posx>0</posx>
 				<posy>-5</posy>
 				<width>100%</width>
-				<height>145</height>
+				<height>125</height>
 				<texture border="5">diffuse/panel.png</texture>
 				<colordiffuse>$INFO[Skin.String(HeaderPanelColor)]</colordiffuse>
                 <include condition="!Skin.HasSetting(LowPerformanceMode)">animation_fade_visible</include>
@@ -97,7 +97,7 @@
     <include name="Header_Compact">
         <!-- Header Compact -->
         <control type="group">
-			<visible>![Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | [Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)]]</visible>
+			<visible>![Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(520) | Control.IsVisible(519) | [Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)]]</visible>
             <visible>Skin.HasSetting(CompactHeader)</visible>
             <include condition="!Skin.HasSetting(LowPerformanceMode)">animation_fade_visible</include>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(77551) + !Control.IsVisible(88888) + !Control.IsVisible(88883)</visible>
@@ -206,9 +206,6 @@
                 <visible>![Window.IsActive(volumebar) | Control.IsVisible(881) | Control.IsVisible(77551)]</visible>
                 <visible>[!Window.IsActive(Home) + String.Contains(Skin.String(general_header),-weathclock)] | [Window.IsActive(Home) + String.Contains(Skin.String(home_header),-weathclock)]</visible>
             </control>
-            
-            <!-- Title for square submenu -->
-            <include condition="String.Contains(Skin.String(HomeLayout),ver)">SquareSubmenuHeaderCompact</include>
             
         </control>
 
@@ -324,7 +321,7 @@
             </control>
             <control type="label">
                 <posx>61</posx>
-                <posy>0</posy>
+                <posy>-5</posy>
                 <width min="80" max="1400">auto</width>
                 <height>100</height>
                 <font>Bold45</font>
@@ -336,7 +333,7 @@
             </control>
              <control type="label">
                 <visible>!skin.hastheme(classic)</visible>
-                <posy>75</posy>
+                <posy>65</posy>
                 <posx>61</posx>
                 <width min="0" max="1400">auto</width>
                 <height>50</height>
@@ -346,19 +343,48 @@
                 <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
             </control>
         </control>
-
+		<!-- check temp, put in var -->
+		<control type="group">
+			<visible>Window.IsActive(1100)</visible>
+				<control type="label">
+                <posx>61</posx>
+                <posy>0</posy>
+                <width min="80" max="1400">auto</width>
+                <height>100</height>
+                <font>Bold45</font>
+				<align>left</align>
+                <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
+                <label>TITAN search</label>
+                <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
+                <animation effect="slide" end="80,15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
+            </control>
+            <control type="label">
+                <posy>70</posy>
+                <posx>61</posx>
+                <width min="0" max="1400">auto</width>
+                <height>50</height>
+                <label>[COLOR=$INFO[Skin.String(HeaderTextColor)]]Searchterm is[/COLOR] $INFO[Skin.String(SearchTerm), &quot; [B],[/B] &quot;]</label>
+                <font>Reg28</font>
+                <textcolor>$INFO[Skin.String(SecondaryHeaderTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
+            </control>
+		</control>
     </include>
         
 	<include name="ClearLogo">
+	
+		<!-- check, recode, using params, -->
+	
 		<!--clearlogo top right-->
 		<control type="image" id="881">
 			<right>60</right>
 			<top>10</top>
-			<width>550</width>
-			<height>130</height>
-			<fadetime>600</fadetime>
-			<aspectratio align="right" aligny="center">keep</aspectratio>
+			<width>300</width>
+			<height>80</height>
+			<fadetime>200</fadetime>
+			<aspectratio>keep</aspectratio>
 			<texture background="true">$VAR[ListItemClearLogo]</texture>
+			<visible>!Control.IsVisible(507)</visible>
 			<visible>!Window.IsActive(1100)</visible>
 			<visible>!String.IsEmpty(Control.GetLabel(881)) + Skin.String(ClearLogoLocation, topright)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
@@ -371,26 +397,29 @@
 		<control type="image" id="882">
 			<left>60</left>
 			<top>10</top>
-			<width>550</width>
-			<height>130</height>
-			<fadetime>600</fadetime>
-			<aspectratio align="left" aligny="center">keep</aspectratio>
+			<width>300</width>
+			<height>80</height>
+			<fadetime>200</fadetime>
+			<aspectratio>keep</aspectratio>
 			<texture background="true">$VAR[ListItemClearLogo]</texture>
 			<visible>!Window.IsActive(1100)</visible>
+			<visible>!Control.IsVisible(507)</visible>
 			<visible>!String.IsEmpty(Control.GetLabel(882)) + Skin.String(ClearLogoLocation, topleft)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
 		</control>
 		
 		<!--clearlogo top center-->
 		<control type="image" id="883">
-			<left>760</left>
+			<left>780</left>
 			<top>10</top>
-			<width>400</width>
-			<height>130</height>
+			<width>300</width>
+			<height>80</height>
+			<fadetime>200</fadetime>
+			<aspectratio>keep</aspectratio>
 			<fadetime>600</fadetime>
-			<aspectratio align="center" aligny="center">keep</aspectratio>
 			<texture background="true">$VAR[ListItemClearLogo]</texture>
             <visible>!Window.IsActive(1100)</visible>
+			<visible>!Control.IsVisible(507)</visible>
 			<visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
             <visible>![Skin.String(View514_DisplayInfo,small) + Control.IsVisible(514)] + ![Control.IsVisible(514) + Skin.String(View514_DisplayInfo,small_delayed) + System.IdleTime(3)]</visible>
             <visible>![Skin.String(View513_DisplayInfo,small) + Control.IsVisible(513)] + ![Control.IsVisible(513) + Skin.String(View513_DisplayInfo,small_delayed) + System.IdleTime(3)]</visible>
@@ -440,7 +469,7 @@
             <!--Time-->
             <control type="label">
                 <right>60</right>
-                <posy>0</posy>
+                <posy>-10</posy>
                 <width>600</width>
                 <height>100</height>
                 <align>right</align>
@@ -453,7 +482,7 @@
             <control type="label">
                 <right>60</right>
                 <align>right</align>
-                <posy>75</posy>
+                <posy>65</posy>
                 <width>800</width>
                 <height>50</height>
                 <info>System.Date()</info>
@@ -464,39 +493,7 @@
         </control>
 	</include>
     
-    <include name="SquareSubmenuHeader">
-        <!--Time-->
-        <control type="label" id="14446">
-            <right>60</right>
-            <posy>0</posy>
-            <width>600</width>
-            <height>100</height>
-            <align>right</align>
-            <info>Container(4446).ListItem.Label</info>
-            <font>Bold55</font>
-            <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
-            <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
-            <visible>!String.IsEmpty(Control.GetLabel(14446)) + Control.HasFocus(4446)</visible>
-            <include condition="!Skin.HasSetting(LowPerformanceMode)">animation_fade_visible</include>
-        </control>
-	</include>
-    <include name="SquareSubmenuHeaderCompact">
-        <!--Time-->
-        <control type="label" id="14446">
-            <right>60</right>
-            <posy>0</posy>
-            <width>600</width>
-            <height>100</height>
-            <align>right</align>
-            <info>Container(4446).ListItem.Label</info>
-            <font>Bold30</font>
-            <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
-            <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
-            <visible>!String.IsEmpty(Control.GetLabel(14446)) + Control.HasFocus(4446)</visible>
-            <include condition="!Skin.HasSetting(LowPerformanceMode)">animation_fade_visible</include>
-        </control>
-	</include>
-    
+            
     <include name="TimeInfoCompact">
         <control type="group">
             <control type="label">
@@ -525,7 +522,7 @@
 	<include name="ProfileInfo">
 		<control type="group" id="891">
 			<defaultcontrol>890</defaultcontrol>
-			<posy>15</posy>
+			<posy>5</posy>
             <width>150</width>
             <height>110</height>
             <width>150</width>
@@ -609,7 +606,7 @@
         <!-- weather info -->
         <control type="group" id="667711">
             <posx>30</posx>
-            <posy>10</posy>
+            <posy>0</posy>
             <width>350</width>
             <height>300</height>
             <visible>!String.IsEmpty(Window(Weather).Property(Current.FanartCode)) + Skin.String(WeatherIconPack.path)</visible>
@@ -809,7 +806,7 @@
             <control type="grouplist">
                 <!--Time Grouplist Line 1-->
                 <right>190</right>
-                <posy>0</posy>
+                <posy>-10</posy>
                 <width>600</width>
                 <height>100</height>
                 <align>right</align>
@@ -849,7 +846,7 @@
             <control type="label">
                 <!--weather info-->
                 <right>190</right>
-                <posy>75</posy>
+                <posy>65</posy>
                 <width>600</width>
                 <height>50</height>
                 <align>right</align>
@@ -866,7 +863,7 @@
             <width>125</width>
             <height>125</height>
             <right>40</right>
-            <posy>10</posy>
+            <posy>0</posy>
             <aspectratio align="right" aligny="bottom">keep</aspectratio>
             <visible>!String.IsEmpty(Window(Weather).Property(Current.FanartCode)) + Skin.String(WeatherIconPack.path)</visible>
         </control>
@@ -876,7 +873,7 @@
 			<width>125</width>
 			<height>125</height>
 			<right>40</right>
-			<posy>10</posy>
+			<posy>0</posy>
 			<aspectratio align="right" aligny="bottom">keep</aspectratio>
 			<visible>!String.IsEmpty(Window(Weather).Property(Alerts)) + !String.IsEmpty(Window(Weather).Property(Alerts.IsFetched)) + Skin.HasSetting(EnableWeatherAlertOverlay)</visible>
 		</control>    

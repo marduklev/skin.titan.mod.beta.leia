@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- TITAN MOD -->
+
 <includes>
 	<!-- THUMB LAYOUT -->
 	<include name="ThumbsViewLayout">
@@ -358,13 +359,15 @@
 		</control>
 		<control type="textbox">
 			<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | [[$EXP[IsTVShow] | $EXP[IsEpisode]] + String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]</visible>
+			<visible>!String.IsEqual(ListItem.label,..)</visible>
 			<autoscroll delay="3000" time="1500" repeat="1500">$PARAM[autoscroll]</autoscroll>
 			<bottom>-90</bottom>
 			<left>10</left>
 			<right>10</right>
 			<wrapmultiline>true</wrapmultiline>
 			<height max="120">auto</height>
-			<font>Bold30</font>
+			<!-- <font>Bold30</font> -->
+			<font>Title_CircleC_Header46</font>
 			<align>center</align>
 			<aligny>center</aligny>
 			<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
@@ -375,7 +378,16 @@
 	
 	<!-- BANNER LAYOUT -->
 	<include name="BannerLayout">
-        <control type="image">
+		<control type="image">
+			<texture border="5">diffuse/banner.png</texture>
+			<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+			<aspectratio scalediffuse="false" align="left">stretch</aspectratio>
+			<include condition="Skin.String($PARAM[border], 0)">thumbborder_0</include>
+			<include condition="Skin.String($PARAM[border], 2)">thumbborder_2</include>
+			<include condition="Skin.String($PARAM[border], 4)">thumbborder_4</include>
+			<include condition="Skin.String($PARAM[border], 6)">thumbborder_6</include>
+		</control>
+		<control type="image">
             <bordersize>8</bordersize>
             <texture fallback="resource://resource.images.skinicons.wide/video.png" diffuse="diffuse/banner.png" border="5" background="true">$VAR[BannerImage]</texture>
             <aspectratio align="center" aligny="center">stretch</aspectratio>
@@ -387,8 +399,7 @@
             <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
             <visible>String.IsEmpty(ListItem.Art(banner)) + String.IsEmpty(ListItem.Art(tvshow.banner)) + String.IsEmpty(ListItem.Property(banner))</visible>
         </control>
-
-        <control type="image">
+		<control type="image">
             <bordersize>15</bordersize>
             <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
             <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
@@ -408,7 +419,7 @@
         <control type="group">
             <right>8</right>
             <top>8</top>
-            <include>WatchedIndicatorNormal</include>
+            <include>$PARAM[WatchedIndicator]</include>
         </control>
 	</include>
 	

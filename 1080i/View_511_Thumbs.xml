@@ -21,7 +21,7 @@
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
 		<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),511) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-        <itemlayout height="192" width="364" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+        <itemlayout height="192" width="364"  condition="!Skin.HasSetting(View511_ShowTags)">
 			<control type="group">
                 <width>354</width>
                 <height>185</height>
@@ -31,15 +31,10 @@
 				</include>
             </control>
         </itemlayout>
-        <focusedlayout height="192" width="364" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+        <focusedlayout height="192" width="364" condition="!Skin.HasSetting(View511_ShowTags)">
 			<control type="group">
-				<animation type="focus">
-					<effect type="zoom" start="100" end="115" center="auto" time="150" />
-				</animation>
-				<animation type="unfocus">
-					<effect type="zoom" start="115" end="100" center="auto" time="150" />
-				</animation>
-                <width>354</width>
+				<include>Focus_Zoom_Animation</include>
+				<width>354</width>
                 <height>185</height>
 				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
@@ -47,31 +42,32 @@
 				</include>
 			</control>
         </focusedlayout>
-         <itemlayout height="256" width="455" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+        <itemlayout height="260" width="300" condition="Skin.HasSetting(View511_ShowTags)">
 			<control type="group">
-                <width>356</width>
-                <height>246</height>
-                <left>40</left>
+                <width>299</width>
+                <height>184</height>
                 <include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
+				<include content="Tag_NF">
+					<param name="tagwidth" value="295" />
+					<param name="tagtop" value="192" />
+				</include>
             </control>
         </itemlayout>
-        <focusedlayout height="256" width="455" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+        <focusedlayout height="260" width="300" condition="Skin.HasSetting(View511_ShowTags)">
 			<control type="group">
-				<animation type="focus">
-					<effect type="zoom" start="100" end="105" center="auto" time="150" />
-				</animation>
-				<animation type="unfocus">
-					<effect type="zoom" start="105" end="100" center="auto" time="150" />
-				</animation>
-                <width>356</width>
-                <height>246</height>
-                <left>40</left>
+				<include>Focus_Zoom_Animation</include>
+				<width>305</width>
+                <height>190</height>
 				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 					<param name="border" value="thumbsborder_focused" />
+				</include>
+				<include content="Tag_FO">
+					<param name="tagwidth" value="295" />
+					<param name="tagtop" value="192" />
 				</include>
 			</control>
         </focusedlayout>

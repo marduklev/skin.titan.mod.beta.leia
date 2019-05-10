@@ -61,7 +61,7 @@
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.59)">View_59_BigPanelDetails</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.519)">View_519_BigPanel_Wall</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.520)">View_520_Panel_Wall</include>
-            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.521)">View_521_Panel_Low</include>
+            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.521)">View_521_Circle</include>
             
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.506)">ViewExtendedList</include>
 
@@ -472,12 +472,13 @@
             <visible>Integer.IsGreater(Container.NumItems,0)</visible>
             <animation effect="slide" start="0,-100" end="0" time="0" condition="Control.IsVisible(513)">Conditional</animation>
             <height>765</height>
-			<bottom>13%</bottom>
+			<bottom>12%</bottom>
             <control type="image">
 				<animation effect="slide" center="auto" end="0,-420" time="450" condition="Control.IsVisible(52) + Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
                 <visible>!String.IsEmpty(ListItem.Label)</visible>
                 <posx>50</posx>
                 <width>1820</width>
+				<height>775</height>
                 <texture border="15">diffuse/bgpanel.png</texture>
                 <visible>!Skin.HasSetting(DetailsTopHidepanel)</visible>
 				<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
@@ -1364,7 +1365,7 @@
     </include>
     
     <include name="poster_shadow">
-        <bordertexture border="20" colordiffuse="black">diffuse/poster_shadow.png</bordertexture>
+        <bordertexture border="20" colordiffuse="red">diffuse/poster_shadow.png</bordertexture>
     </include>
     
 	<include name="WatchedIndicatorLayout">

@@ -6,16 +6,7 @@
 			<visible>Control.IsVisible(513)</visible>
 			<include>animation_view_change</include>
 			
-			<!-- movie details normal -->
-			<control type="group" id="88882">
-				<include>MovieDetailsTop</include>
-                <top>-140</top>
-                <visible>Control.IsVisible(513)</visible>
-                <visible>Skin.String(View513_DisplayInfo,normal) | [Skin.String(View513_DisplayInfo,normal_delayed) + System.IdleTime(3)]</visible>
-				<animation effect="slide" start="0,-1100" end="0" time="550" tween="cubic" easing="inout">Visible</animation>
-			</control>
-            
-            <!-- movie details small -->
+			<!-- movie details small -->
 			<control type="group" id="88883">
 				<include>MovieDetailsTop2</include>
                 <visible>Control.IsVisible(513)</visible>
@@ -24,9 +15,6 @@
 			</control>
 				
 			<control type="group">
-				<animation type="Conditional" condition="Control.IsVisible(88882)">
-					<effect type="slide" start="0,-0" end="0,250" time="550" tween="cubic" easing="inout" />
-				</animation>
 				<bottom>11%</bottom>
 				<height>1000</height>
 				<control type="group">
@@ -1349,7 +1337,7 @@
                                     <animation effect="slide" start="0,200" end="0" tween="cubic" easing="inout" time="1200" delay="800">Visible</animation>
                                     <animation effect="fade" start="0" end="100" delay="800" time="800" pulse="false">Visible</animation>
                                     <animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-									<visible>Skin.HasSetting(View513_ShowCDart) + !Control.IsVisible(88882) + !Control.IsVisible(88883) + ![String.StartsWith(ListItem.Thumb,Default) | String.IsEmpty(ListItem.Thumb)] + !Container(513).IsScrolling + !Container(513).OnScrollNext + !Container(513).OnScrollPrevious</visible>
+									<visible>Skin.HasSetting(View513_ShowCDart) + !Control.IsVisible(88883) + ![String.StartsWith(ListItem.Thumb,Default) | String.IsEmpty(ListItem.Thumb)] + !Container(513).IsScrolling + !Container(513).OnScrollNext + !Container(513).OnScrollPrevious</visible>
 								</control>
 								
 								<control type="image">

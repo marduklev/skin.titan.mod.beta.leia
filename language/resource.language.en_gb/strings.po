@@ -2407,7 +2407,7 @@ msgid "Panel"
 msgstr ""
 
 msgctxt "#31681"
-msgid "Panel Low"
+msgid "Circle"
 msgstr ""
 
 msgctxt "#31682"
@@ -3015,3 +3015,7 @@ msgstr "New"
 msgctxt "#31901"
 msgid "3 in 1"
 msgstr "3 in 1"
+
+msgctxt "#31918"
+msgid "Netflix Landscape"
+msgstr "Netflix Landscape"

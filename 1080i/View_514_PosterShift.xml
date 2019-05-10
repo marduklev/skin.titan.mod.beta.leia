@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
     <include name="ShiftPosterThumbs">
-    
-        <control type="group">
+		<control type="group">
             <posx>-12</posx>
             <posy>130</posy>
             <width>340</width>
@@ -10,47 +9,8 @@
             <control type="image">
                 <aspectratio scalediffuse="false">stretch</aspectratio>
                 <texture background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-                <include condition="!Skin.HasSetting(EmbyCovertArtEnabled)">poster_shadow</include>
                 <bordersize>20</bordersize>
             </control>
-            <!--Label overlay-->
-            <control type="group">
-                <include>PosterTagOverlayVisibility</include>
-                <control type="image">
-                    <bottom>-1</bottom>
-                    <height>130</height>
-                    <bordersize>20</bordersize>
-                    <texture diffuse="diffuse/poster.png">colors/color_white.png</texture>
-                    <colordiffuse>$INFO[Skin.String(TagOverlaysPanelColor)]</colordiffuse>
-                </control>
-                <control type="textbox">
-                    <left>30</left>
-                    <bottom>30</bottom>
-                    <width>280</width>
-                    <height>70</height>
-                    <include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-                    <align>left</align>
-                    <label>$VAR[ThumbListDetails]</label>
-                    <font>Reg28</font>
-                    <autoscroll delay="0" time="2000" repeat="2000">false</autoscroll>
-                    <textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-                    <visible>!String.IsEqual(Container.ListItem.Label,ListItem.Label)</visible>
-                </control>
-                <control type="textbox">
-                    <left>30</left>
-                    <bottom>30</bottom>
-                    <width>280</width>
-                    <height>70</height>
-                    <include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-                    <align>left</align>
-                    <label>$VAR[ThumbListDetails]</label>
-                    <font>Reg28</font>
-                    <autoscroll delay="0" time="2000" repeat="2000">true</autoscroll>
-                    <textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-                    <visible>String.IsEqual(Container.ListItem.Label,ListItem.Label)</visible>
-                </control>
-            </control>
-
         </control>
  		<control type="group">
 			<posx>-2</posx>
@@ -70,7 +30,6 @@
             <animation effect="fade" start="30" end="100" time="160">UnFocus</animation>
         </control>
 		<control type="group">
-			<!--Watched Overlay-->
 			<right>7</right>
 			<top>150</top>
 			<include>WatchedIndicatorNormal</include>
@@ -83,14 +42,14 @@
 			<visible>Control.IsVisible(514)</visible>
 			<include>animation_view_change</include>
 			
-			<!-- movie details normal -->
+			<!-- movie details normal 
 			<control type="group" id="88882">
 				<include>MovieDetailsTop</include>
                 <top>-140</top>
                 <visible>Control.IsVisible(514)</visible>
                 <visible>Skin.String(View514_DisplayInfo,normal) | [Skin.String(View514_DisplayInfo,normal_delayed) + System.IdleTime(3)]</visible>
 				<animation effect="slide" start="0,-1100" end="0" time="550" tween="cubic" easing="inout">Visible</animation>
-			</control>
+			</control>-->
             
             <!-- movie details small -->
 			<control type="group" id="88883">
@@ -101,11 +60,7 @@
 			</control>
             
 			<control type="group">
-				<animation type="Conditional" condition="Control.IsVisible(88882)">
-					<effect type="slide" start="0,0" end="0,180" time="800" tween="cubic" easing="inout" />
-				</animation>
-				<visible>!Window.IsActive(addoninformation)</visible>
-                
+				<visible>!Window.IsActive(addoninformation)</visible>      
                 <control type="image">
                     <!--cdart image-->
                     <width>350</width>
@@ -127,7 +82,7 @@
 					<height>750</height>
 					<onup>9000</onup>
 					<ondown condition="Skin.HasSetting(EnableQuickJump)">7000</ondown>
-                <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
+					<ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
 					<orientation>horizontal</orientation>
 					<viewtype label="31441">bigwrap</viewtype>
 					<pagecontrol>60</pagecontrol>
@@ -136,9 +91,35 @@
 					<focusposition>3</focusposition>
 					<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),514) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
 					<itemlayout width="315" height="750">
+						<!--Label overlay-->
+						<control type="group">
+							<posx>-12</posx>
+							<posy>130</posy>
+							<width>340</width>
+							<height>490</height>
+							<left>60</left>
+							<visible>Skin.HasSetting(View514_ShowTags)</visible>
+							<include content="Tag_NF">
+								<param name="tagwidth" value="200"/>
+								<param name="tagtop" value="485" />
+							</include>
+						</control>
 						<include>ShiftPosterThumbs</include>
 					</itemlayout>
 					<focusedlayout width="315" height="750">
+						<!--Label overlay-->
+						<control type="group">
+							<posx>-12</posx>
+							<posy>130</posy>
+							<width>340</width>
+							<height>490</height>
+							<left>60</left>
+							<visible>Skin.HasSetting(View_526_nofooterbar) + Skin.HasSetting(View514_ShowTags)</visible>
+							<include content="Tag_NF">
+								<param name="tagwidth" value="200"/>
+								<param name="tagtop" value="485" />
+							</include>
+						</control>
 						<control type="group">
 							<animation effect="zoom" center="auto" start="100" end="130" time="160" tween="quadratic">Focus</animation>
 							<animation effect="zoom" center="auto" start="130" end="100" time="160" tween="quadratic">Unfocus</animation>
@@ -151,9 +132,9 @@
                 <control type="scrollbar" id="60">
                     <visible>Control.IsVisible(514) + Integer.IsGreater(Container.Numitems,0)</visible>
                     <left>60</left>
-                    <bottom>11%</bottom>
+                    <bottom>10%</bottom>
                     <width>1800</width>
-                    <height>15</height>
+                    <height>10</height>
                     <onup>513</onup>
                     <onleft>60</onleft>
                     <onright>60</onright>

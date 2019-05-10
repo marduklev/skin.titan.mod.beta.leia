@@ -6,15 +6,33 @@
 	
 	<!-- info line layouts for list views
 	
+	VIEWTYPE			width atrribute			 rows focused						rows unfocused
+		50					extra small				2										1
+		51					wide					2/1(slimlist setting)					2/1(slimlist setting)	
+		504					small					2/1(slimlist setting)					2/1(slimlist setting)	
+	
+	
 	2 rows - all lists,except SlimList
 	
 	3 rows 	+ info 
 	2 rows 	+ info
 	1 row 	+ info
-	-->
-	<!-- TAGs -->
-	<!-- temp workaraound for tags used for widgets library -->
 	
+	-->
+	
+	<!-- HEADER -merge compact with default - https://i.imgur.com/FfLnn2h.jpg - height is nearly not noticable, just think about font stayle / size -->
+	
+	<!-- paying media -->
+	<include name="Preview_GameVideoWindow">
+		<control type="videowindow">
+			<visible>Player.HasVideo</visible>
+		</control>
+		<control type="gamewindow">
+			<visible>Player.HasGame</visible>
+		</control>		
+	</include>
+	<!-- temp workaraound for tags -->
+		<!-- <font>Reg20</font> <font>TEST_TAGS</font> 	better font,shitty top align -->
 		<!-- itemlayout -->
 		<include name="Tag_NF">
 			<control type="textbox">
@@ -32,11 +50,7 @@
 				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
 			</control>
 		</include>
-		<!-- focusedlayout 
-		<font>Reg20</font>
-		<font>TEST_TAGS</font>
-		better font,shitty top align
-		-->
+		<!-- focusedlayout -->
 		<include name="Tag_FO">
 			<control type="textbox">
 				<visible>$EXP[Notag_NetflixHome]</visible>
@@ -60,10 +74,9 @@
 		<include name="Focus_Zoom_Animation">
 			<animation type="Focus" reversible="false">
 				<effect type="zoom" end="115,115" time="200" tween="sine" easing="out" center="auto" />
-				<effect type="zoom" end="93,93" time="100" tween="sine" delay="200" easing="out" center="auto" />
+				<effect type="zoom" end="93,93" time="150" tween="sine" delay="200" easing="out" center="auto" />
 			</animation>
 		</include>
-	
 	<!-- Scrollbars -->
 	<include name="scollbar">
 		<control type="scrollbar" id="$PARAM[id]">
@@ -88,37 +101,69 @@
 		<animation effect="zoom" start="0,100" end="100,100" time="100" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation>
 	</include>
 	
-	<!-- FONTS -->
-	<include name="TEST12">
-		<font>
-			<name>TEST12</name>  
-			<filename>Alcubierre.ttf</filename>
-			<size>28</size>
-			<style>bold</style>
-			<aspect>1.0</aspect>
-			<linespacing>1.0</linespacing>
-		  </font>
-	</include>
 	
-	<!-- FONTS -->
-	<include name="TEST_TAGS">
-		<font>
-			<name>TEST_TAGS</name>  
-			<filename>Alcubierre.ttf</filename>
-			<size>19</size>
-			<style>bold</style>
-			<aspect>1.0</aspect>
-			<linespacing>1.0</linespacing>
-		  </font>
-	</include>
-	
-	<!-- FONTS -->
-	<include name="Title_CircleC_Header70">
-		<font>
-            <name>Title_CircleC_Header70</name>
-            <filename>circlec.ttf</filename>
-            <size>70</size>
-        </font>
-	</include>
-	
+	<!-- NEW FONTS WIP -->
+		<!-- TAGS -->
+		<include name="TEST12">
+			<font>
+				<name>TEST12</name>  
+				<filename>Alcubierre.ttf</filename>
+				<size>28</size>
+				<style>bold</style>
+				<aspect>1.0</aspect>
+				<linespacing>1.0</linespacing>
+			  </font>
+		</include>
+		
+		<!-- HEADER -->
+		<include name="HEADER48">
+			<font>
+				<name>HEADER48</name>  
+				<filename>Alcubierre.ttf</filename>
+				<size>48</size>
+				<style>bold</style>
+				<aspect>1.5</aspect>
+				<linespacing>1.0</linespacing>
+			  </font>
+		</include>
+		<!-- 2row subHEADER -->
+		<include name="HEADER28">
+			<font>
+				<name>HEADER28</name>  
+				<filename>Alcubierre.ttf</filename>
+				<size>28</size>
+				<style>bold</style>
+				<aspect>1.6</aspect>
+				<linespacing>1.0</linespacing>
+			  </font>
+		</include>
+		
+		<!-- FONTS -->
+		<include name="TEST_TAGS">
+			<font>
+				<name>TEST_TAGS</name>  
+				<filename>Alcubierre.ttf</filename>
+				<size>19</size>
+				<style>bold</style>
+				<aspect>1.0</aspect>
+				<linespacing>1.0</linespacing>
+			  </font>
+		</include>
+		
+		<!-- FONTS -->
+		<include name="Title_CircleC_Header70">
+			<font>
+				<name>Title_CircleC_Header70</name>
+				<filename>circlec.ttf</filename>
+				<size>70</size>
+			</font>
+		</include>
+		<!-- FONTS -->
+		<include name="Title_CircleC_Header46">
+			<font>
+				<name>Title_CircleC_Header46</name>
+				<filename>circlec.ttf</filename>
+				<size>46</size>
+			</font>
+		</include>
 </includes>

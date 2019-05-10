@@ -866,7 +866,7 @@
                 <label>31803</label>
                 <onclick>Skin.ToggleSetting(AnimatedFanart)</onclick>
                 <selected>Skin.HasSetting(AnimatedFanart)</selected>
-                <visible>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</visible>
+                <!-- <visible>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</visible> -->
             </control>
 			<control type="radiobutton" id="17118">
                 <include>SkinSettings_Button</include>
@@ -1359,7 +1359,7 @@
 		<!--viewdetails BG color overlay of fanart , needed for 507 (523,525,526,527 use netflix colors) -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31575" />
-            <param name="label" value="Media $LOCALIZE[745]" />
+            <param name="label" value="Media Background Color if No Global Background Image is in use" />
             <param name="skinsetting" value="ViewDetailsBGColor" />
         </include>
 		<!--viewdetails text color-->

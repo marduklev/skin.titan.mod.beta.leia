@@ -116,7 +116,7 @@
             <width>1</width>
             <height>1</height>
             <texture background="true">$VAR[fanartBackground]</texture>
-            <visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(netflixview)) | Control.IsVisible(523) | Control.IsVisible(525)</visible>
+            <visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(netflixview)) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(507)</visible>
             <include condition="Window.IsMedia">disabledFanart</include>
         </control>
         <include condition="Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart)">extraFanartBackground</include>
@@ -164,7 +164,7 @@
     </include>
 
     <include name="disabledFanart">
-        <!-- disabled fanart per view check, why and-ing instead or-ing, also why not use EXP instead of include call -->
+        <!-- disabled fanart per view check -->
         <visible>
             ![Control.IsVisible(10) + Skin.HasSetting(View10_DisableFanArt)] + 
             ![Control.IsVisible(50) + Skin.HasSetting(View50_DisableFanArt)] + 

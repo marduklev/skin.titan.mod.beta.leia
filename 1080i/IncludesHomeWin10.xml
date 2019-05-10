@@ -772,13 +772,12 @@
 				<param name="border" value="thumbsborder_unfocused" />
 			</include>
             <control type="group">
-                <description>widget label overlay</description>
-                <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>
-                <include condition="Skin.String(Widgets_DisplayTags,auto)">LandscapeTagOverlayVisibility</include>
-                <include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-                    <param name="prefix" value="Landscape" />
-                </include>
-            </control>
+				<include>$PARAM[widgetTags]</include>
+				<include content="Tag_NF">
+					<param name="tagwidth" value="354"/>
+					<param name="tagtop" value="200" />
+				</include>
+			</control>
         </itemlayout>
         <focusedlayout height="220" width="330">
             <include content="ThumbsViewLayout">
@@ -786,13 +785,12 @@
 				<param name="border" value="thumbsborder_focused" />
 			</include>
             <control type="group">
-                <description>widget label overlay</description>
-                <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>
-                <include condition="Skin.String(Widgets_DisplayTags,auto)">LandscapeTagOverlayVisibility</include>
-                <include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
-                    <param name="prefix" value="Landscape" />
-                </include>
-            </control>
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NO">
+						<param name="tagwidth" value="354"/>
+						<param name="tagtop" value="200" />
+					</include>
+				</control>
             <control type="button">
                 <visible>false</visible>
                 <onfocus>Setproperty(SkinHelper.WidgetContainer,$PARAM[widgetid])</onfocus>
@@ -802,27 +800,18 @@
     </include>
     <include name="win10_widget_layout_banner">
         <itemlayout height="146" width="660">
-            <control type="image">
-                <texture border="5">diffuse/banner.png</texture>
-                <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
-                <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
-                <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
-                <include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
-            </control>
-            <include>BannerLayout</include>
+            <include content="BannerLayout">
+					<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
         </itemlayout>
         <focusedlayout height="146" width="660">
-            <control type="image">
-                <texture border="5">diffuse/banner.png</texture>
-                <colordiffuse>$INFO[Skin.String(HomeViewDetailsBorderFocusColor)]</colordiffuse>
-                <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
-                <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
-                <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
-            </control>
-            <include>BannerLayout</include>
+            <include content="BannerLayout">
+				<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
+				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+				<param name="border" value="thumbsborder_focused" />
+			</include>
             <control type="button">
                 <visible>false</visible>
                 <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid])</onfocus>

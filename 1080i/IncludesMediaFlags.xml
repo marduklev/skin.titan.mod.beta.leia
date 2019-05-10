@@ -16,12 +16,11 @@
     </include>
     
     <include name="mediaflags_large_layout">
-		<width>125</width>
+		<width>100</width>
 		<height>80</height>
-		<aspectratio alignx="center" aligny="center">keep</aspectratio>
+		<aspectratio aligny="center">keep</aspectratio>
         <include condition="!window.isactive(fullscreenvideo) + !Skin.String(mediaflagsstyle,large_color)">mediaflags_colordiffuse</include>
         <include condition="window.isactive(fullscreenvideo) + !Skin.String(osdmediaflagsstyle,large_color)">mediaflags_colordiffuse</include>
-		<animation effect="fade" time="200">VisibleChange</animation>
 	</include>
     
     <include name="mediaflags_colordiffuse">
@@ -38,6 +37,8 @@
             <posy>-25</posy>
             <posx>-25</posx>
 			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<itemgap>-5</itemgap>
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]$INFO[ListItem.VideoResolution,/resolution/,.png]</texture>
@@ -46,24 +47,29 @@
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]$INFO[ListItem.AudioCodec,/audio/,.png]</texture>
-                <visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+                <visible>!String.IsEmpty(ListItem.AudioCodec) + !String.Contains(ListItem.FileNameAndPath,atmos)</visible>
             </control>
-            <control type="image">
+			<control type="image">
+                <include>mediaflags_large_layout</include>
+                <texture background="true">$VAR[mediaflags_large_path]/audio/Dolby_Atmos.png</texture>
+				<visible>String.Contains(ListItem.FileNameAndPath,atmos)</visible>
+            </control>
+			<control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]$INFO[ListItem.AudioChannels,/channels/,.png]</texture>
                 <visible>!String.IsEmpty(ListItem.AudioChannels)</visible>
             </control>
-            <control type="image">
+			<control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]$VAR[mediaflags_large_source,/video/,.png]</texture>
-                <visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
-            </control>
+             </control>
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]$INFO[ListItem.VideoAspect,/aspectratio/,.png]</texture>
                 <visible>!String.IsEmpty(ListItem.VideoAspect)</visible>
             </control>
-			<!-- temp removed
+			
+			<!-- temp removed, need revisit use a var but use fixed visibility content
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]/cc.png</texture>
@@ -1866,7 +1872,7 @@
 
 		<value condition="String.IsEqual(ListItem.AudioCodec,ac3)">DOLBY D</value>
 		<value condition="String.IsEqual(ListItem.AudioCodec,dca)">DTS</value>
-        <value condition="String.Contains(ListItem.AudioCodec,atmos)">ATMOS</value><!-- check -->
+        <value condition="String.Contains(ListItem.Filenameandpath,atmos)">ATMOS</value><!-- check -->
 		<value condition="String.Contains(ListItem.AudioCodec,dts-hd)">DTS HD</value>
 		<value condition="String.Contains(ListItem.AudioCodec,dtshd)">DTS HD</value>
 		<value condition="String.Contains(ListItem.AudioCodec,pcm)">PCM</value>

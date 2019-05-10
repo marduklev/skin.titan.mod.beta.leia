@@ -85,12 +85,7 @@
 					
 					<visible>!skin.hastheme(classic)</visible>
 					<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
-					<control type="videowindow">
-						<visible>Player.HasVideo</visible>
-					</control>
-					<control type="gamewindow">
-						<visible>Player.HasGame</visible>
-					</control>						
+					<include>Preview_GameVideoWindow</include>			
 					<control type="image">
 						<top>-50</top>
 						<texture colordiffuse="$VAR[Netflix2_PanelColor]" border="20">overlay/Netflix_origin.png</texture>

@@ -33,8 +33,8 @@
 			<control type="fixedlist" id="502">
 				<posx>60</posx>
 				<width>1800</width>
-				<height>325</height>
-				<bottom>16%</bottom>
+				<height>375</height>
+				<bottom>12%</bottom>
 				<onup>9000</onup>
 				<ondown condition="Skin.HasSetting(EnableQuickJump)">7000</ondown>
                 <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
@@ -48,7 +48,7 @@
 				<scrolltime tween="cubic" easing="inout">500</scrolltime>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),502) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
 				<visible>!Container.Content(files)</visible>	
-				<itemlayout width="620" height="325" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<itemlayout width="620" height="375">
 					<control type="group">
                         <width>565</width>
                         <height>325</height>
@@ -58,8 +58,15 @@
 							<param name="border" value="thumbsborder_unfocused" />
 						</include>
                     </control>
+					<control type="group">
+						<visible>Skin.HasSetting(View502_ShowTags)</visible>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="565"/>
+							<param name="tagtop" value="328" />
+						</include>
+					</control>
 				</itemlayout>
-				<focusedlayout width="620" height="325" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<focusedlayout width="620" height="325">
                     <control type="group">
                         <width>565</width>
                         <height>325</height>
@@ -69,28 +76,13 @@
 							<param name="border" value="thumbsborder_focused" />
 						</include>
                     </control>
-				</focusedlayout>
-                    <itemlayout width="450" height="325" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 					<control type="group">
-                        <width>440</width>
-                        <height>303</height>
-                        <!-- check, merge with thumb sometime -->
-						<include content="LandscapeLayout">
-							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
-							<param name="border" value="thumbsborder_unfocused" />
+						<visible>Skin.HasSetting(View502_ShowTags)</visible>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="565"/>
+							<param name="tagtop" value="328" />
 						</include>
-                    </control>
-				</itemlayout>
-				<focusedlayout width="450" height="325" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-                    <control type="group">
-                        <width>440</width>
-                        <height>303</height>
-                        <!-- check, merge with thumb sometime -->
-						<include content="LandscapeLayout">
-							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
-							<param name="border" value="thumbsborder_focused" />
-						</include>
-                    </control>
+					</control>
 				</focusedlayout>
 			</control>
 

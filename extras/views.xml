@@ -9,7 +9,7 @@
     <view id="Panel" value="54" languageid="31680" type="!episodes,all" />
     <view id="Panel details" value="53" languageid="31422" type="!episodes,all" />
     <view id="Panel Wall" value="520" languageid="31423" type="!episodes,all" />
-    <view id="Panel Low" value="521" languageid="31681" type="!episodes,all" />
+    <view id="Circle" value="521" languageid="31681" type="all" />
     <view id="Big Panel" value="57" languageid="31426" type="!episodes,all" />
     <view id="Big Panel details" value="59" languageid="31428" type="!episodes,all" />
     <view id="Big Panel Wall" value="519" languageid="31666" type="!episodes,all" />

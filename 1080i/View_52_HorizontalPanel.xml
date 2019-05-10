@@ -2,11 +2,12 @@
 <includes>
 
 	<include name="View52_layout">
-            <animation effect="slide" center="auto" end="0,-420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
+            <animation effect="slide" center="auto" end="0,-410" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
+			
 			<posx>65</posx>
-            <bottom>14%</bottom>
+            <bottom>12%</bottom>
             <width>1806</width>
-            <height>345</height>
+            <height>385</height>
             <ondown condition="!Player.HasVideo + Integer.IsLessOrEqual(Container(52).NumItems,7)">9000</ondown>
 			<ondown condition="Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(52).NumItems,7) + !Player.HasVideo">7000</ondown>
 			<ondown condition="!Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(52).NumItems,7) + !Player.HasVideo">60</ondown>
@@ -22,8 +23,10 @@
             <orientation>horizontal</orientation>
             <preloaditems>2</preloaditems>
             <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),52) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-            <itemlayout height="345" width="258">
+            <itemlayout height="395" width="258">
+				
 				<control type="group">
+					<animation effect="slide" center="auto" end="0,-15" time="200" condition="Skin.HasSetting(View52_ShowTags)">Conditional</animation>
 					<width>233</width>
 					<height>340</height>
 					<include content="PosterPanelLayout">
@@ -32,16 +35,21 @@
 						<param name="border" value="thumbsborder_unfocused" />
 					</include>
 				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(View52_ShowTags)</visible>
+					<include content="Tag_NF">
+						<param name="tagwidth" value="230"/>
+						<param name="tagtop" value="340" />
+					</include>
+					</control>
 			</itemlayout>
-			<focusedlayout height="345" width="258">
+			<focusedlayout height="365" width="258">
 				
 				<control type="group">
+					<animation effect="slide" center="auto" end="0,-15" time="0" condition="true">Conditional</animation>
 					<width>233</width>
 					<height>340</height>
 					<!-- default flow -->
-					<!-- <animation effect="zoom" center="auto" start="115" end="120" time="130" reversible="false" tween="quadratic">Focus</animation>
-					<animation effect="zoom" center="auto" start="115" end="100" time="70" reversible="false" tween="quadratic">Unfocus</animation> -->
-					<!-- new zoominout -->
 					<animation type="Focus" reversible="false" condition="true">
 						<effect type="zoom" end="135" time="150" tween="sine" easing="out" center="auto" />
 						<effect type="zoom" end="90" time="100" tween="sine" delay="150" easing="out" center="auto" />
@@ -76,6 +84,7 @@
             <visible>Control.IsVisible(52)</visible>
             <include>animation_view_change</include>
 			
+			
 			<!-- movie details default-->
 			<control type="group">
 				<animation effect="slide" center="auto" end="0,420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
@@ -88,8 +97,8 @@
 			<control type="group" id="888">
 				<include>animation_view_change</include>
 				<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-				<height>820</height>
-				<top>13%</top>
+				<height>830</height>
+				<top>11%</top>
 				<visible>Skin.HasSetting(PanelViewShowFanart)</visible>
 				<visible>!Skin.HasSetting(PanelViewShowInfo)</visible>
 				<animation effect="slide" center="auto" end="0,420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
@@ -98,9 +107,9 @@
 					<animation effect="slide" center="auto" end="0,-420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
 					<visible>!String.IsEmpty(ListItem.Label)</visible>
 					<visible>!Skin.HasSetting(DetailsTopHidepanel)</visible>
-					<posx>50</posx>
-					<height>820</height>
-					<width>1820</width>
+					<top>-10</top>
+					<height>855</height>
+					<width>1920</width>
 					<texture border="15">diffuse/bgpanel.png</texture>
 					<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 				</control>
@@ -127,6 +136,7 @@
 							<left>20</left>
 							<width>1080</width>
 							<height>30</height>
+							<align>center</align>
 							<label>[UPPERCASE][B]$VAR[mediatitle][/B][/UPPERCASE]</label>
 							<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 							<align>left</align>
@@ -136,6 +146,7 @@
 							<left>20</left>
 							<width>1080</width>
 							<height>30</height>
+							<align>center</align>
 							<label>[B]$VAR[Details][/B]</label>
 							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -146,6 +157,7 @@
 							<left>20</left>
 							<width>1080</width>
 							<height>305</height>
+							<align>center</align>
 							<label>$VAR[Plots]</label>
 							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -188,7 +200,7 @@
 				<left>70</left>
 				<bottom>10%</bottom>
 				<width>1780</width>
-				<height>15</height>
+				<height>10</height>
 				<onup>52</onup>
 				<onleft>60</onleft>
 				<onright>60</onright>
@@ -196,26 +208,22 @@
 				<orientation>horizontal</orientation>
 				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(7002)">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(7002)">Conditional</animation>
-				<!-- <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>				 -->	
 			</control>
 			
 		</control>
 		<control type="group">
-			<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv) + Control.IsVisible(52)</visible>
-			<animation effect="slide" center="auto" end="0,420" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
-			<posx>60</posx>
-			<posy>145</posy>
+			<visible>$EXP[PayerHasVideo] + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv) + Control.IsVisible(52)</visible>
+			<animation effect="slide" center="auto" end="0,430" time="450" condition="Skin.HasSetting(InfoBottom_View52)">Conditional</animation>
+			<posx>55</posx>
+			<posy>125</posy>
 			<width>672</width>
 			<height>378</height>
-			
 			<control type="image">
 				<aligny>bottom</aligny>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<colordiffuse>ff000000</colordiffuse>
 			</control>
-			<control type="videowindow">
-			</control>
+			<include>Preview_GameVideoWindow</include>
 		</control>
     </include>
 </includes>

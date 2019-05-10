@@ -5,10 +5,10 @@
     <include name="View_507_FanArt">
 		<!--View 507-->
         <control type="group">
-            <visible>Control.IsVisible(507)</visible>
-			<visible>Integer.IsGreater(Container(507).NumItems,0)</visible>
+            <visible>Control.IsVisible(507) + Integer.IsGreater(Container(507).NumItems,0)</visible>
             <include>animation_view_change</include>
-            <!-- bg -->
+            
+			<!-- bg, if usin INFO PANEL, check merge NO FANART + NONE/EMPTY BG IMAGE SETTING -->
 			<control type="image">
 				<include>DimensionsFullscreen</include>
 				<visible>Skin.HasSetting(FanArtViewShowInfo)</visible>
@@ -16,89 +16,127 @@
 				<texture>colors/color_white.png</texture>
 				<colordiffuse>$INFO[Skin.String(ViewDetailsBGColor)]</colordiffuse>
 			</control>
-			<!-- fanart -->
-            <control type="multiimage">
-				<visible>!Skin.HasSetting(FanArtViewShowInfo)</visible>
-				<right>10</right>
-				<top>10</top>
-				<width>1900</width>
-				<height>1055</height>
-				<imagepath background="true">$VAR[backgroundVar]</imagepath>
-                <aspectratio>scale</aspectratio>
-                <fadetime>200</fadetime>
-                <include>fanartSpeed</include>
-                <randomize>true</randomize>
-                <loop>yes</loop>
+			
+			
+			<!-- ID="507" -->
+            <control type="panel" id="507">
+                <include>DimensionsFullscreen</include>
+				<include>trailer_onup</include>
+                <ondown condition="!Player.HasVideo + Skin.HasSetting(EnableQuickJump)">7000</ondown>
+				<ondown condition="!Player.HasVideo + !Skin.HasSetting(EnableQuickJump)">9000</ondown>
+                <onleft>507</onleft>
+                <onright>507</onright>
+                <viewtype label="31434">fanart</viewtype>
+                <!-- <scrolltime tween="Cubic" easing="inout">500</scrolltime> -->
+                <focusposition>0</focusposition>
+                <orientation>horizontal</orientation>
+                <preloaditems>2</preloaditems>
+				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),507) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
+                <itemlayout width="1080" height="1920" condition="!Skin.HasSetting(FanArtViewShowInfo)">
+					<width>1920</width>
+						<height>1080</height>
+						<top>0</top>
+						<left>0</left>
+				</itemlayout>
+                <focusedlayout width="1080" height="1920" condition="!Skin.HasSetting(FanArtViewShowInfo)">
+					<control type="group">
+						<include>AutoTrailerButton</include>
+						<width>1920</width>
+						<height>1080</height>
+						<top>0</top>
+						<left>0</left>
+						<control type="image">
+							<bordersize>9</bordersize>
+							<texture background="true" diffuse="home/landscape.png" fallback="colors/color_keyboard.png">$VAR[netflixThumb]</texture>
+							<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+						</control>
+						<control type="group">
+							<right>3</right>
+							<top>3</top>
+							<include>WatchedIndicatorNormal</include>
+							<visible>!Player.HasGame | !Player.HasVideo</visible>
+						</control>
+						<!-- Custom Overlay image -->
+						<control type="image">
+							<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_UseOverlay)</visible>
+							<include>DimensionsFullscreen</include>
+							<texture>$INFO[Skin.String(BackgroundOverlayTexture)]</texture>
+							<include condition="Skin.String(BackgroundOverlayColor) + !Skin.String(BackgroundOverlayColor,None)">bgOverlayDiffuse</include>
+						</control>
+						<control type="videowindow">
+							<width>1920</width>
+							<height>1080</height>
+							<top>5</top>
+							<left>5</left>
+							<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv)</visible>
+							<include>Preview_GameVideoWindow</include>
+						</control>
+						<control type="image">
+							<visible>[Skin.HasSetting(View_507_nofooterbar) + !Skin.HasSetting(507_BelloNero)] | [!Skin.HasSetting(507_BelloNero) + [Player.HasGame | [Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv)]]]</visible>
+							<height>303</height>
+							<width>315</width>
+							<right>50</right>
+							<top>50</top>
+							<fadetime>200</fadetime>
+							<aspectratio align="right" aligny="top">keep</aspectratio>
+							<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+						</control>
+						<control type="image">
+							<width>100%</width>
+							<height>100%</height>
+							<top>-2</top>
+							<left>-2</left>
+							<texture border="6,8,6,8">netflix/frame/slimframe_hardedge.png</texture>
+							<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+							<aspectratio>stretch</aspectratio>
+							<visible>Skin.HasSetting(507_framedFanart)</visible>
+						</control>
+					</control>
+					
+				</focusedlayout>
+				<itemlayout width="1080" height="1920" condition="Skin.HasSetting(FanArtViewShowInfo)">
+                </itemlayout>
+                <focusedlayout width="1080" height="1920" condition="Skin.HasSetting(FanArtViewShowInfo)">
+					<control type="group">
+						<include>AutoTrailerButton</include>
+					 </control>
+				</focusedlayout>
+				
+				
+				
             </control>
-			<!-- Overlay default-->
-			<control type="image">
-				<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_UseOverlay)</visible>
-				<!-- <visible>!Skin.HasSetting(FanArtViewShowInfo)</visible> -->
-				<include>DimensionsFullscreen</include>
-				<texture fallback="">$INFO[Skin.String(BackgroundOverlayTexture)]</texture>
-				<include condition="Skin.String(BackgroundOverlayColor) + !Skin.String(BackgroundOverlayColor,None)">bgOverlayDiffuse</include>
-			</control>
-			<!-- fanart image frame -->
-			 <control type="image">
-				<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_framedFanart)</visible>
-				<include>DimensionsFullscreen</include>
-				<texture border="20">netflix/frame/slimframe_hardedge.png</texture>
-				<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse> 
-			</control>
-			<!-- preview video window if info false -->
-            <control type="group">
-				<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv) + Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>
-				<include>DimensionsFullscreen</include>
-				<control type="image">
-					<texture colordiffuse="black">colors/color_black.png</texture>
-				</control>
-				<control type="videowindow">
-				</control>
-				<control type="image" id="887768">
-					<visible>!Skin.HasSetting(507_BelloNero)</visible>
-					<height>103</height>
-					<width>315</width>
-					<right>5</right>
-					<top>10</top>
-					<fadetime>200</fadetime>
-					<aspectratio align="right" aligny="top">keep</aspectratio>
-					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
-				</control>
-			</control>
 			<!-- bello import -->
 			<control type="group">
 				<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_BelloNero)</visible>
 				<control type="image">
 					<animation effect="slide" start="0,0" end="-550,0" time="380" tween="sine" easing="inout" condition="![Container.OnNext | Container.OnPrevious]" reversible="false">Conditional</animation>
-					<left>340</left>
 					<posy>0</posy>
 					<width>110%</width>
 					<height>110%</height>
 					<texture background="true">animations/left_blade.png</texture>
-					<animation type="WindowOpen">
+					<animation type="Focus" reversible="false">
 						<effect type="fade" start="0" end="100" time="490" tween="sine" easing="out"/>
 						<effect type="slide" start="0,0" end="-340,0" time="390" delay="350" tween="sine" easing="out"/>
 					</animation>
 					<animation effect="slide" start="0,0" end="-400,0" time="380" tween="sine" easing="inout" condition="Player.HasVideo + !String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">Conditional</animation>					
-					<animation type="WindowClose">
+					<animation type="Unfocus" reversible="false">
 						<effect type="slide" start="-340,0" end="0,0" time="490" delay="0" tween="sine" easing="in"/>
 						<effect type="fade" start="100" end="0" time="490" delay="250" tween="sine" easing="in"/>
 					</animation>
 				</control>
 				<control type="image">
 					<animation effect="slide" start="0,0" end="470,0" time="380" tween="sine" easing="inout" condition="![Container.OnNext | Container.OnPrevious]" reversible="false">Conditional</animation>
-					<left>-260</left>
 					<posx>0</posx>
 					<posy>0</posy>
 					<width>110%</width>
 					<height>110%</height>
 					<texture background="true">animations/right_blade.png</texture>
-					<animation type="WindowOpen">
+					<animation type="Focus" reversible="true">
 						<effect type="fade" start="0" end="100" time="490" tween="sine" easing="out"/>
 						<effect type="slide" start="0,0" end="260,0" time="390" delay="350" tween="sine" easing="out"/>
 					</animation>
 					<animation effect="slide" start="0,0" end="400,0" time="380" tween="sine" easing="inout" condition="Player.HasVideo + !String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">Conditional</animation>					
-					<animation type="WindowClose">
+					<animation type="Unfocus" reversible="false">
 						<effect type="slide" start="260,0" end="0,0" time="490" delay="0" tween="sine" easing="in"/>
 						<effect type="fade" start="100" end="0" time="490" delay="250" tween="sine" easing="in"/>
 					</animation>
@@ -149,73 +187,41 @@
 				</control>
 			</control>
 			
-			<control type="group">
-				<visible>!Skin.HasSetting(FanArtViewShowInfo)</visible>
-				<include>WatchedIndicatorLarge</include>
-				<animation effect="fade" start="100" end="60" time="0" condition="Skin.HasSetting(507_BelloNero)" reversible="false">Conditional</animation>
-			</control>
 			
-            <!-- ID="52" -->
-            <control type="panel" id="507">
-                <posx>0</posx>
-                <posy>40</posy>
-                <width>100%</width>
-                <height>800</height>
-				<include>trailer_onup</include>
-                <ondown condition="!Player.HasVideo + Skin.HasSetting(EnableQuickJump)">7000</ondown>
-				<ondown condition="!Player.HasVideo + !Skin.HasSetting(EnableQuickJump)">9000</ondown>
-                <onleft>507</onleft>
-                <onright>507</onright>
-                <viewtype label="31434">fanart</viewtype>
-                <scrolltime tween="Cubic" easing="inout">500</scrolltime>
-                <focusposition>0</focusposition>
-                <orientation>horizontal</orientation>
-                <preloaditems>2</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),507) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-                <itemlayout>
-                </itemlayout>
-                <focusedlayout height="2500" width="1920">
-					<include>AutoTrailerButton</include>
-				</focusedlayout>
-            </control>
 			
-			<!--Info-->
+			<!--Info Panel -->
 			<control type="group">
-				<visible>Control.IsVisible(507) + !String.IsEmpty(ListItem.Label)</visible>
 				<visible>Skin.HasSetting(FanArtViewShowInfo)</visible>
 				<include>animation_view_change</include>
-				<top>13%</top>
-				<height>835</height>
-
+				<top>11%</top>
+				<height>850</height>
 				<control type="image">
-					<posx>10</posx>
-					<width>550</width>
-					<height>830</height>
+					<right>0</right>
+					<width>534</width>
+					<height>850</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
 					<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
-					<animation effect="slide" center="auto" end="1350,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<animation effect="slide" end="-1386,0" time="300" condition="!Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 				</control>
 				<control type="image">
 					<visible>Skin.HasSetting(507_framedInfo)</visible>
-					<posx>9</posx>
-					<posy>0</posy>
-					<width>552</width>
-					<height>832</height>
-					<texture border="15">netflix/frame/slimframe_hardedge.png</texture>
+					<top>-2</top>
+					<right>-2</right>
+					<width>540</width>
+					<height>854</height>
+					<texture border="2,5,2,6">netflix/frame/slimframe_hardedge.png</texture>
 					<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-					<animation effect="slide" center="auto" end="1350,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<animation effect="slide" end="-1386,0" time="300" condition="!Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 				</control>
-				
 				<control type="grouplist">
-					<animation effect="slide" center="auto" end="1350,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
-					<!--Regie, Duration... Movies, TV-Shows, Sesaons, Music-Videos-->
+					<animation effect="slide" center="auto" end="1390,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 					<itemgap>0</itemgap>
 					<onup>500</onup>
 					<ondown>500</ondown>
 					<onleft>100</onleft>
 					<onright>noop</onright>
 					<orientation>vertical</orientation>
-					<posx>40</posx>
+					<posx>25</posx>
 					<posy>10</posy>
 					<control type="label">
 						<height>80</height>
@@ -227,8 +233,7 @@
 						<label>[UPPERCASE]$VAR[mediatitle][/UPPERCASE]</label>
 					</control>
                     <control type="label">
-						<!-- <wrapmultiline>true</wrapmultiline> -->
-							<scroll>true</scroll>
+						<scroll>true</scroll>
 						 <top>-10</top>
 						 <height>40</height>
 						 <width>480</width>
@@ -246,35 +251,44 @@
 						<font>Light28</font>
 					</control>
 				</control>
-				<!-- fanart image -->
-				<control type="multiimage">
-					<animation effect="slide" center="auto" end="-565,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
-					<right>0</right>
+				<control type="image">
+					<left>0</left>
 					<top>0</top>
-					<width>1350</width>
-					<height>830</height>
-					<imagepath background="true">$VAR[backgroundVar]</imagepath>
-					<aspectratio>scale</aspectratio>
-					<fadetime>200</fadetime>
-					<include>fanartSpeed</include>
-					<randomize>true</randomize>
-					<loop>yes</loop>
+					<width>1380</width> 
+					<height>845</height>
+					<texture background="true" diffuse="home/landscape.png" fallback="defaultgames.png">$VAR[netflixThumb]</texture>
+					<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
 				</control>
 				<control type="group">
-					<animation effect="slide" center="auto" end="-565,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
-					<include>WatchedIndicatorLarge</include>
+					<top>5</top>
+					<right>5</right>
+					<animation effect="slide" center="auto" end="540,0" time="300" condition="!Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<include>WatchedIndicatorNormal</include>
 				</control>
 				<control type="image">
 					<visible>Skin.HasSetting(507_framedFanart)</visible>
-					<right>0</right>
-					<top>0</top>
-					<width>1356</width>
-					<height>832</height>
-					<texture border="15">netflix/frame/slimframe_hardedge.png</texture>
+					<left>-2</left>
+					<top>-2</top>
+					<width>1384</width> 
+					<height>854</height>
+					<texture border="6,8,6,8">netflix/frame/slimframe_hardedge.png</texture>
 					<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-					<animation effect="slide" center="auto" end="-565,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<animation effect="slide" center="auto" end="540,0" time="300" condition="!Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
 				</control>
-				
+				<!-- preview video window if info true -->
+				<control type="group">
+					<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv)</visible>
+					<animation effect="slide" center="auto" end="540,0" time="300" condition="!Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
+					<left>4</left>
+					<top>4</top>
+					<width>1372</width> 
+					<height>802</height>
+					<control type="image">
+						<height>105%</height>
+						<texture colordiffuse="red">colors/color_black.png</texture>
+					</control>
+					<include>Preview_GameVideoWindow</include>
+				</control>
 				<!-- touchscreen support -->
 				<!-- page button left -->
 				<control type="button">
@@ -291,56 +305,8 @@
 					<onclick>Control.Move(507,-1) </onclick>
 					<visible>Skin.HasSetting(EnableTouchSupport)</visible>
 				</control>
-
-				<!-- page button right -->
-				<control type="button">
-					<right>0</right>
-					<top>-10</top>
-					<width>30</width>
-					<height>149</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label></label>
-					<pulseonselect>false</pulseonselect>
-					<texturefocus colordiffuse="white">home/basichome_right.png</texturefocus>
-					<texturenofocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">home/basichome_right.png</texturenofocus>
-					<onclick>Control.Move(507,1) </onclick>
-					<visible>Skin.HasSetting(EnableTouchSupport)</visible>
-				</control>
 			</control>
-			<!-- preview video window if info true -->
-            <control type="group">
-				<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.DBID) + !VideoPlayer.Content(livetv) + Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)</visible>
-				<animation effect="slide" center="auto" end="-565,0" time="300" condition="Skin.HasSetting(View507_ShowInfoRight)">Conditional</animation>
-				<right>6</right>
-				<top>15%</top>
-				<width>1344</width>
-				<height>756</height>
-				<control type="image">
-					<visible>Skin.HasSetting(507_framedFanart)</visible>
-					<top>-16</top>
-					<height>108.3%</height>
-					<texture colordiffuse="black">colors/color_black.png</texture>
-				</control>
-				<control type="image">
-					<visible>!Skin.HasSetting(507_framedFanart)</visible>
-					<top>-23</top>
-					<height>109.9%</height>
-					<width>102%</width>
-					<texture colordiffuse="black">colors/color_black.png</texture>
-				</control>
-				<control type="videowindow">
-				</control>
-				<control type="image" id="887768">
-					<height>103</height>
-					<width>315</width>
-					<right>5</right>
-					<bottom>-30</bottom>
-					<fadetime>200</fadetime>
-					<aspectratio align="right" aligny="bottom">keep</aspectratio>
-					<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
-				</control>
-			</control>			
+			
 		</control>
     </include>
 </includes>

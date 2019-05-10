@@ -12,7 +12,7 @@
             <control type="panel" id="55">
                 <animation effect="slide" end="-645" time="250" condition="Skin.HasSetting(View55_ShowInfoRight)">Conditional</animation>
                 <right>40</right>
-				<bottom>13%</bottom>
+				<bottom>12%</bottom>
                 <height>738</height>
 				<width>1190</width>
                 <onup>55</onup>
@@ -32,31 +32,30 @@
                     <control type="group">
                         <width>585</width>
                         <height>119</height>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
-                        </control>
-                        <include>BannerLayout</include>
+                        <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="650"/>
+							<param name="tagtop" value="146" />
+						</include>
 					</control>
                 </itemlayout>
                 <focusedlayout height="123" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
                     <control type="group">
                         <width>585</width>
                         <height>119</height>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
-                            <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
-                            <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
-                        </control>
-                        <include>BannerLayout</include>
+                       <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="650"/>
+							<param name="tagtop" value="146" />
+						</include>
                         <include>AutoTrailerButton</include>
 					</control>
                 </focusedlayout>
@@ -64,31 +63,92 @@
                     <control type="group">
                         <width>1190</width>
                         <height>238</height>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
-                        </control>
-                        <include>BannerLayout</include>
+						<include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="650"/>
+							<param name="tagtop" value="146" />
+						</include>
 					</control>
                 </itemlayout>
                 <focusedlayout height="246" width="1190" condition="Skin.HasSetting(View55_LargeBanners)">
                     <control type="group">
                         <width>1190</width>
                         <height>238</height>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
-                            <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
-                            <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
-                        </control>
-                        <include>BannerLayout</include>
+                       <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="650"/>
+							<param name="tagtop" value="146" />
+						</include>
+						<include>AutoTrailerButton</include>
+					</control>
+                </focusedlayout>
+				<itemlayout height="123" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
+                    <control type="group">
+                        <width>585</width>
+                        <height>119</height>
+                        <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="650"/>
+							<param name="tagtop" value="146" />
+						</include>
+					</control>
+                </itemlayout>
+                <focusedlayout height="123" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
+                    <control type="group">
+                        <width>585</width>
+                        <height>119</height>
+                        <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="650"/>
+							<param name="tagtop" value="146" />
+						</include>
+                        <include>AutoTrailerButton</include>
+					</control>
+                </focusedlayout>
+				<itemlayout height="123" width="595" condition="Skin.HasSetting(View55_LargeBanners) + Skin.HasSetting(View55_ShowTags)">
+                    <control type="group">
+                        <width>585</width>
+                        <height>119</height>
+                        <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="650"/>
+							<param name="tagtop" value="146" />
+						</include>
+					</control>
+                </itemlayout>
+                <focusedlayout height="123" width="595" condition="Skin.HasSetting(View55_LargeBanners) + Skin.HasSetting(View55_ShowTags)">
+                    <control type="group">
+                        <width>585</width>
+                        <height>119</height>
+						<include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="650"/>
+							<param name="tagtop" value="146" />
+						</include>
                         <include>AutoTrailerButton</include>
 					</control>
                 </focusedlayout>

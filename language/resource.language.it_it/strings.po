@@ -2381,8 +2381,8 @@ msgid "Panel"
 msgstr "Pannello"
 
 msgctxt "#31681"
-msgid "Panel Low"
-msgstr "Pannello Basso"
+msgid "Circle"
+msgstr ""
 
 msgctxt "#31682"
 msgid "Modern Low Horizontal Home"

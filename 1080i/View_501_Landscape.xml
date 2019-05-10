@@ -11,8 +11,8 @@
 			<control type="panel" id="501">
 				<posx>60</posx>
 				<width>1880</width>
-				<bottom>150</bottom>
-                <height>700</height>
+				<bottom>12%</bottom>
+                <height>720</height>
 				<onup condition="Skin.HasSetting(View_501_HorizontalNavigation)">9000</onup>
                 <onup condition="!Skin.HasSetting(View_501_HorizontalNavigation)">501</onup>
 				<ondown condition="Skin.HasSetting(View_501_HorizontalNavigation)">6000</ondown>
@@ -29,10 +29,10 @@
 				<scrolltime tween="cubic" easing="inout">500</scrolltime>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),501) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <visible>!Container.Content(files)</visible>
-				<itemlayout width="620" height="350" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<itemlayout width="610" height="360" condition="!Skin.HasSetting(View501_ShowTags)">
                     <control type="group">
-                        <width>565</width>
-                        <height>325</height>
+                        <width>593</width>
+                        <height>341</height>
                         <!-- check, merge with thumb sometime -->
 						<include content="LandscapeLayout">
 							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
@@ -40,10 +40,10 @@
 						</include>
                     </control>
 				</itemlayout>
-				<focusedlayout width="620" height="350" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<focusedlayout width="610" height="360" condition="!Skin.HasSetting(View501_ShowTags)">
 					<control type="group">
-                        <width>565</width>
-                        <height>325</height>
+                        <width>593</width>
+                        <height>341</height>
 						<!-- check, merge with thumb sometime -->
 						<include content="LandscapeLayout">
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
@@ -51,27 +51,33 @@
 						</include>
 					</control>
 				</focusedlayout>
-                <itemlayout width="620" height="350" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+                <itemlayout width="550" height="360" condition="Skin.HasSetting(View501_ShowTags)">
                     <control type="group">
-                        <width>493</width>
-                        <left>30</left>
-                        <height>340</height>
+                        <width>531</width>
+                        <height>305</height>
                         <!-- check, merge with thumb sometime -->
 						<include content="LandscapeLayout">
 							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 							<param name="border" value="thumbsborder_unfocused" />
 						</include>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="530" />
+							<param name="tagtop" value="310" />
+						</include>
                     </control>
 				</itemlayout>
-				<focusedlayout width="620" height="350" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<focusedlayout width="550" height="360" condition="Skin.HasSetting(View501_ShowTags)">
 					<control type="group">
-                        <width>493</width>
-                        <height>340</height>
-                        <left>30</left>
+                        <width>531</width>
+                        <height>305</height>
 						<!-- check, merge with thumb sometime -->
 						<include content="LandscapeLayout">
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
+						</include>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="530" />
+							<param name="tagtop" value="310" />
 						</include>
 					</control>
 				</focusedlayout>

@@ -17,7 +17,7 @@
                 <ondown>56</ondown>
                 <onleft>9000</onleft>
                 <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
-        <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+				<onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
                 <pagecontrol>60</pagecontrol>
                 <viewtype label="31425">bigwide</viewtype>
                 <scrolltime tween="Cubic" easing="inout">500</scrolltime>
@@ -29,74 +29,46 @@
                     <control type="group">
                         <width>590</width>
                         <height>125</height>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
-                        </control>
-                        <include>BannerLayout</include>
+                        <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
 					</control>
                 </itemlayout>
                 <focusedlayout height="135" width="600" condition="!Skin.HasSetting(View56_LargeBanners)">
                     <control type="group">
                         <width>590</width>
                         <height>125</height>
-						<animation type="focus">
-							<effect type="zoom" start="100" end="105" center="auto" time="150" />
-						</animation>
-						<animation type="unfocus">
-							<effect type="zoom" start="105" end="100" center="auto" time="150" />
-						</animation>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
-                            <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
-                            <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
-                        </control>
-                        <include>BannerLayout</include>
+						<include>Focus_Zoom_Animation</include>
+                        <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
 					</control>
                 </focusedlayout>
                 <itemlayout height="225" width="900" condition="Skin.HasSetting(View56_LargeBanners)">
                     <control type="group">
                         <width>890</width>
                         <height>205</height>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
-                            <include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
-                        </control>
-                        <include>BannerLayout</include>
+                        <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
 					</control>
                 </itemlayout>
                 <focusedlayout height="225" width="900" condition="Skin.HasSetting(View56_LargeBanners)">
                     <control type="group">
                         <width>890</width>
                         <height>205</height>
-						<animation type="focus">
-							<effect type="zoom" start="100" end="105" center="auto" time="150" />
-						</animation>
-						<animation type="unfocus">
-							<effect type="zoom" start="105" end="100" center="auto" time="150" />
-						</animation>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
-                            <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
-                            <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
-                        </control>
-                        <include>BannerLayout</include>
+						<include>Focus_Zoom_Animation</include>
+                       <include content="BannerLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
 					</control>
                 </focusedlayout>
 

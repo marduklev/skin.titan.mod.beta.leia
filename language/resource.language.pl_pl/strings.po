@@ -2341,8 +2341,8 @@ msgid "Panel"
 msgstr "Panel"
 
 msgctxt "#31681"
-msgid "Panel Low"
-msgstr "Panel niski"
+msgid "Circle"
+msgstr ""
 
 msgctxt "#31685"
 msgid "Vertical Homescreen layout"

@@ -115,13 +115,6 @@
             <height>70</height>
             <width>85</width>
             <control type="image">
-                <height>70</height>
-                <width>84</width>
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
-                <aspectratio>stretch</aspectratio>
-            </control>
-            <control type="image">
                 <!--imdb logo-->
                 <top>0</top>
                 <width>84</width>
@@ -138,7 +131,7 @@
                 <aligny>center</aligny>
                 <font>flags</font>
                 <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
-                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)]</label>
+                <label>$VAR[ListitemTop250]</label>
             </control>
         </control>
     </include>
@@ -147,15 +140,6 @@
 		<!-- IMDB  -->
         <control type="group">          
             <control type="image">
-                <top>-10</top>
-				<left>-5</left>
-				<height>80</height>
-                <width>92</width>
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>               
-                <aspectratio>stretch</aspectratio>
-            </control>
-			<control type="image">
                 <!--imdb logo-->
                 <top>0</top>
                 <width>84</width>
@@ -182,15 +166,6 @@
         <control type="group">
             <height>70</height>
             <width>85</width>
-            <control type="image">
-                <left>10</left>
-				<top>-10</top>
-				<height>80</height>
-                <width>65</width>
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
-                <aspectratio>stretch</aspectratio>
-            </control>
             <control type="image">
                 <description>Rotten tomatoes image</description>
                 <top>2</top>
@@ -220,15 +195,6 @@
             <height>70</height>
             <width>85</width>
             <control type="image">
-                <left>10</left>
-				<top>-10</top>
-				<height>80</height>
-                <width>65</width>
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
-                <aspectratio>stretch</aspectratio>
-            </control>
-            <control type="image">
                 <top>0</top>
                 <width>84</width>
                 <height>37</height>
@@ -255,15 +221,6 @@
             <height>70</height>
             <width>85</width>
             <control type="image">
-                <left>10</left>
-				<top>-10</top>
-				<height>80</height>
-                <width>65</width>
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
-                <aspectratio>stretch</aspectratio>
-            </control>
-            <control type="image">
                 <top>2</top>
                 <width>84</width>
                 <height>37</height>
@@ -289,15 +246,6 @@
 	<include name="TVdb_footer">
         <control type="group">
 			<control type="image">
-				<top>-10</top>
-				<left>-15</left>
-				<height>80</height>
-                <width>90</width>
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
-                <aspectratio>stretch</aspectratio>
-            </control>
-			<control type="image">
                 <right>0</right>
                 <top>-5</top>
                 <width>80</width>
@@ -322,14 +270,6 @@
 	<!-- TM db rating footer -->
 	<include name="TMdb_footer">
         <control type="group">
-			<control type="image">
-				<top>-10</top>
-				<height>80</height>
-                <width>70</width>
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
-                <aspectratio>stretch</aspectratio>
-            </control>
 			<control type="image">
                 <!--TMDB logo-->
                 <right>0</right>
@@ -450,7 +390,7 @@
 				<bottom>15</bottom>
 				<width>90</width>
 				<height>70</height>
-				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)) + 
+				<visible>[!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)) | !String.IsEmpty(ListItem.Top250)] + 
 				[[Window.IsActive(videos) + Skin.HasSetting(IMDBRatingInFooter)] | [Window.IsActive(home) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(showratingnetflixhome)]]
 				</visible>					
 				<include>ImdbTop250</include>
@@ -781,6 +721,11 @@
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating)]</value>
     </variable>	
 	
+	
+	<variable name="ListitemTop250">
+		<value condition="!String.IsEmpty(ListItem.Top250)">$INFO[ListItem.Top250]</value>   
+		<value>$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)]</value> 
+	</variable>	
 	<!-- images colored or white rating flags-->
 	<variable name="image_imdb">
 		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)]">flags/white/white_imdb.png</value>   

@@ -9,9 +9,10 @@
 		  
 			<control type="panel" id="57">
 				<viewtype label="31426">icons</viewtype>
-				<posx>45</posx>
-				<bottom>119</bottom>
-				<height>760</height>
+				<animation effect="slide" start="0" end="-30,0" time="150" condition="Control.HasFocus(60) | Control.HasFocus(6002)">Conditional</animation>
+				<posx>60</posx>
+				<bottom>130</bottom>
+				<height>800</height>
 				<width>1834</width>
 				<orientation>vertical</orientation>
 				<onleft>9000</onleft>
@@ -22,7 +23,7 @@
 				<preloaditems>4</preloaditems>
 				<pagecontrol>60</pagecontrol>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),57) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-				<itemlayout height="380" width="262">
+				<itemlayout height="400" width="262" condition="!Skin.HasSetting(View57_ShowTags)">
 					<control type="group">
 						<width>259</width>
 						<height>380</height>
@@ -33,7 +34,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout height="380" width="262">
+				<focusedlayout height="400" width="262" condition="!Skin.HasSetting(View57_ShowTags)">
 					<control type="group">
 						<width>259</width>
 						<height>380</height>
@@ -42,6 +43,39 @@
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
+					</control>
+				</focusedlayout>
+				<itemlayout height="400" width="240" condition="Skin.HasSetting(View57_ShowTags)">
+					<control type="group">
+						<include>Focus_Zoom_Animation</include>
+						<width>233.1</width>
+						<height>342</height>
+						<include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+							<param name="border" value="thumbsborder_unfocused" />
+						</include>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="230" />
+							<param name="tagtop" value="342" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout height="400" width="240" condition="Skin.HasSetting(View57_ShowTags)">
+					<control type="group">
+						<include>Focus_Zoom_Animation</include>
+						<width>233.1</width>
+						<height>342</height>
+						<include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="230" />
+							<param name="tagtop" value="342" />
+						</include>
+						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 					</control>
 				</focusedlayout>
 			</control>

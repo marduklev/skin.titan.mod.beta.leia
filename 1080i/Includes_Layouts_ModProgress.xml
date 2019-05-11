@@ -1,26 +1,639 @@
 <?xml version="1.0" encoding="utf-8"?>
-	<!-- TITAN MOD -->
+<!-- TITAN MOD -->
 <includes>
-<!-- Main File to sort .re add updated and edited includes,variables,etc  for testing purpose -->
- <!--    RECODE PROJECT -->
+	<!-- Main File to sort .re add updated and edited includes,variables,etc  for testing purpose -->
+
 	
-	<!-- info line layouts for list views
+	<!-- HEADER -merge compact with default - https://i.imgur.com/FfLnn2h.jpg - height is nearly not noticable, just think about font style / size -->
 	
-	VIEWTYPE			width atrribute			 rows focused						rows unfocused
-		50					extra small				2										1
-		51					wide					2/1(slimlist setting)					2/1(slimlist setting)	
-		504					small					2/1(slimlist setting)					2/1(slimlist setting)	
+	<!-- V I E W T Y P E S -->
+	<include name="Netflix_FlagsDetails">
+		<!-- flags, info -->
+		<control type="grouplist">
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<itemgap>0</itemgap>
+			
+			<!-- rating STARS -->
+			<control type="group">
+				<left>0</left>
+				<top>-8</top>
+				<width>170</width>
+				<include>StarRatingNetflix</include>
+            </control>
+			<!-- year -->
+			<control type="label">
+				<visible>!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.Premiered) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Premiered)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>	
+				<left>15</left>
+				<width>auto</width>
+				<label>[B]$VAR[premiered][/B]</label>
+				<height>40</height>
+				<aligny>center</aligny>
+				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+				<font>Reg28</font>
+			</control>
+			<!-- empty seperator -->
+			<control type="group">
+				<left>10</left>
+				<top>-1</top>
+				<width>10</width>
+				<height>50</height>
+				<visible>String.IsEmpty(ListItem.MPAA) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) + String.IsEmpty(ListItem.Property(esrb))</visible>	
+				<control type="textbox">
+					<left>1</left>
+					<width>10</width>
+					<label>|</label>
+					<height>50</height>
+					<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+					<font>Reg28</font>
+				</control>	
+			</control>
+			<!-- mpaa -->
+			<control type="button">
+				<left>5</left>
+				<width min="50">auto</width>
+				<height>40</height>
+				<font>Reg24</font>
+				<label>$VAR[RatingFlagVar]</label>
+				<textoffsetx>18</textoffsetx>
+				<textoffsety>4</textoffsety>
+				<aligny>top</aligny>
+				<align>center</align>
+				<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
+				<disabledcolor>$VAR[CodecSameLabelColorAsFrames]</disabledcolor>
+				<texturenofocus border="-2" colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texturenofocus>
+				<enable>false</enable>
+				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) | !String.IsEmpty(ListItem.Property(esrb))</visible>
+			</control>
+			<!-- var, details -->
+			<control type="label">
+				<left>5</left>
+				<width>auto</width>
+				<label>$VAR[Netflix_Details]</label>
+				<height>40</height>
+				<aligny>center</aligny>
+				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+				<font>Reg28</font>
+			</control>
+			<!-- reso Group -->
+			<control type="group">
+				<left>10</left>
+				<top>0</top>
+				<width>82</width>
+				<height>40</height>
+				<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
+				<control type="image">
+					<height>38</height>
+					<width>82</width>
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<width>100%</width>
+					<label>$VAR[GetResolution,[B],[/B]]</label>
+					<height>40</height>
+					<aligny>center</aligny>
+					<align>center</align>
+					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
+					<font>Bold26</font>
+				</control>	 
+			</control>
+			<!-- audo codec group -->
+			<control type="group">
+				<left>10</left>
+				<top>0</top>
+				<width>82</width>
+				<height>40</height>
+				<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
+				<control type="image">
+					<height>38</height>
+					<width>82</width>
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<width>100%</width>
+					<label>$VAR[AudioChannelsVar,[B],[/B]]</label>
+					<height>40</height>
+					<aligny>center</aligny>
+					<align>center</align>
+					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
+					<font>Bold26</font>
+				</control>
+			</control>
+			<!-- Games: Number of players -->
+			<control type="group">
+				<left>10</left>
+				<top>0</top>
+				<width>250</width>
+				<height>50</height>
+				<visible>!String.IsEmpty(ListItem.Property(nplayers))</visible>
+				<control type="image">
+					<top>-5</top>
+					<width>50</width>
+					<height>50</height>
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">DefaultActor.png</texture>					
+				</control>
+				<control type="label">
+					<left>55</left>
+					<width>100%</width>
+					<label>$INFO[ListItem.Property(nplayers)]</label>
+					<height>40</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
+					<font>Bold26</font>
+				</control>	 
+			</control>
+		</control>
+	</include>
+	
+	<!-- Include netflix genre -->
+	<include name="Netflix_Genre">
+		<visible>!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+		<control type="image">
+			<top>10</top>
+			<width>50</width>
+			<height>30</height>
+			<aligny>bottom</aligny>
+			<texture>netflix/genre.png</texture>
+			<colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
+		</control>
+		<control type="label">
+			<left>60</left>
+			<height>52</height>
+			<width>800</width>
+			<label>$VAR[ListItemGenre]</label>
+			<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>Reg24</font>
+		</control>
+	</include>
+	
+	<!-- Include netflix next aired -->
+	<include name="Netflix_Status">
+		<control type="image">
+			<width>40</width>
+			<height>40</height>
+			<aligny>bottom</aligny>
+			<texture>netflix/tvshowstatus.png</texture>
+			<colordiffuse>$VAR[ToggleNetflixViewDetailsTextColorPlot]</colordiffuse>    
+		</control>
+		<control type="label">
+			<left>55</left>
+			<height>52</height>
+			<width>1200</width>
+			<!-- <label>$INFO[Window(Home).Property(SkinHelper.ListItem.airdaytime.label),[B]$LOCALIZE[31212][/B] $LOCALIZE[31213] • ] $INFO[Window(Home).Property(SkinHelper.ListItem.NextEpisode.Label),• ]</label> -->
+			<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Lastepisode.airdate.Label),[B]$LOCALIZE[31214]:[/B] ,]</label>
+			<textcolor>$VAR[ToggleNetflixViewDetailsTextColorPlot]</textcolor>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>Reg24</font>
+		</control>
+	</include>
+	
+	<!-- Netflix 2 Home / Widgets / Dialog Info Spotlight Row Details -->
+	<include name="SpotlightRowDetails">
+		<control type="grouplist">
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<height>50</height>
+			<itemgap>10</itemgap>
+
+            <!-- New ITEM -->
+            <control type="label" id="611108">
+				<visible>!String.IsEmpty(Control.GetLabel(611108))</visible>
+                <posy>4</posy>
+                <height>35</height>
+                <width>auto</width>
+                <aligny>center</aligny>
+                <font>Reg28</font>
+                <textcolor>green</textcolor> <!-- check, stay hardcoded? i dont think so -->
+                <label>[B]$VAR[NewItem][/B]</label>
+                <include>Default_Fade</include>
+            </control>
+
+			<!-- Thumbs Up/Down -->
+            <control type="group">
+				<width>32</width>
+				<visible>Skin.HasSetting(NetflixThumbRating)</visible>
+				<control type="image" id="6111091">
+					<visible>String.IsGreaterOrEqual(ListItem.Rating,6) | Integer.IsGreaterOrEqual(ListItem.Rating,6)</visible><!-- check, add more v conds, maybe sh could slows it down -->
+					<posy>5</posy>
+					<width>30</width>
+					<height>30</height>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<colordiffuse>$INFO[Skin.String(ThumbUpColor)]</colordiffuse>
+					<texture background="true">netflix/thumbs-up.png</texture>
+					<include>Default_Fade</include>
+				</control>
+				<control type="image" id="6111092">
+					<visible>String.IsGreaterOrEqual(ListItem.Rating,1) + String.IsLess(ListItem.Rating,6) | Integer.IsGreaterOrEqual(ListItem.Rating,1) + Integer.IsLess(ListItem.Rating,6)</visible>
+					<posy>10</posy>
+					<width>30</width>
+					<height>30</height>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<colordiffuse>$INFO[Skin.String(ThumbDownColor)]</colordiffuse>
+					<texture flipy="true" background="true">netflix/thumbs-up.png</texture>
+					<include>Default_Fade</include>
+				</control>
+				<control type="image" id="6111093">
+					<visible>Integer.IsLess(ListItem.Rating,1) | String.IsEmpty(ListItem.Rating)</visible>
+					<posy>8</posy>
+					<width>30</width>
+					<height>30</height>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<colordiffuse>$INFO[Skin.String(NetflixPrimaryTextColor)]</colordiffuse>
+					<texture background="true">netflix/thumbs-nr.png</texture>
+					<include>Default_Fade</include>
+				</control>
+			</control>
+			
+			<!-- Stars rating -->
+			<control type="image" id="611110">
+                <visible>!String.IsEmpty(Control.GetLabel(611110)) + !Skin.HasSetting(NetflixThumbRating)</visible>
+				<posy>5</posy>
+				<width>160</width>
+				<height>35</height>
+				<aspectratio align="left" aligny="center">keep</aspectratio>
+				<colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
+				<texture background="true">$VAR[rating_value_texture]</texture>
+                <include>Default_Fade</include>
+			</control>
+
+			<!-- Year / Premiered / PVR Time -->
+			<control type="label" id="611111">
+                <visible>!String.IsEmpty(Control.GetLabel(611111))</visible>
+				<posy>5</posy>
+				<height>35</height>
+				<width>auto</width>
+				<aligny>center</aligny>
+				<font>Reg28</font>
+				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+				<label>[B]$VAR[Year_Premiered_RecPVR][/B]</label>
+                <include>Default_Fade</include>
+			</control>
+
+			<!-- mpaa -->
+			<control type="button" id="611112">
+				<visible>!String.IsEmpty(Control.GetLabel(6111121))</visible>
+				<posy>4</posy>
+				<include>Default_Fade</include>
+				<width min="50">auto</width>
+				<height>40</height>
+				<font>Reg24</font>
+				<label>$VAR[RatingFlagVar]</label>
+				<textoffsetx>18</textoffsetx>
+				<textoffsety>4</textoffsety>
+				<aligny>top</aligny>
+				<align>center</align>
+				<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
+				<disabledcolor>$VAR[CodecSameLabelColorAsFrames]</disabledcolor>
+				<texturenofocus border="-2" colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texturenofocus>
+				<enable>false</enable>
+				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) | !String.IsEmpty(ListItem.Property(esrb))</visible>
+			</control>
+			
+			<!-- Duration / Total Seasons/Episodes -->
+			<control type="label" id="611113">
+				<posy>5</posy>
+				<visible>!String.IsEmpty(Control.GetLabel(611113))</visible>
+				<width>auto</width>
+				<label>$VAR[DurationOrTotalSECount]</label>
+				<height>35</height>
+				<aligny>center</aligny>
+				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+				<font>Reg28</font>
+                <include>Default_Fade</include>
+			</control>
+			<!-- Resolution -->
+			<control type="group" id="611114">
+                <visible>!String.IsEmpty(Control.GetLabel(6111141))</visible>
+				<posy>5</posy>
+				<width>70</width>
+				<height>40</height>
+                <include>Default_Fade</include>
+				<control type="image">
+					<top>-2</top>
+					<height>100%</height>
+					<width>100%</width>
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
+				</control>
+				<control type="label" id="6111141">
+					<width>100%</width>
+					<height>36</height>
+					<aligny>bottom</aligny>
+					<align>center</align>
+					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
+					<font>Bold26</font>
+                    <scroll>false</scroll>
+                    <label>$VAR[GetResolution,[B],[/B]]</label>
+				</control>
+			</control>
+			<!-- Audio Channels -->
+			<control type="group" id="611115">
+                <visible>!String.IsEmpty(Control.GetLabel(6111151))</visible>
+				<posy>5</posy>
+				<width>70</width>
+				<height>40</height>
+                <include>Default_Fade</include>
+				<control type="image">
+					<top>-2</top>
+					<height>100%</height>
+					<width>100%</width>
+					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
+				</control>
+				<control type="label" id="6111151">
+					<width>100%</width>
+					<height>36</height>
+					<aligny>bottom</aligny>
+					<align>center</align>
+					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
+					<font>Bold26</font>
+                    <scroll>false</scroll>
+                    <label>$VAR[AudioChannelsVar,[B],[/B]]</label>
+				</control>
+			</control>
+		</control>
+	</include>
+	
+	<!-- New Item Tag -->
+    <variable name="NewItem">
+        <value condition="String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),movie) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,movie)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),movie)">$VAR[NewMovieItem]</value>
+        <value condition="String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)">$VAR[NewEpisodeItem]</value>
+        <value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)">$VAR[NewTVShowItem]</value>
+    </variable>
+
+    <!-- New Movie -->
+    <variable name="NewMovieItem">
+        <value condition="String.IsEqual(Window(Home).Property(LatestMovie.1.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.2.Title),ListItem.Title) |
+        String.IsEqual(Window(Home).Property(LatestMovie.3.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.4.Title),ListItem.Title) |
+        String.IsEqual(Window(Home).Property(LatestMovie.5.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.6.Title),ListItem.Title) |
+        String.IsEqual(Window(Home).Property(LatestMovie.7.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.8.Title),ListItem.Title) |
+        String.IsEqual(Window(Home).Property(LatestMovie.9.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.10.Title),ListItem.Title)">[CAPITALIZE]$LOCALIZE[31900][/CAPITALIZE]</value>
+    </variable>
+
+    <!-- New TVShow -->
+    <variable name="NewTVShowItem">
+        <value condition="[String.IsEqual(Window(Home).Property(LatestEpisode.10.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.10.EpisodeSeason),1)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.9.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.9.EpisodeSeason),1)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.8.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.8.EpisodeSeason),1)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.7.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.7.EpisodeSeason),1)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.6.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.6.EpisodeSeason),1)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.5.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.5.EpisodeSeason),1)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.4.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.4.EpisodeSeason),1)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.3.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.3.EpisodeSeason),1)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.2.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.2.EpisodeSeason),1)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.1.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.1.EpisodeSeason),1)]">[CAPITALIZE]$LOCALIZE[31900][/CAPITALIZE]</value>
+    </variable>
+
+    <!-- New Episode -->
+    <variable name="NewEpisodeItem">
+        <value condition="[String.IsEqual(Window(Home).Property(LatestEpisode.1.EpisodeTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.1.ShowTitle),ListItem.TVShowTitle)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.2.EpisodeTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.2.ShowTitle),ListItem.TVShowTitle)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.3.EpisodeTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.3.ShowTitle),ListItem.TVShowTitle)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.4.EpisodeTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.4.ShowTitle),ListItem.TVShowTitle)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.5.EpisodeTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.5.ShowTitle),ListItem.TVShowTitle)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.6.EpisodeTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.6.ShowTitle),ListItem.TVShowTitle)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.7.EpisodeTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.7.ShowTitle),ListItem.TVShowTitle)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.8.EpisodeTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.8.ShowTitle),ListItem.TVShowTitle)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.9.EpisodeTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.9.ShowTitle),ListItem.TVShowTitle)] |
+        [String.IsEqual(Window(Home).Property(LatestEpisode.10.EpisodeTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.10.ShowTitle),ListItem.TVShowTitle)]">[CAPITALIZE]$LOCALIZE[31900][/CAPITALIZE]</value>
+    </variable>
+			
+	<!-- Choose Year / Premiered / PVR -->
+	<variable name="Year_Premiered_RecPVR">
+		<value condition="String.IsEmpty(ListItem.DBTYPE) + !String.IsEmpty(ListItem.Property(StartDate))">$INFO[ListItem.Property(StartDate)]</value>	<!--need re- check  temporally removed till leia is fixed $INFO[ListItem.Property(StartTime)] - $INFO[ListItem.Property(EndTime)] -->     
+		<value condition="String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)">$VAR[GetPremiered]</value>
+        <value>$VAR[GetYear]</value>
+	</variable>
+	<!-- Premiered Info -->
+	<variable name="GetPremiered">
+		<value condition="!String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Premiered]</value>
+		<value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Premiered)">$INFO[Container(1508).ListItem.Premiered]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(ListItem.Premiered))">$INFO[Window(Home).Property(ListItem.Premiered)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Premiered))">$INFO[Window(Home).Property(SkinHelper.ListItem.Premiered)]</value>
+	</variable>
+	<!--Year Info -->
+	<variable name="GetYear">
+		<value condition="!String.IsEmpty(ListItem.Year)">$INFO[ListItem.Year]</value>
+		<value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Year)">$INFO[Container(1508).ListItem.Year]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(ListItem.Year))">$INFO[Window(Home).Property(ListItem.Year)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</value>
+	</variable>
+	
+	<!-- Choose Duration Or Total Seasons/Episodes count -->
+	<variable name="DurationOrTotalSECount">
+		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)">$VAR[GetTotalSeasonEpisodeCount]</value>
+		<value>$VAR[ListItemDuration]</value>
+	</variable>		
+	
+	<!-- Total Seasons/Episodes Info -->
+    <variable name="GetTotalSeasonEpisodeCount">
+        <!--normal-->
+        <value condition="Integer.IsLess(ListItem.Property(TotalSeasons),2) + Integer.IsGreater(ListItem.Property(TotalEpisodes),0)">$INFO[ListItem.Property(TotalSeasons),[B], $LOCALIZE[20373][/B]]$INFO[ListItem.Property(TotalEpisodes), (, $LOCALIZE[20360])]</value>
+        <value condition="Integer.IsLess(ListItem.Property(TotalSeasons),2) + Integer.IsEqual(ListItem.Property(TotalEpisodes),1)">$INFO[ListItem.Property(TotalSeasons),[B], $LOCALIZE[20373][/B]]$INFO[ListItem.Property(TotalEpisodes), (, $LOCALIZE[20359])]</value>        
+		<value condition="Integer.IsGreater(ListItem.Property(TotalSeasons),1) + Integer.IsGreater(ListItem.Property(TotalEpisodes),0)">$INFO[ListItem.Property(TotalSeasons),[B], $LOCALIZE[33054][/B]]$INFO[ListItem.Property(TotalEpisodes), (, $LOCALIZE[20360])]</value>
+        <value condition="Integer.IsGreater(ListItem.Property(TotalSeasons),1) + Integer.IsEqual(ListItem.Property(TotalEpisodes),1)">$INFO[ListItem.Property(TotalSeasons),[B], $LOCALIZE[33054][/B]]$INFO[ListItem.Property(TotalEpisodes), (, $LOCALIZE[20359])]</value>
+        <!--spotlight-->
+        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + Integer.IsGreater(Container(1508).ListItem.Property(TotalSeasons),1)">$INFO[Container(1508).ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</value>
+        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + Integer.IsEqual(Container(1508).ListItem.Property(TotalEpisodes),1)">$INFO[Container(1508).ListItem.Property(TotalEpisodes),, $LOCALIZE[20359]]</value>
+        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + Integer.IsGreaterOrEqual(Container(1508).ListItem.Property(TotalEpisodes),0)">$INFO[Container(1508).ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
+    </variable>	
+
+	<variable name="audiovideoframe">
+		<value condition="Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/frame_hardedge.png</value>
+		<value condition="!Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/frame_softedge.png</value>
+	</variable>
+	<variable name="CodecSameLabelColorAsFrames">
+		<value condition="!Skin.HasSetting(CodecSameLabelColorAsFrames)">$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
+		<value condition="Skin.HasSetting(CodecSameLabelColorAsFrames)">$INFO[Skin.String(NetflixDetailsFlagColor)]</value>
+	</variable>	
+	<variable name="mpaaframe">
+		<value condition="Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/detail-framehardedge.png</value>
+		<value condition="!Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/detail-frame.png</value>
+	</variable>	
+	
+	<variable name="premiered">
+		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/) | !ControlGroup(77777).HasFocus + Control.IsVisible(1508)">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</value>
+		<value condition="Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)">$INFO[ListItem.Premiered]</value>		
+		<value>$INFO[ListItem.year]</value>
+	</variable>
+	
+	<variable name="ListItemGenre">
+		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
+		<value condition="String.IsEmpty(ListItem.Genre)">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
+		<value condition="String.IsEmpty(ListItem.Genre) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">n/a</value>
+	</variable>		
+	
+	<!-- check Resolution -->
+	<variable name="GetResolution">
+		<!--normal-->
+		<value condition="ListItem.IsStereoscopic">3D</value>
+		<value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.IsEqual(ListItem.VideoResolution,4K)">UHD</value>
+		<value condition="Integer.IsGreater(ListItem.VideoResolution,700)">HD</value>
+		<value condition="!String.IsEmpty(ListItem.VideoResolution)">SD</value>
+		<!--home-->
+		<value condition="Window(Home).Property(ListItem.IsStereoscopic)">3D</value>
+		<value condition="Integer.IsGreater(Window(Home).Property(ListItem.VideoResolution),1080) | String.IsEqual(ListItem.VideoResolution,4K)">UHD</value>
+		<value condition="Integer.IsGreater(Window(Home).Property(ListItem.VideoResolution),700)">HD</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(ListItem.VideoResolution))">SD</value>
+	</variable>
+		
+	<!-- V I E W T Y P E S -->
+    <variable name="Netflix_Details">
+		<!-- episode-->
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ListItem.Property(season_finale)">$VAR[ListItemDuration,, $LOCALIZE[31336]] </value>
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ListItem.Property(series_finale)">$VAR[ListItemDuration,, $LOCALIZE[31335]] </value>
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]">$VAR[ListItemDuration]</value>
+		<value condition="Container.Content(MusicVideos) + [!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(ListItem.Year)]">$VAR[ListItemDuration]</value>					  
+		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
+		<value condition="Container.Content(Movies) + !String.IsEmpty(ListItem.Duration)">[B]$VAR[ListItemDuration][/B]</value>
+		<value condition="Container.Content(TVShows) + Integer.IsGreater(ListItem.Property(TotalSeasons),1) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalSeasons),[B], $LOCALIZE[33054][/B]]$INFO[ListItem.Property(UnWatchedEpisodes), (, $LOCALIZE[31092])]</value>
+		<value condition="Container.Content(TVShows) + Integer.IsGreater(ListItem.Property(TotalSeasons),1) + !Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalSeasons),[B], $LOCALIZE[33054][/B]]</value>																																																																																							
+		<value condition="Container.Content(TVShows) + Integer.IsEqual(ListItem.Property(TotalSeasons),1) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalSeasons),[B], $LOCALIZE[36904][/B]]$INFO[ListItem.Property(UnWatchedEpisodes), (, $LOCALIZE[31092])]</value>
+		<value condition="Container.Content(TVShows) + Integer.IsEqual(ListItem.Property(TotalSeasons),1) + !Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalSeasons),[B], $LOCALIZE[36904][/B]]</value>																																																																																							
+		<value condition="Container.Content(Seasons) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),[B], $LOCALIZE[20360][/B]]$INFO[ListItem.Property(UnWatchedEpisodes), (, $LOCALIZE[31092])]</value>
+		<value condition="Container.Content(Seasons) + !Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),[B], $LOCALIZE[20360][/B]]</value>																																																																																							
+ 		<value condition="!String.IsEmpty(ListItem.Duration)">$VAR[ListItemDuration]</value>
+		<value condition="!String.IsEmpty(ListItem.Label2)">$INFO[ListItem.Label2]</value>
+	</variable>
 	
 	
-	2 rows - all lists,except SlimList
+	<!-- Thumbs Down/Up Includes need further test conditions to other than user rating  -->
+	<include name="ThumbsUpMinCondition">
+		<include condition="Skin.String(ThumbsUpMin,6)">ThumbsUpMin6</include>
+		<include condition="Skin.String(ThumbsUpMin,7)">ThumbsUpMin7</include>
+		<include condition="Skin.String(ThumbsUpMin,8)">ThumbsUpMin8</include>
+		<include condition="Skin.String(ThumbsUpMin,9)">ThumbsUpMin9</include>
+		<include condition="Skin.String(ThumbsUpMin,10)">ThumbsUpMin10</include>
+	</include>
+
+    <include name="ThumbsDownMaxCondition">        
+        <include condition="Skin.String(ThumbsDownMax,5)">ThumbsDownMax5</include>
+        <include condition="Skin.String(ThumbsDownMax,4)">ThumbsDownMax4</include>
+        <include condition="Skin.String(ThumbsDownMax,3)">ThumbsDownMax3</include>
+        <include condition="Skin.String(ThumbsDownMax,2)">ThumbsDownMax2</include>
+        <include condition="Skin.String(ThumbsDownMax,1)">ThumbsDownMax1</include>
+    </include>
 	
-	3 rows 	+ info 
-	2 rows 	+ info
-	1 row 	+ info
+	<!-- check need proof fallback empty rating to user rating, need variables-->
+	<include name="ThumbsDownMax1"><visible>Integer.IsEqual(ListItem.Rating,1)</visible></include>
+	<include name="ThumbsDownMax2"><visible>Integer.IsLessOrEqual(ListItem.Rating,2)</visible></include>
+	<include name="ThumbsDownMax3"><visible>Integer.IsLessOrEqual(ListItem.Rating,3)</visible></include>
+	<include name="ThumbsDownMax4"><visible>Integer.IsLessOrEqual(ListItem.Rating,4)</visible></include>
+	<include name="ThumbsDownMax5"><visible>Integer.IsLessOrEqual(ListItem.Rating,5)</visible></include>
+
+	<include name="ThumbsUpMin6"><visible>Integer.IsGreaterOrEqual(ListItem.Rating,6)</visible></include>
+	<include name="ThumbsUpMin7"><visible>Integer.IsGreaterOrEqual(ListItem.Rating,7)</visible></include>
+	<include name="ThumbsUpMin8"><visible>Integer.IsGreaterOrEqual(ListItem.Rating,8)</visible></include>
+	<include name="ThumbsUpMin9"><visible>Integer.IsGreaterOrEqual(ListItem.Rating,9)</visible></include>
+	<include name="ThumbsUpMin10"><visible>Integer.IsEqual(ListItem.Rating,10)</visible></include>
+    
+   <!-- Netflix More Details (pseudo-random) -->
+    <variable name="NetflixMoreDetails">
+        <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)][/I]</value>
+        <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)][/I]</value>
+        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),0)">[I]Ranked $INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)] in IMDB Top 250[/I]</value>
+        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">[I]$INFO[ListItem.Director][/I]</value>
+        <value condition="!String.IsEmpty(ListItem.Genre)">[I]$INFO[ListItem.Genre][/I]</value>
+    </variable>
+
+    <!-- line1: 'Season X Episode X' line: 2 'episode title' format -->
+    <variable name="NetflixEpisodeInfoLabel">
+        <value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) +
+        !String.IsEmpty(ListItem.Title)">[B][CAPITALIZE]$INFO[ListItem.Season,$LOCALIZE[36904] ,]$INFO[ListItem.Episode, $LOCALIZE[36906] ,][/CAPITALIZE][/B][CR]$INFO[ListItem.Title]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Season)) + !String.IsEmpty(Window(Home).Property(ListItem.Episode)) + !String.IsEmpty(Window(Home).Property(ListItem.Title))">[B][CAPITALIZE]$INFO[Window(Home).Property(ListItem.Season),$LOCALIZE[36904] ,]$INFO[Window(Home).Property(ListItem.Episode), $LOCALIZE[36906] ,][/CAPITALIZE][/B][CR]$INFO[Window(Home).Property(ListItem.Title)]</value>
+        <!-- fallback -->
+        <value>[B][CAPITALIZE]$INFO[Window(Home).Property(ListItem.Label)][/CAPITALIZE][/B]</value>
+    </variable>
+
+    <!-- 'SxxExx "episode_title"' format-->
+    <variable name="NetflixDialogEpisodeInfoLabel">
+        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + !String.IsEmpty(Container(5050).ListItem.Season) + !String.IsEmpty(Container(5050).ListItem.Episode) +
+        !String.IsEmpty(Container(5050).ListItem.Title)">[B]$INFO[Container(5050).ListItem.Season,S,]$INFO[Container(5050).ListItem.Episode,E,]$INFO[Container(5050).ListItem.Title, ","][/B]</value>
+        <value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) +
+        !String.IsEmpty(ListItem.Title)">[B][UPPERCASE]$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E,][/UPPERCASE]$INFO[ListItem.Title, ","][/B]</value>
+        <!-- fallback -->
+        <value>[B]$INFO[Window(Home).Property(ListItem.Label)][/B]</value>
+    </variable>
+
+    <!-- play/resume label -->
+    <variable name="PlayOrResumeLabel">
+        <value condition="ListItem.IsResumable">$LOCALIZE[13404]</value>
+        <value>$LOCALIZE[208]</value>
+    </variable>
+
+    <!-- next-up content for info dialog -->
+    <variable name="InfoDialogNextUpContent">
+        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + Integer.IsGreater(ListItem.Property(unwatchedepisodes),0) + !String.IsEmpty(ListItem.DBID)">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</value>
+    </variable>
+
+    <!-- plot outline prioritized and per-episode plot -->
+    <variable name="NetflixInfoDialogPlot">
+        <value condition="Skin.HasSetting(ShowEpisodePlotInfoDialog) + [String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + !String.IsEmpty(Container(5050).ListItem.Plot)">$INFO[Container(5050).ListItem.Plot]</value>
+        <!-- contains is a workaround to ignore bad scraped outline plots, should be solved at scraper level -->
+        <value condition="!String.IsEmpty(ListItem.PlotOutline) + !String.Contains(ListItem.PlotOutline,$LOCALIZE[20339]: )">$INFO[ListItem.PlotOutline]</value>
+        <value>$VAR[Plots]</value>
+    </variable>
+
+    <!-- TVShow title & fallback for skin widgets -->
+    <variable name="TVShowTitle">
+        <value condition="!String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.TvShowTitle))">$INFO[Window(Home).Property(ListItem.TvShowTitle)]</value>
+        <value>$INFO[ListItem.Title]</value>
+    </variable>
+
+    <!-- Get NextUp Episode number and subtracts one for playoffset (play from beginning workaround) -->
+    <variable name="NextUpEpisodeMinusOne">
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,1)">0</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,2)">1</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,3)">2</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,4)">3</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,5)">4</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,6)">5</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,7)">6</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,8)">7</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,9)">8</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,10)">9</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,11)">10</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,12)">11</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,13)">12</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,14)">13</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,15)">14</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,16)">15</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,17)">16</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,18)">17</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,19)">18</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,20)">19</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,21)">20</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,22)">21</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,23)">22</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,24)">23</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,25)">24</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,26)">25</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,27)">26</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,28)">27</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,29)">28</value>
+        <value condition="Integer.IsEqual(Container(5050).ListItem.Episode,30)">29</value>
+        <value>-1</value>
+    </variable>
+
+    <!-- Next Up Notification vars -->
+    <!-- next up resolution ,check reso info UP-NEXT addon-->
+    <variable name="NextUpResolution">
+        <value condition="Integer.IsGreater(Control.GetLabel(3011),1080)">UHD</value>
+        <value condition="Integer.IsGreater(Control.GetLabel(3011),700)">HD</value>
+        <value condition="Integer.IsLess(Control.GetLabel(3011),700)">SD</value>
+    </variable>
+    
+	<!-- default fade animation -->
+    <include name="Default_Fade">
+        <animation effect="fade" time="200">Visible</animation>
+    </include>
 	
-	-->
-	
-	<!-- HEADER -merge compact with default - https://i.imgur.com/FfLnn2h.jpg - height is nearly not noticable, just think about font stayle / size -->
 	
 	<!-- paying media -->
 	<include name="Preview_GameVideoWindow">
@@ -101,6 +714,13 @@
 		<animation effect="zoom" start="0,100" end="100,100" time="100" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation>
 	</include>
 	
+	
+	<include name="Netflix_HeaderFont_Big_CC">
+		<font>Title_CircleC_Header70</font>
+	</include>
+	<include name="Netflix_HeaderFont_Big_Default">
+		<font>Bold55</font>
+	</include>
 	
 	<!-- NEW FONTS WIP -->
 		<!-- TAGS -->

@@ -39,6 +39,7 @@
 				</itemlayout>
 				<focusedlayout height="415" width="268" condition="!Skin.HasSetting(View59_ShowTags) + Skin.HasSetting(View59_ShowCDart)">
 					<control type="group">
+						<include>Focus_Zoom_Animation</include>
 						<width>254</width>
 						<height>380</height>
 						<left>-4</left>
@@ -47,6 +48,7 @@
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
+						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 						<include>AutoTrailerButton</include>
 					</control>
 					<control type="image">
@@ -75,6 +77,7 @@
 				</itemlayout>
 				<focusedlayout height="415" width="273" condition="!Skin.HasSetting(View59_ShowTags) + !Skin.HasSetting(View59_ShowCDart)">
 					<control type="group">
+						<include>Focus_Zoom_Animation</include>
 						<include>AutoTrailerButton</include>
 						<height>414</height>
 						<width>276</width>
@@ -83,6 +86,7 @@
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
+						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 					</control>
 				</focusedlayout>
 				<itemlayout height="415" width="255" condition="Skin.HasSetting(View59_ShowTags)">

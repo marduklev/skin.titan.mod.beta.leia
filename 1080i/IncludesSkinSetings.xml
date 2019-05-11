@@ -346,6 +346,14 @@
                 <selected>Skin.HasSetting(DisableAllWidgets)</selected>
                 <visible>!Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, 3) + !String.Contains(Skin.String(HomeLayout), netflix)</visible>
             </control>
+			<!-- use overlay HomeWidget  -->
+            <control type="radiobutton" id="13099">
+                <include>SkinSettings_Button</include>
+                <label>Use Dimmed Overlay on Widgets</label>
+                <onclick>Skin.ToggleSetting(HomeWidget_FocusOverlay)</onclick>
+				<selected>Skin.HasSetting(HomeWidget_FocusOverlay)</selected>
+				<visible>!String.Contains(Skin.String(HomeLayout), netflix)</visible>
+            </control>
 			<!--hide widget panel-->
             <control type="radiobutton" id="13004">
                 <include>SkinSettings_Button</include>
@@ -371,20 +379,20 @@
                 <visible>[Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 2) | Skin.String(HomeLayout, 1small) | Skin.String(HomeLayout, 2small) | Skin.String(HomeLayout, simplever)]</visible>
                 <visible>![Skin.HasSetting(DisableAllWidgets) + Skin.HasSetting(DisableAllSubmenus)]</visible>
             </control>
-			<!-- use submenui as widget layout -->
-            <control type="button" id="23721">
-                <include>SkinSettings_Button</include>
-                <label>Layout for Submenu Widget</label>
-				<!-- PLACEHOLDER - square, Landscape, .. -->
-            </control>
+					<!-- use submenui as widget layout -->
+					<!-- <control type="button" id="23721"> -->
+						<!-- <include>SkinSettings_Button</include> -->
+						<!-- <label>Layout for Submenu Widget</label> -->
+						<!-- - PLACEHOLDER - square, Landscape, .. - -->
+					<!-- </control> -->
 			<!-- widget layout, should just be set in shortcut section, use hidden if needed-->
-            <!-- <control type="button" id="23719">
+            <control type="button" id="23719">
                 <include>SkinSettings_Button</include>
                 <label>31507</label>
                 <label2>$INFO[Skin.String(widgetstyle.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=widgetstyle,header=$LOCALIZE[31507])</onclick>
                 <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
-            </control> -->
+            </control>
             <!--large widget area-->
             <control type="radiobutton" id="31761">
                 <include>SkinSettings_Button</include>
@@ -439,7 +447,7 @@
                 <label>31763</label>
                 <onclick>Skin.ToggleSetting(WidgetsZoomFocus)</onclick>
                 <selected>Skin.HasSetting(WidgetsZoomFocus)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
+                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced)</visible>
             </control>
 			 <!--large widget details-->
             <control type="radiobutton" id="31741">
@@ -874,6 +882,14 @@
                 <onclick>Skin.ToggleSetting(EnableFakeDiscArt)</onclick>
                 <selected>Skin.HasSetting(EnableFakeDiscArt)</selected>
             </control>
+			<control type="radiobutton" id="17191">
+                <font>Title_CircleC_Header46</font>
+				<include>SkinSettings_Button</include>
+                <label>Use Alternative &quot;Title&quot; Font (WIP - Netflix(523) if No Clearlogo avail)</label>
+               
+				<onclick>Skin.ToggleSetting(Alt_Header_Font)</onclick>
+                <selected>Skin.HasSetting(Alt_Header_Font)</selected>
+            </control>
 			
 			<!-- Header studio Lib -->
             <control type="label" id="170003">
@@ -1038,7 +1054,15 @@
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
            
-           
+			
+			<!-- use focus overlay lib -->
+            <control type="radiobutton" id="13031">
+                <include>SkinSettings_Button</include>
+                <label>Use Dimmed Overlay on Focused Item</label>
+                <onclick>Skin.ToggleSetting(LibItems_FocusOverlay)</onclick>
+				<selected>Skin.HasSetting(LibItems_FocusOverlay)</selected>
+            </control>
+			
             <!-- show movie title -->
             <control type="radiobutton" id="13028">
                 <include>SkinSettings_Button</include>
@@ -1339,7 +1363,12 @@
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
         
-		
+		<!-- Lib_PlayButtonColor -->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31862" />
+            <param name="label" value="Color for Dim Overlay Play Button" />
+            <param name="skinsetting" value="Lib_PlayButtonColor" />
+        </include>
 		<!-- THUMB border color FOCUS -->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31828" />

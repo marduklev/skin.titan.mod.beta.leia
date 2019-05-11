@@ -235,6 +235,7 @@
 				<effect type="slide" end="6,0" time="0" />
 			</animation>
 		</control>
+		
 	</include>
 	
 	<!-- POSTER 523 maybe also 525 Reflections -->
@@ -505,5 +506,41 @@
             </control>
         </control>
     </include>
+	
+	<!-- dimm focus overlay -->
+	<include name="FocusOverlay">
+		<control type="group">
+			<animation reversible="false" effect="fade" start="0" end="100" time="350" tween="quadratic" easing="in">Focus</animation>
+			<animation reversible="false" effect="fade" start="100" end="0" time="0">UnFocus</animation>
+			<control type="image">
+				<bordersize>8</bordersize>
+				<colordiffuse>ff000000</colordiffuse>
+				<texture>overlay/overlay_dimm.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="group">
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>35%</width>
+					<height>35%</height>
+					<colordiffuse>$INFO[Skin.String(Lib_PlayButtonColor)]</colordiffuse>
+					<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+					<texture>overlay/overlay_button_play.png</texture>
+					<visible>![String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,artist) | String.IsEqual(ListItem.DBType,album) | ListItem.IsFolder | String.IsEqual(ListItem.Property(IsFolder),true)]</visible>
+					</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>25%</width>
+					<height>25%</height>
+					<colordiffuse>$INFO[Skin.String(Lib_PlayButtonColor)]</colordiffuse>
+					<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+					<texture>overlay/overlay_button_folder.png</texture>
+					<visible>[String.IsEqual(ListItem.Label,..) | String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,artist) | String.IsEqual(ListItem.DBType,album)]</visible>
+				</control>
+			</control>
+		</control>
+	</include>
 	
 </includes>

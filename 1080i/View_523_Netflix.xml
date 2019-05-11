@@ -107,8 +107,9 @@
                     <width>800</width>
                     <left>70</left>
                     <top>20</top>
-                    <font>Title_Header70</font>
-                    <align>left</align>
+					<include condition="Skin.HasSetting(Alt_Header_Font)">Netflix_HeaderFont_Big_CC</include>
+					<include condition="!Skin.HasSetting(Alt_Header_Font)">Netflix_HeaderFont_Big_Default</include>
+					<align>left</align>
                     <aligny>center</aligny>
                     <label>$INFO[ListItem.Title,[B],[/B]]</label>
                     <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
@@ -294,7 +295,7 @@
 						<control type="group">
 							<width>170</width>
 							<height>247</height>
-							<bottom>-200</bottom>
+							<bottom>-210</bottom>
 							<include content="PosterPanelLayout">
 								<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
 								<param name="colordiffuse" value="$VAR[NetflixViewDetailsPanelColor]" />
@@ -315,7 +316,7 @@
 						<width>264</width>
 						<height>381</height>
 						<right>2</right>
-						<bottom>-100</bottom>
+						<bottom>-110</bottom>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
 							<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]" />
@@ -327,14 +328,14 @@
 						<width>264</width>
 						<height>381</height>
 						<right>2</right>
-						<bottom>-468</bottom>
+						<bottom>-478</bottom>
 						<include>523_reflections</include>
 					</control>
 					<!-- D I S C A R T -->
 					<control type="image">
 						<width>250</width>
 						<height>250</height>
-						<top>240</top>
+						<top>250</top>
 						<left>200</left>
 						<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
 						<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
@@ -352,7 +353,7 @@
 					<control type="image">
 						<width>250</width>
 						<height>250</height>
-						<top>230</top>
+						<top>240</top>
 						<left>200</left>
 						<animation effect="fade" start="100" end="20" condition="true">Conditional</animation>
 						<texture background="true" flipy="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>

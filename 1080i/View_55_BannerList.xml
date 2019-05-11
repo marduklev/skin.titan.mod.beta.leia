@@ -56,6 +56,7 @@
 							<param name="tagwidth" value="650"/>
 							<param name="tagtop" value="146" />
 						</include>
+						<include>Focus_Zoom_Animation</include>
                         <include>AutoTrailerButton</include>
 					</control>
                 </focusedlayout>
@@ -87,6 +88,7 @@
 							<param name="tagwidth" value="650"/>
 							<param name="tagtop" value="146" />
 						</include>
+						<include>Focus_Zoom_Animation</include>
 						<include>AutoTrailerButton</include>
 					</control>
                 </focusedlayout>
@@ -118,6 +120,7 @@
 							<param name="tagwidth" value="650"/>
 							<param name="tagtop" value="146" />
 						</include>
+						<include>Focus_Zoom_Animation</include>
                         <include>AutoTrailerButton</include>
 					</control>
                 </focusedlayout>
@@ -149,6 +152,7 @@
 							<param name="tagwidth" value="650"/>
 							<param name="tagtop" value="146" />
 						</include>
+						<include>Focus_Zoom_Animation</include>
                         <include>AutoTrailerButton</include>
 					</control>
                 </focusedlayout>

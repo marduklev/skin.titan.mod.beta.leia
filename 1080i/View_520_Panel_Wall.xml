@@ -49,6 +49,7 @@
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
+						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
                       </control>
                 </focusedlayout>
 				 <!-- itemlayout movies -->
@@ -70,7 +71,7 @@
                 <!-- focussed layout movies -->
                 <focusedlayout height="350" width="171" condition="Skin.HasSetting(View520_ShowTags)">
                     <control type="group">
-					<include>Focus_Zoom_Animation</include>
+						<include>Focus_Zoom_Animation</include>
                         <width>169</width>
                         <height>258</height>
 						<include content="PosterPanelLayout">
@@ -82,8 +83,9 @@
 							<param name="tagwidth" value="169"/>
 							<param name="tagtop" value="260" />
 						</include>
-                      </control>
-                </focusedlayout>
+						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
+					</control>
+				</focusedlayout>
 			</control>
 		
 			<!--vertical Scollbar-->

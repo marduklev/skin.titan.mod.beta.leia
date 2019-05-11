@@ -10,7 +10,7 @@
                 <height>930</height>
                 <right>0</right>
                 <bottom>0</bottom>
-                <ondown>77777</ondown>
+                <ondown>317</ondown>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">SetFocus(300)</onleft>
                 <onleft condition="Skin.HasSetting(EnhancedHome_Circular)">77777</onleft>
                 <onup>5555</onup>
@@ -51,16 +51,17 @@
             <control type="group">
                 <control type="scrollbar" id="317">
                     <left>40</left>
-                    <bottom>0</bottom>
+                    <bottom>20</bottom>
                     <width>1840</width>
                     <height>15</height>
-                    <onup>52</onup>
+					   <!--  <onup>52</onup> -->
+					<onup>77777</onup>
                     <onleft>317</onleft>
                     <onright>317</onright>
                     <orientation>horizontal</orientation>
                     <animation effect="slide" end="0,20" time="300" delay="0" tween="cubic" easing="inout" condition="Window.IsActive(notification) | Window.IsActive(extendedprogressdialog) | Control.IsVisible(88888)">Conditional</animation>
-                         <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                         <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(317) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(317) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
                 </control>
             </control>
             
@@ -114,6 +115,7 @@
               <control type="group">
                     <width>220</width>
                     <height>220</height>
+					<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 					<include content="SquarePosterPanelLayout">
 						<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 						<param name="border" value="thumbsborder_focused" />
@@ -709,10 +711,14 @@
             </control>
         </itemlayout>
         <focusedlayout height="220" width="220">
+			<control type="group">
+			<!-- WidgetsZoomFocus -->
+			<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 			<include content="SquarePosterPanelLayout">
-				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
-				<param name="border" value="thumbsborder_focused" />
-			</include>
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
+			</control>
 			<control type="group">
 				<description>widget label overlay</description>
 				<include condition="!Skin.String(Widgets_DisplayTags,disable)">SquarePosterTagOverlay</include>
@@ -745,11 +751,14 @@
             </control>
         </itemlayout>
         <focusedlayout height="220" width="165">
-			<include content="PosterPanelLayout">
-				<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
-				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
-				<param name="border" value="thumbsborder_focused" />
-			</include>
+			<control type="group">
+				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
+				<include content="PosterPanelLayout">
+					<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
+			</control>
             <control type="group">
                 <description>widget label overlay</description>
                 <include condition="!Skin.String(Widgets_DisplayTags,disable)">PosterTagOverlay</include>
@@ -780,10 +789,13 @@
 			</control>
         </itemlayout>
         <focusedlayout height="220" width="330">
-            <include content="ThumbsViewLayout">
-				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
-				<param name="border" value="thumbsborder_focused" />
-			</include>
+            <control type="group">
+				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
+			</control>
             <control type="group">
 					<include>$PARAM[widgetTags]</include>
 					<include content="Tag_NO">
@@ -807,11 +819,14 @@
 				</include>
         </itemlayout>
         <focusedlayout height="146" width="660">
-            <include content="BannerLayout">
-				<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
-				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
-				<param name="border" value="thumbsborder_focused" />
-			</include>
+			<control type="group">
+				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
+				<include content="BannerLayout">
+					<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
+			</control>
             <control type="button">
                 <visible>false</visible>
                 <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid])</onfocus>

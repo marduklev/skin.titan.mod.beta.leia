@@ -411,6 +411,7 @@
             <control type="group">
                 <width>337</width>
                 <height>195</height>
+				<include>Focus_Zoom_Animation</include>
                 <include condition="Skin.HasSetting(Home_TransParentTiles)">Home_BG_TransParentTiles</include>
 				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />

@@ -1005,6 +1005,7 @@
               <control type="group">
                     <width>100</width>
                     <height>100</height>
+					<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
                     <include content="SquarePosterPanelLayout">
 						<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 						<param name="border" value="thumbsborder_focused" />
@@ -1023,6 +1024,7 @@
             </itemlayout>
             <focusedlayout height="100" width="111" condition="Skin.HasSetting(VerticalHomeLargeWidget)">
               <control type="group">
+					<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
                     <width>100</width>
                     <height>100</height>
                     <include content="SquarePosterPanelLayout">

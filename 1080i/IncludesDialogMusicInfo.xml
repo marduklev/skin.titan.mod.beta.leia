@@ -321,7 +321,7 @@
 				<height>198</height>
 				<fadetime>300</fadetime>
 				<aspectratio align="left" aligny="center">stretch</aspectratio>
-				<texture border="4" collordiffuse="white" background="true">diffuse/panel.png</texture>
+				<texture border="4" colordiffuse="white" background="true">diffuse/panel.png</texture>
 			</control>
 			<!-- Album -->
 			<control type="image">

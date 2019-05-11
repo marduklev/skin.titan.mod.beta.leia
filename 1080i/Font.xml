@@ -16,7 +16,10 @@
 		<include>TEST12</include>
 		<!--DEFAULT BOLD -->
 		<include>TEST_TAGS</include>
-				
+		<include>HEADER28</include>
+		<include>HEADER48</include>
+		<include>Title_CircleC_Header46</include>
+		
         <font>
             <name>arial26</name>
             <filename>arial.ttf</filename>
@@ -1262,11 +1265,15 @@
 	<!-- special header	-->
 		<!-- CIRCLE C, missing some special chars -->
 		<include>Title_CircleC_Header70</include>
+		<include>Title_CircleC_Header46</include>
 	<!--  tags -->
 		<!--BIG BOLD -->
 		<include>TEST12</include>
 		<!--DEFAULT BOLD -->
 		<include>TEST_TAGS</include>
+		
+		<include>HEADER28</include>
+		<include>HEADER48</include>
 		
         <font>
             <name>arial26</name>
@@ -2506,11 +2513,14 @@
 	<!-- special header	-->
 		<!-- CIRCLE C, missing some special chars -->
 		<include>Title_CircleC_Header70</include>
+		<include>Title_CircleC_Header46</include>
 	<!--  tags -->
 		<!--BIG BOLD -->
 		<include>TEST12</include>
 		<!--DEFAULT BOLD -->
 		<include>TEST_TAGS</include>
+		<include>HEADER28</include>
+		<include>HEADER48</include>
 		
 		<!-- Required for system -->
         <font>
@@ -3671,11 +3681,14 @@
 	<!-- special header	-->
 		<!-- CIRCLE C, missing some special chars -->
 		<include>Title_CircleC_Header70</include>
+		<include>Title_CircleC_Header46</include>
 	<!--  tags -->
 		<!--BIG BOLD -->
 		<include>TEST12</include>
 		<!--DEFAULT BOLD -->
 		<include>TEST_TAGS</include>
+		<include>HEADER28</include>
+		<include>HEADER48</include>
 		
 		<!-- Required for system -->
         <!-- Normal Fonts -->
@@ -4285,11 +4298,14 @@
 	<!-- special header	-->
 		<!-- CIRCLE C, missing some special chars -->
 		<include>Title_CircleC_Header70</include>
+		<include>Title_CircleC_Header46</include>
 	<!--  tags -->
 		<!--BIG BOLD -->
 		<include>TEST12</include>
 		<!--DEFAULT BOLD -->
 		<include>TEST_TAGS</include>
+		<include>HEADER28</include>
+		<include>HEADER48</include>
 		
 		
        <!-- confluence compatibility fonts -->

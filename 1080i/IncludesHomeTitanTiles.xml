@@ -199,6 +199,7 @@
                 <height>240</height>
                 <posy>25</posy>
 				<include condition="Skin.HasSetting(Home_TransParentTiles)">Home_BG_TransParentTiles</include>
+				<include>Focus_Zoom_Animation</include>
                 <!-- check, merge with thumb sometime -->
 				<include content="LandscapeLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
@@ -237,6 +238,7 @@
                 <height>175</height>
                 <posy>25</posy>
                 <include condition="Skin.HasSetting(Home_TransParentTiles)">Home_BG_TransParentTiles</include>
+				<include>Focus_Zoom_Animation</include>
 				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 					<param name="border" value="thumbsborder_focused" />

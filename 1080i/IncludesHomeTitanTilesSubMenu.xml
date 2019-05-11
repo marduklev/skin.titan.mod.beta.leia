@@ -459,6 +459,7 @@
                         <width>337</width>
                         <height>175</height>
                         <include condition="Skin.HasSetting(Home_TransParentTiles)">Home_BG_TransParentTiles</include> <!-- check me -->
+						<include>Focus_Zoom_Animation</include>
 						<include content="ThumbsViewLayout">
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
@@ -552,6 +553,7 @@
                             <width>337</width>
                             <height>175</height>
                             <include condition="Skin.HasSetting(Home_TransParentTiles)">Home_BG_TransParentTiles</include><!-- check me -->
+							<include>Focus_Zoom_Animation</include>
 							<include content="ThumbsViewLayout">
 								<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 								<param name="border" value="thumbsborder_focused" />

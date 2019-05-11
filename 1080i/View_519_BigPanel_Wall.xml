@@ -8,7 +8,7 @@
       <include>animation_view_change</include>
       <include>GlobalBackground</include>
       
-	  <control type="panel" id="519">
+	<control type="panel" id="519">
         <viewtype label="31666">icons</viewtype>
         <posx>8</posx>
         <top>9</top>
@@ -44,6 +44,7 @@
 				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 				<param name="border" value="thumbsborder_focused" />
 			</include>
+			<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
           </control>
         </focusedlayout>
 		<itemlayout height="352" width="238" condition="Skin.HasSetting(View519_ShowTags)">
@@ -70,13 +71,14 @@
 				<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 				<param name="border" value="thumbsborder_focused" />
 			</include>
+			<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 			<include content="Tag_FO">
 				<param name="tagwidth" value="200"/>
 				<param name="tagtop" value="300" />
 			</include>
           </control>
         </focusedlayout>
-        </control>
+    </control>
       
 		<!--vertical Scollbar-->
 		<control type="scrollbar" id="60">

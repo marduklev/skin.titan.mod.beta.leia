@@ -40,6 +40,7 @@
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 					<param name="border" value="thumbsborder_focused" />
 				</include>
+				<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 			</control>
         </focusedlayout>
         <itemlayout height="260" width="300" condition="Skin.HasSetting(View511_ShowTags)">
@@ -69,6 +70,7 @@
 					<param name="tagwidth" value="295" />
 					<param name="tagtop" value="192" />
 				</include>
+				<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 			</control>
         </focusedlayout>
 	  </control>

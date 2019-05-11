@@ -34,7 +34,6 @@
 				<texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="15">diffuse/bgpanel_half.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(GeneralPanelsColor)]" border="15">diffuse/bgpanel_half.png</texturenofocus>
 				<onclick>ActivateWindow(1101)</onclick>
-				<animation effect="fade" start="100" end="80" time="0" condition="!Control.HasFocus(99001)">Conditional</animation>
 			</control>
 		</control>
 		<control type="group">
@@ -122,28 +121,19 @@
 		</control>
 		
 		<control type="group">
-            <top>160</top>
+            <top>150</top>
             <bottom>120</bottom>
             <left>80</left>
             <right>80</right>
-			<animation type="WindowOpen" reversible="false"  condition="!Window.Previous(SettingsCategory.xml) + !Window.Previous(SettingsSystemInfo.xml) + !Window.Previous(SkinSettings.xml) + !Window.Previous(SettingsProfile.xml) + !Window.Previous(eventlog)">
+			<animation type="WindowOpen" reversible="false">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
 				<effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
 			</animation>
-			<animation type="WindowClose" reversible="false" condition="!Window.Next(SettingsCategory.xml) + !Window.Next(SettingsSystemInfo.xml) + !Window.Next(SkinSettings.xml) + !Window.Next(SettingsProfile.xml) + !Window.Next(eventlog)">
+			<animation type="WindowClose" reversible="false">
 				<effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
 				<effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
 			</animation>
-			<animation type="Visible" reversible="false">
-				<effect type="fade" start="0" end="100" time="300" delay="300" tween="sine" easing="in" />
-				<effect type="zoom" start="115" end="100" time="300" delay="300" center="auto" tween="sine" easing="out" />
-			</animation>
-			<animation type="Hidden" reversible="false" condition="[![!Window.IsVisible(script-script.extendedinfo-VideoList.xml) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(DialogAddonInfo.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(DialogPVRGuideInfo.xml) + !Window.IsVisible(DialogMusicInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)]]">
-				<effect type="zoom" start="100" end="85" center="auto" tween="sine" delay="0" easing="out" time="300" />
-				<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
-			</animation>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogMusicInfo.xml) + !Window.IsVisible(DialogAddonInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
-			
+		
 			<control type="grouplist" id="5600">
                 <left>-15</left>
 			    <include condition="!Skin.HasSetting(search_info_spotlight)">SearchInfoDefPos</include>

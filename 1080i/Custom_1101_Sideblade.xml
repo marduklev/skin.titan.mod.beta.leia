@@ -81,6 +81,13 @@
 					<onclick>Dialog.Close(1101)</onclick>
 					<selected>Skin.HasSetting(search_info_mediaflags)</selected>
 				</control>
+				<control type="radiobutton" id="50004">
+					<width>560</width>
+					<include>SideBladeMenuButton</include>
+					<label>20459</label>
+					<onclick>Skin.ToggleSetting(SkinSearch_ShowTags)</onclick>
+					<selected>Skin.HasSetting(SkinSearch_ShowTags)</selected>
+				</control>
 			</control>
 		</control>	
     </controls>

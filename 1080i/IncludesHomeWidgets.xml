@@ -30,7 +30,7 @@
                 <animation type="Conditional" condition="String.IsEqual(Window.Property(widgetstyle), posterdetails)">
                     <effect type="slide" start="0,0" end="0,380" time="0" delay="0"/>
                 </animation>
-				<animation type="Conditional" condition="String.IsEqual(Window.Property(widgetstyle), landscapewide)">
+				<animation type="Conditional" condition="String.IsEqual(Window.Property(widgetstyle), landscapewidedetails)">
                     <effect type="slide" start="0,0" end="0,420" time="0" delay="0"/>
                 </animation>
 				<animation type="Conditional" condition="String.IsEqual(Window.Property(widgetstyle), smallposter)">
@@ -160,16 +160,16 @@
             <animation effect="slide" delay="0" start="0" end="0,175" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Window.Property(widgetstyle),widebox) + String.Contains(Skin.String(HomeLayout),horizontal) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,90" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Window.Property(widgetstyle),singlebox) + String.Contains(Skin.String(HomeLayout),horizontal) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,220" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),landscapedetails) | String.IsEqual(Window.Property(widgetstyle),circle)] + String.Contains(Skin.String(HomeLayout),horizontal) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
-             <animation effect="slide" delay="0" start="0" end="0,50" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewide)] + String.Contains(Skin.String(HomeLayout),horizontal) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
+             <animation effect="slide" delay="0" start="0" end="0,50" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidedetails)] + String.Contains(Skin.String(HomeLayout),horizontal) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             
             <animation effect="slide" delay="0" start="0" end="0,-45" time="0" condition="String.IsEqual(Window.Property(widgetstyle),widebox) + String.Contains(Skin.String(HomeLayout),simplehor) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,-130" time="0" condition="String.IsEqual(Window.Property(widgetstyle),singlebox) + String.Contains(Skin.String(HomeLayout),simplehor) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,0" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),landscapedetails) | String.IsEqual(Window.Property(widgetstyle),circle)] + String.Contains(Skin.String(HomeLayout),simplehor) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
-            <animation effect="slide" delay="0" start="0" end="0,-170" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewide)] + String.Contains(Skin.String(HomeLayout),simplehor) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
-            <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewide)] + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,-170" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidedetails)] + String.Contains(Skin.String(HomeLayout),simplehor) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidedetails)] + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
              
-            <animation effect="slide" delay="0" start="0" end="0,-300" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewide)] + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
-            <animation effect="slide" delay="0" start="0" end="0,-180" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewide)] + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,-300" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidedetails)] + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,-180" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),posterdetails) | String.IsEqual(Window.Property(widgetstyle),landscapewidedetails)] + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
            
             <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[String.IsEqual(Window.Property(widgetstyle),landscapedetails) | String.IsEqual(Window.Property(widgetstyle),circle)]+ [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,-130" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window.Property(widgetstyle),landscapedetails) | String.IsEqual(Window.Property(widgetstyle),circle)] + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>
@@ -252,7 +252,7 @@
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-		 <include name="widget_layout_landscapewide" content="widget_layout_landscapewide" condition="Skin.String(widgetstyle, landscapewide)">
+		 <include name="widget_layout_landscapewidedetails" content="widget_layout_landscapewidedetails" condition="Skin.String(widgetstyle, landscapewidedetails)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
@@ -325,7 +325,7 @@
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
-            </control>
+			</control>
 			<control type="group">
 				<include>$PARAM[widgetTags]</include>
 				<include content="Tag_NF">
@@ -355,7 +355,8 @@
 						<param name="tagtop" value="360" />
 					</include>
 				</control>
-            </control>
+				<include condition="Skin.HasSetting(HomeWidget_FocusOverlay)">FocusOverlay</include>
+			</control>
 		</focusedlayout>
     </include>
        
@@ -516,18 +517,19 @@
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
 				<control type="group">
-				<include>$PARAM[widgetTags]</include>
-				<include content="Tag_NF">
-					<param name="tagwidth" value="162"/>
-					<param name="tagtop" value="240" />
-				</include>
+					<include>$PARAM[widgetTags]</include>
+					<include content="Tag_NF">
+						<param name="tagwidth" value="162"/>
+						<param name="tagtop" value="240" />
+					</include>
+				</control>
 			</control>
-            </control>
         </itemlayout>
         <focusedlayout height="305" width="162" condition="!Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <width>162</width>
                 <height>240</height>
+				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
                 <include content="PosterPanelLayout">
 					<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
@@ -540,7 +542,7 @@
 					<param name="tagtop" value="240" />
 				</include>
 				</control>
-            </control>
+			</control>
         </focusedlayout>
         <focusedlayout height="305" width="162" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
@@ -563,7 +565,8 @@
                     <param name="widgetstyle" value="smallposter"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
-            </control>
+				<include condition="Skin.HasSetting(HomeWidget_FocusOverlay)">FocusOverlay</include>
+			</control>
         </focusedlayout>
         
         <animation effect="slide" start="0" end="140" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + Skin.HasSetting(VerticalHomeLargeWidget) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,7)">Conditional</animation>
@@ -664,7 +667,8 @@
                     <param name="widgetstyle" value="square"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
-            </control>
+				<include condition="Skin.HasSetting(HomeWidget_FocusOverlay)">FocusOverlay</include>
+			</control>
         </focusedlayout>
     </include>
    
@@ -753,7 +757,8 @@
 					<param name="tagtop" value="120" />
 				</include>
 				</control>
-            </control>
+				<include condition="Skin.HasSetting(HomeWidget_FocusOverlay)">FocusOverlay</include>
+			</control>
         </focusedlayout>
     </include>
     
@@ -805,7 +810,7 @@
             <control type="group">
                 <width>370</width>
                 <height>210</height>
-                <include content="ThumbsViewLayout">
+				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
@@ -838,7 +843,8 @@
                     <param name="widgetstyle" value="landscape"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
-            </control>
+				<include condition="Skin.HasSetting(HomeWidget_FocusOverlay)">FocusOverlay</include>
+			</control>
         </focusedlayout>
 	</include>
     	   
@@ -898,7 +904,7 @@
                     <param name="widgetstyle" value="landscapelarge" />
                     <param name="widgetid" value="$PARAM[widgetid]" />
                 </include>
-            </control>
+			</control>
         </focusedlayout>
 		<focusedlayout width="430" height="325" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
@@ -920,6 +926,7 @@
                     <param name="widgetstyle" value="landscapelarge" />
                     <param name="widgetid" value="$PARAM[widgetid]" />
                 </include>
+				<include condition="Skin.HasSetting(HomeWidget_FocusOverlay)">FocusOverlay</include>
             </control>
         </focusedlayout>
     </include>
@@ -1041,7 +1048,7 @@
                     <param name="bordersize" value="6" />
                     <param name="autoscroll" value="true" />
                 </include>
-				<include>Focus_Zoom_Animation</include>
+				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
                     <param name="widgetstyle" value="circle" />
                     <param name="widgetid" value="$PARAM[widgetid]" />
@@ -1178,12 +1185,13 @@
                     <param name="widgetstyle" value="banner"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
+				<include condition="Skin.HasSetting(HomeWidget_FocusOverlay)">FocusOverlay</include>
             </control>
         </focusedlayout>
     </include>
     
 	<!-- widget Netflix Wide(box) Landscape layout -->
-    <include name="widget_layout_landscapewide">
+    <include name="widget_layout_landscapewidedetails">
 		<include condition="$PARAM[multiRows]" name="height" content="height">
             <param name="height" value="480" />
         </include>
@@ -1237,7 +1245,7 @@
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
-                    <param name="widgetstyle" value="landscapewide" />
+                    <param name="widgetstyle" value="landscapewidedetails" />
                     <param name="widgetid" value="$PARAM[widgetid]" />
                 </include>
             </control>
@@ -1254,6 +1262,7 @@
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 					<param name="border" value="thumbsborder_focused" />
 				</include>
+				<include condition="Skin.HasSetting(HomeWidget_FocusOverlay)">FocusOverlay</include>
                 <control type="group">
 					<include>$PARAM[widgetTags]</include>
 					<include content="Tag_NF">
@@ -1263,7 +1272,7 @@
 				</control>
             </control>
             <include name="HiddenWidgetButton" content="HiddenWidgetButton">
-                <param name="widgetstyle" value="landscapewide" />
+                <param name="widgetstyle" value="landscapewidedetails" />
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
         </focusedlayout>
@@ -1320,6 +1329,7 @@
                <width>260</width>
                 <height>150</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
+				<include condition="Skin.HasSetting(HomeWidget_FocusOverlay)">FocusOverlay</include>
 				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 					<param name="border" value="thumbsborder_unfocused" />
@@ -1342,6 +1352,7 @@
                 <width>260</width>
                 <height>150</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
+				<include condition="Skin.HasSetting(HomeWidget_FocusOverlay)">FocusOverlay</include>
 				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 					<param name="border" value="thumbsborder_focused" />

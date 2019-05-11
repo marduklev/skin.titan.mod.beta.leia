@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<include name="SearchInfoDefPos">
-		<top>-30</top>
-		<height>870</height>
+		<top>-45</top>
+		<height>880</height>
 	</include>
 	<include name="SearchInfoSpotlighPos">
 		<top>395</top>
@@ -11,11 +11,10 @@
 	
 	<!-- HEADER -->
 	<include name="SkinSearch_ContainerHeader">
-        <param name="altid" default="999999" />
-        <definition>
+		<definition>
             <control type="group" id="$PARAM[groupid]">
-                <top>52</top>
-                <height>52</height>
+                <top>50</top>
+                <height>50</height>
                 <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
                 <nested />
 				<control type="grouplist">
@@ -44,7 +43,7 @@
                         <textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
                         <font>Bold36</font>
                         <height>24</height>
-                        <visible>Control.HasFocus($PARAM[id]) | Control.HasFocus($PARAM[altid])</visible>
+                        <visible>Control.HasFocus($PARAM[id])</visible>
                         <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Label)</visible>
                         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) + !Container($PARAM[id]).IsUpdating</visible>
                     </control>
@@ -57,7 +56,7 @@
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                         <font>Reg30</font>
                         <height>24</height>
-                        <visible>Control.HasFocus($PARAM[id]) | Control.HasFocus($PARAM[altid])</visible>
+                        <visible>Control.HasFocus($PARAM[id])</visible>
                         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) + !Container($PARAM[id]).IsUpdating</visible>
                     </control>
                 </control>
@@ -68,12 +67,12 @@
 		<control type="$PARAM[type]" id="$PARAM[id]">
 			<nested />
 			<scrolltime tween="quadratic">400</scrolltime>
-			<top>52</top>
+			<top>50</top>
 			<right>-10</right>
 			<preloaditems>2</preloaditems>
 			<focusposition>0</focusposition>
 			<orientation>horizontal</orientation>
-			<height>350</height>
+			<height max="365">auto</height>
 			<visible>$PARAM[visible]</visible>
 			<itemlayout height="$PARAM[height]" width="$PARAM[width]">
 				<control type="group">
@@ -84,42 +83,22 @@
 						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 						<param name="border" value="thumbsborder_unfocused" />
 					</include>
-					<!-- <control type="image">
-						<width>200</width>
-						<height>100</height>
-						<bottom>7</bottom>
-						<left>15</left>
-						<texture background="true">$VAR[ClearLogoFallback]</texture>
-						<aspectratio align="left" aligny="bottom">keep</aspectratio>
-						<visible>String.IsEqual(ListItem.DBTYPE,episode)</visible>
-					</control> -->
 					<control type="group">
-						<visible>!Skin.HasSetting(search_info_spotlight) + !Skin.HasSetting(search_info_widget)</visible>
-						<height>60</height>
+						<visible>!Skin.HasSetting(search_info_spotlight)</visible>
+						<visible>Skin.HasSetting(SkinSearch_ShowTags)</visible>
+						<height>45</height>
 						<include content="Tag_NF">
 							<param name="tagwidth" value="$PARAM[width]"/>
 							<param name="tagtop" value="$PARAM[height].9" />
 						</include>
-						<!-- <control type="textbox">
-							<align>center</align>
-							<label>$VAR[ThumbListDetails]</label>
-							<font>Reg20</font>
-							<autoscroll>false</autoscroll>
-							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-						</control> -->
 					</control>
 				</control>
-				
 			</itemlayout>
-			<focusedlayout height="$PARAM[height]" width="$PARAM[width]" condition="!Skin.HasSetting(search_info_widget) | [Skin.HasSetting(search_info_widget) + !Control.HasFocus($PARAM[id])]">
+			<focusedlayout height="$PARAM[height]" width="$PARAM[width]" condition="!Control.HasFocus($PARAM[id])">
 				<control type="group">
 					<width>$PARAM[width]</width>
 					<height>$PARAM[height]</height>
-					<animation type="Focus" reversible="false" condition="true">
-						<effect type="zoom" end="115,115" time="150" tween="sine" easing="out" center="auto" />
-						<effect type="zoom" end="92,92" time="100" tween="sine" delay="150" easing="out" center="auto" />
-					</animation>
+					<include>Focus_Zoom_Animation</include>
 					<!-- workaround for unfocused fixedlist check -->
 					<control type="group">
 						<visible>Control.HasFocus($PARAM[id])</visible>
@@ -128,6 +107,7 @@
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
+						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 					</control>
 					<control type="group">
 						<visible>!Control.HasFocus($PARAM[id])</visible>
@@ -137,15 +117,16 @@
 							<param name="border" value="thumbsborder_unfocused" />
 						</include>
 					</control>
-					
 					<control type="group">
-						<visible>!Skin.HasSetting(search_info_spotlight) + !Skin.HasSetting(search_info_widget)</visible>
-						<height>60</height>
+						<visible>!Skin.HasSetting(search_info_spotlight)</visible>
+						<visible>Skin.HasSetting(SkinSearch_ShowTags)</visible>
+						<height>45</height>
 						<include content="Tag_FO">
 							<param name="tagwidth" value="$PARAM[width]"/>
-							<param name="tagtop" value="$PARAM[height]" />
+							<param name="tagtop" value="$PARAM[height].9" />
 						</include>
 					</control>
+					
 				</control>
 				
 			</focusedlayout>

@@ -160,6 +160,7 @@
     <!-- Header -->
     <!-- ====== -->
     <variable name="value_header">
+		<value condition="Window.IsActive(1100)">TITAN search</value>
         <value condition="[Window.IsActive(skinsettings) | Window.IsActive(Custom_SkinSettings.xml)]">[UPPERCASE]$LOCALIZE[20077][/UPPERCASE]</value>
 		<value condition="window.isactive(favourites)">$LOCALIZE[1036]</value>
 		<value condition="Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml) + !String.IsEmpty(Window(Home).Property(actor.title))">$INFO[Window(Home).Property(actor.title)]</value>
@@ -232,7 +233,8 @@
 	</variable>
 	
 	<variable name="value_subheader">
-        <value condition="window.isactive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.Season) + Container.Content(episodes)">$LOCALIZE[20373] [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[ListItem.Season][/COLOR] $LOCALIZE[20452] [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[ListItem.Episode]: $INFO[ListItem.Title][/COLOR]</value>
+		<value condition="Window.IsActive(1100)">[COLOR=$INFO[Skin.String(HeaderTextColor)]]Searchterm is[/COLOR] $INFO[Skin.String(SearchTerm), &quot; [B],[/B] &quot;]</value>
+	    <value condition="window.isactive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.Season) + Container.Content(episodes)">$LOCALIZE[20373] [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[ListItem.Season][/COLOR] $LOCALIZE[20452] [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[ListItem.Episode]: $INFO[ListItem.Title][/COLOR]</value>
 		<value condition="window.isactive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.Season) + !String.IsEqual(ListItem.Title,ListItem.Label)">$INFO[ListItem.Label]</value>
         <value condition="window.isactive(DialogVideoInfo.xml)">$INFO[ListItem.TagLine]</value>
         <value condition="Window.IsActive(loginscreen)">$INFO[Control.GetLabel(2)]</value>

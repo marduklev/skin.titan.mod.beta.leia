@@ -35,6 +35,7 @@
 						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 						<param name="border" value="thumbsborder_unfocused" />
 					</include>
+					<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 					<control type="group">
 						<visible>Skin.HasSetting(View505_ShowTags)</visible>
 						<include content="Tag_NF">

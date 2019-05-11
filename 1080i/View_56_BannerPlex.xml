@@ -46,6 +46,7 @@
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
+						<include>Focus_Zoom_Animation</include>
 					</control>
                 </focusedlayout>
                 <itemlayout height="225" width="900" condition="Skin.HasSetting(View56_LargeBanners)">
@@ -69,6 +70,7 @@
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
+						<include>Focus_Zoom_Animation</include>
 					</control>
                 </focusedlayout>
 

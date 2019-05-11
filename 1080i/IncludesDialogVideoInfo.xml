@@ -45,7 +45,7 @@
                  </control>
 				
 				<!-- MOVIE CAst, bit small, but ... -->
-				<control type="panel" id="353">
+				<control type="list" id="50">
 					<top>710</top>
 					<left>700</left>
 					<height>200</height>
@@ -55,6 +55,8 @@
 					<orientation>horizontal</orientation>
 					<ondown>8000</ondown>
 					<onup>8000</onup>
+					<include>VideoInfo_CastAction</include>
+					<onclick condition=""></onclick>
 					<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible>
 					<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 					<visible>!Player.HasVideo</visible>
@@ -81,7 +83,7 @@
                         </control>
 						<control type="label">
 								<font>reg14</font>
-								<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
+								<label>$INFO[Container(50).ListItem.Label,[B],[/B][CR]]$INFO[Container(50).ListItem.Label2]</label>
 								<textcolor>white</textcolor>
 								<top>145</top>
 								<left>0</left>
@@ -104,7 +106,7 @@
 							</control>
 							<control type="button">
 								<font>reg14</font>
-								<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
+								<label>$INFO[Container(50).ListItem.Label,[B],[/B][CR]]$INFO[Container(50).ListItem.Label2]</label>
 								<visible>true</visible>
 								<top>145</top>
 								<width>122</width>
@@ -115,11 +117,12 @@
 								<scrollspeed>20</scrollspeed>
 							</control>
 						</focusedlayout>
-					<content>$VAR[castInfo]</content>
-                </control>
+						<include condition="String.IsEqual(Skin.String(castprovider),embuary_helper)">INC_EmbuaryCast</include>
+						<include condition="String.IsEqual(Skin.String(castprovider),skinhelper_service)">INC_SkinHelperCast</include>
+					 </control>
 				
 				<!-- CAST TV SHOW-->
-				<control type="panel" id="353">
+				<control type="panel" id="50">
 					<top>620</top>
 					<left>700</left>
 					<height>400</height>
@@ -154,7 +157,7 @@
 						</control>
 						<control type="label">
 							<font>reg18</font>
-							<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
+							<label>$INFO[Container(50).ListItem.Label,[B],[/B][CR]]$INFO[Container(50).ListItem.Label2]</label>
 							<textcolor>white</textcolor>
 							<top>220</top>
 							<left>0</left>
@@ -177,7 +180,7 @@
 						</control>
 						<control type="button">
 							<font>reg20</font>
-							<label>$INFO[Container(353).ListItem.Label,[B],[/B][CR]]$INFO[Container(353).ListItem.Label2]</label>
+							<label>$INFO[Container(50).ListItem.Label,[B],[/B][CR]]$INFO[Container(50).ListItem.Label2]</label>
 							<visible>true</visible>
 							<top>220</top>
 							<width>173</width>
@@ -188,7 +191,7 @@
 							<textoffsetx>0</textoffsetx>
 						</control>
 					</focusedlayout>
-					<content>$VAR[castInfo]</content>
+					<content>$VAR[VAR_SkinHelperCast]</content>
                 </control>
 				
                 <!-- Header (if no logo)-->
@@ -266,8 +269,8 @@
 						<itemgap>10</itemgap>
 						<onup condition="String.IsEqual(Window.Property(AdditionalInfo),cast)">351</onup>
                         <onup condition="String.IsEqual(Window.Property(AdditionalInfo),similar)">352</onup>
-						<onup condition="!String.IsEqual(Window.Property(AdditionalInfo),cast) | String.IsEqual(Window.Property(AdditionalInfo),similar)">353</onup>
-                        <ondown condition="!String.IsEqual(Window.Property(AdditionalInfo),cast) | String.IsEqual(Window.Property(AdditionalInfo),similar)">353</ondown>
+						<onup condition="!String.IsEqual(Window.Property(AdditionalInfo),cast) | String.IsEqual(Window.Property(AdditionalInfo),similar)">50</onup>
+                        <ondown condition="!String.IsEqual(Window.Property(AdditionalInfo),cast) | String.IsEqual(Window.Property(AdditionalInfo),similar)">50</ondown>
 						<onleft>8000</onleft>
 						<onright>8000</onright>
 						<pagecontrol>60</pagecontrol>
@@ -1360,7 +1363,7 @@
                                 <onfocus>SetProperty(actordbid,$INFO[ListItem.Property(DBID)],home)</onfocus>
                             </control>
                         </focusedlayout>
-                        <content>$VAR[castInfo]</content>
+                        <content>$VAR[VAR_SkinHelperCast]</content>
                     </control>
 					
                     <!-- cast info details -->
@@ -2318,7 +2321,7 @@
                                 <radioheight>25</radioheight>
                                 <onclick>SetProperty(AdditionalInfo, plot)</onclick>
                                 <onclick>SetProperty(subtitle, $LOCALIZE[207] &amp; $LOCALIZE[31608])</onclick>
-                                <onclick>SetFocus(3531)</onclick>
+                                <onclick>SetFocus(501)</onclick>
                             </control>
 
                             <!--Cast Button-->
@@ -2529,7 +2532,7 @@
 					<itemgap>30</itemgap>
 					<visible>String.IsEqual(Window.Property(AdditionalInfo),plot)</visible>
 
-                    <control type="button" id="3531">
+                    <control type="button" id="501">
                         <visible allowhiddenfocus="true">false</visible>
                         <onleft>ClearProperty(AdditionalInfo)</onleft>
                         <onback>ClearProperty(AdditionalInfo)</onback>
@@ -2631,7 +2634,7 @@
 							<onfocus>SetProperty(actordbid,$INFO[ListItem.Property(DBID)],home)</onfocus>
 						</control>
 					</focusedlayout>
-					<content>$VAR[castInfo]</content>
+					<content>$VAR[VAR_SkinHelperCast]</content>
 				</control>
 
 				<!-- cast info details -->
@@ -3020,6 +3023,20 @@
 	   <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))">$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),[B],[/B]]</value>
 	</variable>
 	
+	<include name="INC_EmbuaryCast">
+		<content>$VAR[VAR_EmbuaryCast]</content>
+	</include>
+	<include name="INC_SkinHelperCast">
+		<content>$VAR[VAR_SkinHelperCast]</content>
+	</include>
+	<include name="VideoInfo_CastAction">
+		<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search) + !String.IsEmpty(Skin.String(SearchTerm))">Skin.Reset(SearchTerm)</onclick>
+		<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Dialog.Close(movieinformation,true)</onclick>
+		<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Skin.SetString(SearchTerm,$INFO[ListItem.Label])</onclick>
+		<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search)">ActivateWindow(1100),return</onclick>
+		<!-- <onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),global_search)">Dialog.Close(movieinformation,true)</onclick> -->
+		<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),extendedinfo)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onclick>
+	</include>	
 	<!-- check need finishing 
 	<variable name="rating_value_">
         <value condition="!String.IsEmpty(ListItem.RatingAndVotes(tvdb))"> $INFO[ListItem.RatingAndVotes(tvdb)]</value>

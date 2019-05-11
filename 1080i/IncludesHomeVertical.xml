@@ -1084,7 +1084,7 @@
 			</itemlayout>
 			<focusedlayout height="235" width="190">
 				<control type="group">
-					<include>Widgets_Zoom_Animation</include>
+					<include>Focus_Zoom_Animation</include>
 					<width>180</width>
 					<height>180</height>
 					<include content="SquarePosterPanelLayout">

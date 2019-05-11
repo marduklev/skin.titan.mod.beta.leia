@@ -1022,18 +1022,15 @@
 		<value condition="!String.IsEmpty(ListItem.Property(IMDBNumber))">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;imdbid=$INFO[ListItem.Property(IMDBNumber)]&amp;limit=10</value>
 	 </variable>
      <!-- action= extendedinfo vs library ,check how get custom action-->
-     <variable name="castInfo">
-		<value condition="!String.IsEmpty(ListItem.DBTYPE) + !String.IsEmpty(ListItem.DBID)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.DBID]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]&amp;castaction=$INFO[Skin.String(videoinfo_castaction)]</value>
-        <value condition="!String.IsEmpty(ListItem.DBTYPE)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]&amp;castaction=$INFO[Skin.String(videoinfo_castaction)]</value>
-        <value condition="!String.IsEmpty(ListItem.Property(DBTYPE)) + !String.IsEmpty(ListItem.Property(DBID))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Propery(DBID)]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]&amp;castaction=$INFO[Skin.String(videoinfo_castaction)]</value>
-        <value condition="!String.IsEmpty(ListItem.Property(DBTYPE))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]&amp;castaction=$INFO[Skin.String(videoinfo_castaction)]</value>
-        <value condition="!String.IsEmpty(Container.Content)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[Container.Content]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]&amp;castaction=$INFO[Skin.String(videoinfo_castaction)]</value>
+     <variable name="VAR_SkinHelperCast">
+		<value condition="!String.IsEmpty(ListItem.DBTYPE) + !String.IsEmpty(ListItem.DBID)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.DBID]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]</value>
+        <value condition="!String.IsEmpty(ListItem.DBTYPE)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(DBTYPE)) + !String.IsEmpty(ListItem.Property(DBID))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Propery(DBID)]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(DBTYPE))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]</value>
+        <value condition="!String.IsEmpty(Container.Content)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[Container.Content]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]</value>
      </variable>
      <!-- Embcon/Native DB vars -->
-<!-- 	<variable name="View_Cast_Content">
-		<value condition="!String.IsEmpty(Container.Pluginname) + !String.StartsWith(Container.Folderpath,plugin://plugin.video.embycon)">-</value>
-		<value condition="String.StartsWith(ListItem.Path,plugin://plugin.video.embycon) + Container.Content(seasons) + ListItem.IsParentFolder">plugin://plugin.video.embycon?mode=WIDGET_CONTENT_CAST&amp;id=$INFO[ListItem(1).Property(id)]</value>
-		<value condition="String.StartsWith(ListItem.Path,plugin://plugin.video.embycon)">plugin://plugin.video.embycon?mode=WIDGET_CONTENT_CAST&amp;id=$INFO[ListItem.Property(id)]</value>
+	<variable name="VAR_EmbuaryCast">
 		<value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.DBID) + !String.IsEqual(ListItem.DBID,0)">plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;dbid=$INFO[ListItem.DBID]</value>
 		<value condition="String.IsEqual(ListItem.DBType,movie) + String.IsEqual(ListItem.DBID,0)">plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;title='$ESCINFO[ListItem.Title]'</value>
 		<value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.DBID) + !String.IsEqual(ListItem.DBID,0)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[ListItem.DBID]</value>
@@ -1042,24 +1039,7 @@
 		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem(1).DBID)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;title='$ESCINFO[ListItem(1).TVShowTitle]'</value>
 		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem(2).DBID)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;title='$ESCINFO[ListItem(2).TVShowTitle]'</value>
 		<value>-</value>
-		
-		actions
-		
-		<onclick condition="$PARAM[use_custom_onclick] + [!Skin.HasSetting(DoNotUseExtendedInfo) + System.HasAddon(script.extendedinfo)]">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onclick>
-		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)] + Window.IsVisible(fullscreeninfo)">SetProperty(DoNotUnpause,1,home)</onclick>
-		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)] + [Window.IsVisible(movieinformation) | Window.IsVisible(fullscreeninfo)]">close</onclick>
-		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)]">SetProperty(CustomSearch,1,home)</onclick>
-		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)]">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
-		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)]">Skin.SetString(CustomSearchEmbyID,$INFO[ListItem.Property(id)])</onclick>
-		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)]">ActivateWindow(1115)</onclick>
-		<onclick condition="$PARAM[use_custom_onclick] + [Skin.HasSetting(DoNotUseExtendedInfo) | !System.HasAddon(script.extendedinfo)]">AlarmClock(Wait,ClearProperty(CustomSearch,home),00:01,silent)</onclick>
-						
-		
-		
-		
-		
-		
-	</variable> -->
+	</variable>
      <variable name="channellogo"><!-- check, pvr changes, definetly need revisit -->
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 		<value condition="window.isactive(tvchannels) | window.isactive(tvguide)">$INFO[ListItem.ChannelName,resource://resource.images.thelogodb/,.png]</value>

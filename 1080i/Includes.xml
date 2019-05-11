@@ -99,7 +99,7 @@
         <width>1</width>
         <height>1</height>
         <label></label>
-        <texturenofocus></texturenofocus>
+		<texturenofocus></texturenofocus>
         <texturefocus></texturefocus>
     </include>
 	
@@ -108,10 +108,6 @@
         <top>-3000</top>
         <width>1</width>
         <height>1</height>
-        <texturenofocus></texturenofocus>
-        <texturefocus></texturefocus>
-        <label></label>
-        <font></font>
     </include>
 	
     <include name="DimensionsFullscreen">

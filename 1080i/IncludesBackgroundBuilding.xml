@@ -9,7 +9,6 @@
             <include>DimensionsFullscreen</include>
             <texture fallback="diffuse/background.png">$INFO[Skin.String(BackgroundOverlayTexture)]</texture>
             <include condition="Skin.String(BackgroundOverlayColor) + !Skin.String(BackgroundOverlayColor,None)">bgOverlayDiffuse</include>
-            <visible>!Control.IsVisible(507)</visible>
             <visible>Skin.String(BackgroundOverlayTexture)</visible>
         </control>
     </include>

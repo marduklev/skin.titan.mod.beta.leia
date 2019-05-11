@@ -71,7 +71,7 @@
 					<top>0</top>
                     <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$INFO[Container(5590).ListItem.Thumb]</texture>
                     <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-                    <visible>Control.IsVisible(5590) + !EXP[PayerHasVideo]</visible>
+                    <visible>Control.IsVisible(5590) + $EXP[PlayerHasVideo]</visible>
 					<!-- move beyond clearlogo / title -->
 					<animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation>
 				</control>
@@ -240,7 +240,7 @@
 						</control>
 					</itemlayout>
 					<focusedlayout></focusedlayout>
-					<content>$VAR[castInfo]</content>
+					<content>$VAR[VAR_EmbuaryCast]</content>
                 </control>
 				<!-- check need to be conditional - Games: Popup of all game assets (trailer, title, snaps etc) -->
 				<include condition="$EXP[InGameMode]">GameAssetsPanelComplete</include>

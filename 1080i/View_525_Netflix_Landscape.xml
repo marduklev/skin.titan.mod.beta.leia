@@ -230,7 +230,7 @@
 						</control>
 					</itemlayout>
 					<focusedlayout></focusedlayout>
-					<content>$VAR[castInfo]</content>
+					<content>$VAR[VAR_EmbuaryCast]</content>
                 </control>
 			</control>
             <!-- menu button,check, add extra touch buttons sometime  -->

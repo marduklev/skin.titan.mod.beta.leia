@@ -165,7 +165,7 @@
             
             <control type="image">
                 <texture>colors/color_white.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+                <colordiffuse>$INFO[Skin.String(ButtonColor)]</colordiffuse>
                 <width>40</width>
                 <right>0</right>
                 <visible>Control.IsVisible(6002) + !Control.HasFocus(60)</visible>
@@ -195,7 +195,7 @@
                         <align>center</align>
                         <aligny>center</aligny>
                         <label>$INFO[ListItem.Label]</label>
-                        <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+                        <textcolor>$INFO[Skin.String(ButtonTextColor)]</textcolor>
                         <font>Reg26</font>
                         <animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
                     </control>
@@ -226,14 +226,11 @@
                         <animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
                         <font>Reg26</font>
                     </control>
-                    <control type="button">
-                        <visible>false</visible>
-                        <onfocus condition="!String.IsEmpty(Container(6002).ListItem.Property(NotAvailable)) + Container(6002).OnNext">Control.Move(6002,1)</onfocus>
-                        <onfocus condition="!String.IsEmpty(Container(6002).ListItem.Property(NotAvailable)) + Container(6002).OnPrevious">Control.Move(6002,-1)</onfocus>
-                    </control>
+                    
                 </focusedlayout>
-                <content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
-                <visible>Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container.NumPages,1) + !Control.HasFocus(60)</visible>
+               <!--  <content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content> -->
+                <content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=false&amp;reload=$INFO[Container.NumItems]</content>
+				<visible>Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container.NumPages,1) + !Control.HasFocus(60)</visible>
                 <visible>String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])</visible>
                 <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(6002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(6002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
@@ -336,7 +333,9 @@
                     </control>
                 </focusedlayout>
                 <content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
-                <visible>Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container.NumPages,1) + !Control.HasFocus(60)</visible>
+                <!-- <content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=false&amp;reload=$INFO[Container.NumItems]</content> -->
+                
+				<visible>Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container.NumPages,1) + !Control.HasFocus(60)</visible>
                 <visible>String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])</visible>
                 <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(7002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(7002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>

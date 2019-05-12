@@ -436,7 +436,7 @@
 			<selected>[Control.IsVisible(501) + Skin.HasSetting(View_501_HorizontalNavigation)] | [Control.IsVisible(525) + Skin.HasSetting(View525_UseFixedLayout)]</selected>
 		</control>
 		<control type="radiobutton" id="3020">
-			<!--Show tags, just en/dis, no need to use skinhelper ?! -->
+			<!--Show tags -->
 			<include>SideBladeMenuButton</include>
 			<label>20459</label>
             <onclick condition="Control.IsVisible(52)">Skin.ToggleSetting(View52_ShowTags)</onclick><!-- tags done -->

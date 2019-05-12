@@ -349,10 +349,18 @@
 			<!-- use overlay HomeWidget  -->
             <control type="radiobutton" id="13099">
                 <include>SkinSettings_Button</include>
-                <label>Use Dimmed Overlay on Widgets</label>
+                <label>Use Dimmed Focus Overlay with play Button on Widgets</label>
                 <onclick>Skin.ToggleSetting(HomeWidget_FocusOverlay)</onclick>
 				<selected>Skin.HasSetting(HomeWidget_FocusOverlay)</selected>
-				<visible>!String.Contains(Skin.String(HomeLayout), netflix)</visible>
+				<!-- <visible>!String.Contains(Skin.String(HomeLayout), netflix)</visible> -->
+            </control>
+			<!--enable widgets zoom effect-->
+            <control type="radiobutton" id="31763">
+                <include>SkinSettings_Button</include>
+                <label>31763</label>
+                <onclick>Skin.ToggleSetting(WidgetsZoomFocus)</onclick>
+                <selected>Skin.HasSetting(WidgetsZoomFocus)</selected>
+                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced)</visible>
             </control>
 			<!--hide widget panel-->
             <control type="radiobutton" id="13004">
@@ -388,7 +396,7 @@
 			<!-- widget layout, should just be set in shortcut section, use hidden if needed-->
             <control type="button" id="23719">
                 <include>SkinSettings_Button</include>
-                <label>31507</label>
+                <label>$LOCALIZE[31507] - will also be default in HUBS</label>
                 <label2>$INFO[Skin.String(widgetstyle.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=widgetstyle,header=$LOCALIZE[31507])</onclick>
                 <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
@@ -433,23 +441,8 @@
                 <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2) + [Skin.HasSetting(SpotLightTrailers) | Skin.HasSetting(NetflixAutoTrailer)]</visible>
                 <selected>Skin.HasSetting(HideMediaFlagsTrailer)</selected>
             </control>
-			<!--enable widgets animation-->
-            <control type="radiobutton" id="31621">
-                <include>SkinSettings_Button</include>
-                <label>31621</label>
-                <onclick>Skin.ToggleSetting(Widgets_Animation)</onclick>
-                <selected>Skin.HasSetting(Widgets_Animation)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced) + !String.Contains(Skin.String(HomeLayout), netflix) + !Skin.String(HomeLayout, win10)</visible>
-            </control>
-            <!--enable widgets zoom effect-->
-            <control type="radiobutton" id="31763">
-                <include>SkinSettings_Button</include>
-                <label>31763</label>
-                <onclick>Skin.ToggleSetting(WidgetsZoomFocus)</onclick>
-                <selected>Skin.HasSetting(WidgetsZoomFocus)</selected>
-                <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced)</visible>
-            </control>
-			 <!--large widget details-->
+			
+            <!--large widget details-->
             <control type="radiobutton" id="31741">
                 <include>SkinSettings_Button</include>
                 <label>31741</label>
@@ -1043,7 +1036,7 @@
 			<!-- Local Trailer -->
             <control type="radiobutton" id="55146">
 				<include>SkinSettings_Button</include>
-				<label>Just Play Locally Stored Trailers (Never do Online Trailer Lookup)</label>
+				<label>Just Play Locally Stored Trailers WIP (Never do Online Trailer Lookup)</label>
 				<onclick>Skin.ToggleSetting(Library_NoOnlineLookupTrailer)</onclick>
 				<selected>Skin.HasSetting(Library_NoOnlineLookupTrailer)</selected>
 			</control>

@@ -306,7 +306,7 @@
 			<font>Reg38</font>
             <scroll>true</scroll>
             <animation effect="fade" start="100" end="60" time="150" condition="!Control.HasFocus(300)">Conditional</animation>
-            <animation effect="zoom" start="80" end="102" center="left" time="150" tween="elastic" easing="inout" pulse="false" condition="Skin.HasSetting(Vertical_Home_Animation)">Focus</animation>
+			<include condition="Skin.HasSetting(Vertical_Home_Animation)">Focus_Zoom_Animation</include>
 		</control>
         <include>HiddenHomeMenuButton</include>
 	</include>

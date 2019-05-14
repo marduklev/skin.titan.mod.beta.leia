@@ -49,4 +49,14 @@
     <expression name="UseBannerShape">String.IsEqual(Control.GetLabel(5595),banner)</expression>
     <expression name="UseSteamShape">String.IsEqual(Control.GetLabel(5595),steam)</expression>
 
+	<!-- thumb game thumb shapes -->
+	<expression name="IsUsingGameShapes">
+		[String.IsEqual(Control.GetLabel(5595),wide) | 
+		String.IsEqual(Control.GetLabel(5595),3ds) | 
+		String.IsEqual(Control.GetLabel(5595),square) | 
+		String.IsEqual(Control.GetLabel(5595),slim) | 
+		String.IsEqual(Control.GetLabel(5595),bluray) | 
+		String.IsEqual(Control.GetLabel(5595),banner) | 
+		String.IsEqual(Control.GetLabel(5595),steam)]
+	</expression>
 </includes>

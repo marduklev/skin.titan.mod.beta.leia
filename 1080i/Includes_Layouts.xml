@@ -211,14 +211,14 @@
 			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
 			<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
 			<bordersize>8</bordersize>
-			<visible>[!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))] | $EXP[IsUsingGameShapes</visible>
+			<visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster)) | $EXP[IsUsingGameShapes]</visible>
 		</control>
 		<control type="image">
 			<description>Fallback Poster thumb keep aspect for all other</description>
 			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
 			<aspectratio scalediffuse="false" aligny="top" align="center">keep</aspectratio>
 			<bordersize>8</bordersize>
-			<visible>[String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))] | !$EXP[IsUsingGameShapes]</visible>
+			<visible>[String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))] + !$EXP[IsUsingGameShapes]</visible>
 		</control>
 		<include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
 		<control type="group">

@@ -51,7 +51,8 @@
 
 	<!-- thumb game thumb shapes -->
 	<expression name="IsUsingGameShapes">
-		[String.IsEqual(Control.GetLabel(5595),wide) | 
+		[String.IsEqual(Control.GetLabel(5595),poster) | 
+		String.IsEqual(Control.GetLabel(5595),wide) | 
 		String.IsEqual(Control.GetLabel(5595),3ds) | 
 		String.IsEqual(Control.GetLabel(5595),square) | 
 		String.IsEqual(Control.GetLabel(5595),slim) | 

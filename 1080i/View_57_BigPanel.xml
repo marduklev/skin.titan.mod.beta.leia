@@ -38,11 +38,13 @@
 					<control type="group">
 						<width>259</width>
 						<height>380</height>
+						<include>Focus_Zoom_Animation</include>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
+						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 					</control>
 				</focusedlayout>
 				<itemlayout height="400" width="240" condition="Skin.HasSetting(View57_ShowTags)">

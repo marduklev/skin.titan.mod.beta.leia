@@ -18,11 +18,12 @@
 		<!-- Music Background if no Fanart avail (temp workaraound, check background building sometime later)-->
 		<control type="group">
 			<visible>String.IsEmpty(Control.GetLabel(99006) + String.IsEmpty(Control.GetLabel(99005)</visible><!--   + String.IsEmpty(Control.GetLabel(99005) -->
+			
 			<control type="image">
 				<include>DimensionsFullscreen</include>
-				<texture fallback="colors/color_black.png">$INFO[Skin.String(CustomBackgroundSetting)]</texture>
+				<texture fallback="diffuse/background.png">$INFO[Skin.String(BackgroundOverlayTexture)]</texture>
+				<colordiffuse>$INFO[Skin.String(BackgroundOverlayColor)]</colordiffuse>
 			</control>
-			<include>DialogOverlay</include>
 		</control>
 		
 		<!-- panel BG -->

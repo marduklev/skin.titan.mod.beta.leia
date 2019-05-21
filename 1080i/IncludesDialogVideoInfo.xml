@@ -1532,12 +1532,12 @@
 		<control type="group">
 			
 			<!-- base bg ,check unsure if half cut is that great-->
-			<control type="image">
+			<!-- <control type="image">
 				<width>100%</width>
 				<height>100%</height>
-				<texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
-			</control>
-
+				<texture colordiffuse="$VAR[GroundLayer_FS_Color]">colors/color_white.png</texture>
+			</control> -->
+			<include>GlobalBackground</include>
 			<!-- Now Playing -->
             <include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>
 
@@ -1557,7 +1557,7 @@
 					<animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="!Player.HasVideo">Conditional</animation>	
 					<control type="videowindow"></control>
 					<control type="image">
-						<texture flipx="true" colordiffuse="$VAR[Netflix2_PanelColor]" border="15">overlay/gradient_overlay_info.png</texture>
+						<texture flipx="true" colordiffuse="$VAR[GroundLayer_FS_Color]" border="15">overlay/gradient_overlay_info.png</texture>
 					</control>
 				</control>
 				<!-- fanart background image -->
@@ -1573,7 +1573,7 @@
                     <visible>!String.IsEmpty(Window.Property(AdditionalInfo))</visible>
                     <width>100%</width>
                     <height>100%</height>
-                    <texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
+                    <texture colordiffuse="$VAR[GroundLayer_FS_Color]">colors/color_white.png</texture>
                     <animation effect="fade" start="100" end="70" time="0">Visible</animation>
                 </control>
                 <!--studiologo_image -->

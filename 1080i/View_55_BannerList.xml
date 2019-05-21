@@ -62,17 +62,13 @@
 							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 							<param name="border" value="thumbsborder_unfocused" />
 						</include>
-						<include content="Tag_NF">
-							<param name="tagwidth" value="650"/>
-							<param name="tagtop" value="146" />
-						</include>
 					</control>
                 </itemlayout>
                 <focusedlayout height="246" width="1190" condition="Skin.HasSetting(View55_LargeBanners)">
                     <control type="group">
                         <width>1190</width>
                         <height>238</height>
-                       <include content="BannerLayout">
+						<include content="BannerLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorSmall"/>
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
@@ -97,8 +93,5 @@
 			</control>
     
 		</control>
-		
-	
-		
 	</include>
 </includes>

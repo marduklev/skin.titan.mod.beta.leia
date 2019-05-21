@@ -17,7 +17,7 @@
 	<onunload>ClearProperty(ShowViewSubMenu, Home)</onunload>
     <controls>
 		<include>GlobalBackground</include>
-		<!-- Video Background -->
+		<!-- Video Background ,liked to use in global? -->
 		<include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>
 		
 		<!-- all Views -->

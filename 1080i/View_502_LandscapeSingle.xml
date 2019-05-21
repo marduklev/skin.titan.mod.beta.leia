@@ -68,6 +68,7 @@
 				</itemlayout>
 				<focusedlayout width="620" height="325">
                     <control type="group">
+						<include>Focus_Zoom_Animation</include>
                         <width>565</width>
                         <height>325</height>
 						<!-- check, merge with thumb sometime -->

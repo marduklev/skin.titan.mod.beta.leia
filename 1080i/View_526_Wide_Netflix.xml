@@ -15,13 +15,13 @@
 		<control type="group">
 			<include>animation_view_change</include>
 			<visible>Control.IsVisible(526)</visible>
-			<control type="image">
+			<!-- <control type="image">
 				<width>100%</width>
 				<height>100%</height>
-				<texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
+				<texture colordiffuse="$VAR[GroundLayer_FS_Color]">colors/color_white.png</texture>
 				<visible>Skin.HasSetting(View526_DisableFanArt)</visible>
 				<animation effect="fade" start="0" end="100" delay="0" time="400" condition="Skin.HasSetting(View526_DisableFanArt)">Conditional</animation>
-			</control>
+			</control> -->
 			<control type="image">
 				<left>40</left>
 				<width>450</width>

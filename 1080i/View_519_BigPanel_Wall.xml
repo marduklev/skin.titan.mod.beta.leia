@@ -37,6 +37,7 @@
         </itemlayout>
         <focusedlayout height="352" width="238" condition="!Skin.HasSetting(View519_ShowTags)">
           <control type="group">
+			<include>Focus_Zoom_Animation</include>
             <width>236</width>
             <height>350</height>
 			<include content="PosterPanelLayout">
@@ -64,6 +65,7 @@
         </itemlayout>
         <focusedlayout height="352" width="238" condition="Skin.HasSetting(View519_ShowTags)">
           <control type="group">
+			<include>Focus_Zoom_Animation</include>
             <width>200</width>
             <height>300</height>
 			<include content="PosterPanelLayout">

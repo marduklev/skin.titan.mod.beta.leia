@@ -419,8 +419,6 @@
 				</content>
 			</control>
 		</control>
-        <!-- check for error !! -->
-        <include condition="String.Contains(Skin.String(HomeLayout),netflix)">SideBladeSubMenu</include>
     </include>
     
     <include name="SideBladeSubMenu">

@@ -11,8 +11,7 @@
 			<!-- bg, if usin INFO PANEL, check merge NO FANART + NONE/EMPTY BG IMAGE SETTING -->
 			<control type="image">
 				<include>DimensionsFullscreen</include>
-				<visible>Skin.HasSetting(FanArtViewShowInfo)</visible>
-				<aligny>bottom</aligny>
+				<visible>Skin.HasSetting(View507_ShowInfo)</visible>
 				<texture>colors/color_white.png</texture>
 				<colordiffuse>$INFO[Skin.String(ViewDetailsBGColor)]</colordiffuse>
 			</control>
@@ -31,22 +30,22 @@
                 <orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),507) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-                <itemlayout width="1080" height="1920" condition="!Skin.HasSetting(FanArtViewShowInfo)">
+                <itemlayout width="1080" height="1920" condition="!Skin.HasSetting(View507_ShowInfo)">
 					<width>1920</width>
 						<height>1080</height>
 						<top>0</top>
 						<right>0</right>
 				</itemlayout>
-                <focusedlayout width="1080" height="1920" condition="!Skin.HasSetting(FanArtViewShowInfo)">
+                <focusedlayout width="1080" height="1920" condition="!Skin.HasSetting(View507_ShowInfo)">
 					<control type="group">
 						<include>AutoTrailerButton</include>
 						
 					</control>
 					
 				</focusedlayout>
-				<itemlayout width="1080" height="1920" condition="Skin.HasSetting(FanArtViewShowInfo)">
+				<itemlayout width="1080" height="1920" condition="Skin.HasSetting(View507_ShowInfo)">
                 </itemlayout>
-                <focusedlayout width="1080" height="1920" condition="Skin.HasSetting(FanArtViewShowInfo)">
+                <focusedlayout width="1080" height="1920" condition="Skin.HasSetting(View507_ShowInfo)">
 					<control type="group">
 						<include>AutoTrailerButton</include>
 					 </control>
@@ -56,7 +55,7 @@
 			<!-- fanart default -->
 				
 			<control type="group">
-				<visible>!Skin.HasSetting(FanArtViewShowInfo)</visible>
+				<visible>!Skin.HasSetting(View507_ShowInfo)</visible>
 				<control type="image">
 					<width>100%</width>
 					<height>100%</height>
@@ -86,7 +85,7 @@
 				</control>
 				<!-- Custom Overlay image -->
 				<control type="image">
-					<visible>!Skin.HasSetting(FanArtViewShowInfo) + Skin.HasSetting(507_UseOverlay)</visible>
+					<visible>!Skin.HasSetting(View507_ShowInfo) + Skin.HasSetting(507_UseOverlay)</visible>
 					<include>DimensionsFullscreen</include>
 					<texture>$INFO[Skin.String(BackgroundOverlayTexture)]</texture>
 					<include condition="Skin.String(BackgroundOverlayColor) + !Skin.String(BackgroundOverlayColor,None)">bgOverlayDiffuse</include>
@@ -114,6 +113,7 @@
 			<!-- bello setting -->
 			<control type="group">
 				<visible>Skin.HasSetting(507_BelloNero)</visible>
+				<visible>!Skin.HasSetting(View507_ShowInfo)</visible>
 				<control type="image">
 					<animation effect="slide" start="0,0" end="-550,0" time="380" tween="sine" easing="inout" condition="![Container.OnNext | Container.OnPrevious]" reversible="false">Conditional</animation>
 					<posy>0</posy>
@@ -198,7 +198,7 @@
 			
 			<!--Info Setting -->
 			<control type="group">
-				<visible>Skin.HasSetting(FanArtViewShowInfo)</visible>
+				<visible>Skin.HasSetting(View507_ShowInfo)</visible>
 				<include>animation_view_change</include>
 				<top>11%</top>
 				<height>850</height>

@@ -59,7 +59,6 @@
 						<aligny>center</aligny>
 						<fadetime>300</fadetime>
 						<animation effect="rotate" end="-360" center="auto" time="13000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-						<animation effect="fade" start="0" end="100" delay="800" time="1200" reversible="false"></animation>
 						<texture background="true" diffuse="diffuse/cdmask_medium_new.png" fallback="defaultcovers/cd_medium.png" border="5">$VAR[DiscArtImage]</texture>
 						<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
 					</control>
@@ -119,6 +118,20 @@
 							<param name="tagwidth" value="251" />
 							<param name="tagtop" value="350" />
 						</include>
+						
+						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
+						<control type="image">
+							<visible>Skin.HasSetting(View59_ShowCDart)</visible>
+							<top>215</top>
+							<right>-100</right>
+							<width>170</width>
+							<height>170</height>
+							<aligny>center</aligny>
+							<fadetime>300</fadetime>
+							<animation effect="rotate" end="-360" center="auto" time="13000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
+							<texture background="true" diffuse="diffuse/cdmask_medium_new.png" fallback="defaultcovers/cd_medium.png" border="5">$VAR[DiscArtImage]</texture>
+							<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+						</control>
 					</control>
 				</focusedlayout>
 			</control>

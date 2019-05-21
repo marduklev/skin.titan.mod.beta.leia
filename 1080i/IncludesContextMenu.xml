@@ -323,7 +323,7 @@
 			<!--Show info-->
 			<include>SideBladeMenuButton</include>
 			<label>36427</label>
-			<onclick condition="Control.IsVisible(507)">Skin.ToggleSetting(FanArtViewShowInfo)</onclick>
+			<onclick condition="Control.IsVisible(507)">Skin.ToggleSetting(View507_ShowInfo)</onclick>
             <onclick condition="Control.IsVisible(524)">Skin.ToggleSetting(ShowCaseViewShowInfo)</onclick>
             <onclick condition="Control.IsVisible(52)">Skin.ToggleSetting(PanelViewShowInfo)</onclick>
 			<onclick condition="Control.IsVisible(52) + Skin.HasSetting(PanelViewShowFanart)">Skin.ToggleSetting(PanelViewShowFanart)</onclick>
@@ -333,7 +333,7 @@
             <onclick condition="Control.IsVisible(51)">Skin.ToggleSetting(BigListViewShowInfo)</onclick>
             <onclick condition="Control.IsVisible(516)">Skin.ToggleSetting(SlimListViewShowInfo)</onclick>
 			<selected>
-            [Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)] | 
+            [Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo)] | 
             [Control.IsVisible(524) + Skin.HasSetting(ShowCaseViewShowInfo)] | 
             [Control.IsVisible(52) + Skin.HasSetting(PanelViewShowInfo)] |
             [Control.IsVisible(502) + Skin.HasSetting(LandscapeViewShowInfo)] | 
@@ -509,7 +509,7 @@
             [Control.IsVisible(516) + Skin.HasSetting(SlimListViewShowInfo)] |
             Control.IsVisible(512) | Control.IsVisible(510) | Control.IsVisible(505) | 
             Control.IsVisible(59) | Control.IsVisible(55) | Control.IsVisible(504) |
-            Control.IsVisible(53) | [Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)]
+            Control.IsVisible(53) | [Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo)]
             </visible>
 		</control>
 		<control type="radiobutton" id="317934">
@@ -518,7 +518,7 @@
 			<onclick condition="Control.IsVisible(507)">Skin.ToggleSetting(507_framedInfo)</onclick>
 			<selected>[Control.IsVisible(507) + Skin.HasSetting(507_framedInfo)]
             </selected>
-			<visible>[Control.IsVisible(507) + Skin.HasSetting(FanArtViewShowInfo)]
+			<visible>[Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo)]
             </visible>
 		</control>
 		<control type="radiobutton" id="317935">
@@ -535,7 +535,7 @@
 			<onclick condition="Control.IsVisible(507)">Skin.ToggleSetting(507_UseOverlay)</onclick>
 			<selected>[Control.IsVisible(507) + Skin.HasSetting(507_UseOverlay)]
             </selected>
-			<visible>Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>
+			<visible>Control.IsVisible(507) + !Skin.HasSetting(View507_ShowInfo)</visible>
 		</control>
 		<control type="radiobutton" id="317930">
 			<include>SideBladeMenuButton</include>
@@ -543,7 +543,7 @@
 			<onclick condition="Control.IsVisible(507)">Skin.ToggleSetting(507_BelloNero)</onclick>
 			<selected>[Control.IsVisible(507) + Skin.HasSetting(507_BelloNero)]
             </selected>
-			<visible>Control.IsVisible(507) + !Skin.HasSetting(FanArtViewShowInfo)</visible>
+			<visible>Control.IsVisible(507) + !Skin.HasSetting(View507_ShowInfo)</visible>
 		</control>
 		<!-- custm tvmelody settings -->
 		<control type="radiobutton" id="55145">

@@ -4,7 +4,7 @@
 	<!--Global Background -->
     <include name="GlobalBackground">
 		
-		<!-- HIDDEN -->
+		<!-- HIDDEN ART -->
 		<control type ="group">
 			<include>HiddenObject</include>
 			<!-- COMMON FANART -->
@@ -26,20 +26,9 @@
 			<control type="image">
 				<texture>colors/color_white.png</texture>
 				<colordiffuse>$VAR[GroundLayer_FS_Color]</colordiffuse>
-				<visible>Skin.String(BackgroundDiffuseColor) + !Skin.String(BackgroundDiffuseColor, None)</visible>
 				<visible>!$EXP[NetflixHomeIsVisible] + [Skin.String(BackgroundDiffuseColor) + !Skin.String(BackgroundDiffuseColor, None)]</visible>
-				<visible>!$EXP[NetflixHomeIsVisible] | ![Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(507)]</visible>
+				<visible>![$EXP[NetflixHomeIsVisible] | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(507)]</visible>
 			</control>
-			
-			<!-- default -
-			<control type="image" description="panel behind bg">
-				<include>DimensionsFullscreen</include>
-				<texture>colors/color_white.png</texture>
-				<colordiffuse>$INFO[Skin.String(BackgroundDiffuseColor.base)]</colordiffuse>
-				<visible>Skin.String(BackgroundDiffuseColor) + !Skin.String(BackgroundDiffuseColor, None)</visible>
-			</control>
-			-->
-
 			<!-- MIDDLE - 2ND LAYER (Artowrk) + Cond Colordiffuse --> 
 			<control type="multiimage" id="99004">
 				<imagepath background="true" fallback="colors/color_black.png">$VAR[backgroundVar]</imagepath>
@@ -185,7 +174,7 @@
                 [Window.IsMedia + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))]
             </visible>
 			<!-- additional visibility conditions -->
-			<include condition="Window.IsMedia">disabledFanart</include>
+			
             <include condition="Window.IsMedia">disabledExtraFanart</include>
 			
 			<imagepath background="true">$VAR[extraFanartBackground]</imagepath>
@@ -211,62 +200,127 @@
 		<control type="fadelabel" id="99007">
 			<!-- common visibility conditions -->
 			<visible>Skin.HasSetting(EnableNativeExtraFanart)</visible>
-			
+			<visible>
+                [Window.IsActive(Home) + [Control.HasFocus(77777) | ControlGroup(77777).HasFocus() | Window.IsActive(DialogVideoInfo.xml)]] |
+                [Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)] | 
+                Window.IsMedia
+            </visible>
 			<!-- additional visibility conditions -->
-			<include condition="Window.IsMedia">disabledFanart</include>
-            <include condition="Window.IsMedia">disabledExtraFanart</include>
-			
-			<info>ListItem.Art(fanart)</info>
-			<info>ListItem.Art(fanart1)</info>
-			<info>ListItem.Art(fanart2)</info>
-			<info>ListItem.Art(fanart3)</info>
-			<info>ListItem.Art(fanart4)</info>
-			<info>ListItem.Art(fanart5)</info>
-			<info>ListItem.Art(fanart6)</info>
-			<info>ListItem.Art(fanart7)</info>
-			<info>ListItem.Art(fanart8)</info>
-			<info>ListItem.Art(fanart9)</info>
-			<info>ListItem.Art(fanart10)</info>
-			<info>ListItem.Art(fanart11)</info>
-			<info>ListItem.Art(fanart12)</info>
-			<info>ListItem.Art(fanart13)</info>
-			<info>ListItem.Art(fanart14)</info>
-			<info>ListItem.Art(fanart15)</info>
-			<info>ListItem.Art(fanart16)</info>
-			<info>ListItem.Art(fanart17)</info>
-			<info>ListItem.Art(fanart18)</info>
-			<info>ListItem.Art(fanart19)</info>
-			<info>ListItem.Art(fanart20)</info>
-			<info>ListItem.Art(tvshow.fanart)</info>
-			<info>ListItem.Art(tvshow.fanart1)</info>
-			<info>ListItem.Art(tvshow.fanart2)</info>
-			<info>ListItem.Art(tvshow.fanart3)</info>
-			<info>ListItem.Art(tvshow.fanart4)</info>
-			<info>ListItem.Art(tvshow.fanart5)</info>
-			<info>ListItem.Art(tvshow.fanart6)</info>
-			<info>ListItem.Art(tvshow.fanart7)</info>
-			<info>ListItem.Art(tvshow.fanart8)</info>
-			<info>ListItem.Art(tvshow.fanart9)</info>
-			<info>ListItem.Art(tvshow.fanart10)</info>
-			<info>ListItem.Art(tvshow.fanart11)</info>
-			<info>ListItem.Art(tvshow.fanart12)</info>
-			<info>ListItem.Art(tvshow.fanart13)</info>
-			<info>ListItem.Art(tvshow.fanart14)</info>
-			<info>ListItem.Art(tvshow.fanart15)</info>
-			<info>ListItem.Art(tvshow.fanart16)</info>
-			<info>ListItem.Art(tvshow.fanart17)</info>
-			<info>ListItem.Art(tvshow.fanart18)</info>
-			<info>ListItem.Art(tvshow.fanart19)</info>
-			<info>ListItem.Art(tvshow.fanart20)</info>
-			<!-- Container.ListItem.Art() are filled based on the focused ListItem in the **focused container** in Leia -->
-			<!-- <info>Container.ListItem.Art(fanart)</info>
+			<include condition="Window.IsMedia">disabledExtraFanart</include>
+			<!-- common movie,show,artists -->
+			<info>Container.ListItem.Art(fanart)</info>
 			<info>Container.ListItem.Art(fanart1)</info>
 			<info>Container.ListItem.Art(fanart2)</info>
+			<info>Container.ListItem.Art(fanart3)</info>
+			<info>Container.ListItem.Art(fanart4)</info>
+			<info>Container.ListItem.Art(fanart5)</info>
+			<info>Container.ListItem.Art(fanart6)</info>
+			<info>Container.ListItem.Art(fanart7)</info>
+			<info>Container.ListItem.Art(fanart8)</info>
+			<info>Container.ListItem.Art(fanart9)</info>
+			<info>Container.ListItem.Art(fanart10)</info>
+			<info>Container.ListItem.Art(fanart11)</info>
+			<info>Container.ListItem.Art(fanart12)</info>
+			<info>Container.ListItem.Art(fanart13)</info>
+			<info>Container.ListItem.Art(fanart14)</info>
+			<info>Container.ListItem.Art(fanart15)</info>
+			<info>Container.ListItem.Art(fanart16)</info>
+			<info>Container.ListItem.Art(fanart17)</info>
+			<info>Container.ListItem.Art(fanart18)</info>
+			<info>Container.ListItem.Art(fanart19)</info>
+			<info>Container.ListItem.Art(fanart20)</info>
+			<!-- variabel - tvshow for seasons,episodes -->
 			<info>Container.ListItem.Art(tvshow.fanart)</info>
 			<info>Container.ListItem.Art(tvshow.fanart1)</info>
-			<info>Container.ListItem.Art(tvshow.fanart2)</info> -->
+			<info>Container.ListItem.Art(tvshow.fanart2)</info>
+			<info>Container.ListItem.Art(tvshow.fanart3)</info>
+			<info>Container.ListItem.Art(tvshow.fanart4)</info>
+			<info>Container.ListItem.Art(tvshow.fanart5)</info>
+			<info>Container.ListItem.Art(tvshow.fanart6)</info>
+			<info>Container.ListItem.Art(tvshow.fanart7)</info>
+			<info>Container.ListItem.Art(tvshow.fanart8)</info>
+			<info>Container.ListItem.Art(tvshow.fanart9)</info>
+			<info>Container.ListItem.Art(tvshow.fanart10)</info>
+			<info>Container.ListItem.Art(tvshow.fanart11)</info>
+			<info>Container.ListItem.Art(tvshow.fanart12)</info>
+			<info>Container.ListItem.Art(tvshow.fanart13)</info>
+			<info>Container.ListItem.Art(tvshow.fanart14)</info>
+			<info>Container.ListItem.Art(tvshow.fanart15)</info>
+			<info>Container.ListItem.Art(tvshow.fanart16)</info>
+			<info>Container.ListItem.Art(tvshow.fanart17)</info>
+			<info>Container.ListItem.Art(tvshow.fanart18)</info>
+			<info>Container.ListItem.Art(tvshow.fanart19)</info>
+			<info>Container.ListItem.Art(tvshow.fanart20)</info>
+			<!-- variabel - set -->
+			<!-- <info>Container.ListItem.Art(set.fanart)</info>
+			<info>Container.ListItem.Art(set.fanart1)</info>
+			<info>Container.ListItem.Art(set.fanart2)</info>
+			<info>Container.ListItem.Art(set.fanart3)</info>
+			<info>Container.ListItem.Art(set.fanart4)</info>
+			<info>Container.ListItem.Art(set.fanart5)</info>
+			<info>Container.ListItem.Art(set.fanart6)</info>
+			<info>Container.ListItem.Art(set.fanart7)</info>
+			<info>Container.ListItem.Art(set.fanart8)</info>
+			<info>Container.ListItem.Art(set.fanart9)</info>
+			<info>Container.ListItem.Art(set.fanart10)</info>
+			<info>Container.ListItem.Art(set.fanart11)</info>
+			<info>Container.ListItem.Art(set.fanart12)</info>
+			<info>Container.ListItem.Art(set.fanart13)</info>
+			<info>Container.ListItem.Art(set.fanart14)</info>
+			<info>Container.ListItem.Art(set.fanart15)</info>
+			<info>Container.ListItem.Art(set.fanart16)</info>
+			<info>Container.ListItem.Art(set.fanart17)</info>
+			<info>Container.ListItem.Art(set.fanart18)</info>
+			<info>Container.ListItem.Art(set.fanart19)</info>
+			<info>Container.ListItem.Art(set.fanart20)</info> -->
+			<!-- variabel - artistfanart for album , song, musicvideos -->
+			<info>Container.ListItem.Art(artist.fanart)</info>
+			<info>Container.ListItem.Art(artist.fanart1)</info>
+			<info>Container.ListItem.Art(artist.fanart2)</info>
+			<info>Container.ListItem.Art(artist.fanart3)</info>
+			<info>Container.ListItem.Art(artist.fanart4)</info>
+			<info>Container.ListItem.Art(artist.fanart5)</info>
+			<info>Container.ListItem.Art(artist.fanart6)</info>
+			<info>Container.ListItem.Art(artist.fanart7)</info>
+			<info>Container.ListItem.Art(artist.fanart8)</info>
+			<info>Container.ListItem.Art(artist.fanart9)</info>
+			<info>Container.ListItem.Art(artist.fanart10)</info>
+			<info>Container.ListItem.Art(artist.fanart11)</info>
+			<info>Container.ListItem.Art(artist.fanart12)</info>
+			<info>Container.ListItem.Art(artist.fanart13)</info>
+			<info>Container.ListItem.Art(artist.fanart14)</info>
+			<info>Container.ListItem.Art(artist.fanart15)</info>
+			<info>Container.ListItem.Art(artist.fanart16)</info>
+			<info>Container.ListItem.Art(artist.fanart17)</info>
+			<info>Container.ListItem.Art(artist.fanart18)</info>
+			<info>Container.ListItem.Art(artist.fanart19)</info>
+			<info>Container.ListItem.Art(artist.fanart20)</info>
+			<!-- variabel - artistfanart just for song (not needed) -->
+			<!-- <info>Container.ListItem.Art(albumartist.fanart)</info>
+			<info>Container.ListItem.Art(albumartist.fanart1)</info>
+			<info>Container.ListItem.Art(albumartist.fanart2)</info>
+			<info>Container.ListItem.Art(albumartist.fanart3)</info>
+			<info>Container.ListItem.Art(albumartist.fanart4)</info>
+			<info>Container.ListItem.Art(albumartist.fanart5)</info>
+			<info>Container.ListItem.Art(albumartist.fanart6)</info>
+			<info>Container.ListItem.Art(albumartist.fanart7)</info>
+			<info>Container.ListItem.Art(albumartist.fanart8)</info>
+			<info>Container.ListItem.Art(albumartist.fanart9)</info>
+			<info>Container.ListItem.Art(albumartist.fanart10)</info>
+			<info>Container.ListItem.Art(albumartist.fanart11)</info>
+			<info>Container.ListItem.Art(albumartist.fanart12)</info>
+			<info>Container.ListItem.Art(albumartist.fanart13)</info>
+			<info>Container.ListItem.Art(albumartist.fanart14)</info>
+			<info>Container.ListItem.Art(albumartist.fanart15)</info>
+			<info>Container.ListItem.Art(albumartist.fanart16)</info>
+			<info>Container.ListItem.Art(albumartist.fanart17)</info>
+			<info>Container.ListItem.Art(albumartist.fanart18)</info>
+			<info>Container.ListItem.Art(albumartist.fanart19)</info>
+			<info>Container.ListItem.Art(albumartist.fanart20)</info> -->
+			<!-- Fallback -->
+			<!-- <info>Container.ListItem.Art(thumb)</info> -->
 			<randomize>true</randomize>
-			<pauseatend>10000</pauseatend> <!-- need adjustment - <include>fanartSpeed</include>-->
+			<pauseatend>4000</pauseatend> <!-- need adjustment - <include>fanartSpeed</include>-->
 			<scroll>false</scroll>
 			<scrollout>false</scrollout>
 		</control>
@@ -293,7 +347,6 @@
             ![Control.IsVisible(504) + Skin.HasSetting(View504_DisableFanArt)] + 
             ![Control.IsVisible(505) + Skin.HasSetting(View505_DisableFanArt)] + 
             ![Control.IsVisible(506) + Skin.HasSetting(View506_DisableFanArt)] + 
-            ![Control.IsVisible(507) + Skin.HasSetting(View507_DisableFanArt)] + 
             ![Control.IsVisible(508) + Skin.HasSetting(View508_DisableFanArt)] + 
             ![Control.IsVisible(509) + Skin.HasSetting(View509_DisableFanArt)] + 
             ![Window.IsMedia + Control.IsVisible(510) + Skin.HasSetting(View510_DisableFanArt)] + 
@@ -370,10 +423,6 @@
         <value condition="Container.Content(Genres) + String.Contains(Skin.String(moviegenrefanart.path),script.skin.helper) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)">http://localhost:52307/getmoviegenreimagesrandom&amp;title=$INFO[Listitem.Label]&amp;type=fanart.0</value>
         <value condition="Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)">$INFO[Skin.String(moviegenrefanartpath)]/$INFO[ListItem.Label].jpg</value>
 		
-		<!-- EXTRA FANART TEST - delete me after test and check condition -->
-		<value condition="Control.IsVisible(99007)">$INFO[Control.GetLabel(99007)]</value>       
-		
-		
 		<!-- normal fanart backgrounds -->
         <value condition="!String.IsEmpty(ListItem.PicturePath)">$INFO[ListItem.PicturePath]</value>
         <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
@@ -436,10 +485,9 @@
         <value condition="[Window.IsActive(LoginScreen.xml) | Window.IsActive(StartUp.xml)] + Skin.String(LoginBackground)">$INFO[Skin.String(LoginBackground)]</value>
         <!-- ANIMATED FANART -->
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)) + Skin.HasSetting(AnimatedFanart)">$INFO[Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)]</value>
-        <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)) + Skin.HasSetting(AnimatedFanart)">$INFO[Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)]</value>
-        
+       
 		<!-- NATIVE EXTRAFANART -->
-		<value condition="Control.IsVisible(99007)">$INFO[Control.GetLabel(99007)]</value>       
+		<value condition="Control.IsVisible(99007)">$INFO[Control.GetLabel(99007)]</value>
 		<!-- SKINHELPER EXTRAFANART background -->
         <value condition="Control.IsVisible(99005) + !String.IsEmpty(Control.GetLabel(99005))">$INFO[Control.GetLabel(99005)]</value>
         <!-- normal fanart background -->

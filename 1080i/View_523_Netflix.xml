@@ -12,9 +12,8 @@
 			<animation effect="rotatey" center="auto" end="-10" time="1500" condition="Player.HasVideo + Skin.HasSetting(3dLayout)">Conditional</animation>
 			<animation effect="slide" center="auto" end="-100,0" time="0" condition="Skin.HasSetting(3dLayout)">Conditional</animation>
 			<animation effect="slide" center="auto" end="100,0" time="0" condition="Player.HasVideo + Skin.HasSetting(3dLayout)">Conditional</animation>
-
-            
-            <!-- spotlight section -->
+			
+			<!-- spotlight section -->
             <control type="group" id="3505">
                 <width>100%</width>
                 <height>800</height>
@@ -212,7 +211,7 @@
 					<focusedlayout></focusedlayout>
 					<content>$VAR[VAR_EmbuaryCast]</content>
                 </control>
-				<!-- check need to be conditional - Games: Popup of all game assets (trailer, title, snaps etc) -->
+				<!-- Games: Popup of all game assets (trailer, title, snaps etc) -->
 				<include condition="$EXP[InGameMode]">GameAssetsPanelComplete</include>
 
 			</control>

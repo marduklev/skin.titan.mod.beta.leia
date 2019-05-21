@@ -251,15 +251,6 @@
                 <visible>![Skin.HasSetting(UseSingleShortcut) + Skin.String(HomeLayout, simplehor)]</visible>
                 <visible>Skin.String(HomeLayout, enhanced) | Skin.String(HomeLayout, netflix2) | Skin.String(HomeLayout, win10) | Skin.String(HomeLayout, simplehor) | String.Contains(Skin.String(HomeLayout), lowhorizontal)</visible>
             </control>
-            <!--use large mainmenu on netflix home, check 18.1.9
-            <control type="radiobutton" id="31805">
-                <include>SkinSettings_Button</include>
-                <label>31805</label>
-                <onclick>Skin.ToggleSetting(NetFlixHome_LargeMenu)</onclick>
-                <selected>Skin.HasSetting(NetFlixHome_LargeMenu)</selected>
-                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
-            </control>
-			-->
             <!--enable home menu animation-->
             <control type="radiobutton" id="31620">
                 <include>SkinSettings_Button</include>
@@ -813,20 +804,31 @@
 			 <!--Show Fanart Background-->
             <control type="radiobutton" id="320">
                 <include>SkinSettings_Button</include>
-                <label>31141</label>
+                <label>$LOCALIZE[31141] - Use Skinhelper Service</label>
                 <onclick>Skin.ToggleSetting(ShowFanartBackground)</onclick>
                 <selected>Skin.HasSetting(ShowFanartBackground)</selected>
             </control>
-             <!--Show extra Fanart Background-->
+            <!-- Skinhelper - Show extra Fanart Background-->
             <control type="radiobutton" id="338">
                 <include>SkinSettings_Button</include>
                 <label>31207</label>
                 <onclick>Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
+				<onclick condition="Skin.HasSetting(EnableNativeExtraFanart)">Skin.ToggleSetting(EnableNativeExtraFanart)</onclick>
                 <selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
                 <visible>Skin.HasSetting(ShowFanartBackground)</visible>
                 <visible>!Skin.HasSetting(LowPerformanceMode)</visible>
             </control>
-            <!-- extra Fanart Background transition time-->
+			<!-- Native - Show extra Fanart Background 
+			, check corresponding toggles from skinhelper to implement -->
+            <control type="radiobutton" id="3381">
+                <include>SkinSettings_Button</include>
+                <label>Enable Native extra Fanart (Dont Use Skinhelper for Extra Fanart)</label>
+                <onclick>Skin.ToggleSetting(EnableNativeExtraFanart)</onclick>
+				<onclick condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
+                <selected>Skin.HasSetting(EnableNativeExtraFanart)</selected>
+                <visible>Skin.HasSetting(ShowFanartBackground)</visible>
+            </control>
+             <!-- extra Fanart Background transition time-->
             <control type="button" id="339">
                 <include>SkinSettings_Button</include>
                 <label>31296</label>

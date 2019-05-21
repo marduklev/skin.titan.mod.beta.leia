@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- TITAN MOD -->
 <includes>
-	<!-- Main File to sort .re add updated and edited includes,variables,etc  for testing purpose -->
-
+	<!-- TESTING -->
+	<include name="NetflixHome_PanelSlide">
+		<animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
+			<effect type="slide" start="0" end="315" time="300" delay="0" tween="cubic" easing="inout" />
+		</animation>
+	</include>
+	<include name="NetflixHome_ICONPos">
+		<animation type="Conditional" condition="true">
+			<effect type="slide" start="0" end="340" time="0" />
+		</animation>
+	</include>
+	<include name="NetflixHome_ICONPos_WidgetOffset">
+		<animation type="Conditional" condition="!Container($PARAM[widgetid]).Column(0)">
+			<effect type="slide" start="0" end="-130" time="350" delay="0" tween="quadratic" easing="out" />
+		</animation>
+	</include>
+	<include name="NetflixHome_LabelSlide">
+		<animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
+			<effect type="slide" start="0" end="405" time="300" delay="0" tween="cubic" easing="inout" />
+		</animation>
+	</include>
+	
 	
 	<!-- HEADER -merge compact with default - https://i.imgur.com/FfLnn2h.jpg - height is nearly not noticable, just think about font style / size -->
 	
@@ -161,7 +181,7 @@
 		</control>
 		<control type="label">
 			<left>60</left>
-			<height>52</height>
+			<height>50</height>
 			<width>800</width>
 			<label>$VAR[ListItemGenre]</label>
 			<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
@@ -274,10 +294,9 @@
 				<label>[B]$VAR[Year_Premiered_RecPVR][/B]</label>
                 <include>Default_Fade</include>
 			</control>
-
+			
 			<!-- mpaa -->
 			<control type="button" id="611112">
-				<visible>!String.IsEmpty(Control.GetLabel(6111121))</visible>
 				<posy>4</posy>
 				<include>Default_Fade</include>
 				<width min="50">auto</width>
@@ -649,7 +668,7 @@
 		<!-- itemlayout -->
 		<include name="Tag_NF">
 			<control type="textbox">
-				<visible>$EXP[Notag_NetflixHome]</visible>
+				<visible>!$EXP[NetflixHomeIsVisible]</visible>
 				<width>$PARAM[tagwidth]</width>
 				<top>$PARAM[tagtop]</top>
 				<left>5</left>
@@ -666,7 +685,7 @@
 		<!-- focusedlayout -->
 		<include name="Tag_FO">
 			<control type="textbox">
-				<visible>$EXP[Notag_NetflixHome]</visible>
+				<visible>!$EXP[NetflixHomeIsVisible]</visible>
 				<width>$PARAM[tagwidth]</width>
 				<top>$PARAM[tagtop]</top>
 				<height>45</height>

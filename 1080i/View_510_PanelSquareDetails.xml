@@ -26,7 +26,38 @@
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
 		<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),510) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-        <itemlayout height="250" width="240">
+        <itemlayout height="310" width="240" condition="Skin.HasSetting(View510_ShowTags)">
+            <control type="group">
+                <width>240</width>
+                <height>240</height>
+                <include content="SquarePosterPanelLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
+					<param name="border" value="thumbsborder_unfocused" />
+				</include>
+				<include content="Tag_NF">
+					<param name="tagwidth" value="235" />
+					<param name="tagtop" value="240" />
+				</include>
+            </control>
+        </itemlayout>
+        <focusedlayout height="310" width="240" condition="Skin.HasSetting(View510_ShowTags)">
+			<control type="group">
+				<include>Focus_Zoom_Animation</include>
+                <width>240</width>
+                <height>240</height>
+				<include content="SquarePosterPanelLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
+                <include>AutoTrailerButton</include>
+				<include content="Tag_FO">
+					<param name="tagwidth" value="235" />
+					<param name="tagtop" value="240" />
+				</include>
+				<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
+            </control>
+        </focusedlayout>
+		<itemlayout height="250" width="240" condition="!Skin.HasSetting(View510_ShowTags)">
             <control type="group">
                 <width>240</width>
                 <height>240</height>
@@ -36,8 +67,9 @@
 				</include>
             </control>
         </itemlayout>
-        <focusedlayout height="250" width="240">
-		  <control type="group">
+        <focusedlayout height="250" width="240" condition="!Skin.HasSetting(View510_ShowTags)">
+			<control type="group">
+				<include>Focus_Zoom_Animation</include>
                 <width>240</width>
                 <height>240</height>
 				<include content="SquarePosterPanelLayout">

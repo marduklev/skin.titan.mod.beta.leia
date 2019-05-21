@@ -42,6 +42,7 @@
 				</itemlayout>
 				<focusedlayout width="610" height="360" condition="!Skin.HasSetting(View501_ShowTags)">
 					<control type="group">
+						<include>Focus_Zoom_Animation</include>
                         <width>593</width>
                         <height>341</height>
 						<!-- check, merge with thumb sometime -->
@@ -69,6 +70,7 @@
 				</itemlayout>
 				<focusedlayout width="550" height="360" condition="Skin.HasSetting(View501_ShowTags)">
 					<control type="group">
+						<include>Focus_Zoom_Animation</include>
                         <width>531</width>
                         <height>305</height>
 						<!-- check, merge with thumb sometime -->

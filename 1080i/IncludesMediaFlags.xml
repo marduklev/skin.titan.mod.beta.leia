@@ -16,11 +16,12 @@
     </include>
     
     <include name="mediaflags_large_layout">
-		<width>100</width>
+		<width>125</width>
 		<height>80</height>
-		<aspectratio aligny="center">keep</aspectratio>
+		<aspectratio align="center" aligny="center">keep</aspectratio>
         <include condition="!window.isactive(fullscreenvideo) + !Skin.String(mediaflagsstyle,large_color)">mediaflags_colordiffuse</include>
         <include condition="window.isactive(fullscreenvideo) + !Skin.String(osdmediaflagsstyle,large_color)">mediaflags_colordiffuse</include>
+		<animation effect="fade" time="200">VisibleChange</animation>
 	</include>
     
     <include name="mediaflags_colordiffuse">
@@ -37,8 +38,8 @@
             <posy>-25</posy>
             <posx>-25</posx>
 			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
-			<itemgap>-5</itemgap>
+			<!-- <usecontrolcoords>true</usecontrolcoords>
+			<itemgap>25</itemgap> -->
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]$INFO[ListItem.VideoResolution,/resolution/,.png]</texture>

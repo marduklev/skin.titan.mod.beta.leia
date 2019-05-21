@@ -1,8 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<!-- Tags -->
-	<expression name="Notag_NetflixHome">!Window.IsActive(Home) | [Window.IsActive(Home) + !String.Contains(Skin.String(HomeLayout),netflix)]</expression>
+	<expression name="NetflixHomeIsVisible">[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)]</expression>
+	
+	<!-- Backgroundbuilding -->
+			<!-- NetflixLayout -->
+			<expression name="IsNetflixLayout">
+				[[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)] | 
+				 Control.IsVisible(523) | 
+				 Control.IsVisible(525) | 
+				[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] |
+				[Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]]
+			</expression>
+	
+	
+	<!-- GROUND LAYER netflix color panel bg - $INFO[Skin.String(NetflixBGColor)] - VAR[GroundLayer_FS_Color]-->
+	
+		[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)] | 
+		Control.IsVisible(523) | 
+		Control.IsVisible(525) | 
+		[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] |
+		[Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)] | 
+	<!-- GROUND LAYER fanart color panel bg - $INFO[Skin.String(ViewDetailsBGColor)] -->
+		[Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo))]
+	<!-- GROUND LAYER common color panel bg - $INFO[Skin.String(BackgroundDiffuseColor)]-->
+		
+	<!-- <expression name="Alt_BG_Conditions">[
+		[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)] | 
+		[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | 
+		[Control.IsVisible(523) + Skin.HasSetting(View523_DetailsShowFanart)] | 
+		[Control.IsVisible(525) + Skin.HasSetting(View523_DetailsShowFanart)] | 
+		[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] |
+		[Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)] | 
+		[Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo))]]
+	</expression> -->
+	
+	
 	<!-- Home -->
+	
+	<!-- Artwork -->
+	<expression name="NoClearlogo">
+		String.IsEmpty(ListItem.Art(tvshow.clearlogo)) +
+		String.IsEmpty(ListItem.Art(artist.clearlogo)) +
+		String.IsEmpty(ListItem.Art(albumartist.clearlogo)) +
+		String.IsEmpty(ListItem.Art(clearlogo))
+	</expression>
 	
 	<!-- Playing -->
 	<expression name="PlayerHasVideo">[Player.HasVideo | Player.HasGame]</expression>
@@ -11,6 +53,9 @@
 	<expression name="IsTVShow">String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</expression>
 	<expression name="IsEpisode">String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)</expression>
 	<expression name="IsMovie">String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),movie) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,movie)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),movie)</expression>
+	<expression name="IsArtist">String.IsEqual(ListItem.DBTYPE,artist) | String.IsEqual(ListItem.Property(DBTYPE),artist) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,artist)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),artist)</expression>
+	<expression name="IsAlbum">String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.Property(DBTYPE),album) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,album)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),album)</expression>
+	<expression name="IsSong">String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.Property(DBTYPE),song) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,song)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),song)</expression>
 	
 	<!-- ArtWork -->
 	
@@ -49,15 +94,4 @@
     <expression name="UseBannerShape">String.IsEqual(Control.GetLabel(5595),banner)</expression>
     <expression name="UseSteamShape">String.IsEqual(Control.GetLabel(5595),steam)</expression>
 
-	<!-- thumb game thumb shapes -->
-	<expression name="IsUsingGameShapes">
-		[String.IsEqual(Control.GetLabel(5595),poster) | 
-		String.IsEqual(Control.GetLabel(5595),wide) | 
-		String.IsEqual(Control.GetLabel(5595),3ds) | 
-		String.IsEqual(Control.GetLabel(5595),square) | 
-		String.IsEqual(Control.GetLabel(5595),slim) | 
-		String.IsEqual(Control.GetLabel(5595),bluray) | 
-		String.IsEqual(Control.GetLabel(5595),banner) | 
-		String.IsEqual(Control.GetLabel(5595),steam)]
-	</expression>
 </includes>

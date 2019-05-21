@@ -5,15 +5,6 @@
 			<visible>Control.IsVisible(527)</visible>
 			<visible>Container.Content(tvshows)</visible>
 			<include>animation_view_change</include>
-			<!-- clean bg, if no fanart  -->
-			<control type="image">
-				<width>100%</width>
-				<height>100%</height>
-				<texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
-				<visible>Skin.HasSetting(View527_DisableFanArt)</visible>
-				<animation effect="fade" start="0" end="100" delay="0" time="400" condition="Skin.HasSetting(View527_DisableFanArt)">Conditional</animation>
-			</control>
-			<!-- seperate  div line 1 -->
 			<control type="image">
 				<top>100</top>
 				<left>750</left>
@@ -68,9 +59,8 @@
 				<height>385</height>
 				<right>0</right>
 				<top>0</top>
-				<texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[netflixThumb]</texture>
+				<texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[527_Schow_focus]</texture>
 				<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-				<visible>!Control.HasFocus(5127)</visible>
 			</control>
 			<control type="textbox"> 
 				<height>45</height>
@@ -449,6 +439,17 @@
 							<visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
 							<info>ListItem.PercentPlayed</info>
 						</control>
+						<!-- fake full progressbar for watched & not resumable -->
+						<control type="image">
+							<right>40</right>  
+							<top>400</top>
+							<description>full progress bar</description>
+							<width>85%</width>
+							<height>4%</height>
+							<align>center</align>
+							<texture colordiffuse="$VAR[NetfixViewHighlightTextColor]" border="2">colors/color_white.png</texture>
+							<visible>[Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable]</visible>
+						</control>
 						<control type="textbox">
 							<width>85%</width>
 							<left>100</left>
@@ -551,10 +552,9 @@
 		<value condition="String.IsEqual(ListItem.Label,..)">DefaultFolderBack.png</value>
 		<value>DefaultMovies.png</value>
 	</variable>	
-	<variable name="527_Schow_focus"><!-- season fanart not working -->
-		<value condition="![Control.HasFocus(5027) | Control.HasFocus(5127)] | Control.HasFocus(527)">$VAR[netflixThumb]</value>
-		<value condition="![Control.HasFocus(527) | Control.HasFocus(5127)] | Control.HasFocus(5027)">$[ListItem.Art(season.fanart)]</value>
-		<value condition="![Control.HasFocus(527) | Control.HasFocus(5027)] | Control.HasFocus(5127)">$VAR[LandscapeImage]</value>
+	<variable name="527_Schow_focus">
+		<value condition="Control.HasFocus(5027) | Control.HasFocus(527)">$VAR[netflixThumb]</value>
+		<value condition="Control.HasFocus(5127)">$INFO[ListItem.Art(season.fanart)]</value>
 	</variable>
 	<variable name="RoundImage">
 		<value condition="!String.IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>

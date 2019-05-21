@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="window" id="1100">
     <defaultcontrol always="true">5600</defaultcontrol>
+	<onload condition="String.IsEmpty(Skin.String(SearchTerm))">Back</onload>
     <onunload>Skin.Reset(SearchTerm)</onunload>
 	<controls>
         <!-- Background -->

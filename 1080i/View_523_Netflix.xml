@@ -12,39 +12,8 @@
 			<animation effect="rotatey" center="auto" end="-10" time="1500" condition="Player.HasVideo + Skin.HasSetting(3dLayout)">Conditional</animation>
 			<animation effect="slide" center="auto" end="-100,0" time="0" condition="Skin.HasSetting(3dLayout)">Conditional</animation>
 			<animation effect="slide" center="auto" end="100,0" time="0" condition="Player.HasVideo + Skin.HasSetting(3dLayout)">Conditional</animation>
-
-            <!-- background image + overlay slim right corner overlay-->
-            <control type="image">
-                <width>100%</width>
-                <height>100%</height>
-				<texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>	
-            </control>
-            <control type="image">
-				<fadetime>350</fadetime>
-                <texture background="true">$VAR[backgroundVar]</texture>
-                <aspectratio aligny="top">scale</aspectratio>
-				<animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-                <visible>!Skin.HasSetting(View523_DetailsShowFanart)</visible>				
-				<animation effect="fade" start="100" end="40" delay="200" time="1500" pulse="false" condition="Player.HasVideo">Conditional</animation>
-            </control>
-            <!-- overlay without big thumb -->
-            <control type="image">
-                <width>100%</width>
-                <height>100%</height>
-                <texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
-                <animation effect="fade" start="100" end="30" delay="0" time="0" condition="true">Conditional</animation>
-                <visible>!Skin.HasSetting(View523_DetailsShowFanart)</visible>
-            </control>
-            <control type="image">
-                <width>100%</width>
-                <height>100%</height>
-                <texture colordiffuse="$VAR[Netflix2_PanelColor]">special://home/addons/resource.images.backgroundoverlays.basic/resources/Side by Side.png</texture>				
-                <animation effect="fade" start="100" end="95" delay="0" time="0" condition="true">Conditional</animation>
-                <visible>!Skin.HasSetting(View523_DetailsShowFanart)</visible>
-            </control>
-
-            <!-- spotlight section -->
+			
+			<!-- spotlight section -->
             <control type="group" id="3505">
                 <width>100%</width>
                 <height>800</height>
@@ -82,13 +51,12 @@
 					<top>0</top>
 					<width>1280</width>
                     <height>720</height>
-					
-					<visible>!skin.hastheme(classic)</visible>
+					<visible>$EXP[PlayerHasVideo]</visible>
 					<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
 					<include>Preview_GameVideoWindow</include>			
 					<control type="image">
 						<top>-50</top>
-						<texture colordiffuse="$VAR[Netflix2_PanelColor]" border="20">overlay/Netflix_origin.png</texture>
+						<texture colordiffuse="$INFO[Skin.String(NetflixBGColor)]" border="20">overlay/Netflix_origin.png</texture>
                     </control>
 				</control>
 				 
@@ -243,7 +211,7 @@
 					<focusedlayout></focusedlayout>
 					<content>$VAR[VAR_EmbuaryCast]</content>
                 </control>
-				<!-- check need to be conditional - Games: Popup of all game assets (trailer, title, snaps etc) -->
+				<!-- Games: Popup of all game assets (trailer, title, snaps etc) -->
 				<include condition="$EXP[InGameMode]">GameAssetsPanelComplete</include>
 
 			</control>

@@ -37,7 +37,8 @@
         </itemlayout>
         <focusedlayout height="270" width="270" condition="!Skin.HasSetting(View509_ShowTags)">
 		  <control type="group">
-                 <width>255</width>
+				<include>Focus_Zoom_Animation</include>
+                <width>255</width>
                 <height>255</height>
 				<include content="SquarePosterPanelLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />

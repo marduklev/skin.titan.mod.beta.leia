@@ -256,7 +256,7 @@
 				<ondown condition="!Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container(523).NumItems,10) + !Player.HasVideo">60</ondown>
 				<include>trailer_onup</include>
 				
-				<itemlayout height="247" width="170" condition="$EXP[UsePosterShape]">					
+				<itemlayout height="247" width="170" condition="$EXP[UsePosterShape] + !$EXP[InGameMode]">					
 					<control type="group">
 						<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="[Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)] | Control.IsVisible(5590)">Conditional</animation>
 						<animation effect="fade" start="100" end="30" delay="200" time="1500" pulse="false" condition="[Player.HasVideo | Control.IsVisible(5590)]">Conditional</animation>							
@@ -273,12 +273,12 @@
 						<control type="group">
 							<width>170</width>
 							<height>247</height>
-							<bottom>-433</bottom>
+							<bottom>-444</bottom>
 							<include>523_reflections</include>
 						</control>
 					</control>
 				</itemlayout>		
-				<focusedlayout height="347" width="270" condition="$EXP[UsePosterShape]">
+				<focusedlayout height="347" width="270" condition="$EXP[UsePosterShape] + !$EXP[InGameMode]">
 					<include>AutoTrailerButton</include>
 					<control type="group">
 						<width>264</width>
@@ -338,6 +338,28 @@
 						</animation>
 						<animation effect="rotate" end="360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 						<visible>Skin.HasSetting(View523_ShowCDart) + Skin.HasSetting(View523_DetailsShowFanart) + [Container.Content(tvshows) | Container.Content(movies) | $EXP[InGameMode]]</visible>	
+					</control>
+				</focusedlayout>	
+				<focusedlayout height="347" width="270" condition="$EXP[UsePosterShape]">
+					<include>AutoTrailerButton</include>
+					<control type="group">
+						<width>264</width>
+						<height>381</height>
+						<right>2</right>
+						<bottom>-177</bottom>
+						<include content="PosterPanelLayout">
+							<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
+							<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]" />
+							<param name="border" value="thumbsborder_focused" />
+						</include>
+					</control>
+					<!-- reflection -->
+					<control type="group">
+						<width>264</width>
+						<height>381</height>
+						<right>2</right>
+						<bottom>-545</bottom>
+						<include>523_reflections</include>
 					</control>
 				</focusedlayout>
 

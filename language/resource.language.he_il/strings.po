@@ -2381,6 +2381,10 @@ msgid "Panel"
 msgstr "לוח"
 
 msgctxt "#31681"
+msgid "Panel Low"
+msgstr "לוח נמוך"
+
+msgctxt "#31919"
 msgid "Circle"
 msgstr ""
 

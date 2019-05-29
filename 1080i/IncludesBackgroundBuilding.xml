@@ -377,7 +377,8 @@
             ![Control.IsVisible(521) + Skin.HasSetting(View521_DisableFanArt)] + 
             ![Control.IsVisible(522) + Skin.HasSetting(View522_DisableFanArt)] + 
             ![Control.IsVisible(524) + Skin.HasSetting(View524_DisableFanArt)] + 
-            ![Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)]      
+            ![Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] +      
+			![Control.IsVisible(528) + Skin.HasSetting(View528_DisableFanArt)]			
 		</visible>
     </include>
 
@@ -420,7 +421,8 @@
             ![Control.IsVisible(523) + Skin.HasSetting(View523_DisableExtraFanArt)] + 
 			![Control.IsVisible(525) + Skin.HasSetting(View525_DisableExtraFanArt)] + 
             ![Control.IsVisible(524) + Skin.HasSetting(View524_DisableExtraFanArt)] +
-            ![Control.IsVisible(526) + Skin.HasSetting(View526_DisableExtraFanArt)]
+            ![Control.IsVisible(526) + Skin.HasSetting(View526_DisableExtraFanArt)] +
+            ![Control.IsVisible(528) + Skin.HasSetting(View528_DisableExtraFanArt)]
         </visible>
     </include>
 

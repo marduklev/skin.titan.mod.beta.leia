@@ -2373,6 +2373,10 @@ msgid "Panel"
 msgstr "Paneeli"
 
 msgctxt "#31681"
+msgid "Panel Low"
+msgstr "Matala paneeli"
+
+msgctxt "#31919"
 msgid "Circle"
 msgstr "Circle"
 

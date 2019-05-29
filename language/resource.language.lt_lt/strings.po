@@ -2381,6 +2381,10 @@ msgid "Panel"
 msgstr "Skydelis"
 
 msgctxt "#31681"
+msgid "Panel Low"
+msgstr "Žemas skydelis"
+
+msgctxt "#31919"
 msgid "Circle"
 msgstr ""
 

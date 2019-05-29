@@ -110,7 +110,7 @@
 	<include name="fanartSpeed_multiimage">
         <timeperimage>$PARAM[timeperimage]</timeperimage>
     </include>
-	
+	<!-- need re calculation ?-->
 	<include name="fanartSpeed_fadelabel">
         <timeperimage>$PARAM[pauseatend]</timeperimage>
     </include>

@@ -980,7 +980,7 @@
             [Skin.HasSetting(View523_DisableExtraFanArt) + Control.IsVisible(523)] |
 			[Skin.HasSetting(View525_DisableExtraFanArt) + Control.IsVisible(525)]
             </selected>
-			<visible>Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(FanArt))</visible>
+			<visible>Skin.HasSetting(ShowFanartBackground) + [Skin.HasSetting(SkinHelper.EnableExtraFanart) | Skin.HasSetting(EnableNativeExtraFanart)]</visible>
 			<visible>
             Control.IsVisible(10) | Control.IsVisible(50) | Control.IsVisible(51) | 
             Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | 

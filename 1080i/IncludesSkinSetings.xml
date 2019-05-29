@@ -834,7 +834,7 @@
                 <label>31296</label>
                 <label2>$INFO[skin.string(extrafanartdelay.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=extrafanartdelay,header=$LOCALIZE[31296])</onclick>
-                <visible>Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart)</visible>
+                <visible>Skin.HasSetting(ShowFanartBackground) + [Skin.HasSetting(SkinHelper.EnableExtraFanart) | Skin.HasSetting(EnableNativeExtraFanart)]</visible>
             </control>
             <!-- prefer fanart in landscaped views -->
             <control type="radiobutton" id="13026">

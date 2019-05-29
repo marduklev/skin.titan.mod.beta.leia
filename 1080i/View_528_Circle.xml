@@ -10,6 +10,7 @@
         <bottom>10%</bottom>
         <width>1820</width>
         <height>810</height>
+		<!-- h405 + horizontal orientation for 1 row layout ,focusposition2-->
         <orientation>vertical</orientation>
         <onleft>9000</onleft>
         <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>

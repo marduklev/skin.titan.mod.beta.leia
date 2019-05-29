@@ -553,6 +553,13 @@
 				<texture>overlay/overlay_dimm.png</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
+			<!-- <control type="image">
+				<bordersize>8</bordersize>
+				<visible>Skin.HasTheme(modern_rounded)</visible>
+				<colordiffuse>ff000000</colordiffuse>
+				<texture diffuse="home/home_matte2.png">overlay/overlay_dimm.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control> -->
 			<control type="group">
 				<control type="image">
 					<centerleft>50%</centerleft>

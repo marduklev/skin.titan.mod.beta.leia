@@ -3,38 +3,16 @@
 	<!-- Tags -->
 	<expression name="NetflixHomeIsVisible">[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)]</expression>
 	
-	<!-- Backgroundbuilding -->
+	<!-- Backgroundbuilding [Window.IsActive(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)] | -->
 			<!-- NetflixLayout -->
 			<expression name="IsNetflixLayout">
 				[[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)] | 
+				 [Window.IsActive(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)] | 
 				 Control.IsVisible(523) | 
 				 Control.IsVisible(525) | 
 				[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] |
 				[Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]]
 			</expression>
-	
-	
-	<!-- GROUND LAYER netflix color panel bg - $INFO[Skin.String(NetflixBGColor)] - VAR[GroundLayer_FS_Color]-->
-	
-		[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)] | 
-		Control.IsVisible(523) | 
-		Control.IsVisible(525) | 
-		[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] |
-		[Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)] | 
-	<!-- GROUND LAYER fanart color panel bg - $INFO[Skin.String(ViewDetailsBGColor)] -->
-		[Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo))]
-	<!-- GROUND LAYER common color panel bg - $INFO[Skin.String(BackgroundDiffuseColor)]-->
-		
-	<!-- <expression name="Alt_BG_Conditions">[
-		[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)] | 
-		[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | 
-		[Control.IsVisible(523) + Skin.HasSetting(View523_DetailsShowFanart)] | 
-		[Control.IsVisible(525) + Skin.HasSetting(View523_DetailsShowFanart)] | 
-		[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] |
-		[Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)] | 
-		[Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo))]]
-	</expression> -->
-	
 	
 	<!-- Home -->
 	

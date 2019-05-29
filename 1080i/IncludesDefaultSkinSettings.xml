@@ -87,7 +87,6 @@
 		<onload condition="!Skin.String(BackgroundOverlayTexture.label)">Skin.SetString(BackgroundOverlayTexture,diffuse/flat.png)</onload>
        	<onload condition="!Skin.String(BackgroundOverlayColor)">Skin.SetString(BackgroundOverlayColor,f2000000)</onload> BackgroundOverlayColor
         <onload condition="!Skin.String(BackgroundOverlayColor.name)">Skin.SetString(BackgroundOverlayColor.name,Custom)</onload>
-        <onload condition="!Skin.String(BackgroundOverlayColor.base)">Skin.SetString(BackgroundOverlayColor.base,ff4d86a6)</onload>
         <onload condition="!Skin.String(BackgroundDiffuseColor)">Skin.SetString(BackgroundDiffuseColor,None)</onload>
         <onload condition="!Skin.String(BackgroundDiffuseColor.name)">Skin.SetString(BackgroundDiffuseColor.name,None)</onload>
  		<!-- thumb rating -->

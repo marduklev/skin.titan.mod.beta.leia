@@ -35,7 +35,14 @@
 						<posy>40</posy>
 						<width>460</width>
 						<height>900</height>
-						
+						<!-- <control type="image">
+							<posx>8</posx>
+							<posy>7</posy>
+							<width>443</width>
+							<height>765</height>
+							<texture>$INFO[Window(home).Property(ImageFilterFIVE)]</texture>
+							<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+						</control> -->
 						<control type="image">
 							<posx>8</posx>
 							<posy>7</posy>
@@ -44,6 +51,7 @@
 							<texture border="15">diffuse/bgpanel.png</texture>
 							<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
 						</control>
+						
 						
 						<control type="image">
 							<!--Panel icon image-->
@@ -112,6 +120,16 @@
 							<texture border="15">diffuse/bgpanel.png</texture>
 							<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 						</control>
+						
+						<!-- <control type="image">
+							<posx>8</posx>
+							<posy>7</posy>
+							<width>443</width>
+							<height>765</height>
+							<texture>$INFO[Window(home).Property(ImageFilterFIVE)]</texture>
+							<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
+						</control> -->
+						
 						
 						<control type="image">
 							<!--Panel icon image-->

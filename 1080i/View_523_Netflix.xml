@@ -8,57 +8,40 @@
             <height>100%</height>
             <visible>Control.IsVisible(523) + Integer.IsGreater(Container.NumItems,0)</visible>
             <include>animation_view_change</include>
-			<animation effect="rotatey" center="auto" end="10" time="0" condition="Skin.HasSetting(3dLayout)">Conditional</animation>
-			<animation effect="rotatey" center="auto" end="-10" time="1500" condition="Player.HasVideo + Skin.HasSetting(3dLayout)">Conditional</animation>
-			<animation effect="slide" center="auto" end="-100,0" time="0" condition="Skin.HasSetting(3dLayout)">Conditional</animation>
-			<animation effect="slide" center="auto" end="100,0" time="0" condition="Player.HasVideo + Skin.HasSetting(3dLayout)">Conditional</animation>
 			
-			<!-- spotlight section -->
+			<!-- spotlight previewwindow section right -->
+			<control type="group">
+				<include content="SpotlightVideoWindow">
+					<param name="width" value="1280" />
+					<param name="height" value="720" />
+				</include>
+				<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
+			</control>
+			
+			<!-- spotlight artwork section right -->
+			<control type="group">
+				<visible>!Skin.HasSetting(View523_DetailsShowFanart)</visible>
+			     <include content="SpotlightArtwork">
+					<param name="width" value="1920" />
+					<param name="height" value="1080" />
+					<param name="diffuse" value="nextupicons/diffusor_Square Bold.png" />
+				</include>
+			</control>
+			
+			<control type="group">
+				<visible>Skin.HasSetting(View523_DetailsShowFanart)</visible>
+				<include content="SpotlightArtwork">
+					<param name="width" value="1280" />
+					<param name="height" value="720" />
+					<param name="diffuse" value="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png" />
+				</include>
+			</control>
+			
+			<!-- spotlight info section left-->
             <control type="group" id="3505">
                 <width>100%</width>
                 <height>800</height>
-                <!-- spotlight image -->
-                <control type="image">
-                    <fadetime>350</fadetime>
-                    <width>1280</width>
-					<height>770</height>
-                    <right>0</right>
-					<top>0</top>
-                    <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[netflixThumb]</texture>
-                    <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-                    <visible>Skin.HasSetting(View523_DetailsShowFanart) + !Control.IsVisible(5590)</visible>
-					<!-- move beyond clearlogo / title -->
-					<animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation>
-				</control>
                 
-				<!-- spotlight for current game asset -->
-                <control type="image">
-                    <fadetime>350</fadetime>
-                    <width>1280</width>
-					<height>770</height>
-                    <right>0</right>
-					<top>0</top>
-                    <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$INFO[Container(5590).ListItem.Thumb]</texture>
-                    <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-                    <visible>Control.IsVisible(5590) + $EXP[PlayerHasVideo]</visible>
-					<!-- move beyond clearlogo / title -->
-					<animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation>
-				</control>
-                
-				<!-- preview video window -->
-               	<control type="group">
-					<right>0</right>
-					<top>0</top>
-					<width>1280</width>
-                    <height>720</height>
-					<visible>$EXP[PlayerHasVideo]</visible>
-					<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
-					<include>Preview_GameVideoWindow</include>			
-					<control type="image">
-						<top>-50</top>
-						<texture colordiffuse="$INFO[Skin.String(NetflixBGColor)]" border="20">overlay/Netflix_origin.png</texture>
-                    </control>
-				</control>
 				 
 				<!-- clearlogo -->
                 <control type="image" id="29478">
@@ -692,5 +675,6 @@
 	<include name="focused1">
 		<focusposition>1</focusposition>
 	</include>
+	
 
 </includes>

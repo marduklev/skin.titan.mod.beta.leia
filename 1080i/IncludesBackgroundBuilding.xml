@@ -10,7 +10,7 @@
 			<!-- COMMON FANART -->
 			<control type="image" id="99006">
 				<texture background="true">$VAR[fanartBackground]</texture>
-				<visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(netflixview)) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(507)</visible>
+				<visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(netflixview)) | $EXP[IsNetflixLayout] | Control.IsVisible(507)</visible>
 				<include condition="Window.IsMedia">disabledFanart</include>
 			</control>
 			<!-- SKINHELPER SERVIVE  	EXTRA FANART	99005 -->
@@ -21,15 +21,14 @@
 		
 		
 		<control type="group">
+			
 			<include>DimensionsFullscreen</include>
-			<!-- GROUND - 1st LAYER BG -->
-			<control type="image">
-				<texture>colors/color_white.png</texture>
-				<colordiffuse>$VAR[GroundLayer_FS_Color]</colordiffuse>
-				<visible>!$EXP[NetflixHomeIsVisible] + [Skin.String(BackgroundDiffuseColor) + !Skin.String(BackgroundDiffuseColor, None)]</visible>
-				<visible>![$EXP[NetflixHomeIsVisible] | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(507)]</visible>
-			</control>
-			<!-- MIDDLE - 2ND LAYER (Artowrk) + Cond Colordiffuse --> 
+			
+			<!-- GROUND - 1st LAYER BG check need,deleted -->
+			
+			
+			<!-- MIDDLE - ARTWORK LAYER (Artowrk) + Cond Colordiffuse 
+			split colordiffuse into new layer %opacity , jpg could be issue ? --> 
 			<control type="multiimage" id="99004">
 				<imagepath background="true" fallback="colors/color_black.png">$VAR[backgroundVar]</imagepath>
 				<aspectratio>scale</aspectratio>
@@ -38,15 +37,21 @@
 				<include condition="Skin.HasSetting(RandomizeBackground)">randomizeImages</include>
 				<include>fanartSpeed</include>
 				<loop>yes</loop>
+				<visible>!$EXP[IsNetflixLayout]</visible>
 				<!-- Animated Art -->
 				<animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
 				<animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
 			</control>
-			<!-- TOP - 3rd LAYER -  + Cond Colordiffuse  + Cond Overlay Image -->
+			
+			<!-- MIDDLE - ARTWORK OVERLAY LAYER (Artowrk) for Colordiffuse + opacity -->
+							<!-- maybe -->
+							
+			<!-- TOP - 3rd LAYER - resolve visible condition Cond Overlay Image with Cond Colordiffuse -->
 			<control type="image">
-				<visible>$EXP[IsNetflixLayout] | [[Skin.HasSetting(BackgroundOverlayMediaViewOnly) + !Window.IsActive(home)] | [Skin.HasSetting(BackgroundOverlayHomeOnly) + String.StartsWith(Window.Property(xmlfile),Home)] | [!Skin.HasSetting(BackgroundOverlayMediaViewOnly) + !Skin.HasSetting(BackgroundOverlayHomeOnly)]]</visible>
+				<visible>[$EXP[IsNetflixLayout] | [Control.IsVisible(507) + !Skin.HasSetting(View507_ShowInfo) + Skin.HasSetting(507_UseOverlay)]] | [[Skin.HasSetting(BackgroundOverlayMediaViewOnly) + !Window.IsActive(home)] | [Skin.HasSetting(BackgroundOverlayHomeOnly) + String.StartsWith(Window.Property(xmlfile),Home)] | [!Skin.HasSetting(BackgroundOverlayMediaViewOnly) + !Skin.HasSetting(BackgroundOverlayHomeOnly)]]</visible>
 				<texture fallback="diffuse/background.png">$VAR[BackgroundOverlayTexture]</texture>
 				<colordiffuse>$VAR[BackgroundOverlayTexture_Colordiffuse]</colordiffuse>
+				<animation effect="fade" start="100" end="40" delay="200" time="1500" pulse="false" condition="Player.HasVideo">Conditional</animation>
 			</control>
 		</control>
         <!-- Snow Effect -->
@@ -58,40 +63,21 @@
         <include condition="Skin.HasSetting(EnableTouchSupport)">TouchScreenWorkaround</include>
 
     </include>
-
-<!-- need all recheck , and than triple check -->
-	<!-- GLOBAL COLOR AND IMAGE VARIABLES shit-->
-		<variable name="GroundLayer_FS_Color">
-			<value condition="
-				[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)] | 
-				Control.IsVisible(523) | 
-				Control.IsVisible(525) | 
-				[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | 
-				[Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt | 
-				[Window.IsActive(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)]">$INFO[Skin.String(NetflixBGColor)]
-			</value>
-			<!-- get clear bg - vie507 + info -->
-			<value condition="Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo)">$INFO[Skin.String(ViewDetailsBGColor)]</value>
-			<!-- common -->
-			<value>$INFO[Skin.String(BackgroundDiffuseColor)]</value>
-		</variable>
-		
+	
+		<!-- FANART / BG IMAGE TINT -->
 		<variable name="MiddleLayer_FS_Colordiffuse">
+			<value condition="Control.IsVisible(507)">FFFFFFFF</value>
 			<value condition="!$EXP[IsNetflixLayout] + [Skin.String(BackgroundDiffuseColor) + !Skin.String(BackgroundDiffuseColor, None) + !Skin.String(BackgroundDiffuseColor.name, None)]">$INFO[Skin.String(BackgroundDiffuseColor)]</value>
-			<value condition="[Control.IsVisible(523) + Skin.HasSetting(View523_DetailsShowFanart)] | [Control.IsVisible(525) + Skin.HasSetting(View525_DetailsShowFanart)]">00FFFFFF</value>
 			<value>FFFFFFFF</value>
 		</variable>
 		
 	<!-- OVERLAY -->
-		<!-- correct -->
-		<!--  re-add - [Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix) + Skin.HasSetting(NetflixHomeShowLargeThumb)] | -->
 		<variable name="BackgroundOverlayTexture">
-			<!-- <value condition="Window.IsActive(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)">overlay/gradient_overlay_info.png</value> -->
-			<value condition="[Control.IsVisible(523) + !Skin.HasSetting(View523_DetailsShowFanart)] | [Control.IsVisible(525) + !Skin.HasSetting(View525_DetailsShowFanart)]">special://home/addons/resource.images.backgroundoverlays.basic/resources/Side by Side.png</value>
-			<value condition="[Control.IsVisible(523) + Skin.HasSetting(View523_DetailsShowFanart)] | [Control.IsVisible(525) + Skin.HasSetting(View525_DetailsShowFanart)] | [Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo)] | [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">colors/color_white.png</value>
+			<!-- <value condition="Window.IsActive(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)"></value> -->
+			<value condition="$EXP[IsNetflixLayout] | [Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo)]">colors/color_white.png</value>
 			<value condition="Skin.String(BackgroundOverlayTexture)">$INFO[Skin.String(BackgroundOverlayTexture)]</value>
 		</variable>
-		<!-- correct -->
+		
 		<variable name="BackgroundOverlayTexture_Colordiffuse">
 			<value condition="$EXP[IsNetflixLayout]">$INFO[Skin.String(NetflixBGColor)]</value>
 			<value condition="Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo)">$INFO[Skin.String(ViewDetailsBGColor)]</value>
@@ -120,7 +106,15 @@
             <visible>Skin.String(BackgroundDiffuseColor.base)</visible>
         </control>
     </include>
-
+	
+	<include name="fanartSpeed_multiimage">
+        <timeperimage>$PARAM[timeperimage]</timeperimage>
+    </include>
+	
+	<include name="fanartSpeed_fadelabel">
+        <timeperimage>$PARAM[pauseatend]</timeperimage>
+    </include>
+	
     <include name="fanartSpeed5">
         <timeperimage>5000</timeperimage>
     </include>
@@ -153,9 +147,8 @@
         <include condition="skin.string(SkinHelper.RandomFanartDelay, 10)">fanartSpeed10</include>
         <include condition="skin.string(SkinHelper.RandomFanartDelay, 15)">fanartSpeed15</include>
         <include condition="skin.string(SkinHelper.RandomFanartDelay, 20)">fanartSpeed20</include>
-        <include condition="skin.string(SkinHelper.RandomFanartDelay, 30)">fanartSpeed30</include>
+        <include condition="skin.string(SkinHelper.RandomFanartDelay, 30) | !skin.string(SkinHelper.RandomFanartDelay)">fanartSpeed30</include>
         <include condition="skin.string(SkinHelper.RandomFanartDelay, 60)">fanartSpeed60</include>
-        <include condition="!skin.string(SkinHelper.RandomFanartDelay)">fanartSpeed30</include>
     </include>
 
     <include name="randomizeImages">
@@ -174,27 +167,41 @@
                 [Window.IsMedia + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))]
             </visible>
 			<!-- additional visibility conditions -->
-			
-            <include condition="Window.IsMedia">disabledExtraFanart</include>
-			
+			<include condition="Window.IsMedia">disabledExtraFanart</include>
 			<imagepath background="true">$VAR[extraFanartBackground]</imagepath>
             <aspectratio>scale</aspectratio>
-            <include condition="skin.string(extrafanartdelay, 6)">fanartSpeed6</include>
-            <include condition="skin.string(extrafanartdelay, 5)">fanartSpeed5</include>
-            <include condition="skin.string(extrafanartdelay, 8)">fanartSpeed8</include>
-            <include condition="skin.string(extrafanartdelay, 10)">fanartSpeed10</include>
-            <include condition="skin.string(extrafanartdelay, 15)">fanartSpeed15</include>
-            <include condition="skin.string(extrafanartdelay, 20)">fanartSpeed20</include>
-            <include condition="skin.string(extrafanartdelay, 30)">fanartSpeed30</include>
-            <include condition="skin.string(extrafanartdelay, 60)">fanartSpeed60</include>
             
+			<include content="fanartSpeed_multiimage" condition="skin.string(extrafanartdelay, 5) | !String.IsEmpty(skin.string(extrafanartdelay)">
+				<param name="timeperimage" value="5000" />
+			</include>
+			<include content="fanartSpeed_multiimage" condition="skin.string(extrafanartdelay, 6)">
+				<param name="timeperimage" value="6000" />
+			</include>
+			 <include content="fanartSpeed_multiimage" condition="skin.string(extrafanartdelay, 8)">
+				<param name="timeperimage" value="8000" />
+			</include>
+			 <include content="fanartSpeed_multiimage" condition="skin.string(extrafanartdelay, 10)">
+				<param name="timeperimage" value="10000" />
+			</include>
+			 <include content="fanartSpeed_multiimage" condition="skin.string(extrafanartdelay, 15)">
+				<param name="timeperimage" value="15000" />
+			</include>
+			 <include content="fanartSpeed_multiimage" condition="skin.string(extrafanartdelay, 20)">
+				<param name="timeperimage" value="20000" />
+			</include>
+			<include content="fanartSpeed_multiimage" condition="skin.string(extrafanartdelay, 30)">
+				<param name="timeperimage" value="30000" />
+			</include>
+			<include content="fanartSpeed_multiimage" condition="skin.string(extrafanartdelay, 60)">
+				<param name="timeperimage" value="60000" />
+			</include>
+			    
             <randomize>true</randomize>
             <loop>yes</loop>
         </control>
     </include>
 	
-	<!-- Skin Extra Fanart - use params for nav contains -video.xml, music.xml ?= or put in xml iself 
-	param ListItemArtwork -->
+	<!-- Skin Extra Fanart -->
 	<!-- intentionall not as group 'extraFanartBackground' + 'Alt_NoSH_extraFanartBackground' -->
 	<include name="Alt_NoSH_extraFanartBackground">
 		<control type="fadelabel" id="99007">
@@ -203,7 +210,7 @@
 			<visible>
                 [Window.IsActive(Home) + [Control.HasFocus(77777) | ControlGroup(77777).HasFocus() | Window.IsActive(DialogVideoInfo.xml)]] |
                 [Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)] | 
-                Window.IsMedia
+                [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(albums) | Container.Content(songs) | Container.Content(artists)]
             </visible>
 			<!-- additional visibility conditions -->
 			<include condition="Window.IsMedia">disabledExtraFanart</include>
@@ -295,32 +302,39 @@
 			<info>Container.ListItem.Art(artist.fanart18)</info>
 			<info>Container.ListItem.Art(artist.fanart19)</info>
 			<info>Container.ListItem.Art(artist.fanart20)</info>
-			<!-- variabel - artistfanart just for song (not needed) -->
-			<!-- <info>Container.ListItem.Art(albumartist.fanart)</info>
-			<info>Container.ListItem.Art(albumartist.fanart1)</info>
-			<info>Container.ListItem.Art(albumartist.fanart2)</info>
-			<info>Container.ListItem.Art(albumartist.fanart3)</info>
-			<info>Container.ListItem.Art(albumartist.fanart4)</info>
-			<info>Container.ListItem.Art(albumartist.fanart5)</info>
-			<info>Container.ListItem.Art(albumartist.fanart6)</info>
-			<info>Container.ListItem.Art(albumartist.fanart7)</info>
-			<info>Container.ListItem.Art(albumartist.fanart8)</info>
-			<info>Container.ListItem.Art(albumartist.fanart9)</info>
-			<info>Container.ListItem.Art(albumartist.fanart10)</info>
-			<info>Container.ListItem.Art(albumartist.fanart11)</info>
-			<info>Container.ListItem.Art(albumartist.fanart12)</info>
-			<info>Container.ListItem.Art(albumartist.fanart13)</info>
-			<info>Container.ListItem.Art(albumartist.fanart14)</info>
-			<info>Container.ListItem.Art(albumartist.fanart15)</info>
-			<info>Container.ListItem.Art(albumartist.fanart16)</info>
-			<info>Container.ListItem.Art(albumartist.fanart17)</info>
-			<info>Container.ListItem.Art(albumartist.fanart18)</info>
-			<info>Container.ListItem.Art(albumartist.fanart19)</info>
-			<info>Container.ListItem.Art(albumartist.fanart20)</info> -->
 			<!-- Fallback -->
-			<!-- <info>Container.ListItem.Art(thumb)</info> -->
+			<!-- <info>Container.ListItem.Art(thumb)</info> 
+			
+			<include name="fanartSpeed_fadelabel">
+        <timeperimage>$PARAM[pauseatend]</timeperimage>
+    </include>
+			
+			-->
 			<randomize>true</randomize>
-			<pauseatend>4000</pauseatend> <!-- need adjustment - <include>fanartSpeed</include>-->
+			<include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 5) | !String.IsEmpty(skin.string(extrafanartdelay)">
+				<param name="pauseatend" value="5000" />
+			</include>
+			<include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 6)">
+				<param name="pauseatend" value="6000" />
+			</include>
+			 <include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 8)">
+				<param name="pauseatend" value="8000" />
+			</include>
+			 <include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 10)">
+				<param name="pauseatend" value="10000" />
+			</include>
+			 <include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 15)">
+				<param name="pauseatend" value="15000" />
+			</include>
+			 <include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 20)">
+				<param name="pauseatend" value="20000" />
+			</include>
+			<include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 30)">
+				<param name="pauseatend" value="30000" />
+			</include>
+			<include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 60)">
+				<param name="pauseatend" value="60000" />
+			</include>
 			<scroll>false</scroll>
 			<scrollout>false</scrollout>
 		</control>
@@ -362,8 +376,6 @@
             ![Window.IsMedia + Control.IsVisible(520) + Skin.HasSetting(View520_DisableFanArt)] + 
             ![Control.IsVisible(521) + Skin.HasSetting(View521_DisableFanArt)] + 
             ![Control.IsVisible(522) + Skin.HasSetting(View522_DisableFanArt)] + 
-            ![Control.IsVisible(523) + Skin.HasSetting(View523_DisableFanArt)] + 
-			![Control.IsVisible(525) + Skin.HasSetting(View525_DisableFanArt)] + 
             ![Control.IsVisible(524) + Skin.HasSetting(View524_DisableFanArt)] + 
             ![Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)]      
 		</visible>
@@ -519,7 +531,9 @@
     </variable>
     
     <variable name="netflixThumb">
-        <!-- animated fanart background -->
+    	<!-- game assets 5590 -->
+		<value condition="$EXP[InGameMode] + Control.IsVisible(5590) + Control.IsVisible(523)">$INFO[Container(5590).ListItem.Thumb]</value>
+		<!-- animated fanart background -->
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)) + Skin.HasSetting(AnimatedFanart)">$INFO[Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)]</value>
         <!-- native 	extrafanart backgrounds -->
 		<value condition="Control.IsVisible(99007)">$INFO[Control.GetLabel(99007)]</value>					 

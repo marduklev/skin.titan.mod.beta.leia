@@ -552,7 +552,7 @@
                     <include>DimensionsFullscreen</include>
                     <texture>colors/color_white.png</texture>
                     <visible>!Window.IsActive(visualisation)</visible>
-                    <colordiffuse>$INFO[Skin.String(BackgroundDiffuseColor.base)]</colordiffuse>
+                    <colordiffuse>$INFO[Skin.String(BackgroundDiffuseColor)]</colordiffuse>
                     <visible>Skin.String(BackgroundDiffuseColor) + !Skin.String(BackgroundDiffuseColor, None)</visible>
                     <visible>!Window.IsActive(visualisation)</visible>
                     <animation effect="fade" start="100" end="80" time="150" condition="true">Conditional</animation>

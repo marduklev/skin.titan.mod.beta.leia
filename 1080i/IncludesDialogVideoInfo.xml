@@ -1544,32 +1544,35 @@
                     <include>HiddenObject</include>
                 </control>
 
-				<!-- trailer video preview -->
+				<!-- spotlight previewwindow section right -->
 				<control type="group">
-					<width>100%</width>
-					<height>100%</height>					
-					<animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="!Player.HasVideo">Conditional</animation>	
-					<control type="videowindow"></control>
-					<control type="image">
-						<texture flipx="true" colordiffuse="$INFO[Skin.String(NetflixBGColor)]" border="15">overlay/gradient_overlay_info.png</texture>
-					</control>
-				</control>
-				<!-- fanart background image -->
-				<control type="image">                   
-					<animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>	
-					<texture diffuse="overlay/gradient_overlay_info.png">$VAR[fanartBackground]</texture>
+					<right>0</right>
+					<top>0</top>
 					<width>100%</width>
 					<height>100%</height>
+					<visible>$EXP[PlayerHasVideo]</visible>
+					<include>Preview_GameVideoWindow</include>			
 				</control>
-
-                <!-- additional info overlay -->
-                <control type="image">
-                    <visible>!String.IsEmpty(Window.Property(AdditionalInfo))</visible>
-                    <width>100%</width>
-                    <height>100%</height>
-                    <texture colordiffuse="$INFO[Skin.String(NetflixBGColor)]">colors/color_white.png</texture>
-                    <animation effect="fade" start="100" end="70" time="0">Visible</animation>
-                </control>
+			
+				<!-- spotlight artwork section right -->
+				<control type="image">
+						<fadetime>350</fadetime>
+						<right>0</right>
+						<top>0</top>
+						<width>100%</width>
+						<height>100%</height>         
+						<texture background="true">$VAR[netflixThumb]</texture>
+						<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+						<animation effect="fade" start="100" end="30" time="0" condition="!String.IsEmpty(Window.Property(AdditionalInfo))">Conditional</animation>
+						<animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+						<animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+						<animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+				</control>
+				<!-- spotlight overlay section right -->
+				<control type="image">
+					<texture flipx="true" colordiffuse="$INFO[Skin.String(NetflixBGColor)]">overlay/gradient_overlay_info.png</texture>
+				</control>
+				
                 <!--studiologo_image -->
                 <control type="image">
                     <include>studiologo_image</include>

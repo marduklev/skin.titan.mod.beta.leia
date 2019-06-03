@@ -23,10 +23,14 @@
 			<control type="group">
 				<visible>!Skin.HasSetting(View525_DetailsShowFanart)</visible>
 			     <include content="SpotlightArtwork">
-					<param name="width" value="1920" />
-					<param name="height" value="1080" />
-					<param name="diffuse" value="nextupicons/diffusor_Square Bold.png" />
+					<param name="width" value="100%" />
+					<param name="height" value="100%" />
+					<param name="diffuse" value="" />
 				</include>
+				<!-- spotlight overlay section right -->
+				<control type="image">
+					<texture flipx="true" colordiffuse="$INFO[Skin.String(NetflixBGColor)]">overlay/gradient_overlay_info.png</texture>
+				</control>
 			</control>
 			
 			<control type="group">
@@ -36,6 +40,7 @@
 					<param name="height" value="770" />
 					<param name="diffuse" value="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png" />
 				</include>
+				
 			</control>
             
             <!-- spotlight section -->

@@ -527,11 +527,11 @@
 
 	<include name="trailer_onup">
 		<onup condition="!Player.HasVideo + !$EXP[InGameMode]">SetProperty(trailer_trailerwillplaying,true,home)</onup>
-		<onup condition="!Player.HasVideo + !$EXP[InGameMode] + !String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onup> <!-- ,need to check, escinfo could be need if other than win?? or emby ?? action=searchyoutube,title=$INFO[ListItem.Title,, *your languaage*], $INFO[ListItem.System.Language] -->
-		<onup condition="!Player.HasVideo + !$EXP[InGameMode] + [!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onup> <!-- based on scraping, check local movietitle (year)-trailer.filexet, if not exist play http, -->
+		<onup condition="!Player.HasVideo + !$EXP[InGameMode] + !String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onup>
+		<onup condition="!Player.HasVideo + !$EXP[InGameMode] + [!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onup>
 		<onup condition="!Player.HasVideo + !$EXP[InGameMode] + [[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onup>
 		<onup condition="!Player.HasVideo + $EXP[InGameMode]">5590</onup>
- 	  <ondown condition="Player.HasVideo">Stop</ondown>
+		<ondown condition="Player.HasVideo">Stop</ondown>
 		<onup condition="Player.HasVideo">fullscreen</onup>
 		<ondown condition="!String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">ClearProperty(trailer_trailerwillplaying)</ondown>
 	</include>
@@ -660,7 +660,8 @@
         <control type="button">
           <visible>false</visible>
           <onfocus condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu)</onfocus>
-          <onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
+          <onfocus condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">ClearProperty(FocusSpotlightButtons, Home)</onfocus>
+		  <onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
           <onfocus>SetProperty(ShowWidget,show)</onfocus>
           <onfocus>SetProperty(widgetstyle,$PARAM[widgetstyle])</onfocus>
           <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid],home)</onfocus>
@@ -702,7 +703,7 @@
     <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:09,silent)</onfocus>
     <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:09,silent)</onfocus>
   </include>
-
+<!-- check, add some album,artist etc ..-->
     <include name="WidgetProperties">
         <description>copy infolabels to winprops for widget details panel</description>
         <onfocus>SetProperty(ListItem.Plot, $ESCINFO[Container($PARAM[widgetid]).ListItem.Plot])</onfocus>

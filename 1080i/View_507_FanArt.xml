@@ -57,38 +57,17 @@
 			<control type="group">
 				<visible>!Skin.HasSetting(View507_ShowInfo)</visible>
 				<control type="image">
-					<width>100%</width>
-					<height>100%</height>
-					<texture border="6">diffuse/bgpanel.png</texture>
+					<include>DimensionsFullscreen</include>
+					<texture border="10">netflix/frame/frame_hardedge.png</texture>
 					<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
 					<aspectratio>stretch</aspectratio>
 					<visible>Skin.HasSetting(507_framedFanart)</visible>
-				</control>
-				<control type="multiimage">
-					<!-- <include>DimensionsFullscreen</include> -->
-					<right>8</right>
-					<top>10</top>
-					<width>1904</width>
-					<height>1060</height>
-					<imagepath background="true">$VAR[netflixThumb]</imagepath>
-					<aspectratio>scale</aspectratio>
-					<fadetime>200</fadetime>
-					<include>fanartSpeed</include>
-					<randomize>true</randomize>
-					<loop>yes</loop>
 				</control>
 				<control type="group">
 					<right>3</right>
 					<top>3</top>
 					<include>WatchedIndicatorNormal</include>
 					<visible>!Player.HasGame | !Player.HasVideo</visible>
-				</control>
-				<!-- Custom Overlay image -->
-				<control type="image">
-					<visible>!Skin.HasSetting(View507_ShowInfo) + Skin.HasSetting(507_UseOverlay)</visible>
-					<include>DimensionsFullscreen</include>
-					<texture>$INFO[Skin.String(BackgroundOverlayTexture)]</texture>
-					<include condition="Skin.String(BackgroundOverlayColor) + !Skin.String(BackgroundOverlayColor,None)">bgOverlayDiffuse</include>
 				</control>
 				<control type="videowindow">
 					<width>1920</width>

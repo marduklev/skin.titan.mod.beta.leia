@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- TITAN MOD -->
 <includes>
-	<!-- TESTING -->
+	<!-- Main File to sort .re add updated and edited includes,variables,etc  for testing purpose -->
+	
+	
+	
+	
+	
+	
+	
+	<!-- netflix home menu slides -->
+	
+	<!-- slide PANEL width 405 on focus MENU -->
 	<include name="NetflixHome_PanelSlide">
 		<animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
 			<effect type="slide" start="0" end="315" time="300" delay="0" tween="cubic" easing="inout" />
 		</animation>
+					<!-- slide on focus offset container 0 
+					
+					<effect type="fade" start="0" end="100" time="300" delay="0" />
+			-->
+					<!-- <animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
+						<effect type="slide" start="0" end="405" time="300" delay="0" tween="cubic" easing="inout" />
+					</animation> -->
 	</include>
+	
+	<!-- Netflix2 Panel Color ARTWORK is fullscreen , dont have overlay 
+	change name 
+	BG_Fullscreen_COLORdiffuse -->
+	
+
+  
+	
+	<!-- 
+	decide visible overlay vs bg, why load 2 texture if just 1 needed
+	
+	<variable name="GroundLayer_FS_Texture"> -->
+        <!-- netflix -->
+		<!-- <value condition="[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix) + Skin.HasSetting(NetflixHomeShowLargeThumb)] | [Control.IsVisible(523) + Skin.HasSetting(View523_DetailsShowFanart)] | [Control.IsVisible(525) + !Skin.HasSetting(View525_DetailsShowFanart)] | [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">special://home/addons/resource.images.backgroundoverlays.basic/resources/Side by Side.png</value> -->
+		<!-- common -->
+		<!-- <value>colors/color_white.png</value> -->
+    <!-- </variable> -->
+	
+	
 	<include name="NetflixHome_ICONPos">
 		<animation type="Conditional" condition="true">
 			<effect type="slide" start="0" end="340" time="0" />
@@ -17,11 +53,38 @@
 			<effect type="slide" start="0" end="-130" time="350" delay="0" tween="quadratic" easing="out" />
 		</animation>
 	</include>
+	
+	
 	<include name="NetflixHome_LabelSlide">
 		<animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
 			<effect type="slide" start="0" end="405" time="300" delay="0" tween="cubic" easing="inout" />
 		</animation>
+					<!-- slide on focus offset container 0 -->
+					<!-- <animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
+						<effect type="slide" start="0" end="405" time="300" delay="0" tween="cubic" easing="inout" />
+					</animation> -->
 	</include>
+	
+	<!-- icon
+	
+	Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)
+	
+	Container(id).ListItem(offset).Label 	Shows ListItem.Label for a specific List or Panel Container with a offset ( eg: Container(50).Listitem(2).Label ) 	
+Container(id).ListItem(offset).Label2 	Shows ListItem.Label2 for a specific List or Panel Container with a offset ( eg: Container(50).Listitem(-2).Label2 ) 	
+Container(id).ListItem(offset).Icon 	Shows ListItem.Icon for a specific List or Panel Container with a offset ( eg: Container(52).Listitem(1).Icon) 	
+Container(id).ListItem(offset).ActualIcon 	Shows ListItem.ActualIcon for a specific List or Panel Container with a offset ( eg: Container(50).Listitem(0).ActualIcon ) 	
+Container(id).ListItem(offset).Thumb 
+	
+	Container(id).ListItemAbsolute(id).[infolabel] 
+	
+	
+	<include name="NetflixHome_IconPos">
+		<animation type="Conditional" condition="Control.HasFocusIsGreater(Container(300).Position,3) + !Skin.String(HomeLayout, simplever_tiles)">
+			<effect type="slide" end="0,80" time="0" delay="0" />
+		</animation>
+				
+	</include>
+	border -->
 	
 	
 	<!-- HEADER -merge compact with default - https://i.imgur.com/FfLnn2h.jpg - height is nearly not noticable, just think about font style / size -->
@@ -782,7 +845,7 @@
 			<font>
 				<name>TEST_TAGS</name>  
 				<filename>Alcubierre.ttf</filename>
-				<size>19</size>
+				<size>20</size>
 				<style>bold</style>
 				<aspect>1.0</aspect>
 				<linespacing>1.0</linespacing>

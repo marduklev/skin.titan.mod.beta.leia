@@ -276,7 +276,7 @@
 				<left>40%</left>
 				<top>80</top>
 				<width>40%</width>
-				<height>88.8%</height>
+				<height>90%</height>
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<orientation>vertical</orientation>
 				<pagecontrol>531</pagecontrol>
@@ -293,12 +293,12 @@
 				<animation type="Conditional" condition="Integer.IsEqual(Container(5027).NumItems,1)">
 					<effect type="slide" end="0,300" time="0" delay="0" />
 				</animation>
-				<focusedlayout height="320" condition="Container.Content(tvshows)">
+				<focusedlayout height="320" width="220" condition="Container.Content(tvshows)">
 					<control type="group">
 						<left>30</left>
 						<top>20</top>
-						<width>218</width>
-						<height>312</height>
+						<width>196</width>
+						<height>280</height>
 						<animation effect="fade" start="0" end="60" time="0" reversible="false" condition="Control.HasFocus(527)">Conditional</animation>
 						<animation effect="zoom" center="auto" start="100" end="110" time="360" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="110" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
@@ -316,10 +316,14 @@
 							<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
 							<bordersize>8</bordersize>
 						</control>
-						<include>PosterTagOverlay</include>
+						
 						<control type="group">
 							<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
 						</control>
+						<include content="Tag_FO">
+							<param name="tagwidth" value="195"/>
+							<param name="tagtop" value="280" />
+						</include>
 						<control type="group">
 							<!--Watched Overlay-->
 							<right>8</right>
@@ -328,12 +332,12 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<itemlayout height="320" condition="Container.Content(tvshows)">
+				<itemlayout height="320"  width="220" condition="Container.Content(tvshows)">
 					<control type="group">
 						<left>30</left>
 						<top>20</top>
-						<width>218</width>
-						<height>312</height>
+						<width>196</width>
+						<height>280</height>
 						<!-- <animation effect="fade" start="0" end="40" time="0" reversible="false" condition="!Control.HasFocus(5027) | !Control.HasFocus(5127)">Conditional</animation> -->
 						<control type="image">
 							<visible>Control.HasFocus(5027) | Control.HasFocus(5127)</visible>
@@ -350,10 +354,13 @@
 							<aspectratio scalediffuse="true" aligny="bottom" align="center">stretch</aspectratio>
 							<bordersize>8</bordersize>
 						</control>
-						<include>PosterTagOverlay</include>
 						<control type="group">
 							<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
 						</control>
+						<include content="Tag_NF">
+							<param name="tagwidth" value="195"/>
+							<param name="tagtop" value="280" />
+						</include>
 						<control type="group">
 							<!--Watched Overlay-->
 							<right>8</right>
@@ -373,7 +380,7 @@
 				<top>0</top>
 				<height>95.3%</height>
 				<left>53%</left>
-				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<scrolltime tween="cubic" easing="out">400</scrolltime>
 				<orientation>vertical</orientation>
 				<movement>0</movement>
 				<focusposition>0</focusposition>
@@ -417,14 +424,7 @@
 					<control type="group">
 						<posy>0</posy>
 						<visible>Control.HasFocus(5127)</visible>
-						<control type="image">
-							<fadetime>350</fadetime>
-							<width>896</width>
-							<height>504</height>
-							<right>0</right>
-							<texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[LandscapeImage]</texture>
-							<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
-						</control>
+						
 						<control type="progress">
 							<right>40</right>  
 							<top>400</top>
@@ -554,7 +554,7 @@
 	</variable>	
 	<variable name="527_Schow_focus">
 		<value condition="Control.HasFocus(5027) | Control.HasFocus(527)">$VAR[netflixThumb]</value>
-		<value condition="Control.HasFocus(5127)">$INFO[ListItem.Art(season.fanart)]</value>
+		<value condition="Control.HasFocus(5127)">$INFO[Container(5127).ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="RoundImage">
 		<value condition="!String.IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>

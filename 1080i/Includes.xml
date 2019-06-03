@@ -46,13 +46,14 @@
     <include file="View_518_Wide.xml" />
     <include file="View_519_BigPanel_Wall.xml" />
     <include file="View_520_Panel_Wall.xml" />
-    <include file="View_521_Circle.xml" />
+    <include file="View_521_Panel_Low.xml" />
     <include file="View_522_RightList.xml" />
     <include file="View_523_Netflix.xml" />
 	<include file="View_525_Netflix_Landscape.xml" />
 	<include file="View_526_Wide_Netflix.xml" />
-	<include file="View_527_TSE.xml" />	
-    <include file="IncludesViews.xml" />
+	<include file="View_527_TSE.xml" />
+	<include file="View_528_Circle.xml" />
+	<include file="IncludesViews.xml" />
     <include file="IncludesMediaFlags.xml" />
     <include file="Includes_Layouts.xml" />
     <include file="IncludesOSD.xml" />

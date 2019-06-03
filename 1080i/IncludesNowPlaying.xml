@@ -317,6 +317,7 @@
 					[[Control.IsVisible(516) + !Skin.HasSetting(View516_DetailsShowFanart)] | [Control.IsVisible(516) + Skin.HasSetting(SlimListViewShowInfo) + !Skin.HasSetting(View516_DetailsShowFanart)]] | 
 					Control.IsVisible(52) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(506) | Control.IsVisible(509) | Control.IsVisible(511) | 
 					Control.IsVisible(50) | Control.IsVisible(53) | Control.IsVisible(517) | Control.IsVisible(510) | Control.IsVisible(518) |  Control.IsVisible(520) | Control.IsVisible(521) | Control.IsVisible(522) | 
+					Control.IsVisible(528) | 
 					[Control.IsVisible(59) + !Skin.HasSetting(View59_DetailsShowFanart)] | 
 					[Control.IsVisible(512) + !Skin.HasSetting(View512_DetailsShowFanart)] | 
 					[Control.IsVisible(507) + Skin.HasSetting(View507_ShowInfo)] | 
@@ -552,7 +553,7 @@
                     <include>DimensionsFullscreen</include>
                     <texture>colors/color_white.png</texture>
                     <visible>!Window.IsActive(visualisation)</visible>
-                    <colordiffuse>$INFO[Skin.String(BackgroundDiffuseColor.base)]</colordiffuse>
+                    <colordiffuse>$INFO[Skin.String(BackgroundDiffuseColor)]</colordiffuse>
                     <visible>Skin.String(BackgroundDiffuseColor) + !Skin.String(BackgroundDiffuseColor, None)</visible>
                     <visible>!Window.IsActive(visualisation)</visible>
                     <animation effect="fade" start="100" end="80" time="150" condition="true">Conditional</animation>

@@ -804,14 +804,14 @@
 			 <!--Show Fanart Background-->
             <control type="radiobutton" id="320">
                 <include>SkinSettings_Button</include>
-                <label>$LOCALIZE[31141] - Use Skinhelper Service</label>
+                <label>31141</label>
                 <onclick>Skin.ToggleSetting(ShowFanartBackground)</onclick>
                 <selected>Skin.HasSetting(ShowFanartBackground)</selected>
             </control>
             <!-- Skinhelper - Show extra Fanart Background-->
             <control type="radiobutton" id="338">
                 <include>SkinSettings_Button</include>
-                <label>31207</label>
+                <label>$LOCALIZE[31207] - Use Skinhelper Service</label>
                 <onclick>Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
 				<onclick condition="Skin.HasSetting(EnableNativeExtraFanart)">Skin.ToggleSetting(EnableNativeExtraFanart)</onclick>
                 <selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
@@ -822,7 +822,7 @@
 			, check corresponding toggles from skinhelper to implement -->
             <control type="radiobutton" id="3381">
                 <include>SkinSettings_Button</include>
-                <label>Enable Native extra Fanart (Dont Use Skinhelper for Extra Fanart)</label>
+                <label>$LOCALIZE[31207] - Dont Use Skinhelper Service</label>
                 <onclick>Skin.ToggleSetting(EnableNativeExtraFanart)</onclick>
 				<onclick condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
                 <selected>Skin.HasSetting(EnableNativeExtraFanart)</selected>
@@ -834,7 +834,7 @@
                 <label>31296</label>
                 <label2>$INFO[skin.string(extrafanartdelay.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=extrafanartdelay,header=$LOCALIZE[31296])</onclick>
-                <visible>Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart)</visible>
+                <visible>Skin.HasSetting(ShowFanartBackground) + [Skin.HasSetting(SkinHelper.EnableExtraFanart) | Skin.HasSetting(EnableNativeExtraFanart)]</visible>
             </control>
             <!-- prefer fanart in landscaped views -->
             <control type="radiobutton" id="13026">

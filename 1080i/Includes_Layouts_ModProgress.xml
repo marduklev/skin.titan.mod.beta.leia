@@ -13,34 +13,10 @@
 	
 	<!-- slide PANEL width 405 on focus MENU -->
 	<include name="NetflixHome_PanelSlide">
-		<animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
+		<animation type="Conditional" condition="String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
 			<effect type="slide" start="0" end="315" time="300" delay="0" tween="cubic" easing="inout" />
 		</animation>
-					<!-- slide on focus offset container 0 
-					
-					<effect type="fade" start="0" end="100" time="300" delay="0" />
-			-->
-					<!-- <animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
-						<effect type="slide" start="0" end="405" time="300" delay="0" tween="cubic" easing="inout" />
-					</animation> -->
 	</include>
-	
-	<!-- Netflix2 Panel Color ARTWORK is fullscreen , dont have overlay 
-	change name 
-	BG_Fullscreen_COLORdiffuse -->
-	
-
-  
-	
-	<!-- 
-	decide visible overlay vs bg, why load 2 texture if just 1 needed
-	
-	<variable name="GroundLayer_FS_Texture"> -->
-        <!-- netflix -->
-		<!-- <value condition="[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix) + Skin.HasSetting(NetflixHomeShowLargeThumb)] | [Control.IsVisible(523) + Skin.HasSetting(View523_DetailsShowFanart)] | [Control.IsVisible(525) + !Skin.HasSetting(View525_DetailsShowFanart)] | [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] | [Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]">special://home/addons/resource.images.backgroundoverlays.basic/resources/Side by Side.png</value> -->
-		<!-- common -->
-		<!-- <value>colors/color_white.png</value> -->
-    <!-- </variable> -->
 	
 	
 	<include name="NetflixHome_ICONPos">
@@ -55,15 +31,11 @@
 	</include>
 	
 	
-	<include name="NetflixHome_LabelSlide">
-		<animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
-			<effect type="slide" start="0" end="405" time="300" delay="0" tween="cubic" easing="inout" />
-		</animation>
-					<!-- slide on focus offset container 0 -->
-					<!-- <animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
-						<effect type="slide" start="0" end="405" time="300" delay="0" tween="cubic" easing="inout" />
-					</animation> -->
-	</include>
+<!-- 	
+
+	SetProperty(xx,true,Home)
+	ClearProperty(xx, Home)
+	!String.IsEmpty(Window(Home).Property(xx)) -->
 	
 	<!-- icon
 	
@@ -135,16 +107,16 @@ Container(id).ListItem(offset).Thumb
 			<control type="button">
 				<left>5</left>
 				<width min="50">auto</width>
-				<height>40</height>
+				
 				<font>Reg24</font>
 				<label>$VAR[RatingFlagVar]</label>
-				<textoffsetx>18</textoffsetx>
-				<textoffsety>4</textoffsety>
+				
 				<aligny>top</aligny>
 				<align>center</align>
 				<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
 				<disabledcolor>$VAR[CodecSameLabelColorAsFrames]</disabledcolor>
-				<texturenofocus border="-2" colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texturenofocus>
+				<include condition="!Skin.HasSetting(NetflixMPAA)">Net_Mod_MPAA</include>
+				<include condition="Skin.HasSetting(NetflixMPAA)">Net_Origin_MPAA</include>
 				<enable>false</enable>
 				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) | !String.IsEmpty(ListItem.Property(esrb))</visible>
 			</control>
@@ -234,24 +206,33 @@ Container(id).ListItem(offset).Thumb
 	<!-- Include netflix genre -->
 	<include name="Netflix_Genre">
 		<visible>!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
-		<control type="image">
-			<top>10</top>
-			<width>50</width>
-			<height>30</height>
-			<aligny>bottom</aligny>
-			<texture>netflix/genre.png</texture>
-			<colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
-		</control>
-		<control type="label">
-			<left>60</left>
-			<height>50</height>
-			<width>800</width>
-			<label>$VAR[ListItemGenre]</label>
-			<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
-			<align>left</align>
-			<aligny>center</aligny>
-			<font>Reg24</font>
-		</control>
+			<control type="image">
+				<width>60</width>
+				<height>60</height>
+				<aligny>center</aligny>
+				<texture>diffuse/roundmask.png</texture>
+				<colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
+			</control>
+			<control type="image">
+				<top>3</top>
+				<left>3</left>
+				<width>55</width>
+				<height>55</height>
+				<texture>genre.png</texture>
+				<aspectratio>keep</aspectratio>
+				<colordiffuse>$INFO[Skin.String(NetflixBGColor)]</colordiffuse>
+			</control>
+			
+			<control type="label">
+				<left>80</left>
+				<height>50</height>
+				<width>800</width>
+				<label>$VAR[ListItemGenre,[B],[/B]]</label>
+				<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Netflix_DetailRow</font>
+			</control>
 	</include>
 	
 	<!-- Include netflix next aired -->
@@ -291,9 +272,9 @@ Container(id).ListItem(offset).Thumb
                 <height>35</height>
                 <width>auto</width>
                 <aligny>center</aligny>
-                <font>Reg28</font>
+                <font>Netflix_DetailRow</font>
                 <textcolor>green</textcolor> <!-- check, stay hardcoded? i dont think so -->
-                <label>[B]$VAR[NewItem][/B]</label>
+                <label>$VAR[NewItem,[B],[/B]]</label>
                 <include>Default_Fade</include>
             </control>
 
@@ -352,9 +333,9 @@ Container(id).ListItem(offset).Thumb
 				<height>35</height>
 				<width>auto</width>
 				<aligny>center</aligny>
-				<font>Reg28</font>
+				<font>Netflix_DetailRow</font>
 				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-				<label>[B]$VAR[Year_Premiered_RecPVR][/B]</label>
+				<label>$VAR[Year_Premiered_RecPVR,[B],[/B]]</label>
                 <include>Default_Fade</include>
 			</control>
 			
@@ -363,16 +344,19 @@ Container(id).ListItem(offset).Thumb
 				<posy>4</posy>
 				<include>Default_Fade</include>
 				<width min="50">auto</width>
-				<height>40</height>
-				<font>Reg24</font>
-				<label>$VAR[RatingFlagVar]</label>
-				<textoffsetx>18</textoffsetx>
-				<textoffsety>4</textoffsety>
+				
+				<font>Netflix_DetailRow</font>
+				<label>$VAR[RatingFlagVar,[B],[/B]]</label>
+				
 				<aligny>top</aligny>
 				<align>center</align>
 				<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
 				<disabledcolor>$VAR[CodecSameLabelColorAsFrames]</disabledcolor>
-				<texturenofocus border="-2" colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texturenofocus>
+				<include condition="!Skin.HasSetting(NetflixMPAA)">Net_Mod_MPAA</include>
+				<include condition="Skin.HasSetting(NetflixMPAA)">Net_Origin_MPAA</include>
+				
+				
+				
 				<enable>false</enable>
 				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) | !String.IsEmpty(ListItem.Property(esrb))</visible>
 			</control>
@@ -386,57 +370,24 @@ Container(id).ListItem(offset).Thumb
 				<height>35</height>
 				<aligny>center</aligny>
 				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-				<font>Reg28</font>
+				<font>Netflix_DetailRow</font>
                 <include>Default_Fade</include>
 			</control>
+			
 			<!-- Resolution -->
-			<control type="group" id="611114">
-                <visible>!String.IsEmpty(Control.GetLabel(6111141))</visible>
-				<posy>5</posy>
-				<width>70</width>
-				<height>40</height>
-                <include>Default_Fade</include>
-				<control type="image">
-					<top>-2</top>
-					<height>100%</height>
-					<width>100%</width>
-					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
-				</control>
-				<control type="label" id="6111141">
-					<width>100%</width>
-					<height>36</height>
-					<aligny>bottom</aligny>
-					<align>center</align>
-					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
-					<font>Bold26</font>
-                    <scroll>false</scroll>
-                    <label>$VAR[GetResolution,[B],[/B]]</label>
-				</control>
-			</control>
-			<!-- Audio Channels -->
-			<control type="group" id="611115">
-                <visible>!String.IsEmpty(Control.GetLabel(6111151))</visible>
-				<posy>5</posy>
-				<width>70</width>
-				<height>40</height>
-                <include>Default_Fade</include>
-				<control type="image">
-					<top>-2</top>
-					<height>100%</height>
-					<width>100%</width>
-					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
-				</control>
-				<control type="label" id="6111151">
-					<width>100%</width>
-					<height>36</height>
-					<aligny>bottom</aligny>
-					<align>center</align>
-					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
-					<font>Bold26</font>
-                    <scroll>false</scroll>
-                    <label>$VAR[AudioChannelsVar,[B],[/B]]</label>
-				</control>
-			</control>
+			<include content="FramedCodecInfo">
+				<param name="id" value="611114" />
+				<param name="label_id" value="6111141" />
+				<param name="infolabel" value="$VAR[GetResolution]" />
+			</include>
+			<!-- Audio -->
+			<include content="FramedCodecInfo">
+				<param name="id" value="611115" />
+				<param name="label_id" value="6111151" />
+				<param name="infolabel" value="$VAR[AudioChannelsVar,[B],[/B]]" />
+			</include>
+			
+			
 		</control>
 	</include>
 	
@@ -508,7 +459,7 @@ Container(id).ListItem(offset).Thumb
 	<!-- Choose Duration Or Total Seasons/Episodes count -->
 	<variable name="DurationOrTotalSECount">
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)">$VAR[GetTotalSeasonEpisodeCount]</value>
-		<value>$VAR[ListItemDuration]</value>
+		<value>$VAR[ListItemDuration,[B],[/B]]</value>
 	</variable>		
 	
 	<!-- Total Seasons/Episodes Info -->
@@ -525,9 +476,10 @@ Container(id).ListItem(offset).Thumb
     </variable>	
 
 	<variable name="audiovideoframe">
-		<value condition="Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/frame_hardedge.png</value>
-		<value condition="!Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/frame_softedge.png</value>
+		<value condition="Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/slimframe_hardedge.png</value>
+		<value condition="!Skin.HasSetting(HardEdgeNetflixFrames)">netflix/frame/slimframe_softedge.png</value>
 	</variable>
+		
 	<variable name="CodecSameLabelColorAsFrames">
 		<value condition="!Skin.HasSetting(CodecSameLabelColorAsFrames)">$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
 		<value condition="Skin.HasSetting(CodecSameLabelColorAsFrames)">$INFO[Skin.String(NetflixDetailsFlagColor)]</value>
@@ -801,7 +753,7 @@ Container(id).ListItem(offset).Thumb
 		<font>Title_CircleC_Header70</font>
 	</include>
 	<include name="Netflix_HeaderFont_Big_Default">
-		<font>Bold55</font>
+		<font>Netflix_Title</font>
 	</include>
 	
 	<!-- NEW FONTS WIP -->
@@ -868,4 +820,108 @@ Container(id).ListItem(offset).Thumb
 				<size>46</size>
 			</font>
 		</include>
+		
+		<!-- Netflix Fonts Helvetica Neue -->
+		<!-- Title,no logo -->
+		<include name="Netflix_Title">
+			<font>
+				<name>Netflix_Title</name>
+				<filename>HelveticaNeue Light.ttf</filename>
+				<size>70</size>
+				<style>bold</style>
+				<linespacing>1.0</linespacing>
+			</font>
+		</include>
+		<!-- Detail row 1 -->
+		<include name="Netflix_DetailRow">
+			<font>
+				<name>Netflix_DetailRow</name>
+				<filename>HelveticaNeue Light.ttf</filename>
+				<size>27</size>
+				<style>bold</style>
+				<linespacing>1.0</linespacing>
+			</font>
+		</include>
+		
+		<!-- Detail row 1 -->
+		<include name="Netflix_DetailRow_Codec">
+			<font>
+				<name>Netflix_DetailRow_Codec</name>
+				<filename>HelveticaNeue Medium.ttf</filename>
+				<size>26</size>
+				<style>bold</style>
+				<linespacing>1.0</linespacing>
+			</font>
+		</include>
+		
+		<!-- plot -->
+		<include name="Netflix_Plot">
+			<font>
+				<name>Netflix_Plot</name>
+				<filename>HelveticaNeueLt.ttf</filename>
+				<size>29</size>
+				<style>bold</style>
+				<aspect>1.06</aspect>
+				<linespacing>1.2</linespacing>
+			</font>
+		</include>
+		
+		<!-- mod -->
+		<include name="Net_Mod_MPAA">
+			<height>40</height>
+			<textoffsetx>18</textoffsetx>
+			<textoffsety>2</textoffsety>
+			<texturenofocus border="-2" colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texturenofocus>
+			
+		
+		</include>
+		
+		<!-- net -->
+		<include name="Net_Origin_MPAA">
+			<texturenofocus colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/netflixmpaa.png</texturenofocus>
+			<height>36</height>
+			<textoffsetx>8</textoffsetx>
+			<textoffsety>2</textoffsety>
+		</include>
+		
+		<!-- net spotlight button layout   
+ !SpotlightButton_UseNF_Frame -->
+		<include name="SpotlightButton_UseTransBG">
+			<texturefocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">diffuse/panel.png</texturefocus>
+			<texturenofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonNoFocusColor)]" border="5">diffuse/panel_trans.png</texturenofocus>
+			
+			<textureradioonfocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">netflix/play.png</textureradioonfocus>
+			<textureradioofffocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">netflix/play.png</textureradioofffocus>
+			
+			<textureradioonnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">netflix/play.png</textureradioonnofocus>
+			<textureradiooffnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">netflix/play.png</textureradiooffnofocus>
+			
+			<textcolor>$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]</textcolor>                       
+			<focusedcolor>$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]</focusedcolor>
+			
+			<radioposx>15</radioposx>
+			<radiowidth>30</radiowidth>
+			<radioheight>30</radioheight>
+		</include>
+		
+		<!-- 	SpotlightButton_UseNF_Frame -->
+<include name="SpotlightButton_UseFrame">
+	
+	<texturefocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">diffuse/panel.png</texturefocus>	
+	<texturenofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+	
+	<textureradioonfocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioonfocus>
+	<textureradioofffocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioofffocus>
+  
+	<textureradioonnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradioonnofocus>
+	<textureradiooffnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradiooffnofocus>
+	
+	<textcolor>$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]</textcolor>                       
+	<focusedcolor>$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]</focusedcolor>
+	
+	<radioposx>16</radioposx>
+	<radiowidth>28</radiowidth>
+	<radioheight>28</radioheight>
+</include>
+		
 </includes>

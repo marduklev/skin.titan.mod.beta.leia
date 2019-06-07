@@ -542,6 +542,37 @@
 				</control>
 	</include>
 	
+	<!-- Netflix - FramedCodecInfo -->
+	<include name="FramedCodecInfo">
+		<control type="group" id="$PARAM[id]">	
+			<visible>!String.IsEmpty(Control.GetLabel($PARAM[label_id]))</visible>
+			<left>2</left>
+			<posy>5</posy>
+			<width>70</width>
+			<height>40</height>
+			<include>Default_Fade</include>
+			<control type="image">
+				<width>60</width>
+				<height>35</height>
+				<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
+			</control>
+			<control type="label" id="$PARAM[label_id]">
+				<width>60</width>
+				<height>35</height>
+				<aligny>center</aligny>
+				<align>center</align>
+				<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
+				<font>Netflix_DetailRow_Codec</font>
+				<scroll>false</scroll>
+				<label>$PARAM[infolabel]</label>
+			</control>
+		</control>
+	</include>
+	
+	
+	
+	
+	
 	<!-- dimm focus listitem overlay -->
 	<include name="FocusOverlay">
 		<control type="group">

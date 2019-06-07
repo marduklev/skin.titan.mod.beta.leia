@@ -19,7 +19,11 @@
 		<include>HEADER28</include>
 		<include>HEADER48</include>
 		<include>Title_CircleC_Header46</include>
-		
+		<!-- Netflix fonts -->
+		<include>Netflix_Plot</include>
+		<include>Netflix_Title</include>
+		<include>Netflix_DetailRow</include>
+		<include>Netflix_DetailRow_Codec</include>
         <font>
             <name>arial26</name>
             <filename>arial.ttf</filename>
@@ -1274,8 +1278,12 @@
 		
 		<include>HEADER28</include>
 		<include>HEADER48</include>
-		
-        <font>
+		<!-- Netflix fonts -->
+		<include>Netflix_Plot</include>
+		<include>Netflix_Title</include>
+		<include>Netflix_DetailRow</include>
+        <include>Netflix_DetailRow_Codec</include>
+		<font>
             <name>arial26</name>
             <filename>arial.ttf</filename>
             <size>26</size>
@@ -2521,7 +2529,11 @@
 		<include>TEST_TAGS</include>
 		<include>HEADER28</include>
 		<include>HEADER48</include>
-		
+		<!-- Netflix fonts -->
+		<include>Netflix_Plot</include>
+		<include>Netflix_Title</include>
+		<include>Netflix_DetailRow</include>
+		<include>Netflix_DetailRow_Codec</include>
 		<!-- Required for system -->
         <font>
             <name>arial26</name>
@@ -3689,7 +3701,11 @@
 		<include>TEST_TAGS</include>
 		<include>HEADER28</include>
 		<include>HEADER48</include>
-		
+		<!-- Netflix fonts -->
+		<include>Netflix_Plot</include>
+		<include>Netflix_Title</include>
+		<include>Netflix_DetailRow</include>
+		<include>Netflix_DetailRow_Codec</include>
 		<!-- Required for system -->
         <!-- Normal Fonts -->
 		
@@ -4306,9 +4322,12 @@
 		<include>TEST_TAGS</include>
 		<include>HEADER28</include>
 		<include>HEADER48</include>
-		
-		
-       <!-- confluence compatibility fonts -->
+		<!-- Netflix fonts -->
+		<include>Netflix_Plot</include>
+		<include>Netflix_Title</include>
+		<include>Netflix_DetailRow</include>
+		<include>Netflix_DetailRow_Codec</include>
+		<!-- confluence compatibility fonts -->
 		 
 		<font>
             <name>arial26</name>

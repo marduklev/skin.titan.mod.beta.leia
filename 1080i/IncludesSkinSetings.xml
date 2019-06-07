@@ -392,6 +392,13 @@
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=widgetstyle,header=$LOCALIZE[31507])</onclick>
                 <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, 3small) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
             </control>
+			<control type="radiobutton" id="32789">
+                <include>SkinSettings_Button</include>
+                <label>Use Alternate Spotlight Button Layout</label>
+                <onclick>Skin.ToggleSetting(SpotlightButton_UseNF_Frame)</onclick>
+                <selected>Skin.HasSetting(SpotlightButton_UseNF_Frame)</selected>
+				<visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
+            </control>
             <!--large widget area-->
             <control type="radiobutton" id="31761">
                 <include>SkinSettings_Button</include>
@@ -422,7 +429,7 @@
                 <label>$LOCALIZE[20410] $LOCALIZE[37026] $LOCALIZE[208] (Spotlight Widget)</label>
                 <onclick>Skin.ToggleSetting(SpotLightTrailers)</onclick>
                 <selected>Skin.HasSetting(SpotLightTrailers)</selected>
-                <visible>[!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2)] | Skin.String(HomeLayout, enhanced)</visible>-->
+                <visible>[!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout), netflix)] | Skin.String(HomeLayout, enhanced)</visible>
             </control>
             <!--hide media flags & rating while trailer, check ID !!  -->
             <control type="radiobutton" id="131786">
@@ -1019,6 +1026,14 @@
                 <label>Use Hard Edge A/V Codec Info Frames (just Netflix Views)</label>
                 <onclick>Skin.ToggleSetting(HardEdgeNetflixFrames)</onclick>
                 <selected>Skin.HasSetting(HardEdgeNetflixFrames)</selected>
+            </control>
+			<!-- alt mpaa image -->
+            <control type="radiobutton" id="13036">
+                <include>SkinSettings_Button</include>
+                <label>Dont use framed mpaa (Use Netflix MPAA)</label>
+                <onclick>Skin.ToggleSetting(NetflixMPAA)</onclick>
+				<onclick condition="Skin.HasSetting(CodecSameLabelColorAsFrames)">Skin.ToggleSetting(CodecSameLabelColorAsFrames)</onclick>
+                <selected>Skin.HasSetting(NetflixMPAA)</selected>
             </control>
 			<!-- style for Codec Frames and Label in same color -->
             <control type="radiobutton" id="13034">

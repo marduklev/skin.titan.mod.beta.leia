@@ -826,7 +826,7 @@ Container(id).ListItem(offset).Thumb
 		<include name="Netflix_Title">
 			<font>
 				<name>Netflix_Title</name>
-				<filename>HelveticaNeue Light.ttf</filename>
+				<filename>HelveticaNeueLt.ttf</filename>
 				<size>70</size>
 				<style>bold</style>
 				<linespacing>1.0</linespacing>
@@ -836,9 +836,8 @@ Container(id).ListItem(offset).Thumb
 		<include name="Netflix_DetailRow">
 			<font>
 				<name>Netflix_DetailRow</name>
-				<filename>HelveticaNeue Light.ttf</filename>
-				<size>27</size>
-				<style>bold</style>
+				<filename>HelveticaNeueLt.ttf</filename>
+				<size>25</size>
 				<linespacing>1.0</linespacing>
 			</font>
 		</include>
@@ -859,7 +858,7 @@ Container(id).ListItem(offset).Thumb
 			<font>
 				<name>Netflix_Plot</name>
 				<filename>HelveticaNeueLt.ttf</filename>
-				<size>29</size>
+				<size>28</size>
 				<style>bold</style>
 				<aspect>1.06</aspect>
 				<linespacing>1.2</linespacing>
@@ -890,11 +889,11 @@ Container(id).ListItem(offset).Thumb
 			<texturefocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">diffuse/panel.png</texturefocus>
 			<texturenofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonNoFocusColor)]" border="5">diffuse/panel_trans.png</texturenofocus>
 			
-			<textureradioonfocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">netflix/play.png</textureradioonfocus>
-			<textureradioofffocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">netflix/play.png</textureradioofffocus>
+			<textureradioonfocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioonfocus>
+			<textureradioofffocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioofffocus>
 			
-			<textureradioonnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">netflix/play.png</textureradioonnofocus>
-			<textureradiooffnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">netflix/play.png</textureradiooffnofocus>
+			<textureradioonnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradioonnofocus>
+			<textureradiooffnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradiooffnofocus>
 			
 			<textcolor>$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]</textcolor>                       
 			<focusedcolor>$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]</focusedcolor>
@@ -905,23 +904,23 @@ Container(id).ListItem(offset).Thumb
 		</include>
 		
 		<!-- 	SpotlightButton_UseNF_Frame -->
-<include name="SpotlightButton_UseFrame">
+	<include name="SpotlightButton_UseFrame">
 	
-	<texturefocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">diffuse/panel.png</texturefocus>	
-	<texturenofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
-	
-	<textureradioonfocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioonfocus>
-	<textureradioofffocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioofffocus>
-  
-	<textureradioonnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradioonnofocus>
-	<textureradiooffnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradiooffnofocus>
-	
-	<textcolor>$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]</textcolor>                       
-	<focusedcolor>$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]</focusedcolor>
-	
-	<radioposx>16</radioposx>
-	<radiowidth>28</radiowidth>
-	<radioheight>28</radioheight>
-</include>
+		<texturefocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">diffuse/panel.png</texturefocus>	
+		<texturenofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">netflix/frame/slimframe_hardedge.png</texturenofocus>
+		
+		<textureradioonfocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioonfocus>
+		<textureradioofffocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioofffocus>
+	  
+		<textureradioonnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradioonnofocus>
+		<textureradiooffnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradiooffnofocus>
+		
+		<textcolor>$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]</textcolor>                       
+		<focusedcolor>$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]</focusedcolor>
+		
+		<radioposx>16</radioposx>
+		<radiowidth>28</radiowidth>
+		<radioheight>28</radioheight>
+	</include>
 		
 </includes>

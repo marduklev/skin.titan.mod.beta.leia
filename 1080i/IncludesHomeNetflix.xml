@@ -845,7 +845,7 @@
 				</include>
 				<!-- MPAA flag while SPOTLIGHT TRAILER is playing -->
          	   <control type="group">
-             	   <visible>!String.IsEmpty(Control.GetLabel(5633398)) + TRAILER PLAYING</visible>
+             	   <visible>!String.IsEmpty(Control.GetLabel(5633398))</visible>
                 	<right>-160</right>
                 	<top>675</top>
                	 <height>55</height>
@@ -1045,7 +1045,7 @@
 					<!-- PLOT DEFAULT WIDGETs -->
 					<control type="textbox">
 						<visible>!ControlGroup(30000).HasFocus() + ![String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)]</visible>
-						<height max="208">auto</height>
+						<height max="205">auto</height>
 						<width>600</width>
 						<label>$VAR[HomeMenuWidgetInfoPlot]</label>
 						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
@@ -1057,8 +1057,6 @@
 						<visible>!ControlGroup(30000).HasFocus()</visible>
 						<include>Netflix_Genre</include>
 					</control>
-					
-					
 				</control>
 				<!-- media flags -->
                 <control type="group">
@@ -1086,10 +1084,6 @@
 					<top>365</top>
 					<left>120</left>
 					<itemgap>10</itemgap>
-					<!--
-					resolve spotlight trailer + button vis if playing
-					 + String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))
-					-->
 					<visible>!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
 					
 					<control type="radiobutton" id="3010">
@@ -1117,7 +1111,6 @@
 						<onclick>SetProperty(DontFocusSpotlightButtons,true,Home)</onclick>
 						<onclick>ClearProperty(FocusSpotlightButtons, Home)</onclick>
 						<onclick>SetFocus(77777)</onclick>
-						<!--<onclick condition="!HasFolders****">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>-->
 						<onclick>Action(Select)</onclick>
                		 
 				     </control>
@@ -1146,6 +1139,7 @@
                         <ondown>SetFocus(77777)</ondown>
 						
 						<onclick>SetProperty(DontFocusSpotlightButtons,true,Home)</onclick>
+						<!-- <onclick>SetProperty(TrailerPlayback)</onclick> -->
 						<onclick>SetFocus(77777)</onclick>
 						<onclick>PlayMedia($ESCINFO[ListItem.Trailer],1)</onclick>
 					</control>
@@ -1183,7 +1177,7 @@
 			</control>
 			<!-- STANDARD widgets -->
             <control type="grouplist" id="77777">
-				<!-- temp solution ,till header pos fixed/changed-->
+				<!-- temp solution ,till widgetid header pos fixed/changed-->
 				<animation effect="slide" start="0" end="0,170" time="1200" condition="ControlGroup(30000).HasFocus() + String.EndsWith(Window(Home).Property(widgetstyle),netflixspotlight)" reversible="false">Conditional</animation>
 				<animation effect="fade" start="100" end="30" time="1200" condition="ControlGroup(30000).HasFocus() + String.EndsWith(Window(Home).Property(widgetstyle),netflixspotlight)" reversible="false">Conditional</animation>
               

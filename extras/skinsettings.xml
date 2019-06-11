@@ -442,7 +442,8 @@
     
 	
 	<!-- cast Provider in videoinfo -->
-    <setting id="castprovider" value="kodi_native" label="KODI" condition="" icon="" description="Fastest , maybe miss some thumbs"/>
+	<!-- <setting id="castprovider" value="kodi_native" label="KODI" condition="" icon="" description="Fastest , maybe miss some thumbs"/> -->
+    
     <setting id="castprovider" value="embuary_helper" label="EMBUARY Helper" condition="" icon="" description="" />
     <setting id="castprovider" value="skinhelper_service" label="SKINHELPER SERVICE" condition="" icon="" description=""/>
     

@@ -1117,11 +1117,19 @@
                 <label>$LOCALIZE[12003]</label> <!-- uncorrect string in kodi main res-german ?-->
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
-            <control type="radiobutton" id="17124">
+            <control type="radiobutton" id="17233">
                 <include>SkinSettings_Button</include>
                 <label>Use $LOCALIZE[31018] $LOCALIZE[12003]</label>
-                <onclick>Skin.ToggleSetting(UseNetflixInfoDialog)</onclick> 				
+                <onclick>Skin.ToggleSetting(UseNetflixInfoDialog)</onclick>
+				<onclick condition="Skin.HasSetting(UseEnhancedDialog)">Skin.ToggleSetting(UseEnhancedDialog)</onclick> 				
                 <selected>Skin.HasSetting(UseNetflixInfoDialog)</selected>
+            </control>
+			<control type="radiobutton" id="17124">
+                <include>SkinSettings_Button</include>
+                <label>Use Enhanced (WIP) Info</label>
+                <onclick>Skin.ToggleSetting(UseEnhancedDialog)</onclick> 
+				<onclick condition="Skin.HasSetting(UseNetflixInfoDialog)">Skin.ToggleSetting(UseNetflixInfoDialog)</onclick> 
+                <selected>Skin.HasSetting(UseEnhancedDialog)</selected>
             </control>
 			<control type="radiobutton" id="17119">
                 <include>SkinSettings_Button</include>

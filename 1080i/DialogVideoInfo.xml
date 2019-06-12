@@ -27,7 +27,8 @@
         </control>
 		<!-- include conditon -->
 		<include condition="Skin.HasSetting(UseNetflixInfoDialog) + !Skin.HasSetting(UseExtendedInfoDialog)">NetflixInfo</include>
-		<include condition="!Skin.HasSetting(UseNetflixInfoDialog) + !Skin.HasSetting(UseExtendedInfoDialog)">DefaultInfo</include>
+		<include condition="Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog)">Mod_Enhanced_Info</include> 
+        <include condition="!Skin.HasSetting(UseNetflixInfoDialog) + !Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog)">DefaultInfo</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
 	</controls>
 </window>

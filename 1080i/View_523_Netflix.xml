@@ -12,8 +12,8 @@
 			<!-- spotlight previewwindow section right -->
 			<control type="group">
 				<include content="SpotlightVideoWindow">
-					<param name="width" value="1280" />
-					<param name="height" value="720" />
+					<param name="width" value="1395" />
+					<param name="height" value="884" />
 				</include>
 				<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
 			</control>
@@ -35,8 +35,8 @@
 			<control type="group">
 				<visible>Skin.HasSetting(View523_DetailsShowFanart)</visible>
 				<include content="SpotlightArtwork">
-					<param name="width" value="1280" />
-					<param name="height" value="720" />
+					<param name="width" value="1344" />
+					<param name="height" value="770" />
 					<param name="diffuse" value="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png" />
 				</include>
 			</control>
@@ -118,12 +118,16 @@
                     <height>310</height>
                     <orientation>vertical</orientation>
 					<control type="textbox">
-                        <height>200</height>
+                        <height max="204">auto</height>
+						<width>600</width>
 						<label>$VAR[Plots]</label>
-                        <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
-                        <align>justify</align>
-                        <font>Reg24</font>
+						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+						<align>left</align>
+						<font>Netflix_Plot</font>
+					
                     </control>
+					
+						
 					<control type="group">
 						<posx>250</posx>
 						<top>297</top>
@@ -138,7 +142,7 @@
 				<!-- media flags if TV SHOWS/SEASONS -->
                 <control type="group">
                     <visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</visible>
-					<posx>1045</posx>
+					<posx>945</posx>
                     <height>50</height>
                     <top>620</top>
                     <include>mediaflags</include>
@@ -148,7 +152,7 @@
                     <visible>![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)]</visible>
 					<posx>60</posx>
 					<height>52</height>
-                    <top>620</top>
+                    <top>640</top>
                     <include>mediaflags</include>
 					<animation effect="zoom" end="70,70" time="0" condition="Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color)">Conditional</animation>					
 				</control>

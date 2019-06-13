@@ -13,10 +13,10 @@
 			<!-- preview window -->
 			<control type="group">
 				<include content="SpotlightVideoWindow">
-					<param name="width" value="1344" />
-					<param name="height" value="756" />
+					<param name="width" value="1395" />
+					<param name="height" value="884" />
 				</include>
-				<animation effect="slide" start="0" end="0,-75" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
+				<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
 			</control>
 		   
 			<!-- spotlight artwork section right -->
@@ -74,7 +74,7 @@
 				<!-- details -->
                 <control type="group">
                     <posx>70</posx>
-                    <top>297</top>
+                    <top>267</top>
                     <include>Netflix_FlagsDetails</include>
 					<animation effect="slide" start="0" end="-168,0" condition="String.IsEmpty(ListItem.UserRating) + String.IsEmpty(Window(Home).Property(ListItem.UserRating)) + String.IsEmpty(Window(Home).Property(ListItem.UserRating))
                                 + String.IsEmpty(ListItem.Rating) + String.IsEmpty(Window(Home).Property(ListItem.Rating)) + String.IsEmpty(Window(Home).Property(ListItem.Rating))
@@ -86,7 +86,7 @@
                     <height>60</height>
                     <width>800</width>
                     <left>73</left>
-                    <top>230</top>
+                    <top>200</top>
                     <font>Bold40</font>
                     <align>left</align>
                     <aligny>top</aligny>
@@ -97,7 +97,7 @@
 				<!-- subtitle: MOTTO for Movies-->
                 <control type="label">
                     <height>30</height>
-					<top>250</top>
+					<top>220</top>
 					<left>70</left>
                     <width>800</width>
                     <font>Reg28</font>
@@ -111,15 +111,17 @@
                 <control type="grouplist">
                     <width>38%</width>
                     <posx>71</posx>
-                    <posy>350</posy>
-                    <height>200</height>
+                    <posy>320</posy>
+                    <height>300</height>
                     <orientation>vertical</orientation>
+					
 					<control type="textbox">
-						<height>150</height>
+						<height max="205">auto</height>
+						<width>600</width>
 						<label>$VAR[Plots]</label>
-                        <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
-                        <align>justify</align>
-                        <font>Reg24</font>
+						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+						<align>left</align>
+						<font>Netflix_Plot</font>
 					</control>
 				   <!-- genre -->
 					<control type="group">

@@ -21,17 +21,19 @@
             <visible>![!String.IsEmpty(ListItem.Thumb) + String.IsEqual(ListItem.Thumb,ListItem.Property(channellogo))]</visible>
             <visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
         </control>
-		 <control type="image">
-            <width>300</width>
-			<height>100</height>
-			<left>10</left>
-			<bottom>10</bottom>
+		<control type="image">
+            <width>50%</width>
+			<height>50%</height>
+			<left>15</left>
+			<bottom>5</bottom>
 			<aspectratio align="left" aligny="bottom">keep</aspectratio>
 			<texture background="true">$VAR[ClearLogoFallback]</texture>
             <aspectratio scalediffuse="false" align="center" aligny="bottom">keep</aspectratio>
-            <visible>[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)]
-			| [String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)]</visible>
-            <visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
+			<visible>
+			[[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + ![Control.IsVisible(511) | Control.IsVisible(512)]] | 
+			![String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + String.IsEmpty(ListItem.Art(tvshow.landscape)) + String.IsEmpty(ListItem.Art(season.landscape))
+			</visible>
+			<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
 			<visible>!Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
 		</control>
 		<control type="multiimage">
@@ -138,6 +140,7 @@
 			!String.IsEqual(ListItem.Property(disableLabel), disable) +
 			!String.IsEqual(ListItem.Label,..)
         </visible>
+		<visible>![String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]</visible>
         <visible>
            [[!String.IsEqual(ListItem.DBTYPE,episode) | !String.IsEqual(ListItem.Property(DBTYPE),episode)] + String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Art(clearlogo)) + !String.Contains(ListItem.Thumb,icon.png)] |
             !String.IsEmpty(ListItem.Property(defaultID))
@@ -146,7 +149,9 @@
 	
 	<!-- THUMB TAG OVERLAYS check, need revisit -->
 	<include name="ThumbsTagOverlay">
+		
         <control type="image">
+		<visible>!Window.IsActive(movieinformation)</visible>
             <!--Panel Ovelay-->
             <bordersize>8</bordersize>
             <texture diffuse="home/home_matte2.png">diffuse/home_overlay.png</texture>
@@ -154,6 +159,7 @@
             <colordiffuse>$INFO[Skin.String(TagOverlaysPanelColor)]</colordiffuse>
         </control>
         <control type="textbox">
+		<visible>!Window.IsActive(movieinformation)</visible>
             <!--Label-->
             <left>16</left>
             <right>16</right>
@@ -576,6 +582,7 @@
 	<!-- dimm focus listitem overlay -->
 	<include name="FocusOverlay">
 		<control type="group">
+		<visible>![Control.HasFocus(8601) | Control.HasFocus(8606) | Control.HasFocus(8607)]</visible>
 			<animation reversible="false" effect="fade" start="0" end="100" time="350" tween="quadratic" easing="in">Focus</animation>
 			<animation reversible="false" effect="fade" start="100" end="0" time="0">UnFocus</animation>
 			<control type="image">

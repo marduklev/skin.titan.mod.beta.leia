@@ -234,7 +234,7 @@
         <value condition="[container.content(seasons) | String.IsEqual(ListItem.DBTYPE,season)]">$INFO[container.listitem.path,,extrathumbs]</value>
     </variable>
 	
-	<!-- videoinfi -->
+	<!-- videoinfo -->
 	<include name="VideoInfo_ContainerHeader">
 		<definition>
             <control type="group" id="$PARAM[groupid]">
@@ -281,17 +281,17 @@
                         <visible>Control.HasFocus($PARAM[id])</visible>
                         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) + !Container($PARAM[id]).IsUpdating</visible>
                     </control>
-					<control type="label">
-                        <top>20</top>
-                        <width>auto</width>
-						<label>Busy</label>
-                        <aligny>center</aligny>
-                        <textcolor>white</textcolor>
-                        <font>Reg30</font>
-                        <height>24</height>
-                        <visible>Container($PARAM[id]).IsUpdating</visible>
-                    </control>
-                </control>
+					<control type="image">
+						<visible>Container($PARAM[id]).IsUpdating</visible>
+						<top>10</top>
+						<width>40</width>
+						<height>40</height>
+						<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+						<texture colordiffuse="green">special://skin/extras/images/busy/skypishball.apng</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+					</control>
+					
+				</control>
             </control>
         </definition>
     </include>
@@ -299,12 +299,12 @@
 		<control type="$PARAM[type]" id="$PARAM[id]">
 			<nested />
 			<scrolltime tween="quadratic">400</scrolltime>
-			<top>45</top>
+			<top>50</top>
 			<right>-10</right>
 			<preloaditems>2</preloaditems>
 			<movement>$PARAM[movement]</movement>
 			<orientation>horizontal</orientation>
-			<height max="365">auto</height>
+			<height>380</height>
 			<visible>$PARAM[visible]</visible>
 			<itemlayout height="$PARAM[height]" width="$PARAM[width]">
 				<control type="group">
@@ -316,12 +316,10 @@
 						<param name="border" value="thumbsborder_unfocused" />
 					</include>
 					<control type="group">
-						<visible>!Skin.HasSetting(search_info_spotlight)</visible>
-						<visible>Skin.HasSetting(SkinSearch_ShowTags)</visible>
-						<height>45</height>
+						<top>-2</top>
 						<include content="Tag_NF">
 							<param name="tagwidth" value="$PARAM[width]"/>
-							<param name="tagtop" value="$PARAM[height].9" />
+							<param name="tagtop" value="$PARAM[height]" />
 						</include>
 					</control>
 				</control>
@@ -350,10 +348,10 @@
 						</include>
 					</control>
 					<control type="group">
-						<height>45</height>
+						<top>-2</top>
 						<include content="Tag_FO">
 							<param name="tagwidth" value="$PARAM[width]"/>
-							<param name="tagtop" value="$PARAM[height].9" />
+							<param name="tagtop" value="$PARAM[height]" />
 						</include>
 					</control>					
 				</control>			

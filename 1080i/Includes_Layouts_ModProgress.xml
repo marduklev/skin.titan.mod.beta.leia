@@ -678,7 +678,7 @@ Container(id).ListItem(offset).Thumb
 				<visible>!$EXP[NetflixHomeIsVisible]</visible>
 				<width>$PARAM[tagwidth]</width>
 				<top>$PARAM[tagtop]</top>
-				<height>45</height>
+				<height>47</height>
 				<left>5</left>
 				<right>5</right>
 				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
@@ -762,7 +762,7 @@ Container(id).ListItem(offset).Thumb
 				<filename>Alcubierre.ttf</filename>
 				<size>28</size>
 				<style>bold</style>
-				<aspect>1.6</aspect>
+				<aspect>1.0</aspect>
 				<linespacing>1.0</linespacing>
 			  </font>
 		</include>

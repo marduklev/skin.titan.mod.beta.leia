@@ -606,8 +606,10 @@
         <value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + [String.IsEqual(ListItem.Property(DBTYPE), tvchannel) | String.IsEqual(ListItem.Property(DBTYPE), tvrecording)]">$INFO[ListItem.Title][CR]$INFO[ListItem.label]</value>
         <value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.Contains(ListItem.FolderPath, pvr)">$INFO[ListItem.Title][CR]$INFO[ListItem.label]</value>
 		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.Contains(Container(300).ListItem.Property(widgetPath), weather)">$INFO[ListItem.label][CR]$INFO[ListItem.label2]</value>
+		<!--CAST role tag temp workaround solution -->
+		<value condition="Window.IsActive(movieinformation) + !String.IsEmpty(Container(8601).ListItem.Label2)">$INFO[ListItem.label,[B],[/B]][CR]$INFO[ListItem.label2]</value>
 		<!-- normal items-->
-        <value condition="container.content(tvshows) | String.IsEqual(ListItem.TvShowTitle,ListItem.Title)">$INFO[ListItem.label]</value>
+		<value condition="container.content(tvshows) | String.IsEqual(ListItem.TvShowTitle,ListItem.Title)">$INFO[ListItem.label]</value>
         <value condition="container.content(seasons)">$INFO[ListItem.label]</value>
 		<value condition="!String.IsEmpty(ListItem.TvShowTitle) + !String.IsEmpty(ListItem.Episode) + Integer.IsGreater(ListItem.Episode,9) + Integer.IsGreater(ListItem.Season,9)">$INFO[ListItem.Title][CR]$INFO[ListItem.TvShowTitle] • [UPPERCASE]S$INFO[ListItem.Season]E$INFO[ListItem.Episode][/UPPERCASE]</value>
         <value condition="!String.IsEmpty(ListItem.TvShowTitle) + !String.IsEmpty(ListItem.Episode) + Integer.IsGreater(ListItem.Episode,9)">$INFO[ListItem.Title][CR]$INFO[ListItem.TvShowTitle] • [UPPERCASE]S0$INFO[ListItem.Season]E$INFO[ListItem.Episode][/UPPERCASE]</value>

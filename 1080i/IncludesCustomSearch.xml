@@ -38,8 +38,7 @@
                         <top>16</top>
                         <width>auto</width>
                         <label> | </label>
-						<!-- <label> • </label> -->
-                        <aligny>center</aligny>
+						<aligny>center</aligny>
                         <textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
                         <font>Bold36</font>
                         <height>24</height>
@@ -261,7 +260,7 @@
 					<control type="label">
                         <top>16</top>
                         <width>auto</width>
-                        <label> | </label>
+                        <label>$VAR[VideoInfoHeader_Seperator]</label>
 						<aligny>center</aligny>
                         <textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
                         <font>Bold36</font>
@@ -273,7 +272,7 @@
 					<control type="label">
                         <top>20</top>
                         <width>auto</width>
-						<label>$VAR[SearchInfoHeader_Title]</label>
+						<label>$VAR[VideoInfoHeader_Title]</label>
                         <aligny>center</aligny>
 						<textcolor>white</textcolor>
 						<font>Reg30</font>
@@ -301,6 +300,14 @@
 			<scrolltime tween="quadratic">400</scrolltime>
 			<top>50</top>
 			<right>-10</right>
+			
+			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search) + !String.IsEmpty(Skin.String(SearchTerm))">Skin.Reset(SearchTerm)</onclick>
+			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Dialog.Close(movieinformation,true)</onclick>
+			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Skin.SetString(SearchTerm,$INFO[ListItem.Label])</onclick>
+			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search)">ActivateWindow(1100),return</onclick>
+			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),extendedinfo)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onclick>
+	
+			
 			<preloaditems>2</preloaditems>
 			<movement>$PARAM[movement]</movement>
 			<orientation>horizontal</orientation>
@@ -329,7 +336,6 @@
 					<width>$PARAM[width]</width>
 					<height>$PARAM[height]</height>
 					<include>Focus_Zoom_Animation</include>
-					<!-- workaround for unfocused fixedlist check -->
 					<control type="group">
 						<visible>Control.HasFocus($PARAM[id])</visible>
 						<include content="$PARAM[layout]">
@@ -359,6 +365,21 @@
 		</control>
 	</include>
 	
+	<variable name="PercentPlayed">
+		<value condition="!Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable">watched 0%</value>
+		<value condition="Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable">watched 100%</value>
+		<value>$INFO[ListItem.PercentPlayed,watched ,%]</value>
+	</variable>
+	
+	<variable name="VideoInfoHeader_Title">
+		<value condition="Control.HasFocus(8601) | Control.HasFocus(8606) | Control.HasFocus(8607)"></value>
+		<value condition="Control.HasFocus(8610)">$INFO[Container.ListItem.Season,$LOCALIZE[20373] [B],[/B] • ]$INFO[Container.ListItem.Episode,$LOCALIZE[20452] [B],[/B]]$INFO[Container.ListItem.Title,[B] : ,[/B]]</value>
+		<value>$INFO[Container.ListItem.Label,[B],[/B]]</value>
+	</variable>
+	<variable name="VideoInfoHeader_Seperator">
+		<value condition="Control.HasFocus(8601) | Control.HasFocus(8606) | Control.HasFocus(8607)"></value>
+		<value> | </value>
+	</variable>
 	<variable name="SearchInfoHeader_Title">
 		<value condition="Control.HasFocus(5009)">$INFO[ListItem.Label,[B],[/B]]</value>
 		<value condition="String.IsEqual(ListItem.DBType,musicvideo)">$INFO[ListItem.Artist,[B],[/B]]$INFO[ListItem.Title,  [B]•  ,[/B]]</value>

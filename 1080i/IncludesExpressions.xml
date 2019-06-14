@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<!-- Tags -->
-	<expression name="NetflixHomeIsVisible">[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)]</expression>
+	<expression name="NetflixHomeIsVisible">[Window.IsActive(Home) + !Window.IsActive(movieinformation) + String.Contains(Skin.String(HomeLayout),netflix)]</expression>
 	
 	<!-- Backgroundbuilding [Window.IsActive(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)] | -->
 			<!-- NetflixLayout -->
 			<expression name="IsNetflixLayout">
-				[[Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),netflix)] | 
+				[[Window.IsActive(Home) + !Window.IsActive(movieinformation) + String.Contains(Skin.String(HomeLayout),netflix)] | 
 				 [Window.IsActive(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)] | 
 				 Control.IsVisible(523) | 
 				 Control.IsVisible(525) | 

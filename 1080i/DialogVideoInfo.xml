@@ -6,10 +6,11 @@
 	<onload condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">SetProperty(TrailerPlaying,windowed,Home)</onload>
 	<onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">ClearProperty(BaseWindow,Home)</onload>
 	<onunload condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">SetFocus(505)</onunload> 
+	<onload>ClearProperty(AdditionalInfo)</onload>
 	<onunload>ClearProperty(AdditionalInfo)</onunload>
     <onunload>ClearProperty(filename_formatted,Home)</onunload>  
 	<onunload condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">ClearProperty(ShowSpotlightInfo,Home)</onunload>
-    
+  <!--   <onload condition="Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog) + [Container.content(tvshows) | String.IsEqual(ListItem.DBTYPE,tvshow)]]">RunScript(script.skin.helper.service,action=getpercentage,count=$INFO[ListItem.Property(WatchedEpisodes)],total=$INFO[ListItem.Property(TotalEpisodes)],skinstring=WatchedEpisodesPercent)</onload> -->
 	<controls>
         <!-- fake button with actions -->
         <control type="button" id="9005">

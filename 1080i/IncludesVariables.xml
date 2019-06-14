@@ -234,9 +234,9 @@
 	
 	<variable name="value_subheader">
 		<value condition="Window.IsActive(1100)">[COLOR=$INFO[Skin.String(HeaderTextColor)]]Searchterm is[/COLOR] $INFO[Skin.String(SearchTerm), &quot; [B],[/B] &quot;]</value>
-	    <value condition="window.isactive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.Season) + Container.Content(episodes)">$LOCALIZE[20373] [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[ListItem.Season][/COLOR] $LOCALIZE[20452] [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[ListItem.Episode]: $INFO[ListItem.Title][/COLOR]</value>
-		<value condition="window.isactive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.Season) + !String.IsEqual(ListItem.Title,ListItem.Label)">$INFO[ListItem.Label]</value>
-        <value condition="window.isactive(DialogVideoInfo.xml)">$INFO[ListItem.TagLine]</value>
+	    <value condition="window.IsActive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.Season) + [Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)]">$INFO[ListItem.Season,$LOCALIZE[20373] , • ]$INFO[ListItem.Episode,$LOCALIZE[20452] [B],[/B]]$INFO[ListItem.Title, : [B],[/B]]</value>
+		<value condition="window.IsActive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.Season) + !String.IsEqual(ListItem.Title,ListItem.Label)">$INFO[ListItem.Label]</value>
+        <value condition="window.IsActive(DialogVideoInfo.xml)">$INFO[ListItem.TagLine]</value>
         <value condition="Window.IsActive(loginscreen)">$INFO[Control.GetLabel(2)]</value>
         <value condition="Skin.String(infoline) + !Skin.String(infoline,auto)">$VAR[infolinevar]</value>
         <value condition="String.IsEqual(Container.FolderPath,videodb://movies/titles/) + Container.HasFolders">$LOCALIZE[20342]: [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[Window(Home).Property(Movies.Count)][/COLOR] • $LOCALIZE[16101]: [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[Window(Home).Property(Movies.UnWatched)][/COLOR] • $LOCALIZE[20434]: [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[Window(Home).Property(SkinHelper.TotalMovieSets)] ($INFO[Window(Home).Property(SkinHelper.TotalMoviesInSets)] $LOCALIZE[20342])[/COLOR]</value>
@@ -248,14 +248,12 @@
 		<value condition="Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml)">[CR]</value>
 		<value condition="Window.IsActive(weather)">$INFO[Control.GetLabel(3)]</value>
         <value condition="Window.IsActive(Home)">$INFO[Container(300).ListItem.Label]</value>
-		<value condition="[window.isactive(tvrecordings) | window.isactive(tvtimers) | window.isactive(tvchannels) | window.isactive(tvguide) | window.isactive(mypvr.xml)] + !String.IsEmpty(Pvr.NowRecordingTitle)">$INFO[Pvr.NowRecordingTitle,$LOCALIZE[19158]: ] ($INFO[Pvr.NowRecordingChannel])</value>
-		<value condition="[window.isactive(tvrecordings) | window.isactive(tvtimers) | window.isactive(tvguide) | window.isactive(mypvr.xml)] + !String.IsEmpty(Pvr.NextRecordingTitle)">$INFO[Pvr.NextRecordingTitle,$LOCALIZE[19025]: ] ($INFO[Pvr.NextRecordingDateTime])</value>
-		<value condition="[window.isactive(tvrecordings) | window.isactive(tvtimers)] + !String.IsEmpty(PVR.backenddiskspace) + Skin.HasSetting(EnableTouchSupport)">$INFO[Pvr.backenddiskspace]</value>
+		<value condition="[Window.IsActive(tvrecordings) | window.isactive(tvtimers) | window.isactive(tvchannels) | window.isactive(tvguide) | window.isactive(mypvr.xml)] + !String.IsEmpty(Pvr.NowRecordingTitle)">$INFO[Pvr.NowRecordingTitle,$LOCALIZE[19158]: ] ($INFO[Pvr.NowRecordingChannel])</value>
+		<value condition="[Window.IsActive(tvrecordings) | window.isactive(tvtimers) | window.isactive(tvguide) | window.isactive(mypvr.xml)] + !String.IsEmpty(Pvr.NextRecordingTitle)">$INFO[Pvr.NextRecordingTitle,$LOCALIZE[19025]: ] ($INFO[Pvr.NextRecordingDateTime])</value>
+		<value condition="[Window.IsActive(tvrecordings) | window.isactive(tvtimers)] + !String.IsEmpty(PVR.backenddiskspace) + Skin.HasSetting(EnableTouchSupport)">$INFO[Pvr.backenddiskspace]</value>
 		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ContentHeader)) + !String.IsEqual(Container.TotalUnwatched,0)">$INFO[Window(Home).Property(SkinHelper.ContentHeader)]$INFO[Container.TotalUnwatched, • , $LOCALIZE[16101]] $INFO[Control.GetLabel(3),• ]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ContentHeader))">$INFO[Window(Home).Property(SkinHelper.ContentHeader)] $INFO[Control.GetLabel(3),• ]</value>
-        <value condition="window.isactive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.Season)">$LOCALIZE[20373] [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[ListItem.Season][/COLOR] $LOCALIZE[20452] [COLOR=$INFO[Skin.String(SecondaryHeaderTextColor)]]$INFO[ListItem.Episode]: $INFO[ListItem.Title][/COLOR]</value>
-		<value condition="window.isactive(DialogVideoInfo.xml)">$INFO[ListItem.TagLine]</value>
-		<value condition="!String.IsEmpty(Container.NumItems) + ![Window.IsActive(tvchannels) | Window.IsActive(radiochannels)] + !String.IsEqual(Container.TotalUnwatched,0)">$INFO[Container.NumItems,, $LOCALIZE[31034]]$INFO[Container.TotalUnwatched, • , $LOCALIZE[16101]] $INFO[Control.GetLabel(3),• ]</value>
+       <value condition="!String.IsEmpty(Container.NumItems) + ![Window.IsActive(tvchannels) | Window.IsActive(radiochannels)] + !String.IsEqual(Container.TotalUnwatched,0)">$INFO[Container.NumItems,, $LOCALIZE[31034]]$INFO[Container.TotalUnwatched, • , $LOCALIZE[16101]] $INFO[Control.GetLabel(3),• ]</value>
         <value condition="!String.IsEmpty(Container.NumItems) + ![Window.IsActive(tvchannels) | Window.IsActive(radiochannels)]">$INFO[Container.NumItems,, $LOCALIZE[31034]] $INFO[Control.GetLabel(3),• ]</value>
         <value condition="!String.IsEmpty(Container.NumItems) + ![Window.IsActive(tvchannels) | Window.IsActive(radiochannels)]">$INFO[Container.NumItems,, $LOCALIZE[31034]] $INFO[Control.GetLabel(3),• ]</value>
         <value>$INFO[System.CurrentWindow]</value>

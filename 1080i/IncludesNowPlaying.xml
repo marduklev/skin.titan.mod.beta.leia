@@ -539,7 +539,7 @@
     
     <include name="NowPlayingBackground">
         <control type="group">
-            <visible>Player.HasMedia + [!Control.IsVisible(507) | !EXP[IsNetflixLayout]]</visible>
+            <visible>Player.HasMedia + ![Control.IsVisible(507) | $EXP[IsNetflixLayout]]</visible>
             <visible>![!String.IsEmpty(Window(10025).Property(PlayingBackgroundMedia)) + Player.HasAudio]</visible>
             <visible>!String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)</visible>
             <include condition="!Skin.HasSetting(DisableNowPlayingBackground) | !String.IsEmpty(Window(home).Property(pvrGuideOnFullscreenVideo))">NowPlayingVideoBackground</include>
@@ -561,11 +561,11 @@
 				<!--  <include>DialogOverlay</include> -->
 			    <!-- = Dialog Overlay default-->
 				<control type="image">
+					<visible>Skin.String(BackgroundOverlayTexture)</visible>
 					<visible>!$EXP[NetflixHomeIsVisible] + [[Skin.HasSetting(BackgroundOverlayMediaViewOnly) + !Window.IsActive(home)] | [Skin.HasSetting(BackgroundOverlayHomeOnly) + String.StartsWith(Window.Property(xmlfile),Home)] | [!Skin.HasSetting(BackgroundOverlayMediaViewOnly) + !Skin.HasSetting(BackgroundOverlayHomeOnly)]]</visible>
 					<include>DimensionsFullscreen</include>
 					<texture fallback="diffuse/background.png">$INFO[Skin.String(BackgroundOverlayTexture)]</texture>
-					<include condition="Skin.String(BackgroundOverlayColor) + !Skin.String(BackgroundOverlayColor,None)">bgOverlayDiffuse</include>
-					<visible>Skin.String(BackgroundOverlayTexture)</visible>
+					<colordiffuse>$INFO[Skin.String(BackgroundOverlayColor)]</colordiffuse>
 				</control>
             </control>
             

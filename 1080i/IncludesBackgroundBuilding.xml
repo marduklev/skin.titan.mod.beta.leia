@@ -543,6 +543,19 @@
         <value condition="Control.IsVisible(99005) + !String.IsEmpty(Control.GetLabel(99005))">$INFO[Control.GetLabel(99005)]</value>
         <!-- normal fanart background -->
         <value condition="Control.IsVisible(99006) + !String.IsEmpty(Control.GetLabel(99006))">$INFO[Control.GetLabel(99006)]</value>
+		<!-- temp workaraound for spotlight image -->
+		 <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ChannelName))">resource://resource.images.skinbackgrounds.titanium/hover_my tv.jpg</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.fanart))">$INFO[Window(Home).Property(ListItem.Art.fanart)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.tvshow.fanart))">$INFO[Window(Home).Property(ListItem.Art.tvshow.fanart)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.Thumb))">$INFO[Window(Home).Property(ListItem.Art.Thumb)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Icon))">$INFO[Window(Home).Property(ListItem.Icon)]</value>
+        
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelName))">resource://resource.images.skinbackgrounds.titanium/hover_my tv.jpg</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.fanart))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.fanart)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.tvshow.fanart))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.tvshow.fanart)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Icon))">$INFO[Window(Home).Property(SkinHelper.ListItem.Icon)]</value>
+
     </variable>
    
 

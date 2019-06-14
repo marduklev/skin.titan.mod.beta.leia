@@ -12,14 +12,14 @@
 				<posx>0</posx>
 				<posy>0</posy>
 				<width>100%</width>
-				<height>200%</height>
+				<height>100%</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<colordiffuse>902F2F2F</colordiffuse>
 			</control>
 			
-			<!-- fixed pos  studiologo_image right -->
+			<!-- fixed pos  studiologo bottom right -->
 			<control type="image">
-				<visible>!ControlGroup(8001).HasFocus()</visible>
+				<visible>!String.IsEqual(Window.Property(AdditionalInfo),infocontainer)</visible>
 				<animation effect="fade" start="0" end="100" time="450" reversible="false">VisibleChange</animation>
 				<bottom>25</bottom>
 				<right>75</right>
@@ -29,9 +29,9 @@
 				<aspectratio aligny="top" align="right">keep</aspectratio>
 			</control>
 			
-			<!-- fixed pos  Poster right BG -->
+			<!-- Poster right BG -->
 			<control type="group">
-				<visible>!ControlGroup(8001).HasFocus()</visible>
+				<visible>!String.IsEqual(Window.Property(AdditionalInfo),infocontainer)</visible>
 				<animation effect="fade" start="0" end="100" time="450" reversible="false">VisibleChange</animation>
 				<width>440</width>
 				<height>660</height>
@@ -49,26 +49,21 @@
 					<aspectratio align="right" aligny="top" scalediffuse="true">stretch</aspectratio>
 					<texture background="true" colordiffuse="grey" diffuse="diffuse/poster.png">overlay/poster/overlayposterfo.png</texture>
 				</control>
+				<!-- rating STARS option a -->
+				<control type="image">
+					<top>-40</top>
+					<height>55</height>
+					<aspectratio align="center" aligny="bottom">keep</aspectratio>
+					<colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
+					<texture background="true">$VAR[rating_value_texture]</texture>
+				</control>
 			</control>
 			
-			<!-- rating STARS option a-->
-			<control type="image">
-				<visible>!ControlGroup(8001).HasFocus()</visible>
-				<animation effect="fade" start="0" end="100" time="450" reversible="false">VisibleChange</animation>
-				<right>210</right>
-				<top>110</top>
-				<height>50</height>
-				<width>200</width>
-				<aspectratio align="left" aligny="center">keep</aspectratio>
-				<colordiffuse>green</colordiffuse>
-				<texture background="true">$VAR[rating_value_texture]</texture>
-			</control>
 			<!-- Info if containers focused -->
 			<!-- seperate  div line 1 -->
 			<control type="group">
-				<visible>ControlGroup(8001).HasFocus()</visible>
-				<animation effect="fade" start="0" end="100" time="1200" reversible="false">VisibleChange</animation>
-						
+				<visible>String.IsEqual(Window.Property(AdditionalInfo),infocontainer)</visible>
+				<animation effect="fade" start="0" end="100" time="450" reversible="false">VisibleChange</animation>
 				<control type="image">
 					<top>170</top>
 					<width>1880</width>
@@ -76,23 +71,24 @@
 					<texture>colors/color_white.png</texture>
 					<colordiffuse>grey</colordiffuse>
 				</control>
-				<!--ClearArt-->
-				<control type="image">
-					 <left>680</left>
-					 <top>50</top>
-					 <width>100%</width>
-					 <height>100</height>
-					 <fadetime>200</fadetime>
-					 <texture background="true">$INFO[ListItem.Art(clearart)]</texture>
-					 <aspectratio align="left" aligny="bottom">keep</aspectratio>
+				<!-- Dialog Header, need var based on dg type  -->
+				<control type="label">
+					<height>25</height>
+					<right>50</right>
+					<top>110</top>
+					<width>400</width>
+					<font>Bold32</font>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<align>right</align>
+					<label>$LOCALIZE[24007]</label>
 				</control>
 			</control>
 			
 			<!-- INFO TOP -->
 			
 			<control type="group">
-				<animation effect="slide" end="0,-120" time="600" reversible="false" condition="ControlGroup(8001).HasFocus()">Conditional</animation>
-				<animation effect="slide" start="0,-120" end="0,-0" time="600" reversible="false" condition="!ControlGroup(8001).HasFocus()">Conditional</animation>
+				<animation effect="slide" end="0,-120" time="600" reversible="false" condition="String.IsEqual(Window.Property(AdditionalInfo),infocontainer)">Conditional</animation>
+				<animation effect="slide" start="0,-120" end="0,-0" time="600" reversible="false" condition="!String.IsEqual(Window.Property(AdditionalInfo),infocontainer)">Conditional</animation>
 				
 				<left>150</left>
 				<top>140</top>
@@ -120,9 +116,9 @@
 			
 			<!-- info group left slide/fade/ -->
 			<control type="grouplist">
-				<animation effect="slide" end="0,-650" time="1000" tween="cubic" reversible="false" condition="ControlGroup(8001).HasFocus()">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="550" reversible="false" condition="ControlGroup(8001).HasFocus()">Conditional</animation>
-				<animation effect="slide" start="0,-650" end="0,-0" time="800" tween="cubic" reversible="false" condition="!ControlGroup(8001).HasFocus()">Conditional</animation>
+				<animation effect="slide" end="0,-650" time="1000" tween="cubic" reversible="false" condition="String.IsEqual(Window.Property(AdditionalInfo),infocontainer)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="550" reversible="false" condition="String.IsEqual(Window.Property(AdditionalInfo),infocontainer)">Conditional</animation>
+				<animation effect="slide" start="0,-650" end="0,-0" time="800" tween="cubic" reversible="false" condition="!String.IsEqual(Window.Property(AdditionalInfo),infocontainer)">Conditional</animation>
 						
 				<width>1250</width>
 				<height>1000</height>
@@ -144,8 +140,11 @@
 					<height>50</height>
 					<label>$VAR[value_subheader]</label>
 					<font>Netflix_Plot</font>
-					<textcolor>green</textcolor>
+					<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 				</control>
+				
+				<!-- $INFO[ListItem.Season,$LOCALIZE[20373] [B],[/B] • ]$INFO[ListItem.Episode,$LOCALIZE[20359] [B],[/B]]$INFO[ListItem.Title, • ,]
+			 -->
 				
 				<!-- PLOT -->
 				<control type="textbox">
@@ -284,29 +283,12 @@
 						<align>left</align>
 						<texturebg colordiffuse="grey" border="2">colors/color_white.png</texturebg>
 						<lefttexture></lefttexture>
-						<midtexture colordiffuse="$VAR[NetfixViewHighlightTextColor]" border="2">colors/color_white.png</midtexture>
+						<midtexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">colors/color_white.png</midtexture>
 						<righttexture></righttexture>
 						<visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
 						<info>ListItem.PercentPlayed</info>
 					</control>
-							<!-- fake full progressbar for watched & not resumable -->
-							<control type="image">
-								<top>35</top>
-								<width>600</width>
-								<height>4</height>
-								<align>left</align>
-								<texture colordiffuse="red" border="2">colors/color_white.png</texture>
-								<visible>[Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable]</visible>
-							</control>
-							<!-- fake full progressbar for watched & not resumable -->
-							<control type="image">
-								<top>35</top>
-								<width>600</width>
-								<height>4</height>
-								<align>left</align>
-								<texture colordiffuse="white" border="2">colors/color_white.png</texture>
-								<visible>[!Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable]</visible>
-							</control>
+							
 							<control type="label">
 								<top>0</top>
 								<width>300</width>
@@ -351,14 +333,14 @@
 			
 			
 			<control type="grouplist" id="8000">
-				<animation effect="fade" start="100" end="0" time="350" reversible="true" condition="ControlGroup(8001).HasFocus()">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="350" reversible="true" condition="String.IsEqual(Window.Property(AdditionalInfo),infocontainer)">Conditional</animation>
 				<top>850</top>
 				<left>150</left>
 				<width>1150</width>
 				<height>50</height>
 				<itemgap>10</itemgap>
-				<onup>SetFocus(8001)</onup>
-				<ondown>SetFocus(8001)</ondown>
+				<onup>SetFocus(8006)</onup>
+				<ondown>SetFocus(8005)</ondown>
 				<onleft>8000</onleft>
 				<onright>8000</onright>
 				<pagecontrol>60</pagecontrol>
@@ -406,16 +388,7 @@
 					<visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie)</visible>
 					<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 				</control>
-				<control type="button" id="204">
-					<!-- stop trailer -->
-					<label>Stop</label>
-					<width>285</width>
-					<height>40</height>
-					<align>center</align>
-					<textoffsetx>0</textoffsetx>
-					<onclick>Stop</onclick>
-					<visible>Player.HasVideo</visible>
-				</control>
+				
 				<control type="button" id="207207">
 					<!--Plot Button-->
 					<label>207</label>
@@ -430,16 +403,7 @@
 					<visible>Skin.HasSetting(videoinfo_button_plot)</visible>
 					<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 				</control>
-				<control type="button" id="116">
-					<!--Info Button-->
-					<label>19033</label>
-					<width>285</width>
-					<height>40</height>
-					<align>center</align>
-					<textoffsetx>0</textoffsetx>
-					<onclick>ClearProperty(AdditionalInfo)</onclick>
-					<visible>!String.IsEmpty(Window.Property(AdditionalInfo))</visible>
-				</control>
+				
 				<control type="button" id="115">
 					<!--Extended Info Button-->
 					<label>31269</label>
@@ -454,15 +418,7 @@
 					<onclick condition="System.HasAddon(script.extendedinfo) + String.IsEqual(Window(Home).Property(contenttype),seasons)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onclick>
 					<onclick condition="System.HasAddon(script.extendedinfo) + String.IsEqual(Window(Home).Property(contenttype),episodes)">RunScript(script.extendedinfo,info=extendedepisodeinfo,dbid=$INFO[ListItem.DBID],tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],silent=True)</onclick>
 				</control>
-				<control type="button" id="112">
-					 <width>285</width>
-					 <description>CinemaVision</description>
-					 <label>CinemaVision</label>
-					 <onclick>Dialog.Close(DialogVideoInfo.xml)</onclick>
-					 <onclick>RunScript(script.cinemavision,experience)</onclick>
-					 <visible>Skin.HasSetting(videoinfo_button_cinemavision)</visible>
-					 <visible>System.HasAddon(script.cinemavision)</visible>
-				</control>
+				
 				<control type="button" id="7">
 					<!--set personal rating-->
 					<width>290</width>
@@ -538,31 +494,73 @@
 				</control>
 			</control>
 			
-			<!-- arrow down -->
+			<!-- Focus Containers	arrow down	8005 -->
 			<control type="group">
-				<top>910</top>
-				<left>150</left>
+				<top>930</top>
+				<left>830</left>
 				<height>80</height>
-				<visible>!ControlGroup(8001).HasFocus</visible>
-				<control type="image">
-					<width>150</width>
-					<height>35</height>
-					<texture>info/arrowdown.png</texture>
-					<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
+				<visible>!String.IsEqual(Window.Property(AdditionalInfo),infocontainer)</visible>
+				<control type="button" id="8005">    
+					<width>130</width>
+					<height>40</height>
+					<align></align>
+					<aligny></aligny>
+					<font></font>
+					<label></label>
+    			    <textcolor></textcolor>
+					<focusedcolor></focusedcolor>
+					<disabledcolor></disabledcolor>
+					<pulseonselect></pulseonselect>
+    			    <texturefocus>info/arrowdown.png</texturefocus>
+					<texturenofocus>info/arrowdown.png</texturenofocus>
+    			    <textoffsetx></textoffsetx>
+					<onfocus>SetProperty(AdditionalInfo, infocontainer)</onfocus>
+					<onfocus>SetFocus(8001)</onfocus>
+					<onclick>SetProperty(AdditionalInfo, infocontainer)</onclick>
+					<onclick>SetFocus(8001)</onclick>
 				</control>
+			</control>
+			<!-- Focus Main Info	arrow up	8006 -->
+			<control type="group">
+				<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
+				<top>15</top>
+				<left>830</left>
+				<height>80</height>
+				<visible>String.IsEqual(Window.Property(AdditionalInfo),infocontainer)</visible>
+				<control type="button" id="8006">    
+					<width>130</width>
+					<height>40</height>
+					<align></align>
+					<aligny></aligny>
+					<font></font>
+					<label></label>
+					<textcolor></textcolor>
+					<focusedcolor></focusedcolor>
+					<disabledcolor></disabledcolor>
+					<pulseonselect></pulseonselect>
+					<texturefocus flipy="true">info/arrowdown.png</texturefocus>
+					<texturenofocus flipy="true">info/arrowdown.png</texturenofocus>
+					<textoffsetx></textoffsetx>
+					<onfocus>ClearProperty(AdditionalInfo)</onfocus>
+					<onfocus>SetFocus(8000,1)</onfocus>
+					<onclick>ClearProperty(AdditionalInfo)</onclick>
+					<onclick>SetFocus(8000,1)</onclick>
+				</control>
+				
 			</control>
 			
 			<!-- ITEM CONTAINERS all same height for movement 920/460-->
 			<control type="grouplist" id="8001">
-				<animation effect="slide" end="0,-910" time="1000" tween="cubic" reversible="false">Focus</animation>
-				<animation effect="slide" start="0,-910" end="0,-0" time="800" tween="cubic" reversible="false">UnFocus</animation>
+				<animation effect="slide" end="0,-910" time="1000" tween="cubic" reversible="false" condition="String.IsEqual(Window.Property(AdditionalInfo),infocontainer)">conditional</animation>
+				<animation effect="slide" start="0,-910" end="0,-0" time="800" tween="cubic" reversible="false" condition="!String.IsEqual(Window.Property(AdditionalInfo),infocontainer)">conditional</animation>
 				
 				<top>1090</top>
 				<left>100</left>
 				<height>885</height>
 				<width>1750</width>
 				<scrolltime tween="quadratic">400</scrolltime>
-				<onup>8000</onup>
+				<onup>SetFocus(8006)</onup>
 				<ondown>8001</ondown>
 				<onleft>8000</onleft>
 				<orientation>vertical</orientation>
@@ -573,11 +571,15 @@
 					<height>-15</height>
 					<description>thanks to jurialmunkey,workaroung for positioning</description>
 				</control>
-				<!-- MovieSet -->
+				<!-- MovieSet 
+				String.Contains(ListItem.Path,videodb://movies/sets/)
+				or
+				!String.IsEmpty(ListItem.SetId)
+				-->
 				<include content="VideoInfo_ContainerHeader">
 					<param name="groupid" value="8500" />
 					<param name="id" value="8600" />
-					<param name="label" value="Complete Movieset in Lib" />
+					<param name="label" value="$LOCALIZE[36911]" />
 					<visible>Control.IsVisible(8600) + !String.IsEmpty(ListItem.SetId)</visible>
 				</include>
 				<include content="VideoInfo_Container">

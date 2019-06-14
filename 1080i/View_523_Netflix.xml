@@ -15,7 +15,6 @@
 					<param name="width" value="1395" />
 					<param name="height" value="884" />
 				</include>
-				<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
 			</control>
 			
 			<!-- spotlight artwork section right -->
@@ -37,107 +36,96 @@
 				<include content="SpotlightArtwork">
 					<param name="width" value="1344" />
 					<param name="height" value="770" />
-					<param name="diffuse" value="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png" />
+					<param name="diffuse" value="diffuse/netflixnornerdiffuse.png" />
 				</include>
 			</control>
 			
 			<!-- spotlight info section left-->
-            <control type="group" id="3505">
-                <width>100%</width>
-                <height>800</height>
-                
-				 
-				<!-- clearlogo -->
-                <control type="image" id="29478">
-                   <height>230</height>
-                    <width>700</width>
-                    <left>10</left>
-                    <top>10</top>
-                    <aspectratio align="center" aligny="top">keep</aspectratio>
-                    <texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
-                    <visible>!String.IsEmpty(Control.GetLabel(29478))</visible> <!-- check, all left "NoClearLogoNetflix" -->
-                </control>
-				<control type="textbox">
-                    <height>300</height>
-                    <width>800</width>
-                    <left>70</left>
-                    <top>20</top>
-					<include condition="Skin.HasSetting(Alt_Header_Font)">Netflix_HeaderFont_Big_CC</include>
-					<include condition="!Skin.HasSetting(Alt_Header_Font)">Netflix_HeaderFont_Big_Default</include>
-					<align>left</align>
-                    <aligny>center</aligny>
-                    <label>$INFO[ListItem.Title,[B],[/B]]</label>
-                    <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
-                    <visible>[String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(tvshows)] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(movies)] | [String.Contains(Control.GetLabel(29478),color_transparent) + $EXP[InGameMode]] | [String.Contains(Control.GetLabel(29478),color_transparent) + Container.Content(sets)]</visible> 
-                </control>
+            <control type="group">
+				<top>0</top>
+				<left>0</left>
+				<width>100%</width>
+				<height>600</height>
 				
-				<!-- details -->
-                <control type="group">
-                    <posx>70</posx>
-                    <top>297</top>
-                    <include>Netflix_FlagsDetails</include>
-					<animation effect="slide" start="0" end="-168,0" condition="String.IsEmpty(ListItem.UserRating) + String.IsEmpty(Window(Home).Property(ListItem.UserRating)) + String.IsEmpty(Window(Home).Property(ListItem.UserRating))
-                                + String.IsEmpty(ListItem.Rating) + String.IsEmpty(Window(Home).Property(ListItem.Rating)) + String.IsEmpty(Window(Home).Property(ListItem.Rating))
-                                + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating))">Conditional
-					</animation>
-                </control>
-			
-                <!-- title for season -->
-                <control type="textbox">
-                    <height>60</height>
-                    <width>800</width>
-                    <left>73</left>
-                    <top>230</top>
-                    <font>Bold40</font>
-                    <align>left</align>
-                    <aligny>bottom</aligny>
-                    <label>$INFO[ListItem.Label]</label> 
-                    <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
-                    <visible>Container.Content(seasons)</visible>
-                </control>
 				
-				<!-- subtitle: MOTTO for Movies-->
-                <control type="label">
-                    <height>30</height>
-					<top>250</top>
-					<left>70</left>
-                    <width>800</width>
-                    <font>Reg28</font>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
-                    <label>[I]$INFO[ListItem.TagLine][/I]</label>
-                    <visible>Container.Content(movies)</visible>
-                </control>
-				
-				<!-- plot + genre + status -->
-                <control type="grouplist">
-                    <width>38%</width>
-                    <posx>71</posx>
-                    <posy>350</posy>
-                    <height>310</height>
-                    <orientation>vertical</orientation>
-					<control type="textbox">
-                        <height max="204">auto</height>
+				<!-- INFOS -->
+				<control type="grouplist">
+					<width>100%</width>
+					<height>650</height>
+					<left>80</left>
+					<top>0</top>
+					<bottom>10</bottom>
+					<orientation>vertical</orientation>
+					<itemgap>5</itemgap>
+					<usecontrolcoords>true</usecontrolcoords> 
+					
+					<!-- clearlogo -->
+					<control type="image">
+						<height>240</height>
 						<width>600</width>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+						<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+						<visible>!$EXP[NoClearlogo]</visible>
+					</control>
+					<!-- Label, no clearlogo -->
+					<control type="label">
+						<height>240</height>
+						<width>600</width>
+						<wrapmultiline>true</wrapmultiline>
+						<include condition="Skin.HasSetting(Alt_Header_Font)">Netflix_HeaderFont_Big_CC</include>
+						<include condition="!Skin.HasSetting(Alt_Header_Font)">Netflix_HeaderFont_Big_Default</include>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+						<label>$VAR[HomeMenuWidgetInfoLabel]</label>
+						<visible>$EXP[NoClearlogo]</visible>
+					</control>
+					
+					<!-- title for season -->
+					<control type="textbox">
+						<height>50</height>
+						<width>auto</width>
+						<font>Bold40</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label> 
+						<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+						<visible>[Container.Content(seasons) | String.IsEqual(ListItem.DBTYPE,season)]</visible>
+					</control>
+					<!-- detail 1 -->
+					<control type="group">
+						<height>50</height>
+						<width>100%</width>
+						<include>Netflix_FlagsDetails</include>
+					</control>
+					
+					<!-- subtitle: MOTTO for Movies-->
+					<control type="label">
+						<top>-8</top>
+						<height>50</height>
+						<width>700</width>
+						<font>Netflix_DetailRow</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<wrapmultiline>true</wrapmultiline>
+						<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+						<label>$INFO[ListItem.TagLine,[B][I],[/B][/I]]</label>
+						<visible>!String.IsEmpty(ListItem.TagLine)</visible>
+					</control>
+					
+					<!-- PLOT -->
+					<control type="textbox">
+						<height max="204">auto</height>
+						<width>620</width>
 						<label>$VAR[Plots]</label>
 						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 						<align>left</align>
 						<font>Netflix_Plot</font>
-					
-                    </control>
-					
-						
+					</control>
+					<!-- Genre (no random cast,genre,director,nominations -->
 					<control type="group">
-						<posx>250</posx>
-						<top>297</top>
 						<include>Netflix_Genre</include>
 					</control>
-					<!-- <control type="group">
-						<posx>250</posx>
-						<top>297</top>
-						<include>Netflix_Status</include>
-					</control> -->
 				</control>
 				<!-- media flags if TV SHOWS/SEASONS -->
                 <control type="group">
@@ -160,12 +148,13 @@
 				<!-- rating -->
                 <control type="group">
 					<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,movie) | $EXP[InGameMode]]</visible>
-					<right>60</right>
+					<right>50</right>
                     <height>150</height>
                     <width>1000</width>
                     <top>530</top>
                     <include condition="[Skin.HasSetting(StudioInFooter) | Skin.HasSetting(IMDBRatingInFooter) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(RTRatingInFooter)]">AltRatingFooter</include>
                 </control>
+				
 				<!-- CAST when Trailer, without focus option -->
 				<control type="panel" id="50"> 
 					<top>700</top>

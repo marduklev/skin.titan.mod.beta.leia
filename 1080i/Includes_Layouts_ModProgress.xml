@@ -67,30 +67,38 @@ Container(id).ListItem(offset).Thumb
 		<control type="grouplist">
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
-			<itemgap>0</itemgap>
-			
+			<height>50</height>
+			<itemgap>10</itemgap>
 			<!-- rating STARS -->
 			<control type="group">
-				<left>0</left>
-				<top>-8</top>
 				<width>170</width>
+				<height>35</height>
+				<top>-7</top>
+				<visible>
+					[!String.IsEmpty(ListItem.UserRating) | 
+					!String.IsEmpty(Window(Home).Property(ListItem.UserRating)) | 
+					!String.IsEmpty(ListItem.Rating) | 
+					!String.IsEmpty(Window(Home).Property(ListItem.Rating)) | 
+					 !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating))]
+				</visible>
 				<include>StarRatingNetflix</include>
             </control>
+
 			<!-- year -->
 			<control type="label">
 				<visible>!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.Premiered) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Premiered)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>	
-				<left>15</left>
+				<top>5</top>
+				<left>10</left>
+				<height>35</height>
 				<width>auto</width>
-				<label>[B]$VAR[premiered][/B]</label>
-				<height>40</height>
 				<aligny>center</aligny>
+				<font>Netflix_DetailRow</font>
+				<label>$VAR[premiered,[B],[/B]]</label>
 				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-				<font>Reg28</font>
 			</control>
 			<!-- empty seperator -->
 			<control type="group">
-				<left>10</left>
-				<top>-1</top>
+				<top>3</top>
 				<width>10</width>
 				<height>50</height>
 				<visible>String.IsEmpty(ListItem.MPAA) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) + String.IsEmpty(ListItem.Property(esrb))</visible>	
@@ -105,12 +113,10 @@ Container(id).ListItem(offset).Thumb
 			</control>
 			<!-- mpaa -->
 			<control type="button">
-				<left>5</left>
+				<posy>4</posy>
 				<width min="50">auto</width>
-				
-				<font>Reg24</font>
-				<label>$VAR[RatingFlagVar]</label>
-				
+				<font>Netflix_DetailRow</font>
+				<label>$VAR[RatingFlagVar,[B],[/B]]</label>
 				<aligny>top</aligny>
 				<align>center</align>
 				<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
@@ -120,65 +126,35 @@ Container(id).ListItem(offset).Thumb
 				<enable>false</enable>
 				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) | !String.IsEmpty(ListItem.Property(esrb))</visible>
 			</control>
+			
 			<!-- var, details -->
 			<control type="label">
-				<left>5</left>
+				<posy>5</posy>									
 				<width>auto</width>
 				<label>$VAR[Netflix_Details]</label>
-				<height>40</height>
+				<height>35</height>
 				<aligny>center</aligny>
 				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-				<font>Reg28</font>
+				<font>Netflix_DetailRow</font>
 			</control>
-			<!-- reso Group -->
+			
+			<!-- Resolution -->
+			<include content="FramedCodecInfo">
+				<param name="id" value="611114" />
+				<param name="label_id" value="6111141" />
+				<param name="infolabel" value="$VAR[GetResolution]" />
+			</include>
 			<control type="group">
-				<left>10</left>
-				<top>0</top>
-				<width>82</width>
-				<height>40</height>
-				<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
-				<control type="image">
-					<height>38</height>
-					<width>82</width>
-					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<width>100%</width>
-					<label>$VAR[GetResolution,[B],[/B]]</label>
-					<height>40</height>
-					<aligny>center</aligny>
-					<align>center</align>
-					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
-					<font>Bold26</font>
-				</control>	 
-			</control>
-			<!-- audo codec group -->
-			<control type="group">
-				<left>10</left>
-				<top>0</top>
-				<width>82</width>
-				<height>40</height>
-				<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
-				<control type="image">
-					<height>38</height>
-					<width>82</width>
-					<texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">$VAR[audiovideoframe]</texture>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<width>100%</width>
-					<label>$VAR[AudioChannelsVar,[B],[/B]]</label>
-					<height>40</height>
-					<aligny>center</aligny>
-					<align>center</align>
-					<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
-					<font>Bold26</font>
-				</control>
+				<left>-10</left>
+				<!-- Audio -->
+				<include content="FramedCodecInfo">
+					<param name="id" value="611115" />
+					<param name="label_id" value="6111151" />
+					<param name="infolabel" value="$VAR[AudioChannelsVar,[B],[/B]]" />
+				</include>
 			</control>
 			<!-- Games: Number of players -->
 			<control type="group">
-				<left>10</left>
 				<top>0</top>
 				<width>250</width>
 				<height>50</height>
@@ -218,7 +194,7 @@ Container(id).ListItem(offset).Thumb
 				<left>3</left>
 				<width>55</width>
 				<height>55</height>
-				<texture>genre.png</texture>
+				<texture>flags/genre.png</texture>
 				<aspectratio>keep</aspectratio>
 				<colordiffuse>$INFO[Skin.String(NetflixBGColor)]</colordiffuse>
 			</control>
@@ -518,12 +494,10 @@ Container(id).ListItem(offset).Thumb
 		
 	<!-- V I E W T Y P E S -->
     <variable name="Netflix_Details">
-		<!-- episode-->
 		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ListItem.Property(season_finale)">$VAR[ListItemDuration,, $LOCALIZE[31336]] </value>
 		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ListItem.Property(series_finale)">$VAR[ListItemDuration,, $LOCALIZE[31335]] </value>
 		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]">$VAR[ListItemDuration]</value>
 		<value condition="Container.Content(MusicVideos) + [!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(ListItem.Year)]">$VAR[ListItemDuration]</value>					  
-		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
 		<value condition="Container.Content(Movies) + !String.IsEmpty(ListItem.Duration)">[B]$VAR[ListItemDuration][/B]</value>
 		<value condition="Container.Content(TVShows) + Integer.IsGreater(ListItem.Property(TotalSeasons),1) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalSeasons),[B], $LOCALIZE[33054][/B]]$INFO[ListItem.Property(UnWatchedEpisodes), (, $LOCALIZE[31092])]</value>
 		<value condition="Container.Content(TVShows) + Integer.IsGreater(ListItem.Property(TotalSeasons),1) + !Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalSeasons),[B], $LOCALIZE[33054][/B]]</value>																																																																																							
@@ -532,7 +506,8 @@ Container(id).ListItem(offset).Thumb
 		<value condition="Container.Content(Seasons) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),[B], $LOCALIZE[20360][/B]]$INFO[ListItem.Property(UnWatchedEpisodes), (, $LOCALIZE[31092])]</value>
 		<value condition="Container.Content(Seasons) + !Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Property(TotalEpisodes),[B], $LOCALIZE[20360][/B]]</value>																																																																																							
  		<value condition="!String.IsEmpty(ListItem.Duration)">$VAR[ListItemDuration]</value>
-		<value condition="!String.IsEmpty(ListItem.Label2)">$INFO[ListItem.Label2]</value>
+		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[ListItem.Label]</value>
+		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 	
 	

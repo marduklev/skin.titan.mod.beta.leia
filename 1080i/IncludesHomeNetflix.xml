@@ -105,7 +105,6 @@
 			<control type="group">
 				<visible>ControlGroup(30000).HasFocus()</visible>
 				<animation effect="fade" time="800">VisibleChange</animation>
-				<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
 				<include content="SpotlightVideoWindow">
 					<param name="width" value="1280" />
 					<param name="height" value="720" />
@@ -161,7 +160,7 @@
 			     <include content="SpotlightArtwork">
 					<param name="width" value="1280" />
 					<param name="height" value="720" />
-					<param name="diffuse" value="testdiffuse.png" />
+					<param name="diffuse" value="diffuse/netflixnornerdiffuse.png" />
 				</include>
 			</control>
 			<!-- ARTWORK image Spotlight WIDGETS -->
@@ -838,7 +837,6 @@
 			<control type="group">
 				<visible>ControlGroup(30000).HasFocus()</visible>
 				<animation effect="fade" time="800">VisibleChange</animation>
-				<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
 				<include content="SpotlightVideoWindow">
 					<param name="width" value="1280" />
 					<param name="height" value="720" />
@@ -880,7 +878,6 @@
 			<control type="group">
 				<visible>!ControlGroup(30000).HasFocus()</visible>
 				<animation effect="fade" time="800">VisibleChange</animation>
-				<animation effect="slide" start="0" end="0,-60" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,1.85) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
 				<include content="SpotlightVideoWindow">
 					<param name="width" value="1395" />
 					<param name="height" value="884" />
@@ -892,9 +889,9 @@
 				<visible>!ControlGroup(30000).HasFocus()</visible>
 				<animation effect="fade" time="800">VisibleChange</animation>
 			     <include content="SpotlightArtwork">
-					<param name="width" value="1280" />
-					<param name="height" value="720" />
-					<param name="diffuse" value="testdiffuse.png" />
+					<param name="width" value="1330" />
+					<param name="height" value="762" />
+					<param name="diffuse" value="diffuse/netflixnornerdiffuse.png" />
 				</include>
 			</control>
 			<!-- ARTWORK image Spotlight WIDGETS -->
@@ -971,15 +968,15 @@
 						<visible>ControlGroup(30000).HasFocus()</visible>
 					</control>
 					<!-- PLOT SPOTLIGHT WIDGET-->
-					<!-- <control type="textbox">
-						<height max="240">auto</height>
-						<width>680</width>
+					<control type="textbox">
+						<height max="205">auto</height>
+						<width>600</width>
 						<label>$VAR[HomeMenuWidgetInfoPlot]</label>
-						<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
+						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 						<align>left</align>
 						<font>Netflix_Plot</font>
 						<visible>ControlGroup(30000).HasFocus()</visible>
-					</control> -->
+					</control>
 					
 					<!-- unique for episodes 
 					adjust an check plot -->

@@ -1523,11 +1523,17 @@
 		<value condition="!Skin.HasSetting(UpNext_Use_Inked_Panel)">nextupicons/UpNext_corner.png</value> <!-- panel use just transparency, left border use color + transparency/diffuse -->
         <value condition="Skin.HasSetting(UpNext_Use_Inked_Panel)">nextupicons/UpNext_corner_iverted.png</value> <!-- <texture colordiffuse="red">nextupicons/UpNext_corner_iverted.png</texture>  panel use color + transparency/diffuse-->
 	</variable>
-	<variable name="DialogMusic_Header">
+	<variable name="InfoDialog_Header">
+		<!-- VideoInfo -->
+		<value condition="Container.Content(Movies) | String.IsEqual(ListItem.DBType,movie)">$LOCALIZE[24007]</value>
+		<value condition="Container.Content(Musicvideos) | String.IsEqual(ListItem.DBType,musicvideo)">$LOCALIZE[24015]</value>
+		<value condition="Container.Content(TVShows) | String.IsEqual(ListItem.DBType,tvshow)">$LOCALIZE[20351]</value>
+		<value condition="Container.Content(Episodes) | String.IsEqual(ListItem.DBType,episode)">$LOCALIZE[20352]</value>
+		<!--Musicinfo -->
 		<value condition="Container.Content(Artists) | String.IsEqual(ListItem.DBType,artist)">$LOCALIZE[24017]</value>
 		<value condition="Container.Content(Albums) | String.IsEqual(ListItem.DBType,album)">$LOCALIZE[24016]</value>
 		<value condition="Container.Content(Songs) | String.IsEqual(ListItem.DBType,song)">$LOCALIZE[658]</value>
-		<!-- <value>$INFO[ListItem.Label]</value> -->
+		<value>$LOCALIZE[29943]</value>
 	</variable>
 	<variable name="DialogMusic_Title">
 		<value condition="Container.Content(Artists) | String.IsEqual(ListItem.DBType,artist)">$INFO[ListItem.Artist]</value>

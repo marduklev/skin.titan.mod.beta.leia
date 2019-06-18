@@ -48,7 +48,7 @@
 		</control>
 		
 		<!--NowPlaying-->
-		<include condition="!Skin.HasTheme(classic)">NowPlayingBackground</include>
+		<include condition="!Skin.HasTheme(classic) + !String.EndsWith(Skin.String(HomeLayout), netflix2)">NowPlayingBackground</include>
 		
         <!-- Hidden control to preload weather conditions -->
 		<control type="label">
@@ -62,7 +62,7 @@
         <!--NowPlaying-->
 		<include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
 		<include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-		<include condition="!Skin.HasTheme(classic)">NowPlayingInfoBar</include>
+		<include condition="!Skin.HasTheme(classic) + !String.EndsWith(Skin.String(HomeLayout), netflix2)">NowPlayingInfoBar</include>
         
         <!-- PVR recording icon -->
         <include condition="Skin.HasSetting(Home_RecordingIndicator)">NowRecordingIcon</include>

@@ -669,7 +669,7 @@
           <onfocus condition="Skin.HasSetting(widgets_rotate_pause) + System.HasAlarm(WidgetRotate$PARAM[widgetid]) + !String.Contains(Skin.String(HomeLayout),netflix)">CancelAlarm(WidgetRotate$PARAM[widgetid],true)</onfocus>
           <!-- Netflix Auto-Trailer -->
           <include condition="String.Contains(Skin.String(HomeLayout),netflix) + Skin.HasSetting(NetflixAutoTrailer)">netflix_autotrailer</include>
-          <include name="WidgetProperties" content="WidgetProperties">
+          <include content="WidgetProperties">
             <param name="widgetid" value="$PARAM[widgetid]" />
           </include>
         </control>

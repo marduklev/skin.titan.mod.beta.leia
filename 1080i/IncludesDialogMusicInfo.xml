@@ -57,7 +57,7 @@
 			<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 			<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 			<align>right</align>
-			<label>$VAR[DialogMusic_Header]</label>
+			<label>$VAR[InfoDialog_Header]</label>
 		</control>
 		
 		<!-- Fanart - (artistiformation) -->

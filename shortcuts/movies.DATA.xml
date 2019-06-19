@@ -9,14 +9,23 @@
 		<thumb />
 		<action>ActivateWindow(10025,videodb://movies/titles/,return)</action>
 	</shortcut>
-	<!-- recenty added movies -->
+	<!-- sets -->
+	<shortcut>
+		<label>20457</label>
+		<label2>Movies</label2>
+		<defaultID>135</defaultID>
+		<icon>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://movies/sets/,return)</action>
+	</shortcut>
+	<!-- recenty added movies native, numitems based on advancedsettings.xml -->
 	<shortcut>
 		<label>31127</label>
 		<label2>Movies</label2>
 		<defaultID>135</defaultID>
 		<icon>$INFO[Window(Home).Property(SkinHelper.RecentMoviesBackground)]</icon>
 		<thumb />
-		<action>ActivateWindow(10025,plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=movies&amp;limit=250,return)</action>
+		<action>ActivateWindow(Videos,videodb://recentlyaddedmovies/,return)</action>
 	</shortcut>
 	<!-- movie genres -->
 	<shortcut>
@@ -25,16 +34,43 @@
 		<defaultID>135</defaultID>
 		<icon>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</icon>
 		<thumb />
-		<action>ActivateWindow(10025,videodb://movies/genres/,return)</action>
+		<action>ActivateWindow(Videos,videodb://movies/genres/,return)</action>
 	</shortcut>
-	<!-- movies in progress -->
+	<!-- directors -->
+	<shortcut>
+		<label>20339</label>
+		<label2>Movies</label2>
+		<defaultID>135</defaultID>
+		<icon>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://movies/directors/,return)</action>
+	</shortcut>
+	<!-- years -->
+	<shortcut>
+		<label>562</label>
+		<label2>Movies</label2>
+		<defaultID>135</defaultID>
+		<icon>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://movies/years/,return)</action>
+	</shortcut>	
+	<!-- countrys -->
+	<shortcut>
+		<label>574</label>
+		<label2>Movies</label2>
+		<defaultID>135</defaultID>
+		<icon>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://movies/countries/,return)</action>
+	</shortcut>
+	<!-- movies in progress .xsp -->
 	<shortcut>
 		<label>31035</label>
 		<label2>Movies</label2>
 		<defaultID>135</defaultID>
 		<icon>$INFO[Window(Home).Property(SkinHelper.InProgressMoviesBackground)]</icon>
 		<thumb />
-		<action>ActivateWindow(10025,plugin://script.skin.helper.widgets/?action=inprogress&amp;mediatype=movies&amp;limit=250,return)</action>
+		<action>ActivateWindow(videos,special://skin/playlists/video/InProgressMovies.xsp,return)</action>
 	</shortcut>
 	<!-- unwatched movies -->
 	<shortcut>
@@ -43,6 +79,6 @@
 		<defaultID>135</defaultID>
 		<icon>$INFO[Window(Home).Property(SkinHelper.UnwatchedMoviesBackground)]</icon>
 		<thumb />
-		<action>ActivateWindow(10025,plugin://script.skin.helper.widgets/?action=unwatched&amp;mediatype=movies&amp;limit=2500,return)</action>
+		<action>ActivateWindow(videos,special://skin/playlists/video/UnwatchedMovies.xsp,return)</action>
 	</shortcut>
 </shortcuts>

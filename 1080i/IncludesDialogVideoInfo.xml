@@ -117,7 +117,7 @@
 					<texture>colors/color_white.png</texture>
 					<colordiffuse>grey</colordiffuse>
 				</control>
-				<!-- Dialog Header, need var based on dg type  -->
+				<!-- Dialog Header -->
 				<control type="label">
 					<height>25</height>
 					<right>50</right>
@@ -126,7 +126,7 @@
 					<font>Bold32</font>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 					<align>right</align>
-					<label>$LOCALIZE[24007]</label>
+					<label>$VAR[InfoDialog_Header]</label>
 				</control>
 			</control>
 			

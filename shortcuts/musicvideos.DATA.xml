@@ -1,2 +1,62 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<shortcuts />
+<shortcuts>
+	<shortcut>
+		<label>Music Videos</label>
+		<label2>MusicVideos</label2>
+		<defaultID>20389</defaultID>
+		<icon></icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://musicvideos/,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>MusicVideo Titles</label>
+		<label2>MusicVideos</label2>
+		<defaultID>20389</defaultID>
+		<icon></icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://musicvideos/titles/,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>MusicVideo Genres</label>
+		<label2>MusicVideos</label2>
+		<defaultID>20389</defaultID>
+		<icon></icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://musicvideos/genres/,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>MusicVideoYears</label>
+		<label2>MusicVideos</label2>
+		<defaultID>20389</defaultID>
+		<icon></icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://musicvideos/years/,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>MusicVideoYears</label>
+		<label2>MusicVideos</label2>
+		<defaultID>20389</defaultID>
+		<icon></icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://musicvideos/artists/,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>MusicVideoAlbums</label>
+		<label2>MusicVideos</label2>
+		<defaultID>20389</defaultID>
+		<icon></icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://musicvideos/albums/,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>RecentlyAddedMusicVideos</label>
+		<label2>MusicVideos</label2>
+		<defaultID>20390</defaultID>
+		<icon></icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://recentlyaddedmusicvideos/,return)</action>
+	</shortcut>
+</shortcuts>
+
+
+

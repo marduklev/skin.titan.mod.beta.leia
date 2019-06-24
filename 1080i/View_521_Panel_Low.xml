@@ -43,8 +43,8 @@
                         <height>240</height>
 						<include content="PosterPanelLayout">
 							<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
-							<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
-							<param name="border" value="thumbsborder_unfocused" />
+							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+							<param name="border" value="thumbsborder_focused" />
 						</include>
                         <include>Focus_Zoom_Animation</include>
 						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>

@@ -1189,11 +1189,12 @@
 				<left>120</left>
 				<top>650</top>
                 <bottom>5</bottom>
+				<height>420</height>
 				<width>1750</width>
-				
+				<aligny>top</aligny>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
-				<scrolltime tween="cubic" easing="in">440</scrolltime>
+				<scrolltime tween="cubic" easing="in">300</scrolltime>
 				<itemgap>-40</itemgap>
                 <pagecontrol>317</pagecontrol>
 				

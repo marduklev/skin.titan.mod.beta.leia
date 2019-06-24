@@ -150,7 +150,7 @@
     </include>
     
     <include name="AlphabetScrollbar">
-        
+        <!-- check, cond slide based on numitems needed -->
         <!-- scrollbar vertical -->
         <control type="group" id="6000">
 			<animation effect="slide" start="0" end="-1830" time="0" condition="Control.IsVisible(527)">Conditional</animation>
@@ -229,7 +229,7 @@
                     </control>
                     
                 </focusedlayout>
-               <!--  <content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content> -->
+				<!--  <content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content> -->
                 <content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=false&amp;reload=$INFO[Container.NumItems]</content>
 				<visible>Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container.NumPages,1) + !Control.HasFocus(60)</visible>
                 <visible>String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])</visible>
@@ -251,16 +251,14 @@
                 <right>-1</right>
                 <bottom>0</bottom>
                 <height>1</height>
-                <!-- defdault <onfocus>SetFocus(60)</onfocus> -->
-				<onfocus contition="!Control.IsVisible(507)">SetFocus(60)</onfocus>
+                <onfocus contition="!Control.IsVisible(507)">SetFocus(60)</onfocus>
 				<onfocus contition="Control.IsVisible(507)">SetFocus(9000)</onfocus>
                 <visible>!Control.IsVisible(7002)</visible>
             </control>
             
             <control type="image">
                 <texture>colors/color_white.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-				<!-- <colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse> -->
+                <colordiffuse>$INFO[Skin.String(ButtonColor)]</colordiffuse>
                 <left>0</left>
                 <width>100%</width>
                 <bottom>110</bottom>
@@ -269,17 +267,7 @@
                 <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(7002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(7002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
             </control>
-            <control type="image">
-                <texture>colors/color_white.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-                <left>0</left>
-                <width>100%</width>
-                <bottom>110</bottom>
-                <height>40</height>
-                <visible>Control.IsVisible(7002) + !Control.HasFocus(60)</visible>
-                <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(7002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-                <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(7002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-            </control>
+            
             
             <control type="panel" id="7002">
                 <left>60</left>
@@ -289,8 +277,7 @@
                 <onleft>7002</onleft>
                 <onright>7002</onright>
                 <onup>5000</onup>
-				<!--  default <ondown>60</ondown> -->
-                <ondown condition="!Control.IsVisible(507)">60</ondown>
+				<ondown condition="!Control.IsVisible(507)">60</ondown>
 				<ondown condition="Control.IsVisible(507)">9000</ondown>
                 <onback>5000</onback>
                 <orientation>horizontal</orientation>
@@ -301,7 +288,7 @@
                         <align>center</align>
                         <aligny>center</aligny>
                         <label>$INFO[ListItem.Label]</label>
-                        <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+						<textcolor>$INFO[Skin.String(ButtonTextColor)]</textcolor>
                         <font>Reg26</font>
                         <animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
                     </control>
@@ -311,7 +298,7 @@
                         <align>center</align>
                         <aligny>center</aligny>
                         <label>$INFO[ListItem.Label]</label>
-                        <textcolor>$INFO[Skin.String(ButtonFocusColor)]</textcolor>
+                       <textcolor>$INFO[Skin.String(ButtonFocusColor)]</textcolor>
                         <font>Reg26</font>
                         <visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
                     </control>
@@ -333,8 +320,8 @@
                         <font>Reg26</font>
                     </control>
                 </focusedlayout>
-                <content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
-                <!-- <content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=false&amp;reload=$INFO[Container.NumItems]</content> -->
+				<!-- <content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content> -->
+                <content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=false&amp;reload=$INFO[Container.NumItems]</content>
                 
 				<visible>Skin.HasSetting(EnableQuickJump) + Integer.IsGreater(Container.NumPages,1) + !Control.HasFocus(60)</visible>
                 <visible>String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])</visible>

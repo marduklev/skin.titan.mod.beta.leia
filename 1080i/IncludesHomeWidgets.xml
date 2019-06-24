@@ -2206,29 +2206,33 @@
         </control>
     </include>
 	<!-- 80 top - use header as button 
-	$PARAM[mainmenuid]505
-	<include content="top" condition="!String.Contains(ListItem.Property(multiwidget),single)">
-				<param name="top" value="45" />
-			</include>
 	
+	<include content="top" condition="!String.Contains(ListItem.Property(multiwidget),single)">
+		<param name="top" value="45" />
+	</include>
+	
+	<animation condition="String.Contains(Skin.String(HomeLayout), netflix)" reversible="false" type="UnFocus">
+		<effect delay="0" start="100" end="0" time="600" type="fade"/>
+	</animation>
+	<animation condition="String.Contains(Skin.String(HomeLayout), netflix)" reversible="false" type="Focus">
+		<effect delay="0" start="0" end="100" time="600" type="fade"/>
+	</animation>
 	-->
 	<include name="widget_base_normal">
         <control type="$PARAM[containerType]" id="$PARAM[widgetid]">
+			<include condition="$PARAM[multiRows]">widget_base_vertical</include>
+			<orientation>horizontal</orientation>
 			
 			<top>45</top>
 			
-			
-			
-			<right>-10</right>
 			<focusposition>0</focusposition>
             <width>100%</width>
            
 			<onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
             <onunfocus condition="Player.HasVideo + Skin.HasSetting(NetflixAutoTrailer) + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
-
             <onfocus>SetProperty(ShowWidget,show)</onfocus>
-            <orientation>horizontal</orientation>
-            <animation condition="!Control.HasFocus(77777) + Skin.HasSetting(Widgets_Animation)" reversible="false" type="Visible">
+            
+			<animation condition="!Control.HasFocus(77777) + Skin.HasSetting(Widgets_Animation)" reversible="false" type="Visible">
                 <effect center="960,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom"/>
                 <effect delay="280" easing="in" end="0,0" start="0,40" time="180" tween="sine" type="slide"/>
                 <effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade"/>
@@ -2250,7 +2254,7 @@
         </control>
     </include>
     <include name="widget_base_vertical">
-        <width>102%</width>
+        <width>100%</width>
         <orientation>vertical</orientation>
     </include>
     

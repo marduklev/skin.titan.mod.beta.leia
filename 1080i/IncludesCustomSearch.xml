@@ -299,13 +299,12 @@
 			<nested />
 			<scrolltime tween="quadratic">400</scrolltime>
 			<top>50</top>
-			<right>-10</right>
-			
 			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search) + !String.IsEmpty(Skin.String(SearchTerm))">Skin.Reset(SearchTerm)</onclick>
 			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Dialog.Close(movieinformation,true)</onclick>
 			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Skin.SetString(SearchTerm,$INFO[ListItem.Label])</onclick>
 			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search)">ActivateWindow(1100),return</onclick>
 			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),extendedinfo)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</onclick>
+			<oninfo condition="Control.HasFocus(8601)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</oninfo>
 	
 			
 			<preloaditems>2</preloaditems>

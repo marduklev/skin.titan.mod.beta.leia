@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
     <include name="HorizontalWidgets">
+
         <!-- infopanel -->
         <control type="group" id="77551">
             <top>0</top>
@@ -271,6 +272,9 @@
         </include>
     </include>
     
+	
+	<!-- NOTE, recheck, max itemlayout/focusedlayout height 430, itemheight 380, max tag height 50, max header height 50 -->
+	
 	<!-- PARAM[widgetTags] conditional tag visibility -->
     <include name="WidgetTagOverlayEnable">
         <visible>true</visible>
@@ -909,7 +913,7 @@
 							<onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],Home)</onfocus>
 						  <onfocus condition="Skin.HasSetting(widgets_rotate_pause) + System.HasAlarm(WidgetRotate$PARAM[widgetid]) + !String.Contains(Skin.String(HomeLayout),netflix)">CancelAlarm(WidgetRotate$PARAM[widgetid],true)</onfocus>
 						  <!-- Netflix Auto-Trailer -->
-						  <include condition="String.Contains(Skin.String(HomeLayout),netflix) + Skin.HasSetting(NetflixAutoTrailer)">netflix_autotrailer</include>
+						  <include condition="String.Contains(Skin.String(HomeLayout),netflix) + Skin.HasSetting(SpotLightTrailers)">netflix_autotrailer</include>
 						  <include name="WidgetProperties" content="WidgetProperties">
 							<param name="widgetid" value="$PARAM[widgetid]" />
 						  </include>
@@ -1269,14 +1273,11 @@
     
 	<!-- widget Netflix Wide(box) Landscape layout -->
     <include name="widget_layout_landscapewidedetails">
-		<include condition="$PARAM[multiRows]" name="height" content="height">
-            <param name="height" value="480" />
-        </include>
-        <include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
-            <param name="height" value="425" />
+		<include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+            <param name="height" value="380" />
         </include>
         <include condition="!String.Contains(Skin.String(HomeLayout),net) + ![$PARAM[multiRows]]" name="height" content="height">
-            <param name="height" value="475" />
+            <param name="height" value="435" />
         </include>
 
         <animation effect="slide" delay="0" start="0" end="0,-70" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
@@ -1287,10 +1288,10 @@
         <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
 
         <orientation>horizontal</orientation>
-        <itemlayout height="475" width="280">
+        <itemlayout height="425" width="255">
             <control type="group">
-                <width>280</width>
-                <height>420</height>
+                <width>254</width>
+                <height>380</height>
 				<include content="PosterPanelLayout">
 					<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
@@ -1299,16 +1300,16 @@
                 <control type="group">
 					<include>$PARAM[widgetTags]</include>
 					<include content="Tag_NF">
-						<param name="tagwidth" value="280"/>
-						<param name="tagtop" value="420" />
+						<param name="tagwidth" value="254"/>
+						<param name="tagtop" value="380" />
 					</include>
 				</control>
             </control>
         </itemlayout>
-        <focusedlayout height="475" width="280" condition="!Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout height="425" width="255" condition="!Control.HasFocus($PARAM[widgetid])">
            <control type="group">
-                <width>280</width>
-                <height>420</height>
+                <width>254</width>
+                <height>380</height>
 				<include content="PosterPanelLayout">
 					<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
@@ -1317,8 +1318,8 @@
                 <control type="group">
 					<include>$PARAM[widgetTags]</include>
 					<include content="Tag_NF">
-						<param name="tagwidth" value="280"/>
-						<param name="tagtop" value="420" />
+						<param name="tagwidth" value="254"/>
+						<param name="tagtop" value="380" />
 					</include>
 				</control>
                 <include name="HiddenWidgetButton" content="HiddenWidgetButton">
@@ -1327,10 +1328,10 @@
                 </include>
             </control>
         </focusedlayout>
-		<focusedlayout width="720" height="475" condition="Control.HasFocus($PARAM[widgetid])">
+		<focusedlayout width="645" height="425" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
-				<width>714</width>
-                <height>420</height>
+				<width>643</width>
+                <height>380</height>
 				<animation type="Focus" reversible="false">
 					<effect type="zoom" start="30,100" end="100,100" time="200" center="auto" tween="quadratic" easing="out" />
 				</animation>
@@ -1344,7 +1345,7 @@
 					<include>$PARAM[widgetTags]</include>
 					<include content="Tag_NF">
 						<param name="tagwidth" value="720"/>
-						<param name="tagtop" value="420" />
+						<param name="tagtop" value="380" />
 					</include>
 				</control>
             </control>
@@ -1837,61 +1838,63 @@
 
     <!-- mod: leftalign adds left attribute to ** -->
     <include name="widget_header_multi">
-        <control type="group" id="20$PARAM[widgetid]">
+         <control type="group" id="20$PARAM[widgetid]">
+			
+			<visible>String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
             <width>100%</width>
-            <height>40</height>
-            <visible>String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
-            <control type="image">
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-                <visible>!Skin.HasSetting(HideWidgetPanelBackground) + Skin.String(HomeLayout,netflix)</visible>
-            </control>
-            <control type="textbox">
-                <height>96%</height>
-                <width>99%</width>
-                <font>Reg28</font>
-                <include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
-                <include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
-				<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
-				
-				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                <label>[B]$PARAM[widgetName][/B]</label>
-                <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + !Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
-                <animation effect="slide" end="-50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
-                <visible>String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
-            </control>
-            <control type="textbox">
-                <height>96%</height>
-                <width>99%</width>
-                <font>Reg28</font>
-                 <include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
-                <include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
-				<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
-				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                <label>[B]$LOCALIZE[31543] $INFO[Container($PARAM[widgetid]).ListItem.Property(similartitle)][/B]</label>
-                <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + !Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
-                <animation effect="slide" end="-50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
-                <visible>!String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
-            </control>
-            <control type="multiimage">
-                <width>100%</width>
-                <height>36</height>
-                <top>0</top>
-                <include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
-                <include condition="Skin.HasSetting(WidgetCentered) + !Skin.HasSetting(WidgetAlignRight)">widget_header_centered</include>
-				<include condition="Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_rightalign</include>
-				<aspectratio align="left">keep</aspectratio>
-                <imagepath background="true">widgets/widgets-busy-loader/</imagepath>
-                <timeperimage>35</timeperimage>
-                <colordiffuse>$INFO[Skin.String(SpinnerTexture.Color)]</colordiffuse>
-                <fadetime>0</fadetime>
-                <visible>Container($PARAM[widgetid]).IsUpdating</visible>
-            </control>
-	    </control>
+			<top>50</top>
+            <height>50</height>
+            
+			<control type="grouplist">
+				<height>50</height>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<itemgap>10</itemgap>
+				<width>99%</width>
+				<control type="label">
+					<top>18</top>
+                    <left>15</left>
+                    <width>auto</width>
+					<font>Reg32</font>
+					<height>24</height>
+					<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
+					<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
+					<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<label>[B]$PARAM[widgetName][/B]</label>
+					<visible>String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
+           		</control>
+				<control type="textbox">
+					<top>18</top>
+                    <left>15</left>
+                    <width>auto</width>
+					<font>Reg32</font>
+					<height>24</height>
+					<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
+					<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
+					<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+					<label>[B]$LOCALIZE[31543] $INFO[Container($PARAM[widgetid]).ListItem.Property(similartitle)][/B]</label>
+					<visible>!String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
+				</control>
+				<control type="image">
+					<visible>Container(widgetid).IsUpdating</visible>
+					<description>make visiible just on center and left align</description>
+					<top>10</top>
+					<width>40</width>
+					<height>40</height>
+					<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+					<texture colordiffuse="$INFO[Skin.String(SpinnerTexture.Color)]">special://skin/extras/images/busy/skypishball.apng</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+				</control>
+			</control>
+		</control>
+	
     </include>
+	<!-- header as button button -->
     <include name="widget_header_single">
+	
         <control type="radiobutton" id="$PARAM[mainmenuid]505">
             <include condition="Skin.String(Homelayout,enhanced)">widget_header_enhancedhome</include>
             <include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
@@ -1901,7 +1904,7 @@
             <width>100%</width>
             <height>50</height>
             <align>left</align>
-            <aligny>top</aligny>
+			<aligny>top</aligny>
             <font>Reg32</font>
             <textoffsetx>5</textoffsetx>
             <label>$VAR[widgetlabel-$PARAM[mainmenuid]]</label>
@@ -2006,7 +2009,7 @@
     </include>
     
     <include name="widget_base">
-        <include name="widget_base_normal" content="widget_base_normal" condition="![Skin.String(HomeLayout,win10) | Skin.String(HomeLayout,enhanced)]">
+		<include name="widget_base_normal" content="widget_base_normal" condition="![Skin.String(HomeLayout,win10) | Skin.String(HomeLayout,enhanced)]">
             <param name="containerType" value="$PARAM[containerType]" />
             <param name="contentStyle" value="$PARAM[contentStyle]" />
             <param name="widgetid" value="$PARAM[widgetid]" />
@@ -2136,13 +2139,7 @@
 						<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 						<param name="border" value="thumbsborder_unfocused" />
 					</include>
-                    <control type="group">
-					<include>$PARAM[widgetTags]</include>
-					<include content="Tag_NF">
-						<param name="tagwidth" value="354"/>
-						<param name="tagtop" value="200" />
-					</include>
-				</control>
+                   
                 </control>
             </itemlayout>
             <focusedlayout width="350" height="205">
@@ -2153,13 +2150,7 @@
 						<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 						<param name="border" value="thumbsborder_focused" />
 					</include>
-                    <control type="group">
-					<include>$PARAM[widgetTags]</include>
-					<include content="Tag_NO">
-						<param name="tagwidth" value="354"/>
-						<param name="tagtop" value="200" />
-					</include>
-				</control>
+                   
                 </control>
 				<!-- hidden trailer button, home enhanced -->
                 <control type="button">
@@ -2183,13 +2174,56 @@
             <visible>$PARAM[visibility]</visible>
         </control>
     </include>
-    <include name="widget_base_normal">
+    <include name="widget_base_normal_default">
         <control type="$PARAM[containerType]" id="$PARAM[widgetid]">
             <include condition="$PARAM[multiRows]">widget_base_vertical</include>
             <focusposition>0</focusposition>
             <width>100%</width>
-            <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
             <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
+            <onunfocus condition="Player.HasVideo + Skin.HasSetting(NetflixAutoTrailer) + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
+
+            <onfocus>SetProperty(ShowWidget,show)</onfocus>
+            <orientation>horizontal</orientation>
+            <animation condition="!Control.HasFocus(77777) + Skin.HasSetting(Widgets_Animation)" reversible="false" type="Visible">
+                <effect center="960,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom"/>
+                <effect delay="280" easing="in" end="0,0" start="0,40" time="180" tween="sine" type="slide"/>
+                <effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade"/>
+            </animation>
+            <animation time="100" effect="fade" start="0" end="100" reversible="false" easing="inout" condition="!Skin.HasSetting(Widgets_Animation)">Visible</animation>
+            <include name="$PARAM[widgetStyle]" content="$PARAM[widgetStyle]">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+                <param name="widgetTags" value="$PARAM[widgetTags]" />
+                <param name="multiRows" value="$PARAM[multiRows]" />
+            </include>
+            <include name="widget_base_content_$PARAM[contentStyle]" content="widget_base_content_$PARAM[contentStyle]">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+                <param name="submenuid" value="$PARAM[submenuid]" />
+                <param name="widgetTarget" value="$PARAM[widgetTarget]" />
+                <param name="widgetPath" value="$PARAM[widgetPath]" />
+            </include>
+            <visible>String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
+            <visible>$PARAM[visibility]</visible>
+        </control>
+    </include>
+	<!-- 80 top - use header as button 
+	$PARAM[mainmenuid]505
+	<include content="top" condition="!String.Contains(ListItem.Property(multiwidget),single)">
+				<param name="top" value="45" />
+			</include>
+	
+	-->
+	<include name="widget_base_normal">
+        <control type="$PARAM[containerType]" id="$PARAM[widgetid]">
+			
+			<top>45</top>
+			
+			
+			
+			<right>-10</right>
+			<focusposition>0</focusposition>
+            <width>100%</width>
+           
+			<onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
             <onunfocus condition="Player.HasVideo + Skin.HasSetting(NetflixAutoTrailer) + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
 
             <onfocus>SetProperty(ShowWidget,show)</onfocus>

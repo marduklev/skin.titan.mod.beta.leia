@@ -419,6 +419,7 @@
 				</content>
 			</control>
 		</control>
+        <include condition="!Skin.String(HomeLayout,win10)">SideBladeSubMenu</include>
     </include>
     
     <include name="SideBladeSubMenu">

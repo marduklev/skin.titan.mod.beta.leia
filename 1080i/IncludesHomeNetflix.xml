@@ -1066,7 +1066,7 @@
 					<height>52</height>
                     <top>620</top>
                     <include>mediaflags</include>
-					<animation effect="zoom" end="65,65" time="0" condition="Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color)">Conditional</animation>					
+					<animation alignx="true" aligny="true" effect="zoom" end="70,70" time="0" condition="Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color)">Conditional</animation>					
 				</control>
 				<!-- ratings & studio -->
                 <control type="group">
@@ -1077,9 +1077,7 @@
                     <include>AltRatingFooter</include>
 					<animation time="1200" effect="slide" end="0,150" reversible="false" easing="inout" condition="ControlGroup(30000).HasFocus()">Conditional</animation>
 				</control>
-				
-				
-				
+			
 			</control>
 			<!-- spotlight Buttons -->
 				<control type="grouplist" id="30000">
@@ -1187,27 +1185,37 @@
                 <!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_NoHeaderOnHome</include> check, new setting, no defined include -->
 				<!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_WinHeaderOnHome</include>check, new setting, no defined include -->
 				<include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_AltHeight_NoSpotLight</include> <!-- actual use height if header is active -->
-                <left>120</left>
-                <bottom>10</bottom>
-                <top>660</top>
-                <ondown>77777</ondown>
+                
+				<left>120</left>
+				<top>650</top>
+                <bottom>5</bottom>
+				<width>1750</width>
+				
+				<orientation>vertical</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<scrolltime tween="cubic" easing="in">440</scrolltime>
+				<itemgap>-40</itemgap>
+                <pagecontrol>317</pagecontrol>
+				
+				
+				<ondown>77777</ondown>
                 <onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">300</onleft>
                 <onup condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)">505</onup>
                 <onback>300</onback>
-                <itemgap>0</itemgap>
-                <pagecontrol>317</pagecontrol>
+                
                 <include name="WidgetsAutoRotate" content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
                     <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
                 </include>
-                <include>skinshortcuts-template-Widgets</include>
+				<include>1stRow_AlignmentCorrection</include>
+				<include>skinshortcuts-template-Widgets</include>
             </control>
 
             
         </control>
         
 
-       <!-- NETFLIX SideBlade MainMenu -->
+		<!-- NETFLIX SideBlade MainMenu -->
         <control type="group" id="9001">
             <posx>-360</posx>
             <posy>0</posy>
@@ -1229,9 +1237,13 @@
                 
                 <!-- bg -->
                 <control type="image">
+					<visible>String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)</visible>
+					<animation type="VisibleChange">
+						<effect type="fade" start="0" end="100" time="400" />
+					</animation>
 					<include>NetflixHome_PanelSlide</include>
                     <align>left</align>
-					<width>483</width>
+					<width>482</width>
                     <height>110%</height>
                     <texture>colors/color_white.png</texture>
                     <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
@@ -1239,12 +1251,9 @@
                 </control>
                 <!-- right panel border -->
                 <control type="image">
-					<!-- <animation type="Conditional" condition="true">
-						<effect type="slide" start="0" end="85" time="0" />
-					</animation> -->
 					<include>NetflixHome_PanelSlide</include>
 					<left>483</left>
-					<width>1</width>
+					<width>2</width>
                     <height>110%</height>
                     <texture>diffuse/gradient-osdslim.png</texture>
                     <colordiffuse>$INFO[Skin.String(MainMenuTextColor)]</colordiffuse>
@@ -1254,7 +1263,7 @@
 
             
 			
-            
+            <!-- Top Left - LOGO , Profile -->
             <control type="grouplist" id="40000">
                 
 				<include>NetflixHome_PanelSlide</include>
@@ -1268,7 +1277,7 @@
                 <animation effect="slide" end="0,60" condition="Control.IsVisible(1)">Conditional</animation>
                 <include>animation_fade_visible_hidden</include>
                 <!-- logo -->
-                <control type="image"> <!-- 325x125 -->
+                <control type="image">
 					<visible>!Skin.HasSetting(DisableSkinIconMainMenu)</visible>
 					<left>10</left>
 					<height>80</height>
@@ -1323,90 +1332,87 @@
                 </control>
             </control>
 
-            <!--main menu 300-->
+            <!-- MAIN MENU 300 -->
             <control type="list" id="300">
 				<posy>25%</posy>
-                <width>365</width>
+                <width>437</width>
                 <height>52%</height>
                 <itemgap>0</itemgap>
-					  
-                <onright condition="Integer.IsGreater(Container(4445).NumItems,0)">4444</onright>
+				<orientation>vertical</orientation>
+                
+				<onright condition="Integer.IsGreater(Container(4445).NumItems,0)">4444</onright>
                 <onright condition="!Integer.IsGreater(Container(4445).NumItems,0)">77777</onright>
                 <onright condition="!Integer.IsGreater(Container(4445).NumItems,0)">ClearProperty(ShowViewSubMenu, Home)</onright>
-                <onback>ClearProperty(ShowViewSubMenu, Home)</onback>
-                <onback>40003</onback>
+                
+				<onback>40003</onback>
                 <onup>300</onup>
                 <ondown condition="!Skin.HasSetting(EnhancedHome_Circular)">300</ondown>
 				<ondown condition="Skin.HasSetting(EnhancedHome_Circular)">40003</ondown>
 				<onleft>40003</onleft>
-				<orientation>vertical</orientation>
-                <itemlayout height="80" width="400">
-                    
-
+				
+				<itemlayout height="80" width="315">
 					<!-- menu item icon -->
-						<control type="group">
+					<control type="group">
                         <visible>!Skin.HasSetting(DisableIconsMainMenu)</visible>
 						<include>NetflixHome_ICONPos_WidgetOffset</include>
 						<include>NetflixHome_ICONPos</include>
-                        <left>50</left>
+                        <left>60</left>
                         <height>100%</height>
                         <top>20</top>
                         <control type="image">
                             <width>35</width>
                             <height>35</height>
                             <texture background="true">$INFO[ListItem.Icon]</texture>
-                            <colordiffuse>$INFO[Skin.String(MainMenuTextColor)]</colordiffuse>
+                            <colordiffuse>$INFO[Skin.String(MainMenuFocusTextColor)]</colordiffuse>
                             <animation end="70" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
                         </control>
-						</control>
-						<!-- menu item label -->
-						<control type="label">
-							<include>NetflixHome_PanelSlide</include> 
-							<width>230</width>
-							<height>100%</height>
-							<align>left</align>
-							<left>175</left>
-							<font>Light28</font>
-							<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<animation effect="slide" end="-50" time="0" delay="0" condition="Skin.HasSetting(DisableIconsMainMenu)">Conditional</animation>
-						</control>
+					</control>
 						
-
-                </itemlayout>
-                <focusedlayout height="80" width="400">
-                    
-					
-					<!-- button focus color -->
+					<!-- menu item label 
+					more width with vis condition -->
+					<control type="label">
+						<include>NetflixHome_PanelSlide</include> 
+						<width>220</width>
+						<height>100%</height>
+						<align>left</align>
+						<left>150</left>
+						<font>Light28</font>
+						<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="slide" end="-50" time="0" delay="0" condition="Skin.HasSetting(DisableIconsMainMenu)">Conditional</animation>
+					</control>
+				</itemlayout>
+                
+				<focusedlayout height="80" width="315">
+                    <!-- button focus color -->
 					<control type="image">
-						
 						<include>NetflixHome_ICONPos</include>
 						<texture>colors/color_white.png</texture>
-						<width>400</width>
+						<width>437</width>
                         <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
-						<visible>Control.HasFocus(300)</visible>
+						<visible>Control.HasFocus(300) | Control.HasFocus(4444)</visible>
                     </control>
-					<!-- menu item label -->
+					<!-- menu item label 
+					more width with vis condition -->
                     <control type="label">
 						<include>NetflixHome_PanelSlide</include>
-						
-                        <width>230</width>
+						<width>220</width>
                         <height>100%</height>
                         <align>left</align>
-						<left>175</left>
+						<left>150</left>
                         <aligny>center</aligny>
                         <font>Light28</font>
                         <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                         <label>[B]$INFO[ListItem.Label][/B]</label>
+						<autoscroll>true</autoscroll>
                         <animation effect="slide" end="-50" time="0" delay="0" condition="Skin.HasSetting(DisableIconsMainMenu)">Conditional</animation>
                     </control>
                     <!-- menu item icon -->
                     <control type="group">
 						<include>NetflixHome_ICONPos</include>
 						<include>NetflixHome_ICONPos_WidgetOffset</include>
-                        
                         <visible>!Skin.HasSetting(DisableIconsMainMenu)</visible>
-						<left>50</left>
+						<left>60</left>
                         <height>100%</height>
                         <top>20</top>
                         <control type="image">
@@ -1426,7 +1432,7 @@
                         <width>5</width>
                         <height>100%</height>
                         <texture>colors/color_white.png</texture>
-                        <colordiffuse>red</colordiffuse>
+                        <colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
                         <aspectratio>stretch</aspectratio>
                     </control>
                     <!-- home behavior onfocus -->
@@ -1970,15 +1976,21 @@
 				<posx>130</posx>
                 <bottom>10</bottom>
 				<top>613</top>
-                <itemgap>1</itemgap>
-                <width>100%</width>
+				<width>100%</width>
+				
+				<orientation>vertical</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<scrolltime tween="cubic" easing="in">440</scrolltime>
+				<itemgap>-40</itemgap>
+				<pagecontrol>317</pagecontrol>
+                
 				<!-- <height>440</height> -->
                 <onup condition="!Container(1508).IsUpdating">1508</onup>
 				<ondown>77777</ondown>
 				<onback condition="Window.IsActive(Home)">300</onback>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) | !Window.IsActive(Home)">300</onleft>
-                <pagecontrol>317</pagecontrol>
-                <include condition="Window.IsActive(Home) + !Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixSpotlightWidget</include>
+                
+				<include condition="Window.IsActive(Home) + !Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixSpotlightWidget</include>
                 <include condition="Window.IsActive(Home)">skinshortcuts-template-Widgets</include>
                 <include condition="Window.IsActive(3018)">netflix_items_movies</include>
                 <include condition="Window.IsActive(3017)">netflix_items_tvshows</include>    

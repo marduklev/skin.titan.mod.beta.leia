@@ -845,12 +845,17 @@
             <right>50</right>
             <top>180</top>
             <bottom>50</bottom>
-            <ondown>77777</ondown>
+            
+			<itemgap>-40</itemgap>
+            <usecontrolcoords>true</usecontrolcoords>
+			<scrolltime tween="cubic" easing="in">300</scrolltime>
+			<pagecontrol>317</pagecontrol>
+			
+			<ondown>77777</ondown>
             <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">300</onleft>
             <onup>77777</onup>
             <onback>300</onback>
-            <itemgap>0</itemgap>
-            <pagecontrol>317</pagecontrol>
+            
             <!-- lower panel if no rss or infoline present -->
             <animation effect="slide" start="0,0" end="0,50" time="0" delay="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + [String.IsEmpty(Container(300).ListItem.Property(infoline)) | String.IsEqual(Container(300).ListItem.Property(infoline),none)]">Conditional</animation>
             
@@ -875,6 +880,8 @@
             <include condition="!Skin.HasSetting(DisableAllSubmenus)">VerticalHomeSquareSubMenuDef</include>
             
             <!-- all widgets -->
+			
+			<include>1stRow_AlignmentCorrection</include>
             <include>skinshortcuts-template-Widgets</include>
 
         </control>
@@ -897,12 +904,17 @@
             <include condition="Skin.String(home_header,disable)">VerticalWidgetsExtraLargeDef</include>
             <top>140</top>
             <bottom>0</bottom>
-            <ondown>77777</ondown>
-            <itemgap>0</itemgap>
+           
+            <orientation>vertical</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<scrolltime tween="cubic" easing="in">440</scrolltime>
+			<itemgap>-40</itemgap>
+			<pagecontrol>317</pagecontrol>
+			
+			<ondown>77777</ondown>
             <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">300</onleft>
             <onup>77777</onup>
             <onback>300</onback>
-            <pagecontrol>317</pagecontrol>
             
             <!-- lower widgets if enabled -->
             <animation effect="slide" start="0" end="0,730" time="0" condition="[String.IsEqual(Container(300).ListItem.Property(widgetstyle),poster) | [String.IsEmpty(Container(300).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,poster)]] + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>
@@ -924,6 +936,7 @@
             <!-- square submenu -->
             <include condition="!Skin.HasSetting(DisableAllSubmenus)">VerticalHomeSquareSubMenuDef</include>
             
+			<include>1stRow_AlignmentCorrection</include>
             <include>skinshortcuts-template-Widgets</include>
             
         </control>

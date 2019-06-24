@@ -2,7 +2,12 @@
 <!-- TITAN MOD -->
 <includes>
 	<!-- Main File to sort .re add updated and edited includes,variables,etc  for testing purpose -->
-	
+	<include name="1stRow_AlignmentCorrection">
+		<control type="group" id="77999">
+			<height>-20</height>
+			<description>circumstance wrong positioning 1st widget</description>
+		</control>
+	</include>
 	
 	
 	

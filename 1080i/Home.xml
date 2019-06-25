@@ -12,9 +12,11 @@
     <onunload>ClearProperty(ShowWidget,Home)</onunload>
     <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+	<onload condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">ClearProperty(FocusSpotlightButtons, Home)</onload>
     <onload condition="Skin.String(HomeLayout,netflix2)">SetProperty(netflixview,active,Home)</onload>
     <onunload>ClearProperty(netflixview, Home)</onunload>
-    <menucontrol>300</menucontrol>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">ClearProperty(FocusSpotlightButtons, Home)</onunload>
+	<menucontrol>300</menucontrol>
 	<controls>
 	
         <!--Global Background-->

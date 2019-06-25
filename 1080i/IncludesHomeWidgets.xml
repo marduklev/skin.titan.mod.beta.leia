@@ -890,42 +890,33 @@
         </focusedlayout>
         <focusedlayout width="375" height="275" condition="Control.HasFocus($PARAM[widgetid])">
           	<control type="group">
-					<width>370</width>
-                	<height>210</height>
-               	 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
-					<include content="ThumbsViewLayout">
-						<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
-						<param name="border" value="thumbsborder_focused" />
+				<width>370</width>
+				<height>210</height>
+				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
+				<include content="ThumbsViewLayout">
+					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
+					<param name="border" value="thumbsborder_focused" />
+				</include>
+				<control type="button">
+					<visible allowhiddenfocus="true">false</visible>
+					<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons)) + [Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]]">PlayerControl(Stop)</onfocus>
+					<onfocus condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu)</onfocus>
+					<onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
+					<onfocus>SetProperty(ShowWidget,show)</onfocus>
+					<onfocus>SetProperty(widgetstyle,netflixspotlight)</onfocus>
+					<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid],home)</onfocus>
+					<onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],Home)</onfocus>
+					
+					<include content="WidgetProperties">
+						<param name="widgetid" value="$PARAM[widgetid]" />
 					</include>
-                
-               	 <include content="HiddenWidgetButton">
-                   	 
-					 <param name="widgetid" value="$PARAM[widgetid]"/>
-              	  </include>
-				
-					<control type="button">
-						<visible allowhiddenfocus="true">false</visible>
-						
-						  <onfocus condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu)</onfocus>
-						  <onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
-						  <onfocus>SetProperty(ShowWidget,show)</onfocus>
-						  <onfocus>SetProperty(widgetstyle,netflixspotlight)</onfocus>
-							<onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],Home)</onfocus>
-						  <onfocus condition="Skin.HasSetting(widgets_rotate_pause) + System.HasAlarm(WidgetRotate$PARAM[widgetid]) + !String.Contains(Skin.String(HomeLayout),netflix)">CancelAlarm(WidgetRotate$PARAM[widgetid],true)</onfocus>
-						  <!-- Netflix Auto-Trailer -->
-						  <include condition="String.Contains(Skin.String(HomeLayout),netflix) + Skin.HasSetting(SpotLightTrailers)">netflix_autotrailer</include>
-						  <include name="WidgetProperties" content="WidgetProperties">
-							<param name="widgetid" value="$PARAM[widgetid]" />
-						  </include>
-        
-						
-						<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetProperty(FocusSpotlightButtons,true,Home)</onfocus>
-						<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetFocus(3013,1)</onfocus>
-						<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">ClearProperty(DontFocusSpotlightButtons, Home)</onfocus>
-					</control>
-				
+					
+					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetProperty(FocusSpotlightButtons,true,Home)</onfocus>
+					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetFocus(3013,1)</onfocus>
+					<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">ClearProperty(DontFocusSpotlightButtons, Home)</onfocus>
+				</control>
 			</control>
-        </focusedlayout>
+		</focusedlayout>
 	</include>
     	   
     <!-- widget netflix large landscape -->

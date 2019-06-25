@@ -24,7 +24,7 @@
 			<shortcut label="19163" grouping="32029" icon="resource://resource.images.skinicons.wide/tvrecordings.png" condition="PVR.HasTVChannels">ActivateWindow(TVRecordings,return)</shortcut>
 			<shortcut label="19021" grouping="32029" icon="resource://resource.images.skinicons.wide/radio.png">ActivateWindow(radiochannels,return)</shortcut>
 			<shortcut label="7" grouping="32029" icon="resource://resource.images.skinicons.wide/filemanager.png">ActivateWindow(filemanager)</shortcut>
-			<shortcut label="10040" grouping="32029" icon="resource://resource.images.skinicons.wide/addons.png">ActivateWindow(Programs,Addons,return)</shortcut>
+			<shortcut label="10040" grouping="32029" icon="resource://resource.images.skinicons.wide/addons.png">ActivateWindow(addonbrowser,return)</shortcut>
 			<shortcut label="20244" grouping="32029" icon="resource://resource.images.skinicons.wide/programs.png" condition="System.Platform.Android">ActivateWindow(10001,androidapp://sources/apps/,return)</shortcut>
 			<shortcut label="10134" grouping="32029" icon="resource://resource.images.skinicons.wide/favourites.png">ActivateWindow(favourites)</shortcut>
 			<shortcut label="31062" grouping="32029" type="youtube" icon="resource://resource.images.skinicons.wide/youtube.png" condition="System.HasAddon(plugin.video.youtube)">ActivateWindow(10025,plugin://plugin.video.youtube,return)</shortcut>

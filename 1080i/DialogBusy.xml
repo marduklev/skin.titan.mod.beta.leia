@@ -5,7 +5,7 @@
     <controls>
 		<include condition="Skin.HasSetting(SpinnerDimScreen)">DialogOverlayExtra</include>
 		<control type="group">
-            <visible>![Skin.HasSetting(NetflixAutoTrailer) + Window.IsActive(Home)]</visible>
+            <!-- <visible>Skin.HasSetting(NetflixAutoTrailer) + !Window.IsActive(Home)</visible> -->
 			<visible>!Window.IsVisible(startup)</visible>
 			<posx>960</posx>
             <posy>540</posy>

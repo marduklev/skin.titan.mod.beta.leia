@@ -897,6 +897,7 @@
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 					<param name="border" value="thumbsborder_focused" />
 				</include>
+					
 				<control type="button">
 					<visible allowhiddenfocus="true">false</visible>
 					<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons)) + [Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]]">PlayerControl(Stop)</onfocus>
@@ -912,7 +913,7 @@
 					</include>
 					
 					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetProperty(FocusSpotlightButtons,true,Home)</onfocus>
-					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetFocus(3013,1)</onfocus>
+					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetFocus(3010)</onfocus>
 					<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">ClearProperty(DontFocusSpotlightButtons, Home)</onfocus>
 				</control>
 			</control>

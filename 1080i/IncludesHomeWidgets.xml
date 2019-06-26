@@ -900,7 +900,7 @@
 					
 				<control type="button">
 					<visible allowhiddenfocus="true">false</visible>
-					<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons)) + [Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]]">PlayerControl(Stop)</onfocus>
+					
 					<onfocus condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu)</onfocus>
 					<onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
 					<onfocus>SetProperty(ShowWidget,show)</onfocus>
@@ -911,10 +911,13 @@
 					<include content="WidgetProperties">
 						<param name="widgetid" value="$PARAM[widgetid]" />
 					</include>
+					<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons)) + [Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]]">PlayerControl(Stop)</onfocus>
+					<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons)) + [Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]]">ClearProperty(SpotlightTrailerPlaying)</onfocus>
 					
 					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetProperty(FocusSpotlightButtons,true,Home)</onfocus>
 					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetFocus(3010)</onfocus>
 					<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">ClearProperty(DontFocusSpotlightButtons, Home)</onfocus>
+					
 				</control>
 			</control>
 		</focusedlayout>

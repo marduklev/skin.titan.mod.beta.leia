@@ -1,5 +1,6 @@
 <includes>
 	
+	<!-- Netflix 1 Spotlight Widget -->
 	<include name="NetFlixHomeSpotLightWidget">
         <control type="group">
             <left>50</left>
@@ -196,9 +197,9 @@
         </control>
     </include>
 	
+	<!-- Netflix 1 Home -->
 	<include name="HomeNetflix">
 
-        <!--NowPlaying-->
         <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
         <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
         <include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
@@ -294,9 +295,10 @@
         <include condition="!Skin.HasSetting(NetFlixHome_LargeMenu)">SideBladeMainMenu</include>
     </include>
 	
+	<!-- Netflix Home 2 -->
 	<include name="HomeNetflix2">
 		<control type="group" id="9000">
-            <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
+            <animation time="300" effect="fade" start="100" end="40" reversible="true" easing="inout" condition="ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)">Conditional</animation>
 			<include>NetflixHome_PanelSlide</include>
 			
 			<!-- spotlight previewwindow section right check if property needed-->
@@ -309,7 +311,7 @@
 				</include>
 			</control>
 			
-			<!-- MPAA flag while SPOTLIGHT TRAILER is playing -->
+			<!-- MPAA Info while SPOTLIGHT TRAILER is playing -->
 			<control type="group">
 				<visible>!String.IsEmpty(Control.GetLabel(5633398)) + !String.IsEmpty(Window(Home).Property(FocusSpotlightButtons)) + Player.HasVideo</visible>
 				<animation time="800" delay="200" effect="slide" start="0,0" end="-200,0">VisibleChange</animation>
@@ -355,7 +357,7 @@
 			<control type="group">
 				<visible>String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
 				<animation effect="fade" time="800">VisibleChange</animation>
-			     <include content="SpotlightArtwork">
+			    <include content="SpotlightArtwork">
 					<param name="width" value="1330" />
 					<param name="height" value="762" />
 					<param name="diffuse" value="diffuse/netflixnornerdiffuse.png" />
@@ -371,13 +373,14 @@
 					<param name="height" value="100%" />
 					<param name="diffuse" value="special://home/addons/resource.images.backgroundoverlays.basic/resources/Spot.png" />
 				</include>
-				<!-- SPOTLIGHT  WIDGET overlay -->
-				<!-- <control type="image">
+				<!-- SPOTLIGHT  WIDGET overlay 
+				<control type="image">
 					<width>100%</width>
 					<height>100%</height>
 					<colordiffuse>$INFO[Skin.String(NetflixBGColor)]</colordiffuse>
-					<texture border="5">special://home/addons/resource.images.backgroundoverlays.basic/resources/Vignette.png</texture>
-				</control> -->
+					<texture border="5">Overlay.png</texture>
+				</control>
+				-->
 			</control>
 			
 			<!-- SPOTLIGHT AREA INFOS (left) -->
@@ -389,7 +392,7 @@
 				
 				<!-- INFOS -->
 				<control type="grouplist">
-				<animation time="300" effect="slide" end="0,120" reversible="true" easing="inout" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">Conditional</animation>
+					<animation time="300" effect="slide" end="0,120" reversible="true" easing="inout" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">Conditional</animation>
 					
 					<width>60%</width>
 					<height>650</height>
@@ -403,15 +406,15 @@
 					<!-- clearlogo -->
 					<control type="image" id="1601">
 						<!-- <visible>!String.IsEmpty(Control.GetLabel(1601))</visible> -->
-						<visible>!String.IsEmpty(Control.GetLabel(1601)) + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
+						<visible>!String.IsEmpty(Control.GetLabel(1601)) + String.IsEmpty(Window(Home).Property(SpotlightTrailerPlaying))</visible>
 					
 						<height>235</height>
 						<aspectratio align="left" aligny="top">keep</aspectratio>
 						<texture background="true">$VAR[ListItemClearLogo]</texture>
 					</control>
-					<!-- Label,  3rows no clearlogo -->
+					<!-- Label,  3rows no clearlogo replace clearlogo on trailer playback, temp solution trough widget refresh on playback, force clearlogo property refresh					-->
 					<control type="textbox">
-						<visible>String.IsEmpty(Control.GetLabel(1601)) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
+						<visible>String.IsEmpty(Control.GetLabel(1601)) | !String.IsEmpty(Window(Home).Property(SpotlightTrailerPlaying))</visible>
 						<!-- <visible>String.IsEmpty(Control.GetLabel(1601))</visible> -->
 						<height>235</height>
 						<width>600</width>
@@ -424,14 +427,7 @@
 						<label>$VAR[HomeMenuWidgetInfoLabel]</label>
 						
 					</control>
-					<!-- clearlogo
-					<visible>!String.IsEmpty(Control.GetLabel(1601)) + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
-					title
 					
-					<visible>String.IsEmpty(Control.GetLabel(1601)) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
-					
-					 -->
-				
 					<!-- detail 1 row Home -->
 					<control type="group">
 						<height>50</height>
@@ -528,12 +524,13 @@
 						<align>left</align>
 						<font>Netflix_Plot</font>
 					</control>
-					<!-- get random info (cast,genre,director,nominations -->
+					<!-- decide to use random info (cast,genre,director,nominations sometime -->
 					<control type="group">
 						<visible>String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
 						<include>Netflix_Genre</include>
 					</control>
 				</control>
+				
 				<!-- media flags -->
                 <control type="group">
 					<animation time="1200" effect="slide" end="0,150" reversible="false" easing="inout" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">Conditional</animation>
@@ -554,129 +551,126 @@
 				</control>
 			
 			</control>
+			
 			<!-- spotlight Buttons -->
-				<control type="grouplist" id="30000">
-					<orientation>horizontal</orientation>
-					<height>75</height>
-					<top>380</top>
-					<left>120</left>
-					<itemgap>10</itemgap>
-					<visible>!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
-					<onleft>30000</onleft>
-					<onright>30000</onright>
-					<onback>300</onback>
-					<onback>SetProperty(DontFocusSpotlightButtons,true,Home)</onback>
-					<onback>ClearProperty(FocusSpotlightButtons, Home)</onback>
-					
-					<control type="radiobutton" id="3010">
-                        <description>Select, will get issues if not using default select action</description>
-						<width>290</width>
-                        <height>65</height>
-                        <font>Reg30</font>
-                        <label>[CAPITALIZE]$VAR[Spotlight_SelectActionLabel][/CAPITALIZE]</label>
-						
-						<include content="SpotlightButton_UseTransBG" condition="Skin.HasSetting(SpotlightButton_UseNF_Frame)">
-							<param name="radiobutton" value="netflix/play.png"/>
-						</include>
-						<include content="SpotlightButton_UseFrame" condition="!Skin.HasSetting(SpotlightButton_UseNF_Frame)">
-							<param name="radiobutton" value="netflix/play.png"/>
-						</include>
-						
-						<onup>SetProperty(DontFocusSpotlightButtons,true,Home)</onup>
-						<onup>ClearProperty(FocusSpotlightButtons, Home)</onup>
-						<onup>SetFocus(77777)</onup>
-						
-						<ondown>SetProperty(DontFocusSpotlightButtons,true,Home)</ondown>
-						<ondown>ClearProperty(FocusSpotlightButtons, Home)</ondown>
-						<ondown>77777</ondown>
-                       
-					   
-						<onclick>SetFocus(77777)</onclick>
-						<onclick>Action(Select)</onclick>
-               		 
-				     </control>
+			<control type="grouplist" id="30000">
+				<orientation>horizontal</orientation>
+				<height>75</height>
+				<top>380</top>
+				<left>120</left>
+				<itemgap>10</itemgap>
+				<visible>!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
 				
-					
-					<control type="radiobutton" id="3011">
-						<description>TRAILER</description>
-						<visible>!Skin.HasSetting(SpotLightTrailers)</visible>
-                        <width>290</width>
-                        <height>65</height>
-						<font>Reg30</font>
-						<label>$LOCALIZE[20410]</label>
-                       
-						<include content="SpotlightButton_UseTransBG" condition="Skin.HasSetting(SpotlightButton_UseNF_Frame)">
-							<param name="radiobutton" value="netflix/tvshowstatus.png"/>
-						</include>
-						<include content="SpotlightButton_UseFrame" condition="!Skin.HasSetting(SpotlightButton_UseNF_Frame)">
-							<param name="radiobutton" value="netflix/tvshowstatus.png"/>
-						</include>
-						
-						<!-- <onfocus>ClearProperty(TrailerPlaying)</onfocus> -->
-						
-                        <onup>SetProperty(DontFocusSpotlightButtons,true,Home)</onup>
-						<onup>ClearProperty(FocusSpotlightButtons, Home)</onup>
-						<onup>SetFocus(77777)</onup>
-						<ondown>SetProperty(DontFocusSpotlightButtons,true,Home)</ondown>
-						<ondown>ClearProperty(FocusSpotlightButtons, Home)</ondown>
-                        <ondown>SetFocus(77777)</ondown>
-						
-						<onclick>SetFocus(77777)</onclick>
-						<onclick>SetProperty(TrailerPlaying,home)</onclick>
-						<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onclick>
-						<onclick condition="[!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-						<onclick condition="[[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>
-					
-					</control>
+				<onleft>30000</onleft>
+				<onright>30000</onright>
+				<onback>300</onback>
+				<onback>SetProperty(DontFocusSpotlightButtons,true,Home)</onback>
+				<onback>ClearProperty(FocusSpotlightButtons, Home)</onback>
 				
-					<control type="radiobutton" id="3013">
-						<description>INFO 29915  vs Summary 20037</description>
-                        <width>290</width>
-                        <height>65</height>
-                        <font>Reg30</font>
-						<label>[CAPITALIZE]$LOCALIZE[29915][/CAPITALIZE]</label>
-                        <visible>!String.IsEqual(Window(Home).Property(ListItem.dbtype),season)</visible>
-						<include content="SpotlightButton_UseTransBG" condition="Skin.HasSetting(SpotlightButton_UseNF_Frame)">
-							<param name="radiobutton" value="netflix/info2.png"/>
-						</include>
-						<include content="SpotlightButton_UseFrame" condition="!Skin.HasSetting(SpotlightButton_UseNF_Frame)">
-							<param name="radiobutton" value="netflix/info2.png"/>
-						</include>
-						
-                        <textcolor>$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]</textcolor>                       
-						<focusedcolor>$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]</focusedcolor>
-                        
-						<!-- <onfocus>ClearProperty(TrailerPlaying)</onfocus> -->
-						<onup>SetProperty(DontFocusSpotlightButtons,true,Home)</onup>
-						<onup>ClearProperty(FocusSpotlightButtons, Home)</onup>
-						<onup>SetFocus(77777)</onup>
-						<ondown>SetProperty(DontFocusSpotlightButtons,true,Home)</ondown>
-						<ondown>ClearProperty(FocusSpotlightButtons, Home)</ondown>
-                        <ondown>SetFocus(77777)</ondown>
-						
-						<onclick>SetFocus(77777)</onclick>
-						<onclick>Action(Info)</onclick>
-					</control>
+				<control type="radiobutton" id="3010">
+					<description>Select, will get issues if not using default select action</description>
+					<width>290</width>
+					<height>65</height>
+					<font>Reg30</font>
+					<label>[CAPITALIZE]$VAR[Spotlight_SelectActionLabel][/CAPITALIZE]</label>
 					
-					<control type="button" id="3019">
-						<description>hidden button to send click to play trailer</description>
-						<width>1</width>
-                        <height>65</height>
-                        <font></font>
-						<label></label>
-						<visible>Skin.HasSetting(SpotLightTrailers) + !Player.HasVideo</visible>
-						<texturefocus></texturefocus>
-						<texturenofocus></texturenofocus>
-						<onfocus>SetFocus(77777)</onfocus>
-						
-						<onfocus condition="!String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onfocus>
-						<onfocus condition="[!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
-						
-						<onfocus condition="[[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onfocus>
-					</control>
+					<include content="SpotlightButton_UseTransBG" condition="Skin.HasSetting(SpotlightButton_UseNF_Frame)">
+						<param name="radiobutton" value="netflix/play.png"/>
+					</include>
+					<include content="SpotlightButton_UseFrame" condition="!Skin.HasSetting(SpotlightButton_UseNF_Frame)">
+						<param name="radiobutton" value="netflix/play.png"/>
+					</include>
 					
+					<onup>SetProperty(DontFocusSpotlightButtons,true,Home)</onup>
+					<onup>ClearProperty(FocusSpotlightButtons, Home)</onup>
+					<onup>SetFocus(77777)</onup>
 					
+					<ondown>SetProperty(DontFocusSpotlightButtons,true,Home)</ondown>
+					<ondown>ClearProperty(FocusSpotlightButtons, Home)</ondown>
+					<ondown>77777</ondown>
+					
+					<onclick>SetFocus(77777)</onclick>
+					<onclick>Action(Select)</onclick>
+				 
+				 </control>
+			
+				
+				<control type="radiobutton" id="3011">
+					<description>TRAILER</description>
+					<visible>!Skin.HasSetting(SpotLightTrailers)</visible>
+					<width>290</width>
+					<height>65</height>
+					<font>Reg30</font>
+					<label>$LOCALIZE[20410]</label>
+				   
+					<include content="SpotlightButton_UseTransBG" condition="Skin.HasSetting(SpotlightButton_UseNF_Frame)">
+						<param name="radiobutton" value="netflix/tvshowstatus.png"/>
+					</include>
+					<include content="SpotlightButton_UseFrame" condition="!Skin.HasSetting(SpotlightButton_UseNF_Frame)">
+						<param name="radiobutton" value="netflix/tvshowstatus.png"/>
+					</include>
+					
+					<onup>SetProperty(DontFocusSpotlightButtons,true,Home)</onup>
+					<onup>ClearProperty(FocusSpotlightButtons, Home)</onup>
+					<onup>SetFocus(77777)</onup>
+					<ondown>SetProperty(DontFocusSpotlightButtons,true,Home)</ondown>
+					<ondown>ClearProperty(FocusSpotlightButtons, Home)</ondown>
+					<ondown>SetFocus(77777)</ondown>
+					
+					<onclick>SetFocus(77777)</onclick>
+					<onclick>SetProperty(SpotlightTrailerPlaying,home)</onclick>
+					<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onclick>
+					<onclick condition="[!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+					<onclick condition="[[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>
+				
 				</control>
+			
+				<control type="radiobutton" id="3013">
+					<description>INFO 29915  vs Summary 20037</description>
+					<width>290</width>
+					<height>65</height>
+					<font>Reg30</font>
+					<label>[CAPITALIZE]$LOCALIZE[29915][/CAPITALIZE]</label>
+					<visible>!String.IsEqual(Window(Home).Property(ListItem.dbtype),season)</visible>
+					<include content="SpotlightButton_UseTransBG" condition="Skin.HasSetting(SpotlightButton_UseNF_Frame)">
+						<param name="radiobutton" value="netflix/info2.png"/>
+					</include>
+					<include content="SpotlightButton_UseFrame" condition="!Skin.HasSetting(SpotlightButton_UseNF_Frame)">
+						<param name="radiobutton" value="netflix/info2.png"/>
+					</include>
+					
+					<textcolor>$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]</textcolor>                       
+					<focusedcolor>$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]</focusedcolor>
+					
+					<onup>SetProperty(DontFocusSpotlightButtons,true,Home)</onup>
+					<onup>ClearProperty(FocusSpotlightButtons, Home)</onup>
+					<onup>SetFocus(77777)</onup>
+					<ondown>SetProperty(DontFocusSpotlightButtons,true,Home)</ondown>
+					<ondown>ClearProperty(FocusSpotlightButtons, Home)</ondown>
+					<ondown>SetFocus(77777)</ondown>
+					
+					<onclick>SetFocus(77777)</onclick>
+					<onclick>Action(Info)</onclick>
+				</control>
+				
+				<!-- <control type="button" id="3019">
+					<description>hidden button to send click to play trailer</description>
+					<width>1</width>
+					<height>65</height>
+					<font></font>
+					<label></label>
+					<visible>Skin.HasSetting(SpotLightTrailers) + !Player.HasVideo</visible>
+					<texturefocus></texturefocus>
+					<texturenofocus></texturenofocus>
+					
+					<onfocus>SetFocus(77777)</onfocus>
+					<onfocus>SetProperty(SpotlightTrailerPlaying,home)</onfocus>
+					
+					<onfocus condition="!String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onfocus>
+					<onfocus condition="[!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onfocus>
+					<onfocus condition="[[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onfocus>
+				</control> -->
+			</control>
 			<!-- STANDARD widgets -->
             <control type="grouplist" id="77777">
 				<!-- temp solution ,till widgetid header pos fixed/changed-->

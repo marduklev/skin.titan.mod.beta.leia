@@ -93,7 +93,7 @@
                 <top>480</top>
                 <width>1920</width>
                 <height>100</height>
-                <label>$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]</label>
+                <label>$VAR[MusicScrollingTitles]</label>
                 <scroll>true</scroll>
                 <font>Light200</font>
                 <pauseatend>0</pauseatend>

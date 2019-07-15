@@ -503,6 +503,7 @@
 	
 	<variable name="NowPlayingLabel">
         <value condition="Player.IsInternetStream">[B]$LOCALIZE[31040][/B]</value>
+		<value condition="VideoPlayer.HasEpg">[B]$LOCALIZE[31040][/B]  ($VAR[PlayerTime] / $VAR[PlayerDuration])</value>
         <value>[B]$LOCALIZE[31040][/B]  ($INFO[Player.Time] / $INFO[Player.Duration])</value>
     </variable>
 
@@ -1589,5 +1590,12 @@
         <value condition="$EXP[InGameMode]">square</value>
         <value>poster</value>
     </variable>
-    
+	
+    <variable name="MusicScrollingTitles">
+		<value condition="Player.HasAudio + !Pvr.IsPlayingRadio">$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]</value>
+		<value condition="Player.HasAudio + RDS.HasRds  + !VideoPlayer.HasEpg + !RDS.HasRadioTextPlus">$INFO[RDS.GetLine(0),, • ]$INFO[RDS.GetLine(0),, • ]$INFO[RDS.GetLine(0),, • ]$INFO[RDS.GetLine(0),, • ]</value>
+		<value condition="Player.HasAudio + RDS.HasRds  + VideoPlayer.HasEpg + String.IsEmpty(RDS.Artist)">$INFO[MusicPlayer.ChannelName,, • ]$INFO[Player.Title,, • ]$INFO[MusicPlayer.ChannelName,, • ]$INFO[Player.Title,, • ]$INFO[MusicPlayer.ChannelName,, • ]$INFO[Player.Title,, • ]</value>
+		<value condition="Player.HasAudio + RDS.HasRds  + !String.IsEmpty(RDS.Artist)">$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]</value>
+		<value>$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]</value>
+	</variable>
 </includes>

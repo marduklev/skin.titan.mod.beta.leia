@@ -286,7 +286,7 @@
 						<width>40</width>
 						<height>40</height>
 						<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-						<texture colordiffuse="green">special://skin/extras/images/busy/skypishball.apng</texture>
+						<texture colordiffuse="green">special://skin/extras/busy/skypishball.apng</texture>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 					</control>
 					

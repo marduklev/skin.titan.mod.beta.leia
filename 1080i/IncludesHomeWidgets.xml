@@ -1880,7 +1880,7 @@
 					<width>40</width>
 					<height>40</height>
 					<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-					<texture colordiffuse="$INFO[Skin.String(SpinnerTexture.Color)]">special://skin/extras/images/busy/skypishball.apng</texture>
+					<texture colordiffuse="$INFO[Skin.String(SpinnerTexture.Color)]">special://skin/extras/busy/skypishball.apng</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 				</control>
 			</control>

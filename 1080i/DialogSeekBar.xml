@@ -7,9 +7,10 @@
             <include>OSDInfoPanel</include>
 			<!-- clearart variable netflix OSD , still unlucky with positioning -->
             <control type="image">
-			    <posy>740</posy>
-				<align>center</align>
-                <width>100%</width>
+			    <posx>1550</posx>
+				<posy>720</posy>
+				<align>Left</align>
+                <width>350</width>
                 <height>200</height>
                 <fadetime>600</fadetime>
                 <aspectratio align="center" aligny="bottom">keep</aspectratio>
@@ -18,6 +19,7 @@
 				<visible>![Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDSubtitleSettings)]</visible>
 				<animation end="0,-95" time="0" effect="slide" condition="[Skin.HasSetting(OSDLargeSeekingLabel) + [Player.paused | Player.Seeking]]">Conditional</animation>
 				<animation effect="fade" start="100" end="40" time="350"  condition="[Skin.HasSetting(OSDLargeSeekingLabel) + Player.paused] + Skin.HasSetting(EnableOSDInfo)">Conditional</animation>
+				<animation effect="slide" end="0,-100" time="0" condition="Skin.HasSetting(ShowClockRemainingTimeNetflixOSD)">Conditional</animation>
 		
             </control>
             <!--OSD Panel-->

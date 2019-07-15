@@ -402,7 +402,7 @@
 					<width>1000</width>
 					<height>30</height>
 					<label fallback="19055">[B]$VAR[premiere_date_player,, • ]$INFO[VideoPlayer.RatingAndVotes,, • ]$INFO[VideoPlayer.MPAA]$INFO[VideoPlayer.Country, • ,][/B]</label>
-					<visible>Player.HasVideo</visible> <!-- + Skin.HasSetting(EnableOSDInfo) -->
+					<visible>Player.HasVideo + !PVR.IsPlayingTV</visible> <!-- + Skin.HasSetting(EnableOSDInfo) -->
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<align>justify</align>
@@ -835,7 +835,7 @@
 					<top>0</top>
 					<width>auto</width>
 					<label fallback="19055">[B]$VAR[premiere_date_player,, • ]$INFO[VideoPlayer.MPAA,, • ][/B]</label>
-					<visible>Player.HasVideo</visible>
+					<visible>Player.HasVideo + !PVR.IsPlayingTV</visible>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 					<font>Reg24</font>
@@ -1328,14 +1328,14 @@
 				<control type="label">
 					<!--Play Time-->
 					<animation end="-45,0" time="0" effect="slide" condition="!String.IsEqual(Player.Time(hh),00)">Conditional</animation>
-					<posx>274</posx>
+					<posx>254</posx>
 					<posy>140</posy>
 					<width>160</width>
 					<align>left</align>
 					<font>Reg30</font>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-					<label>[B]$VAR[playtime_format][/B]</label>
+					<label>[B]$VAR[PlayerTime][/B]</label>
 					 
 				</control>
 				<control type="label">
@@ -1347,7 +1347,7 @@
 					<font>Reg30</font>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-					<label>[B]$VAR[timeremaining_format][/B]</label>
+					<label>[B]$VAR[PlayerTimeRemaining][/B]</label>
 					 
 				</control>
 
@@ -1499,7 +1499,7 @@
 				<animation delay="2500" time="300" effect="fade">Visible</animation>
 				<animation delay="0" time="200" effect="fade">Hidden</animation>
 				<posx>70</posx>
-				<posy>-465</posy>
+				<posy>-565</posy>
 				<width>100%</width>
 				<align>left</align>
 				<aligny>bottom</aligny>
@@ -3201,6 +3201,7 @@
 				<!-- OSDLabel8 -->
 				<control type="label" id="74823">
 					<width>980</width>
+					<height>100</height>
 					<align>left</align>
 					<font>Reg34</font>
 					<textcolor>white</textcolor>
@@ -3217,7 +3218,9 @@
 					<font>Light24</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>dimgray</shadowcolor>
-					<label>$VAR[premiered_or_year]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</label>
+					<label>$VAR[premiered_or_year]$INFO[VideoPlayer.Mpaa, | ,]$INFO[PVR.EpgEventDuration(mins), | ,min]</label>
+					<!-- <label>$VAR[premiered_or_year]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</label>
+					 check need of variable -->
 					<visible>!VideoPlayer.Content(movies)</visible>
 					<scroll>false</scroll>
 				</control>
@@ -3274,7 +3277,7 @@
 		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !player.hasaudio + player.paused">$INFO[PVR.EpgEventDuration(h),[B]$LOCALIZE[180][CR][/B],h]$INFO[PVR.EpgEventDuration(mm),,min]</value>
 		<value condition="!player.hasaudio + player.paused">$INFO[Player.Duration(h),[B]$LOCALIZE[180][CR][/B],h]$INFO[Player.Duration(mm),,min]</value>
 	</variable>
-	<variable name="playtime_format">
+	<!--variable name="playtime_format">
 		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + String.IsEqual(PVR.EpgEventElapsedTime(hh),00)">$INFO[PVR.EpgEventElapsedTime(mm:ss)]</value>
 		<value condition="String.IsEqual(Player.Time(hh),00)">$INFO[Player.Time(mm:ss)]</value>
 		<value>$INFO[Player.Time]</value>
@@ -3283,7 +3286,7 @@
 		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + String.IsEqual(PVR.EpgEventRemainingTime(hh),00)">$INFO[PVR.EpgEventRemainingTime(mm:ss)]</value>
 		<value condition="String.IsEqual(Player.TimeRemaining(hh),00)">$INFO[Player.TimeRemaining(mm:ss)]</value>
 		<value>$VAR[PlayerTimeRemaining]</value>
-	</variable>
+	</variable-->
 
     <variable name="OSDImage">
         <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.Player.AnimatedPoster)]</value>
@@ -3296,7 +3299,7 @@
 		<value>DefaultVideo.png</value>
 	 </variable>
 	<variable name="OSDImagePVR_Streams">
-        <value condition="Skin.HasSetting(SkinHelper.EnablePVRThumbs)">http://localhost:52307/getthumb&amp;title=$ESCINFO[VideoPlayer.Title]</value>
+        <!--value condition="Skin.HasSetting(SkinHelper.EnablePVRThumbs)">http://localhost:52307/getthumb&amp;title=$ESCINFO[VideoPlayer.Title]</value> -->
 		<value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value>
 		<value condition="!String.IsEmpty(PVR.EpgEventIcon)">$INFO[PVR.EpgEventIcon]</value>
 		<value>$INFO[VideoPlayer.Cover]</value>
@@ -3324,13 +3327,19 @@
     </variable>
 	
 	<variable name="OSDLabel4">   <!-- added for specific MUSIC INFO , ALBUM NAME YEAR GENRE  -->
-        <value condition="Player.HasAudio">Album : $INFO[MusicPlayer.Album] ($INFO[MusicPlayer.Year])[CR]Genre: $INFO[MusicPlayer.Genre]</value>
-		 <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.ChannelName)">$INFO[MusicPlayer.ChannelName]</value>
+	    <value condition="Player.HasAudio + RDS.HasRds + String.IsEmpty(RDS.ProgStyle)">RDS-Info: $INFO[RDS.GetLine(0)][CR]******</value>
+		<value condition="Player.HasAudio + RDS.HasRds + !String.IsEmpty(RDS.ProgStyle)">RDS-Info: $INFO[RDS.GetLine(0)][CR]Genre: $INFO[RDS.ProgStyle]</value>
+        <value condition="Player.HasAudio + !Pvr.IsPlayingRadio">Album: $INFO[MusicPlayer.Album] ($INFO[MusicPlayer.Year])[CR]Genre: $INFO[MusicPlayer.Genre]</value>
+		<value condition="Player.HasAudio + Pvr.IsPlayingRadio + !RDS.HasRds"> [CR] </value>
+		<value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.ChannelName)">$INFO[MusicPlayer.ChannelName]</value>
         <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.ChannelName) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName))">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
 	</variable>
 	 
 	<variable name="OSDLabel5">   <!-- added MUSIC INFO , ARTIST - TITLE -->
-        <value condition="Player.HasAudio">$INFO[MusicPlayer.Artist][CR]• $INFO[MusicPlayer.Title] •</value>
+        <value condition="Player.HasAudio + !Pvr.IsPlayingRadio">$INFO[MusicPlayer.Artist][CR]• $INFO[MusicPlayer.Title] •</value>
+		<value condition="Player.HasAudio + RDS.HasRds + !String.IsEmpty(RDS.Artist)">$INFO[MusicPlayer.ChannelName][CR]$INFO[RDS.Artist] - $INFO[MusicPlayer.Title]</value>
+		<value condition="Player.HasAudio + RDS.HasRds  + String.IsEmpty(RDS.Artist)">$INFO[MusicPlayer.ChannelName][CR]$INFO[Player.Title]</value>
+		<value condition="Player.HasAudio + Pvr.IsPlayingRadio + !RDS.HasRds">$INFO[MusicPlayer.Artist][CR]• $INFO[MusicPlayer.Title] •</value>
 		<value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]</value>
         <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.ChannelName)">$INFO[MusicPlayer.ChannelName]</value>
         <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.ChannelName) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName))">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
@@ -3352,11 +3361,11 @@
 	<variable name="OSDLabel8">
 		<value condition="Player.HasVideo + VideoPlayer.Content(Episodes)">$INFO[VideoPlayer.Season,$LOCALIZE[20373] , | ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] , | ][B]$INFO[VideoPlayer.Title][/B]</value>
 		<value condition="Player.HasVideo + VideoPlayer.Content(Movies)">[B]$INFO[VideoPlayer.year][/B]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</value>
-		<value condition="Player.HasVideo + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName][/B]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(livetv)">[B] $INFO[VideoPlayer.Title][/B] [CR] $INFO[VideoPlayer.EpisodeName]</value>
 	</variable>
 	
 	<variable name="premiered_or_year">
-		<value condition="!VideoPlayer.Content(Movies)">$INFO[VideoPlayer.Premiered]</value>
+		<value condition="VideoPlayer.Content(Movies)">$INFO[VideoPlayer.Premiered]</value>
 		<value>$INFO[VideoPlayer.year]</value>
 	</variable>
      
@@ -3376,8 +3385,8 @@
 		<value condition="player.rewinding16x">[B]$LOCALIZE[31254][/B] x16</value>
 		<value condition="player.rewinding32x">[B]$LOCALIZE[31254][/B] x32</value>
 		<value condition="Skin.HasSetting(UseSlimOSDPanel) + [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + !Skin.HasSetting(EnableOSDInfo)">[B]$LOCALIZE[31112][/B]$VAR[PlayerFinishTime,[B]:[/B]  ,]</value> <!-- doesnt fit in slim $VAR[PlayerDuration,[B]$LOCALIZE[180]: [/B]] -->
-		<value condition="!String.IsEmpty(player.FinishTime) + Player.paused + !Skin.HasSetting(UseSlimOSDPanel) | [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + [Skin.HasSetting(UseSlimOSDPanel) + Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B][CR]$VAR[PlayerFinishTime]</value>
-		<value condition="[!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)]">[B]$LOCALIZE[31112][/B]: $VAR[PlayerFinishTime]</value>
+		<value condition="!String.IsEmpty(player.FinishTime) + Player.paused + !Skin.HasSetting(UseSlimOSDPanel) | [!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)] + [Skin.HasSetting(UseSlimOSDPanel) + Skin.HasSetting(EnableOSDInfo)]">[B]$LOCALIZE[31112][/B]$VAR[PlayerFinishTime,[B]:[/B]  ,]</value>
+		<value condition="[!String.IsEmpty(player.FinishTime) | !String.IsEmpty(PVR.EpgEventFinishTime)]">[B]$LOCALIZE[31112][/B]$VAR[PlayerFinishTime,[B]:[/B]  ,]</value>
 	 </variable>
 	 
 	 <variable name="PlayerActionLabelSmall">

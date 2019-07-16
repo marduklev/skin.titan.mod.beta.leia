@@ -220,7 +220,7 @@
 		</control>
 	</include>
 	
-	<!--extra fanart sourcing-->
+	<!--extra fanart sourcing -->
     <variable name="extraFanartLocation">
         <value condition="[container.content(movies) | String.IsEqual(ListItem.DBTYPE,movie)]">$INFO[listitem.path,,extrafanart]</value>
         <value condition="[container.content(tvshows) | String.IsEqual(ListItem.DBTYPE,tvshow)]">$INFO[listitem.filenameandpath,,extrafanart]</value>
@@ -299,6 +299,10 @@
 			<nested />
 			<scrolltime tween="quadratic">400</scrolltime>
 			<top>50</top>
+			
+			<onclick condition="Control.HasFocus(8606)">SetFocus(9001)</onclick>
+			<onclick condition="Control.HasFocus(8607)">SetFocus(9002)</onclick>
+			
 			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search) + !String.IsEmpty(Skin.String(SearchTerm))">Skin.Reset(SearchTerm)</onclick>
 			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Dialog.Close(movieinformation,true)</onclick>
 			<onclick condition="Control.HasFocus(8601) + String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Skin.SetString(SearchTerm,$INFO[ListItem.Label])</onclick>

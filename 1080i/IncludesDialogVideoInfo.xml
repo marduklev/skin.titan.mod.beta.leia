@@ -929,7 +929,7 @@
 				
 				<!-- set -->
 				<include content="VideoInfo_InfoList">
-					<param name="Info" value="$LOCALIZE[20141]" />
+					<param name="Info" value="$LOCALIZE[36910]" />
                     <param name="InfoLabel" value="$INFO[ListItem.Set]" />
 					<param name="icon" value="flags/discsets/diskmain_w.png" />
 					<param name="visible" value="!String.IsEmpty(ListItem.SetID)" />

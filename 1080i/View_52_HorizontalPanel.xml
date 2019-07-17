@@ -39,7 +39,7 @@
 					<visible>Skin.HasSetting(View52_ShowTags)</visible>
 					<include content="Tag_NF">
 						<param name="tagwidth" value="230"/>
-						<param name="tagtop" value="340" />
+						<param name="tagtop" value="330" />
 					</include>
 					</control>
 			</itemlayout>

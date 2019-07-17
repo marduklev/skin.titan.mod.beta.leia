@@ -40,7 +40,7 @@
 							<visible>Skin.HasSetting(View505_ShowTags)</visible>
 							<include content="Tag_NF">
 								<param name="tagwidth" value="570"/>
-								<param name="tagtop" value="333" />
+								<param name="tagtop" value="330" />
 							</include>
 						</control>
 					</control>
@@ -60,7 +60,7 @@
 							<visible>Skin.HasSetting(View505_ShowTags)</visible>
 							<include content="Tag_NF">
 								<param name="tagwidth" value="570"/>
-								<param name="tagtop" value="333" />
+								<param name="tagtop" value="330" />
 							</include>
 						</control>
 						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>

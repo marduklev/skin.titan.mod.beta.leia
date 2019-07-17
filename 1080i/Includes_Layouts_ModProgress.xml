@@ -118,7 +118,6 @@ Container(id).ListItem(offset).Thumb
 			</control>
 			<!-- mpaa -->
 			<control type="button">
-				<posy>4</posy>
 				<width min="50">auto</width>
 				<font>Netflix_DetailRow</font>
 				<label>$VAR[RatingFlagVar,[B],[/B]]</label>
@@ -776,7 +775,7 @@ Container(id).ListItem(offset).Thumb
 			<font>
 				<name>TEST_TAGS</name>  
 				<filename>Alcubierre.ttf</filename>
-				<size>20</size>
+				<size>22</size>
 				<style>bold</style>
 				<aspect>1.0</aspect>
 				<linespacing>1.0</linespacing>
@@ -846,9 +845,10 @@ Container(id).ListItem(offset).Thumb
 		
 		<!-- mod -->
 		<include name="Net_Mod_MPAA">
-			<height>40</height>
-			<textoffsetx>18</textoffsetx>
-			<textoffsety>2</textoffsety>
+			<posy>3</posy>
+			<height>44</height>
+			<textoffsetx>20</textoffsetx>
+			<textoffsety>4</textoffsety>
 			<texturenofocus border="-2" colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texturenofocus>
 			
 		
@@ -856,6 +856,7 @@ Container(id).ListItem(offset).Thumb
 		
 		<!-- net -->
 		<include name="Net_Origin_MPAA">
+			<posy>4</posy>
 			<texturenofocus colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/netflixmpaa.png</texturenofocus>
 			<height>36</height>
 			<textoffsetx>8</textoffsetx>

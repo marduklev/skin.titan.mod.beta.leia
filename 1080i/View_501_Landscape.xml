@@ -12,7 +12,7 @@
 				<posx>60</posx>
 				<width>1880</width>
 				<bottom>12%</bottom>
-                <height>720</height>
+                <height>732</height>
 				<onup condition="Skin.HasSetting(View_501_HorizontalNavigation)">9000</onup>
                 <onup condition="!Skin.HasSetting(View_501_HorizontalNavigation)">501</onup>
 				<ondown condition="Skin.HasSetting(View_501_HorizontalNavigation)">6000</ondown>
@@ -53,7 +53,7 @@
 						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 					</control>
 				</focusedlayout>
-                <itemlayout width="550" height="360" condition="Skin.HasSetting(View501_ShowTags)">
+                <itemlayout width="550" height="366" condition="Skin.HasSetting(View501_ShowTags)">
                     <control type="group">
                         <width>531</width>
                         <height>305</height>
@@ -64,11 +64,11 @@
 						</include>
 						<include content="Tag_NF">
 							<param name="tagwidth" value="530" />
-							<param name="tagtop" value="310" />
+							<param name="tagtop" value="305" />
 						</include>
                     </control>
 				</itemlayout>
-				<focusedlayout width="550" height="360" condition="Skin.HasSetting(View501_ShowTags)">
+				<focusedlayout width="550" height="366" condition="Skin.HasSetting(View501_ShowTags)">
 					<control type="group">
 						<include>Focus_Zoom_Animation</include>
                         <width>531</width>
@@ -81,7 +81,7 @@
 						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 						<include content="Tag_FO">
 							<param name="tagwidth" value="530" />
-							<param name="tagtop" value="310" />
+							<param name="tagtop" value="305" />
 						</include>
 					</control>
 				</focusedlayout>

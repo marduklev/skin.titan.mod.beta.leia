@@ -14,7 +14,6 @@
 	</variable>
 	
 	<variable name="LandscapeImage">
-		
 		<value condition="!String.IsEmpty(ListItem.Thumb) + [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ![Window.IsActive(home) + Skin.HasSetting(PreferTvShowThumbWidget)]">$INFO[ListItem.Thumb]</value>
         <value condition="!String.IsEmpty(ListItem.Thumb) + [String.Contains(ListItem.Path,youtube) | String.Contains(ListItem.Path,botchamania)]">$INFO[ListItem.Thumb]</value>
         <value condition="Skin.HasSetting(PreferClearArtOverLandscape) + !String.IsEmpty(ListItem.Art(clearart)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(clearart)]</value>
@@ -506,6 +505,7 @@
 	
 	<variable name="NowPlayingLabel">
         <value condition="Player.IsInternetStream">[B]$LOCALIZE[31040][/B]</value>
+		<value condition="VideoPlayer.HasEpg">[B]$LOCALIZE[31040][/B]  ($VAR[PlayerTime] / $VAR[PlayerDuration])</value>
         <value>[B]$LOCALIZE[31040][/B]  ($INFO[Player.Time] / $INFO[Player.Duration])</value>
     </variable>
 
@@ -1593,4 +1593,11 @@
         <value>poster</value>
     </variable>
     
+	<variable name="MusicScrollingTitles">
+		<value condition="Player.HasAudio + !Pvr.IsPlayingRadio">$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]</value>
+		<value condition="Player.HasAudio + RDS.HasRds  + !VideoPlayer.HasEpg + !RDS.HasRadioTextPlus">$INFO[RDS.GetLine(0),, • ]$INFO[RDS.GetLine(0),, • ]$INFO[RDS.GetLine(0),, • ]$INFO[RDS.GetLine(0),, • ]</value>
+		<value condition="Player.HasAudio + RDS.HasRds  + VideoPlayer.HasEpg + String.IsEmpty(RDS.Artist)">$INFO[MusicPlayer.ChannelName,, • ]$INFO[Player.Title,, • ]$INFO[MusicPlayer.ChannelName,, • ]$INFO[Player.Title,, • ]$INFO[MusicPlayer.ChannelName,, • ]$INFO[Player.Title,, • ]</value>
+		<value condition="Player.HasAudio + RDS.HasRds  + !String.IsEmpty(RDS.Artist)">$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]</value>
+		<value>$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]$INFO[MusicPlayer.Artist,, • ]$INFO[MusicPlayer.Title,, • ]</value>
+	</variable>	
 </includes>

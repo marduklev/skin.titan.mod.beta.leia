@@ -3219,8 +3219,6 @@
 					<textcolor>white</textcolor>
 					<shadowcolor>dimgray</shadowcolor>
 					<label>$VAR[premiered_or_year]$INFO[VideoPlayer.Mpaa, | ,]$INFO[PVR.EpgEventDuration(mins), | ,min]</label>
-					<!-- <label>$VAR[premiered_or_year]$INFO[VideoPlayer.Mpaa, | ,]$INFO[VideoPlayer.Duration(mins), | ,min]</label>
-					 check need of variable -->
 					<visible>!VideoPlayer.Content(movies)</visible>
 					<scroll>false</scroll>
 				</control>

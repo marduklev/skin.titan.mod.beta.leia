@@ -778,10 +778,9 @@
 					<param name="width" value="578" />
 					<param name="height" value="340" />
 					<param name="layout" value="ThumbsViewLayout" />
-					<param name="visible" value="Integer.IsGreater(Container(8605).NumItems,0) | Container(8605).IsUpdating" />
+					<param name="visible" value="[System.HasNetwork + System.HasAddon(plugin.video.youtube)] + [Integer.IsGreater(Container(8605).NumItems,0) | Container(8605).IsUpdating]" />
 					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8605).NumItems,0) | Container(8605).IsUpdating">Conditional</animation>
 					<content target="videos" sortby="file" limit="25">plugin://plugin.video.youtube/search/?q=$INFO[ListItem.Title]</content>
-					<visible>System.HasAddon(plugin.video.youtube)</visible>
 				</include>
 				
 				<!-- stored extra fanart $LOCALIZE[20438]-->
@@ -4019,10 +4018,6 @@
 	<variable name="Similiar_Content">
 		<value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.DBID)">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</value>
 		<value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.DBID)">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=tvshow</value>
-	</variable>
-	<variable name="CastContainerContent">
-		<value condition="[ContainerContent(episodes) | String.IsEqual(ListItem.DBTYPE,episode)]">$INFO[ListItem.TVShowTitle]</value>
-		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<!-- check need finishing 
 	<variable name="rating_value_">

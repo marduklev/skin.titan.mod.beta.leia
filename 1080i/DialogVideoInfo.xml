@@ -5,12 +5,15 @@
 	<onload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onload>
 	<onload condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">SetProperty(TrailerPlaying,windowed,Home)</onload>
 	<onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">ClearProperty(BaseWindow,Home)</onload>
-	<onunload condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">SetFocus(505)</onunload> 
+	<onload condition="[ContainerContent(episodes) | String.IsEqual(ListItem.DBTYPE,episode)] + [Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog)]">RunScript(script.embuary.helper,action=encode,string='"$INFO[ListItem.TVShowTitle]"',prop=DecodedTitle)</onload>
+	<onload condition="![ContainerContent(episodes) | String.IsEqual(ListItem.DBTYPE,episode)] + [Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog)]">RunScript(script.embuary.helper,action=encode,string='"$INFO[ListItem.Label]"',prop=DecodedTitle)</onload>
 	<onload>ClearProperty(AdditionalInfo)</onload>
+	
+	<onunload>ClearProperty(DecodedTitle,home)</onunload>	
 	<onunload>ClearProperty(AdditionalInfo)</onunload>
     <onunload>ClearProperty(filename_formatted,Home)</onunload>  
 	<onunload condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">ClearProperty(ShowSpotlightInfo,Home)</onunload>
-  <!--   <onload condition="Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog) + [Container.content(tvshows) | String.IsEqual(ListItem.DBTYPE,tvshow)]]">RunScript(script.skin.helper.service,action=getpercentage,count=$INFO[ListItem.Property(WatchedEpisodes)],total=$INFO[ListItem.Property(TotalEpisodes)],skinstring=WatchedEpisodesPercent)</onload> -->
+	<!--   <onload condition="Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog) + [Container.content(tvshows) | String.IsEqual(ListItem.DBTYPE,tvshow)]]">RunScript(script.skin.helper.service,action=getpercentage,count=$INFO[ListItem.Property(WatchedEpisodes)],total=$INFO[ListItem.Property(TotalEpisodes)],skinstring=WatchedEpisodesPercent)</onload> -->
 	<controls>
         <!-- fake button with actions -->
         <control type="button" id="9005">

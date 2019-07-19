@@ -131,7 +131,7 @@
                 <control type="group">
 					<posx>80</posx>
                     <height>52</height>
-                    <top>640</top>
+                    <top>690</top>
                     <include>mediaflags</include>
 					<visible>Skin.HasSetting(View525_UseFixedLayout)</visible>
 					<animation effect="zoom" alignx="true" end="80,80" time="0" condition="Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color)">Conditional</animation>
@@ -156,7 +156,7 @@
                     <right>20</right>
                     <height>150</height>
                     <width>1000</width>
-                    <top>540</top>
+                    <top>600</top>
                     <include condition="[Skin.HasSetting(StudioInFooter) | Skin.HasSetting(IMDBRatingInFooter) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(RTRatingInFooter)]">AltRatingFooter</include>
 					<visible>Skin.HasSetting(View525_UseFixedLayout)</visible>
 				</control>
@@ -170,9 +170,9 @@
                     <include condition="[Skin.HasSetting(StudioInFooter) | Skin.HasSetting(IMDBRatingInFooter) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(RTRatingInFooter)]">AltRatingFooter</include>
 					<visible>!Skin.HasSetting(View525_UseFixedLayout)</visible>
                 </control>
-				<!-- CAST on Trailer -->
+				<!-- CAST on Trailer -100 -->
 				<control type="panel"> 
-					<top>700</top>
+					<top>780</top>
 					<left>630</left>
 					<height>300</height>
 					<width>1260</width>
@@ -228,7 +228,7 @@
 			<include condition="Skin.HasSetting(View525_UseFixedLayout)">View525_layout_fixed</include>
 			<include condition="!Skin.HasSetting(View525_UseFixedLayout)">View525_layout_normal</include>
 			<control type="image">
-				<bottom>118</bottom>
+				<bottom>38</bottom>
 				<left>48</left>
 				<width>484</width>
 				<height>274</height>
@@ -255,7 +255,7 @@
 				<visible>Skin.HasSetting(View525_UseFixedLayout) + Skin.HasSetting(View525_ShowCDart)</visible>
                 <width>200</width>
                 <height>200</height>
-				<bottom>80</bottom>
+				<bottom>10</bottom>
                 <posx>480</posx>
 				<fadetime>300</fadetime>
 				<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
@@ -304,7 +304,7 @@
             <focusposition>0</focusposition>
 			 <orientation>horizontal</orientation>
 			 <left>50</left>
-			 <bottom>120</bottom>
+			 <bottom>40</bottom>
 			 <height>270</height>
 			 <pagecontrol>60</pagecontrol>
 			 <!-- <movement>4</movement> will not move focus frame -->

@@ -51,7 +51,7 @@
 				<visible>[$EXP[IsNetflixLayout] | [Control.IsVisible(507) + !Skin.HasSetting(View507_ShowInfo) + Skin.HasSetting(507_UseOverlay)]] | [!Control.IsVisible(507) + [[Skin.HasSetting(BackgroundOverlayMediaViewOnly) + !Window.IsActive(home)] | [Skin.HasSetting(BackgroundOverlayHomeOnly) + String.StartsWith(Window.Property(xmlfile),Home)] | [!Skin.HasSetting(BackgroundOverlayMediaViewOnly) + !Skin.HasSetting(BackgroundOverlayHomeOnly)]]]</visible>
 				<texture fallback="diffuse/background.png">$VAR[BackgroundOverlayTexture]</texture>
 				<colordiffuse>$VAR[BackgroundOverlayTexture_Colordiffuse]</colordiffuse>
-				<animation effect="fade" start="100" end="40" delay="200" time="1500" pulse="false" condition="Player.HasVideo">Conditional</animation>
+				<animation effect="fade" start="100" end="40" delay="200" time="1500" pulse="false" condition="Player.HasVideo + !$EXP[IsNetflixLayout]">Conditional</animation>
 			</control>
 		</control>
         <!-- Snow Effect -->

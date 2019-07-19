@@ -2455,7 +2455,6 @@
             <control type="radiobutton" id="31205">
                 <include>SkinSettings_Button</include>
                 <label>Lock Widgets in Hubs</label>
-                <visible>Skin.String(HomeLayout,netflix2)</visible>
                 <onclick>Skin.ToggleSetting(LockHubWidgets)</onclick>
                 <selected>Skin.HasSetting(LockHubWidgets)</selected>
             </control>

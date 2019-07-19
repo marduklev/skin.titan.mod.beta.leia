@@ -314,7 +314,7 @@
 			<preloaditems>2</preloaditems>
 			<movement>$PARAM[movement]</movement>
 			<orientation>horizontal</orientation>
-			<height>380</height>
+			<height>385</height>
 			<visible>$PARAM[visible]</visible>
 			<itemlayout height="$PARAM[height]" width="$PARAM[width]">
 				<control type="group">

@@ -298,8 +298,10 @@
 	<!-- Netflix Home 2 -->
 	<include name="HomeNetflix2">
 		<control type="group" id="9000">
-            <animation time="300" effect="fade" start="100" end="40" reversible="true" easing="inout" condition="ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)">Conditional</animation>
+            <animation time="300" effect="fade" start="100" end="40" reversible="true" easing="inout" condition="ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(40003)">Conditional</animation>
 			<include>NetflixHome_PanelSlide</include>
+			
+			
 			
 			<!-- spotlight previewwindow section right check if property needed-->
 			<control type="group">
@@ -699,8 +701,17 @@
                 <include name="WidgetsAutoRotate" content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
                     <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
                 </include>
-				<include>1stRow_AlignmentCorrection</include>
-				<include>skinshortcuts-template-Widgets</include>
+				<include condition="Window.IsActive(Home)">1stRow_AlignmentCorrection</include>
+				
+				<control type="group" id="77999">
+					<visible>!Window.IsActive(Home)</visible>
+					<height>25</height>
+					<description>temp circumstance wrong positioning 1st widget Netflix HUBS</description>
+				</control>
+				
+				<include condition="Window.IsActive(Home)">skinshortcuts-template-Widgets</include>
+				<include condition="Window.IsActive(3018)">netflix_items_movies</include>
+                <include condition="Window.IsActive(3017)">netflix_items_tvshows</include>
             </control>
 
             
@@ -839,7 +850,7 @@
 				<onfocus>SetProperty(DontFocusSpotlightButtons,true,Home)</onfocus>
 				<onfocus>ClearProperty(FocusSpotlightButtons, Home)</onfocus>
 				
-				<onback>40003</onback>
+				<onback condition="![Window.IsActive(3017) | Window.IsActive(3018)]">40003</onback>
                 <onup>300</onup>
                 <ondown condition="!Skin.HasSetting(EnhancedHome_Circular)">300</ondown>
 				<ondown condition="Skin.HasSetting(EnhancedHome_Circular)">40003</ondown>
@@ -1092,36 +1103,43 @@
         <value>$VAR[NetFlixHomeSpotLightWidgetContent]</value>
     </variable>
 
-    <!-- Netflix Customhub Item -->
+    <!-- Netflix Customhub Item 
+	need cond height, based on def widget layout - for item layouts with high height value 
+	eg. 
+	 <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="5">diffuse/gradient-osdslim.png</texturefocus>
+			
+	<include content="height" condition="String.Contains(Skin.String(widgetstyle),poster)">
+		<param name="height" value="370" />
+	-->
     <include name="netflix_customhub_item">
         <control type="label" id="$PARAM[widgetid]3">
-            <width>100%</width>
-            <height>40</height>
+            <top>20</top>
+			<height>55</height>
+			<width>100%</width>
             <align>left</align>
-            <font>Reg28</font>
-            <textoffsetx>65</textoffsetx>
-            <label>[B]$INFO[Skin.String($PARAM[skinsetting].label)][/B]</label>
+            <font>Bold30</font>
+            <label>$INFO[Skin.String($PARAM[skinsetting].label)]</label>
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-            <texturenofocus></texturenofocus>
             <visible>Skin.String($PARAM[skinsetting].label) + Skin.HasSetting(LockHubWidgets)</visible>
         </control>
-        <control type="button" id="$PARAM[widgetid]4">
-            <width>100%</width>
-            <height>40</height>
+		<control type="button" id="$PARAM[widgetid]4">
+			<top>20</top>
+			<width>100%</width>
+            <height>55</height>
             <align>left</align>
             <font>Reg32</font>
             <textoffsetx>5</textoffsetx>
-            <label>$INFO[Skin.String($PARAM[skinsetting].label)]</label>
+            <label>$INFO[Skin.String(widgetstyle)] - $INFO[Skin.String($PARAM[skinsetting].label)]</label>
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-            <texturenofocus></texturenofocus>
-            <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+           <texturenofocus/>
+			<visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
         </control>
         <control type="button" id="$PARAM[widgetid]5">
-            <width>100%</width>
-            <height>40</height>
+            <top>20</top>
+			<width>100%</width>
+            <height>55</height>
             <align>left</align>
             <font>Reg32</font>
             <textoffsetx>5</textoffsetx>
@@ -1129,13 +1147,14 @@
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-            <texturenofocus></texturenofocus>
-            <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+            <texturenofocus/>
+			<visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
         </control>
         <control type="multiimage" id="$PARAM[widgetid]6">
-            <left>65</left>
+            <top>40</top>
+			<left>165</left>
             <width>100%</width>
-            <height>80</height>
+            <height>55</height>
             <aspectratio align="left">keep</aspectratio>
             <imagepath>busy_spinner/</imagepath>
             <timeperimage>100</timeperimage>
@@ -1145,9 +1164,17 @@
         </control>
 		<control type="panel" id="$PARAM[widgetid]">
             <width>100%</width>
-            <orientation>horizontal</orientation>
-            
-            <include name="$PARAM[widgetStyle]" content="$PARAM[widgetStyle]">
+			<top>40</top>
+			
+			<include content="height" condition="String.Contains(Skin.String(widgetstyle),poster)">
+				<param name="height" value="385" />
+			</include>
+			<include content="height" condition="String.Contains(Skin.String(widgetstyle),landscapewidedetails)">
+				<param name="height" value="395" />
+			</include>
+			
+			<orientation>horizontal</orientation>
+			<include content="$PARAM[widgetStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="widgetTags" value="WidgetTagOverlayDisable" />
                 <param name="multiRows" value="false" />

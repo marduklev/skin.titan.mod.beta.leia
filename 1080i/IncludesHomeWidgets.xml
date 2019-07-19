@@ -1887,7 +1887,7 @@
 		</control>
 	
     </include>
-	<!-- header as button button -->
+	<!-- header as button -->
     <include name="widget_header_single">
 	
         <control type="radiobutton" id="$PARAM[mainmenuid]505">

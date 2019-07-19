@@ -18,7 +18,7 @@
 	
 	<!-- slide PANEL width 405 on focus MENU -->
 	<include name="NetflixHome_PanelSlide">
-		<animation type="Conditional" condition="String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
+		<animation type="Conditional" condition="String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300) | Control.HasFocus(40003)">
 			<effect type="slide" start="0" end="315" time="300" delay="0" tween="cubic" easing="inout" />
 		</animation>
 	</include>
@@ -666,7 +666,7 @@ Container(id).ListItem(offset).Thumb
 				<top>$PARAM[tagtop]</top>
 				<left>5</left>
 				<right>5</right>
-				<height>47</height>
+				<height>50</height>
 				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
 				<align>left</align>
 				<label>$VAR[ThumbListDetails]</label>
@@ -681,7 +681,7 @@ Container(id).ListItem(offset).Thumb
 				<visible>!$EXP[NetflixHomeIsVisible]</visible>
 				<width>$PARAM[tagwidth]</width>
 				<top>$PARAM[tagtop]</top>
-				<height>47</height>
+				<height>52</height>
 				<left>5</left>
 				<right>5</right>
 				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>

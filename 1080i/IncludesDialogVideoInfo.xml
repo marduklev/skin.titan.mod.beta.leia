@@ -633,9 +633,9 @@
 				<animation effect="slide" end="0,-910" time="1000" tween="cubic" reversible="false" condition="String.IsEqual(Window.Property(AdditionalInfo),infocontainer)">conditional</animation>
 				<animation effect="slide" start="0,-910" end="0,-0" time="800" tween="cubic" reversible="false" condition="!String.IsEqual(Window.Property(AdditionalInfo),infocontainer)">conditional</animation>
 				
-				<top>1090</top>
+				<top>1085</top>
 				<left>120</left>
-				<height>885</height>
+				<height>890</height>
 				<width>1730</width>
 				<scrolltime tween="quadratic">400</scrolltime>
 				<onup>SetFocus(8006)</onup>
@@ -646,7 +646,7 @@
 				<usecontrolcoords>true</usecontrolcoords>
 				
 				<control type="group" id="8400">
-					<height>-15</height>
+					<height>-20</height>
 					<description>thanks to jurialmunkey,workaroung for positioning</description>
 				</control>
 				<!-- MovieSet -->
@@ -716,8 +716,8 @@
 				<include content="VideoInfo_Container">
 					<param name="type" value="panel" />
 					<param name="id" value="8602" />
-					<param name="width" value="224" />
-					<param name="height" value="336" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
 					<param name="layout" value="PosterPanelLayout" />
 					<param name="visible" value="Integer.IsGreater(Container(8601).NumItems,0) | Container(8601).IsUpdating" />
 					<content target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(8601).ListItem.Label]%22%5D%7D%2C%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22isnot%22%2C%22value%22%3A%5B%22$INFO[Window(home).Property(EncodedTitle)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
@@ -739,8 +739,8 @@
 				<include content="VideoInfo_Container">
 					<param name="type" value="panel" />
 					<param name="id" value="8603" />
-					<param name="width" value="224" />
-					<param name="height" value="336" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
 					<param name="layout" value="PosterPanelLayout" />
 					<param name="visible" value="!String.IsEmpty(ListItem.Director) + [Integer.IsGreater(Container(8603).NumItems,0) | Container(8603).IsUpdating]" />
 					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8603).NumItems,0) | Container(8603).IsUpdating">Conditional</animation>
@@ -757,8 +757,8 @@
 				<include content="VideoInfo_Container">
 					<param name="type" value="panel" />
 					<param name="id" value="8604" />
-					<param name="width" value="224" />
-					<param name="height" value="336" />
+					<param name="width" value="216" />
+					<param name="height" value="324" />
 					<param name="layout" value="PosterPanelLayout" />
 					<param name="visible" value="Integer.IsGreater(Container(8604).NumItems,0) | Container(8604).IsUpdating" />
 					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8604).NumItems,0) | Container(8604).IsUpdating">Conditional</animation>

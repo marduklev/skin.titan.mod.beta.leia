@@ -805,7 +805,7 @@ Container(id).ListItem(offset).Thumb
 			<font>
 				<name>Netflix_Title</name>
 				<filename>HelveticaNeueLt.ttf</filename>
-				<size>70</size>
+				<size>66</size>
 				<style>bold</style>
 				<linespacing>1.0</linespacing>
 			</font>

@@ -5,8 +5,8 @@
 	<onload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onload>
 	<onload condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">SetProperty(TrailerPlaying,windowed,Home)</onload>
 	<onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">ClearProperty(BaseWindow,Home)</onload>
-	<onload condition="[ContainerContent(episodes) | String.IsEqual(ListItem.DBTYPE,episode)] + [Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog)]">RunScript(script.embuary.helper,action=encode,string='"$INFO[ListItem.TVShowTitle]"',prop=DecodedTitle)</onload>
-	<onload condition="![ContainerContent(episodes) | String.IsEqual(ListItem.DBTYPE,episode)] + [Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog)]">RunScript(script.embuary.helper,action=encode,string='"$INFO[ListItem.Label]"',prop=DecodedTitle)</onload>
+	<onload condition="[ContainerContent(episodes) | String.IsEqual(ListItem.DBTYPE,episode)] + [Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog)]">RunScript(script.embuary.helper,action=encode,string='"$INFO[ListItem.TVShowTitle]"',prop=EncodedTitle)</onload>
+	<onload condition="![ContainerContent(episodes) | String.IsEqual(ListItem.DBTYPE,episode)] + [Skin.HasSetting(UseEnhancedDialog) + !Skin.HasSetting(UseExtendedInfoDialog)]">RunScript(script.embuary.helper,action=encode,string='"$INFO[ListItem.Label]"',prop=EncodedTitle)</onload>
 	<onload>ClearProperty(AdditionalInfo)</onload>
 	
 	<onunload>ClearProperty(DecodedTitle,home)</onunload>	

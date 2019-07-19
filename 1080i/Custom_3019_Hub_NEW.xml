@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Titan experiment -->
+<window type="window" id="3019">
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<onload>SetFocus(9000)</onload>
+	<onload>ClearProperty(ShowViewSubMenu, Home)</onload>
+	
+	<onunload>ClearProperty(ShowViewSubMenu, Home)</onunload>
+	
+	<controls>
+		<include>GlobalBackground</include>
+		
+		<!-- HUB decide one hub for all, or 1 Hub for each-->
+		<control type="group" id="9000">
+            
+			<!-- MAIN Sources , maybe switch to a button list with custom actions, being more customizable
+
+				add visible condition based on option or focused 30190 item for hub containers -->
+			<control type="grouplist" id="30190">
+				<left>100</left>
+				<top>50</top>
+                <bottom>5</bottom>
+				<width>1750</width>
+				<orientation>vertical</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<scrolltime tween="cubic" easing="in">300</scrolltime>
+				<!-- <pagecontrol></pagecontrol> -->
+				<ondown>30191</ondown>
+				<onup>30191</onup>
+                
+				<include content="HUB_Container">
+					<param name="type" value="fixedlist" />
+					<param name="id" value="7600" />
+					
+					<focusposition>3</focusposition>
+					<param name="ButtonTexture" value="Genre_Red.png" />
+					
+					<param name="tagoverlay" value="true" />
+					<param name="tagbottom" value="false" />
+					
+					
+					
+					<param name="itemwidth" value="240" />
+					<param name="itemheight" value="100" />
+					<param name="width" value="250" />
+					<param name="height" value="105" />
+					<param name="layout" value="HUB_Layouts" />
+					<param name="visible" value="Integer.IsGreater(Container(7600).NumItems,0) | Container(7600).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(7600).NumItems,0) | Container(7600).IsUpdating">Conditional</animation>
+					
+					<content>library://video/</content>
+				</include>
+			</control>
+			
+			
+			
+			
+			<!-- HUB Containers based on Focused Content-->
+            <control type="grouplist" id="30191">
+				
+				<left>100</left>
+				
+				<top>200</top>
+                
+				<bottom>5</bottom>
+				
+				<width>1750</width>
+				<orientation>vertical</orientation>
+				
+				<usecontrolcoords>true</usecontrolcoords>
+				<scrolltime tween="cubic" easing="in">300</scrolltime>
+				<itemgap>-40</itemgap>
+                <!-- <pagecontrol></pagecontrol> -->
+				<onup>30190</onup>
+				<ondown>30191</ondown>
+                
+				<!-- SECTIONS MOVIE -->
+				<include content="VideoInfo_ContainerHeader">
+					<param name="groupid" value="8500" />
+					<param name="id" value="8600" />
+					<param name="label" value="" />
+					<visible>Control.IsVisible(8600)</visible>
+				</include>
+				<include content="HUB_Container">
+					<param name="type" value="panel" />
+					<param name="id" value="8600" />
+					<param name="tagoverlay" value="false" />
+					<param name="tagbottom" value="true" />
+					<param name="itemwidth" value="140" />
+					<param name="itemheight" value="140" />
+					<param name="width" value="190" />
+					<param name="height" value="110" />
+					<param name="layout" value="Circle_Layout" />
+					<param name="visible" value="Integer.IsGreater(Container(8600).NumItems,0) | Container(8600).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8600).NumItems,0) | Container(8600).IsUpdating">Conditional</animation>
+					
+					<content>videodb://movies/</content>
+				</include>
+				
+				<!-- GENRES MOVIE -->
+				<include content="VideoInfo_ContainerHeader">
+					<param name="groupid" value="8501" />
+					<param name="id" value="8601" />
+					<param name="label" value="" />
+					<visible>Control.IsVisible(8601)</visible>
+				</include>
+				<include content="HUB_Container">
+					<param name="type" value="panel" />
+					<param name="id" value="8601" />
+					<param name="ButtonTexture" value="Genre_Red.png" />
+					<param name="tagoverlay" value="true" />
+					<param name="tagbottom" value="false" />
+					<param name="itemwidth" value="300" />
+					<param name="itemheight" value="150" />
+					<param name="width" value="300" />
+					<param name="height" value="150" />
+					<param name="layout" value="HUB_Layouts" />
+					<param name="visible" value="Integer.IsGreater(Container(8601).NumItems,0) | Container(8601).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8601).NumItems,0) | Container(8601).IsUpdating">Conditional</animation>
+					<content>videodb://movies/genres/</content>
+				</include>
+				
+				<!-- NEW MOVIES -->
+				<include content="VideoInfo_ContainerHeader">
+					<param name="groupid" value="8502" />
+					<param name="id" value="8602" />
+					<param name="label" value="NEW" />
+					<visible>Control.IsVisible(8602)</visible>
+				</include>
+				<include content="VideoInfo_Container">
+					<param name="type" value="panel" />
+					<param name="id" value="8602" />
+					<param name="width" value="200" />
+					<param name="height" value="300" />
+					<param name="layout" value="PosterPanelLayout" />
+					<param name="visible" value="Integer.IsGreater(Container(8602).NumItems,0) | Container(8602).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8602).NumItems,0) | Container(8602).IsUpdating">Conditional</animation>
+					<content>videodb://recentlyaddedmovies/</content>
+				</include>
+				
+				<!-- ACTORS -->
+				<!-- <include content="VideoInfo_ContainerHeader">
+					<param name="groupid" value="8503" />
+					<param name="id" value="8603" />
+					<param name="label" value="ACTORS" />
+					<visible>Control.IsVisible(8603)</visible>
+				</include>
+				<include content="VideoInfo_Container">
+					<param name="type" value="panel" />
+					<param name="id" value="8603" />
+					<param name="width" value="200" />
+					<param name="height" value="300" />
+					<param name="layout" value="PosterPanelLayout" />
+					<param name="visible" value="Integer.IsGreater(Container(8603).NumItems,0) | Container(8603).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8603).NumItems,0) | Container(8603).IsUpdating">Conditional</animation>
+					<content>videodb://movies/actors/</content>
+				</include> -->
+				
+				<!-- addons://sources/video/  MOVIE -->
+				<include content="VideoInfo_ContainerHeader">
+					<param name="groupid" value="8504" />
+					<param name="id" value="8604" />
+					<param name="label" value="Video Addons" />
+					<visible>Control.IsVisible(8604)</visible>
+				</include>
+				<include content="VideoInfo_Container">
+					<param name="type" value="panel" />
+					<param name="id" value="8604" />
+					<param name="width" value="400" />
+					<param name="height" value="200" />
+					<param name="layout" value="ThumbsViewLayout" />
+					<param name="visible" value="Integer.IsGreater(Container(8604).NumItems,0) | Container(8604).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8604).NumItems,0) | Container(8604).IsUpdating">Conditional</animation>
+					
+					<content>addons://sources/video/</content>
+				</include>
+				<!-- SECTIONS MOVIE -->
+				<include content="VideoInfo_ContainerHeader">
+					<param name="groupid" value="8505" />
+					<param name="id" value="8605" />
+					<param name="label" value="" />
+					<visible>Control.IsVisible(8605)</visible>
+				</include>
+				<include content="VideoInfo_Container">
+					<param name="type" value="panel" />
+					<param name="id" value="8605" />
+					<param name="width" value="150" />
+					<param name="height" value="100" />
+					<param name="layout" value="Circle_Layout" />
+					<param name="visible" value="Integer.IsGreater(Container(8605).NumItems,0) | Container(8605).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8605).NumItems,0) | Container(8605).IsUpdating">Conditional</animation>
+					
+					<content>library://video/</content>
+				</include>
+				<!-- SECTIONS MOVIE -->
+				<include content="VideoInfo_ContainerHeader">
+					<param name="groupid" value="8506" />
+					<param name="id" value="8606" />
+					<param name="label" value="" />
+					<visible>Control.IsVisible(8606)</visible>
+				</include>
+				<include content="VideoInfo_Container">
+					<param name="type" value="panel" />
+					<param name="id" value="8606" />
+					<param name="width" value="150" />
+					<param name="height" value="100" />
+					<param name="layout" value="Circle_Layout" />
+					<param name="visible" value="Integer.IsGreater(Container(8606).NumItems,0) | Container(8606).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8606).NumItems,0) | Container(8606).IsUpdating">Conditional</animation>
+					
+					<content>library://video/</content>
+				</include>
+				<!-- SECTIONS MOVIE -->
+				<include content="VideoInfo_ContainerHeader">
+					<param name="groupid" value="8507" />
+					<param name="id" value="8607" />
+					<param name="label" value="" />
+					<visible>Control.IsVisible(8607)</visible>
+				</include>
+				<include content="VideoInfo_Container">
+					<param name="type" value="panel" />
+					<param name="id" value="8607" />
+					<param name="width" value="150" />
+					<param name="height" value="100" />
+					<param name="layout" value="Circle_Layout" />
+					<param name="visible" value="Integer.IsGreater(Container(8607).NumItems,0) | Container(8607).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8607).NumItems,0) | Container(8607).IsUpdating">Conditional</animation>
+					
+					<content>library://video/</content>
+				</include>
+				<!-- SECTIONS MOVIE -->
+				<include content="VideoInfo_ContainerHeader">
+					<param name="groupid" value="8508" />
+					<param name="id" value="8608" />
+					<param name="label" value="" />
+					<visible>Control.IsVisible(8608)</visible>
+				</include>
+				<include content="VideoInfo_Container">
+					<param name="type" value="panel" />
+					<param name="id" value="8608" />
+					<param name="width" value="150" />
+					<param name="height" value="100" />
+					<param name="layout" value="Circle_Layout" />
+					<param name="visible" value="Integer.IsGreater(Container(8608).NumItems,0) | Container(8608).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8608).NumItems,0) | Container(8608).IsUpdating">Conditional</animation>
+					
+					<content>library://video/</content>
+				</include>
+			
+			</control>
+
+            
+        </control>
+	
+	
+	
+	
+	</controls>
+</window>

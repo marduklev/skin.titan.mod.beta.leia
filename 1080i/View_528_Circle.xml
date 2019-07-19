@@ -23,8 +23,8 @@
 		<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),528) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
         <itemlayout height="405" width="355">
             <control type="group">
-                <width>300</width>
-                <height>300</height>
+                <width>310</width>
+                <height>310</height>
 				<include content="Circle_Layout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
                     <param name="bordersize" value="4" />

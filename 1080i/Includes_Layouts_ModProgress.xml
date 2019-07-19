@@ -795,7 +795,7 @@ Container(id).ListItem(offset).Thumb
 			<font>
 				<name>Title_CircleC_Header46</name>
 				<filename>circlec.ttf</filename>
-				<size>46</size>
+				<size>48</size>
 			</font>
 		</include>
 		

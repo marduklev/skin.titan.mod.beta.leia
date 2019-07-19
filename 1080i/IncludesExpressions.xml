@@ -8,6 +8,7 @@
 			<expression name="IsNetflixLayout">
 				[[Window.IsActive(Home) + !Window.IsActive(movieinformation) + String.Contains(Skin.String(HomeLayout),netflix)] | 
 				 [Window.IsActive(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)] | 
+				  Window.IsActive(3017) | Window.IsActive(3018) | 
 				 Control.IsVisible(523) | 
 				 Control.IsVisible(525) | 
 				[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] |

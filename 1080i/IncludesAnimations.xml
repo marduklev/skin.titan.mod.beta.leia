@@ -537,11 +537,15 @@
 	</include>
 	
 	<!-- check need includes in views depending to String.IsEmpty(ListItem.Trailer) / ListItem.Trailer = Shows the full trailer path with filename of the currently selected movie in a container -->
-    
+	<!--   just slightly slower in ms ,but keep emb.helper,
+	<onfocus>RunScript(script.embuary.helper,action=lookforfile,file='"$INFO[listitem.path]$INFO[listitem.FolderName,,-trailer.mp4]"',prop=trailer_avail)</onfocus>
+	<onfocus>RunScript(script.video.checktvtrailer)</onfocus>
+	
+	-->
 	<include name="AutoTrailerButton">
 		<control type="button">
 			<visible>false</visible>
-			<onfocus>RunScript(script.video.checktvtrailer)</onfocus>
+			<onfocus>RunScript(script.embuary.helper,action=lookforfile,file='"$INFO[listitem.path]$INFO[listitem.FolderName,,-trailer.mp4]"',prop=trailer_avail)</onfocus>
 			<onfocus condition="!Player.HasVideo">SetProperty(trailer_trailerwillplaying,true,home)</onfocus>
 			<onfocus condition="!Skin.HasSetting(Library_NoOnlineLookupTrailer) + !Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$VAR[TVShowTitle],local=true),00:03,silent)</onfocus>
 			<onfocus condition="Skin.HasSetting(Library_NoOnlineLookupTrailer) + !Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer)">AlarmClock(trailer_delay,PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1),00:03,silent)</onfocus>

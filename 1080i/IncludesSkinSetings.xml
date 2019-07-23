@@ -884,13 +884,11 @@
                 <onclick>Skin.ToggleSetting(EnableFakeDiscArt)</onclick>
                 <selected>Skin.HasSetting(EnableFakeDiscArt)</selected>
             </control>
-			<control type="radiobutton" id="17191">
-                <font>Title_CircleC_Header46</font>
-				<include>SkinSettings_Button</include>
-                <label>Use Alternative &quot;Title&quot; Font (WIP - Netflix(523) if No Clearlogo avail)</label>
-               
-				<onclick>Skin.ToggleSetting(Alt_Header_Font)</onclick>
-                <selected>Skin.HasSetting(Alt_Header_Font)</selected>
+			<control type="radiobutton" id="17192">
+                <include>SkinSettings_Button</include>
+                <label>Use Netflix FontStyle in Netflix Views, NOTE: missing Cyrillic style</label>
+                <onclick>Skin.ToggleSetting(UseHelveticaNeueNetflix_font)</onclick>
+                <selected>Skin.HasSetting(UseHelveticaNeueNetflix_font)</selected>
             </control>
 			
 			<!-- Header studio Lib -->

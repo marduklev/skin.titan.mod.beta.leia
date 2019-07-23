@@ -592,7 +592,8 @@
 				<aligny>center</aligny>
 				<align>center</align>
 				<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
-				<font>Netflix_DetailRow_Codec</font>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow_Codec</include>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow_Codec</include>
 				<scroll>false</scroll>
 				<label>$PARAM[infolabel]</label>
 			</control>

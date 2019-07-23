@@ -421,8 +421,8 @@
 						<height>235</height>
 						<width>600</width>
 						<wrapmultiline>true</wrapmultiline>
-						<include condition="Skin.HasSetting(Alt_Header_Font)">Netflix_HeaderFont_Big_CC</include>
-						<include condition="!Skin.HasSetting(Alt_Header_Font)">Netflix_HeaderFont_Big_Default</include>
+						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Title</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_Title</include>
 						<align>left</align>
 						<aligny>bottom</aligny>
 						 <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
@@ -457,8 +457,8 @@
                             <visible>!Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
                             <height>25</height>
                             <width>600</width>
-                            <font>Netflix_Plot</font>
-                            <align>left</align>
+                            <include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>                            <align>left</align>
                             <aligny>center</aligny>
                             <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
                             <label>[CAPITALIZE][B]$LOCALIZE[31212][/B][/CAPITALIZE]</label>
@@ -467,8 +467,8 @@
                         <control type="label">
                             <height>25</height>
                             <width>650</width>
-                            <font>Netflix_Plot</font>
-                            <align>left</align>
+                            <include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>                            <align>left</align>
 							<aligny>center</aligny>
                             <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
                             <label>$VAR[NetflixEpisodeInfoLabel]</label>
@@ -498,8 +498,8 @@
                                 <left>175</left>
                                 <height>30</height>
                                 <width>600</width>
-								<font>Netflix_Plot</font>
-                                <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+								<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>                                <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
                                 <label>[B]$LOCALIZE[31535][/B]</label>
                             </control>
                         </control>
@@ -514,8 +514,8 @@
 						<label>$VAR[HomeMenuWidgetInfoPlot]</label>
 						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 						<align>left</align>
-						<font>Netflix_Plot</font>
-					</control>
+						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>					</control>
 					<!-- PLOT common -->
 					<control type="textbox">
 						<visible>![String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)]</visible>
@@ -524,8 +524,8 @@
 						<label>$VAR[HomeMenuWidgetInfoPlot]</label>
 						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 						<align>left</align>
-						<font>Netflix_Plot</font>
-					</control>
+						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>					</control>
 					<!-- decide to use random info (cast,genre,director,nominations sometime -->
 					<control type="group">
 						<visible>String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>

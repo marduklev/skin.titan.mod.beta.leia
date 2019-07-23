@@ -154,7 +154,8 @@
 					<top>50</top>
 					<height>80</height>
 					<wrapmultiline>true</wrapmultiline>
-					<font>Netflix_Title</font>
+					<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Title</include>
+					<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_Title</include>
 					<align>left</align>
 					<aligny>bottom</aligny>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -192,8 +193,8 @@
 					</visible>
 					<height>50</height>
 					<label>$VAR[value_subheader]</label>
-					<font>Netflix_Plot</font>
-					<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+					<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>					<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 				</control>
 				
 				<!-- PLOT -->
@@ -203,8 +204,8 @@
 					<label>$VAR[Plots]</label>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 					<align>left</align>
-					<font>Netflix_Plot</font>
-				</control>
+					<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				</control>
 				<!-- spacer -->
 				<control type="label">
 					<width>1</width>
@@ -270,8 +271,8 @@
 					<!-- YEAR -->
 					<control type="label">
 						<width min="50">auto</width>
-						<font>Netflix_Plot</font>
-						<top>15</top>
+						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>						<top>15</top>
 						<label>$VAR[premiere_date,[B],[/B]]</label>
 						<!-- <label>$INFO[ListItem.Year,[B],[/B]]</label> -->
 						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -282,8 +283,8 @@
 						<top>25</top>
 						<left>10</left>
 						<width min="50">auto</width>
-						<font>Netflix_Plot</font>
-						<label>$VAR[RatingFlagVar]</label>
+						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>						<label>$VAR[RatingFlagVar]</label>
 						<aligny>top</aligny>
 						<align>center</align>
 						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -1029,8 +1030,8 @@
 				<left>-10</left>
 				<width>250</width>
 				<height>40</height>
-				<font>Netflix_Plot</font>
-				<aligny>center</aligny>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
 				<align>right</align>
 				<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 				<label>$PARAM[Info]</label>
@@ -1046,8 +1047,8 @@
 				<left>300</left>
 				<width>730</width>
 				<height>40</height>
-				<font>Netflix_Plot</font>
-				<aligny>center</aligny>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
 				<align>left</align>
 				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 				<label>$PARAM[InfoLabel]</label>
@@ -1066,8 +1067,8 @@
 				<left>-10</left>
 				<width>250</width>
 				<height>40</height>
-				<font>Netflix_Plot</font>
-				<aligny>center</aligny>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
 				<align>right</align>
 				<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 				<label>$PARAM[Info]</label>
@@ -1180,8 +1181,8 @@
 				<left>-10</left>
 				<width>250</width>
 				<height>40</height>
-				<font>Netflix_Plot</font>
-				<aligny>center</aligny>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
 				<align>right</align>
 				<textcolor>red</textcolor>
 				<label>$PARAM[Info]</label>
@@ -1198,8 +1199,8 @@
 				<left>295</left>
 				<width>630</width>
 				<height>40</height>
-				<font>Netflix_Plot</font>
-				<aligny>center</aligny>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
 				<align>left</align>
 				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 				<label>$PARAM[InfoLabel]</label>

@@ -97,7 +97,8 @@ Container(id).ListItem(offset).Thumb
 				<height>35</height>
 				<width>auto</width>
 				<aligny>center</aligny>
-				<font>Netflix_DetailRow</font>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
 				<label>$VAR[premiered,[B],[/B]]</label>
 				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 			</control>
@@ -119,7 +120,8 @@ Container(id).ListItem(offset).Thumb
 			<!-- mpaa -->
 			<control type="button">
 				<width min="50">auto</width>
-				<font>Netflix_DetailRow</font>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
 				<label>$VAR[RatingFlagVar,[B],[/B]]</label>
 				<aligny>top</aligny>
 				<align>center</align>
@@ -139,7 +141,8 @@ Container(id).ListItem(offset).Thumb
 				<height>35</height>
 				<aligny>center</aligny>
 				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-				<font>Netflix_DetailRow</font>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
 			</control>
 			
 			<!-- Resolution -->
@@ -211,7 +214,8 @@ Container(id).ListItem(offset).Thumb
 				<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
 				<align>left</align>
 				<aligny>center</aligny>
-				<font>Netflix_DetailRow</font>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
 			</control>
 	</include>
 	
@@ -252,7 +256,8 @@ Container(id).ListItem(offset).Thumb
                 <height>35</height>
                 <width>auto</width>
                 <aligny>center</aligny>
-                <font>Netflix_DetailRow</font>
+                <include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
                 <textcolor>green</textcolor> <!-- check, stay hardcoded? i dont think so -->
                 <label>$VAR[NewItem,[B],[/B]]</label>
                 <include>Default_Fade</include>
@@ -313,7 +318,8 @@ Container(id).ListItem(offset).Thumb
 				<height>35</height>
 				<width>auto</width>
 				<aligny>center</aligny>
-				<font>Netflix_DetailRow</font>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
 				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 				<label>$VAR[Year_Premiered_RecPVR,[B],[/B]]</label>
                 <include>Default_Fade</include>
@@ -324,19 +330,15 @@ Container(id).ListItem(offset).Thumb
 				<posy>4</posy>
 				<include>Default_Fade</include>
 				<width min="50">auto</width>
-				
-				<font>Netflix_DetailRow</font>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
 				<label>$VAR[RatingFlagVar,[B],[/B]]</label>
-				
 				<aligny>top</aligny>
 				<align>center</align>
 				<textcolor>$VAR[CodecSameLabelColorAsFrames]</textcolor>
 				<disabledcolor>$VAR[CodecSameLabelColorAsFrames]</disabledcolor>
 				<include condition="!Skin.HasSetting(NetflixMPAA)">Net_Mod_MPAA</include>
 				<include condition="Skin.HasSetting(NetflixMPAA)">Net_Origin_MPAA</include>
-				
-				
-				
 				<enable>false</enable>
 				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) | !String.IsEmpty(ListItem.Property(esrb))</visible>
 			</control>
@@ -350,7 +352,8 @@ Container(id).ListItem(offset).Thumb
 				<height>35</height>
 				<aligny>center</aligny>
 				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-				<font>Netflix_DetailRow</font>
+				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
                 <include>Default_Fade</include>
 			</control>
 			
@@ -656,44 +659,42 @@ Container(id).ListItem(offset).Thumb
 			<visible>Player.HasGame</visible>
 		</control>		
 	</include>
-	<!-- temp workaraound for tags -->
-		<!-- <font>Reg20</font> <font>TEST_TAGS</font> 	better font,shitty top align -->
-		<!-- itemlayout -->
-		<include name="Tag_NF">
-			<control type="textbox">
-				<visible>!$EXP[NetflixHomeIsVisible]</visible>
-				<width>$PARAM[tagwidth]</width>
-				<top>$PARAM[tagtop]</top>
-				<left>5</left>
-				<right>5</right>
-				<height>50</height>
-				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-				<align>left</align>
-				<label>$VAR[ThumbListDetails]</label>
-				<font>TEST_TAGS</font>
-				<autoscroll>false</autoscroll>
-				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-			</control>
-		</include>
-		<!-- focusedlayout -->
-		<include name="Tag_FO">
-			<control type="textbox">
-				<visible>!$EXP[NetflixHomeIsVisible]</visible>
-				<width>$PARAM[tagwidth]</width>
-				<top>$PARAM[tagtop]</top>
-				<height>52</height>
-				<left>5</left>
-				<right>5</right>
-				<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
-				<align>left</align>
-				<label>$VAR[ThumbListDetails]</label>
-				<font>TEST_TAGS</font>
-				<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
-				<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-			</control>
-		</include>
-		<!-- Tag Label Var -->
-		<variable name=""></variable>
+	
+	<!-- check, merge fo ,nf later -->
+	<!-- itemlayout -->
+	<include name="Tag_NF">
+		<control type="textbox">
+			<visible>!$EXP[NetflixHomeIsVisible]</visible>
+			<width>$PARAM[tagwidth]</width>
+			<top>$PARAM[tagtop]</top>
+			<left>5</left>
+			<right>5</right>
+			<height>50</height>
+			<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
+			<align>left</align>
+			<label>$VAR[ThumbListDetails]</label>
+			<font>Reg20</font>
+			<autoscroll>false</autoscroll>
+			<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
+		</control>
+	</include>
+	<!-- focusedlayout -->
+	<include name="Tag_FO">
+		<control type="textbox">
+			<visible>!$EXP[NetflixHomeIsVisible]</visible>
+			<width>$PARAM[tagwidth]</width>
+			<top>$PARAM[tagtop]</top>
+			<height>52</height>
+			<left>5</left>
+			<right>5</right>
+			<include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">aligncenter</include>
+			<align>left</align>
+			<label>$VAR[ThumbListDetails]</label>
+			<font>Reg20</font>
+			<autoscroll delay="3000" time="3000" repeat="500">true</autoscroll>
+			<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
+		</control>
+	</include>
 	
 	<!-- Zoom-InOut On focused Item ,includesanimations.xml -->
 		<include name="Focus_Zoom_Animation">
@@ -726,162 +727,42 @@ Container(id).ListItem(offset).Thumb
 		<animation effect="zoom" start="0,100" end="100,100" time="100" center="auto" tween="quadratic" easing="out" delay="100" reversible="false">Focus</animation>
 	</include>
 	
-	
-	<include name="Netflix_HeaderFont_Big_CC">
-		<font>Title_CircleC_Header70</font>
+	<!-- mod -->
+	<include name="Net_Mod_MPAA">
+		<posy>3</posy>
+		<height>44</height>
+		<textoffsetx>20</textoffsetx>
+		<textoffsety>4</textoffsety>
+		<texturenofocus border="-2" colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texturenofocus>
 	</include>
-	<include name="Netflix_HeaderFont_Big_Default">
-		<font>Netflix_Title</font>
-	</include>
 	
-	<!-- NEW FONTS WIP -->
-		<!-- TAGS -->
-		<include name="TEST12">
-			<font>
-				<name>TEST12</name>  
-				<filename>Alcubierre.ttf</filename>
-				<size>28</size>
-				<style>bold</style>
-				<aspect>1.0</aspect>
-				<linespacing>1.0</linespacing>
-			  </font>
-		</include>
+	<!-- net -->
+	<include name="Net_Origin_MPAA">
+		<posy>4</posy>
+		<texturenofocus colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/netflixmpaa.png</texturenofocus>
+		<height>36</height>
+		<textoffsetx>8</textoffsetx>
+		<textoffsety>2</textoffsety>
+	</include>
 		
-		<!-- HEADER -->
-		<include name="HEADER48">
-			<font>
-				<name>HEADER48</name>  
-				<filename>Alcubierre.ttf</filename>
-				<size>48</size>
-				<style>bold</style>
-				<aspect>1.5</aspect>
-				<linespacing>1.0</linespacing>
-			  </font>
-		</include>
-		<!-- 2row subHEADER -->
-		<include name="HEADER28">
-			<font>
-				<name>HEADER28</name>  
-				<filename>Alcubierre.ttf</filename>
-				<size>28</size>
-				<style>bold</style>
-				<aspect>1.0</aspect>
-				<linespacing>1.0</linespacing>
-			  </font>
-		</include>
+	<!-- net spotlight button layout -->
+	<include name="SpotlightButton_UseTransBG">
+		<texturefocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">diffuse/panel.png</texturefocus>
+		<texturenofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonNoFocusColor)]" border="5">diffuse/panel_trans.png</texturenofocus>
 		
-		<!-- FONTS -->
-		<include name="TEST_TAGS">
-			<font>
-				<name>TEST_TAGS</name>  
-				<filename>Alcubierre.ttf</filename>
-				<size>22</size>
-				<style>bold</style>
-				<aspect>1.0</aspect>
-				<linespacing>1.0</linespacing>
-			  </font>
-		</include>
+		<textureradioonfocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioonfocus>
+		<textureradioofffocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioofffocus>
 		
-		<!-- FONTS -->
-		<include name="Title_CircleC_Header70">
-			<font>
-				<name>Title_CircleC_Header70</name>
-				<filename>circlec.ttf</filename>
-				<size>70</size>
-			</font>
-		</include>
-		<!-- FONTS -->
-		<include name="Title_CircleC_Header46">
-			<font>
-				<name>Title_CircleC_Header46</name>
-				<filename>circlec.ttf</filename>
-				<size>48</size>
-			</font>
-		</include>
+		<textureradioonnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradioonnofocus>
+		<textureradiooffnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradiooffnofocus>
 		
-		<!-- Netflix Fonts Helvetica Neue -->
-		<!-- Title,no logo -->
-		<include name="Netflix_Title">
-			<font>
-				<name>Netflix_Title</name>
-				<filename>HelveticaNeueLt.ttf</filename>
-				<size>66</size>
-				<style>bold</style>
-				<linespacing>1.0</linespacing>
-			</font>
-		</include>
-		<!-- Detail row 1 -->
-		<include name="Netflix_DetailRow">
-			<font>
-				<name>Netflix_DetailRow</name>
-				<filename>HelveticaNeueLt.ttf</filename>
-				<size>25</size>
-				<linespacing>1.0</linespacing>
-			</font>
-		</include>
+		<textcolor>$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]</textcolor>                       
+		<focusedcolor>$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]</focusedcolor>
 		
-		<!-- Detail row 1 -->
-		<include name="Netflix_DetailRow_Codec">
-			<font>
-				<name>Netflix_DetailRow_Codec</name>
-				<filename>HelveticaNeue Medium.ttf</filename>
-				<size>26</size>
-				<style>bold</style>
-				<linespacing>1.0</linespacing>
-			</font>
-		</include>
-		
-		<!-- plot -->
-		<include name="Netflix_Plot">
-			<font>
-				<name>Netflix_Plot</name>
-				<filename>HelveticaNeueLt.ttf</filename>
-				<size>28</size>
-				<style>bold</style>
-				<aspect>1.06</aspect>
-				<linespacing>1.2</linespacing>
-			</font>
-		</include>
-		
-		<!-- mod -->
-		<include name="Net_Mod_MPAA">
-			<posy>3</posy>
-			<height>44</height>
-			<textoffsetx>20</textoffsetx>
-			<textoffsety>4</textoffsety>
-			<texturenofocus border="-2" colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texturenofocus>
-			
-		
-		</include>
-		
-		<!-- net -->
-		<include name="Net_Origin_MPAA">
-			<posy>4</posy>
-			<texturenofocus colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/netflixmpaa.png</texturenofocus>
-			<height>36</height>
-			<textoffsetx>8</textoffsetx>
-			<textoffsety>2</textoffsety>
-		</include>
-		
-		<!-- net spotlight button layout   
- !SpotlightButton_UseNF_Frame -->
-		<include name="SpotlightButton_UseTransBG">
-			<texturefocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]" border="5">diffuse/panel.png</texturefocus>
-			<texturenofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonNoFocusColor)]" border="5">diffuse/panel_trans.png</texturenofocus>
-			
-			<textureradioonfocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioonfocus>
-			<textureradioofffocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]">$PARAM[radiobutton]</textureradioofffocus>
-			
-			<textureradioonnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradioonnofocus>
-			<textureradiooffnofocus colordiffuse="$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]">$PARAM[radiobutton]</textureradiooffnofocus>
-			
-			<textcolor>$INFO[Skin.String(HomeSpotlightButtonFocusBGColor)]</textcolor>                       
-			<focusedcolor>$INFO[Skin.String(HomeSpotlightButtonFocusLabelColor)]</focusedcolor>
-			
-			<radioposx>15</radioposx>
-			<radiowidth>30</radiowidth>
-			<radioheight>30</radioheight>
-		</include>
+		<radioposx>15</radioposx>
+		<radiowidth>30</radiowidth>
+		<radioheight>30</radioheight>
+	</include>
 		
 		<!-- 	SpotlightButton_UseNF_Frame -->
 	<include name="SpotlightButton_UseFrame">

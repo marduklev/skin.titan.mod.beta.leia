@@ -7,23 +7,13 @@
 		<!-- proposed new titan fonts -->
 		<!--        				  -->
 		
-	
-	<!-- special header	-->
-		<!-- CIRCLE C, missing some special chars -->
-		<include>Title_CircleC_Header70</include>
-	<!--  tags -->
-		<!--BIG BOLD -->
-		<include>TEST12</include>
-		<!--DEFAULT BOLD -->
-		<include>TEST_TAGS</include>
-		<include>HEADER28</include>
-		<include>HEADER48</include>
 		<include>Title_CircleC_Header46</include>
 		<!-- Netflix fonts -->
 		<include>Netflix_Plot</include>
 		<include>Netflix_Title</include>
 		<include>Netflix_DetailRow</include>
 		<include>Netflix_DetailRow_Codec</include>
+		
         <font>
             <name>arial26</name>
             <filename>arial.ttf</filename>
@@ -1266,23 +1256,13 @@
 		<!-- proposed new titan fonts -->
 		<!--        				  -->
 		
-	<!-- special header	-->
-		<!-- CIRCLE C, missing some special chars -->
-		<include>Title_CircleC_Header70</include>
 		<include>Title_CircleC_Header46</include>
-	<!--  tags -->
-		<!--BIG BOLD -->
-		<include>TEST12</include>
-		<!--DEFAULT BOLD -->
-		<include>TEST_TAGS</include>
-		
-		<include>HEADER28</include>
-		<include>HEADER48</include>
 		<!-- Netflix fonts -->
 		<include>Netflix_Plot</include>
 		<include>Netflix_Title</include>
 		<include>Netflix_DetailRow</include>
-        <include>Netflix_DetailRow_Codec</include>
+		<include>Netflix_DetailRow_Codec</include>
+		
 		<font>
             <name>arial26</name>
             <filename>arial.ttf</filename>
@@ -2518,22 +2498,13 @@
 	
 	<fontset id="Arial" unicode="true">
         
-	<!-- special header	-->
-		<!-- CIRCLE C, missing some special chars -->
-		<include>Title_CircleC_Header70</include>
 		<include>Title_CircleC_Header46</include>
-	<!--  tags -->
-		<!--BIG BOLD -->
-		<include>TEST12</include>
-		<!--DEFAULT BOLD -->
-		<include>TEST_TAGS</include>
-		<include>HEADER28</include>
-		<include>HEADER48</include>
 		<!-- Netflix fonts -->
 		<include>Netflix_Plot</include>
 		<include>Netflix_Title</include>
 		<include>Netflix_DetailRow</include>
 		<include>Netflix_DetailRow_Codec</include>
+		
 		<!-- Required for system -->
         <font>
             <name>arial26</name>
@@ -3690,22 +3661,13 @@
 
 	<fontset id="classic Large" unicode="true">
 	
-	<!-- special header	-->
-		<!-- CIRCLE C, missing some special chars -->
-		<include>Title_CircleC_Header70</include>
 		<include>Title_CircleC_Header46</include>
-	<!--  tags -->
-		<!--BIG BOLD -->
-		<include>TEST12</include>
-		<!--DEFAULT BOLD -->
-		<include>TEST_TAGS</include>
-		<include>HEADER28</include>
-		<include>HEADER48</include>
 		<!-- Netflix fonts -->
 		<include>Netflix_Plot</include>
 		<include>Netflix_Title</include>
 		<include>Netflix_DetailRow</include>
 		<include>Netflix_DetailRow_Codec</include>
+		
 		<!-- Required for system -->
         <!-- Normal Fonts -->
 		
@@ -4311,22 +4273,13 @@
 		<!-- Condensed titan fonts -->
 		<!--    					  -->
 		
-	<!-- special header	-->
-		<!-- CIRCLE C, missing some special chars -->
-		<include>Title_CircleC_Header70</include>
 		<include>Title_CircleC_Header46</include>
-	<!--  tags -->
-		<!--BIG BOLD -->
-		<include>TEST12</include>
-		<!--DEFAULT BOLD -->
-		<include>TEST_TAGS</include>
-		<include>HEADER28</include>
-		<include>HEADER48</include>
 		<!-- Netflix fonts -->
 		<include>Netflix_Plot</include>
 		<include>Netflix_Title</include>
 		<include>Netflix_DetailRow</include>
 		<include>Netflix_DetailRow_Codec</include>
+		
 		<!-- confluence compatibility fonts -->
 		 
 		<font>

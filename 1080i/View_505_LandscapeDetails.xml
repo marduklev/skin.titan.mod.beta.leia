@@ -58,7 +58,7 @@
 						<include>AutoTrailerButton</include>
 						<control type="group">
 							<visible>Skin.HasSetting(View505_ShowTags)</visible>
-							<include content="Tag_NF">
+							<include content="Tag_FO">
 								<param name="tagwidth" value="570"/>
 								<param name="tagtop" value="330" />
 							</include>

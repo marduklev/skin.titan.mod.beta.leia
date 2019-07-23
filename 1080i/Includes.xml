@@ -3,6 +3,7 @@
     <include file="Defaults.xml" />
 	<include file="IncludesExpressions.xml" />
     <include file="IncludesVariables.xml" />
+	<include file="Includes_fonts.xml" />
     <include file="Includes_Layouts_ModProgress.xml" />
 	<include file="IncludesDialogVideoInfo.xml" />
 	<include file="IncludesDialogMusicInfo.xml" />

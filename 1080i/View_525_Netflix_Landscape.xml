@@ -33,10 +33,18 @@
 			</control>
 			
 			<control type="group">
-				<visible>Skin.HasSetting(View525_DetailsShowFanart)</visible>
+				<visible>Skin.HasSetting(View525_DetailsShowFanart) + Skin.HasSetting(View525_UseFixedLayout)</visible>
 				<include content="SpotlightArtwork">
 					<param name="width" value="1344" />
 					<param name="height" value="770" />
+					<param name="diffuse" value="diffuse/netflixnornerdiffuse.png" />
+				</include>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(View525_DetailsShowFanart) + !Skin.HasSetting(View525_UseFixedLayout)</visible>
+				<include content="SpotlightArtwork">
+					<param name="width" value="1249" />
+					<param name="height" value="708" />
 					<param name="diffuse" value="diffuse/netflixnornerdiffuse.png" />
 				</include>
 			</control>

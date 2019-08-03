@@ -3198,6 +3198,12 @@
             <param name="skinsetting" value="MainMenuPanelColor" />
             <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" />
         </include>
+		<!-- Widget_ContainerHeaderText Color text color-->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31229" />
+            <param name="label" value="Widget Header TextColor" />
+            <param name="skinsetting" value="WidgetHeaderTextColor" />
+        </include>
         <!--homemenu unfocused text color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31743" />

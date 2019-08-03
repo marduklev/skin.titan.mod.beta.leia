@@ -1855,7 +1855,7 @@
 					<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
 					<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
 					<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
-					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+					<textcolor>$INFO[Skin.String(WidgetHeaderTextColor)]</textcolor>
 					<label>[B]$PARAM[widgetName][/B]</label>
 					<visible>String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
            		</control>
@@ -1903,7 +1903,7 @@
             <font>Reg32</font>
             <textoffsetx>5</textoffsetx>
             <label>$VAR[widgetlabel-$PARAM[mainmenuid]]</label>
-            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+            <textcolor>$INFO[Skin.String(WidgetHeaderTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <onfocus>SetProperty(ShowWidget,show)</onfocus>
             

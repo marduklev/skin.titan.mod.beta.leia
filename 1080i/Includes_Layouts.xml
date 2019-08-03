@@ -21,7 +21,7 @@
             <visible>![!String.IsEmpty(ListItem.Thumb) + String.IsEqual(ListItem.Thumb,ListItem.Property(channellogo))]</visible>
             <visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
         </control>
-		<control type="image">
+		<control type="image" description="check, better use params overlayvisability true or false in the calls">
             <width>50%</width>
 			<height>50%</height>
 			<left>15</left>
@@ -30,7 +30,7 @@
 			<texture background="true">$VAR[ClearLogoFallback]</texture>
             <aspectratio scalediffuse="false" align="center" aligny="bottom">keep</aspectratio>
 			<visible>
-			[[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + ![Control.IsVisible(511) | Control.IsVisible(512)]] | 
+			[[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + ![Control.IsVisible(511) | Control.IsVisible(512) | Control.IsVisible(525)]] | 
 			![String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + String.IsEmpty(ListItem.Art(tvshow.landscape)) + String.IsEmpty(ListItem.Art(season.landscape))
 			</visible>
 			<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
@@ -383,8 +383,8 @@
 			<right>5</right>
 			<wrapmultiline>true</wrapmultiline>
 			<height max="105">auto</height>
-			<!-- <font>Bold30</font> -->
-			<font>Title_CircleC_Header46</font>
+			<font>Bold40</font>
+			<!-- <font>Title_CircleC_Header46</font> -->
 			<align>center</align>
 			<aligny>center</aligny>
 			<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>

@@ -467,7 +467,16 @@
         <option id="videoinfo_button_panel" label="$LOCALIZE[31155]" condition="" default="true"/>
         <option id="videoinfo_button_myrating" label="My Rating" condition="" default="true"/>
     </setting>
-    
+    <!-- options to show in videoinfo containers - multiselect -->
+    <setting id="videoinfo_containers" value="||MULTISELECT||" label="" condition="" icon="" description="">
+        <option id="videoinfo_container_moviesbasedoncastcontent" label="castcontent" condition="" default="true"/>
+        <option id="videoinfo_container_similiarcontent" label="similiarcontent" condition="" default="true"/>
+        <option id="videoinfo_container_youtubecontent" label="youtubevideos" condition="" default="true"/>
+        <option id="videoinfo_container_localartconent" label="localart" condition="" default="true"/>
+        <option id="videoinfo_container_extrascontent" label="extras" condition="" default="true"/>
+        <option id="videoinfo_container_directorcontent" label="directorcontent" condition="" default="true"/>
+    </setting>
+	
 	<!-- UpNext Layout Simple style -->
     <setting id="upnext_simple" value="upn_simple_skindefault" label="Skin default" condition="" icon="special://skin/extras/upnext/next_simple_skindefault.jpg" description="" default="true"/>
     <setting id="upnext_simple" value="upn_simple_addondefault" label="Addon Default" condition="" icon="special://skin/extras/upnext/next_simple_addondefault.jpg" description=""/>

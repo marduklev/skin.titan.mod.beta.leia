@@ -759,10 +759,11 @@
 		<value condition="[Window.IsActive(Videos) + Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + Skin.HasSetting(EnableWhiteRatingInHome)]">flags/white/white_metacritic.png</value>   
 		<value condition="[Window.IsActive(Videos) + !Skin.HasSetting(EnableWhiteRatingInFooter)] | [Window.IsActive(Home) + !Skin.HasSetting(EnableWhiteRatingInHome)]">flags/metacritic.png</value>     
     </variable>  
+	<!-- skinhelper resolve some spelling, nameing convetions,buts slow -->
 	<variable name="image_StudioLogo">
 		<value condition="$EXP[InGameMode]">resource://resource.images.gamestudios.grayscale/$INFO[ListItem.Studio,,.png]</value>
 		<value condition="Skin.HasSetting(NoSHStudioInFooter)">$INFO[Skin.String(SkinHelper.studiologos.path)]$INFO[ListItem.Studio].png</value>
-        <value>$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value>				
+        <value condition="!Skin.HasSetting(NoSHStudioInFooter)">$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</value>				
 	</variable>
 	
     <include name="StarRatingMusicFooter">

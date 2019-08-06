@@ -981,7 +981,12 @@
                 <visible>!Skin.HasTheme(classic)</visible>
                 <selected>Skin.HasSetting(EnableWhiteRatingInFooter)</selected>
             </control>
-			
+			 <control type="radiobutton" id="17201">
+                <include>SkinSettings_Button</include>
+                <label>Use Skinhelper as Fallack for special ratings</label>
+                <onclick>Skin.ToggleSetting(SR_SH_fallback)</onclick>
+                <selected>Skin.HasSetting(SR_SH_fallback)</selected>
+            </control>
             <control type="radiobutton" id="399767">
                 <include>SkinSettings_Button</include>
                 <label>31607</label>

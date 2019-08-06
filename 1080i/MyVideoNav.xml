@@ -20,6 +20,13 @@
 		<!-- Video Background ,liked to use in global? -->
 		<include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>
 		
+		<!-- Hidden Container get info by dbid -->
+		<control type="list" id="5055">
+			<visible>true</visible>
+			<include>HiddenObject</include>
+			<content limit="1">$VAR[container_content_getdbid_1]</content>
+		</control>
+		
 		<!-- all Views -->
         <include>allViews</include>
 		

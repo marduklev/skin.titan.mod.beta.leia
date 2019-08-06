@@ -106,10 +106,16 @@
     </include>
 	
 	<include name="HiddenObject">
-        <left>-3000</left>
-        <top>-3000</top>
-        <width>1</width>
-        <height>1</height>
+       <left>-3000</left>
+		<top>-3000</top>
+		<width>1</width>
+		<height>1</height>
+		<texturefocus />
+		<texturenofocus />
+		<label></label>
+		<font></font>
+		<itemlayout/>
+		<focusedlayout/>
     </include>
 	
     <include name="DimensionsFullscreen">

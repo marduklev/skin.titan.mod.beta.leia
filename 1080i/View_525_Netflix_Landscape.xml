@@ -164,20 +164,16 @@
                 <control type="group">
 					<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</visible>
                     <right>20</right>
-                    <height>150</height>
-                    <width>1000</width>
                     <top>600</top>
-                    <include condition="[Skin.HasSetting(StudioInFooter) | Skin.HasSetting(IMDBRatingInFooter) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(RTRatingInFooter)]">AltRatingFooter</include>
+                    <include condition="$EXP[UseStudio_or_RatingFoo]">AltRatingFooter</include>
 					<visible>Skin.HasSetting(View525_UseFixedLayout)</visible>
 				</control>
 				<!-- rating , non-fixed -->
 				<control type="group">
 					<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</visible>
                     <right>20</right>
-                    <height>150</height>
-                    <width>1000</width>
                     <top>480</top>
-                    <include condition="[Skin.HasSetting(StudioInFooter) | Skin.HasSetting(IMDBRatingInFooter) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(RTRatingInFooter)]">AltRatingFooter</include>
+                    <include condition="$EXP[UseStudio_or_RatingFoo]">AltRatingFooter</include>
 					<visible>!Skin.HasSetting(View525_UseFixedLayout)</visible>
                 </control>
 				<!-- CAST on Trailer -100 -->

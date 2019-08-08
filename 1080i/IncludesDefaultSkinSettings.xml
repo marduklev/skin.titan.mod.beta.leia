@@ -32,13 +32,15 @@
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(LibItems_FocusOverlay)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(HomeWidget_FocusOverlay)</onload>
 		
-		<!-- <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowlabelsLandscape)</onload> not found ,check if needed by addons-->
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableQuickJump)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(StudioInFooter)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(NoSHStudioInFooter)</onload>
-		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(IMDBRatingInFooter)</onload>
-		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(TV_TMdbRatingInFooter)</onload>
-		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(RTRatingInFooter)</onload>
+		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(show_imdb_RatingInFooter)</onload>
+		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(show_themoviedb_RatingInFooter)</onload>
+		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(show_tvdb_RatingInFooter)</onload>
+		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(show_imdbtop250_RatingInFooter)</onload>
+		
+		
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SkinHelper.ShowInfoAtPlaybackStart, 4)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(GuideRows, 9)</onload>
 		<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(GuideShowInfo)</onload>

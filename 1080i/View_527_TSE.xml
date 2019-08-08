@@ -94,7 +94,7 @@
 				<left>1260</left>
 				<top>320</top>
 				<animation effect="zoom" alignx="false" end="80,80" time="0" condition="true">Conditional</animation>
-				<include condition="[Skin.HasSetting(StudioInFooter) | Skin.HasSetting(IMDBRatingInFooter) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(RTRatingInFooter)]">AltRatingFooter</include>
+				<include condition="$EXP[UseStudio_or_RatingFoo]">AltRatingFooter</include>
 			</control>
 			<control type="textbox"> 
 				<width>750</width>

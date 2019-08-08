@@ -984,28 +984,58 @@
 			 <control type="radiobutton" id="17201">
                 <include>SkinSettings_Button</include>
                 <label>Use Skinhelper as Fallack for special ratings</label>
-                <onclick>Skin.ToggleSetting(SR_SH_fallback)</onclick>
-                <selected>Skin.HasSetting(SR_SH_fallback)</selected>
+                <onclick>Skin.ToggleSetting(SH_Rating_Fallback)</onclick>
+                <selected>Skin.HasSetting(SH_Rating_Fallback)</selected>
             </control>
             <control type="radiobutton" id="399767">
                 <include>SkinSettings_Button</include>
                 <label>31607</label>
-                <onclick>Skin.ToggleSetting(IMDBRatingInFooter)</onclick>
-                <selected>Skin.HasSetting(IMDBRatingInFooter)</selected>
+                <onclick>Skin.ToggleSetting(show_imdb_RatingInFooter)</onclick>
+                <selected>Skin.HasSetting(show_imdb_RatingInFooter)</selected>
                 <visible>!Skin.HasTheme(classic)</visible>
             </control>
 			<control type="radiobutton" id="17123">
                 <include>SkinSettings_Button</include>
-                <label>TVdb and TMdb Rating In Footer</label>
-                <onclick>Skin.ToggleSetting(TV_TMdbRatingInFooter)</onclick>
-                <selected>Skin.HasSetting(TV_TMdbRatingInFooter)</selected>
+                <label>TMdb Rating In Footer</label>
+                <onclick>Skin.ToggleSetting(show_themoviedb_RatingInFooter)</onclick>
+                <selected>Skin.HasSetting(show_themoviedb_RatingInFooter)</selected>
                 <visible>!Skin.HasTheme(classic)</visible>
             </control>
+			<control type="radiobutton" id="17129">
+                <include>SkinSettings_Button</include>
+                <label>TVdb Rating In Footer</label>
+                <onclick>Skin.ToggleSetting(show_tvdb_RatingInFooter)</onclick>
+                <selected>Skin.HasSetting(show_tvdb_RatingInFooter)</selected>
+                <visible>!Skin.HasTheme(classic)</visible>
+            </control>
+			
             <control type="radiobutton" id="31775">
                 <include>SkinSettings_Button</include>
-                <label>31775</label>
-                <onclick>Skin.ToggleSetting(RTRatingInFooter)</onclick>
-                <selected>Skin.HasSetting(RTRatingInFooter)</selected>
+                <label>Rotten Tomato Critics</label>
+                <onclick>Skin.ToggleSetting(show_tomatometerallcritics_RatingInFooter)</onclick>
+                <selected>Skin.HasSetting(show_tomatometerallcritics_RatingInFooter)</selected>
+                <visible>!Skin.HasTheme(classic)</visible>
+            </control>
+			
+			<control type="radiobutton" id="17193">
+                <include>SkinSettings_Button</include>
+                <label>Rotten Tomato Audience</label>
+                <onclick>Skin.ToggleSetting(show_tomatometerallaudience_RatingInFooter)</onclick>
+                <selected>Skin.HasSetting(show_tomatometerallaudience_RatingInFooter)</selected>
+                <visible>!Skin.HasTheme(classic)</visible>
+            </control>
+			<control type="radiobutton" id="17194">
+                <include>SkinSettings_Button</include>
+                <label>Metacritic</label>
+                <onclick>Skin.ToggleSetting(show_metacritic_RatingInFooter)</onclick>
+                <selected>Skin.HasSetting(show_metacritic_RatingInFooter)</selected>
+                <visible>!Skin.HasTheme(classic)</visible>
+            </control>
+			<control type="radiobutton" id="17195">
+                <include>SkinSettings_Button</include>
+                <label>Imdb Top 250</label>
+                <onclick>Skin.ToggleSetting(show_imdbtop250_RatingInFooter)</onclick>
+                <selected>Skin.HasSetting(show_imdbtop250_RatingInFooter)</selected>
                 <visible>!Skin.HasTheme(classic)</visible>
             </control>
             

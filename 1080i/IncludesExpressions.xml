@@ -16,6 +16,17 @@
 			</expression>
 	
 	<!-- Home -->
+	<!-- studio or Ratings footer-->
+	<expression name="UseStudio_or_RatingFoo">[
+		Skin.HasSetting(StudioInFooter) | 
+		Skin.HasSetting(show_imdb_RatingInFooter) | 
+		Skin.HasSetting(show_themoviedb_RatingInFooter) | 
+		Skin.HasSetting(show_tvdb_RatingInFooter) | 
+		Skin.HasSetting(show_imdbtop250_RatingInFooter) |
+		Skin.HasSetting(show_metacritic_RatingInFooter) |
+		Skin.HasSetting(show_tomatometerallaudience_RatingInFooter) |
+		Skin.HasSetting(show_tomatometerallcritics_RatingInFooter)]
+	</expression>
 	
 	<!-- Artwork -->
 	<expression name="NoClearlogo">

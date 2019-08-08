@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="window" id="1100">
     <defaultcontrol always="true">5600</defaultcontrol>
+	<menucontrol>99001</menucontrol>
 	<onload condition="String.IsEmpty(Skin.String(SearchTerm))">Back</onload>
     <onunload>Skin.Reset(SearchTerm)</onunload>
 	<controls>
@@ -34,7 +35,7 @@
 				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 				<texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="15">diffuse/bgpanel_half.png</texturefocus>
 				<texturenofocus colordiffuse="$INFO[Skin.String(GeneralPanelsColor)]" border="15">diffuse/bgpanel_half.png</texturenofocus>
-				<onclick>ActivateWindow(1101)</onclick>
+				<onfocus>ActivateWindow(1101)</onfocus>
 			</control>
 		</control>
 		<control type="group">

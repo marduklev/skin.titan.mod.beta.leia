@@ -2,7 +2,7 @@
 <!--Titan Mod-->
 <window type="dialog" id="1101">
     <defaultcontrol always="true">7160</defaultcontrol>
-    <onload></onload>
+    <onunload>SetFocus(5600)</onunload>
 	<controls>
         <control type="group">
 			<height>100%</height>

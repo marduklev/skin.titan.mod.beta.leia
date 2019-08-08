@@ -730,7 +730,7 @@ Container(id).ListItem(offset).Thumb
 	<!-- mod -->
 	<include name="Net_Mod_MPAA">
 		<posy>3</posy>
-		<height>44</height>
+		<height>40</height>
 		<textoffsetx>20</textoffsetx>
 		<textoffsety>4</textoffsety>
 		<texturenofocus border="-2" colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/detail-frame.png</texturenofocus>

@@ -8,8 +8,6 @@
             <include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>
 			<include>animation_window_open_close</include>
 			
-			<!-- use container(99999 ~ 8606)  ,to load extrafanart content for bigpic -->
-			
 			<!-- fixed pos FANART OVERLAY -->
 			<control type="image">
 				<posx>0</posx>
@@ -284,15 +282,15 @@
 						<left>10</left>
 						<width min="50">auto</width>
 						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>						<label>$VAR[RatingFlagVar]</label>
-						<aligny>top</aligny>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>
+						<label>$VAR[RatingFlagVar]</label>
 						<align>center</align>
 						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<disabledcolor>$INFO[Skin.String(ViewDetailsTextColor)]</disabledcolor>
 						<texturenofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">netflix/frame/slimframe_softedge.png</texturenofocus>
 						<height>40</height>
 						<textoffsetx>10</textoffsetx>
-						<textoffsety>2</textoffsety>
+						<textoffsety>-2</textoffsety>
 						<enable>false</enable>
 						<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))</visible>
 					</control>
@@ -393,7 +391,6 @@
 					<orientation>horizontal</orientation>								
 					<top>40</top>
 					<width>1200</width>
-					<height>50</height>
 					<itemgap>5</itemgap>
 					<include>AltRatingMovieInfo</include>
 				</control>
@@ -1068,7 +1065,8 @@
 				<width>250</width>
 				<height>40</height>
 				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>
+				<aligny>center</aligny>
 				<align>right</align>
 				<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 				<label>$PARAM[Info]</label>
@@ -1171,106 +1169,6 @@
 		</control>
 	</include>
 		
-		<!-- <control type="group">
-			<width>930</width>
-			<height>40</height>
-			<top>0</top>
-			<left>0</left>
-			<visible>$PARAM[visible]</visible>
-			<control type="label">
-				<left>-10</left>
-				<width>250</width>
-				<height>40</height>
-				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
-				<align>right</align>
-				<textcolor>red</textcolor>
-				<label>$PARAM[Info]</label>
-			</control>
-			<control type="image">
-				<left>250</left>
-				<width>40</width>
-				<height>40</height>
-				<border>2</border>
-				<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
-				<texture>$PARAM[icon]</texture>
-			</control>
-			<control type="label">
-				<left>295</left>
-				<width>630</width>
-				<height>40</height>
-				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
-				<align>left</align>
-				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-				<label>$PARAM[InfoLabel]</label>
-			</control>
-		</control>
-		<control type="group">
-			<description>InfoLabelProperty = AudioLanguage,SubtitleLanguage</description>
-			<width>930</width>
-			<height>40</height>
-			<top>0</top>
-			<left>300</left>
-			<itemgap>5</itemgap>
-			<orientation>horizontal</orientation>
-			<control type="image">
-				<visible>
-				!String.IsEmpty(ListItem.$PARAM[InfoLabelProperty]) | 
-				!String.IsEmpty(ListItem.Property($PARAM[InfoLabelProperty].1)) | 
-				!String.IsEmpty(ListItem.Property($PARAM[InfoLabelProperty])) | 
-				!String.IsEmpty(ListItem.Property($PARAM[InfoLabelProperty]))
-				</visible>
-				<width>50</width>
-				<height>30</height>
-				<aspectratio>keep</aspectratio>
-				<texture>flags/audio.png</texture>
-			</control>
-				<control type="image">
-					<width>40</width>
-					<height>35</height>
-					<aspectratio>stretch</aspectratio>
-					<texture>$INFO[ListItem.Property($PARAM[InfoLabelProperty].1),resource://resource.images.languageflags.colour/,.png]</texture>
-					<visible>!String.IsEmpty(ListItem.Property($PARAM[InfoLabelProperty].1)) | !String.IsEmpty(ListItem.$PARAM[InfoLabelProperty])</visible>
-				</control>
-				<control type="image">
-					<width>40</width>
-					<height>35</height>
-					<aspectratio>stretch</aspectratio>
-					<texture>$INFO[ListItem.Property(AudioLanguage.1),resource://resource.images.languageflags.colour/,.png]</texture>
-					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.AudioLanguage)</visible>
-				</control>
-				<control type="image">
-					<width>40</width>
-					<height>35</height>
-					<aspectratio>stretch</aspectratio>
-					<texture>$INFO[ListItem.Property(AudioLanguage.1),resource://resource.images.languageflags.colour/,.png]</texture>
-					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.AudioLanguage)</visible>
-				</control>
-				<control type="image">
-					<width>40</width>
-					<height>35</height>
-					<aspectratio>stretch</aspectratio>
-					<texture>$INFO[ListItem.Property(AudioLanguage.1),resource://resource.images.languageflags.colour/,.png]</texture>
-					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.AudioLanguage)</visible>
-				</control>
-				<control type="image">
-					<width>40</width>
-					<height>35</height>
-					<aspectratio>stretch</aspectratio>
-					<texture>$INFO[ListItem.Property($PARAM[InfoLabelProperty].2),resource://resource.images.languageflags.colour/,.png]</texture>
-					<visible>!String.IsEmpty(ListItem.Property($PARAM[InfoLabelProperty].2))</visible>
-				</control>
-				<control type="image">
-					<width>40</width>
-					<height>35</height>
-					<aspectratio>stretch</aspectratio>
-					<texture>$INFO[ListItem.Property($PARAM[InfoLabelProperty]),resource://resource.images.languageflags.colour/,.png]</texture>
-					<visible>!String.IsEmpty(ListItem.Property($PARAM[InfoLabelProperty].3))</visible>
-				</control>
-			</control>
-			
-			 -->
 	<include name="DefaultInfo">
 		<control type="group">
 			<visible>!Skin.HasSetting(UseNetflixInfoDialog)</visible>
@@ -3774,7 +3672,9 @@
 	</include>
 	   
 	<include name="AltRatingMovieInfo">		
-        <!-- Tomatometer -->
+        
+		
+		<!-- Tomato Critics -->
         <control type="group">
             <height>70</height>
             <width>130</width> <!-- check, maybe param , for 2  infos -->
@@ -3783,7 +3683,7 @@
 			<aligny>center</aligny>
             <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>         
         </control>       
-        <!-- Tomatoaudience -->
+        <!-- Tomato Audience -->
         <control type="group">
             <height>70</height>
             <width>130</width>
@@ -3857,7 +3757,7 @@
 			<width>84</width>
 			<height>37</height>
 			<aspectratio>keep</aspectratio>
-			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_rotten_audience]</texture>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_rotten_tomatometerallaudience]</texture>
 			<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
 		</control>
 		<control type="label">
@@ -3878,7 +3778,7 @@
 			<width>45</width>
 			<height>45</height>			
 			<aspectratio>keep</aspectratio>
-			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_rotten_meter]</texture>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_tomatometerallcritics]</texture>
 		</control>
 		<control type="label">
 			<top>5</top>
@@ -3939,7 +3839,7 @@
 			<top>-4</top>
 			<width>55</width>
 			<height>50</height>			
-			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_tmdb]</texture>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_themoviedb]</texture>
 		</control>
 		<control type="label">
 			<left>55</left>
@@ -3980,7 +3880,7 @@
 			<top>-7</top>
 			<width>70</width>
 			<height>32</height>
-			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_imdb250]</texture>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_imdbtop250]</texture>
 		</control>
 		<control type="label">
 		<!--Rating modern-->
@@ -4014,7 +3914,7 @@
 		<value condition="!String.IsEmpty(ListItem.RatingAndVotes(tvdb)) + !Player.HasVideo">$INFO[ListItem.RatingAndVotes(tvdb)]</value>
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TVDB)) + !Player.HasVideo">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TVDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TVDB), (, $LOCALIZE[205])]</value>      
     </variable>
-	<variable name="rating_value_meta"><!-- check, -->
+	<variable name="rating_value_meta">
        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(metacritic))">$INFO[ListItem.RatingAndVotes(metacritic)]</value>
 	   <value condition="String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.Rating(metacritic))">$INFO[ListItem.Rating(metacritic)]</value>
 	   <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.metacritic))">$INFO[Window(home).Property(SkinHelper.ListItem.MetaCritic.Rating), ,]$INFO[Window(home).Property(SkinHelper.ListItem.MetaCritic.Votes), (, $LOCALIZE[205])]</value>      
@@ -4042,19 +3942,5 @@
 		<value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.DBID)">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</value>
 		<value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.DBID)">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=tvshow</value>
 	</variable>
-	<!-- check need finishing 
-	<variable name="rating_value_">
-        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(tvdb))"> $INFO[ListItem.RatingAndVotes(tvdb)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TVDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TVDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TVDB), (, $LOCALIZE[205])]</value>		
-    </variable>	
-	<variable name="rating_value_">
-       <value condition="!String.IsEmpty(ListItem.RatingAndVotes(themoviedb))"> $INFO[ListItem.RatingAndVotes(themoviedb)]</value>
-	   <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.TMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.TMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.TMDB), (, $LOCALIZE[205])]</value>      
-    </variable>
-	<variable name="rating_value_">
-        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(imdb))"> $INFO[ListItem.RatingAndVotes(imdb)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>		
-    </variable>	
-	*=totamtometerallaudience , *=tomatometerallcritics , 	*=tomatometeravgaudiance , 	*=tomatometeravgcritics -->
 	
 </includes>

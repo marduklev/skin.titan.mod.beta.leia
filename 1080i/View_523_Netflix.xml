@@ -150,7 +150,7 @@
                 <control type="group">
 					<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,movie) | $EXP[InGameMode]]</visible>
 					<right>50</right>
-                    <top>530</top>
+                    <top>660</top>
                     <include condition="$EXP[UseStudio_or_RatingFoo]">AltRatingFooter</include>
                 </control>
 				

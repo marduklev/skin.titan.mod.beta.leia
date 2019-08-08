@@ -164,6 +164,7 @@
                 <control type="group">
 					<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</visible>
                     <right>20</right>
+                    <height>150</height>
                     <top>600</top>
                     <include condition="$EXP[UseStudio_or_RatingFoo]">AltRatingFooter</include>
 					<visible>Skin.HasSetting(View525_UseFixedLayout)</visible>
@@ -172,7 +173,7 @@
 				<control type="group">
 					<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</visible>
                     <right>20</right>
-                    <top>480</top>
+                    <top>630</top>
                     <include condition="$EXP[UseStudio_or_RatingFoo]">AltRatingFooter</include>
 					<visible>!Skin.HasSetting(View525_UseFixedLayout)</visible>
                 </control>

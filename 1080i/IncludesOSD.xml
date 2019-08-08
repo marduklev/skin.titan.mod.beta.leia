@@ -867,10 +867,10 @@
 				<!--tvdb -->
 				<control type="image">
 					<left>40</left>
-					<top>12</top>
+					<top>8</top>
 					<width>63</width>
 					<height>45</height>
-					<texture>flags/player/player_tvdbtrans.png</texture>
+					<texture>flags/ratings/tvdb_monochrome.png</texture>
 					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>
 					<visible>VideoPlayer.Content(episodes)</visible>
 					<visible>!String.IsEmpty(VideoPlayer.RatingAndVotes)</visible>
@@ -878,7 +878,7 @@
 					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Rating.TVDB))</visible>
 					<label>$INFO[Window(Home).Property(SkinHelper.Player.Rating.TVDB),: , ]$INFO[Window(Home).Property(SkinHelper.Player.Votes.TVDB),(, $LOCALIZE[205])]</label>
 					-->
-					<aspectratio align="left" aligny="top">keep</aspectratio>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -903,7 +903,7 @@
 					<width>50</width>
 					<top>6</top>
 					<height>45</height>
-					<texture>flags/player/player_tmdbtp.png</texture>
+					<texture>flags/ratings/themoviedb_monochrome.png</texture>
 					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>
 					<visible>VideoPlayer.Content(movies)</visible>
 					<visible>!String.IsEmpty(VideoPlayer.Rating)</visible>
@@ -911,7 +911,7 @@
 					<label>$INFO[Window(Home).Property(SkinHelper.Player.Rating.TMDB)]$INFO[Window(Home).Property(SkinHelper.Player.Votes.TMDB),(,)]</label>
 					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Rating.TMDB))</visible>
 					-->
-					<aspectratio align="left" aligny="top">keep</aspectratio>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
 				</control>
 				<control type="label">
 					<left>-5</left>	
@@ -933,14 +933,13 @@
 				<!--imdb -->
 				<control type="image">
 					<left>10</left>
-					<top>-2</top>
+					<top>-5</top>
 					<width>65</width>
 					<height>70</height>
-					<texture>flags/player/player_imdb.png</texture>
+					<texture>flags/ratings/imdb_monochrome.png</texture>
 					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>
 					<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
-					<visible>!String.IsEmpty(Window(home).Property(SkinHelper.Player.Rating.IMDB))</visible>
-					<aspectratio align="left" aligny="top">keep</aspectratio>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -962,11 +961,11 @@
 					<top>10</top>
 					<width>35</width>
 					<height>35</height>
-					<texture>flags/player/player_meta.png</texture>
+					<texture>flags/ratings/metacritic_monochrome.png</texture>
 					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>
 					<visible>VideoPlayer.Content(movies)</visible>
 					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.Player.MetaCritic.Rating))</visible>
-					<aspectratio align="left" aligny="top">keep</aspectratio>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
 					<visible>VideoPlayer.Content(movies)</visible>
 				</control>
 				<control type="label">
@@ -988,11 +987,11 @@
 					<top>8</top>
 					<width>35</width>
 					<height>35</height>
-					<texture>flags/player/player_rottenbw.png</texture>
+					<texture>flags/ratings/critics_rotten_fresh_monochrome.png</texture>
 					<colordiffuse>$INFO[Skin.String(OSDPrimaryTextColor)]</colordiffuse>
 					<visible>VideoPlayer.Content(movies)</visible>
 					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.Player.RottenTomatoes.Rating))</visible>
-					<aspectratio align="left" aligny="top">keep</aspectratio>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
 				</control>
 				<control type="label">
 					<left>-3</left>

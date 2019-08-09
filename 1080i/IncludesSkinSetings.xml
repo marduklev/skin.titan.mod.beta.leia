@@ -3445,10 +3445,6 @@
                 <param name="addon" value="script.cinemavision" />
             </include>
             <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
-                <param name="id" value="31010" />
-                <param name="addon" value="script.videoextras" />
-            </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="31011" />
                 <param name="addon" value="script.trakt" />
             </include>

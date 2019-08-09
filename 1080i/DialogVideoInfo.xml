@@ -18,7 +18,6 @@
         <!-- fake button with actions -->
         <control type="button" id="9005">
             <visible allowhiddenfocus="true">false</visible>
-            <onfocus condition="System.HasAddon(script.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onfocus>
             <onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog) + String.IsEqual(Window(Home).Property(contenttype),movies)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onfocus>
             <onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog) + String.IsEqual(Window(Home).Property(contenttype),tvshows)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onfocus>
             <onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog) + String.IsEqual(Window(Home).Property(contenttype),seasons)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onfocus>

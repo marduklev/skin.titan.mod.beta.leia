@@ -165,7 +165,7 @@
 					<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</visible>
                     <right>20</right>
                     <height>150</height>
-                    <top>600</top>
+                    <top>620</top>
                     <include condition="$EXP[UseStudio_or_RatingFoo]">AltRatingFooter</include>
 					<visible>Skin.HasSetting(View525_UseFixedLayout)</visible>
 				</control>

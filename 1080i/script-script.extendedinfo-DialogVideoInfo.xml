@@ -172,19 +172,7 @@
 						<visible>Integer.IsGreater(Container(1150).NumItems,0)</visible>
 					</control>
 					
-					<!--video extras -->
-					<control type="button" id="100">
-						<width>285</width>
-						<height>60</height>
-						<align>center</align>
-						<textoffsetx>0</textoffsetx>
-						<label>$ADDON[script.extendedinfo 32132]</label>
-						<onclick>XBMC.RunScript(script.videoextras,display,"$INFO[Window.Property(FilenameAndPath)]")</onclick>
-						<visible>System.HasAddon(script.videoextras) + String.IsEmpty(Window(movieinformation).Property(HideVideoExtrasButton))</visible>
-						<visible>!String.IsEmpty(Window.Property(FilenameAndPath))</visible>
-					</control>
-                    
-                    <control type="button" id="101">
+					<control type="button" id="101">
                         <!--Get Thumb Artwork Downloader-->
                         <label>13511</label>
                         <width>285</width>

@@ -459,7 +459,6 @@
         <option id="videoinfo_button_extendedinfo" label="$LOCALIZE[31269]" condition="" default="true"/>
         <option id="videoinfo_button_cinemavision" label="CinemaVision" condition="System.HasAddon(script.cinemavision)" default=""/>
         <option id="videoinfo_button_cinemaexperience" label="$INFO[System.AddonTitle(script.cinema.experience)]" condition="System.HasAddon(script.cinema.experience)" default=""/>
-        <option id="videoinfo_button_videoextras" label="$INFO[System.AddonTitle(script.videoextras)]" condition="System.HasAddon(script.videoextras)" default=""/>
         <option id="videoinfo_button_artworkbeef" label="$LOCALIZE[31300]" condition="System.HasAddon(script.artwork.beef)" default="true"/>
         <option id="videoinfo_button_artwork" label="$LOCALIZE[13511]" condition="" default="true"/>
         <option id="videoinfo_button_refresh" label="$LOCALIZE[184]" condition="" default="true"/>

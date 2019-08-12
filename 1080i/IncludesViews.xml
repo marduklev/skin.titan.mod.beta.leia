@@ -241,7 +241,7 @@
     
         <!-- scrollbar horizontal -->
         <control type="group" id="7000">
-            <animation effect="slide" start="0" end="0,110" time="0" condition="Skin.HasTheme(classic) | Control.IsVisible(523) | Control.IsVisible(525)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,110" time="0" condition="Control.IsVisible(523) | Control.IsVisible(525)">Conditional</animation>
             <animation type="Conditional" condition="Control.IsVisible(507) + Skin.HasSetting(View_507_nofooterbar)">
 					<effect type="slide" start="0,0" end="0,100" time="300" tween="cubic" easing="inout" delay="0" />
 				</animation>
@@ -1272,7 +1272,6 @@
             <width>609</width>
             <height>344</height>
             <visible>Player.HasVideo + !VideoPlayer.Content(livetv) + String.IsEmpty(VideoPlayer.DBID)</visible> <!-- check, WIP condition ,need PVR verify -->
-            <visible>!skin.hastheme(classic)</visible>
             <control type="image">
 				<aligny>bottom</aligny>
 				<texture border="15">diffuse/bgpanel.png</texture>
@@ -1532,7 +1531,7 @@
     </include>
             
     <include name="WatchedIndicatorNormal">
-        <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+        <include content="WatchedIndicatorLayout">
             <param name="width" value="80" />
             <param name="height" value="80" />
             <param name="font" value="indicator_normal" />
@@ -1541,7 +1540,7 @@
         </include>
     </include>
     <include name="WatchedIndicatorExtraSmall">
-        <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+        <include content="WatchedIndicatorLayout">
             <param name="width" value="50" />
             <param name="height" value="50" />
             <param name="font" value="indicator_small" />
@@ -1550,7 +1549,7 @@
         </include>
 	</include>
 	<include name="WatchedIndicatorSmall">
-        <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+        <include content="WatchedIndicatorLayout">
             <param name="width" value="60" />
             <param name="height" value="60" />
             <param name="font" value="indicator_small" />
@@ -1560,7 +1559,7 @@
 	</include>
 	
 	<include name="WatchedIndicatorLarge">
-		<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+		<include content="WatchedIndicatorLayout">
             <param name="width" value="120" />
             <param name="height" value="120" />
             <param name="font" value="indicator_big" />

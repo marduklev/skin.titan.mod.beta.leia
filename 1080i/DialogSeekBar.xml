@@ -29,13 +29,12 @@
                 <animation effect="slide" start="0,400" end="0,0" time="200" condition="!Skin.HasSetting(LowPerformanceMode)">WindowOpen</animation>
                 <animation effect="slide" start="0,0" end="0,400" time="200" condition="!Skin.HasSetting(LowPerformanceMode)">WindowClose</animation>
                 <animation effect="slide" start="0,0" end="0,400" tween="cubic" easing="out" delay="300" time="250" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode)">Hidden</animation>
-				<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(UseNetflixOSDPanel)">OSDPanelModern</include>
-				<include condition="!Skin.HasTheme(classic) + Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(UseNetflixOSDPanel)">OSDPanelModernSlim</include>
-				<include condition="!Skin.HasTheme(classic) + Skin.HasSetting(UseNetflixOSDPanel)">OSDPanelNetflix</include>
-				<include condition="Skin.HasTheme(classic)">OSDPanelClassic</include>
-                <!-- weather on OSD -->
-                <include condition="!Skin.HasTheme(classic) + ![Skin.HasSetting(UseSlimOSDPanel) | Skin.HasSetting(UseNetflixOSDPanel)] + Skin.HasSetting(ShowWeatherVideoInfoOSD)">WeatherInfoOSD</include>
-                <include condition="!Skin.HasTheme(classic) + [Skin.HasSetting(UseSlimOSDPanel) | Skin.HasSetting(UseNetflixOSDPanel)] + Skin.HasSetting(ShowWeatherVideoInfoOSD)">WeatherInfoOSDSlim</include>
+				<include condition="!Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(UseNetflixOSDPanel)">OSDPanelModern</include> <!-- keep -->
+				<include condition="Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(UseNetflixOSDPanel)">OSDPanelModernSlim</include>
+				<include condition="Skin.HasSetting(UseNetflixOSDPanel)">OSDPanelNetflix</include>
+				<!-- weather on OSD -->
+                <include condition="![Skin.HasSetting(UseSlimOSDPanel) | Skin.HasSetting(UseNetflixOSDPanel)] + Skin.HasSetting(ShowWeatherVideoInfoOSD)">WeatherInfoOSD</include>
+                <include condition="[Skin.HasSetting(UseSlimOSDPanel) | Skin.HasSetting(UseNetflixOSDPanel)] + Skin.HasSetting(ShowWeatherVideoInfoOSD)">WeatherInfoOSDSlim</include>
             </control>
             
             <!-- large forward and rewind labels on playback/not paused, when netflix osd, could be more to right, bottom direction?! -->

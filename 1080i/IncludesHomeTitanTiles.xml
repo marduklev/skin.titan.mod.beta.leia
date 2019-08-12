@@ -41,12 +41,9 @@
                 <bottom>20</bottom>
                 <width>60</width>
                 <height>60</height>
-                <include name="PowerButton" content="PowerButton" condition="!Skin.HasSetting(EnableTouchSupport) + !Skin.HasSetting(DisablePowerMenu)">
+                <include content="PowerButton" condition="!Skin.HasSetting(EnableTouchSupport) + !Skin.HasSetting(DisablePowerMenu)">
                     <param name="visibility" value="!Skin.HasSetting(HidePowerMenu) + !Control.IsVisible(77551) + !Control.IsVisible(4444) + ![!String.IsEmpty(Container(300).ListItem.Property(infoline)) + !String.IsEqual(Container(300).ListItem.Property(infoline),none)] + !system.getbool(lookandfeel.enablerssfeeds)" />
                 </include>
-                <animation type="Conditional" condition="skin.hastheme(classic)">
-                    <effect type="slide" start="0,0" end="0,-15" time="0" tween="cubic" easing="inout" delay="0" />
-                </animation>
             </control>
         </control>
     </include>
@@ -81,7 +78,6 @@
                 <width>25%</width>
                 <height>33</height>
                 <texture border="5" colordiffuse="$INFO[Skin.String(GeneralPanelsColor)]">diffuse/panel.png</texture>
-                <visible>!skin.hastheme(classic)</visible>
             </control>
             <control type="image">
                 <left>35%</left>
@@ -90,18 +86,9 @@
                 <height>30</height>
                 <texture colordiffuse="$VAR[ViewDetailsFocusColor]">home/home_arrow_up.png</texture>
                 <aspectratio>keep</aspectratio>
-                <visible>!skin.hastheme(classic)</visible>
-            </control>
-            <control type="image">
-                <left>35%</left>
-                <posy>0</posy>
-                <width>25%</width>
-                <height>33</height>
-                <texture colordiffuse="$VAR[ViewDetailsFocusColor]">home/basichome_up.png</texture>
-                <visible>skin.hastheme(classic)</visible>
             </control>
         </control>
-         <!--widget Arrow DOWN-->
+        <!--widget Arrow DOWN-->
         <control type="group">
             <!-- show arrow down button if submenu available or widget at 2 rows of home tiles -->
             <visible>!Skin.HasSetting(DisableAllSubmenus)</visible>
@@ -113,7 +100,6 @@
                 <width>25%</width>
                 <height>33</height>
                 <texture border="5" colordiffuse="$INFO[Skin.String(GeneralPanelsColor)]">diffuse/panel.png</texture>
-                <visible>!skin.hastheme(classic)</visible>
             </control>
             <control type="image">
                 <left>35%</left>
@@ -122,15 +108,6 @@
                 <height>30</height>
                 <texture colordiffuse="$VAR[ViewDetailsFocusColor]">home/home_arrow_down.png</texture>
                 <aspectratio>keep</aspectratio>
-                <visible>!skin.hastheme(classic)</visible>
-            </control>
-            <control type="image">
-                <left>35%</left>
-                <bottom>0</bottom>
-                <width>25%</width>
-                <height>33</height>
-                <texture colordiffuse="$VAR[ViewDetailsFocusColor]">home/basichome_down.png</texture>
-                <visible>skin.hastheme(classic)</visible>
             </control>
         </control>
 				

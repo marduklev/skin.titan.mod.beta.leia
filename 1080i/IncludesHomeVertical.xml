@@ -305,7 +305,7 @@
                 <bottom>5</bottom>
                 <width>60</width>
                 <height>60</height>
-                <include name="PowerButton" content="PowerButton" condition="!Skin.HasSetting(EnableTouchSupport) + !Skin.HasSetting(DisablePowerMenu)">
+                <include content="PowerButton" condition="!Skin.HasSetting(EnableTouchSupport) + !Skin.HasSetting(DisablePowerMenu)">
                     <param name="visibility" value="!Skin.HasSetting(HidePowerMenu)" />
                 </include>
             </control>
@@ -364,7 +364,7 @@
     <include name="HomeSimpleVertical_AltHeight">
         <height>850</height>
     </include>
-    <include name="HomeSimpleVerticalSubMenuNormal">		<!-- Pop up, default align left -->
+    <include name="HomeSimpleVerticalSubMenuNormal">
 		<!-- submenu -->
 		<control type="group">
 			<posx>30</posx>

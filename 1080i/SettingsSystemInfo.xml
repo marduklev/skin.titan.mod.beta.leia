@@ -7,7 +7,7 @@
         <!--Globalbackground-->
         <include>GlobalBackground</include>
  		<!-- Now playing -->
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+		<include>NowPlayingModern</include>
 		
         <!--Header-->
         <include>Header</include>

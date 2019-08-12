@@ -693,13 +693,13 @@
                 <onclick>RunScript(script.skin.helper.service,action=OVERLAYTEXTURE)</onclick>
             </control>
             <!-- overlay color diffuse -->
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="14008" />
                 <param name="label" value="$LOCALIZE[31151]" />
                 <param name="skinsetting" value="BackgroundOverlayColor" />
             </include>
             <!-- background color diffuse -->
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="14009" />
                 <param name="label" value="$LOCALIZE[31574]" />
                 <param name="skinsetting" value="BackgroundDiffuseColor" />
@@ -746,7 +746,7 @@
                 <selected>Skin.HasSetting(SkinHelper.EnableWallBackgrounds)</selected>
             </control>
             <!-- skin helper backgrounds settings-->
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31531" />
                 <param name="addon" value="script.skin.helper.backgrounds" />
             </include>
@@ -768,7 +768,7 @@
                 <label>$ADDON[script.skin.helper.backgrounds 32071]</label>
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
                 </control>
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="13325" />
                 <param name="label" value="$ADDON[script.skin.helper.backgrounds 32072]" />
                 <param name="action" value="RunScript(script.skin.helper.backgrounds,action=conditionalbackgrounds)" />
@@ -902,14 +902,12 @@
                 <label>31509</label>
                 <onclick>Skin.ToggleSetting(StudioInFooter)</onclick>
                 <selected>Skin.HasSetting(StudioInFooter)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
             </control>
 			<control type="radiobutton" id="170010">
                 <include>SkinSettings_Button</include>
                 <label>Dont use Skinhelper for showing Studio Logos</label>
                 <onclick>Skin.ToggleSetting(NoSHStudioInFooter)</onclick>
                 <selected>Skin.HasSetting(NoSHStudioInFooter)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
             </control>
 			<!-- Header ratings Lib -->
             <control type="label" id="170002">
@@ -942,14 +940,14 @@
 				<visible>Skin.String(HomeLayout,netflix2)</visible>
 			</control>
 			<!-- thumb down color-->
-			<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+			<include content="SkinSettings_ColorButton">
 				<param name="id" value="31836" />
 				<param name="label" value="Thumb Down color" />
 				<param name="skinsetting" value="ThumbDownColor" />
 				<param name="visible" value="Skin.HasSetting(NetflixThumbRating) + Skin.String(HomeLayout,netflix2)" />
 			</include>
 			<!-- thumb up color-->
-			<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+			<include content="SkinSettings_ColorButton">
 				<param name="id" value="31837" />
 				<param name="label" value="Thumb Up color" />
 				<param name="skinsetting" value="ThumbUpColor" />
@@ -978,8 +976,7 @@
                 <include>SkinSettings_Button</include>
                 <label>Enable Monochrome Rating Logos in footer</label>
                 <onclick>Skin.ToggleSetting(EnableWhiteRatingInFooter)</onclick>
-                <visible>!Skin.HasTheme(classic)</visible>
-                <selected>Skin.HasSetting(EnableWhiteRatingInFooter)</selected>
+				<selected>Skin.HasSetting(EnableWhiteRatingInFooter)</selected>
             </control>
 			 <control type="radiobutton" id="17201">
                 <include>SkinSettings_Button</include>
@@ -992,21 +989,21 @@
                 <label>31607</label>
                 <onclick>Skin.ToggleSetting(show_imdb_RatingInFooter)</onclick>
                 <selected>Skin.HasSetting(show_imdb_RatingInFooter)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
 			<control type="radiobutton" id="17123">
                 <include>SkinSettings_Button</include>
                 <label>TMdb Rating In Footer</label>
                 <onclick>Skin.ToggleSetting(show_themoviedb_RatingInFooter)</onclick>
                 <selected>Skin.HasSetting(show_themoviedb_RatingInFooter)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
 			<control type="radiobutton" id="17129">
                 <include>SkinSettings_Button</include>
                 <label>TVdb Rating In Footer</label>
                 <onclick>Skin.ToggleSetting(show_tvdb_RatingInFooter)</onclick>
                 <selected>Skin.HasSetting(show_tvdb_RatingInFooter)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
 			
             <control type="radiobutton" id="31775">
@@ -1014,7 +1011,7 @@
                 <label>Rotten Tomato Critics</label>
                 <onclick>Skin.ToggleSetting(show_tomatometerallcritics_RatingInFooter)</onclick>
                 <selected>Skin.HasSetting(show_tomatometerallcritics_RatingInFooter)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
 			
 			<control type="radiobutton" id="17193">
@@ -1022,21 +1019,21 @@
                 <label>Rotten Tomato Audience</label>
                 <onclick>Skin.ToggleSetting(show_tomatometerallaudience_RatingInFooter)</onclick>
                 <selected>Skin.HasSetting(show_tomatometerallaudience_RatingInFooter)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
 			<control type="radiobutton" id="17194">
                 <include>SkinSettings_Button</include>
                 <label>Metacritic</label>
                 <onclick>Skin.ToggleSetting(show_metacritic_RatingInFooter)</onclick>
                 <selected>Skin.HasSetting(show_metacritic_RatingInFooter)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
 			<control type="radiobutton" id="17195">
                 <include>SkinSettings_Button</include>
                 <label>Imdb Top 250</label>
                 <onclick>Skin.ToggleSetting(show_imdbtop250_RatingInFooter)</onclick>
                 <selected>Skin.HasSetting(show_imdbtop250_RatingInFooter)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
             
 			<!-- Header trailer Lib -->
@@ -1051,7 +1048,7 @@
                 <label>31632</label>
                 <label2>$INFO[Skin.String(mediaflagsstyle.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=mediaflagsstyle,header=$LOCALIZE[31632])</onclick>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
 			<!-- style for codec frames netflix detail row -->
             <control type="radiobutton" id="13033">
@@ -1232,7 +1229,7 @@
 				<visible>Skin.HasSetting(UseExtendedInfoDialog) | !Skin.HasSetting(UseNetflixInfoDialog)</visible>
             </control>
             <!-- Select which buttons to show in videoinfo -->
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="31695" />
                 <param name="label" value="31695" />
                 <param name="action" value="RunScript(script.skin.helper.service,action=setskinsetting,setting=videoinfo_buttons,header=$LOCALIZE[31695])" />
@@ -1251,14 +1248,14 @@
                 <onclick>Skin.ToggleSetting(WatchedIndicator.Watched)</onclick>
                 <selected>Skin.HasSetting(WatchedIndicator.Watched)</selected>
             </control>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17132" />
                 <param name="label" value="$LOCALIZE[31517]" />
                 <param name="labelprefix" value="  --- " />
                 <param name="skinsetting" value="WatchedIndicator.Watched.Color" />
                 <param name="visible" value="Skin.HasSetting(WatchedIndicator.Watched)" />
             </include>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17133" />
                 <param name="label" value="$LOCALIZE[31521]" />
                 <param name="labelprefix" value="  --- " />
@@ -1271,14 +1268,14 @@
                 <onclick>Skin.ToggleSetting(WatchedIndicator.Progress)</onclick>
                 <selected>Skin.HasSetting(WatchedIndicator.Progress)</selected>
             </control>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17135" />
                 <param name="label" value="$LOCALIZE[31517]" />
                 <param name="labelprefix" value="  --- " />
                 <param name="skinsetting" value="WatchedIndicator.Progress.Color" />
                 <param name="visible" value="Skin.HasSetting(WatchedIndicator.Progress)" />
             </include>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17136" />
                 <param name="label" value="$LOCALIZE[31521]" />
                 <param name="labelprefix" value="  --- " />
@@ -1292,14 +1289,14 @@
                 <onclick>Skin.ToggleSetting(WatchedIndicator.Sets)</onclick>
                 <selected>Skin.HasSetting(WatchedIndicator.Sets)</selected>
             </control>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17138" />
                 <param name="label" value="$LOCALIZE[31517]" />
                 <param name="labelprefix" value="  --- " />
                 <param name="skinsetting" value="WatchedIndicator.Sets.Color" />
                 <param name="visible" value="Skin.HasSetting(WatchedIndicator.Sets)" />
             </include>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17139" />
                 <param name="label" value="$LOCALIZE[31521]" />
                 <param name="labelprefix" value="  --- " />
@@ -1312,14 +1309,14 @@
                 <onclick>Skin.ToggleSetting(WatchedIndicator.Episodes)</onclick>
                 <selected>Skin.HasSetting(WatchedIndicator.Episodes)</selected>
             </control>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17141" />
                 <param name="label" value="$LOCALIZE[31517]" />
                 <param name="labelprefix" value="  --- " />
                 <param name="skinsetting" value="WatchedIndicator.Episodes.Color" />
                 <param name="visible" value="Skin.HasSetting(WatchedIndicator.Episodes)" />
             </include>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17142" />
                 <param name="label" value="$LOCALIZE[31521]" />
                 <param name="labelprefix" value="  --- " />
@@ -1332,14 +1329,14 @@
                 <onclick>Skin.ToggleSetting(WatchedIndicator.UnWatched)</onclick>
                 <selected>Skin.HasSetting(WatchedIndicator.UnWatched)</selected>
             </control>
-           <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+           <include content="SkinSettings_ColorButton">
                 <param name="id" value="17161" />
                 <param name="label" value="$LOCALIZE[31517]" />
                 <param name="labelprefix" value="  --- " />
                 <param name="skinsetting" value="WatchedIndicator.UnWatched.Color" />
                 <param name="visible" value="Skin.HasSetting(WatchedIndicator.UnWatched)" />
             </include>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17162" />
                 <param name="label" value="$LOCALIZE[31521]" />
                 <param name="labelprefix" value="  --- " />
@@ -1352,14 +1349,14 @@
                 <onclick>Skin.ToggleSetting(WatchedIndicator.Playing)</onclick>
                 <selected>Skin.HasSetting(WatchedIndicator.Playing)</selected>
             </control>
-           <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+           <include content="SkinSettings_ColorButton">
                 <param name="id" value="317891" />
                 <param name="label" value="$LOCALIZE[31517]" />
                 <param name="labelprefix" value="  --- " />
                 <param name="skinsetting" value="WatchedIndicator.Playing.Color" />
                 <param name="visible" value="Skin.HasSetting(WatchedIndicator.Playing)" />
             </include>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="31790" />
                 <param name="label" value="$LOCALIZE[31790]" />
                 <param name="labelprefix" value="  --- " />
@@ -1379,14 +1376,14 @@
                 <onclick>Skin.ToggleSetting(CaseOverlays)</onclick>
                 <selected>Skin.HasSetting(CaseOverlays)</selected>
             </control>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17152" />
                 <param name="label" value="$LOCALIZE[31526]" />
                 <param name="labelprefix" value="  --- " />
                 <param name="skinsetting" value="CaseOverlays.Color" />
                 <param name="visible" value="Skin.HasSetting(CaseOverlays)" />
             </include>
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="17153" />
                 <param name="label" value="$LOCALIZE[31527]" />
                 <param name="labelprefix" value="  --- " />
@@ -1415,73 +1412,73 @@
         </control>
         
 		<!-- Lib_PlayButtonColor -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31862" />
             <param name="label" value="Color for Dim Overlay Play Button" />
             <param name="skinsetting" value="Lib_PlayButtonColor" />
         </include>
 		<!-- THUMB border color FOCUS -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31828" />
             <param name="label" value="Media THUMB Border Color (Focus)" />
             <param name="skinsetting" value="ViewDetailsBorderFocusColor" />
         </include>
 		<!-- viewdetails UNFOCUSED THUMB BORDER / unfocused bg -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31472" />
             <param name="label" value="Media THUMB Border Color (No Focus)" />
             <param name="skinsetting" value="ViewDetailsPanelColor" />
         </include>
 		<!-- LIST PANEL FOCUS -->
-		<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+		<include content="SkinSettings_ColorButton">
             <param name="id" value="31571" />
             <param name="label" value="Media LIST PANEL Color (Focus)" />
             <param name="skinsetting" value="ViewDetailsFocusColor" />
         </include>
 		<!-- LIST PANEL  UNFOCUSED  BG and  DETAIL PANELS -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31474" />
             <param name="label" value="Media LIST PANEL (No Focus) + DETAIL PANELS BG" />
             <param name="skinsetting" value="ViewListAndDetailPanelColorNF" />
         </include>
 		<!--viewdetails BG color overlay of fanart , needed for 507 (523,525,526,527 use netflix colors) -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31575" />
             <param name="label" value="Media Background Color if No Global Background Image is in use" />
             <param name="skinsetting" value="ViewDetailsBGColor" />
         </include>
 		<!--viewdetails text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31222" />
             <param name="label" value="$LOCALIZE[31222]" />
             <param name="skinsetting" value="ViewDetailsTextColor" />
         </include>
 		<!--view details shadow color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31223" />
             <param name="label" value="$LOCALIZE[31223]" />
             <param name="skinsetting" value="ViewDetailsTextShadowColor" />
         </include>
          <!--viewdetails highlights color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31226" />
             <param name="label" value="$LOCALIZE[31226]" />
             <param name="skinsetting" value="ViewDetailsHighlightTextColor" />
         </include>
          <!--view details highlights shadow color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31227" />
             <param name="label" value="$LOCALIZE[31227]" />
             <param name="skinsetting" value="ViewDetailsHighlightTextShadowColor" />
         </include>
 		<!--listitem text unfocus color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31569" />
             <param name="label" value="$LOCALIZE[31569]" />
             <param name="skinsetting" value="ViewDetailsListItemTextColor" />
         </include>
          <!--listitem text focus color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31570" />
             <param name="label" value="$LOCALIZE[31570]" />
             <param name="skinsetting" value="ViewDetailsListItemTextFocusColor" />
@@ -1494,49 +1491,49 @@
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
 		<!-- netflix views/home bg color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31303" />
             <param name="label" value="$LOCALIZE[31018] $LOCALIZE[745]" />
             <param name="skinsetting" value="NetflixBGColor" />
         </include>
 		 <!--Netflix viewdetails panel color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31842" />
             <param name="label" value="$LOCALIZE[31018] $LOCALIZE[31472]" />
             <param name="skinsetting" value="NetflixViewDetailsPanelColor" />
         </include>
 		<!--Netflix viewdetails border focus color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31843" />
             <param name="label" value="$LOCALIZE[31018] $LOCALIZE[31828]" />
             <param name="skinsetting" value="NetflixViewDetailsBorderFocusColor" />
         </include>
 		<!--Netflix Primary Text Color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31830" />
             <param name="label" value="$LOCALIZE[31830]" />
             <param name="skinsetting" value="NetflixPrimaryTextColor" />
         </include>
         <!--Netflix Secondary Text Color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31831" />
             <param name="label" value="$LOCALIZE[31831]" />
             <param name="skinsetting" value="NetflixSecondaryTextColor" />
         </include>
 		<!--Netflix Highlight Text Color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31840" />
             <param name="label" value="$LOCALIZE[31018] Highlight Color" />
             <param name="skinsetting" value="ViewNetfixHighlightTextColor" />
         </include>
 		<!-- Netflix Details Flag Color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31832" />
             <param name="label" value="$LOCALIZE[31018] Detail (mpaa and codec) Frames Color" />
             <param name="skinsetting" value="NetflixDetailsFlagColor" />
         </include>
 		<!-- footer text color (if  netflix) -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31833" />
             <param name="label" value="$LOCALIZE[31018] ($LOCALIZE[563] and Media Flags Color)" />
             <param name="skinsetting" value="RatingsLogoColor" />
@@ -1565,7 +1562,7 @@
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
             <!-- enable/disable views -->
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="6026" />
                 <param name="label" value="31487" />
                 <param name="action" value="RunScript(script.skin.helper.service,action=ENABLEVIEWS,richlayout=true)" />
@@ -1725,7 +1722,7 @@
                 <selected>!Skin.HasSetting(UseModernOSDPanel)</selected>
 				<onclick condition="Skin.HasSetting(UseNetflixOSDPanel)">Skin.ToggleSetting(UseNetflixOSDPanel)</onclick>
 				<selected>!Skin.HasSetting(UseNetflixOSDPanel)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
 				<visible>!Skin.HasSetting(UseNetflixOSDPanel)</visible>
             </control>
 
@@ -1739,7 +1736,7 @@
                 <selected>!Skin.HasSetting(UseSlimOSDPanel)</selected>
    				<onclick condition="Skin.HasSetting(UseNetflixOSDPanel)">Skin.ToggleSetting(UseNetflixOSDPanel)</onclick>
 				<selected>!Skin.HasSetting(UseNetflixOSDPanel)</selected>
-				<visible>!Skin.HasTheme(classic)</visible>
+				
 				<visible>!Skin.HasSetting(UseNetflixOSDPanel)</visible>
             </control>
 			
@@ -1749,7 +1746,7 @@
                 <label>Use Netflix OSD Panel</label>
 				<onclick>Skin.ToggleSetting(UseNetflixOSDPanel)</onclick>
 				<selected>Skin.HasSetting(UseNetflixOSDPanel)</selected>
-				<visible>!Skin.HasTheme(classic)</visible>
+				
             </control>
 			
             <control type="button" id="31698">
@@ -1757,7 +1754,7 @@
                 <label>$LOCALIZE[31698]</label>
                 <label2>$INFO[Skin.String(osd_buttonstyle.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=osd_buttonstyle,header=$LOCALIZE[31698])</onclick>
-                <visible>!skin.hastheme(classic)</visible>
+                
             </control>
             
             <!-- hide discart from osd - note: slim osd only has discart at music playback-->
@@ -1773,7 +1770,7 @@
                 <label>$LOCALIZE[31661]</label>
                 <onclick>Skin.ToggleSetting(osdgradientstyle)</onclick>
                 <selected>Skin.HasSetting(osdgradientstyle)</selected>
-                <visible>!skin.hastheme(classic)</visible>
+                
 				<visible>!Skin.HasSetting(UseNetflixOSDPanel)</visible>
             </control>
             <!-- Volume Indicator Style -->
@@ -1845,14 +1842,14 @@
                 <label>31325</label>
                 <onclick>Skin.ToggleSetting(ShowWeatherVideoInfoOSD)</onclick>
                 <selected>Skin.HasSetting(ShowWeatherVideoInfoOSD)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
 			<control type="radiobutton" id="13068">
                 <include>SkinSettings_Button</include>
                 <label>Show Clock and Remaining Time in OSD</label>
                 <onclick>Skin.ToggleSetting(ShowClockRemainingTimeNetflixOSD)</onclick>
                 <selected>Skin.HasSetting(ShowClockRemainingTimeNetflixOSD)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
 				<visible>Skin.HasSetting(UseNetflixOSDPanel)</visible>
             </control>
             <control type="radiobutton" id="13067">
@@ -1860,7 +1857,7 @@
                 <label>31807</label>
                 <onclick>Skin.ToggleSetting(EnableBufferingProgressOSD)</onclick>
                 <selected>Skin.HasSetting(EnableBufferingProgressOSD)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
 			<control type="button" id="13063">
                 <include>SkinSettings_Button</include>
@@ -1874,7 +1871,7 @@
                 <label>$LOCALIZE[31632]</label>
                 <label2>$INFO[Skin.String(osdmediaflagsstyle.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=osdmediaflagsstyle,header=$LOCALIZE[31632])</onclick>
-                <visible>!skin.hastheme(classic)</visible>
+                
             </control>
             <!--clearart on osd -->
             <control type="radiobutton" id="31733">
@@ -1968,21 +1965,21 @@
 			
 			<!-- up next colors -->
 			<!-- $INFO[Skin.String(upnext_panel)]-->
-			 <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+			 <include content="SkinSettings_ColorButton">
 				<param name="id" value="3100708" />
 				<param name="label" value="upnext_panel" />
 				<param name="skinsetting" value="upnext_panel" />
 				<param name="visible" value="System.HasAddon(service.upnext) + [!Skin.String(upnext_fancy,upn_fancy_def) | !Skin.String(upnext_simple,upn_simple_addondefault)]" />
 			</include>
 			<!-- $INFO[Skin.String(upnext_text)]-->
-				<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+				<include content="SkinSettings_ColorButton">
 				<param name="id" value="3100706" />
 				<param name="label" value="upnext_text" />
 				<param name="skinsetting" value="upnext_text" />
 				<param name="visible" value="System.HasAddon(service.upnext) + [!Skin.String(upnext_fancy,upn_fancy_def) | !Skin.String(upnext_simple,upn_simple_addondefault)]" />
 			</include>
 			<!-- $INFO[Skin.String(upnext_text_secondary)] -->
-			<include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+			<include content="SkinSettings_ColorButton">
 				<param name="id" value="3100709" />
 				<param name="label" value="upnext_text_secondary" />
 				<param name="skinsetting" value="upnext_text_secondary" />
@@ -2050,7 +2047,7 @@
                 <label>31640</label>
                 <onclick>Skin.ToggleSetting(enableArtistBio)</onclick>
                 <selected>Skin.HasSetting(enableArtistBio)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
             <control type="button" id="31824">
                 <description>Fallback image music playback</description>
@@ -2098,14 +2095,14 @@
                 <label>31140</label>
                 <onclick>Skin.ToggleSetting(DisableNowPlayingBackground)</onclick>
                 <selected>Skin.HasSetting(DisableNowPlayingBackground)</selected>
-                <visible>!skin.hastheme(classic)</visible>
+                
             </control>
             <control type="radiobutton" id="31734">
                 <include>SkinSettings_Button</include>
                 <label>31734</label>
                 <onclick>Skin.ToggleSetting(DisableNowPlayingMusicBackground)</onclick>
                 <selected>Skin.HasSetting(DisableNowPlayingMusicBackground)</selected>
-                <visible>!skin.hastheme(classic)</visible>
+                
             </control>
             <control type="radiobutton" id="5142">
                 <include>SkinSettings_Button</include>
@@ -2151,120 +2148,120 @@
         <control type="label" id="69567">
             <include>SkinSettings_Header</include>
             <label>$LOCALIZE[31668]</label>
-            <visible>!skin.hastheme(classic)</visible>
+            
         </control>
 
         <!--OSDPanelColor-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31473" />
             <param name="label" value="$LOCALIZE[31473]" />
             <param name="skinsetting" value="OSDPanelColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
          <!--osd text color 1 -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31478" />
             <param name="label" value="$LOCALIZE[31478]" />
             <param name="skinsetting" value="OSDPrimaryTextColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
         <!--osd text color 1 shadow -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31479" />
             <param name="label" value="$LOCALIZE[31479]" />
             <param name="skinsetting" value="OSDPrimaryTextShadowColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
         <!--osd text color 2 -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31480" />
             <param name="label" value="$LOCALIZE[31480]" />
             <param name="skinsetting" value="OSDSecondaryTextColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
         <!--osd text color 2 shadow -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31481" />
             <param name="label" value="$LOCALIZE[31481]" />
             <param name="skinsetting" value="OSDSecondaryTextShadowColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
         <!--osd progress bar background color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31482" />
             <param name="label" value="$LOCALIZE[31482]" />
             <param name="skinsetting" value="OSDProgressBarBackgroundColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
         <!--osd progress bar border color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31547" />
             <param name="label" value="$LOCALIZE[31547]" />
             <param name="skinsetting" value="OSDProgressBarBorderColor" />
-            <param name="visible" value="!skin.hastheme(classic) + !Skin.HasSetting(UseSlimOSDPanel)" />
+            <param name="visible" value="!Skin.HasSetting(UseSlimOSDPanel)" />
         </include>
         <!--osd progress bar color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31483" />
             <param name="label" value="$LOCALIZE[31483]" />
             <param name="skinsetting" value="OSDProgressBarColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
         <!--osd progress bar cache color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31573" />
             <param name="label" value="$LOCALIZE[31573]" />
             <param name="skinsetting" value="OSDProgressBarCacheColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
         <!--osd buttons color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31484" />
             <param name="label" value="$LOCALIZE[31484]" />
             <param name="skinsetting" value="OSDButtonsColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
          <!--osd buttons focus color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31485" />
             <param name="label" value="$LOCALIZE[31485]" />
             <param name="skinsetting" value="OSDButtonsFocusColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
 		<!--OSD Buffering Spinner Color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31295" />
             <param name="label" value="OSD Buffering Spinner Color" />
             <param name="skinsetting" value="OSDBufferingSpinnerColor" />
-            <param name="visible" value="!skin.hastheme(classic)" />
+            <param name="visible" value="true" />
         </include>
         <!-- Lyrics diffuse panel -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31813" />
             <param name="label" value="$LOCALIZE[31813]" />
             <param name="skinsetting" value="LyricsOverlayColor" />
             <param name="visible" value="!Skin.HasSetting(DisableLyricsOverlay)" />
         </include>
         <!-- Lyrics unfocused text -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31814" />
             <param name="label" value="$LOCALIZE[31814]" />
             <param name="skinsetting" value="LyricsTextColor" />
         </include>
         <!-- Lyrics unfocused text shadow -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31816" />
             <param name="label" value="$LOCALIZE[31816]" />
             <param name="skinsetting" value="LyricsTextShadowColor" />
         </include>
         <!-- Lyrics focused text -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31815" />
             <param name="label" value="$LOCALIZE[31815]" />
             <param name="skinsetting" value="LyricsFocusTextColor" />
         </include>
         <!-- Lyrics focused text shadow -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31817" />
             <param name="label" value="$LOCALIZE[31817]" />
             <param name="skinsetting" value="LyricsFocusTextShadowColor" />
@@ -2371,7 +2368,7 @@
                 <onclick>Skin.ToggleSetting(SkinHelper.EnablePVRThumbs)</onclick>
                 <selected>Skin.HasSetting(SkinHelper.EnablePVRThumbs)</selected>
             </control>
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="31709" />
                 <param name="label" value="31709" />
                 <param name="action" value="Addon.OpenSettings(script.module.metadatautils)" />
@@ -2417,22 +2414,22 @@
             <label>$LOCALIZE[31088]</label>
         </control>
 
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31777" />
             <param name="label" value="$LOCALIZE[31777]" />
             <param name="skinsetting" value="PVRGuideItemColorUnfocus" />
         </include>
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31778" />
             <param name="label" value="$LOCALIZE[31778]" />
             <param name="skinsetting" value="PVRGuideItemColorFocus" />
         </include>
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31779" />
             <param name="label" value="$LOCALIZE[31779]" />
             <param name="skinsetting" value="PVRGuideItemTextColorUnfocus" />
         </include>
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31780" />
             <param name="label" value="$LOCALIZE[31780]" />
             <param name="skinsetting" value="PVRGuideItemTextColorFocus" />
@@ -2471,13 +2468,13 @@
                 <align>left</align>
                 <aligny>top</aligny>
             </control>
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="6003" />
                 <param name="label" value="31014" />
                 <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)" />
                 <param name="visible" value="true" />
             </include>
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="96008" />
                 <param name="label" value="31204" />
                 <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=powermenu)" />
@@ -2512,7 +2509,7 @@
                 <align>left</align>
                 <aligny>top</aligny>
             </control>
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="6007" />
                 <param name="label" value="$ADDON[script.skinshortcuts 32028]" />
                 <param name="action" value="RunScript(script.skinshortcuts,type=resetall)" />
@@ -2684,32 +2681,32 @@
                 <label>31271</label>
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="8005" />
                 <param name="label" value="31801" />
                 <param name="action" value="XBMC.RunAddon(script.skin.helper.skinbackup)" />
                 <param name="visible" value="System.HasAddon(script.skin.helper.skinbackup)" />
             </include>
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="8002" />
                 <param name="label" value="31272" />
                 <param name="action" value="XBMC.RunScript(script.skin.helper.skinbackup,action=backup)" />
                 <param name="visible" value="System.HasAddon(script.skin.helper.skinbackup)" />
             </include>
 
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="8003" />
                 <param name="label" value="31273" />
                 <param name="action" value="XBMC.RunScript(script.skin.helper.skinbackup,action=RESTORE)" />
                 <param name="visible" value="System.HasAddon(script.skin.helper.skinbackup)" />
             </include>
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="8004" />
                 <param name="label" value="31274" />
                 <param name="action" value="XBMC.RunScript(script.skin.helper.skinbackup,action=RESET)" />
                 <param name="visible" value="System.HasAddon(script.skin.helper.skinbackup)" />
             </include>
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="8006" />
                 <param name="label" value="31801" />
                 <param name="action" value="RunPlugin(plugin://script.skin.helper.skinbackup)" />
@@ -2807,7 +2804,7 @@
                 <label>31720</label>
                 <onclick>Skin.ToggleSetting(smallContextMenu)</onclick>
                 <selected>Skin.HasSetting(smallContextMenu)</selected>
-                <visible>!Skin.HasTheme(classic)</visible>
+                
             </control>
 			<!-- check, improve?-->
             <control type="radiobutton" id="5163">
@@ -2832,7 +2829,7 @@
                 <onclick>RunScript(script.skin.helper.service,action=BUSYTEXTURE)</onclick>
             </control>
             <!--LOADING SPINNER COLOR-->
-            <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <include content="SkinSettings_ColorButton">
                 <param name="id" value="5166" />
                 <param name="label" value="$LOCALIZE[31505]" />
                 <param name="skinsetting" value="SpinnerTexture.Color" />
@@ -2898,7 +2895,7 @@
                 <label>31688</label>
                 <label2>$INFO[Skin.String(infoline.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=infoline,header=$LOCALIZE[31688])</onclick>
-                <visible>!Skin.Hastheme(classic)</visible>
+                
                 <visible>String.Contains(Skin.String(general_header),title) | String.Contains(Skin.String(home_header),title)</visible>
             </control>
             
@@ -3022,7 +3019,7 @@
                 <selected>Skin.HasSetting(EnableWeatherAlertOverlay)</selected>
             </control>
             <!-- skin helper settings -->
-            <include name="SkinSettings_ActionButton" content="SkinSettings_ActionButton">
+            <include content="SkinSettings_ActionButton">
                 <param name="id" value="8019" />
                 <param name="label" value="31630" />
                 <param name="action" value="Addon.OpenSettings(script.module.metadatautils)" />
@@ -3122,98 +3119,98 @@
         </control>
        
         <!--buttons color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31475" />
             <param name="label" value="$LOCALIZE[31475]" />
             <param name="skinsetting" value="ButtonColor" />
         </include>
        <!--buttons focus color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31233" />
             <param name="label" value="$LOCALIZE[31233]" />
             <param name="skinsetting" value="ButtonFocusColor" />
         </include>
          <!--buttons text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31458" />
             <param name="label" value="$LOCALIZE[31458]" />
             <param name="skinsetting" value="ButtonTextColor" />
         </include>
          <!--buttons focus text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31459" />
             <param name="label" value="$LOCALIZE[31459]" />
             <param name="skinsetting" value="ButtonFocusTextColor" />
         </include>
         <!--spincontrol and radiobutton color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31788" />
             <param name="label" value="$LOCALIZE[31788]" />
             <param name="skinsetting" value="ActiveSpinControlColor" />
         </include>
          <!--General panel color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31260" />
             <param name="label" value="$LOCALIZE[31260]" />
             <param name="skinsetting" value="GeneralPanelsColor" />
         </include>
          <!--general text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31460" />
             <param name="label" value="$LOCALIZE[31460]" />
             <param name="skinsetting" value="GeneralTextColor" />
         </include>
          <!--highlight text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31572" />
             <param name="label" value="$LOCALIZE[31572]" />
             <param name="skinsetting" value="GeneralHighlightTextColor" />
         </include>
 									   
         <!--scrollbar background color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31495" />
             <param name="label" value="$LOCALIZE[31495]" />
             <param name="skinsetting" value="ScrollbarBackgroundColor" />
         </include>
          <!--scrollbar unfocused color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31496" />
             <param name="label" value="$LOCALIZE[31496]" />
             <param name="skinsetting" value="ScrollbarUnfocusedColor" />
         </include>
          <!--scrollbar focused color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31497" />
             <param name="label" value="$LOCALIZE[31497]" />
             <param name="skinsetting" value="ScrollbarFocusedColor" />
         </include>
          <!--sideblade panel color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31601" />
             <param name="label" value="$LOCALIZE[31601]" />
             <param name="skinsetting" value="SideBladePanelColor" />
         </include>
          <!--sideblade text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31602" />
             <param name="label" value="$LOCALIZE[31602]" />
             <param name="skinsetting" value="SideBladeTextColor" />
         </include>
 		<!-- homemenu focused button color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31834" />
             <param name="label" value=" -- Dialog Frame/BG Color" />
             <param name="skinsetting" value="DialogFrameColor" />
         </include>
          <!--label overlay panel color , Secondary Tag Color?-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31603" />
             <param name="label" value="$LOCALIZE[31603]" />
             <param name="skinsetting" value="TagOverlaysPanelColor" />
         </include>
         <!--label overlay text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31604" />
             <param name="label" value="$LOCALIZE[31604]" />
             <param name="skinsetting" value="TagOverlaysTextColor" />
@@ -3227,72 +3224,72 @@
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
 		<!--homemenu panel color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31742" />
             <param name="label" value="$LOCALIZE[31742]" />
             <param name="skinsetting" value="MainMenuPanelColor" />
             <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" />
         </include>
 		<!-- Widget_ContainerHeaderText Color text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31229" />
             <param name="label" value="Widget Header TextColor" />
             <param name="skinsetting" value="WidgetHeaderTextColor" />
         </include>
         <!--homemenu unfocused text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31743" />
             <param name="label" value="Widget Details/Tiles/$LOCALIZE[31743]" />
             <param name="skinsetting" value="MainMenuTextColor" />
             <!-- <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" /> -->
         </include>
         <!--homemenu focused text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31744" />
             <param name="label" value="Widget Details/Tiles/$LOCALIZE[31744]" />
             <param name="skinsetting" value="MainMenuFocusTextColor" />
             <!-- <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" /> -->
         </include>
         <!--homemenu secondary focused button color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31835" />
             <param name="label" value="Bottom Shutdown Menu focused BG (Windows10 and $LOCALIZE[31544])" />
             <param name="skinsetting" value="MainMenuSecondaryFocusButtonColor" />
             <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
         </include>
 		<!-- Widgets Detail Panels and Tiles - Background Color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31174" />
             <param name="label" value="Widgets Detail Panels and Tiles - Background Color" />
             <param name="skinsetting" value="HomeViewDetailsFocusColor" />
         </include>
 		<!-- Widgets and Tiles - focused Border Color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton"><!-- check the use of var -->
+        <include content="SkinSettings_ColorButton"><!-- check the use of var -->
             <param name="id" value="31829" />
 			<param name="label" value="Widgets and Tiles - focused Border Color" />
             <param name="skinsetting" value="HomeViewDetailsBorderFocusColor" />
         </include>
 		<!-- Widgets and Tiles - unfocused Border Color -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31735" />
 			<param name="label" value="Widgets and Tiles - unfocused Border Color" />
             <param name="skinsetting" value="HomeWidgetsBorderColor" />
         </include>
 		
         <!--spotlight button unfocused color=textcolor-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31850" />
             <param name="label" value="$LOCALIZE[31018] $LOCALIZE[31185]-$LOCALIZE[35103] unfocused Color" />
             <param name="skinsetting" value="HomeSpotlightButtonNoFocusColor" />
         </include>
 		<!--spotlight button focus bg color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31851" />
             <param name="label" value="$LOCALIZE[31018] $LOCALIZE[31185]-$LOCALIZE[35103] focused bg Color" />
             <param name="skinsetting" value="HomeSpotlightButtonFocusBGColor" />
         </include>
 		<!-- spotlight button focused label color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31852" />
             <param name="label" value="$LOCALIZE[31018] $LOCALIZE[31185]-$LOCALIZE[35103] focused Label Color" />
             <param name="skinsetting" value="HomeSpotlightButtonFocusLabelColor" />
@@ -3306,25 +3303,25 @@
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
 		<!--header panel color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton" condition="!Skin.HasTheme(classic)">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31791" />
             <param name="label" value="$LOCALIZE[31791]" />
             <param name="skinsetting" value="HeaderPanelColor" />
         </include>
         <!--header text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31219" />
             <param name="label" value="$LOCALIZE[31219]" />
             <param name="skinsetting" value="HeaderTextColor" />
         </include>
 		 <!--header shadow color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31220" />
             <param name="label" value="$LOCALIZE[31220]" />
             <param name="skinsetting" value="HeaderTextShadowColor" />
         </include>
 		<!--2ndaryheader text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31301" />
             <param name="label" value="secondary header $LOCALIZE[31219]" />
             <param name="skinsetting" value="SecondaryHeaderTextColor" />
@@ -3337,19 +3334,19 @@
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
         <!--footer panel color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31471" />
             <param name="label" value="$LOCALIZE[31471]" />
             <param name="skinsetting" value="FooterPanelColor" />
         </include>
         <!--footer text color (if not netflix) -->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31455" />
             <param name="label" value="$LOCALIZE[31455]" />
             <param name="skinsetting" value="FooterTextColor" />
         </include>
 		<!--footer shadow text color-->
-        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+        <include content="SkinSettings_ColorButton">
             <param name="id" value="31477" />
             <param name="label" value="$LOCALIZE[31477]" />
             <param name="skinsetting" value="FooterTextShadowColor" />
@@ -3376,35 +3373,35 @@
                 <label>31696</label>
             </control>
 
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31001" />
                 <param name="addon" value="script.skin.helper.service" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31030" />
                 <param name="addon" value="script.skin.helper.widgets" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31031" />
                 <param name="addon" value="script.skin.helper.backgrounds" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31032" />
                 <param name="addon" value="script.module.metadatautils" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31033" />
                 <param name="addon" value="script.skin.helper.skinbackup" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31002" />
                 <param name="addon" value="script.skinshortcuts" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31003" />
                 <param name="addon" value="script.extendedinfo" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31019" />
                 <param name="addon" value="plugin.program.autocompletion" />
             </include>
@@ -3412,71 +3409,71 @@
                 <param name="id" value="31004" />
                 <param name="addon" value="script.artwork.downloader" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31005" />
                 <param name="addon" value="script.tv.show.next.aired" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31300" />
                 <param name="addon" value="script.artwork.beef" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31007" />
                 <param name="addon" value="service.upnext" />
             </include>
-			<include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+			<include content="SkinSettings_AddonButton">
                 <param name="id" value="55143" />
                 <param name="addon" value="plugin.video.netflix" />
             </include>
-			<include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+			<include content="SkinSettings_AddonButton">
                 <param name="id" value="55142" />
                 <param name="addon" value="script.user.rating" />
             </include>
-			<include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+			<include content="SkinSettings_AddonButton">
                 <param name="id" value="55145" />
                 <param name="addon" value="script.tvmelodies" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31008" />
                 <param name="addon" value="script.cinema.experience" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31009" />
                 <param name="addon" value="script.cinemavision" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31011" />
                 <param name="addon" value="script.trakt" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31012" />
                 <param name="addon" value="screensaver.digitalclock" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31013" />
                 <param name="addon" value="script.games.rom.collection.browser" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31014" />
                 <param name="addon" value="plugin.video.couchpotato_manager" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31015" />
                 <param name="addon" value="plugin.video.youtube" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31016" />
                 <param name="addon" value="plugin.video.emby" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31017" />
                 <param name="addon" value="plugin.video.plexbmc" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31020" />
                 <param name="addon" value="resource.images.gamestudios.grayscale" />
             </include>
-            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31021" />
                 <param name="addon" value="plugin.program.advanced.emulator.launcher" />
             </include>
@@ -3802,10 +3799,10 @@
             <radioheight>40</radioheight>
             <radioposx>0</radioposx>
             <radioposy>5</radioposy>
-            <include name="SkinSettings_AddonButton_Label" content="SkinSettings_AddonButton_Label" condition="System.HasAddon($PARAM[addon])">
+            <include content="SkinSettings_AddonButton_Label" condition="System.HasAddon($PARAM[addon])">
                 <param name="label" value="$INFO[System.AddonTitle($PARAM[addon])] ($INFO[System.AddonVersion($PARAM[addon])])" />
             </include>
-            <include name="SkinSettings_AddonButton_Label" content="SkinSettings_AddonButton_Label" condition="!System.HasAddon($PARAM[addon])">
+            <include content="SkinSettings_AddonButton_Label" condition="!System.HasAddon($PARAM[addon])">
                 <param name="label" value="$PARAM[addon]" />
             </include>
             <onclick condition="System.HasAddon($PARAM[addon])">Addon.OpenSettings($PARAM[addon])</onclick>

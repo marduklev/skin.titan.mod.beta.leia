@@ -12,16 +12,7 @@
         <include>GlobalBackground</include>
          <!--Header-->
         <include>Header</include>
-         <!-- footer -->
-		<control type="image">	
-			<posx>50</posx>
-			<posy>960</posy>
-			<width>1820</width>
-			<height>84</height>
-			<texture colordiffuse="$INFO[Skin.String(FooterPanelColor)]">dialogs/footer_classic.png</texture>
-			<visible>[!Skin.HasSetting(NoFooterBar) + skin.hastheme(classic)]</visible>	
-			<include>animation_fade_visible_hidden</include>				
-		</control>
+        <!-- footer -->
 		<control type="image">
 			<posx>0</posx>
 			<posy>982</posy>
@@ -29,7 +20,7 @@
 			<height>110</height>
 			<texture border="5">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-			<visible>!skin.hastheme(classic) + !skin.hassetting(nofooterbar)</visible>
+			<visible>!skin.hassetting(nofooterbar)</visible>
 			<include>animation_fade_visible_hidden</include>
 		</control>
 

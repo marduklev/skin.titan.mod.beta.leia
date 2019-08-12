@@ -80,7 +80,7 @@
                     <onleft>300</onleft>
                     <ondown>77777</ondown>
                     <onup>77777</onup>
-                    <include name="WidgetsAutoRotate" content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
+                    <include content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
                         <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
                     </include>
                     <onfocus>Setproperty(SkinHelper.WidgetContainer,1508)</onfocus>
@@ -95,7 +95,7 @@
                     <onright>53</onright>
                     <ondown>77777</ondown>
                     <onup>77777</onup>
-                    <include name="WidgetsAutoRotate" content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
+                    <include content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
                         <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
                     </include>
                     <onclick>RunScript(script.skin.helper.service,action=showinfo)</onclick>
@@ -149,7 +149,7 @@
                 <itemlayout width="960" height="555">
                 </itemlayout>
                 <focusedlayout width="960" height="555">
-                    <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                    <include content="HiddenWidgetButton">
                         <param name="widgetstyle" value="spotlight" />
                         <param name="widgetId" value="1508" />
                     </include>
@@ -200,9 +200,7 @@
 	<!-- Netflix 1 Home -->
 	<include name="HomeNetflix">
 
-        <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
-        <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-        <include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+        <include>NowPlayingModern</include>
 
         <control type="group" id="9000">
             <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
@@ -232,7 +230,7 @@
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">300</onleft>
                 <onup condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)">505</onup>
                 <onback>300</onback>
-                <include name="WidgetsAutoRotate" content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
+                <include content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
                     <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
                 </include>
 				<include>1stRow_AlignmentCorrection</include>
@@ -698,7 +696,7 @@
                 <onup condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)">505</onup>
                 <onback>300</onback>
                 
-                <include name="WidgetsAutoRotate" content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
+                <include content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
                     <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
                 </include>
 				<include condition="Window.IsActive(Home)">1stRow_AlignmentCorrection</include>
@@ -1061,7 +1059,7 @@
                     <!--show buttons-->
                     <onunfocus condition="System.HasAlarm(focus_delay)">CancelAlarm(focus_delay,true)</onunfocus>
                     <onfocus condition="String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">AlarmClock(focus_delay,SetFocus(53),00:02,silent)</onfocus>
-                    <include name="WidgetProperties" content="WidgetProperties">
+                    <include content="WidgetProperties">
                         <param name="widgetid" value="1508" />
                     </include>
                 </control>

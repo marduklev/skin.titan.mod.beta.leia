@@ -1541,7 +1541,7 @@
 	<include name="WatchedIndicatorNormal1">
 		<control type="group">
 			<animation effect="zoom" end="95" time="0" center="70,0" condition="control.isvisible(513)">Conditional</animation>
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1555,7 +1555,7 @@
 	<include name="WatchedIndicatorNormal2">
 		<control type="group">
 			<animation effect="zoom" end="90" time="0" center="65,0" condition="control.isvisible(513)">Conditional</animation>
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1569,7 +1569,7 @@
 	<include name="WatchedIndicatorNormal3">
 		<control type="group">
 			<animation effect="zoom" end="85" time="0" center="60,0" condition="control.isvisible(513)">Conditional</animation>
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1583,7 +1583,7 @@
 	<include name="WatchedIndicatorNormal4">
 		<control type="group">
 			<animation effect="zoom" end="80" time="0" center="55,0" condition="control.isvisible(513)">Conditional</animation>
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1597,7 +1597,7 @@
 	<include name="WatchedIndicatorNormal5">
 		<control type="group">
 			<animation effect="zoom" end="75" time="0" center="55,0" condition="control.isvisible(513)">Conditional</animation>
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1611,7 +1611,7 @@
 	<include name="WatchedIndicatorNormal6">
 		<control type="group">
 			<animation effect="zoom" end="70" time="0" center="40,0" condition="control.isvisible(513)">Conditional</animation>
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1625,7 +1625,7 @@
 	<include name="WatchedIndicatorNormal7">
 		<control type="group">
 			<animation effect="zoom" end="60" time="0" center="35,0" condition="control.isvisible(513)">Conditional</animation>
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1639,7 +1639,7 @@
 	<include name="WatchedIndicatorNormal8">
 		<control type="group">
 			<animation effect="zoom" end="50" time="0" center="30,0" condition="control.isvisible(513)">Conditional</animation>
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1653,7 +1653,7 @@
 	<include name="WatchedIndicatorNormal9">
 		<control type="group">
 			<animation effect="zoom" end="35" time="0" condition="control.isvisible(513)">Conditional</animation>
-            <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+            <include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1666,7 +1666,7 @@
 
 	<include name="WatchedIndicatorNormal-1">
 		<control type="group">
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1679,7 +1679,7 @@
 	
 	<include name="WatchedIndicatorNormal-2">
 		<control type="group">
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1692,7 +1692,7 @@
 	
 	<include name="WatchedIndicatorNormal-3">
 		<control type="group">
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1705,7 +1705,7 @@
 	
 	<include name="WatchedIndicatorNormal-4">
 		<control type="group">
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1718,7 +1718,7 @@
 	
 	<include name="WatchedIndicatorNormal-5">
 		<control type="group">
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1731,7 +1731,7 @@
 	
 	<include name="WatchedIndicatorNormal-6">
 		<control type="group">
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -1744,7 +1744,7 @@
 	
 	<include name="WatchedIndicatorNormal-7">
 		<control type="group">
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />

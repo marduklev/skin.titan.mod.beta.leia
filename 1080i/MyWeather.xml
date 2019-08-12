@@ -11,9 +11,8 @@
 		<!--Header-->
         <include>Header</include>
 <!--NowPlaying-->
-        <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
-        <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+        
+		<include>NowPlayingModern</include>
 		 
  		<!-- weather View -->
 		<include condition="!Skin.HasSetting(useExtendedWeatherScreen)">SimpleWeather</include>
@@ -24,8 +23,8 @@
         <include condition="!Skin.HasSetting(DisableSideBladeIndicator)">SideBladeMenuTabLeft</include>
         <!--Sub Menu-->
         <control type="group">
-            <include condition="skin.hastheme(classic) | Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
-			<include condition="![skin.hastheme(classic) | Skin.HasSetting(smallContextMenu)]">SideBladeModern</include>
+            <include condition="Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
+			<include condition="!Skin.HasSetting(smallContextMenu)">SideBladeModern</include>
             <!--Grouplist 9000-->
             <control type="grouplist" id="9000">
                 <posx>21</posx>
@@ -43,25 +42,7 @@
                 <onup>9000</onup>
                 <ondown>9000</ondown>
                 <orientation>vertical</orientation>
-                <!--Buttons-->
-                <control type="label" id="200">
-                    <!--Label Menu-->
-                    <width>458</width>
-                    <align>left</align>
-                    <textoffsetx>50</textoffsetx>
-                    <font>Bold40</font>
-                    <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
-                    <label>$LOCALIZE[33061]:</label>
-					<visible>skin.hastheme(classic)</visible>
-                </control>
-                <control type="image" id="201">
-                    <!--Seperator-->
-                    <width>458</width>
-                    <height>10</height>
-                    <align>left</align>
-                    <texture>common/menu-separator.png</texture>
-					<visible>skin.hastheme(classic)</visible>
-                </control>
+                
                 <control type="button" id="2">
                     <!--Refresh-->
                     <description>Refresh</description>
@@ -142,8 +123,7 @@
 				<include>SideBladeMenuButton</include>
                 <label>$INFO[Control.GetLabel(3)]</label>
                 <textoffsetx>40</textoffsetx>
-				<animation effect="slide" end="0,76" time="0" condition="skin.hastheme(classic)">Conditional</animation>
-            </control>
+			</control>
             <control type="label">
                 <!--Location Label Focus-->
                 <visible>ControlGroup(9000).HasFocus(3)</visible>
@@ -155,8 +135,7 @@
 				<font>Reg26</font>
                 <label>$INFO[Control.GetLabel(3)]</label>
                 <textoffsetx>40</textoffsetx>
-				<animation effect="slide" end="0,76" time="0" condition="skin.hastheme(classic)">Conditional</animation>
-            </control>
+			</control>
         </control>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
     </controls>

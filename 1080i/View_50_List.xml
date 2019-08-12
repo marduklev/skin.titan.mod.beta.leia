@@ -5,7 +5,6 @@
         <!--Panel-->
         <control type="group">
             <visible>Control.IsVisible(50)</visible>
-            <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
             <include>animation_view_change</include>
 			<bottom>13%</bottom>
             <height>746</height>

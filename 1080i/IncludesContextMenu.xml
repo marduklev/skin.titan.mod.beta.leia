@@ -316,8 +316,7 @@
 			<label>31793</label>
 			<onclick>Skin.ToggleSetting(DetailsAutoTrailer)</onclick>
 			<selected>Skin.HasSetting(DetailsAutoTrailer)</selected>
-            <visible>!skin.hastheme(classic)</visible>
-		</control>
+        </control>
 		
  		<control type="radiobutton" id="3010">
 			<!--Show info-->
@@ -663,18 +662,7 @@
 			<visible>Control.IsVisible(523)</visible>
 			<onclick condition="Control.IsVisible(523)">Container.SetViewMode(523)</onclick>
         </control>	
-        <!-- in progress
-		<control type="radiobutton" id="666667">
-            3 Shelf
-            <include>SideBladeMenuButton</include>
-            <label>3 D</label>
-            <onclick>Skin.ToggleSetting(3dLayout)</onclick>
-            <selected>Skin.HasSetting(3dLayout)</selected>          
-			<visible>Control.IsVisible(523)</visible>
-			<visible>!skin.hastheme(classic)</visible>
-        </control>
-		-->
-        <!-- NETFLIX CAST -->
+       <!-- NETFLIX CAST -->
         <control type="radiobutton" id="666666">
             <!--Enable Netflix Viev Cast on Trailer Playback, relock at selected -->
             <include>SideBladeMenuButton</include>
@@ -682,8 +670,7 @@
             <onclick>Skin.ToggleSetting(ShowCastOnTrailer)</onclick>			
             <selected>Skin.HasSetting(ShowCastOnTrailer)</selected>
             <visible>Control.IsVisible(523) | Control.IsVisible(525)</visible>
-			<visible>!skin.hastheme(classic)</visible>
-        </control>
+		</control>
 		<!-- Footer toggle need add diff viewtypes -->
         <control type="radiobutton" id="33451">
             <include>SideBladeMenuButton</include>
@@ -1009,8 +996,8 @@
     
     <include name="PVRsideblade">
 	    <control type="group">
-            <include condition="skin.hastheme(classic) | Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
-			<include condition="![skin.hastheme(classic) | Skin.HasSetting(smallContextMenu)]">SideBladeModern</include>
+            <include condition="Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
+			<include condition="!Skin.HasSetting(smallContextMenu)">SideBladeModern</include>
 			<!-- hidden labels for pvr -->
 			<control type="label" id="29">
 				<description>Empty so we can pass the values up one level</description>
@@ -1037,24 +1024,6 @@
                 <ondown>9000</ondown>
                 <orientation>vertical</orientation>
                 <!--Buttons-->
-                <control type="label" id="200">
-                    <!--Label Menu-->
-                    <width>458</width>
-                    <align>left</align>
-                    <textoffsetx>50</textoffsetx>
-                    <font>Bold40</font>
-                    <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
-                    <label>$LOCALIZE[33061]:</label>
-					<visible>skin.hastheme(classic)</visible>
-                </control>
-                <control type="image" id="201">
-                    <!--Seperator-->
-                    <width>458</width>
-                    <height>10</height>
-                    <align>left</align>
-                    <texture>common/menu-separator.png</texture>
-					<visible>skin.hastheme(classic)</visible>
-                </control>
                 <control type="button" id="100">
                     <!--Channels-->
                     <description>Channels</description>

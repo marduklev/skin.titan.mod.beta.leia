@@ -298,26 +298,7 @@
     <include name="HeaderTitle">
 	
         <control type="group">
-			<control type="image">
-                <visible>skin.hastheme(classic)</visible>
-                <posx>61</posx>
-                <posy>31</posy>
-                <height>64</height>
-                <width>64</width>
-                <aligny>center</aligny>
-                <colordiffuse>$INFO[Skin.String(HeaderTextShadowColor)]</colordiffuse>
-                <texture background="true">$VAR[value_header_icon]</texture>
-            </control>
-            <control type="image">
-                <visible>skin.hastheme(classic)</visible>
-                <posx>60</posx>
-                <posy>30</posy>
-                <height>64</height>
-                <width>64</width>
-                <aligny>center</aligny>
-                <colordiffuse>$INFO[Skin.String(HeaderTextColor)]</colordiffuse>
-                <texture background="true">$VAR[value_header_icon]</texture>
-            </control>
+			
             <control type="label">
                 <posx>61</posx>
                 <posy>-5</posy>
@@ -328,10 +309,8 @@
                 <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
                 <label>$VAR[value_header]</label>
                 <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
-                <animation effect="slide" end="80,15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
             </control>
              <control type="label">
-                <visible>!skin.hastheme(classic)</visible>
                 <posy>65</posy>
                 <posx>61</posx>
                 <width min="0" max="1400">auto</width>
@@ -410,7 +389,7 @@
 			<texture background="true">$VAR[ListItemClearLogo]</texture>
             <visible>!skin.hassetting(nofooterbar)</visible>
             <visible>![[Skin.String(mediaflagsstyle,large_color) | Skin.String(mediaflagsstyle,large) | Skin.HasSetting(EnableTouchSupport)] + !String.IsEmpty(ListItem.VideoResolution)]</visible>
-			<visible>!String.IsEmpty(Control.GetLabel(884)) + Skin.String(ClearLogoLocation, footer) + !skin.hastheme(classic) + !String.IsEqual(Window(Home).Property(showinfopanel),show)</visible>
+			<visible>!String.IsEmpty(Control.GetLabel(884)) + Skin.String(ClearLogoLocation, footer) + !String.IsEqual(Window(Home).Property(showinfopanel),show)</visible>
 			<animation effect="slide" end="0,300" time="300" condition="Skin.HasSetting(View_526_nofooterbar) + Control.IsVisible(526) | Control.IsVisible(507) + Skin.HasSetting(View_507_nofooterbar)">Conditional</animation>
 		</control>
         <!--clearlogo footer -->
@@ -424,7 +403,7 @@
 			<texture background="true">$VAR[ListItemClearLogo]</texture>
             <visible>!skin.hassetting(nofooterbar)</visible>
             <visible>[[Skin.String(mediaflagsstyle,large_color) | Skin.String(mediaflagsstyle,large) | Skin.HasSetting(EnableTouchSupport)] + !String.IsEmpty(ListItem.VideoResolution)]</visible>
-			<visible>!String.IsEmpty(Control.GetLabel(884)) + Skin.String(ClearLogoLocation, footer) + !skin.hastheme(classic) + !String.IsEqual(Window(Home).Property(showinfopanel),show)</visible>
+			<visible>!String.IsEmpty(Control.GetLabel(884)) + Skin.String(ClearLogoLocation, footer) + !String.IsEqual(Window(Home).Property(showinfopanel),show)</visible>
         </control>
 		
 	</include>

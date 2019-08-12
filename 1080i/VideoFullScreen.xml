@@ -118,7 +118,7 @@
 		
 	<!-- Buffering Progress Overlay -->
 		<control type="group" id="2">
-			<visible>Player.Caching + Skin.HasSetting(EnableBufferingProgressOSD) + !Skin.HasTheme(classic)</visible>
+			<visible>Player.Caching + Skin.HasSetting(EnableBufferingProgressOSD)</visible>
 			<animation end="-840,-300" time="0" effect="slide" condition="Skin.HasSetting(UseNetflixOSDPanel)">Conditional</animation>
 			<animation delay="300" effect="fade" time="200">Visible</animation>
 			<animation effect="fade" delay="200" time="150">Hidden</animation>

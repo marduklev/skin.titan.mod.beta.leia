@@ -188,84 +188,84 @@
     </include>
     
     <include name="widget_layout_default">
-    	<include name="widget_layout_netflixspotlight" content="widget_layout_netflixspotlight" condition="Skin.String(widgetstyle, netflixspotlight)">
+    	<include content="widget_layout_netflixspotlight" condition="Skin.String(widgetstyle, netflixspotlight)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_poster" content="widget_layout_poster" condition="Skin.String(widgetstyle, poster)">
+        <include content="widget_layout_poster" condition="Skin.String(widgetstyle, poster)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
 		</include>
-        <include name="widget_layout_landscape" content="widget_layout_landscape" condition="Skin.String(widgetstyle, landscape)">
+        <include content="widget_layout_landscape" condition="Skin.String(widgetstyle, landscape)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_landscapesmall" content="widget_layout_landscapesmall" condition="Skin.String(widgetstyle, landscapesmall)">
+        <include content="widget_layout_landscapesmall" condition="Skin.String(widgetstyle, landscapesmall)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_singlebox" content="widget_layout_singlebox" condition="Skin.String(widgetstyle, single box) | Skin.String(widgetstyle, singlebox)">
+        <include content="widget_layout_singlebox" condition="Skin.String(widgetstyle, single box) | Skin.String(widgetstyle, singlebox)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_widebox" content="widget_layout_widebox" condition="Skin.String(widgetstyle, wide box) | Skin.String(widgetstyle, widebox)">
+        <include content="widget_layout_widebox" condition="Skin.String(widgetstyle, wide box) | Skin.String(widgetstyle, widebox)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_smallposter" content="widget_layout_smallposter" condition="Skin.String(widgetstyle, small poster) | Skin.String(widgetstyle, smallposter)">
+        <include content="widget_layout_smallposter" condition="Skin.String(widgetstyle, small poster) | Skin.String(widgetstyle, smallposter)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_square" content="widget_layout_square" condition="Skin.String(widgetstyle, square)">
+        <include content="widget_layout_square" condition="Skin.String(widgetstyle, square)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_minisquare" content="widget_layout_minisquare" condition="Skin.String(widgetstyle, minisquare)">
+        <include content="widget_layout_minisquare" condition="Skin.String(widgetstyle, minisquare)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_banner" content="widget_layout_banner" condition="Skin.String(widgetstyle, banner)">
+        <include content="widget_layout_banner" condition="Skin.String(widgetstyle, banner)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_landscapelarge" content="widget_layout_landscapelarge" condition="Skin.String(widgetstyle, landscapelarge)">
+        <include content="widget_layout_landscapelarge" condition="Skin.String(widgetstyle, landscapelarge)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_landscapedetails" content="widget_layout_landscapedetails" condition="Skin.String(widgetstyle, landscapedetails)">
+        <include content="widget_layout_landscapedetails" condition="Skin.String(widgetstyle, landscapedetails)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_layout_circle" content="widget_layout_circle" condition="Skin.String(widgetstyle, circle)">
+        <include content="widget_layout_circle" condition="Skin.String(widgetstyle, circle)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-		<include name="widget_layout_posterdetails" content="widget_layout_posterdetails" condition="Skin.String(widgetstyle, posterdetails)">
+		<include content="widget_layout_posterdetails" condition="Skin.String(widgetstyle, posterdetails)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-		 <include name="widget_layout_landscapewidedetails" content="widget_layout_landscapewidedetails" condition="Skin.String(widgetstyle, landscapewidedetails)">
+		 <include content="widget_layout_landscapewidedetails" condition="Skin.String(widgetstyle, landscapewidedetails)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
     </include>
     <include name="widget_layout_None">
-        <include name="widget_layout_default" content="widget_layout_default">
+        <include content="widget_layout_default">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
@@ -353,7 +353,7 @@
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 					<param name="border" value="thumbsborder_focused" />
 				</include>
-				<include name="HiddenWidgetButton" content="HiddenWidgetButton">
+				<include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="poster"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
@@ -423,7 +423,7 @@
 					<param name="tagtop" value="370" />
 				</include>
 			</control>
-            <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+            <include content="HiddenWidgetButton">
                 <param name="widgetstyle" value="posterdetails" />
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
@@ -433,10 +433,10 @@
             <control type="group">
 				<width>750</width>
 				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
-				<include name="widget_layout_posterdetails_widebox" content="widget_layout_posterdetails_widebox">
+				<include content="widget_layout_posterdetails_widebox">
 					<param name="widgetid" value="$PARAM[widgetid]" />
 				</include>
-				<include name="HiddenWidgetButton" content="HiddenWidgetButton">
+				<include content="HiddenWidgetButton">
 					<param name="widgetstyle" value="posterdetails" />
 					<param name="widgetid" value="$PARAM[widgetid]" />
 				</include>
@@ -570,7 +570,7 @@
 					<param name="tagtop" value="240" />
 				</include>
 				</control>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="smallposter"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
@@ -672,7 +672,7 @@
 						<param name="tagtop" value="240" />
 					</include>
 				</control>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="square"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
@@ -755,7 +755,7 @@
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 					<param name="border" value="thumbsborder_focused" />
 				</include>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="minisquare"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
@@ -847,7 +847,7 @@
 						<param name="tagtop" value="210" />
 					</include>
 				</control>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscape"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
@@ -975,7 +975,7 @@
 						<param name="tagtop" value="260" />
 					</include>
 				</control>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapelarge" />
                     <param name="widgetid" value="$PARAM[widgetid]" />
                 </include>
@@ -997,7 +997,7 @@
 						<param name="tagtop" value="260" />
 					</include>
 				</control>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapelarge" />
                     <param name="widgetid" value="$PARAM[widgetid]" />
                 </include>
@@ -1060,7 +1060,7 @@
 						<param name="tagtop" value="200" />
 					</include>
 				</control>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapedetails" />
                     <param name="widgetid" value="$PARAM[widgetid]" />
                 </include>
@@ -1071,7 +1071,7 @@
 				<width>1050</width>
 				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include>widget_layout_landscapelarge_widebox</include>
-				<include name="HiddenWidgetButton" content="HiddenWidgetButton">
+				<include content="HiddenWidgetButton">
 					<param name="widgetstyle" value="landscapedetails" />
 					<param name="widgetid" value="$PARAM[widgetid]" />
 				</include>
@@ -1125,7 +1125,7 @@
                     <param name="autoscroll" value="true" />
                 </include>
 				<include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="circle" />
                     <param name="widgetid" value="$PARAM[widgetid]" />
                 </include>
@@ -1257,7 +1257,7 @@
 						<param name="tagtop" value="146" />
 					</include>
 				</control>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="banner"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
@@ -1317,7 +1317,7 @@
 						<param name="tagtop" value="380" />
 					</include>
 				</control>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapewidedetails" />
                     <param name="widgetid" value="$PARAM[widgetid]" />
                 </include>
@@ -1344,7 +1344,7 @@
 					</include>
 				</control>
             </control>
-            <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+            <include content="HiddenWidgetButton">
                 <param name="widgetstyle" value="landscapewidedetails" />
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
@@ -1414,7 +1414,7 @@
 						<param name="tagtop" value="150" />
 					</include>
 				</control>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapesmall"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
@@ -1437,7 +1437,7 @@
 						<param name="tagtop" value="150" />
 					</include>
 				</control>
-                <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+                <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapesmall"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
@@ -1467,11 +1467,11 @@
             <include>itemlayout_singlebox_unfocus</include>
         </focusedlayout>
         <focusedlayout height="340" width="1820" condition="Control.HasFocus($PARAM[widgetid])">
-            <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+            <include content="HiddenWidgetButton">
                 <param name="widgetstyle" value="singlebox"/>
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
-            <include name="itemlayout_singlebox" content="itemlayout_singlebox">
+            <include content="itemlayout_singlebox">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
         </focusedlayout>
@@ -1558,7 +1558,7 @@
                 <right>8</right>
                 <top>8</top>
                 <animation effect="slide" end="-2,2" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
-                <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+                <include content="WatchedIndicatorLayout">
                     <param name="width" value="80"/>
                     <param name="height" value="80"/>
                     <param name="font" value="indicator_normal"/>
@@ -1651,7 +1651,7 @@
                 <right>8</right>
                 <top>8</top>
                 <animation effect="slide" end="-2,2" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
-                <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+                <include content="WatchedIndicatorLayout">
                     <param name="width" value="80"/>
                     <param name="height" value="80"/>
                     <param name="font" value="indicator_normal"/>
@@ -1752,7 +1752,7 @@
                 <right>8</right>
                 <top>8</top>
                 <animation effect="slide" end="-2,2" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
-                <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+                <include content="WatchedIndicatorLayout">
                     <param name="width" value="80"/>
                     <param name="height" value="80"/>
                     <param name="font" value="indicator_normal"/>
@@ -1765,7 +1765,7 @@
         </control>
     </include>
     <include name="itemlayout_widebox_focus">
-        <include name="HiddenWidgetButton" content="HiddenWidgetButton">
+        <include content="HiddenWidgetButton">
                 <param name="widgetstyle" value="widebox"/>
             <param name="widgetid" value="$PARAM[widgetid]"/>
         </include>
@@ -1818,7 +1818,7 @@
                 <right>8</right>
                 <top>8</top>
                 <animation effect="slide" end="-2,2" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
-                <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+                <include content="WatchedIndicatorLayout">
                     <param name="width" value="80"/>
                     <param name="height" value="80"/>
                     <param name="font" value="indicator_normal"/>
@@ -1945,7 +1945,7 @@
             <onfocus condition="Skin.String(widgetvalue-$PARAM[submenuid],5) + !Skin.String(CompareTxtDefault,$PARAM[widgetStyle6])">SetProperty(widgetstyle,$PARAM[widgetStyle6])</onfocus>
             <onfocus condition="Skin.String(widgetvalue-$PARAM[submenuid],6) + !Skin.String(CompareTxtDefault,$PARAM[widgetStyle7])">SetProperty(widgetstyle,$PARAM[widgetStyle7])</onfocus>
             <onfocus condition="Skin.String(widgetvalue-$PARAM[submenuid],7) + !Skin.String(CompareTxtDefault,$PARAM[widgetStyle8])">SetProperty(widgetstyle,$PARAM[widgetStyle8])</onfocus>
-            <include name="WidgetProperties" content="WidgetProperties">
+            <include content="WidgetProperties">
                 <param name="widgetid" value="0" />
             </include>
             <texturenofocus></texturenofocus>
@@ -2004,7 +2004,7 @@
     </include>
     
     <include name="widget_base">
-		<include name="widget_base_normal" content="widget_base_normal" condition="![Skin.String(HomeLayout,win10) | Skin.String(HomeLayout,enhanced)]">
+		<include content="widget_base_normal" condition="![Skin.String(HomeLayout,win10) | Skin.String(HomeLayout,enhanced)]">
             <param name="containerType" value="$PARAM[containerType]" />
             <param name="contentStyle" value="$PARAM[contentStyle]" />
             <param name="widgetid" value="$PARAM[widgetid]" />
@@ -2016,7 +2016,7 @@
             <param name="visibility" value="$PARAM[visibility]" />
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_base_enhanced" content="widget_base_enhanced" condition="Skin.String(HomeLayout,enhanced)">
+        <include content="widget_base_enhanced" condition="Skin.String(HomeLayout,enhanced)">
             <param name="containerType" value="$PARAM[containerType]" />
             <param name="contentStyle" value="$PARAM[contentStyle]" />
             <param name="widgetid" value="$PARAM[widgetid]" />
@@ -2028,7 +2028,7 @@
             <param name="visibility" value="$PARAM[visibility]" />
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include name="widget_base_win10" content="widget_base_win10" condition="Skin.String(HomeLayout,win10)">
+        <include content="widget_base_win10" condition="Skin.String(HomeLayout,win10)">
             <param name="containerType" value="$PARAM[containerType]" />
             <param name="contentStyle" value="$PARAM[contentStyle]" />
             <param name="widgetid" value="$PARAM[widgetid]" />
@@ -2044,7 +2044,7 @@
         </include>
     </include>
     <include name="widget_base_win10">
-        <include name="HomeWin10SpotlightPanel" content="HomeWin10SpotlightPanel" condition="Skin.String(CompareTxtTop, $PARAM[widgetInfoPanel]) | Skin.String(CompareTxtBottom, $PARAM[widgetInfoPanel])">
+        <include content="HomeWin10SpotlightPanel" condition="Skin.String(CompareTxtTop, $PARAM[widgetInfoPanel]) | Skin.String(CompareTxtBottom, $PARAM[widgetInfoPanel])">
             <param name="widgetid" value="$PARAM[widgetid]" />
             <param name="position" value="$PARAM[widgetInfoPanel]" />
         </include>
@@ -2097,11 +2097,11 @@
             <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
             <orientation>vertical</orientation>
             
-            <include name="win10_$PARAM[widgetStyle]" content="win10_$PARAM[widgetStyle]">
+            <include content="win10_$PARAM[widgetStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="widgetTags" value="$PARAM[widgetTags]" />
             </include>
-            <include name="widget_base_content_$PARAM[contentStyle]" content="widget_base_content_$PARAM[contentStyle]">
+            <include content="widget_base_content_$PARAM[contentStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="submenuid" value="$PARAM[submenuid]" />
                 <param name="widgetTarget" value="$PARAM[widgetTarget]" />
@@ -2110,7 +2110,7 @@
             <visible>String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
             <visible>$PARAM[visibility]</visible>
         </control>
-        <include name="HomeWin10SpotlightPanelLarge" content="HomeWin10SpotlightPanelLarge" condition="Skin.String(CompareTxtLarge, $PARAM[widgetInfoPanel])">
+        <include content="HomeWin10SpotlightPanelLarge" condition="Skin.String(CompareTxtLarge, $PARAM[widgetInfoPanel])">
             <param name="widgetid" value="$PARAM[widgetid]" />
             <param name="position" value="$PARAM[widgetInfoPanel]" />
         </include>
@@ -2153,13 +2153,13 @@
                     <onfocus>Setproperty(SkinHelper.WidgetContainer,$PARAM[widgetid])</onfocus>
                     <onfocus condition="Skin.HasSetting(SpotLightTrailers)">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=true,WIDGETCONTAINER=$PARAM[widgetid])</onfocus>
                     <onunfocus condition="Skin.HasSetting(SpotLightTrailers) + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunfocus>
-                    <include name="WidgetProperties" content="WidgetProperties">
+                    <include content="WidgetProperties">
                         <param name="widgetid" value="$PARAM[widgetid]" />
                     </include>
                 </control>
 				<!-- end hidden trailer button -->
             </focusedlayout>
-            <include name="widget_base_content_$PARAM[contentStyle]" content="widget_base_content_$PARAM[contentStyle]">
+            <include content="widget_base_content_$PARAM[contentStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="submenuid" value="$PARAM[submenuid]" />
                 <param name="widgetTarget" value="$PARAM[widgetTarget]" />
@@ -2185,12 +2185,12 @@
                 <effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade"/>
             </animation>
             <animation time="100" effect="fade" start="0" end="100" reversible="false" easing="inout" condition="!Skin.HasSetting(Widgets_Animation)">Visible</animation>
-            <include name="$PARAM[widgetStyle]" content="$PARAM[widgetStyle]">
+            <include content="$PARAM[widgetStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="widgetTags" value="$PARAM[widgetTags]" />
                 <param name="multiRows" value="$PARAM[multiRows]" />
             </include>
-            <include name="widget_base_content_$PARAM[contentStyle]" content="widget_base_content_$PARAM[contentStyle]">
+            <include content="widget_base_content_$PARAM[contentStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="submenuid" value="$PARAM[submenuid]" />
                 <param name="widgetTarget" value="$PARAM[widgetTarget]" />
@@ -2233,12 +2233,12 @@
                 <effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade"/>
             </animation>
             <animation time="100" effect="fade" start="0" end="100" reversible="false" easing="inout" condition="!Skin.HasSetting(Widgets_Animation)">Visible</animation>
-            <include name="$PARAM[widgetStyle]" content="$PARAM[widgetStyle]">
+            <include content="$PARAM[widgetStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="widgetTags" value="$PARAM[widgetTags]" />
                 <param name="multiRows" value="$PARAM[multiRows]" />
             </include>
-            <include name="widget_base_content_$PARAM[contentStyle]" content="widget_base_content_$PARAM[contentStyle]">
+            <include content="widget_base_content_$PARAM[contentStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="submenuid" value="$PARAM[submenuid]" />
                 <param name="widgetTarget" value="$PARAM[widgetTarget]" />

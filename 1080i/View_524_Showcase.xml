@@ -79,10 +79,7 @@
         <posy>7</posy>
         <width>60</width>
         <height>60</height>
-		<animation type="Conditional" condition="skin.hastheme(classic)">
-            <effect type="slide" end="4,-3" time="0" />
-		</animation>
-    </include>
+	</include>
     <include name="MovieShowcaseThumbMain">
          <posx>54</posx>
         <posy>-12</posy>

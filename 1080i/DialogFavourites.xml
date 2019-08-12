@@ -201,7 +201,6 @@
 				<height>545</height>
 				<onleft>450</onleft>
 				<showonepage>false</showonepage>
-				<animation effect="slide" end="-15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
 				<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
 			</control>				

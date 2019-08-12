@@ -27,8 +27,8 @@
 			<visible>Skin.HasSetting(EnableTouchSupport)</visible>
 		</control>
 		
-		<include condition="[skin.hastheme(classic) | Skin.HasSetting(smallContextMenu)]">DialogContextMenuClassic</include>
-        <include condition="![skin.hastheme(classic) | Skin.HasSetting(smallContextMenu)]">DialogContextMenuModern</include>
+		<include condition="Skin.HasSetting(smallContextMenu)">DialogContextMenuClassic</include>
+        <include condition="!Skin.HasSetting(smallContextMenu)">DialogContextMenuModern</include>
 
 		
 	</controls>

@@ -9,9 +9,8 @@
 		<!-- Video Background -->
         <include>GlobalBackground</include>
 		<!--NowPlaying-->
-        <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
-        <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+        
+		<include>NowPlayingModern</include>
          <!--Header-->
         <include>Header</include>
 <control type="group">
@@ -209,8 +208,8 @@
 		
 		<!--Sub Menu-->
         <control type="group">
-            <include condition="skin.hastheme(classic) | Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
-			<include condition="![skin.hastheme(classic) | Skin.HasSetting(smallContextMenu)]">SideBladeModern</include>
+            <include condition="Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
+			<include condition="!Skin.HasSetting(smallContextMenu)">SideBladeModern</include>
             <!--Grouplist 9000-->
             <control type="grouplist" id="9000">
                 <posx>21</posx>
@@ -226,25 +225,7 @@
                 <onup>9000</onup>
                 <ondown>9000</ondown>
                 <orientation>vertical</orientation>
-                <!--Buttons-->
-                <control type="label" id="1001">
-                    <!--Label Menu-->
-                    <width>458</width>
-                    <align>left</align>
-                    <textoffsetx>50</textoffsetx>
-                    <font>Bold40</font>
-                    <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
-                    <label>$LOCALIZE[33061]:</label>
-					<visible>skin.hastheme(classic)</visible>
-                </control>
-                <control type="image" id="1002">
-                    <!--Seperator-->
-                    <width>458</width>
-                    <height>10</height>
-                    <align>left</align>
-                    <texture>common/menu-separator.png</texture>
-					<visible>skin.hastheme(classic)</visible>
-                </control>
+                
 				<control type="button" id="8">
                     <description>Settings</description>
 				    <include>SideBladeMenuButton</include>

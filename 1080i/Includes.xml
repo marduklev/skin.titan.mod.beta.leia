@@ -87,11 +87,8 @@
             <align>right</align>
             <font>Light34</font>
             <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
-            <label>$INFO[Window(Home).Property(SkinHelper.skinTitle)]</label>
-			<animation type="Conditional" condition="skin.hastheme(classic)">
-                <effect type="slide" start="0,0" end="0,-30" time="0" tween="cubic" easing="inout" delay="0" />
-            </animation>
-        </control>
+            <label>T i t a n - M O D (BETA) - 18.1.13~ceta</label>
+		</control>
     </include>
 
     <!--Common-->

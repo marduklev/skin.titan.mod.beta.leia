@@ -12,7 +12,7 @@
 		
 		
 		<!-- Now playing -->
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+		<include>NowPlayingModern</include>
 		 
         <!--Header-->
         <include>Header</include>
@@ -398,7 +398,6 @@
 						<onleft>211</onleft>
 						<onright>211</onright>
 						<showonepage>false</showonepage>
-						<animation effect="slide" end="-15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
 						<animation effect="fade" start="0" end="100" time="400" condition="Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
 						<animation effect="fade" start="100" end="0" time="400" condition="![Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
 					</control>
@@ -606,7 +605,6 @@
                 <onright>211</onright>
                 <showonepage>false</showonepage>
                 <visible>String.IsEmpty(Window.Property(widgetcontrols))</visible>
-                <animation effect="slide" end="-15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
                 <animation effect="fade" start="0" end="100" time="400" condition="Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="400" condition="![Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
             </control>
@@ -686,56 +684,56 @@
                 </control>
                 
                 <!-- WIDGET 1 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+                <include content="skinshortcuts-widgetselect">
                     <param name="widgetpos" value="1" />
                     <param name="widgetid" value="" />
                     <param name="widgetprop" value="" />
                 </include>
                 
                 <!-- WIDGET 2 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+                <include content="skinshortcuts-widgetselect">
                     <param name="widgetpos" value="2" />
                     <param name="widgetid" value="1" />
                     <param name="widgetprop" value=".1" />
                 </include>
                 
                 <!-- WIDGET 3 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+                <include content="skinshortcuts-widgetselect">
                     <param name="widgetpos" value="3" />
                     <param name="widgetid" value="2" />
                     <param name="widgetprop" value=".2" />
                 </include>
 
                 <!-- WIDGET 4 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+                <include content="skinshortcuts-widgetselect">
                     <param name="widgetpos" value="4" />
                     <param name="widgetid" value="3" />
                     <param name="widgetprop" value=".3" />
                 </include>
                 
                 <!-- WIDGET 5 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+                <include content="skinshortcuts-widgetselect">
                     <param name="widgetpos" value="5" />
                     <param name="widgetid" value="4" />
                     <param name="widgetprop" value=".4" />
                 </include>
                 
                 <!-- WIDGET 6 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+                <include content="skinshortcuts-widgetselect">
                     <param name="widgetpos" value="6" />
                     <param name="widgetid" value="5" />
                     <param name="widgetprop" value=".5" />
                 </include>
                 
                 <!-- WIDGET 7 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+                <include content="skinshortcuts-widgetselect">
                     <param name="widgetpos" value="7" />
                     <param name="widgetid" value="6" />
                     <param name="widgetprop" value=".6" />
                 </include>
                 
                 <!-- WIDGET 8 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+                <include content="skinshortcuts-widgetselect">
                     <param name="widgetpos" value="8" />
                     <param name="widgetid" value="7" />
                     <param name="widgetprop" value=".7" />
@@ -841,7 +839,6 @@
                 <onright>211</onright>
                 <showonepage>false</showonepage>
                 <visible>!String.IsEmpty(Window.Property(widgetcontrols))</visible>
-                <animation effect="slide" end="-15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
                 <animation effect="fade" start="0" end="100" time="400" condition="Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="400" condition="![Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
             </control>

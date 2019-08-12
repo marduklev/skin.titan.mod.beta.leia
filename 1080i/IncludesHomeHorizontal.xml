@@ -135,13 +135,10 @@
             <width>60</width>
             <height>60</height>
             <visible>!Control.isVisible(77551)</visible>
-            <include name="PowerButton" content="PowerButton" condition="!Skin.HasSetting(EnableTouchSupport) + !Skin.HasSetting(DisablePowerMenu)">
+            <include content="PowerButton" condition="!Skin.HasSetting(EnableTouchSupport) + !Skin.HasSetting(DisablePowerMenu)">
                 <param name="visibility" value="![!String.IsEmpty(Container(300).ListItem.Property(infoline)) + !String.IsEqual(Container(300).ListItem.Property(infoline),none)] + !system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(HidePowerMenu)" />
             </include>
-            <animation type="Conditional" condition="skin.hastheme(classic)">
-                <effect type="slide" start="0,0" end="0,-15" time="0" tween="cubic" easing="inout" delay="0" />
-            </animation>
-         </control>
+        </control>
 
     </control>
 	</include>

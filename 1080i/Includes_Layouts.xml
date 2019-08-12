@@ -53,7 +53,7 @@
             <right>8</right>
             <top>8</top>
             <animation effect="slide" end="-1,1" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
-            <include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+            <include content="WatchedIndicatorLayout">
                 <param name="width" value="60" />
                 <param name="height" value="60" />
                 <param name="font" value="indicator_small" />
@@ -121,7 +121,7 @@
 			<right>8</right>
 			<top>8</top>
             <animation effect="slide" end="-2,2" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
-			<include name="WatchedIndicatorLayout" content="WatchedIndicatorLayout">
+			<include content="WatchedIndicatorLayout">
                 <param name="width" value="80" />
                 <param name="height" value="80" />
                 <param name="font" value="indicator_normal" />
@@ -234,9 +234,6 @@
 			<right>8</right>
 			<top>8</top>
 			<include>$PARAM[WatchedIndicator]</include>
-			<animation type="Conditional" condition="skin.hastheme(classic)">
-				<effect type="slide" end="3,-3" time="0" />
-			</animation>
 			<animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
 				<effect type="slide" end="6,0" time="0" />
 			</animation>
@@ -459,9 +456,6 @@
             <right>8</right>
             <top>8</top>
             <include>WatchedIndicatorSmall</include>
-            <animation type="Conditional" condition="skin.hastheme(classic)">
-                <effect type="slide" end="3,-3" time="0" />
-            </animation>
         </control>
         <include condition="!Window.IsActive(Home)">SquarePosterTagOverlay</include>
     </include>

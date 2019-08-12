@@ -2,17 +2,17 @@
 <includes>
 
     <include name="mediaflags">
-        <include condition="window.isactive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,classic) | skin.hastheme(classic)">mediaflags_classic</include>
-        <include condition="window.isactive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,large) + !skin.hastheme(classic)">mediaflags_large_osd</include>
-        <include condition="window.isactive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,large_color) + !skin.hastheme(classic)">mediaflags_large_osd</include>
-        <include condition="window.isactive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,boxed) + !skin.hastheme(classic)">mediaflags_boxed</include>
-        <include condition="window.isactive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,textbased - full info) + !skin.hastheme(classic)">mediaflags_text</include> 
+        <include condition="window.isactive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,classic)">mediaflags_classic</include>
+        <include condition="window.isactive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,large)">mediaflags_large_osd</include>
+        <include condition="window.isactive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,large_color)">mediaflags_large_osd</include>
+        <include condition="window.isactive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,boxed)">mediaflags_boxed</include>
+        <include condition="window.isactive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,textbased - full info)">mediaflags_text</include> 
         
         <include condition="!window.isactive(fullscreenvideo) + Skin.String(mediaflagsstyle,classic)">mediaflags_classic</include>
-        <include condition="!window.isactive(fullscreenvideo) + Skin.String(mediaflagsstyle,large) + !skin.hastheme(classic)">mediaflags_large</include>
-        <include condition="!window.isactive(fullscreenvideo) + Skin.String(mediaflagsstyle,large_color) + !skin.hastheme(classic)">mediaflags_large</include>
-        <include condition="!window.isactive(fullscreenvideo) + Skin.String(mediaflagsstyle,boxed) + !skin.hastheme(classic)">mediaflags_boxed</include>
-        <include condition="!window.isactive(fullscreenvideo) + Skin.String(mediaflagsstyle,textbased - full info) + !skin.hastheme(classic)">mediaflags_text</include> 
+        <include condition="!window.isactive(fullscreenvideo) + Skin.String(mediaflagsstyle,large)">mediaflags_large</include>
+        <include condition="!window.isactive(fullscreenvideo) + Skin.String(mediaflagsstyle,large_color)">mediaflags_large</include>
+        <include condition="!window.isactive(fullscreenvideo) + Skin.String(mediaflagsstyle,boxed)">mediaflags_boxed</include>
+        <include condition="!window.isactive(fullscreenvideo) + Skin.String(mediaflagsstyle,textbased - full info)">mediaflags_text</include> 
     </include>
     
     <include name="mediaflags_large_layout">
@@ -1665,8 +1665,7 @@
     <variable name="mediaFlagsFontColor">
         <value condition="String.StartsWith(Window.Property(xmlfile),My)">$VAR[AdvancedRatings_TextColor]</value>
         <value condition="Window.IsActive(Home) + Skin.String(HomeLayout, netflix2)">$VAR[AdvancedRatings_TextColor]</value>
-		<value condition="window.isactive(fullscreenvideo) + Skin.HasTheme(classic)">black</value>
-        <value condition="window.isactive(fullscreenvideo)">$INFO[Skin.String(OSDPrimaryTextColor)]</value>
+		<value condition="window.isactive(fullscreenvideo)">$INFO[Skin.String(OSDPrimaryTextColor)]</value>
         <value>$INFO[Skin.String(ViewDetailsTextColor)]</value>
     </variable>
 
@@ -1912,7 +1911,7 @@
 		<!-- strange behaviour, when its used 2 times, (netflixview), the detail row, wont show show correct, if dis first conds, classic flags missing info -->
         <value condition="Skin.String(mediaflagsstyle,classic) + !String.IsEmpty(ListItem.AudioChannels)">$INFO[ListItem.AudioChannels]</value>
         <value condition="Skin.String(mediaflagsstyle,classic) + !String.IsEmpty(Window(Home).Property(ListItem.AudioChannels))">$INFO[Window(Home).Property(ListItem.AudioChannels)]</value>
-        <value condition="Skin.String(osdmediaflagsstyle,classic) + window.isactive(visualisation) + !String.IsEmpty(MusicPlayer.Channels) + skin.hastheme(classic)">$INFO[MusicPlayer.Channels]</value>
+        <!-- <value condition="Skin.String(osdmediaflagsstyle,classic) + window.isactive(visualisation) + !String.IsEmpty(MusicPlayer.Channels)">$INFO[MusicPlayer.Channels]</value> -->
         <value condition="Skin.String(osdmediaflagsstyle,classic) + window.isactive(fullscreenvideo) + !String.IsEmpty(VideoPlayer.AudioChannels)">$INFO[VideoPlayer.AudioChannels]</value>
  		<value condition="String.IsEqual(ListItem.AudioChannels,1)">1.0</value>
 		<value condition="String.IsEqual(ListItem.AudioChannels,2)">2.0</value>

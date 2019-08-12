@@ -8,13 +8,7 @@
 			<animation type="Conditional" condition="Control.IsVisible(77551)">
                 <effect type="slide" start="0,0" end="0,800" time="400" tween="cubic" easing="inout" delay="0" />
             </animation>
-			<animation type="Conditional" condition="skin.hastheme(classic) + !String.IsEqual(Skin.AspectRatio,16:10) + Window.IsMedia">
-                <effect type="slide" start="0,0" end="0,-45" time="0" tween="cubic" easing="inout" delay="0" />
-            </animation>
-            <animation type="Conditional" condition="skin.hastheme(classic) + String.IsEqual(Skin.AspectRatio,16:10) + Window.IsMedia">
-                <effect type="slide" start="0,0" end="0,-60" time="0" tween="cubic" easing="inout" delay="0" />
-            </animation>
-            <animation type="Conditional" condition="String.IsEqual(Window(Home).Property(showinfopanel),show)">
+			<animation type="Conditional" condition="String.IsEqual(Window(Home).Property(showinfopanel),show)">
                 <effect type="slide" start="0,0" end="0,300" time="800" tween="cubic" easing="inout" delay="0" />
             </animation>
             <visible>![Window.IsActive(pictures) + Skin.HasSetting(MyPicsDisableFooter)]</visible>
@@ -27,19 +21,6 @@
 			 
 			<!--Footer Background-->
 			<control type="group">						
-				<control type="image">	
-					<posx>50</posx>
-					<bottom>40</bottom>
-					<width>1820</width>
-					<height>84</height>
-					<animation type="Conditional" condition="window.isactive(settings) | window.isactive(SettingsCategory.xml) | window.isactive(skinsettings) | window.isactive(systeminfo) | window.isactive(profiles)">
-						<effect type="slide" start="0,0" end="0,-30" time="0" tween="cubic" easing="inout" delay="0" />
-					</animation>
-					<texture colordiffuse="$INFO[Skin.String(FooterPanelColor)]">dialogs/footer_classic.png</texture>
-					<visible>!Skin.HasSetting(NoFooterBar) + skin.hastheme(classic)</visible>
-					<visible>![window.isactive(home) + Skin.HasSetting(NoFooterBarOnHome)]</visible>
-					<visible>![[Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 2) | Skin.String(HomeLayout, 3) | Skin.String(HomeLayout, 1small) | Skin.String(HomeLayout, 2small) | Skin.String(HomeLayout, 3small)] + Control.IsVisible(4444) + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]]</visible>
-				</control>
 				<control type="image">
 					<posx>0</posx>
 					<bottom>0</bottom>
@@ -47,7 +28,7 @@
 					<height>110</height>
 					<texture border="5">diffuse/panel.png</texture>
 					<colordiffuse>$INFO[Skin.String(FooterPanelColor)]</colordiffuse>
-					<visible>!skin.hastheme(classic) + !skin.hassetting(nofooterbar)</visible>
+					<visible>!skin.hassetting(nofooterbar)</visible>
 					<visible>![window.isactive(home) + Skin.HasSetting(NoFooterBarOnHome)]</visible>
 				</control>
 			</control>
@@ -70,9 +51,6 @@
 				<height>50</height>
 				<bottom>20</bottom>
 				<include condition="[Window.IsActive(Videos) | Window.IsActive(videoplaylist)]">mediaflags</include>
-                <animation type="Conditional" condition="skin.hastheme(classic)">
-                    <effect type="slide" start="0,0" end="0,-12" time="0" tween="cubic" easing="inout" delay="0" />
-                </animation>
                 <!-- slide if touchcontrols present -->
                 <animation type="Conditional" condition="Control.IsVisible(99123)">
                     <effect type="slide" start="0" end="280" time="0" tween="cubic" easing="inout" delay="0" />
@@ -80,9 +58,8 @@
             </control>
 			
 			<!--Rating normal-->
-			<include condition="window.isactive(Videos) + !skin.hastheme(classic) + !$EXP[UseStudio_or_RatingFoo]">StarRatingFooter</include>
-            <include condition="window.isactive(Videos) + skin.hastheme(classic)">StarRatingFooterClassic</include>
-			<include condition="window.isactive(Videos) + !skin.hastheme(classic) + $EXP[UseStudio_or_RatingFoo]">AltRatingFooter</include>		
+			<include condition="window.isactive(Videos) + !$EXP[UseStudio_or_RatingFoo]">StarRatingFooter</include>
+            <include condition="window.isactive(Videos) + $EXP[UseStudio_or_RatingFoo]">AltRatingFooter</include>		
 			<include condition="window.isactive(MyMusicNav.xml)">StarRatingMusicFooter</include>
 		</control>
 	</include>
@@ -220,7 +197,6 @@
     <include name="FooterContentPVR">
         <!--Progress (PVR)-->
         <control type="group">
-            <animation effect="slide" end="30,-15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
             <visible>[window.isactive(tvchannels) | window.isactive(tvguide)] + !Control.IsVisible(99123)</visible>
             <bottom>20</bottom>
             <height>65</height>
@@ -237,19 +213,10 @@
             <control type="progress">
                 <!--Progress Bar-->
                 <posx>200</posx>
-                <posy>25</posy>
-                <width>150</width>
-                <info>ListItem.Progress</info>
-                <visible>Skin.HasTheme(classic)</visible>
-            </control>
-            <control type="progress">
-                <!--Progress Bar-->
-                <posx>200</posx>
                 <posy>23</posy>
                 <width>150</width>
                 <height>20</height>
                 <info>ListItem.Progress</info>
-                <visible>!Skin.HasTheme(classic)</visible>
             </control>
             <control type="label">
                 <!--End-->
@@ -264,8 +231,7 @@
         </control>
         <!-- Programname etc -->
         <control type="group">
-            <animation effect="slide" end="0,-16" time="0" condition="skin.hastheme(classic)">Conditional</animation>
-            <bottom>35</bottom>
+			<bottom>35</bottom>
             <height>65</height>
             <control type="label">
                 <!--live tv channel-->
@@ -291,8 +257,7 @@
                 <label>$INFO[ListItem.Title]</label>
                 <visible>!Control.IsVisible(884)</visible>
             </control>
-                 <control type="image" id="44123">
-                <visible>!skin.hastheme(classic)</visible>
+            <control type="image" id="44123">
                 <right>60</right>
                 <posy>0</posy>
                 <width>260</width>
@@ -320,11 +285,10 @@
         <control type="group">
             <!--Title-->
             <visible>!Window.IsActive(DialogVideoInfo.xml) + !Window.IsVisible(favourites)</visible>
-            <animation effect="slide" end="0,16" time="0" condition="!skin.hastheme(classic)">Conditional</animation>
             <height>80</height>
-            <bottom>20</bottom>
+            <bottom>5</bottom>
             <control type="label">
-                <!--Label (classic only)-->
+                <!--Label -->
                 <posx>560</posx>
                 <posy>0</posy>
                 <width>800</width>
@@ -335,7 +299,7 @@
                 <label>$INFO[ListItem.label]</label>
                 <visible>!Control.IsVisible(884)</visible>
                 <scroll>true</scroll>
-                <visible>![Window.IsActive(Videos) | Window.IsActive(videoplaylist)] | ListItem.IsCollection | Skin.HasTheme(classic) | String.IsEmpty(ListItem.VideoAspect) | Skin.String(mediaflagsstyle,disabled) | Skin.String(mediaflagsstyle,classic) | String.IsEmpty(Control.GetLabel(884))</visible>
+                <visible>![Window.IsActive(Videos) | Window.IsActive(videoplaylist)] | ListItem.IsCollection | String.IsEmpty(ListItem.VideoAspect) | Skin.String(mediaflagsstyle,disabled) | Skin.String(mediaflagsstyle,classic) | String.IsEmpty(Control.GetLabel(884))</visible>
             </control>
             <control type="label">
                 <visible>Container.Content(songs)</visible>
@@ -405,10 +369,9 @@
             <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
             <visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
-            <visible>!Skin.HasTheme(classic) + ![Control.IsVisible(99123) + !Skin.HasSetting(HideBatteryStatus)]</visible>
+            <visible>![Control.IsVisible(99123) + !Skin.HasSetting(HideBatteryStatus)]</visible>
             <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | Skin.String(HomeLayout, simplehor)</visible>
             <visible>!Window.IsVisible(shutdownmenu) + [String.IsEmpty(Container(300).ListItem.Property(infoline)) | String.IsEqual(Container(300).ListItem.Property(infoline),none)]</visible>
-            <animation effect="slide" start="0,0" end="-15,-2" time="0" condition="skin.hastheme(classic)">Conditional</animation>
             <animation effect="slide" start="0" end="400" time="0" condition="Control.IsVisible(99123)">Conditional</animation>
         </control>
         <control type="rss">	
@@ -427,7 +390,6 @@
             <visible>Control.IsVisible(99123) + !Skin.HasSetting(HideBatteryStatus)</visible>
             <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | Skin.String(HomeLayout, simplehor)</visible>
             <visible>!Window.IsVisible(shutdownmenu) + [String.IsEmpty(Container(300).ListItem.Property(infoline)) | String.IsEqual(Container(300).ListItem.Property(infoline),none)]</visible>
-            <animation effect="slide" start="0,0" end="-15,-2" time="0" condition="skin.hastheme(classic)">Conditional</animation>
         </control>
         <control type="rss">	
             <description>RSS Feed Classic theme</description>
@@ -442,7 +404,6 @@
             <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
             <visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
-            <visible>Skin.HasTheme(classic) + !Control.IsVisible(99123)</visible>
             <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | Skin.String(HomeLayout, simplehor)</visible>
             <visible>[String.IsEmpty(Container(300).ListItem.Property(infoline)) | String.IsEqual(Container(300).ListItem.Property(infoline),none)]</visible>
         </control>
@@ -459,7 +420,7 @@
             <label>$VAR[infolinevar]</label>
             <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
-            <visible>![Window.IsVisible(shutdownmenu) + !Skin.HasTheme(classic)]</visible>
+            <visible>!Window.IsVisible(shutdownmenu)</visible>
             <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | Skin.String(HomeLayout, simplehor)</visible>
         </control>               
     </include>
@@ -491,16 +452,7 @@
             <include>StarRating</include>
         </control>
     </include>
-    <include name="StarRatingFooterClassic">
-        <control type="group">
-            <bottom>40</bottom>
-            <right>60</right>
-            <width>315</width>
-            <height>55</height>
-            <include>StarRating</include>
-        </control>
-    </include>
-    
+	
     <include name="StarRating">
         <control type="image">
 			<right>0</right>
@@ -978,19 +930,9 @@
             <bottom>20</bottom>
             <height>80</height>
             <right>60</right>
-            <control type="image">
-                <!--Stars classic-->
-                <visible>skin.hastheme(classic)</visible>
-                <right>0</right>
-                <posy>18</posy>
-                <width>270</width>
-                <height>25</height>
-                <texture>$VAR[musicrating_stars]</texture>
-                <aspectratio>keep</aspectratio>
-            </control>
+            
             <control type="image">
                 <!--Stars modern-->
-                <visible>!skin.hastheme(classic)</visible>
                 <right>0</right>
                 <posy>20</posy>
                 <width>220</width>

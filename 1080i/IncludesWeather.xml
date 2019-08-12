@@ -27,7 +27,6 @@
             <bottom>40</bottom>
             <height>800</height>
             <include>animation_window_open_close</include>
-            <animation effect="slide" end="-40,0" time="0" condition="skin.hastheme(classic)">Conditional</animation>
             <!--Panel-->
 
 			<control type="image">

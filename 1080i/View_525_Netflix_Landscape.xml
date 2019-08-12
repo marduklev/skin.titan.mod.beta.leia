@@ -6,7 +6,7 @@
         <control type="group">
             <width>100%</width>
             <height>100%</height>
-            <visible>Control.IsVisible(525) + Integer.IsGreater(Container.NumItems,0)</visible>
+            <visible>Control.IsVisible(525)</visible>
             <include>animation_view_change</include>
 			
 			

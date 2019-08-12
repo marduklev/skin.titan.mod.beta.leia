@@ -176,10 +176,10 @@
    <setting id="mediaflagsstyle" value="textbased - full info" label="Textbased - Full Info" condition="" icon="special://skin/extras/viewthumbs/flags_text.jpg" description="">
         <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin</onselect>
     </setting>
-    <setting id="mediaflagsstyle" value="large" label="Large Icons" condition="!Skin.HasTheme(classic)" icon="special://skin/extras/viewthumbs/flags_large.jpg" description="">
+    <setting id="mediaflagsstyle" value="large" label="Large Icons" condition="" icon="special://skin/extras/viewthumbs/flags_large.jpg" description="">
         <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin</onselect>
     </setting>
-    <setting id="mediaflagsstyle" value="large_color" label="Large Icons Color" condition="!Skin.HasTheme(classic)" icon="special://skin/extras/viewthumbs/flags_large_color.jpg" description="">
+    <setting id="mediaflagsstyle" value="large_color" label="Large Icons Color" condition="" icon="special://skin/extras/viewthumbs/flags_large_color.jpg" description="">
         <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin</onselect>
     </setting>
     <setting id="mediaflagsstyle" value="disabled" label="Disabled" condition="" icon="" description="" default="true">

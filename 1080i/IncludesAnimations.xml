@@ -562,10 +562,10 @@
             <onfocus condition="!String.IsEmpty(Container(300).ListItem.Property(widgetPath.99))">SetProperty(Skinhelper.WidgetContainer,1508,Home)</onfocus>
             <onfocus condition="String.IsEmpty(Container(300).ListItem.Property(widgetPath.99)) + !String.IsEmpty(Container(300).ListItem.Property(widgetPath))">$VAR[SetWidgetContainer]</onfocus>
             <onfocus condition="String.IsEmpty(Container(300).ListItem.property(widgetPath)) + String.IsEmpty(Container(300).ListItem.property(widgetPath.99))">ClearProperty(Skinhelper.WidgetContainer)</onfocus>
-            <include name="WidgetsAutoRotate" content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
+            <include content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
                 <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
             </include>
-            <include name="WidgetProperties" content="WidgetProperties" condition="true">
+            <include content="WidgetProperties" condition="true">
                 <param name="widgetid" value="999" />
             </include>
             <onunfocus>ClearProperty(Skinhelper.WidgetContainer)</onunfocus>
@@ -583,10 +583,10 @@
             <onfocus condition="!Skin.HasSetting(DisableAllSubmenus) + Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4445).NumItems,0) + !Control.IsVisible(4446) + Skin.String(SubmenuLayout, vertical)">SetFocus(4444,0)</onfocus>
             <onfocus condition="!Skin.HasSetting(AutoShowSubmenu) | Control.IsVisible(4446) | !Integer.IsGreater(Container(4445).NumItems,0)">ClearProperty(submenu,home)</onfocus>
             <onfocus>SetProperty(widgetstyle, $INFO[Skin.String(widgetstyle)])</onfocus>
-            <include name="WidgetsAutoRotate" content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
+            <include content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
                 <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
             </include>
-            <include name="WidgetProperties" content="WidgetProperties">
+            <include content="WidgetProperties">
                 <param name="widgetid" value="0" />
             </include>
         </control>

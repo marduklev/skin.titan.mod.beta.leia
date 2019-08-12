@@ -7,7 +7,7 @@
 			<include>animation_window_open_close</include>
             <include>GlobalBackground</include>
             <!--NowPlaying-->
-            <include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(LowPerformanceMode)">NowPlayingModern</include>
+            <include>NowPlayingModern</include>
      			<!-- touchscreen workaround for windows tablets -->
 			<include condition="Skin.HasSetting(EnableTouchSupport)">TouchScreenWorkaround</include>
 			

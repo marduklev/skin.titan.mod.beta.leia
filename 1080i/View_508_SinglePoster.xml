@@ -98,7 +98,6 @@
                 <focusposition>0</focusposition>
                 <orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
-				<animation effect="slide" end="-10,0" time="0" condition="skin.hastheme(classic)">Conditional</animation>
 				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),508) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <itemlayout height="400" width="270">
 					 <control type="group">

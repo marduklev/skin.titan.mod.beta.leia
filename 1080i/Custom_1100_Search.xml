@@ -10,7 +10,7 @@
 		<!-- Header -->
 		<include condition="!Skin.HasSetting(search_info_spotlight)">Header</include>
 		<!-- NowPlaying -->
-        <include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(search_info_spotlight)">NowPlayingModern</include>
+        <include condition="!Skin.HasSetting(search_info_spotlight)">NowPlayingModern</include>
         <!--Sub Menu Tab Left-->
         <control type="group">
 			<animation type="Conditional" condition="ControlGroup(9000).HasFocus()">

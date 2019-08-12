@@ -283,7 +283,7 @@
                 <bottom>5</bottom>
                 <width>60</width>
                 <height>60</height>
-                <include name="PowerButton" content="PowerButton" condition="!Skin.HasSetting(EnableTouchSupport) + !Skin.HasSetting(DisablePowerMenu)">
+                <include content="PowerButton" condition="!Skin.HasSetting(EnableTouchSupport) + !Skin.HasSetting(DisablePowerMenu)">
                     <param name="visibility" value="!Skin.HasSetting(HidePowerMenu)" />
                 </include>
             </control>

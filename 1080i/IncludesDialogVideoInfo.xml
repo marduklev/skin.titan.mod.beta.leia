@@ -501,7 +501,7 @@
 					<visible>Control.IsEnabled(7)</visible>
 				</control>
 				
-				<control type="button" id="101">
+				<control type="button" id="10">
 					<!--Get Thumb Artwork Downloader-->
 					<label>13511</label>
 					<width>285</width>
@@ -509,8 +509,6 @@
 					<align>center</align>
 					<textoffsetx>0</textoffsetx>
 					<visible>Skin.HasSetting(videoinfo_button_artwork)</visible>
-					<onclick condition="System.HasAddon(script.artwork.downloader)">ActivateWindow(3004)</onclick>
-					<onclick condition="!System.HasAddon(script.artwork.downloader)">RunPlugin(plugin://script.artwork.downloader)</onclick>
 					<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
 				</control>
 				<!-- Artwork Beef -->
@@ -1589,17 +1587,7 @@
                              <visible>Skin.HasSetting(videoinfo_button_cinemavision)</visible>
                              <visible>System.HasAddon(script.cinemavision)</visible>
 						</control>
-						<control type="button" id="113">
-							<width>285</width>
-							<description>Home Theatre</description>
-							<label>$INFO[System.AddonTitle(script.cinema.experience)]</label>
-							<onclick>Playlist.Clear</onclick>
-							<onclick>Dialog.Close(DialogVideoInfo.xml)</onclick>
-							<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
-                            <visible>Skin.HasSetting(videoinfo_button_cinemaexperience)</visible>
-							<visible>System.HasAddon(script.cinema.experience) + String.IsEqual(ListItem.DBTYPE,movie) + !String.Contains(Container.FolderPath,plugin)</visible>
-						</control>
-                        
+						
                         <control type="button" id="7">
                             <!--set personal rating-->
                             <width>290</width>
@@ -1611,7 +1599,7 @@
                             <visible>Control.IsEnabled(7)</visible>
                         </control>
                         
-						<control type="button" id="101">
+						<control type="button" id="10">
 							<!--Get Thumb Artwork Downloader--> <!-- replace with Artwork Beef -->
 							<label>13511</label>
 							<width>285</width>
@@ -1619,9 +1607,7 @@
 							<align>center</align>
 							<textoffsetx>0</textoffsetx>
                             <visible>Skin.HasSetting(videoinfo_button_artwork)</visible>
-							<onclick condition="System.HasAddon(script.artwork.downloader)">ActivateWindow(3004)</onclick>
-							<onclick condition="!System.HasAddon(script.artwork.downloader)">RunPlugin(plugin://script.artwork.downloader)</onclick>
-                            <visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
+							<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
 							<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 						</control>
 						
@@ -3322,31 +3308,6 @@
                                 <description>CinemaVision</description>
                                 <onclick>close</onclick>
                                 <onclick>RunScript(script.cinemavision,experience)</onclick>
-                            </control>
-
-                            <!-- CinemaExperience button -->
-                            <control type="radiobutton" id="113">
-                                <visible>Skin.HasSetting(videoinfo_button_cinemaexperience)</visible>
-                                <visible>System.HasAddon(script.cinema.experience) + String.IsEqual(ListItem.DBTYPE,movie) + !String.Contains(Container.FolderPath,plugin)</visible>
-                                <description>Home Theatre</description>
-                                <width>550</width>
-                                <height>65</height>
-                                <aligny>center</aligny>
-                                <align>left</align>
-                                <textoffsetx>60</textoffsetx>
-                                <textoffsety>8</textoffsety>
-                                <font>Reg30</font>
-                                <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</focusedcolor>
-                                <label>$INFO[System.AddonTitle(script.cinema.experience)]</label>
-                                <texturefocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">netflix/border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
-                                <radioposx>25</radioposx>
-                                <radiowidth>20</radiowidth>
-                                <radioheight>25</radioheight>
-                                <onclick>Playlist.Clear</onclick>
-                                <onclick>close</onclick>
-                                <onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
                             </control>
 
                             <!-- Artwork Beef -->

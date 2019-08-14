@@ -4,21 +4,7 @@
 
 	<include name="HomeMenuSubMenuHorizontal">
 		
-        <control type="image">
-            <!--Panel Shadow-->
-            <posx>-120</posx>
-            <bottom>-120</bottom>
-            <width>2130</width>
-            <height>220</height>
-            <texture border="15">diffuse/bgpanel.png</texture>
-            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-            <visible>Skin.HasSetting(NoFooterBarOnHome)</visible>
-            <animation effect="slide" start="0,200" end="0,0" time="250">Visible</animation>
-            <animation effect="slide" start="0,0" end="0,200" time="50">Hidden</animation>
-            <visible>Control.IsVisible(4444)</visible>
-        </control>
-		
-		<control type="list" id="4444">
+        <control type="list" id="4444">
 			<posx>48</posx>
 			<bottom>-190</bottom>
 			<width>1840</width>

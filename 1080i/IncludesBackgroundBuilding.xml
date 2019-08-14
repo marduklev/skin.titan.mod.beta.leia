@@ -110,37 +110,8 @@
 	<include name="fanartSpeed_multiimage">
         <timeperimage>$PARAM[timeperimage]</timeperimage>
     </include>
-	<!-- need re calculation ?-->
-	<include name="fanartSpeed_fadelabel">
-        <timeperimage>$PARAM[pauseatend]</timeperimage>
-    </include>
 	
-    <include name="fanartSpeed5">
-        <timeperimage>5000</timeperimage>
-    </include>
-    <include name="fanartSpeed6">
-        <timeperimage>6000</timeperimage>
-    </include>
-    <include name="fanartSpeed8">
-        <timeperimage>8000</timeperimage>
-    </include>
-    <include name="fanartSpeed10">
-        <timeperimage>10000</timeperimage>
-    </include>
-    <include name="fanartSpeed15">
-        <timeperimage>15000</timeperimage>
-    </include>
-    <include name="fanartSpeed20">
-        <timeperimage>20000</timeperimage>
-    </include>
-    <include name="fanartSpeed30">
-        <timeperimage>30000</timeperimage>
-    </include>
-    <include name="fanartSpeed60">
-        <timeperimage>60000</timeperimage>
-    </include>
-
-    <include name="fanartSpeed">
+	<include name="fanartSpeed">
         <include condition="skin.string(SkinHelper.RandomFanartDelay, 6)">fanartSpeed6</include>
         <include condition="skin.string(SkinHelper.RandomFanartDelay, 5)">fanartSpeed5</include>
         <include condition="skin.string(SkinHelper.RandomFanartDelay, 8)">fanartSpeed8</include>
@@ -302,39 +273,8 @@
 			<info>Container.ListItem.Art(artist.fanart18)</info>
 			<info>Container.ListItem.Art(artist.fanart19)</info>
 			<info>Container.ListItem.Art(artist.fanart20)</info>
-			<!-- Fallback -->
-			<!-- <info>Container.ListItem.Art(thumb)</info> 
-			
-			<include name="fanartSpeed_fadelabel">
-        <timeperimage>$PARAM[pauseatend]</timeperimage>
-    </include>
-			
-			-->
+			<pauseatend>5000</pauseatend>
 			<randomize>true</randomize>
-			<include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 5) | !String.IsEmpty(skin.string(extrafanartdelay)">
-				<param name="pauseatend" value="5000" />
-			</include>
-			<include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 6)">
-				<param name="pauseatend" value="6000" />
-			</include>
-			 <include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 8)">
-				<param name="pauseatend" value="8000" />
-			</include>
-			 <include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 10)">
-				<param name="pauseatend" value="10000" />
-			</include>
-			 <include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 15)">
-				<param name="pauseatend" value="15000" />
-			</include>
-			 <include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 20)">
-				<param name="pauseatend" value="20000" />
-			</include>
-			<include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 30)">
-				<param name="pauseatend" value="30000" />
-			</include>
-			<include content="fanartSpeed_fadelabel" condition="skin.string(extrafanartdelay, 60)">
-				<param name="pauseatend" value="60000" />
-			</include>
 			<scroll>false</scroll>
 			<scrollout>false</scrollout>
 		</control>

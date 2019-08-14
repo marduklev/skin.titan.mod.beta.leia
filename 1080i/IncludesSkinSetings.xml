@@ -129,31 +129,7 @@
                 <selected>Skin.HasSetting(Home_TransParentTiles)</selected>
                 <visible>Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small) | Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small) | Skin.String(HomeLayout,enhanced)</visible>
             </control>
-			<!--no footer on home , non netflix home 1 and 2, need check to other home wich dont have/need footer -->
-            <control type="radiobutton" id="5164">
-                <include>SkinSettings_Button</include>
-                <label>31494</label>
-                <onclick>Skin.ToggleSetting(NoFooterBarOnHome)</onclick>
-                <selected>Skin.HasSetting(NoFooterBarOnHome)</selected>
-                <visible>!String.Contains(Skin.String(HomeLayout), netflix)</visible>
-            </control>
-            <!-- disable clearlogo in netflix home -->
-            <control type="radiobutton" id="31818">
-                <description>No clearlogo in netflix home</description>
-                <include>SkinSettings_Button</include>
-                <label>31818</label>
-                <onclick>Skin.ToggleSetting(NoClearLogoNetflixHome)</onclick>
-                <selected>Skin.HasSetting(NoClearLogoNetflixHome)</selected>
-                <visible>String.Contains(Skin.String(HomeLayout),netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
-            </control>
-			<!-- mod: show/don't show plot for unwatched/inprogress episodes -->
-            <control type="radiobutton" id="39274">
-                <include>SkinSettings_Button</include>
-                <label>Show plot for unwatched and in-progress episodes</label>
-                <onclick>Skin.ToggleSetting(ShowEpisodesPlotAll)</onclick>
-                <selected>Skin.HasSetting(ShowEpisodesPlotAll)</selected>
-                <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
-            </control>
+			
             <!-- default focus position-->
             <control type="button" id="31727">
                 <include>SkinSettings_Button</include>
@@ -841,7 +817,7 @@
                 <label>31296</label>
                 <label2>$INFO[skin.string(extrafanartdelay.label)]</label2>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=extrafanartdelay,header=$LOCALIZE[31296])</onclick>
-                <visible>Skin.HasSetting(ShowFanartBackground) + [Skin.HasSetting(SkinHelper.EnableExtraFanart) | Skin.HasSetting(EnableNativeExtraFanart)]</visible>
+                <visible>Skin.HasSetting(ShowFanartBackground) + [Skin.HasSetting(SkinHelper.EnableExtraFanart) + !Skin.HasSetting(EnableNativeExtraFanart)]</visible>
             </control>
             <!-- prefer fanart in landscaped views -->
             <control type="radiobutton" id="13026">
@@ -2882,14 +2858,14 @@
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=home_header,header=$LOCALIZE[31703])</onclick>
             </control>
             
-            <!--compact header-->
+            <!--compact header, check, merge into one, remove setting, diff is not worth it -->
             <control type="radiobutton" id="31671">
                 <include>SkinSettings_Button</include>
                 <label>31671</label>
                 <onclick>Skin.ToggleSetting(CompactHeader)</onclick>
                 <selected>Skin.HasSetting(CompactHeader)</selected>
             </control>
-            <!--set subheader infoline-->
+            <!--set subheader infoline, check use always auto, remove setting, define variable -->
             <control type="button" id="31688">
                 <include>SkinSettings_Button</include>
                 <label>31688</label>
@@ -2996,13 +2972,6 @@
                 <onclick>RunScript(script.skin.helper.service,action=setresourceaddon,skinstring=LanguageFlags,addontype=resource.images.languageflags)</onclick>
             </control>
             
-            <control type="radiobutton" id="5139">
-                <include>SkinSettings_Button</include>
-                <label>31099</label>
-                <onclick condition="System.HasAddon(script.artwork.downloader)">Skin.ToggleSetting(EnableArtworkDownloader)</onclick>
-                <onclick condition="!System.HasAddon(script.artwork.downloader)">RunPlugin(plugin://script.artwork.downloader)</onclick>
-                <selected>Skin.HasSetting(EnableArtworkDownloader)</selected>
-            </control>
             <control type="radiobutton" id="5160">
                 <description>Low performance systems</description>
                 <include>SkinSettings_Button</include>
@@ -3067,6 +3036,7 @@
                 <onclick>Skin.ToggleSetting(DialogYesNo_FocusNO)</onclick>
                 <selected>Skin.HasSetting(DialogYesNo_FocusNO)</selected>
             </control>
+			<!-- may remove -->
             <control type="radiobutton" id="31710">
                 <description>Enable skin helper artwork lookups for addons</description>
                 <include>SkinSettings_Button</include>
@@ -3374,16 +3344,8 @@
             </control>
 
             <include content="SkinSettings_AddonButton">
-                <param name="id" value="31001" />
-                <param name="addon" value="script.skin.helper.service" />
-            </include>
-            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31030" />
                 <param name="addon" value="script.skin.helper.widgets" />
-            </include>
-            <include content="SkinSettings_AddonButton">
-                <param name="id" value="31031" />
-                <param name="addon" value="script.skin.helper.backgrounds" />
             </include>
             <include content="SkinSettings_AddonButton">
                 <param name="id" value="31032" />
@@ -3397,10 +3359,10 @@
                 <param name="id" value="31002" />
                 <param name="addon" value="script.skinshortcuts" />
             </include>
-            <include content="SkinSettings_AddonButton">
+           <!--  <include content="SkinSettings_AddonButton">
                 <param name="id" value="31003" />
                 <param name="addon" value="script.extendedinfo" />
-            </include>
+            </include> -->
             <include content="SkinSettings_AddonButton">
                 <param name="id" value="31019" />
                 <param name="addon" value="plugin.program.autocompletion" />
@@ -3434,10 +3396,6 @@
                 <param name="addon" value="script.tvmelodies" />
             </include>
             <include content="SkinSettings_AddonButton">
-                <param name="id" value="31008" />
-                <param name="addon" value="script.cinema.experience" />
-            </include>
-            <include content="SkinSettings_AddonButton">
                 <param name="id" value="31009" />
                 <param name="addon" value="script.cinemavision" />
             </include>
@@ -3445,17 +3403,9 @@
                 <param name="id" value="31011" />
                 <param name="addon" value="script.trakt" />
             </include>
-            <include content="SkinSettings_AddonButton">
-                <param name="id" value="31012" />
-                <param name="addon" value="screensaver.digitalclock" />
-            </include>
-            <include content="SkinSettings_AddonButton">
+           <include content="SkinSettings_AddonButton">
                 <param name="id" value="31013" />
                 <param name="addon" value="script.games.rom.collection.browser" />
-            </include>
-            <include content="SkinSettings_AddonButton">
-                <param name="id" value="31014" />
-                <param name="addon" value="plugin.video.couchpotato_manager" />
             </include>
             <include content="SkinSettings_AddonButton">
                 <param name="id" value="31015" />

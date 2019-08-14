@@ -29,7 +29,7 @@
 					<texture border="5">diffuse/panel.png</texture>
 					<colordiffuse>$INFO[Skin.String(FooterPanelColor)]</colordiffuse>
 					<visible>!skin.hassetting(nofooterbar)</visible>
-					<visible>![window.isactive(home) + Skin.HasSetting(NoFooterBarOnHome)]</visible>
+					<visible>!window.isactive(home)</visible>
 				</control>
 			</control>
 			

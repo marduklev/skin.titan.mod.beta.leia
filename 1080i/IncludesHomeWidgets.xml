@@ -284,13 +284,13 @@
     </include>
 	
     <include name="widget_layout_poster">
-        <include condition="$PARAM[multiRows]" name="height" content="height">
+        <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="840" />
         </include>
-		<include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="380" />
         </include>
-        <include condition="![$PARAM[multiRows]] + !String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="![$PARAM[multiRows]] + !String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="435" />
         </include>
 		<animation effect="slide" delay="0" start="0" end="0,-70" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
@@ -378,13 +378,13 @@
         <animation effect="slide" delay="0" start="0" end="0,-300" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         
-		<include condition="$PARAM[multiRows]" name="height" content="height">
+		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="820" />
         </include>
-		<include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="380" />
         </include>
-        <include condition="![$PARAM[multiRows]] + !String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="![$PARAM[multiRows]] + !String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="435" />
         </include>
 		
@@ -500,13 +500,13 @@
     
     <!-- widget small poster layout -->
     <include name="widget_layout_smallposter">
-        <include condition="$PARAM[multiRows]" name="height" content="height">
+        <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="609" />
         </include>
-		<include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="253" />
         </include>
-        <include condition="!String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="305" />
         </include>
 		<animation effect="slide" delay="0" start="0" end="0,57" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
@@ -599,14 +599,14 @@
 	   
     <!-- widget square layout -->
     <include name="widget_layout_square">
-		<include condition="$PARAM[multiRows]" name="height" content="height">
+		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="624" />
         </include>
         <include condition="$PARAM[multiRows]">widget_layout_square_multi</include>
-		<include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="263" />
         </include>
-        <include condition="!String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="313" />
         </include>
         <animation effect="slide" delay="0" start="0" end="0,65" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
@@ -683,14 +683,14 @@
    
     <!-- widget minisquare layout -->
     <include name="widget_layout_minisquare">
-		<include condition="$PARAM[multiRows]" name="height" content="height">
+		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="760" />
         </include>
 		
-		<include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="135" />
         </include>
-        <include condition="!String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="190" />
         </include>
 		<animation effect="slide" delay="0" start="0" end="0,180" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
@@ -772,13 +772,13 @@
     </include>
     <!-- widget landscape layout -->
     <include name="widget_layout_landscape">
-       <include condition="$PARAM[multiRows]" name="height" content="height">
+       <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="825" />
         </include>
-        <include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="210" />
         </include>
-        <include condition="!String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="275" />
         </include>
 
@@ -858,10 +858,10 @@
 	
     <!-- widget netflixspotlight layout -->
     <include name="widget_layout_netflixspotlight">
-       <include condition="$PARAM[multiRows]" name="height" content="height">
+       <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="380" />
         </include>
-        <include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="380" />
         </include>
        
@@ -925,13 +925,13 @@
     	   
     <!-- widget netflix large landscape -->
     <include name="widget_layout_landscapelarge">
-        <include condition="$PARAM[multiRows]" name="height" content="height">
+        <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="649" />
         </include>
-        <include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="260" />
         </include>
-        <include condition="!String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="325" />
         </include>
         
@@ -1009,14 +1009,14 @@
     <!-- landscape details -->
     <include name="widget_layout_landscapedetails">
         
-		<include condition="$PARAM[multiRows]" name="height" content="height">
+		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="739" />
         </include>
 		
-		<include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="210" />
         </include>
-        <include condition="!String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="260" />
         </include>
 		
@@ -1088,7 +1088,7 @@
         <animation effect="slide" delay="0" start="0" end="0,-130" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-10" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         
-		<include condition="$PARAM[multiRows]" name="height" content="height">
+		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="640" />
         </include>
 		<height>320</height>
@@ -1186,13 +1186,13 @@
     
 	<!-- widget banner layout -->
     <include name="widget_layout_banner">
-        <include condition="$PARAM[multiRows]" name="height" content="height">
+        <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="835" />
         </include>
-        <include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="150" />
         </include>
-        <include condition="!String.Contains(Skin.String(HomeLayout),net) + ![$PARAM[multiRows]]" name="height" content="height">
+        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net) + ![$PARAM[multiRows]]">
             <param name="height" value="210" />
         </include>
 	   
@@ -1268,10 +1268,10 @@
     
 	<!-- widget Netflix Wide(box) Landscape layout -->
     <include name="widget_layout_landscapewidedetails">
-		<include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="380" />
         </include>
-        <include condition="!String.Contains(Skin.String(HomeLayout),net) + ![$PARAM[multiRows]]" name="height" content="height">
+        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net) + ![$PARAM[multiRows]]">
             <param name="height" value="435" />
         </include>
 
@@ -1352,13 +1352,13 @@
     </include>
     <!-- widget landscapesmall layout -->
     <include name="widget_layout_landscapesmall">
-        <include condition="$PARAM[multiRows]" name="height" content="height">
+        <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="840" />
         </include>
-		<include condition="String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="148" />
         </include>
-        <include condition="!String.Contains(Skin.String(HomeLayout),net)" name="height" content="height">
+        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="210" />
         </include>
         
@@ -1447,10 +1447,10 @@
         
     <!-- widget singlebox layout panel -->
     <include name="widget_layout_singlebox">
-		<include condition="$PARAM[multiRows]" name="height" content="height">
+		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="825" />
         </include>
-		<include condition="![$PARAM[multiRows]]" name="height" content="height">
+		<include content="height" condition="![$PARAM[multiRows]]">
             <param name="height" value="345" />
         </include>
 		<animation effect="slide" delay="0" start="0" end="0,-30" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
@@ -1670,10 +1670,10 @@
     
     <!-- widget widebox layout -->
     <include name="widget_layout_widebox">
-        <include condition="$PARAM[multiRows]" name="height" content="height">
+        <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="800" />
         </include>
-		<include condition="![$PARAM[multiRows]]" name="height" content="height">
+		<include content="height" condition="![$PARAM[multiRows]]">
             <param name="height" value="270" />
         </include>
         <animation effect="slide" delay="0" start="0" end="0,55" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>

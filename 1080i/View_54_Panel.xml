@@ -13,11 +13,11 @@
 			<left>40</left>
 			<right>60</right>
 			<bottom>15</bottom>
-			<include condition="Skin.HasSetting(NoFooterBar)" name="top" content="top">
+			<include content="top" condition="Skin.HasSetting(NoFooterBar)">
 				<param name="top" value="125" />
 			</include>
 			<top>140</top>
-			<include condition="Skin.HasSetting(NoFooterBar)" name="height" content="height">
+			<include content="height" condition="Skin.HasSetting(NoFooterBar)">
 				<param name="height" value="948" />
 			</include>
 			<height>800</height>

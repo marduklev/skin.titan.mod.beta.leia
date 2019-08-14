@@ -1169,15 +1169,6 @@
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=videoinfo_castaction,header=$LOCALIZE[31689])</onclick>
                 <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
             </control>
-            <!-- missing actor thumbs lookup -->
-            <control type="radiobutton" id="31633">
-                <include>SkinSettings_Button</include>
-                <label>31633</label>
-                <onclick condition="Skin.String(actorthumbslookup, true)">Skin.SetString(actorthumbslookup,false)</onclick>
-                <onclick condition="!Skin.String(actorthumbslookup, true)">Skin.SetString(actorthumbslookup,true)</onclick>
-                <selected>Skin.String(actorthumbslookup,true)</selected>
-                <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
-            </control>
             <!-- trailer behaviour in videoinfo 
 			<control type="radiobutton" id="31694">
                 <include>SkinSettings_Button</include>

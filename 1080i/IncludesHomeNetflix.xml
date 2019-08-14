@@ -299,8 +299,6 @@
             <animation time="300" effect="fade" start="100" end="40" reversible="true" easing="inout" condition="ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(40003)">Conditional</animation>
 			<include>NetflixHome_PanelSlide</include>
 			
-			
-			
 			<!-- spotlight previewwindow section right check if property needed-->
 			<control type="group">
 				<visible>!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
@@ -1184,27 +1182,27 @@
 
     <!-- Netflix Items Movies -->
     <include name="netflix_items_movies">
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
 			<param name="widgetid" value="510" />
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-movies-510" />
 		</include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
 			<param name="widgetid" value="520" />
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-movies-520" />
 		</include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
 			<param name="widgetid" value="530" />
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-movies-530" />
 		</include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
 			<param name="widgetid" value="540" />
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-movies-540" />
 		</include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
 			<param name="widgetid" value="550" />
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-movies-550" />
@@ -1213,27 +1211,27 @@
 
     <!-- Netflix Items TVShows -->
     <include name="netflix_items_tvshows">
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
 			<param name="widgetid" value="510" />
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-tvshows-510" />
 		</include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
 			<param name="widgetid" value="520" />
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-tvshows-520" />
 		</include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
 			<param name="widgetid" value="530" />
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-tvshows-530" />
 		</include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
 			<param name="widgetid" value="540" />
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-tvshows-540" />
 		</include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
 			<param name="widgetid" value="550" />
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-tvshows-550" />
@@ -1242,27 +1240,27 @@
 
     <!-- Netflix Items New -->
     <include name="netflix_items_new">
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
             <param name="widgetid" value="510" />
             <param name="widgetStyle" value="widget_layout_default" />
             <param name="skinsetting" value="netflixhub-new-510" />
         </include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
             <param name="widgetid" value="520" />
             <param name="widgetStyle" value="widget_layout_default" />
             <param name="skinsetting" value="netflixhub-new-520" />
         </include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
             <param name="widgetid" value="530" />
             <param name="widgetStyle" value="widget_layout_default" />
             <param name="skinsetting" value="netflixhub-new-530" />
         </include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
             <param name="widgetid" value="540" />
             <param name="widgetStyle" value="widget_layout_default" />
             <param name="skinsetting" value="netflixhub-new-540" />
         </include>
-        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <include condition="true" content="netflix_customhub_item">
             <param name="widgetid" value="550" />
             <param name="widgetStyle" value="widget_layout_default" />
             <param name="skinsetting" value="netflixhub-new-550" />

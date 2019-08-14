@@ -1028,11 +1028,11 @@
 	 </variable>
      <!-- action= extendedinfo vs library ,check how get custom action-->
      <variable name="VAR_SkinHelperCast">
-		<value condition="!String.IsEmpty(ListItem.DBTYPE) + !String.IsEmpty(ListItem.DBID)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.DBID]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]</value>
-        <value condition="!String.IsEmpty(ListItem.DBTYPE)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]</value>
-        <value condition="!String.IsEmpty(ListItem.Property(DBTYPE)) + !String.IsEmpty(ListItem.Property(DBID))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Propery(DBID)]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]</value>
-        <value condition="!String.IsEmpty(ListItem.Property(DBTYPE))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]</value>
-        <value condition="!String.IsEmpty(Container.Content)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[Container.Content]=$INFO[ListItem.Title]&amp;downloadthumbs=$INFO[Skin.String(actorthumbslookup)]</value>
+		<value condition="!String.IsEmpty(ListItem.DBTYPE) + !String.IsEmpty(ListItem.DBID)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.DBID]&amp;downloadthumbs=true</value>
+        <value condition="!String.IsEmpty(ListItem.DBTYPE)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.Title]&amp;downloadthumbs=true</value>
+        <value condition="!String.IsEmpty(ListItem.Property(DBTYPE)) + !String.IsEmpty(ListItem.Property(DBID))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Propery(DBID)]&amp;downloadthumbs=true</value>
+        <value condition="!String.IsEmpty(ListItem.Property(DBTYPE))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Title]&amp;downloadthumbs=true</value>
+        <value condition="!String.IsEmpty(Container.Content)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[Container.Content]=$INFO[ListItem.Title]&amp;downloadthumbs=true</value>
      </variable>
      <!-- Embcon/Native DB vars -->
 	<variable name="VAR_EmbuaryCast">

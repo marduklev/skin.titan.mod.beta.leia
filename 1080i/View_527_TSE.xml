@@ -179,6 +179,9 @@
 					</control>
 				</itemlayout>
 				<focusedlayout width="750" height="250" condition="![Skin.HasSetting(LogoViewPreferClearArt) | Skin.HasSetting(LogoViewPreferLandscape) | Skin.HasSetting(LogoViewPreferBanner)]">
+					<include content="AutoTrailerButton">
+						<param name="id" value="527"/>
+					</include>
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="140" time="480" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>	
@@ -205,6 +208,9 @@
 					</control>
 				</itemlayout>
 				<focusedlayout width="780" height="328" condition="Skin.HasSetting(LogoViewPreferClearArt)">
+					<include content="AutoTrailerButton">
+						<param name="id" value="527"/>
+					</include>
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="140" time="480" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>		
@@ -231,6 +237,9 @@
 					</control>
 				</itemlayout>
 				<focusedlayout width="780" height="328" condition="Skin.HasSetting(LogoViewPreferLandscape)">
+					<include content="AutoTrailerButton">
+						<param name="id" value="527"/>
+					</include>
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="150" time="480" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="150" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
@@ -257,6 +266,9 @@
 					</control>
 				</itemlayout>
 				<focusedlayout width="780" height="140" condition="Skin.HasSetting(LogoViewPreferBanner)">
+					<include content="AutoTrailerButton">
+						<param name="id" value="527"/>
+					</include>
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="140" time="480" tween="back" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>

@@ -46,11 +46,16 @@
                     </control>
 				</itemlayout>
 				<focusedlayout width="800" height="103" condition="!Skin.HasSetting(View504_UseSlimList)">
-                    <control type="group">
+                    <include content="AutoTrailerButton">
+						<param name="id" value="504"/>
+					</include>
+					<control type="group">
                         <left>0</left>
                         <width>790</width>
 						<include>BigListFocusLayout</include>
-                        <include>AutoTrailerButton</include>
+						<include content="AutoTrailerButton">
+							<param name="id" value="504"/>
+						</include>
                     </control>
 				</focusedlayout>
 
@@ -62,11 +67,16 @@
                     </control>
 				</itemlayout>
 				<focusedlayout width="800" height="60" condition="Skin.HasSetting(View504_UseSlimList)">
-                    <control type="group">
+                    <include content="AutoTrailerButton">
+						<param name="id" value="504"/>
+					</include>
+					<control type="group">
                         <left>0</left>
                         <width>790</width>
 						<include>BigList2SlimLayoutFocus</include>
-                        <include>AutoTrailerButton</include>
+                        <include content="AutoTrailerButton">
+							<param name="id" value="504"/>
+						</include>
                     </control>
 				</focusedlayout>
 			</control>
@@ -178,7 +188,7 @@
 		
 		<control type="group">
 			<!--Watched Overlay-->
-			<visible>![Skin.HasSetting(View51_ShowCDart) + ![VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview) + [Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]]]</visible>
+			<visible>![Skin.HasSetting(View51_ShowCDart) + ![VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview) + [Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]]]</visible>
 			<include>WatchedIndicatorSmall</include>
 		</control>
 		
@@ -213,7 +223,7 @@
 		
 		<control type="group">
 			<!--Watched Overlay-->
-			<visible>![Skin.HasSetting(View51_ShowCDart) + ![VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview) + [Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]]]</visible>
+			<visible>![Skin.HasSetting(View51_ShowCDart) + ![VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview) + [Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]]]</visible>
 			<include>WatchedIndicatorSmall</include>
 		</control>
 		

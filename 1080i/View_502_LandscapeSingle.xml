@@ -67,7 +67,10 @@
 					</control>
 				</itemlayout>
 				<focusedlayout width="620" height="325">
-                    <control type="group">
+                    <include content="AutoTrailerButton">
+						<param name="id" value="502"/>
+					</include>
+					<control type="group">
 						<include>Focus_Zoom_Animation</include>
                         <width>565</width>
                         <height>325</height>

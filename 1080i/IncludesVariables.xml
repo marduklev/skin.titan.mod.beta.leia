@@ -257,7 +257,6 @@
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ContentHeader))">$INFO[Window(Home).Property(SkinHelper.ContentHeader)] $INFO[Control.GetLabel(3),• ]</value>
        <value condition="!String.IsEmpty(Container.NumItems) + ![Window.IsActive(tvchannels) | Window.IsActive(radiochannels)] + !String.IsEqual(Container.TotalUnwatched,0)">$INFO[Container.NumItems,, $LOCALIZE[31034]]$INFO[Container.TotalUnwatched, • , $LOCALIZE[16101]] $INFO[Control.GetLabel(3),• ]</value>
         <value condition="!String.IsEmpty(Container.NumItems) + ![Window.IsActive(tvchannels) | Window.IsActive(radiochannels)]">$INFO[Container.NumItems,, $LOCALIZE[31034]] $INFO[Control.GetLabel(3),• ]</value>
-        <value condition="!String.IsEmpty(Container.NumItems) + ![Window.IsActive(tvchannels) | Window.IsActive(radiochannels)]">$INFO[Container.NumItems,, $LOCALIZE[31034]] $INFO[Control.GetLabel(3),• ]</value>
         <value>$INFO[System.CurrentWindow]</value>
     </variable>
     
@@ -529,7 +528,7 @@
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Landscape))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Landscape)]</value>
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Fanart))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
-		<value>$INFO[ListItem.ChannelName,resource://resource.images.thelogodb/,.png]</value>
+		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	
 	<variable name="ListItemDuration">
@@ -586,14 +585,14 @@
     
     <variable name="ListDatePVR">
         <value condition="Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)">$INFO[ListItem.StartDate] $INFO[ListItem.StartTime]</value>
-        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(tvguide)] + !String.IsEmpty(ListItem.StartTime) + [String.IsEqual(System.Language,Arabic) | String.IsEqual(System.Language,Hebrew)]">$INFO[ListItem.EndTime] - $INFO[ListItem.StartTime]</value>
-        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(tvguide)] + !String.IsEmpty(ListItem.StartTime)">$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime]</value>
+        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvguide)] + !String.IsEmpty(ListItem.StartTime) + [String.IsEqual(System.Language,Arabic) | String.IsEqual(System.Language,Hebrew)]">$INFO[ListItem.EndTime] - $INFO[ListItem.StartTime]</value>
+        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvguide)] + !String.IsEmpty(ListItem.StartTime)">$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime]</value>
         <value>$INFO[ListItem.StartDate] - $INFO[ListItem.StartTime]</value>
     </variable>
     
     <variable name="ListDateInfoPVR">
         <value condition="Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)">$INFO[ListItem.Date]</value>
-        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(tvguide)] + !String.IsEmpty(ListItem.StartTime)">$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime]</value>
+        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvguide)] + !String.IsEmpty(ListItem.StartTime)">$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime]</value>
         <value condition="!String.IsEmpty(ListItem.Date)">$INFO[ListItem.Date]</value>
     </variable>
     
@@ -619,8 +618,8 @@
         <value condition="!String.IsEmpty(ListItem.TvShowTitle) + !String.IsEmpty(ListItem.Episode) + Integer.IsGreater(ListItem.Season,9)">$INFO[ListItem.Title][CR]$INFO[ListItem.TvShowTitle] • [UPPERCASE]S$INFO[ListItem.Season]E0$INFO[ListItem.Episode][/UPPERCASE]</value>
         <value condition="!String.IsEmpty(ListItem.TvShowTitle) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Title][CR]$INFO[ListItem.TvShowTitle] • [UPPERCASE]S0$INFO[ListItem.Season]E0$INFO[ListItem.Episode][/UPPERCASE]</value>
 		
-        <value condition="Window.IsActive(tvchannels)">$INFO[ListItem.Title,[B],[/B]]$VAR[ListDatePVR,[CR]]</value>
-        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]">$INFO[ListItem.ChannelName,, • ]$VAR[ListDatePVR]</value>
+        <value condition="[Window.IsActive(radiochannels) | Window.IsActive(tvchannels)]">$INFO[ListItem.Title,[B],[/B]]$VAR[ListDatePVR,[CR]]</value>
+        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]">$INFO[ListItem.ChannelName,, • ]$VAR[ListDatePVR]</value>
 		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + !String.IsEmpty(ListItem.Year)">$INFO[ListItem.label,[B],[/B]][CR]$INFO[ListItem.Year]</value>
         <value condition="String.IsEmpty(ListItem.Property(submenuVisibility))">$INFO[ListItem.label][CR]$INFO[ListItem.label2]</value>
 		<value>$INFO[ListItem.label]</value>
@@ -641,8 +640,8 @@
         <value condition="!String.IsEmpty(ListItem.TvShowTitle) + !String.IsEmpty(ListItem.Episode) + Integer.IsGreater(ListItem.Season,9)">$INFO[ListItem.TvShowTitle] [UPPERCASE]S$INFO[ListItem.Season]E0$INFO[ListItem.Episode][/UPPERCASE]</value>
         <value condition="!String.IsEmpty(ListItem.TvShowTitle) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.TvShowTitle] [UPPERCASE]S0$INFO[ListItem.Season]E0$INFO[ListItem.Episode][/UPPERCASE]</value>
 		
-        <value condition="Window.IsActive(tvchannels)">$INFO[ListItem.Title,[B],[/B]] $VAR[ListDatePVR]</value>
-        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]">$INFO[ListItem.ChannelName] $VAR[ListDatePVR]</value>
+        <value condition="[Window.IsActive(radiochannels) | Window.IsActive(tvchannels)]">$INFO[ListItem.Title,[B],[/B]] $VAR[ListDatePVR]</value>
+        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]">$INFO[ListItem.ChannelName] $VAR[ListDatePVR]</value>
         <value condition="!String.IsEmpty(ListItem.Property(character))">$INFO[ListItem.label] $INFO[ListItem.Property(character),(,)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(job))">$INFO[ListItem.label] $INFO[ListItem.Property(job),(,)]</value>
 		<value>$INFO[ListItem.Label]</value>
@@ -663,8 +662,8 @@
         <value condition="!String.IsEmpty(ListItem.TvShowTitle) + !String.IsEmpty(ListItem.Episode) + Integer.IsGreater(ListItem.Season,9)">$INFO[ListItem.TvShowTitle] [UPPERCASE]S$INFO[ListItem.Season]E0$INFO[ListItem.Episode][/UPPERCASE]</value>
         <value condition="!String.IsEmpty(ListItem.TvShowTitle) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.TvShowTitle] [UPPERCASE]S0$INFO[ListItem.Season]E0$INFO[ListItem.Episode][/UPPERCASE]</value>
 		
-        <value condition="Window.IsActive(tvchannels)">$INFO[ListItem.Title,[B],[/B]] $VAR[ListDatePVR]</value>
-        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]">$INFO[ListItem.ChannelName] $VAR[ListDatePVR]</value>
+        <value condition="[Window.IsActive(radiochannels) | Window.IsActive(tvchannels)]">$INFO[ListItem.Title,[B],[/B]] $VAR[ListDatePVR]</value>
+        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]">$INFO[ListItem.ChannelName] $VAR[ListDatePVR]</value>
         <value condition="!String.IsEmpty(ListItem.Property(character))">$INFO[ListItem.label] $INFO[ListItem.Property(character),(,)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(job))">$INFO[ListItem.label] $INFO[ListItem.Property(job),(,)]</value>
         <value condition="!String.IsEmpty(ListItem.Year)">$INFO[ListItem.label] $INFO[ListItem.Year,(,)]</value>
@@ -689,8 +688,8 @@
 		<value condition="!Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,, • ]$INFO[ListItem.MPAA,, • ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ]</value>
 
         <!-- PVR -->
-        <value condition="Window.IsActive(tvchannels)">$INFO[ListItem.Title,, • ]$VAR[ListDatePVR]</value>
-        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]">$INFO[ListItem.ChannelName,, • ]$VAR[ListDatePVR]</value>
+        <value condition="[Window.IsActive(radiochannels) | Window.IsActive(tvchannels)]">$INFO[ListItem.Title,, • ]$VAR[ListDatePVR]</value>
+        <value condition="[Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]">$INFO[ListItem.ChannelName,, • ]$VAR[ListDatePVR]</value>
         <!-- movies -->
         <value condition="[Container.Content(movies) | Container.Content(musicvideos)] + !String.StartsWith(ListItem.Path,videodb://1/7)">$INFO[ListItem.Duration,[B]$LOCALIZE[180]:[/B] ,min.]$INFO[ListItem.Director, - [B]$LOCALIZE[20339]:[/B] ]</value>
         <value condition="String.StartsWith(ListItem.Path,videodb://1/7)">$LOCALIZE[20457]</value>
@@ -1048,8 +1047,8 @@
 	</variable>
      <variable name="channellogo"><!-- check, pvr changes, definetly need revisit -->
         <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
-		<value condition="window.isactive(tvchannels) | window.isactive(tvguide)">$INFO[ListItem.ChannelName,resource://resource.images.thelogodb/,.png]</value>
-		<value condition="!String.IsEmpty(ListItem.Icon) + [window.isactive(tvchannels) | window.isactive(tvguide)]">$INFO[ListItem.Icon]</value>
+		<!-- value condition="window.isactive(tvchannels) | window.isactive(tvguide)">$INFO[ListItem.ChannelName,resource://resource.images.thelogodb/,.png]</value -->
+		<value condition="!String.IsEmpty(ListItem.Icon) + [window.isactive(tvchannels) | Window.IsActive(radiochannels) | window.isactive(tvguide)]">$INFO[ListItem.Icon]</value>
 	 </variable>
      
      <variable name="widgetrowslabel">

@@ -111,7 +111,10 @@
                     </control>
 				</itemlayout>
 				<focusedlayout height="400" width="270">
-                     <control type="group">
+					<include content="AutoTrailerButton">
+						<param name="id" value="508"/>
+					</include>
+                    <control type="group">
                         <width>270</width>
                         <height>400</height>
 						<include content="PosterPanelLayout">

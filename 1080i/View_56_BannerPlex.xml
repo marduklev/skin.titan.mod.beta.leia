@@ -37,7 +37,10 @@
 					</control>
                 </itemlayout>
                 <focusedlayout height="135" width="600" condition="!Skin.HasSetting(View56_LargeBanners)">
-                    <control type="group">
+                    <include content="AutoTrailerButton">
+						<param name="id" value="56"/>
+					</include>
+					<control type="group">
                         <width>590</width>
                         <height>125</height>
 						<include>Focus_Zoom_Animation</include>
@@ -61,7 +64,10 @@
 					</control>
                 </itemlayout>
                 <focusedlayout height="225" width="900" condition="Skin.HasSetting(View56_LargeBanners)">
-                    <control type="group">
+                    <include content="AutoTrailerButton">
+						<param name="id" value="56"/>
+					</include>
+					<control type="group">
                         <width>890</width>
                         <height>205</height>
 						<include>Focus_Zoom_Animation</include>

@@ -365,7 +365,9 @@
 			<control type="group">
 				<width>382</width>
 				<height>224</height>
-				<include>AutoTrailerButton</include>
+				<include content="AutoTrailerButton">
+					<param name="id" value="525"/>
+				</include>
 				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="none" />
 					<param name="border" value="thumbsborder_unfocused" />
@@ -389,7 +391,9 @@
 			<control type="group">
 				<width>480</width>
 				<height>269</height>
-				<include>AutoTrailerButton</include>
+				<include content="AutoTrailerButton">
+					<param name="id" value="525"/>
+				</include>
 				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="none" />
 					<param name="border" value="thumbsborder_unfocused" />

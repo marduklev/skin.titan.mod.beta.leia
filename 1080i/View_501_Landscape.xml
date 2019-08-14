@@ -41,6 +41,9 @@
                     </control>
 				</itemlayout>
 				<focusedlayout width="610" height="360" condition="!Skin.HasSetting(View501_ShowTags)">
+					<include content="AutoTrailerButton">
+						<param name="id" value="501"/>
+					</include>
 					<control type="group">
 						<include>Focus_Zoom_Animation</include>
                         <width>593</width>
@@ -69,6 +72,9 @@
                     </control>
 				</itemlayout>
 				<focusedlayout width="550" height="366" condition="Skin.HasSetting(View501_ShowTags)">
+					<include content="AutoTrailerButton">
+						<param name="id" value="501"/>
+					</include>
 					<control type="group">
 						<include>Focus_Zoom_Animation</include>
                         <width>531</width>

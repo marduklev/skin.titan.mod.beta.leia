@@ -49,7 +49,9 @@
 						</include>
 						<include>Focus_Zoom_Animation</include>
 						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
-                        <include>AutoTrailerButton</include>
+                        <include content="AutoTrailerButton">
+							<param name="id" value="55"/>
+						</include>
 					</control>
                 </focusedlayout>
                 <itemlayout height="246" width="1190" condition="Skin.HasSetting(View55_LargeBanners)">
@@ -74,7 +76,9 @@
 						</include>
 						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
 						<include>Focus_Zoom_Animation</include>
-						<include>AutoTrailerButton</include>
+						<include content="AutoTrailerButton">
+							<param name="id" value="55"/>
+						</include>
 					</control>
                 </focusedlayout>
 			</control>

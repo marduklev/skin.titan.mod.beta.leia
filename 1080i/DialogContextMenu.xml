@@ -7,7 +7,6 @@
     <onload condition="Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer) + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">Stop</onload>
 	<controls>
 		
-		<!-- touchscreen support -->
 		<!-- hidden button to exit dialog in touchscreen mode -->
 		<control type="button">
 			<posx>0</posx>

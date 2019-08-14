@@ -61,6 +61,9 @@
                     </control>
                 </itemlayout>
                 <focusedlayout width="800" height="90">
+					<include content="AutoTrailerButton">
+						<param name="id" value="522"/>
+					</include>
                     <control type="image">
 						<right>0</right>
 						<posy>0</posy>

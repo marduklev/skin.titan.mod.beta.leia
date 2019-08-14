@@ -38,7 +38,10 @@
                 </itemlayout>
                 <!-- focussed layout movies -->
                 <focusedlayout height="248" width="165">
-                    <control type="group">
+                    <include content="AutoTrailerButton">
+						<param name="id" value="521"/>
+					</include>
+					<control type="group">
                         <width>162</width>
                         <height>240</height>
 						<include content="PosterPanelLayout">

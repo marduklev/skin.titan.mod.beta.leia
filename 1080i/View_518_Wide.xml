@@ -100,7 +100,10 @@
                         </control>
                     </itemlayout>
                     <focusedlayout width="1800" height="310">
-                        <control type="group">
+                        <include content="AutoTrailerButton">
+							<param name="id" value="518"/>
+						</include>
+						<control type="group">
                             <width>1800</width>
                             <top>0</top>
                             <height>310</height>

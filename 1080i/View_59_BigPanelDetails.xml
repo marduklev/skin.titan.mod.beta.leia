@@ -49,7 +49,9 @@
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
-						<include>AutoTrailerButton</include>
+						<include content="AutoTrailerButton">
+							<param name="id" value="59"/>
+						</include>
 					</control>
 					<control type="image">
 						<top>215</top>
@@ -77,7 +79,9 @@
 				<focusedlayout height="415" width="273" condition="!Skin.HasSetting(View59_ShowTags) + !Skin.HasSetting(View59_ShowCDart)">
 					<control type="group">
 						<include>Focus_Zoom_Animation</include>
-						<include>AutoTrailerButton</include>
+						<include content="AutoTrailerButton">
+							<param name="id" value="59"/>
+						</include>
 						<height>414</height>
 						<width>276</width>
 						<include content="PosterPanelLayout">
@@ -105,7 +109,9 @@
 				</itemlayout>
 				<focusedlayout height="415" width="255" condition="Skin.HasSetting(View59_ShowTags)">
 					<control type="group">
-						<include>AutoTrailerButton</include>
+						<include content="AutoTrailerButton">
+							<param name="id" value="59"/>
+						</include>
 						<include>Focus_Zoom_Animation</include>
 						<width>233</width>
 						<height>350</height>

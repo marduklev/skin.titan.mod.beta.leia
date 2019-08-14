@@ -155,7 +155,7 @@
                 </control>
 				
 				<!-- CAST when Trailer, without focus option -->
-				<control type="panel" id="50"> 
+				<control type="panel"> 
 					<top>700</top>
 					<left>1050</left>
 					<height>300</height>
@@ -258,7 +258,9 @@
 					</control>
 				</itemlayout>		
 				<focusedlayout height="347" width="270" condition="$EXP[UsePosterShape] + !$EXP[InGameMode]">
-					<include>AutoTrailerButton</include>
+					<include content="AutoTrailerButton">
+						<param name="id" value="523"/>
+					</include>
 					<control type="group">
 						<width>264</width>
 						<height>381</height>
@@ -320,7 +322,9 @@
 					</control>
 				</focusedlayout>	
 				<focusedlayout height="347" width="270" condition="$EXP[UsePosterShape]">
-					<include>AutoTrailerButton</include>
+					<include content="AutoTrailerButton">
+						<param name="id" value="523"/>
+					</include>
 					<control type="group">
 						<width>264</width>
 						<height>381</height>
@@ -357,7 +361,9 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="365" width="255" condition="$EXP[UseTitanShape]">
-					<include>AutoTrailerButton</include>
+					<include content="AutoTrailerButton">
+						<param name="id" value="523"/>
+					</include>
 					<control type="group">
 						<left>5</left>
 						<width>240</width>
@@ -414,7 +420,9 @@
 					</control>		
 				</itemlayout>	
 				<focusedlayout height="274" width="380" condition="$EXP[UseWideShape]">
-					<include>AutoTrailerButton</include>
+					<include content="AutoTrailerButton">
+						<param name="id" value="523"/>
+					</include>
 					<control type="group">
 						<height>274</height>
 						<width>380</width>

@@ -1394,6 +1394,9 @@
 					<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),513) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
 					<itemlayout width="210" height="750" />
 					<focusedlayout width="210" height="750">
+						<include content="AutoTrailerButton">
+							<param name="id" value="513"/>
+						</include>
 					</focusedlayout>
 				</control>
 			

@@ -45,8 +45,13 @@
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 					<param name="border" value="thumbsborder_focused" />
 				</include>
+				<include content="AutoTrailerButton">
+					<param name="id" value="512"/>
+				</include>
 				<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
-                <include>AutoTrailerButton</include>
+                <include content="AutoTrailerButton">
+					<param name="id" value="512"/>
+				</include>
 			</control>
         </focusedlayout>
         <itemlayout height="250" width="300" condition="Skin.HasSetting(View512_ShowTags)">

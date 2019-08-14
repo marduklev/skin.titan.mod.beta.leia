@@ -53,7 +53,9 @@
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
-                        <include>AutoTrailerButton</include>
+                        <include content="AutoTrailerButton">
+							<param name="id" value="53"/>
+						</include>
 						<include content="Tag_FO">
 							<param name="tagwidth" value="162"/>
 							<param name="tagtop" value="243" />
@@ -85,7 +87,9 @@
 							<param name="border" value="thumbsborder_focused" />
 						</include>
 						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
-                        <include>AutoTrailerButton</include>
+                        <include content="AutoTrailerButton">
+							<param name="id" value="53"/>
+						</include>
 					</control>
                 </focusedlayout>
             </control>

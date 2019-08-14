@@ -34,6 +34,9 @@
                 <itemlayout width="270" height="800">
                 </itemlayout>
                 <focusedlayout width="270" height="800">
+					<include content="AutoTrailerButton">
+						<param name="id" value="524"/>
+					</include>
 				</focusedlayout>
             </control>
             <control type="group">

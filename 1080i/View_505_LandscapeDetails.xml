@@ -46,6 +46,9 @@
 					</control>
 				</itemlayout>
 				<focusedlayout width="595" height="395">
+					<include content="AutoTrailerButton">
+						<param name="id" value="505"/>
+					</include>
 					<control type="group">
 						<include>Focus_Zoom_Animation</include>
 						<width>575</width>
@@ -55,7 +58,9 @@
 							<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
 							<param name="border" value="thumbsborder_focused" />
 						</include>
-						<include>AutoTrailerButton</include>
+						<include content="AutoTrailerButton">
+							<param name="id" value="505"/>
+						</include>
 						<control type="group">
 							<visible>Skin.HasSetting(View505_ShowTags)</visible>
 							<include content="Tag_FO">

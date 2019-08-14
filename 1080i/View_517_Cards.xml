@@ -84,7 +84,10 @@
                         </control>
                     </itemlayout>
                     <focusedlayout width="910" height="350" condition="Container.Content(episodes)">
-                        <control type="group">
+                        <include content="AutoTrailerButton">
+							<param name="id" value="517"/>
+						</include>
+						<control type="group">
                             <width>890</width>
                             <height>330</height>
                             <control type="image">
@@ -209,7 +212,10 @@
                         </control>
                     </itemlayout>
                     <focusedlayout width="910" height="350" condition="!Container.Content(episodes)">
-                        <control type="group">
+                        <include content="AutoTrailerButton">
+							<param name="id" value="517"/>
+						</include>
+						<control type="group">
                             <width>890</width>
                             <height>330</height>
 							<control type="image">

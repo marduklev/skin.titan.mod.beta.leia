@@ -219,7 +219,7 @@
 				<ondown>515</ondown>
 				<onleft>9000</onleft>
 				<onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
-        <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+				<onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
 				<viewtype label="31442">list</viewtype>
 				<orientation>vertical</orientation>
 				<pagecontrol>60</pagecontrol>
@@ -232,6 +232,9 @@
 					<include>LowListLayout</include>
 				</itemlayout>
 				<focusedlayout width="857" height="115" condition="!Skin.HasSetting(View515_UseSlimList) + ![Skin.HasSetting(View515_ShowBanners) + container.content(tvshows)]">
+					<include content="AutoTrailerButton">
+						<param name="id" value="515"/>
+					</include>
 					<include>LowListFocusLayout</include>
 				</focusedlayout>
 				
@@ -239,6 +242,9 @@
 					<include>LowListSlimLayout</include>
 				</itemlayout>
 				<focusedlayout width="857" height="69" condition="Skin.HasSetting(View515_UseSlimList) + ![Skin.HasSetting(View515_ShowBanners) + container.content(tvshows)]">
+					<include content="AutoTrailerButton">
+						<param name="id" value="515"/>
+					</include>
 					<include>LowListSlimLayoutFocus</include>
 				</focusedlayout>
 				
@@ -258,6 +264,9 @@
 					</control>
                 </itemlayout>
                 <focusedlayout height="173" width="857" condition="[Skin.HasSetting(View515_ShowBanners) + container.content(tvshows)]">
+					<include content="AutoTrailerButton">
+						<param name="id" value="515"/>
+					</include>
 					<control type="group">
                         <width>840</width>
                         <height>160</height>

@@ -37,10 +37,10 @@
 			<include condition="Skin.HasSetting(EnableTouchSupport)">TouchControlsFooter</include>
 
 			<!-- PVR Content -->
-            <include condition="Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)">FooterContentPVR</include>
+            <include condition="Window.Isactive(radiochannels) | Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)">FooterContentPVR</include>
 
             <!-- Normal Content -->
-            <include condition="![Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)] + !Window.IsActive(home)">FooterContentGeneral</include>
+            <include condition="![Window.IsActive(radiochannels) | Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)] + !Window.IsActive(home)">FooterContentGeneral</include>
 
             <!--footer on home -->
             <include condition="Window.IsActive(Home)">FooterContentHome</include>
@@ -197,7 +197,7 @@
     <include name="FooterContentPVR">
         <!--Progress (PVR)-->
         <control type="group">
-            <visible>[window.isactive(tvchannels) | window.isactive(tvguide)] + !Control.IsVisible(99123)</visible>
+            <visible>[window.isactive(radiochannels) | window.isactive(tvchannels) | window.isactive(tvguide)] + !Control.IsVisible(99123)</visible>
             <bottom>20</bottom>
             <height>65</height>
             <control type="label">

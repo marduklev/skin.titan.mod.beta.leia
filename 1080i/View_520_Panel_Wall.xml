@@ -40,7 +40,10 @@
                 </itemlayout>
                 <!-- focussed layout movies -->
                 <focusedlayout height="260" width="171" condition="!Skin.HasSetting(View520_ShowTags)">
-                    <control type="group">
+                    <include content="AutoTrailerButton">
+						<param name="id" value="520"/>
+					</include>
+					<control type="group">
 						<include>Focus_Zoom_Animation</include>
                         <width>169</width>
                         <height>258</height>
@@ -52,7 +55,7 @@
 						<include condition="Skin.HasSetting(LibItems_FocusOverlay)">FocusOverlay</include>
                       </control>
                 </focusedlayout>
-				 <!-- itemlayout movies -->
+				<!-- itemlayout movies -->
                 <itemlayout height="350" width="171" condition="Skin.HasSetting(View520_ShowTags)">
                     <control type="group">
                         <width>169</width>
@@ -70,7 +73,10 @@
                 </itemlayout>
                 <!-- focussed layout movies -->
                 <focusedlayout height="350" width="171" condition="Skin.HasSetting(View520_ShowTags)">
-                    <control type="group">
+                    <include content="AutoTrailerButton">
+						<param name="id" value="520"/>
+					</include>
+					<control type="group">
 						<include>Focus_Zoom_Animation</include>
                         <width>169</width>
                         <height>258</height>

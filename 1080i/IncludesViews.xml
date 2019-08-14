@@ -910,7 +910,7 @@
                 <height>150</height>
                 <texture background="true">$VAR[channellogo]</texture>
                 <aspectratio align="left" aligny="top">keep</aspectratio>
-                <visible>Window.IsActive(tvchannels) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)</visible>
+                <visible>Window.IsActive(tvchannels) | Window.IsActive(radiochannels) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)</visible>
             </control>
             <!-- title -->
             <control type="group">

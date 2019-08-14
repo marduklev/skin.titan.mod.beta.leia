@@ -3745,7 +3745,7 @@
 			<width>84</width>
 			<height>37</height>
 			<aspectratio>keep</aspectratio>
-			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_rotten_tomatometerallaudience]</texture>
+			<texture colordiffuse="$VAR[FooterImageColor]">$VAR[image_tomatometerallaudience]</texture>
 			<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
 		</control>
 		<control type="label">

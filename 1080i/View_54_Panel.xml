@@ -47,6 +47,9 @@
 			</itemlayout>
 			<!-- focussed layout movies -->
 			<focusedlayout height="266" width="185" condition="!Skin.HasSetting(View54_ShowTags)">
+				<include content="AutoTrailerButton">
+					<param name="id" value="54"/>
+				</include>
 				<control type="group">
 					<include>Focus_Zoom_Animation</include>
 					<width>183</width>
@@ -77,6 +80,9 @@
 			</itemlayout>
 			<!-- focussed layout movies tags -->
 			<focusedlayout height="320" width="185" condition="Skin.HasSetting(View54_ShowTags)">
+				<include content="AutoTrailerButton">
+					<param name="id" value="54"/>
+				</include>
 				<control type="group">
 					<include>Focus_Zoom_Animation</include>
 					<width>173</width>

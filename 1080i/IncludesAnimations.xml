@@ -549,11 +549,30 @@
 			<onfocus condition="!Player.HasVideo">SetProperty(trailer_trailerwillplaying,true,home)</onfocus>
 			<onfocus condition="!Skin.HasSetting(Library_NoOnlineLookupTrailer) + !Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$VAR[TVShowTitle],local=true),00:03,silent)</onfocus>
 			<onfocus condition="Skin.HasSetting(Library_NoOnlineLookupTrailer) + !Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer)">AlarmClock(trailer_delay,PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1),00:03,silent)</onfocus>
+			
+			
+			
 			<onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
 			<onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
 			<onunfocus condition="!String.IsEmpty(Window(home).Property(trailer_avail))">ClearProperty(trailer_avail,home)</onunfocus>
 			<onunfocus condition="!String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">ClearProperty(trailer_trailerwillplaying)</onunfocus>
-		</control>
+		
+			
+			<onfocus condition="String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,season) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)">SetProperty(ListItemDBID,$INFO[Container($PARAM[id]).ListItem.DBID],home)</onfocus>
+			<onfocus condition="String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,season) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)">SetProperty(ListItemDBType,$INFO[Container($PARAM[id]).ListItem.DBType],home)</onfocus>
+			<onfocus condition="!String.IsEmpty(Container($PARAM[id]).ListItem.Year)">SetProperty(ListItemYear,$INFO[Container($PARAM[id]).ListItem.Year],home)</onfocus>
+			<onfocus condition="!String.IsEmpty(Container($PARAM[id]).ListItem.Imdbnumber)">SetProperty(ListItemImdbnumber,$INFO[Container($PARAM[id]).ListItem.Imdbnumber],home)</onfocus>
+			<onfocus condition="!String.IsEmpty(Container($PARAM[id]).ListItem.Title)">SetProperty(ListItemTitle,$INFO[Container($PARAM[id]).ListItem.Title],home)</onfocus>
+			<onfocus condition="!String.IsEmpty(Container($PARAM[id]).ListItem.TvShowTitle)">SetProperty(ListItemTitle,$INFO[Container($PARAM[id]).ListItem.TvShowTitle],home)</onfocus>
+
+			<onfocus condition="[!String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,season) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)] | String.IsEqual(Container($PARAM[id]).ListItem.Label,$LOCALIZE[20366])">ClearProperty(ListItemDBID,home)</onfocus>
+			<onfocus condition="[!String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,season) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)] | String.IsEqual(Container($PARAM[id]).ListItem.Label,$LOCALIZE[20366])">ClearProperty(ListItemDBType,home)</onfocus>
+			<onfocus condition="String.IsEmpty(Container($PARAM[id]).ListItem.Year)">ClearProperty(ListItemYear,home)</onfocus>
+			<onfocus condition="String.IsEmpty(Container($PARAM[id]).ListItem.Imdbnumber)">ClearProperty(ListItemImdbnumber,home)</onfocus>
+			<onfocus condition="String.IsEmpty(Container($PARAM[id]).ListItem.Title) + String.IsEmpty(Container($PARAM[id]).ListItem.TvShowTitle)">ClearProperty(ListItemTitle,home)</onfocus>
+		
+			
+			</control>
 	</include>
 
     <include name="HiddenHomeMenuButtonEnhancedHome">
@@ -671,7 +690,24 @@
           <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid],home)</onfocus>
           <onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],Home)</onfocus>
           <onfocus condition="Skin.HasSetting(widgets_rotate_pause) + System.HasAlarm(WidgetRotate$PARAM[widgetid]) + !String.Contains(Skin.String(HomeLayout),netflix)">CancelAlarm(WidgetRotate$PARAM[widgetid],true)</onfocus>
-          <!-- Netflix Auto-Trailer -->
+          
+		  <!-- Set item Propertys ,recheck, just simple test home tmdb, not compared to already used WidgetProperties -->
+			<onfocus condition="String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,season) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)">SetProperty(ListItemDBID,$INFO[Container($PARAM[widgetid]).ListItem.DBID],home)</onfocus>
+			<onfocus condition="String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,season) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)">SetProperty(ListItemDBType,$INFO[Container($PARAM[widgetid]).ListItem.DBType],home)</onfocus>
+			<onfocus condition="!String.IsEmpty(Container($PARAM[widgetid]).ListItem.Year)">SetProperty(ListItemYear,$INFO[Container($PARAM[widgetid]).ListItem.Year],home)</onfocus>
+			<onfocus condition="!String.IsEmpty(Container($PARAM[widgetid]).ListItem.Imdbnumber)">SetProperty(ListItemImdbnumber,$INFO[Container($PARAM[widgetid]).ListItem.Imdbnumber],home)</onfocus>
+			<onfocus condition="!String.IsEmpty(Container($PARAM[widgetid]).ListItem.Title)">SetProperty(ListItemTitle,$INFO[Container($PARAM[widgetid]).ListItem.Title],home)</onfocus>
+			<onfocus condition="!String.IsEmpty(Container($PARAM[widgetid]).ListItem.TvShowTitle)">SetProperty(ListItemTitle,$INFO[Container($PARAM[widgetid]).ListItem.TvShowTitle],home)</onfocus>
+
+			<onfocus condition="[!String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,movie) + !String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,season) + !String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,episode) + !String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)] | String.IsEqual(Container($PARAM[widgetid]).ListItem.Label,$LOCALIZE[20366])">ClearProperty(ListItemDBID,home)</onfocus>
+			<onfocus condition="[!String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,movie) + !String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,season) + !String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,episode) + !String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)] | String.IsEqual(Container($PARAM[widgetid]).ListItem.Label,$LOCALIZE[20366])">ClearProperty(ListItemDBType,home)</onfocus>
+			<onfocus condition="String.IsEmpty(Container($PARAM[widgetid]).ListItem.Year)">ClearProperty(ListItemYear,home)</onfocus>
+			<onfocus condition="String.IsEmpty(Container($PARAM[widgetid]).ListItem.Imdbnumber)">ClearProperty(ListItemImdbnumber,home)</onfocus>
+			<onfocus condition="String.IsEmpty(Container($PARAM[widgetid]).ListItem.Title) + String.IsEmpty(Container($PARAM[widgetid]).ListItem.TvShowTitle)">ClearProperty(ListItemTitle,home)</onfocus>
+		
+		  
+		  
+		  <!-- Netflix Auto-Trailer -->
           <include condition="String.Contains(Skin.String(HomeLayout),netflix) + Skin.HasSetting(NetflixAutoTrailer)">netflix_autotrailer</include>
           <include content="WidgetProperties">
             <param name="widgetid" value="$PARAM[widgetid]" />

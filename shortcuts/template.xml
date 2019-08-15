@@ -203,7 +203,7 @@
         
         <controls>
             
-            <include name="widget_header_single" content="widget_header_single" condition="!Skin.String(HomeLayout,win10) + ![$SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + $PYTHON['true' if widgetPath1 else 'false']">
+            <include content="widget_header_single" condition="!Skin.String(HomeLayout,win10) + ![$SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + $PYTHON['true' if widgetPath1 else 'false']">
                 <param name="mainmenuid" value="$SKINSHORTCUTS[id]" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="hasWidget0" value="$PYTHON['true' if widgetPath1 else 'false']" />
@@ -225,12 +225,12 @@
             </include>
             
             <!-- widget 1 -->
-            <include name="widget_header_multi" content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath1 else 'false']">
+            <include content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath1 else 'false']">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]510" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName1]" />
             </include>
-            <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath1 else 'false']">
+            <include content="widget_base" condition="$PYTHON['true' if widgetPath1 else 'false']">
                 <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle1 in 'details' or 'enabled' in widgetFixedFocus1 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle1]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]510" />
@@ -246,12 +246,12 @@
             </include>
             
             <!-- widget 2 -->
-            <include name="widget_header_multi" content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath2 else 'false']">
+            <include content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath2 else 'false']">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]520" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName2]" />
             </include>
-            <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath2 else 'false']">
+            <include content="widget_base" condition="$PYTHON['true' if widgetPath2 else 'false']">
                 <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle2 in 'details' or 'enabled' in widgetFixedFocus2 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle2]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]520" />
@@ -267,12 +267,12 @@
             </include>
             
             <!-- widget 3 -->
-            <include name="widget_header_multi" content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath3 else 'false']">
+            <include content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath3 else 'false']">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]530" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName3]" />
             </include>
-            <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath3 else 'false']">
+            <include content="widget_base" condition="$PYTHON['true' if widgetPath3 else 'false']">
                 <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle3 in 'details' or 'enabled' in widgetFixedFocus3 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle3]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]530" />
@@ -288,12 +288,12 @@
             </include>
             
             <!-- widget 4 -->
-            <include name="widget_header_multi" content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath4 else 'false']">
+            <include content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath4 else 'false']">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]540" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName4]" />
             </include>
-            <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath4 else 'false']">
+            <include content="widget_base" condition="$PYTHON['true' if widgetPath4 else 'false']">
                 <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle4 in 'details' or 'enabled' in widgetFixedFocus4 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle4]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]540" />
@@ -309,12 +309,12 @@
             </include>
             
             <!-- widget 5 -->
-            <include name="widget_header_multi" content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath5 else 'false']">
+            <include content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath5 else 'false']">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]550" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName5]" />
             </include>
-            <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath5 else 'false']">
+            <include content="widget_base" condition="$PYTHON['true' if widgetPath5 else 'false']">
                 <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle5 in 'details' or 'enabled' in widgetFixedFocus5 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle5]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]550" />
@@ -330,12 +330,12 @@
             </include>
             
             <!-- widget 6 -->
-            <include name="widget_header_multi" content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath5 else 'false']">
+            <include content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath5 else 'false']">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]560" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName6]" />
             </include>
-            <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath6 else 'false']">
+            <include content="widget_base" condition="$PYTHON['true' if widgetPath6 else 'false']">
                 <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle6 in 'details' or 'enabled' in widgetFixedFocus6 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle6]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]560" />
@@ -351,12 +351,12 @@
             </include>
             
             <!-- widget 7 -->
-            <include name="widget_header_multi" content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath5 else 'false']">
+            <include content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath5 else 'false']">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]570" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName7]" />
             </include>
-            <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath7 else 'false']">
+            <include content="widget_base" condition="$PYTHON['true' if widgetPath7 else 'false']">
                 <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle7 in 'details' or 'enabled' in widgetFixedFocus7 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle7]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]570" />
@@ -372,12 +372,12 @@
             </include>
             
             <!-- widget 8 -->
-            <include name="widget_header_multi" content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath5 else 'false']">
+            <include content="widget_header_multi" condition="!Skin.String(HomeLayout,win10) + $SKINSHORTCUTS[multiWidgets] + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + $PYTHON['true' if widgetPath5 else 'false']">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]580" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName8]" />
             </include>
-            <include name="widget_base" content="widget_base" condition="$PYTHON['true' if widgetPath8 else 'false']">
+            <include content="widget_base" condition="$PYTHON['true' if widgetPath8 else 'false']">
                 <param name="containerType" value="$PYTHON['fixedlist' if widgetStyle8 in 'details' or 'enabled' in widgetFixedFocus8 else 'panel']" />
                 <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle8]" />
                 <param name="widgetid" value="$SKINSHORTCUTS[id]580" />

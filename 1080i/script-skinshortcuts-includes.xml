@@ -9,22 +9,22 @@
 			<thumb>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</thumb>
 			<property name="labelID">movies</property>
 			<property name="defaultID">movies</property>
-			<property name="widget">Playlist</property>
-			<property name="widgetName">Imdb Top 250</property>
+			<property name="widget">inprogressmovies</property>
+			<property name="widgetName">In progress movies</property>
 			<property name="widgetType">movies</property>
-			<property name="widgetPath">special://skin/playlists/video/ImdbTop250.xsp</property>
+			<property name="widgetPath">special://skin/playlists/video/InProgressMovies.xsp</property>
 			<property name="widgetTarget">videos</property>
 			<property name="background">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</property>
 			<property name="backgroundName">$ADDON[script.skin.helper.service 32039]</property>
 			<property name="widget.1">recentmovies</property>
 			<property name="widgetTarget.1">videos</property>
 			<property name="widgetType.1">movies</property>
-			<property name="widgetPath.1">plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=movies&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</property>
+			<property name="widgetPath.1">videodb://recentlyaddedmovies/</property>
 			<property name="widgetName.1">$LOCALIZE[20386]</property>
 			<property name="widget.99">randommovies</property>
 			<property name="widgetTarget.99">videos</property>
 			<property name="widgetType.99">movies</property>
-			<property name="widgetPath.99">plugin://script.skin.helper.widgets/?action=random&amp;mediatype=movies&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</property>
+			<property name="widgetPath.99">special://skin/playlists/video/SpotlightMovies.xsp</property>
 			<property name="widgetName.99">Spotlight</property>
 			<visible>Library.HasContent(Movies)</visible>
 			<onclick condition="![Skin.HasSetting(OpenSubMenuOnClick) + Integer.IsGreater(Container(4445).NumItems,0) + ![String.Contains(Skin.String(HomeLayout), netflix) | String.Contains(Skin.String(HomeLayout), win10)]]">ActivateWindow(Videos,videodb://movies/titles/,return)</onclick>
@@ -44,22 +44,22 @@
 			<thumb>$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</thumb>
 			<property name="labelID">tvshows</property>
 			<property name="defaultID">tvshows</property>
-			<property name="widget">nextepisodes</property>
-			<property name="widgetName">$ADDON[script.skin.helper.widgets 32002]</property>
+			<property name="widget">inprogressepisodes</property>
+			<property name="widgetName">In progress episodes</property>
 			<property name="widgetType">episodes</property>
-			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=next&amp;mediatype=episodes&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</property>
+			<property name="widgetPath">special://skin/playlists/video/InProgressEpisodes.xsp</property>
 			<property name="widgetTarget">videos</property>
 			<property name="background">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</property>
 			<property name="backgroundName">$ADDON[script.skin.helper.service 32043]</property>
 			<property name="widget.1">recentepisodes</property>
 			<property name="widgetTarget.1">videos</property>
 			<property name="widgetType.1">episodes</property>
-			<property name="widgetPath.1">plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=episodes&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</property>
+			<property name="widgetPath.1">videodb://recentlyaddedepisodes/</property>
 			<property name="widgetName.1">$LOCALIZE[20387]</property>
 			<property name="widget.99">randomtvshows</property>
 			<property name="widgetTarget.99">videos</property>
 			<property name="widgetType.99">tvshows</property>
-			<property name="widgetPath.99">plugin://script.skin.helper.widgets/?action=random&amp;mediatype=tvshows&amp;reload=$INFO[Window(home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
+			<property name="widgetPath.99">special://skin/playlists/video/SpotlightTVshows.xsp</property>
 			<property name="widgetName.99">Spotlight</property>
 			<visible>Library.HasContent(TVShows)</visible>
 			<onclick condition="![Skin.HasSetting(OpenSubMenuOnClick) + Integer.IsGreater(Container(4445).NumItems,0) + ![String.Contains(Skin.String(HomeLayout), netflix) | String.Contains(Skin.String(HomeLayout), win10)]]">ActivateWindow(Videos,videodb://tvshows/titles/,return)</onclick>
@@ -100,7 +100,7 @@
 			<property name="widget">recentmusicvideos</property>
 			<property name="widgetName">$LOCALIZE[20390]</property>
 			<property name="widgetType">musicvideos</property>
-			<property name="widgetPath">plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=musicvideos&amp;reload=$INFO[Window(Home).Property(widgetreload-musicvideos)]</property>
+			<property name="widgetPath">ideodb://recentlyaddedmusicvideos/</property>
 			<property name="widgetTarget">videos</property>
 			<property name="background">$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]</property>
 			<property name="backgroundName">$ADDON[script.skin.helper.service 32047]</property>
@@ -2727,19 +2727,19 @@
 		<control id="1508" type="panel">
 			<visible>String.IsEqual(Container(300).ListItem.Property(submenuVisibility),movies)</visible>
 			<include>EnhancedHomeSpotLightWidgetLayout</include>
-			<content target="videos">plugin://script.skin.helper.widgets/?action=random&amp;mediatype=movies&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</content>
+			<content target="videos">special://skin/playlists/video/SpotlightMovies.xsp</content>
 		</control>
 		<control id="1508" type="panel">
 			<visible>String.IsEqual(Container(300).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<include>EnhancedHomeSpotLightWidgetLayout</include>
-			<content target="videos">plugin://script.skin.helper.widgets/?action=random&amp;mediatype=tvshows&amp;reload=$INFO[Window(home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</content>
+			<content target="videos">special://skin/playlists/video/SpotlightTVshows.xsp</content>
 		</control>
 	</include>
 	<include name="skinshortcuts-template-Widgets">
 		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-Widgets-Master user</include>
 	</include>
 	<include name="skinshortcuts-template-Widgets-Master user">
-		<include condition="!Skin.String(HomeLayout,win10) + ![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + true" content="widget_header_single" name="widget_header_single">
+		<include condition="!Skin.String(HomeLayout,win10) + ![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + true" content="widget_header_single">
 			<param name="mainmenuid" value="1" />
 			<param name="submenuid" value="movies" />
 			<param name="hasWidget0" value="true" />
@@ -2759,31 +2759,31 @@
 			<param name="widgetStyle7" value="default" />
 			<param name="widgetStyle8" value="default" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi">
 			<param name="widgetid" value="1510" />
 			<param name="submenuid" value="movies" />
-			<param name="widgetName" value="Imdb Top 250" />
+			<param name="widgetName" value="In progress movies" />
 		</include>
-		<include condition="true" content="widget_base" name="widget_base">
+		<include condition="true" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="1510" />
-			<param name="widgetName" value="Imdb Top 250" />
+			<param name="widgetName" value="In progress movies" />
 			<param name="submenuid" value="movies" />
 			<param name="widgetTags" value="" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="special://skin/playlists/video/ImdbTop250.xsp" />
+			<param name="widgetPath" value="special://skin/playlists/video/InProgressMovies.xsp" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetInfoPanel" value="top" />
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + [Skin.String(widgetvalue-movies,0) | !Skin.String(widgetvalue-movies)]]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi">
 			<param name="widgetid" value="1520" />
 			<param name="submenuid" value="movies" />
 			<param name="widgetName" value="$LOCALIZE[20386]" />
 		</include>
-		<include condition="true" content="widget_base" name="widget_base">
+		<include condition="true" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="1520" />
@@ -2791,18 +2791,18 @@
 			<param name="submenuid" value="movies" />
 			<param name="widgetTags" value="" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=movies&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]" />
+			<param name="widgetPath" value="videodb://recentlyaddedmovies/" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetInfoPanel" value="top" />
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-movies,1)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="1530" />
 			<param name="submenuid" value="movies" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="1530" />
@@ -2816,12 +2816,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-movies,2)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="1540" />
 			<param name="submenuid" value="movies" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="1540" />
@@ -2835,12 +2835,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-movies,3)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="1550" />
 			<param name="submenuid" value="movies" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="1550" />
@@ -2854,12 +2854,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-movies,4)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="1560" />
 			<param name="submenuid" value="movies" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="1560" />
@@ -2873,12 +2873,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-movies,5)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="1570" />
 			<param name="submenuid" value="movies" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="1570" />
@@ -2892,12 +2892,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-movies,6)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="1580" />
 			<param name="submenuid" value="movies" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="1580" />
@@ -2911,7 +2911,7 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-movies,7)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + ![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + true" content="widget_header_single" name="widget_header_single">
+		<include condition="!Skin.String(HomeLayout,win10) + ![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + true" content="widget_header_single">
 			<param name="mainmenuid" value="2" />
 			<param name="submenuid" value="tvshows" />
 			<param name="hasWidget0" value="true" />
@@ -2931,31 +2931,31 @@
 			<param name="widgetStyle7" value="default" />
 			<param name="widgetStyle8" value="default" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi">
 			<param name="widgetid" value="2510" />
 			<param name="submenuid" value="tvshows" />
-			<param name="widgetName" value="$ADDON[script.skin.helper.widgets 32002]" />
+			<param name="widgetName" value="In progress episodes" />
 		</include>
-		<include condition="true" content="widget_base" name="widget_base">
+		<include condition="true" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2510" />
-			<param name="widgetName" value="$ADDON[script.skin.helper.widgets 32002]" />
+			<param name="widgetName" value="In progress episodes" />
 			<param name="submenuid" value="tvshows" />
 			<param name="widgetTags" value="" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=next&amp;mediatype=episodes&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]" />
+			<param name="widgetPath" value="special://skin/playlists/video/InProgressEpisodes.xsp" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetInfoPanel" value="top" />
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + [Skin.String(widgetvalue-tvshows,0) | !Skin.String(widgetvalue-tvshows)]]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi">
 			<param name="widgetid" value="2520" />
 			<param name="submenuid" value="tvshows" />
 			<param name="widgetName" value="$LOCALIZE[20387]" />
 		</include>
-		<include condition="true" content="widget_base" name="widget_base">
+		<include condition="true" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2520" />
@@ -2963,18 +2963,18 @@
 			<param name="submenuid" value="tvshows" />
 			<param name="widgetTags" value="" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=episodes&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]" />
+			<param name="widgetPath" value="videodb://recentlyaddedepisodes/" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetInfoPanel" value="top" />
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-tvshows,1)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="2530" />
 			<param name="submenuid" value="tvshows" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2530" />
@@ -2988,12 +2988,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-tvshows,2)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="2540" />
 			<param name="submenuid" value="tvshows" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2540" />
@@ -3007,12 +3007,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-tvshows,3)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="2550" />
 			<param name="submenuid" value="tvshows" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2550" />
@@ -3026,12 +3026,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-tvshows,4)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="2560" />
 			<param name="submenuid" value="tvshows" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2560" />
@@ -3045,12 +3045,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-tvshows,5)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="2570" />
 			<param name="submenuid" value="tvshows" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2570" />
@@ -3064,12 +3064,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-tvshows,6)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="2580" />
 			<param name="submenuid" value="tvshows" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2580" />
@@ -3083,7 +3083,7 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-tvshows,7)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + ![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + true" content="widget_header_single" name="widget_header_single">
+		<include condition="!Skin.String(HomeLayout,win10) + ![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + true" content="widget_header_single">
 			<param name="mainmenuid" value="4" />
 			<param name="submenuid" value="musicvideos" />
 			<param name="hasWidget0" value="true" />
@@ -3103,12 +3103,12 @@
 			<param name="widgetStyle7" value="default" />
 			<param name="widgetStyle8" value="default" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi">
 			<param name="widgetid" value="4510" />
 			<param name="submenuid" value="musicvideos" />
 			<param name="widgetName" value="$LOCALIZE[20390]" />
 		</include>
-		<include condition="true" content="widget_base" name="widget_base">
+		<include condition="true" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="4510" />
@@ -3116,18 +3116,18 @@
 			<param name="submenuid" value="musicvideos" />
 			<param name="widgetTags" value="" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=musicvideos&amp;reload=$INFO[Window(Home).Property(widgetreload-musicvideos)]" />
+			<param name="widgetPath" value="ideodb://recentlyaddedmusicvideos/" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetInfoPanel" value="top" />
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + [Skin.String(widgetvalue-musicvideos,0) | !Skin.String(widgetvalue-musicvideos)]]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="4520" />
 			<param name="submenuid" value="musicvideos" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="4520" />
@@ -3141,12 +3141,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-musicvideos,1)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="4530" />
 			<param name="submenuid" value="musicvideos" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="4530" />
@@ -3160,12 +3160,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-musicvideos,2)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="4540" />
 			<param name="submenuid" value="musicvideos" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="4540" />
@@ -3179,12 +3179,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-musicvideos,3)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="4550" />
 			<param name="submenuid" value="musicvideos" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="4550" />
@@ -3198,12 +3198,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-musicvideos,4)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="4560" />
 			<param name="submenuid" value="musicvideos" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="4560" />
@@ -3217,12 +3217,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-musicvideos,5)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="4570" />
 			<param name="submenuid" value="musicvideos" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="4570" />
@@ -3236,12 +3236,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-musicvideos,6)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="4580" />
 			<param name="submenuid" value="musicvideos" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="4580" />
@@ -3255,7 +3255,7 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-musicvideos,7)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + ![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + true" content="widget_header_single" name="widget_header_single">
+		<include condition="!Skin.String(HomeLayout,win10) + ![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + true" content="widget_header_single">
 			<param name="mainmenuid" value="5" />
 			<param name="submenuid" value="weather" />
 			<param name="hasWidget0" value="true" />
@@ -3275,12 +3275,12 @@
 			<param name="widgetStyle7" value="default" />
 			<param name="widgetStyle8" value="default" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi">
 			<param name="widgetid" value="5510" />
 			<param name="submenuid" value="weather" />
 			<param name="widgetName" value="$LOCALIZE[8]" />
 		</include>
-		<include condition="true" content="widget_base" name="widget_base">
+		<include condition="true" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="weather" />
 			<param name="widgetid" value="5510" />
@@ -3294,12 +3294,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + [Skin.String(widgetvalue-weather,0) | !Skin.String(widgetvalue-weather)]]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="5520" />
 			<param name="submenuid" value="weather" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="5520" />
@@ -3313,12 +3313,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-weather,1)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="5530" />
 			<param name="submenuid" value="weather" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="5530" />
@@ -3332,12 +3332,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-weather,2)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="5540" />
 			<param name="submenuid" value="weather" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="5540" />
@@ -3351,12 +3351,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-weather,3)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="5550" />
 			<param name="submenuid" value="weather" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="5550" />
@@ -3370,12 +3370,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-weather,4)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="5560" />
 			<param name="submenuid" value="weather" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="5560" />
@@ -3389,12 +3389,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-weather,5)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="5570" />
 			<param name="submenuid" value="weather" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="5570" />
@@ -3408,12 +3408,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-weather,6)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="5580" />
 			<param name="submenuid" value="weather" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="5580" />
@@ -3427,7 +3427,7 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-weather,7)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + ![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + true" content="widget_header_single" name="widget_header_single">
+		<include condition="!Skin.String(HomeLayout,win10) + ![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + true" content="widget_header_single">
 			<param name="mainmenuid" value="11" />
 			<param name="submenuid" value="settings" />
 			<param name="hasWidget0" value="true" />
@@ -3447,12 +3447,12 @@
 			<param name="widgetStyle7" value="default" />
 			<param name="widgetStyle8" value="default" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + true" content="widget_header_multi">
 			<param name="widgetid" value="11510" />
 			<param name="submenuid" value="settings" />
 			<param name="widgetName" value="$LOCALIZE[130]" />
 		</include>
-		<include condition="true" content="widget_base" name="widget_base">
+		<include condition="true" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="systeminfo" />
 			<param name="widgetid" value="11510" />
@@ -3466,12 +3466,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + [Skin.String(widgetvalue-settings,0) | !Skin.String(widgetvalue-settings)]]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="11520" />
 			<param name="submenuid" value="settings" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="11520" />
@@ -3485,12 +3485,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-settings,1)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="11530" />
 			<param name="submenuid" value="settings" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="11530" />
@@ -3504,12 +3504,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-settings,2)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="11540" />
 			<param name="submenuid" value="settings" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="11540" />
@@ -3523,12 +3523,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-settings,3)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="11550" />
 			<param name="submenuid" value="settings" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="11550" />
@@ -3542,12 +3542,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-settings,4)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="11560" />
 			<param name="submenuid" value="settings" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="11560" />
@@ -3561,12 +3561,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-settings,5)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="11570" />
 			<param name="submenuid" value="settings" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="11570" />
@@ -3580,12 +3580,12 @@
 			<param name="visibility" value="Skin.String(HomeLayout,win10) | [true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] | [![true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)]] + Skin.String(widgetvalue-settings,6)]" />
 			<param name="multiRows" value="false + String.Contains(Skin.String(HomeLayout),ver)" />
 		</include>
-		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi" name="widget_header_multi">
+		<include condition="!Skin.String(HomeLayout,win10) + true + [String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix)] + false" content="widget_header_multi">
 			<param name="widgetid" value="11580" />
 			<param name="submenuid" value="settings" />
 			<param name="widgetName" value="" />
 		</include>
-		<include condition="false" content="widget_base" name="widget_base">
+		<include condition="false" content="widget_base">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="11580" />
@@ -3604,7 +3604,7 @@
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="window.isactive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>special://skin/playlists/video/ImdbTop250.xsp</value>
+		<value>special://skin/playlists/video/InProgressMovies.xsp</value>
 	</variable>
 	<variable name="widgetinfolabel-1510">
 		<value condition="String.Contains(Container(1510).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(1510).ListItem.label] $INFO[Container(1510).ListItem.label2]</value>
@@ -3625,7 +3625,7 @@
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="window.isactive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=movies&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</value>
+		<value>videodb://recentlyaddedmovies/</value>
 	</variable>
 	<variable name="widgetinfolabel-1520">
 		<value condition="String.Contains(Container(1520).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(1520).ListItem.label] $INFO[Container(1520).ListItem.label2]</value>
@@ -3776,13 +3776,13 @@
 		<value condition="Skin.String(widgetvalue-movies,3)" />
 		<value condition="Skin.String(widgetvalue-movies,2)" />
 		<value condition="Skin.String(widgetvalue-movies,1)">$LOCALIZE[20386]</value>
-		<value>Imdb Top 250</value>
+		<value>In progress movies</value>
 	</variable>
 	<variable name="2510-refresh">
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="window.isactive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>plugin://script.skin.helper.widgets/?action=next&amp;mediatype=episodes&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</value>
+		<value>special://skin/playlists/video/InProgressEpisodes.xsp</value>
 	</variable>
 	<variable name="widgetinfolabel-2510">
 		<value condition="String.Contains(Container(2510).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2510).ListItem.label] $INFO[Container(2510).ListItem.label2]</value>
@@ -3803,7 +3803,7 @@
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="window.isactive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=episodes&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</value>
+		<value>videodb://recentlyaddedepisodes/</value>
 	</variable>
 	<variable name="widgetinfolabel-2520">
 		<value condition="String.Contains(Container(2520).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2520).ListItem.label] $INFO[Container(2520).ListItem.label2]</value>
@@ -3954,13 +3954,13 @@
 		<value condition="Skin.String(widgetvalue-tvshows,3)" />
 		<value condition="Skin.String(widgetvalue-tvshows,2)" />
 		<value condition="Skin.String(widgetvalue-tvshows,1)">$LOCALIZE[20387]</value>
-		<value>$ADDON[script.skin.helper.widgets 32002]</value>
+		<value>In progress episodes</value>
 	</variable>
 	<variable name="4510-refresh">
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="window.isactive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=musicvideos&amp;reload=$INFO[Window(Home).Property(widgetreload-musicvideos)]</value>
+		<value>ideodb://recentlyaddedmusicvideos/</value>
 	</variable>
 	<variable name="widgetinfolabel-4510">
 		<value condition="String.Contains(Container(4510).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(4510).ListItem.label] $INFO[Container(4510).ListItem.label2]</value>

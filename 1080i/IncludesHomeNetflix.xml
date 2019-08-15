@@ -210,14 +210,19 @@
 
             <!-- all widgets -->
             <control type="grouplist" id="77777">
-                <!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_NoHeaderOnHome</include> check, new setting, no defined include -->
-				<!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_WinHeaderOnHome</include>check, new setting, no defined include -->
-				<include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_AltHeight_NoSpotLight</include> <!-- actual use height if header is active -->
+                <include content="NetFlixHome_WidgetPos" condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">
+					<param name="top" value="100"/>
+					<param name="bottom" value="5"/>
+				</include>
+				<include content="NetFlixHome_WidgetPos" condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">
+					<param name="top" value="660"/>
+					<param name="bottom" value="5"/>
+				</include>
+                <include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_WidgetPos</include>
+                
                 <left>50</left>
                 <right>50</right>
-                <bottom>0</bottom>
-                <top>660</top>
-				
+                
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="cubic" easing="in">300</scrolltime>
@@ -238,9 +243,7 @@
             </control>
 
             <control type="scrollbar" id="317">
-                <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_AltHeight_NoSpotLight</include>
                 <right>50</right>
-                <top>140</top>
                 <bottom>0</bottom>
                 <onleft>77777</onleft>
                 <onright>300</onright>
@@ -296,8 +299,7 @@
 	<!-- Netflix Home 2 -->
 	<include name="HomeNetflix2">
 		<control type="group" id="9000">
-            <animation time="300" effect="fade" start="100" end="40" reversible="true" easing="inout" condition="ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(40003)">Conditional</animation>
-			<include>NetflixHome_PanelSlide</include>
+            <include>NetflixHome_PanelSlide</include>
 			
 			<!-- spotlight previewwindow section right check if property needed-->
 			<control type="group">
@@ -678,27 +680,28 @@
             <control type="grouplist" id="77777">
 				<!-- temp solution ,till widgetid header pos fixed/changed-->
 				<animation effect="slide" start="0" end="0,170" time="1200" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons)) + String.EndsWith(Window(Home).Property(widgetstyle),netflixspotlight)" reversible="false">Conditional</animation>
-				<!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_NoHeaderOnHome</include> check, new setting, no defined include -->
-				<!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_WinHeaderOnHome</include>check, new setting, no defined include -->
 				
-				<include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_AltHeight_NoSpotLight</include> <!-- actual use height if header is active -->
+				<include content="NetFlixHome_WidgetPos" condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">
+					<param name="top" value="100"/>
+					<param name="bottom" value="100"/>
+				</include>
+                <include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_WidgetPos</include>
                 
 				<left>120</left>
-				<top>650</top>
-                <bottom>5</bottom>
 				<width>1750</width>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="cubic" easing="in">300</scrolltime>
 				<itemgap>-40</itemgap>
                 <pagecontrol>317</pagecontrol>
-				<ondown>77777</ondown>
+				<ondown>1510</ondown>
+				<onup>77777</onup>
                 <onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">300</onleft>
-                <onup condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)">505</onup>
                 <onback>300</onback>
+                <!-- <onback>SetFocus($PARAM[widgetid],0,absolute)</onback> -->
                 
-                <include content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
+				<include content="WidgetsAutoRotate" condition="Skin.String(widgets_rotate_delay) + !Skin.String(widgets_rotate,disabled)">
                     <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
                 </include>
 				<include condition="Window.IsActive(Home)">1stRow_AlignmentCorrection</include>
@@ -1034,9 +1037,13 @@
     </variable>
 
     <!-- Disabled Spotlight Widgets Height ,check, need also include for disabled header on home -->
-    <include name="NetflixHome_AltHeight_NoSpotlight">
-        <top>135</top>
-        <height>87.5%</height>
+    <include name="NetFlixHome_WidgetPos">
+		<param name="top" default="650" />
+		<param name="bottom" default="5" />
+		<definition>
+			<top>$PARAM[top]</top>
+            <bottom>$PARAM[bottom]</bottom>
+		</definition>
     </include>
 
     <!-- netflix2 spotlight widget -->

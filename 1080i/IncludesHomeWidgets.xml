@@ -307,6 +307,9 @@
         <animation effect="slide" start="0" end="261" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
         <animation effect="slide" start="0" end="261" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
         
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		
+		
 		<itemlayout height="435" width="261">
             <control type="group">
                 <width>250</width>
@@ -378,6 +381,8 @@
         <animation effect="slide" delay="0" start="0" end="0,-300" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		
 		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="820" />
         </include>
@@ -516,6 +521,8 @@
         <animation effect="slide" delay="0" start="0" end="0,-173" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-53" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		
         <itemlayout height="305" width="162">
             <control type="group">
                 <width>162</width>
@@ -622,7 +629,10 @@
         <animation effect="slide" start="0" end="262" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
         <animation effect="slide" start="0" end="262" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
         <animation effect="slide" start="0" end="262" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
-        <itemlayout height="313" width="262">
+        
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		
+		<itemlayout height="313" width="262">
             <control type="group">
                 <width>240</width>
                 <height>240</height>
@@ -712,7 +722,10 @@
         <animation effect="slide" start="0" end="130" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
         <animation effect="slide" start="0" end="130" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
         <animation effect="slide" start="0" end="130" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
-        <itemlayout height="190" width="130">
+        
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		
+		<itemlayout height="190" width="130">
             <control type="group">
                 <width>120</width>
                 <height>120</height>
@@ -797,6 +810,8 @@
         <animation effect="slide" start="0" end="326" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
         <animation effect="slide" start="0" end="326" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
         
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+				
         <itemlayout width="375" height="275">
             <control type="group">
                 <width>370</width>
@@ -942,6 +957,8 @@
         <animation effect="slide" delay="0" start="0" end="0,-190" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-70" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+				
         <itemlayout width="430" height="325">
             <control type="group">
                 <width>430</width>
@@ -1093,6 +1110,8 @@
         </include>
 		<height>320</height>
         
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		
 		<itemlayout height="320" width="260">
 			<control type="group">
                 <width>240</width>
@@ -1202,8 +1221,9 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-66" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,54" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
-        
+	
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		
         <itemlayout height="210" width="665">
             <control type="group">
 				<width>660</width>
@@ -1283,6 +1303,9 @@
         <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
 
         <orientation>horizontal</orientation>
+		
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		
         <itemlayout height="425" width="255">
             <control type="group">
                 <width>254</width>
@@ -1380,6 +1403,9 @@
         <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
         <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + String.Contains(Skin.String(HomeLayout),ver) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
         
+		
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		
         <itemlayout width="261" height="210">
             <control type="group">
                 <width>260</width>
@@ -1459,6 +1485,9 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + [[[Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + !Skin.HasSetting(LowerWidgets)] | [Skin.String(HomeLayout,2) | Skin.String(HomeLayout,2small)]] + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-260" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-140" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
+		
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+				
 		<!-- check, cond def vertical width -->
         <itemlayout height="340" width="1820">
             <include>itemlayout_singlebox_unfocus</include>
@@ -1683,6 +1712,8 @@
         <animation effect="slide" delay="0" start="0" end="0,-175" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-55" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+				
         <itemlayout height="265" width="1300" condition="Skin.HasSetting(UseDefaultVerticalLayout)">
             <include>itemlayout_widebox</include>
         </itemlayout>

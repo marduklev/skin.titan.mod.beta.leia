@@ -387,7 +387,7 @@
 				<width>1820</width>
 				<height>600</height>
 				<top>0</top>
-				
+				<visible>!Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
 				<!-- INFOS -->
 				<control type="grouplist">
 					<animation time="300" effect="slide" end="0,120" reversible="true" easing="inout" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">Conditional</animation>
@@ -454,7 +454,8 @@
                             <height>25</height>
                             <width>600</width>
                             <include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>                            <align>left</align>
+							<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>
+							<align>left</align>
                             <aligny>center</aligny>
                             <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
                             <label>[CAPITALIZE][B]$LOCALIZE[31212][/B][/CAPITALIZE]</label>
@@ -464,7 +465,8 @@
                             <height>25</height>
                             <width>650</width>
                             <include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>                            <align>left</align>
+							<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>
+							<align>left</align>
 							<aligny>center</aligny>
                             <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
                             <label>$VAR[NetflixEpisodeInfoLabel]</label>
@@ -495,7 +497,8 @@
                                 <height>30</height>
                                 <width>600</width>
 								<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>                                <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+								<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>
+								<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
                                 <label>[B]$LOCALIZE[31535][/B]</label>
                             </control>
                         </control>
@@ -511,7 +514,8 @@
 						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 						<align>left</align>
 						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>					</control>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>
+					</control>
 					<!-- PLOT common -->
 					<control type="textbox">
 						<visible>![String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)]</visible>
@@ -521,7 +525,8 @@
 						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 						<align>left</align>
 						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>					</control>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>
+					</control>
 					<!-- decide to use random info (cast,genre,director,nominations sometime -->
 					<control type="group">
 						<visible>String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
@@ -541,7 +546,7 @@
 				<!-- ratings & studio -->
                 <control type="group">
                     <right>-100</right>
-                    <top>520</top>
+                    <top>535</top>
                     <height>150</height>
                     <width>1000</width>
                     <include>AltRatingFooter</include>
@@ -675,6 +680,7 @@
 				<animation effect="slide" start="0" end="0,170" time="1200" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons)) + String.EndsWith(Window(Home).Property(widgetstyle),netflixspotlight)" reversible="false">Conditional</animation>
 				<!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_NoHeaderOnHome</include> check, new setting, no defined include -->
 				<!-- <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow) + ">NetFlixHome_AltHeight_NoSpotLight_WinHeaderOnHome</include>check, new setting, no defined include -->
+				
 				<include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_AltHeight_NoSpotLight</include> <!-- actual use height if header is active -->
                 
 				<left>120</left>
@@ -686,8 +692,6 @@
 				<scrolltime tween="cubic" easing="in">300</scrolltime>
 				<itemgap>-40</itemgap>
                 <pagecontrol>317</pagecontrol>
-				
-				
 				<ondown>77777</ondown>
                 <onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">300</onleft>

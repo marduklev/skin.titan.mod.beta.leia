@@ -65,7 +65,18 @@
         <animation time="125" effect="fade" delay="0">Visible</animation>
         <animation time="125" effect="fade" delay="300">Hidden</animation>
     </include>
-
+	
+	<!-- put me into widget layout, if needed -->
+	<include name="Netflix_WidgetFade">
+		<animation type="Unfocus" reversible="false">
+			<effect type="fade" time="500" delay="0" start="100" end="0" tween="cubic" easing="out"/>
+		</animation>
+		<animation type="Focus" reversible="false">
+			<effect type="fade" time="300" delay="0" start="0" end="100" tween="cubic" easing="in"/>
+		</animation>
+	</include>
+	
+	
     <include name="animation_dialog_button">
         <!--Shutdown Menu Open/Close-->
         <animation type="WindowOpen">

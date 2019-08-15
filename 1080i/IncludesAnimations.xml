@@ -553,7 +553,7 @@
 	<onfocus>RunScript(script.video.checktvtrailer)</onfocus>
 	
 	-->
-	<include name="AutoTrailerButton">
+	<include name="AutoTrailerButton_SetPropsTest_UseProptoOpenTMDB via context">
 		<control type="button">
 			<visible>false</visible>
 			<onfocus>RunScript(script.embuary.helper,action=lookforfile,file='"$INFO[listitem.path]$INFO[listitem.FolderName,,-trailer.mp4]"',prop=trailer_avail)</onfocus>
@@ -584,6 +584,19 @@
 		
 			
 			</control>
+	</include>
+	<include name="AutoTrailerButton">
+		<control type="button">
+			<visible>false</visible>
+			<onfocus>RunScript(script.embuary.helper,action=lookforfile,file='"$INFO[listitem.path]$INFO[listitem.FolderName,,-trailer.mp4]"',prop=trailer_avail)</onfocus>
+			<onfocus condition="!Player.HasVideo">SetProperty(trailer_trailerwillplaying,true,home)</onfocus>
+			<onfocus condition="!Skin.HasSetting(Library_NoOnlineLookupTrailer) + !Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$VAR[TVShowTitle],local=true),00:03,silent)</onfocus>
+			<onfocus condition="Skin.HasSetting(Library_NoOnlineLookupTrailer) + !Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer)">AlarmClock(trailer_delay,PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1),00:03,silent)</onfocus>
+			<onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
+			<onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
+			<onunfocus condition="!String.IsEmpty(Window(home).Property(trailer_avail))">ClearProperty(trailer_avail,home)</onunfocus>
+			<onunfocus condition="!String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">ClearProperty(trailer_trailerwillplaying)</onunfocus>
+		</control>
 	</include>
 
     <include name="HiddenHomeMenuButtonEnhancedHome">
@@ -690,19 +703,8 @@
         <value>RunScript(script.skin.helper.service,ACTION=SETWIDGETCONTAINER,CONTROLS=$INFO[Container(300).ListItem.Property(id)]510-$INFO[Container(300).ListItem.Property(id)]520-$INFO[Container(300).ListItem.Property(id)]530-$INFO[Container(300).ListItem.Property(id)]540-$INFO[Container(300).ListItem.Property(id)]550-$INFO[Container(300).ListItem.Property(id)]560-$INFO[Container(300).ListItem.Property(id)]570-$INFO[Container(300).ListItem.Property(id)]580)</value>
     </variable>
 
-    <include name="HiddenWidgetButton">
-        <control type="button">
-          <visible>false</visible>
-          <onfocus condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu)</onfocus>
-          <onfocus condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">ClearProperty(FocusSpotlightButtons, Home)</onfocus>
-		  <onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
-          <onfocus>SetProperty(ShowWidget,show)</onfocus>
-          <onfocus>SetProperty(widgetstyle,$PARAM[widgetstyle])</onfocus>
-          <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid],home)</onfocus>
-          <onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],Home)</onfocus>
-          <onfocus condition="Skin.HasSetting(widgets_rotate_pause) + System.HasAlarm(WidgetRotate$PARAM[widgetid]) + !String.Contains(Skin.String(HomeLayout),netflix)">CancelAlarm(WidgetRotate$PARAM[widgetid],true)</onfocus>
-          
-		  <!-- Set item Propertys ,recheck, just simple test home tmdb, not compared to already used WidgetProperties -->
+	
+	<!-- may add me later to HiddenWidgetButton - Set item Propertys , for TMdb Context Action
 			<onfocus condition="String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,season) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)">SetProperty(ListItemDBID,$INFO[Container($PARAM[widgetid]).ListItem.DBID],home)</onfocus>
 			<onfocus condition="String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,season) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)">SetProperty(ListItemDBType,$INFO[Container($PARAM[widgetid]).ListItem.DBType],home)</onfocus>
 			<onfocus condition="!String.IsEmpty(Container($PARAM[widgetid]).ListItem.Year)">SetProperty(ListItemYear,$INFO[Container($PARAM[widgetid]).ListItem.Year],home)</onfocus>
@@ -715,10 +717,21 @@
 			<onfocus condition="String.IsEmpty(Container($PARAM[widgetid]).ListItem.Year)">ClearProperty(ListItemYear,home)</onfocus>
 			<onfocus condition="String.IsEmpty(Container($PARAM[widgetid]).ListItem.Imdbnumber)">ClearProperty(ListItemImdbnumber,home)</onfocus>
 			<onfocus condition="String.IsEmpty(Container($PARAM[widgetid]).ListItem.Title) + String.IsEmpty(Container($PARAM[widgetid]).ListItem.TvShowTitle)">ClearProperty(ListItemTitle,home)</onfocus>
-		
+	-->	
 		  
-		  
-		  <!-- Netflix Auto-Trailer -->
+	
+    <include name="HiddenWidgetButton">
+        <control type="button">
+          <visible>false</visible>
+          <onfocus condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu)</onfocus>
+          <onfocus condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">ClearProperty(FocusSpotlightButtons, Home)</onfocus>
+		  <onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
+          <onfocus>SetProperty(ShowWidget,show)</onfocus>
+          <onfocus>SetProperty(widgetstyle,$PARAM[widgetstyle])</onfocus>
+          <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid],home)</onfocus>
+          <onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],Home)</onfocus>
+          <onfocus condition="Skin.HasSetting(widgets_rotate_pause) + System.HasAlarm(WidgetRotate$PARAM[widgetid]) + !String.Contains(Skin.String(HomeLayout),netflix)">CancelAlarm(WidgetRotate$PARAM[widgetid],true)</onfocus>
+          <!-- Netflix Auto-Trailer -->
           <include condition="String.Contains(Skin.String(HomeLayout),netflix) + Skin.HasSetting(NetflixAutoTrailer)">netflix_autotrailer</include>
           <include content="WidgetProperties">
             <param name="widgetid" value="$PARAM[widgetid]" />

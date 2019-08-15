@@ -307,7 +307,7 @@
         <animation effect="slide" start="0" end="261" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
         <animation effect="slide" start="0" end="261" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
         
-		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
 		
 		
 		<itemlayout height="435" width="261">
@@ -2858,7 +2858,7 @@
 
     <variable name="HomeMenuWidgetInfoPoster">
         <!-- animated poster if exists-->
-        <value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster)]</value>
+        <value condition="Skin.HasSetting(EnableAnimatedPosters) + !String.IsEmpty(ListItem.Art(animatedposter))">$INFO[ListItem.Art(animatedposter)]</value>
         <!-- use episode thumb for episode widgets if widget style is poster -->
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.Thumb)) + String.Contains(Window.Property(widgetstyle),poster) + String.Contains(Window(Home).Property(ListItem.dbtype),episode)">$INFO[Window(Home).Property(ListItem.Art.Thumb)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb)) + String.Contains(Window.Property(widgetstyle),poster) + String.Contains(Window(Home).Property(SkinHelper.ListItem.dbtype),episode)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>

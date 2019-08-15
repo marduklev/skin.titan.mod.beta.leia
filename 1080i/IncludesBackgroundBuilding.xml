@@ -463,7 +463,7 @@
 		<value condition="Window.IsActive(Settings)">$INFO[Container(9000).ListItem.ActualIcon]</value>
         <value condition="[Window.IsActive(LoginScreen.xml) | Window.IsActive(StartUp.xml)] + Skin.String(LoginBackground)">$INFO[Skin.String(LoginBackground)]</value>
         <!-- ANIMATED FANART -->
-        <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)) + Skin.HasSetting(AnimatedFanart)">$INFO[Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(animatedfanart)) + Skin.HasSetting(AnimatedFanart)">$INFO[ListItem.Art(animatedfanart)]</value>
        
 		<!-- NATIVE EXTRAFANART -->
 		<value condition="Control.IsVisible(99007)">$INFO[Control.GetLabel(99007)]</value>
@@ -501,7 +501,7 @@
     	<!-- game assets 5590 -->
 		<value condition="$EXP[InGameMode] + Control.IsVisible(5590) + Control.IsVisible(523)">$INFO[Container(5590).ListItem.Thumb]</value>
 		<!-- animated fanart background -->
-        <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)) + Skin.HasSetting(AnimatedFanart)">$INFO[Window(home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(animatedfanart)) + Skin.HasSetting(AnimatedFanart)">$INFO[ListItem.Art(animatedfanart)]</value>
         <!-- native 	extrafanart backgrounds -->
 		<value condition="Control.IsVisible(99007)">$INFO[Control.GetLabel(99007)]</value>					 
 		<!-- skinhelper	extrafanart background -->

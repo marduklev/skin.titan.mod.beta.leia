@@ -162,7 +162,7 @@
 						<left>15</left>
 						<texture background="true">$VAR[ClearLogoFallback]</texture>
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
-						<visible>String.IsEqual(ListItem.DBTYPE,episode)  | [String.IsEqual(ListItem.DBTYPE,musicvideo) + String.IsEmpty(ListItem.Art(Landscape))]</visible>
+						<visible>String.IsEqual(ListItem.DBTYPE,episode) | [String.IsEqual(ListItem.DBTYPE,musicvideo) + String.IsEmpty(ListItem.Art(Landscape))]</visible>
 					</control>
 					<control type="label">
 						<right>20</right>

@@ -2400,7 +2400,7 @@
 	</variable-->
 
     <variable name="OSDImage">
-        <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.Player.AnimatedPoster)]</value>
+        <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.animatedposter))">$INFO[Window(Home).Property(SkinHelper.Player.animatedposter)]</value>
 		<value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
         <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
         <value condition="![VideoPlayer.Content(livetv) + Skin.HasSetting(NoPvrArtOSD)] + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))">$INFO[Window(Home).Property(SkinHelper.Player.Art.Poster)]</value>
@@ -2449,7 +2449,7 @@
 	<variable name="OSDLabel5">   <!-- added MUSIC INFO , ARTIST - TITLE -->
         <value condition="Player.HasAudio + !Pvr.IsPlayingRadio">$INFO[MusicPlayer.Artist][CR]• $INFO[MusicPlayer.Title] •</value>
 		<value condition="Player.HasAudio + RDS.HasRds + !String.IsEmpty(RDS.Artist)">$INFO[MusicPlayer.ChannelName][CR]$INFO[RDS.Artist] - $INFO[MusicPlayer.Title]</value>
-		<value condition="Player.HasAudio + RDS.HasRds  + String.IsEmpty(RDS.Artist)">$INFO[MusicPlayer.ChannelName][CR]$INFO[Player.Title]</value>
+		<value condition="Player.HasAudio + RDS.HasRds + String.IsEmpty(RDS.Artist)">$INFO[MusicPlayer.ChannelName][CR]$INFO[Player.Title]</value>
 		<value condition="Player.HasAudio + Pvr.IsPlayingRadio + !RDS.HasRds">$INFO[MusicPlayer.Artist][CR]• $INFO[MusicPlayer.Title] •</value>
 		<value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]</value>
         <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.ChannelName)">$INFO[MusicPlayer.ChannelName]</value>

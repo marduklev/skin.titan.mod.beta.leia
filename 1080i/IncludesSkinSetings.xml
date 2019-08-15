@@ -837,22 +837,22 @@
             <control type="radiobutton" id="31706">
                 <include>SkinSettings_Button</include>
                 <label>31706</label>
-                <onclick>Skin.ToggleSetting(SkinHelper.EnableAnimatedPosters)</onclick>
-                <selected>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</selected>
+                <onclick>Skin.ToggleSetting(EnableAnimatedPosters)</onclick>
+                <selected>Skin.HasSetting(EnableAnimatedPosters)</selected>
             </control>
             <control type="radiobutton" id="31802">
                 <include>SkinSettings_Button</include>
                 <label>31802</label>
-                <onclick>Skin.ToggleSetting(AnimatedPostersDisableList)</onclick>
-                <selected>Skin.HasSetting(AnimatedPostersDisableList)</selected>
-                <visible>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</visible>
+                <onclick>Skin.ToggleSetting(AnimatedPostersDisabledInLists)</onclick>
+                <selected>Skin.HasSetting(AnimatedPostersDisabledInLists)</selected>
+                <visible>Skin.HasSetting(EnableAnimatedPosters)</visible>
             </control>
             <control type="radiobutton" id="31803">
                 <include>SkinSettings_Button</include>
                 <label>31803</label>
                 <onclick>Skin.ToggleSetting(AnimatedFanart)</onclick>
                 <selected>Skin.HasSetting(AnimatedFanart)</selected>
-                <!-- <visible>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</visible> -->
+                <!-- <visible>Skin.HasSetting(EnableAnimatedPosters)</visible> -->
             </control>
 			<control type="radiobutton" id="17118">
                 <include>SkinSettings_Button</include>

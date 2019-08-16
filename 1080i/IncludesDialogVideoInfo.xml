@@ -677,7 +677,7 @@
 					<param name="layout" value="ThumbsViewLayout" />
 					<param name="visible" value="[Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),0) + !String.IsEmpty(ListItem.DBID)] + Integer.IsGreater(Container(8610).NumItems,0) | Container(8610).IsUpdating" />
 					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8610).NumItems,0) | Container(8610).IsUpdating">Conditional</animation>
-					<content limit="1" target="videos">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</content>
+					<content sortby="playcount" sortorder="ascending" limit="1" target="videos">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</content>
 				</include>
 				<!-- CAST -->
 				<include content="VideoInfo_ContainerHeader">

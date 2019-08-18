@@ -147,7 +147,7 @@
 		<value condition="String.Contains(ListItem.Filenameandpath,.3d)">cases/3dbd.png</value>
 		<value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).Filenameandpath,4k)">cases/4k.png</value>
 		<value condition="[String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)]">cases/bluray.png</value>
-		<value condition="String.EndsWith(ListItem.Filenameandpath,dvd) | String.EndsWith(ListItem.Filenameandpath,.ifo) | String.EndsWith(ListItem.Filenameandpath,.iso)">cases/dvd.png</value>
+		<value condition="String.Contains(ListItem.Filenameandpath,-dvd) | String.Contains(ListItem.Filenameandpath,_dvd) | String.Contains(ListItem.Filenameandpath,.dvd) | String.EndsWith(ListItem.Filenameandpath,.ifo) | String.EndsWith(ListItem.Filenameandpath,.iso)">cases/dvd.png</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,480)">cases/480.png</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,540)">cases/540.png</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,576)">cases/576.png</value>

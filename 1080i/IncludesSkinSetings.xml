@@ -67,8 +67,7 @@
                 <include>SkinSettings_Button</include>
                 <label>"Titan $LOCALIZE[571] $LOCALIZE[31685]" $LOCALIZE[21480]</label>
                 <onclick>Skin.ToggleSetting(UseDefaultVerticalLayout)</onclick>
-				<!-- <onclick>ReloadSkin</onclick> -->
-                <visible>String.Contains(Skin.String(HomeLayout), simplever)</visible>
+				<visible>String.Contains(Skin.String(HomeLayout), ver)</visible>
                 <selected>Skin.HasSetting(UseDefaultVerticalLayout)</selected>
             </control>
             <!--left align simple home vertical-->

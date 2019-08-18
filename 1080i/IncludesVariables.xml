@@ -21,9 +21,9 @@
         <value condition="!String.IsEmpty(ListItem.Art(season.landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(season.landscape)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(landscape)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(tvshow.landscape)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!$EXP[InGameMode] + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(landscape))">$INFO[ListItem.Property(landscape)]</value>
-		<value condition="!String.IsEmpty(ListItem.Property(fanart))">$INFO[ListItem.Property(fanart)]</value>
+		<value condition="!$EXP[InGameMode] + !String.IsEmpty(ListItem.Property(fanart))">$INFO[ListItem.Property(fanart)]</value>
 		<value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack2.png</value>
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.Folderpath,video)">$VAR[MovieGenreIconVarList]</value>
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + [Window.IsActive(music) | String.Contains(ListItem.Folderpath,music)]">$VAR[MusicGenreIconVarList]</value>

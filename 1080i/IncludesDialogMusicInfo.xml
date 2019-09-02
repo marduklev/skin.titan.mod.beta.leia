@@ -33,7 +33,7 @@
 			<width>1880</width>
 			<height>87.5%</height>
 			<texture border="15">diffuse/bgpanel.png</texture>
-			<colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+			<colordiffuse>$INFO[Skin.String(ViewListAndDetailPanelColorNF)]</colordiffuse>
 			<visible>!Skin.HasSetting(DialogMusicInfoHidePanel)</visible>
 		</control>
 					
@@ -347,7 +347,7 @@
 				<top>-10</top>
 				<width>1030</width>
 				<height>380</height>
-				<texture colordiffuse="$INFO[Skin.String(ViewDetailsPanelColor)]" border="5">diffuse/wide.png</texture> <!-- $INFO[Skin.String(ViewDetailsPanelColor)] -->
+				<texture colordiffuse="$INFO[Skin.String(ViewListAndDetailPanelColorNF)]" border="5">diffuse/wide.png</texture> <!-- $INFO[Skin.String(ViewDetailsPanelColor)] -->
 			</control>
 			<control type="image">
 				<visible>Control.HasFocus(60)</visible>

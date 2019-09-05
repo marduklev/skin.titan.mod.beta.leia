@@ -533,6 +533,17 @@
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	
+	<variable name="OSDmusicinfo">
+		<value condition="!String.IsEmpty(MusicPlayer.Album) + !String.IsEmpty(MusicPlayer.Year) + !String.IsEmpty(MusicPlayer.Genre)">$INFO[MusicPlayer.Album,$LOCALIZE[558]: ,]$INFO[MusicPlayer.Year, (,)][CR]$INFO[MusicPlayer.Genre,$LOCALIZE[515]: ,]</value>
+		<value condition="!String.IsEmpty(MusicPlayer.Album) + String.IsEmpty(MusicPlayer.Year) + !String.IsEmpty(MusicPlayer.Genre)">$INFO[MusicPlayer.Album,$LOCALIZE[558]: ,][CR]$INFO[MusicPlayer.Genre,$LOCALIZE[515]: ,]</value>
+		<value condition="!String.IsEmpty(MusicPlayer.Album) + !String.IsEmpty(MusicPlayer.Year) + String.IsEmpty(MusicPlayer.Genre)">$INFO[MusicPlayer.Album,$LOCALIZE[558]: ,][CR]$INFO[MusicPlayer.Year,$LOCALIZE[345]: ,] </value>
+		<value condition="!String.IsEmpty(MusicPlayer.Album) + String.IsEmpty(MusicPlayer.Year) + String.IsEmpty(MusicPlayer.Genre)">$INFO[MusicPlayer.Album,$LOCALIZE[558]: ,][CR] </value>
+		<value condition="String.IsEmpty(MusicPlayer.Album) + !String.IsEmpty(MusicPlayer.Year) + !String.IsEmpty(MusicPlayer.Genre)">$INFO[MusicPlayer.Year,$LOCALIZE[345]: ,][CR]$INFO[MusicPlayer.Genre,$LOCALIZE[515]: ,]</value>
+		<value condition="String.IsEmpty(MusicPlayer.Album) + String.IsEmpty(MusicPlayer.Year) + !String.IsEmpty(MusicPlayer.Genre)"> [CR]$INFO[MusicPlayer.Genre,$LOCALIZE[515]: ,]</value>
+		<value condition="String.IsEmpty(MusicPlayer.Album) + !String.IsEmpty(MusicPlayer.Year) + String.IsEmpty(MusicPlayer.Genre)">$INFO[MusicPlayer.Year,$LOCALIZE[345]: ,][CR]</value>
+		<value condition="String.IsEmpty(MusicPlayer.Album) + String.IsEmpty(MusicPlayer.Year) + String.IsEmpty(MusicPlayer.Genre)"> [CR] </value>
+	</variable>
+	
 	<variable name="ListItemDuration">
 		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + !Skin.HasSetting(DisableHoursDuration) + Integer.IsGreater(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,h ]$INFO[ListItem.Duration(m),,min]</value>		
 		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),, min]</value>

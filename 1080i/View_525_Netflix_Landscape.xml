@@ -98,7 +98,7 @@
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label> 
 						<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
-						<visible>[Container.Content(seasons) | String.IsEqual(ListItem.DBTYPE,season)]</visible>
+						<visible>$EXP[IsEpisode] | $EXP[IsSeason]</visible>
 					</control>
 					<!-- detail 1 -->
 					<control type="group">

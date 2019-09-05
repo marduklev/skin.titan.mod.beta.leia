@@ -509,7 +509,7 @@
             <param name="height" value="609" />
         </include>
 		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
-            <param name="height" value="253" />
+            <param name="height" value="380" />
         </include>
         <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="305" />
@@ -610,10 +610,12 @@
             <param name="height" value="624" />
         </include>
         <include condition="$PARAM[multiRows]">widget_layout_square_multi</include>
+		
 		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
-            <param name="height" value="263" />
+            <param name="height" value="380" />
         </include>
-        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
+        
+		<include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="313" />
         </include>
         <animation effect="slide" delay="0" start="0" end="0,65" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
@@ -788,8 +790,8 @@
        <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="825" />
         </include>
-        <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
-            <param name="height" value="210" />
+       <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
+            <param name="height" value="380" />
         </include>
         <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="275" />
@@ -895,7 +897,7 @@
         <focusedlayout width="375" height="275" condition="!Control.HasFocus($PARAM[widgetid])">
           	<control type="group">
 					<width>370</width>
-              	  <height>210</height>
+					<height>210</height>
              	   <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 					<include content="ThumbsViewLayout">
 						<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
@@ -922,6 +924,9 @@
 					<onfocus>SetProperty(widgetstyle,netflixspotlight)</onfocus>
 					<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid],home)</onfocus>
 					<onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],Home)</onfocus>
+					<onfocus condition="[String.IsEmpty(ListItem.Trailer) + ![ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.embuary.helper,action=lookforfile,file='"$INFO[listitem.path]$INFO[listitem.FolderName,,-trailer.mp4]"',prop=trailer_avail)</onfocus>
+					<onfocus condition="[String.IsEmpty(ListItem.Trailer) + [ListItem.IsCollection | String.Contains(ListItem.Path,http)]">SetProperty(ForceOnlineTrailer,true,Home)</onfocus>
+					
 					
 					<include content="WidgetProperties">
 						<param name="widgetid" value="$PARAM[widgetid]" />
@@ -931,6 +936,7 @@
 					
 					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetProperty(FocusSpotlightButtons,true,Home)</onfocus>
 					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetFocus(3010)</onfocus>
+					
 					<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">ClearProperty(DontFocusSpotlightButtons, Home)</onfocus>
 					
 				</control>
@@ -943,8 +949,8 @@
         <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="649" />
         </include>
-        <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
-            <param name="height" value="260" />
+       <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
+            <param name="height" value="380" />
         </include>
         <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="325" />
@@ -1031,7 +1037,7 @@
         </include>
 		
 		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
-            <param name="height" value="210" />
+            <param name="height" value="380" />
         </include>
         <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="260" />
@@ -1108,12 +1114,19 @@
 		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="640" />
         </include>
-		<height>320</height>
+		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
+            <param name="height" value="360" />
+        </include>
+		<include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
+            <param name="height" value="320" />
+        </include>
+		
         
 		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
 		
-		<itemlayout height="320" width="260">
+		<itemlayout height="320" width="270">
 			<control type="group">
+				<top>10</top>
                 <width>240</width>
                 <height>240</height>
                 <include content="Circle_Layout">
@@ -1123,8 +1136,9 @@
                 </include>
             </control>
 		</itemlayout>
-        <focusedlayout height="320" width="260" condition="!Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout height="320" width="270" condition="!Control.HasFocus($PARAM[widgetid])">
             <control type="group">
+				<top>10</top>
                 <width>240</width>
                 <height>240</height>
                 <include content="Circle_Layout">
@@ -1134,8 +1148,9 @@
                 </include>
             </control>
         </focusedlayout>
-		<focusedlayout height="320" width="260" condition="Control.HasFocus($PARAM[widgetid])">
+		<focusedlayout height="320" width="270" condition="Control.HasFocus($PARAM[widgetid])">
 			 <control type="group">
+				<top>10</top>
                 <width>240</width>
                 <height>240</height>
                 <include content="Circle_Layout">

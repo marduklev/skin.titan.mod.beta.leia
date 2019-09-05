@@ -679,6 +679,18 @@
 				<!-- temp solution ,till widgetid header pos fixed/changed-->
 				<animation effect="slide" start="0" end="0,170" time="1200" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons)) + String.EndsWith(Window(Home).Property(widgetstyle),netflixspotlight)" reversible="false">Conditional</animation>
 				
+				
+				
+				<animation effect="slide" start="0,0" end="0,160" time="0" reversible="false" condition="String.EndsWith(Window(Home).Property(widgetstyle),landscape)">Conditional</animation>
+				
+				<!--
+				<animation effect="slide" start="0,0" end="0,160" time="0" reversible="false" condition="String.EndsWith(Window(Home).Property(widgetstyle),landscape)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,160" time="0" reversible="false" condition="String.EndsWith(Window(Home).Property(widgetstyle),landscape)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,160" time="0" reversible="false" condition="String.EndsWith(Window(Home).Property(widgetstyle),landscape)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,160" time="0" reversible="false" condition="String.EndsWith(Window(Home).Property(widgetstyle),landscape)">Conditional</animation>
+				-->
+				
+				
 				<include content="NetFlixHome_WidgetPos" condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">
 					<param name="top" value="100"/>
 					<param name="bottom" value="100"/>

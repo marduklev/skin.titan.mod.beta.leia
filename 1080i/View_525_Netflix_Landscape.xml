@@ -133,7 +133,13 @@
 						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>
 					</control>
 					<!-- Genre (no random cast,genre,director,nominations -->
-					<control type="group">
+					<control type="grouplist">
+						<height>60</height>
+						<include condition="!Skin.HasSetting(View525_UseFixedLayout)" content="width" />
+						<orientation>horizontal</orientation>
+						<itemgap>10</itemgap>
+						<usecontrolcoords>true</usecontrolcoords>
+						<align>left</align>
 						<include>Netflix_Genre</include>
 					</control>
 				</control>
@@ -415,4 +421,12 @@
 		<value condition="Skin.HasTheme(modern_rounded)">netflix/frame/slimframe_modernrounded.png</value>
         <value>netflix/frame/slimframe_hardedge.png</value>
 	</variable>
+	
+	 <include name="width">
+		<param name="width" default="600" />
+		<definition>
+			<width>$PARAM[width]</width>
+		</definition>
+    </include>
+	
 </includes>

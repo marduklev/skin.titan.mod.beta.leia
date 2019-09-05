@@ -124,7 +124,12 @@
 						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
 						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>					</control>
 					<!-- Genre (no random cast,genre,director,nominations -->
-					<control type="group">
+					<control type="grouplist">
+						<height>60</height>
+						<orientation>horizontal</orientation>
+						<itemgap>10</itemgap>
+						<usecontrolcoords>true</usecontrolcoords>
+						<align>left</align>
 						<include>Netflix_Genre</include>
 					</control>
 				</control>

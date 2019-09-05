@@ -188,28 +188,26 @@ Container(id).ListItem(offset).Thumb
 	
 	<!-- Include netflix genre -->
 	<include name="Netflix_Genre">
-		<visible>!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
-			<control type="image">
-				<width>60</width>
+			<visible>!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+			<control type="group">
 				<height>60</height>
-				<aligny>center</aligny>
-				<texture>diffuse/roundmask.png</texture>
-				<colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
-			</control>
-			<control type="image">
-				<top>3</top>
-				<left>3</left>
-				<width>55</width>
-				<height>55</height>
-				<texture>flags/genre.png</texture>
-				<aspectratio>keep</aspectratio>
-				<colordiffuse>$INFO[Skin.String(NetflixBGColor)]</colordiffuse>
+				<width>60</width>
+				<control type="image">
+					<texture aligny="center" align="center">diffuse/roundmask.png</texture>
+					<colordiffuse>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</colordiffuse>
+				</control>
+				<control type="image">
+					<bordersize>2</bordersize>
+					<texture aligny="center" align="center">flags/genre.png</texture>
+					<aspectratio>keep</aspectratio>
+					<colordiffuse>$INFO[Skin.String(NetflixBGColor)]</colordiffuse>
+				</control>
 			</control>
 			
 			<control type="label">
-				<left>80</left>
+				<width>auto</width>
 				<height>50</height>
-				<width>800</width>
+				<aligny>center</aligny>
 				<label>$VAR[ListItemGenre,[B],[/B]]</label>
 				<textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
 				<align>left</align>
@@ -217,6 +215,11 @@ Container(id).ListItem(offset).Thumb
 				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
 				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
 			</control>
+			
+			
+			
+						
+			
 	</include>
 	
 	<!-- Include netflix next aired -->

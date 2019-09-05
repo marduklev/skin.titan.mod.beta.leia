@@ -381,19 +381,17 @@
 			
 			<!-- SPOTLIGHT AREA INFOS (left) -->
 			<control type="group">
-				<left>0</left>
+				<left>130</left>
 				<width>1820</width>
-				<height>600</height>
-				<top>0</top>
+				
 				<visible>!Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
 				<!-- INFOS -->
 				<control type="grouplist">
 					<animation time="300" effect="slide" end="0,120" reversible="true" easing="inout" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">Conditional</animation>
 					
-					<width>60%</width>
+					<width>850</width>
 					<height>650</height>
-					<left>125</left>
-					<top>0</top>
+					<top>10</top>
 					<bottom>10</bottom>
 					<orientation>vertical</orientation>
 					<itemgap>10</itemgap>
@@ -403,8 +401,8 @@
 					<control type="image" id="1601">
 						<!-- <visible>!String.IsEmpty(Control.GetLabel(1601))</visible> -->
 						<visible>!String.IsEmpty(Control.GetLabel(1601)) + String.IsEmpty(Window(Home).Property(SpotlightTrailerPlaying))</visible>
-					
-						<height>235</height>
+						<height>245</height>
+						<bordersize>10</bordersize>
 						<aspectratio align="left" aligny="top">keep</aspectratio>
 						<texture background="true">$VAR[ListItemClearLogo]</texture>
 					</control>
@@ -421,7 +419,6 @@
 						<aligny>bottom</aligny>
 						 <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
 						<label>$VAR[HomeMenuWidgetInfoLabel]</label>
-						
 					</control>
 					
 					<!-- detail 1 row Home -->
@@ -526,8 +523,13 @@
 						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>
 					</control>
 					<!-- decide to use random info (cast,genre,director,nominations sometime -->
-					<control type="group">
+					<control type="grouplist">
 						<visible>String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
+						<height>60</height>
+						<orientation>horizontal</orientation>
+						<itemgap>10</itemgap>
+						<usecontrolcoords>true</usecontrolcoords>
+						<align>left</align>
 						<include>Netflix_Genre</include>
 					</control>
 				</control>
@@ -621,8 +623,8 @@
 					<onclick>SetFocus(77777)</onclick>
 					<onclick>SetProperty(SpotlightTrailerPlaying,home)</onclick>
 					<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onclick>
-					<onclick condition="[!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-					<onclick condition="[[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>
+					<onclick condition="String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+					<onclick condition="!String.IsEmpty(Window(home).Property(ForceOnlineTrailer))">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>
 				
 				</control>
 			

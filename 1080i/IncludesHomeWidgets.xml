@@ -2716,7 +2716,14 @@
     </include>
     
     <variable name="HomeMenuWidgetInfoLabel">
-        <value condition="String.Contains(Container(300).ListItem.Property(widgetPath), plugin.video.youtube) + !String.IsEmpty(ListItem.Label2)">[B]$INFO[ListItem.label][CR]$INFO[ListItem.label2][/B]</value>
+        <!-- spotlight widget-->
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + String.IsEqual(Container(1508).ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[Container(1508).ListItem.label][/B] $INFO[Container(1508).ListItem.label2]</value>
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Title) + String.Contains(Container(1508).ListItem.FolderPath, pvr://)">[B]$INFO[Container(1508).ListItem.Title][/B]</value>
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Season) + !String.IsEmpty(Container(1508).ListItem.Episode) + !String.IsEqual(Container(1508).ListItem.TvShowTitle,Container(1508).ListItem.Title)">[B][UPPERCASE]S$INFO[Container(1508).ListItem.Season]E$INFO[Container(1508).ListItem.Episode]:[/UPPERCASE] $INFO[Container(1508).ListItem.Title][/B]</value>
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Title)">[B]$INFO[Container(1508).ListItem.Title][/B]</value>
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Label)">[B]$INFO[Container(1508).ListItem.Label][/B]</value>
+        
+		<value condition="String.Contains(Container(300).ListItem.Property(widgetPath), plugin.video.youtube) + !String.IsEmpty(ListItem.Label2)">[B]$INFO[ListItem.label][CR]$INFO[ListItem.label2][/B]</value>
         <value condition="String.IsEqual(ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[ListItem.label][/B] $INFO[ListItem.label2]</value>
         <value condition="!String.IsEmpty(ListItem.Title) + String.Contains(ListItem.FolderPath, pvr://)">[B]$INFO[ListItem.Title][/B]</value>
         <!-- only for netflix -  show artist/tvshowtitle instead of default -->
@@ -2725,12 +2732,6 @@
 		<value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEqual(ListItem.TvShowTitle,ListItem.Title)">[B][UPPERCASE]S$INFO[ListItem.Season]E$INFO[ListItem.Episode]:[/UPPERCASE] $INFO[ListItem.Title][/B]</value>
         <value condition="!String.IsEmpty(ListItem.Title)">[B]$INFO[ListItem.Title][/B]</value>
         <value condition="!String.IsEmpty(ListItem.Label)">[B]$INFO[ListItem.Label][/B]</value>
-        <!-- spotlight widget-->
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + String.IsEqual(Container(1508).ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[Container(1508).ListItem.label][/B] $INFO[Container(1508).ListItem.label2]</value>
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Title) + String.Contains(Container(1508).ListItem.FolderPath, pvr://)">[B]$INFO[Container(1508).ListItem.Title][/B]</value>
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Season) + !String.IsEmpty(Container(1508).ListItem.Episode) + !String.IsEqual(Container(1508).ListItem.TvShowTitle,Container(1508).ListItem.Title)">[B][UPPERCASE]S$INFO[Container(1508).ListItem.Season]E$INFO[Container(1508).ListItem.Episode]:[/UPPERCASE] $INFO[Container(1508).ListItem.Title][/B]</value>
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Title)">[B]$INFO[Container(1508).ListItem.Title][/B]</value>
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Label)">[B]$INFO[Container(1508).ListItem.Label][/B]</value>
         <!--widgets -->
         <value condition="String.Contains(Container(300).ListItem.Property(widgetPath), plugin.video.youtube)">[B]$INFO[Window(Home).Property(ListItem.label)][CR]$INFO[Window(Home).Property(ListItem.label2)][/B]</value>
         <value condition="String.IsEqual(Window(Home).Property(ListItem.DBTYPE), systeminfo)">[B]$INFO[Window(Home).Property(ListItem.label)][/B] $INFO[Window(Home).Property(ListItem.label2)]</value>

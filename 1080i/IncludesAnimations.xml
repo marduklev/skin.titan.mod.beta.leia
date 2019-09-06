@@ -76,7 +76,6 @@
 		</animation>
 	</include>
 	
-	
     <include name="animation_dialog_button">
         <!--Shutdown Menu Open/Close-->
         <animation type="WindowOpen">
@@ -547,44 +546,6 @@
 		<ondown condition="!String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">ClearProperty(trailer_trailerwillplaying)</ondown>
 	</include>
 	
-	<!-- check need includes in views depending to String.IsEmpty(ListItem.Trailer) / ListItem.Trailer = Shows the full trailer path with filename of the currently selected movie in a container -->
-	<!--   just slightly slower in ms ,but keep emb.helper,
-	<onfocus>RunScript(script.embuary.helper,action=lookforfile,file='"$INFO[listitem.path]$INFO[listitem.FolderName,,-trailer.mp4]"',prop=trailer_avail)</onfocus>
-	<onfocus>RunScript(script.video.checktvtrailer)</onfocus>
-	
-	-->
-	<include name="AutoTrailerButton_SetPropsTest_UseProptoOpenTMDB via context">
-		<control type="button">
-			<visible>false</visible>
-			<onfocus>RunScript(script.embuary.helper,action=lookforfile,file='"$INFO[listitem.path]$INFO[listitem.FolderName,,-trailer.mp4]"',prop=trailer_avail)</onfocus>
-			<onfocus condition="!Player.HasVideo">SetProperty(trailer_trailerwillplaying,true,home)</onfocus>
-			<onfocus condition="!Skin.HasSetting(Library_NoOnlineLookupTrailer) + !Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$VAR[TVShowTitle],local=true),00:03,silent)</onfocus>
-			<onfocus condition="Skin.HasSetting(Library_NoOnlineLookupTrailer) + !Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer)">AlarmClock(trailer_delay,PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1),00:03,silent)</onfocus>
-			
-			
-			
-			<onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
-			<onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
-			<onunfocus condition="!String.IsEmpty(Window(home).Property(trailer_avail))">ClearProperty(trailer_avail,home)</onunfocus>
-			<onunfocus condition="!String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">ClearProperty(trailer_trailerwillplaying)</onunfocus>
-		
-			
-			<onfocus condition="String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,season) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)">SetProperty(ListItemDBID,$INFO[Container($PARAM[id]).ListItem.DBID],home)</onfocus>
-			<onfocus condition="String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,season) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)">SetProperty(ListItemDBType,$INFO[Container($PARAM[id]).ListItem.DBType],home)</onfocus>
-			<onfocus condition="!String.IsEmpty(Container($PARAM[id]).ListItem.Year)">SetProperty(ListItemYear,$INFO[Container($PARAM[id]).ListItem.Year],home)</onfocus>
-			<onfocus condition="!String.IsEmpty(Container($PARAM[id]).ListItem.Imdbnumber)">SetProperty(ListItemImdbnumber,$INFO[Container($PARAM[id]).ListItem.Imdbnumber],home)</onfocus>
-			<onfocus condition="!String.IsEmpty(Container($PARAM[id]).ListItem.Title)">SetProperty(ListItemTitle,$INFO[Container($PARAM[id]).ListItem.Title],home)</onfocus>
-			<onfocus condition="!String.IsEmpty(Container($PARAM[id]).ListItem.TvShowTitle)">SetProperty(ListItemTitle,$INFO[Container($PARAM[id]).ListItem.TvShowTitle],home)</onfocus>
-
-			<onfocus condition="[!String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,season) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)] | String.IsEqual(Container($PARAM[id]).ListItem.Label,$LOCALIZE[20366])">ClearProperty(ListItemDBID,home)</onfocus>
-			<onfocus condition="[!String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,season) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)] | String.IsEqual(Container($PARAM[id]).ListItem.Label,$LOCALIZE[20366])">ClearProperty(ListItemDBType,home)</onfocus>
-			<onfocus condition="String.IsEmpty(Container($PARAM[id]).ListItem.Year)">ClearProperty(ListItemYear,home)</onfocus>
-			<onfocus condition="String.IsEmpty(Container($PARAM[id]).ListItem.Imdbnumber)">ClearProperty(ListItemImdbnumber,home)</onfocus>
-			<onfocus condition="String.IsEmpty(Container($PARAM[id]).ListItem.Title) + String.IsEmpty(Container($PARAM[id]).ListItem.TvShowTitle)">ClearProperty(ListItemTitle,home)</onfocus>
-		
-			
-			</control>
-	</include>
 	<include name="AutoTrailerButton">
 		<control type="button">
 			<visible>false</visible>
@@ -767,10 +728,11 @@
     <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:09,silent)</onfocus>
     <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:09,silent)</onfocus>
   </include>
-<!-- check, add some album,artist etc ..-->
+	
+	<!-- check, add some album,artist etc ..-->
     <include name="WidgetProperties">
         <description>copy infolabels to winprops for widget details panel</description>
-        <onfocus>SetProperty(ListItem.Plot, $ESCINFO[Container($PARAM[widgetid]).ListItem.Plot])</onfocus>
+		<onfocus>SetProperty(ListItem.Plot, $ESCINFO[Container($PARAM[widgetid]).ListItem.Plot])</onfocus>
         <onfocus>SetProperty(ListItem.PlotOutline, $ESCINFO[Container($PARAM[widgetid]).ListItem.PlotOutline])</onfocus>
         <onfocus>SetProperty(ListItem.Title, $INFO[Container($PARAM[widgetid]).ListItem.Title])</onfocus>
         <onfocus>SetProperty(ListItem.Year, $INFO[Container($PARAM[widgetid]).ListItem.Year])</onfocus>

@@ -381,7 +381,7 @@
         <animation effect="slide" delay="0" start="0" end="0,-300" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         
-		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
 		
 		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="820" />
@@ -1727,7 +1727,7 @@
         <animation effect="slide" delay="0" start="0" end="0,-175" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-55" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         
-		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
 				
         <itemlayout height="265" width="1300" condition="Skin.HasSetting(UseDefaultVerticalLayout)">
             <include>itemlayout_widebox</include>
@@ -1883,10 +1883,14 @@
 			
 			<visible>String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
             <width>100%</width>
+			<left>-5</left>
 			<top>50</top>
             <height>50</height>
             
 			<control type="grouplist">
+				<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
+				<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
+				<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
 				<height>50</height>
 				<orientation>horizontal</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
@@ -1894,34 +1898,26 @@
 				<width>99%</width>
 				<control type="label">
 					<top>18</top>
-                    <left>15</left>
-                    <width>auto</width>
+					<width>auto</width>
 					<font>Reg32</font>
 					<height>24</height>
-					<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
-					<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
-					<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
 					<textcolor>$INFO[Skin.String(WidgetHeaderTextColor)]</textcolor>
 					<label>[B]$PARAM[widgetName][/B]</label>
 					<visible>String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
            		</control>
 				<control type="textbox">
 					<top>18</top>
-                    <left>15</left>
                     <width>auto</width>
 					<font>Reg32</font>
 					<height>24</height>
-					<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
-					<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
-					<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 					<label>[B]$LOCALIZE[31543] $INFO[Container($PARAM[widgetid]).ListItem.Property(similartitle)][/B]</label>
 					<visible>!String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
 				</control>
 				<control type="image">
+					<description>busy</description>
 					<visible>Container(widgetid).IsUpdating</visible>
-					<description>make visiible just on center and left align</description>
 					<top>10</top>
 					<width>40</width>
 					<height>40</height>

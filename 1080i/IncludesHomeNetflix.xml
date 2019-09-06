@@ -560,7 +560,7 @@
 				<!-- ratings & studio -->
                 <control type="group">
                     <right>60</right>
-                    <top>540</top>
+                    <top>520</top>
                     <height>150</height>
                     <width>1000</width>
                     <include>AltRatingFooter</include>
@@ -688,22 +688,12 @@
 					<onfocus condition="[[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onfocus>
 				</control> -->
 			</control>
+			
 			<!-- STANDARD widgets -->
             <control type="grouplist" id="77777">
+				<description>shortcuts templates need overhaul, may not worth it, use seperate containers instead of whole group</description>
 				<!-- temp solution ,till widgetid header pos fixed/changed-->
 				<animation effect="slide" start="0" end="0,170" time="1200" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons)) + String.EndsWith(Window(Home).Property(widgetstyle),netflixspotlight)" reversible="false">Conditional</animation>
-				
-				
-				
-				<animation effect="slide" start="0,0" end="0,160" time="0" reversible="false" condition="String.EndsWith(Window(Home).Property(widgetstyle),landscape)">Conditional</animation>
-				
-				<!--
-				<animation effect="slide" start="0,0" end="0,160" time="0" reversible="false" condition="String.EndsWith(Window(Home).Property(widgetstyle),landscape)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,160" time="0" reversible="false" condition="String.EndsWith(Window(Home).Property(widgetstyle),landscape)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,160" time="0" reversible="false" condition="String.EndsWith(Window(Home).Property(widgetstyle),landscape)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,160" time="0" reversible="false" condition="String.EndsWith(Window(Home).Property(widgetstyle),landscape)">Conditional</animation>
-				-->
-				
 				
 				<include content="NetFlixHome_WidgetPos" condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">
 					<param name="top" value="100"/>
@@ -1062,7 +1052,7 @@
 
     <!-- Disabled Spotlight Widgets Height ,check, need also include for disabled header on home -->
     <include name="NetFlixHome_WidgetPos">
-		<param name="top" default="650" />
+		<param name="top" default="660" />
 		<param name="bottom" default="5" />
 		<definition>
 			<top>$PARAM[top]</top>

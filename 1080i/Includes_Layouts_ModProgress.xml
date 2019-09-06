@@ -367,12 +367,14 @@ Container(id).ListItem(offset).Thumb
 				<param name="infolabel" value="$VAR[GetResolution]" />
 			</include>
 			<!-- Audio -->
-			<include content="FramedCodecInfo">
-				<param name="id" value="611115" />
-				<param name="label_id" value="6111151" />
-				<param name="infolabel" value="$VAR[AudioChannelsVar,[B],[/B]]" />
-			</include>
-			
+			<control type="group">
+				<left>-10</left>
+					<include content="FramedCodecInfo">
+					<param name="id" value="611115" />
+					<param name="label_id" value="6111151" />
+					<param name="infolabel" value="$VAR[AudioChannelsVar,[B],[/B]]" />
+				</include>
+			</control>
 			
 		</control>
 	</include>

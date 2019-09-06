@@ -583,11 +583,11 @@
 			<height>40</height>
 			<include>Default_Fade</include>
 			<control type="image">
-				<description>semitransblackbg, use fixed black or netflix bg</description>
+				<description>use netflix bg</description>
 				<bordersize>2</bordersize>
 				<width>60</width>
 				<height>35</height>
-				<texture colordiffuse="ff000000">colors/color_trans_50.png</texture>
+				<texture colordiffuse="$INFO[Skin.String(NetflixBGColor)]">colors/color_trans_50.png</texture>
 			</control>
 			<control type="image">
 				<width>60</width>

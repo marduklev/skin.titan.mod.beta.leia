@@ -22,9 +22,7 @@
         <!--Global Background-->
         <include>GlobalBackground</include>
 		
-		
-		
-        <control type="button" id="1000">
+		<control type="button" id="1000">
 			<description>hidden button for onload actions as placing them in onload causes strange behaviour</description>
             <!--focus 77777 more consistently on first load-up, but nav issue if no widget available/dont show all widget option -->
             <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [String.Contains(Skin.String(HomeLayout), netflix) | Skin.String(HomeLayout, win10)] + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">AlarmClock(focus_delay,SetFocus(77777),00:01,silent)</onfocus>

@@ -429,6 +429,20 @@
 						<include>SpotlightRowDetails</include>
 						<visible>String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
 					</control>
+					<!-- subtitle: MOTTO for Movies-->
+					<!-- <control type="label">
+						<top>-8</top>
+						<height>50</height>
+						<width>700</width>
+						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
+						<align>left</align>
+						<aligny>center</aligny>
+						<wrapmultiline>true</wrapmultiline>
+						<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+						<label>$INFO[ListItem.TagLine,[B][I],[/B][/I]]</label>
+						<visible>!String.IsEmpty(ListItem.TagLine)</visible>
+					</control> -->
 					<!-- detail 1 spacer for spotlight buttons  Home -->
 					<control type="group">
 						<height>120</height>
@@ -537,7 +551,7 @@
 				<!-- media flags -->
                 <control type="group">
 					<animation time="1200" effect="slide" end="0,150" reversible="false" easing="inout" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">Conditional</animation>
-					<posx>130</posx>
+					<posx>10</posx>
 					<height>52</height>
                     <top>620</top>
                     <include>mediaflags</include>
@@ -545,8 +559,8 @@
 				</control>
 				<!-- ratings & studio -->
                 <control type="group">
-                    <right>-100</right>
-                    <top>535</top>
+                    <right>60</right>
+                    <top>540</top>
                     <height>150</height>
                     <width>1000</width>
                     <include>AltRatingFooter</include>

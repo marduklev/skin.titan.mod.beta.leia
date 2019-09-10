@@ -543,7 +543,6 @@
 		<value condition="String.IsEmpty(MusicPlayer.Album) + !String.IsEmpty(MusicPlayer.Year) + String.IsEmpty(MusicPlayer.Genre)">$INFO[MusicPlayer.Year,$LOCALIZE[345]: ,][CR]</value>
 		<value condition="String.IsEmpty(MusicPlayer.Album) + String.IsEmpty(MusicPlayer.Year) + String.IsEmpty(MusicPlayer.Genre)"> [CR] </value>
 	</variable>
-	
 	<variable name="ListItemDuration">
 		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + !Skin.HasSetting(DisableHoursDuration) + Integer.IsGreater(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,h ]$INFO[ListItem.Duration(m),,min]</value>		
 		<value condition="![!String.IsEmpty(ListItem.Artist) | Container.Content(Songs) | Container.Content(Musicvideos)] + Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),, min]</value>
@@ -1039,16 +1038,8 @@
         <value condition="!String.IsEmpty(ListItem.Property(IMDBNumber)) + !String.IsEmpty(ListItem.TvShowTitle)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=tvshows&amp;imdbid=$INFO[ListItem.Property(IMDBNumber)]&amp;limit=10</value>
 		<value condition="!String.IsEmpty(ListItem.Property(IMDBNumber))">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;imdbid=$INFO[ListItem.Property(IMDBNumber)]&amp;limit=10</value>
 	 </variable>
-     <!-- action= extendedinfo vs library ,check how get custom action-->
-     <variable name="VAR_SkinHelperCast">
-		<value condition="!String.IsEmpty(ListItem.DBTYPE) + !String.IsEmpty(ListItem.DBID)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.DBID]&amp;downloadthumbs=true</value>
-        <value condition="!String.IsEmpty(ListItem.DBTYPE)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.DBTYPE]=$INFO[ListItem.Title]&amp;downloadthumbs=true</value>
-        <value condition="!String.IsEmpty(ListItem.Property(DBTYPE)) + !String.IsEmpty(ListItem.Property(DBID))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Propery(DBID)]&amp;downloadthumbs=true</value>
-        <value condition="!String.IsEmpty(ListItem.Property(DBTYPE))">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[ListItem.Propery(DBTYPE)]=$INFO[ListItem.Title]&amp;downloadthumbs=true</value>
-        <value condition="!String.IsEmpty(Container.Content)">plugin://script.skin.helper.service/?action=getcast&amp;$INFO[Container.Content]=$INFO[ListItem.Title]&amp;downloadthumbs=true</value>
-     </variable>
-     <!-- Embcon/Native DB vars -->
-	<variable name="VAR_EmbuaryCast">
+    <!-- Cast ContainerContent -->
+	<variable name="EmbuaryCast">
 		<value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.DBID) + !String.IsEqual(ListItem.DBID,0)">plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;dbid=$INFO[ListItem.DBID]</value>
 		<value condition="String.IsEqual(ListItem.DBType,movie) + String.IsEqual(ListItem.DBID,0)">plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;title='$ESCINFO[ListItem.Title]'</value>
 		<value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.DBID) + !String.IsEqual(ListItem.DBID,0)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[ListItem.DBID]</value>

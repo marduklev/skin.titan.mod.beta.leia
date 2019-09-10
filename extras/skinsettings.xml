@@ -107,7 +107,7 @@
         <onselect condition="True">Skin.SetBool(ShowAllWidgets)</onselect>
     </setting>
     <!-- netflix home NEW -->
-    <setting id="HomeLayout" value="netflix2" label="Netflix Origin" condition="" icon="special://skin/extras/viewthumbs/homelayout_netflix2.jpg" description="$LOCALIZE[31544]">
+    <setting id="HomeLayout" value="netflix2" label="Netflx bingie MODE" condition="" icon="special://skin/extras/viewthumbs/homelayout_netflix2.jpg" description="$LOCALIZE[31544]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,landscape)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Landscape)</onselect>
@@ -440,14 +440,6 @@
 	<setting id="videoinfo_castaction" value="library_search" label="Library Search" condition="" icon="" description="Search via Titan MOD Search" default="true"/>
 	<setting id="videoinfo_castaction" value="extendedinfo" label="$LOCALIZE[31691]" condition="" icon="" description="Lookup in Extended Video Info (Addon)"/>
     
-	
-	<!-- cast Provider in videoinfo -->
-	<!-- <setting id="castprovider" value="kodi_native" label="KODI" condition="" icon="" description="Fastest , maybe miss some thumbs"/> -->
-    
-    <setting id="castprovider" value="embuary_helper" label="EMBUARY Helper" condition="" icon="" description="" />
-    <setting id="castprovider" value="skinhelper_service" label="SKINHELPER SERVICE" condition="" icon="" description=""/>
-    
-	
 	<!-- options to show in videoinfo - multiselect -->
     <setting id="videoinfo_buttons" value="||MULTISELECT||" label="" condition="" icon="" description="">
         <option id="videoinfo_button_play" label="$LOCALIZE[208]" condition="" default="true"/>

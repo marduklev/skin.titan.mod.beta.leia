@@ -699,7 +699,7 @@
 					<param name="id" value="8601" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="layout" value="PosterPanelLayout" />
+					<param name="layout" value="CastThumb" />
 					<param name="visible" value="Integer.IsGreater(Container(8601).NumItems,0) | Container(8601).IsUpdating" />
 					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8601).NumItems,0) | Container(8601).IsUpdating">Conditional</animation>
 					<include condition="String.IsEqual(Skin.String(castprovider),embuary_helper)">INC_EmbuaryCast</include>

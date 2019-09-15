@@ -699,7 +699,7 @@
 					<param name="top" value="100"/>
 					<param name="bottom" value="100"/>
 				</include>
-                <include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_WidgetPos</include>
+                <include content="NetFlixHome_WidgetPos" condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)" />
                 
 				<left>120</left>
 				<width>1750</width>

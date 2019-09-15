@@ -702,7 +702,7 @@
                 <include content="NetFlixHome_WidgetPos" condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)" />
                 
 				<left>120</left>
-				<width>1750</width>
+				<width>1800</width>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="cubic" easing="in">300</scrolltime>

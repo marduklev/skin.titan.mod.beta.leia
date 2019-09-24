@@ -458,7 +458,7 @@
 			<!--Panel-->
             <control type="image">
 				<posy>-10</posy>
-				<posx>-20</posx>
+				<posx>0</posx>
 				<width>360</width>
 				<height>400</height>
 				<texture border="5">diffuse/panel.png</texture>

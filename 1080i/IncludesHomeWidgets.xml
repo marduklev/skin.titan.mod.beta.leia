@@ -1897,6 +1897,7 @@
 				<itemgap>10</itemgap>
 				<width>99%</width>
 				<control type="label">
+					<description>Main Header</description>
 					<top>18</top>
 					<width>auto</width>
 					<font>Reg32</font>
@@ -1906,6 +1907,7 @@
 					<visible>String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
            		</control>
 				<control type="textbox">
+					<description>Header Similiar Widget</description>
 					<top>18</top>
                     <width>auto</width>
 					<font>Reg32</font>
@@ -1917,7 +1919,7 @@
 				</control>
 				<control type="image">
 					<description>busy</description>
-					<visible>Container(widgetid).IsUpdating</visible>
+					<visible>Container($PARAM[widgetid]).IsUpdating</visible>
 					<top>10</top>
 					<width>40</width>
 					<height>40</height>

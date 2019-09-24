@@ -309,6 +309,8 @@
         
 		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
 		
+		<!-- <include content="RespectBool_selectaction" /> -->
+		
 		
 		<itemlayout height="435" width="261">
             <control type="group">

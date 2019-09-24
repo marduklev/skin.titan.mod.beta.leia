@@ -197,10 +197,30 @@
 			</node>
 		</node>
         <!-- script.skin.helper.service default widgets -->
-        <shortcut label="$LOCALIZE[31799]" type="32010" condition="System.HasAddon(script.skin.helper.service) + Window.IsActive(script-skinshortcuts.xml)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,smartshortcuts,extendedinfo,librarydataprovider,smartishwidgets,favourites,static</shortcut>
-        <shortcut label="$LOCALIZE[31799]" type="32010" condition="System.HasAddon(script.skin.helper.service) + !Window.IsActive(script-skinshortcuts.xml)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,smartshortcuts,extendedinfo,librarydataprovider,smartishwidgets,favourites</shortcut>
+        <shortcut label="skinhelper service widgets" type="32010" icon="special://home/addons/script.skin.helper.service/icon.png" condition="System.HasAddon(script.skin.helper.service) + Window.IsActive(script-skinshortcuts.xml)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,smartshortcuts,extendedinfo,librarydataprovider,smartishwidgets,favourites,static</shortcut>
+        <shortcut label="skinhelper service widgets" type="32010" icon="special://home/addons/script.skin.helper.service/icon.png" condition="System.HasAddon(script.skin.helper.service) + !Window.IsActive(script-skinshortcuts.xml)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,smartshortcuts,extendedinfo,librarydataprovider,smartishwidgets,favourites</shortcut>
         
+		<!-- embuary helper -->
+		<shortcut label="embuary helper" type="32010" icon="special://home/addons/script.embuary.helper/resources/icon.png">||BROWSE||script.embuary.helper</shortcut>
+		
+		<!-- games -->
+        <node label="10821">
+			<shortcut label="Games (Retroplayer)" type="32009" icon="DefaultGames.png" widget="addon" widgetType="program" widgetTarget="programs">addons://sources/games</shortcut>
+			
+			<shortcut label="$LOCALIZE[10821] AEL Categories" type="32009" icon="DefaultGames.png" condition="System.HasAddon(plugin.program.advanced.emulator.launcher)">||BROWSE||plugin.program.advanced.emulator.launcher/?com=SHOW_ALL_CATEGORIES</shortcut>
+			<shortcut label="$LOCALIZE[10821] AEL All Launchers" type="32009" icon="DefaultGames.png" condition="System.HasAddon(plugin.program.advanced.emulator.launcher)">||BROWSE||plugin.program.advanced.emulator.launcher/?com=SHOW_ALL_LAUNCHERS</shortcut>
+        
+			<shortcut condition="System.HasAddon(plugin.program.advanced.emulator.launcher)" label="Favorite games" icon="DefaultGames.png" widget="addon" widgetType="program" widgetTarget="programs">plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_FAVOURITES</shortcut>
+			<shortcut condition="System.HasAddon(plugin.program.advanced.emulator.launcher)" label="Genres" icon="DefaultGames.png" widget="addon" widgetType="program" widgetTarget="programs">plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_genre</shortcut>
+			<shortcut condition="System.HasAddon(plugin.program.advanced.emulator.launcher)" label="Developers" icon="DefaultGames.png" widget="addon" widgetType="program" widgetTarget="programs">plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_developer</shortcut>
+			<shortcut condition="System.HasAddon(plugin.program.advanced.emulator.launcher)" label="Titles" icon="DefaultGames.png" widget="addon" widgetType="program" widgetTarget="programs">plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_title</shortcut>
+			<shortcut condition="System.HasAddon(plugin.program.advanced.emulator.launcher)" label="Years" icon="DefaultGames.png" widget="addon" widgetType="program" widgetTarget="programs">plugin://plugin.program.advanced.emulator.launcher/?com=SHOW_VIRTUAL_CATEGORY&amp;catID=vcategory_year</shortcut>
+		</node>
+		
+		<!-- smart shortcuts -->
         <content>widgets</content>
+		
+		<!-- lib -->
 		<node label="32030">
 			<content>video</content>
 			<node label="32040">
@@ -246,6 +266,12 @@
 			<shortcut label="1038" type="32019" icon="DefaultAddonMusic.png" widget="addon" widgetType="music" widgetTarget="music">addons://sources/audio</shortcut>
 			<shortcut label="1039" type="32020" icon="DefaultAddonPicture.png" widget="addon" widgetType="picture" widgetTarget="pictures">addons://sources/image</shortcut>
 		</node>
+		<!-- favourites -->
+		<shortcut label="1036" widget="favourites" widgetType="favourites" icon="defaultfavourites.png">favourites://</shortcut>
+		
+		<!-- android apps -->
+		<shortcut label="20244" type="32021" icon="DefaultAddonProgram.png" widget="addon" widgetType="program" widgetTarget="programs" condition="System.Platform.Android">androidapp://sources/apps</shortcut>
+		
 	</widget-groupings>
     
 	<!-- default backgrounds -->

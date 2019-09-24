@@ -309,6 +309,8 @@
         
 		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
 		
+		<!-- <include content="RespectBool_selectaction" /> -->
+		
 		
 		<itemlayout height="435" width="261">
             <control type="group">
@@ -381,7 +383,7 @@
         <animation effect="slide" delay="0" start="0" end="0,-300" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         
-		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
 		
 		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="820" />
@@ -509,7 +511,7 @@
             <param name="height" value="609" />
         </include>
 		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
-            <param name="height" value="253" />
+            <param name="height" value="380" />
         </include>
         <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="305" />
@@ -610,10 +612,12 @@
             <param name="height" value="624" />
         </include>
         <include condition="$PARAM[multiRows]">widget_layout_square_multi</include>
+		
 		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
-            <param name="height" value="263" />
+            <param name="height" value="380" />
         </include>
-        <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
+        
+		<include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="313" />
         </include>
         <animation effect="slide" delay="0" start="0" end="0,65" time="200" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
@@ -788,8 +792,8 @@
        <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="825" />
         </include>
-        <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
-            <param name="height" value="210" />
+       <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
+            <param name="height" value="380" />
         </include>
         <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="275" />
@@ -895,7 +899,7 @@
         <focusedlayout width="375" height="275" condition="!Control.HasFocus($PARAM[widgetid])">
           	<control type="group">
 					<width>370</width>
-              	  <height>210</height>
+					<height>210</height>
              	   <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 					<include content="ThumbsViewLayout">
 						<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />
@@ -922,6 +926,9 @@
 					<onfocus>SetProperty(widgetstyle,netflixspotlight)</onfocus>
 					<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid],home)</onfocus>
 					<onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],Home)</onfocus>
+					<onfocus condition="[String.IsEmpty(ListItem.Trailer) + ![ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.embuary.helper,action=lookforfile,file='"$INFO[listitem.path]$INFO[listitem.FolderName,,-trailer.mp4]"',prop=trailer_avail)</onfocus>
+					<onfocus condition="[String.IsEmpty(ListItem.Trailer) + [ListItem.IsCollection | String.Contains(ListItem.Path,http)]">SetProperty(ForceOnlineTrailer,true,Home)</onfocus>
+					
 					
 					<include content="WidgetProperties">
 						<param name="widgetid" value="$PARAM[widgetid]" />
@@ -931,6 +938,7 @@
 					
 					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetProperty(FocusSpotlightButtons,true,Home)</onfocus>
 					<onfocus condition="String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">SetFocus(3010)</onfocus>
+					
 					<onfocus condition="!String.IsEmpty(Window(Home).Property(DontFocusSpotlightButtons))">ClearProperty(DontFocusSpotlightButtons, Home)</onfocus>
 					
 				</control>
@@ -943,8 +951,8 @@
         <include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="649" />
         </include>
-        <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
-            <param name="height" value="260" />
+       <include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
+            <param name="height" value="380" />
         </include>
         <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="325" />
@@ -1031,7 +1039,7 @@
         </include>
 		
 		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
-            <param name="height" value="210" />
+            <param name="height" value="380" />
         </include>
         <include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
             <param name="height" value="260" />
@@ -1108,12 +1116,19 @@
 		<include content="height" condition="$PARAM[multiRows]">
             <param name="height" value="640" />
         </include>
-		<height>320</height>
+		<include content="height" condition="String.Contains(Skin.String(HomeLayout),net)">
+            <param name="height" value="360" />
+        </include>
+		<include content="height" condition="!String.Contains(Skin.String(HomeLayout),net)">
+            <param name="height" value="320" />
+        </include>
+		
         
 		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
 		
-		<itemlayout height="320" width="260">
+		<itemlayout height="320" width="270">
 			<control type="group">
+				<top>10</top>
                 <width>240</width>
                 <height>240</height>
                 <include content="Circle_Layout">
@@ -1123,8 +1138,9 @@
                 </include>
             </control>
 		</itemlayout>
-        <focusedlayout height="320" width="260" condition="!Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout height="320" width="270" condition="!Control.HasFocus($PARAM[widgetid])">
             <control type="group">
+				<top>10</top>
                 <width>240</width>
                 <height>240</height>
                 <include content="Circle_Layout">
@@ -1134,8 +1150,9 @@
                 </include>
             </control>
         </focusedlayout>
-		<focusedlayout height="320" width="260" condition="Control.HasFocus($PARAM[widgetid])">
+		<focusedlayout height="320" width="270" condition="Control.HasFocus($PARAM[widgetid])">
 			 <control type="group">
+				<top>10</top>
                 <width>240</width>
                 <height>240</height>
                 <include content="Circle_Layout">
@@ -1309,7 +1326,7 @@
         <itemlayout height="425" width="255">
             <control type="group">
                 <width>254</width>
-                <height>380</height>
+                <height>375</height>
 				<include content="PosterPanelLayout">
 					<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
@@ -1327,7 +1344,7 @@
         <focusedlayout height="425" width="255" condition="!Control.HasFocus($PARAM[widgetid])">
            <control type="group">
                 <width>254</width>
-                <height>380</height>
+                <height>375</height>
 				<include content="PosterPanelLayout">
 					<param name="WatchedIndicator" value="WatchedIndicatorNormal" />
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
@@ -1349,7 +1366,7 @@
 		<focusedlayout width="645" height="425" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
 				<width>643</width>
-                <height>380</height>
+                <height>375</height>
 				<animation type="Focus" reversible="false">
 					<effect type="zoom" start="30,100" end="100,100" time="200" center="auto" tween="quadratic" easing="out" />
 				</animation>
@@ -1712,7 +1729,7 @@
         <animation effect="slide" delay="0" start="0" end="0,-175" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + !String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-55" time="0" condition="String.IsEmpty(Window(Home).Property(netflixview)) + String.IsEqual(Skin.AspectRatio,16:10) + [Skin.String(HomeLayout,1) | Skin.String(HomeLayout,1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [!String.IsEqual(Window(Home).Property(ShowWidget),show) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         
-		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
+		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
 				
         <itemlayout height="265" width="1300" condition="Skin.HasSetting(UseDefaultVerticalLayout)">
             <include>itemlayout_widebox</include>
@@ -1868,45 +1885,43 @@
 			
 			<visible>String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
             <width>100%</width>
+			<left>-5</left>
 			<top>50</top>
             <height>50</height>
             
 			<control type="grouplist">
+				<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
+				<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
+				<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
 				<height>50</height>
 				<orientation>horizontal</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<itemgap>10</itemgap>
 				<width>99%</width>
 				<control type="label">
+					<description>Main Header</description>
 					<top>18</top>
-                    <left>15</left>
-                    <width>auto</width>
+					<width>auto</width>
 					<font>Reg32</font>
 					<height>24</height>
-					<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
-					<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
-					<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
 					<textcolor>$INFO[Skin.String(WidgetHeaderTextColor)]</textcolor>
 					<label>[B]$PARAM[widgetName][/B]</label>
 					<visible>String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
            		</control>
 				<control type="textbox">
+					<description>Header Similiar Widget</description>
 					<top>18</top>
-                    <left>15</left>
                     <width>auto</width>
 					<font>Reg32</font>
 					<height>24</height>
-					<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
-					<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
-					<include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 					<label>[B]$LOCALIZE[31543] $INFO[Container($PARAM[widgetid]).ListItem.Property(similartitle)][/B]</label>
 					<visible>!String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
 				</control>
 				<control type="image">
-					<visible>Container(widgetid).IsUpdating</visible>
-					<description>make visiible just on center and left align</description>
+					<description>busy</description>
+					<visible>Container($PARAM[widgetid]).IsUpdating</visible>
 					<top>10</top>
 					<width>40</width>
 					<height>40</height>
@@ -2701,7 +2716,14 @@
     </include>
     
     <variable name="HomeMenuWidgetInfoLabel">
-        <value condition="String.Contains(Container(300).ListItem.Property(widgetPath), plugin.video.youtube) + !String.IsEmpty(ListItem.Label2)">[B]$INFO[ListItem.label][CR]$INFO[ListItem.label2][/B]</value>
+        <!-- spotlight widget-->
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + String.IsEqual(Container(1508).ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[Container(1508).ListItem.label][/B] $INFO[Container(1508).ListItem.label2]</value>
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Title) + String.Contains(Container(1508).ListItem.FolderPath, pvr://)">[B]$INFO[Container(1508).ListItem.Title][/B]</value>
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Season) + !String.IsEmpty(Container(1508).ListItem.Episode) + !String.IsEqual(Container(1508).ListItem.TvShowTitle,Container(1508).ListItem.Title)">[B][UPPERCASE]S$INFO[Container(1508).ListItem.Season]E$INFO[Container(1508).ListItem.Episode]:[/UPPERCASE] $INFO[Container(1508).ListItem.Title][/B]</value>
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Title)">[B]$INFO[Container(1508).ListItem.Title][/B]</value>
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Label)">[B]$INFO[Container(1508).ListItem.Label][/B]</value>
+        
+		<value condition="String.Contains(Container(300).ListItem.Property(widgetPath), plugin.video.youtube) + !String.IsEmpty(ListItem.Label2)">[B]$INFO[ListItem.label][CR]$INFO[ListItem.label2][/B]</value>
         <value condition="String.IsEqual(ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[ListItem.label][/B] $INFO[ListItem.label2]</value>
         <value condition="!String.IsEmpty(ListItem.Title) + String.Contains(ListItem.FolderPath, pvr://)">[B]$INFO[ListItem.Title][/B]</value>
         <!-- only for netflix -  show artist/tvshowtitle instead of default -->
@@ -2710,12 +2732,6 @@
 		<value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEqual(ListItem.TvShowTitle,ListItem.Title)">[B][UPPERCASE]S$INFO[ListItem.Season]E$INFO[ListItem.Episode]:[/UPPERCASE] $INFO[ListItem.Title][/B]</value>
         <value condition="!String.IsEmpty(ListItem.Title)">[B]$INFO[ListItem.Title][/B]</value>
         <value condition="!String.IsEmpty(ListItem.Label)">[B]$INFO[ListItem.Label][/B]</value>
-        <!-- spotlight widget-->
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + String.IsEqual(Container(1508).ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[Container(1508).ListItem.label][/B] $INFO[Container(1508).ListItem.label2]</value>
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Title) + String.Contains(Container(1508).ListItem.FolderPath, pvr://)">[B]$INFO[Container(1508).ListItem.Title][/B]</value>
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Season) + !String.IsEmpty(Container(1508).ListItem.Episode) + !String.IsEqual(Container(1508).ListItem.TvShowTitle,Container(1508).ListItem.Title)">[B][UPPERCASE]S$INFO[Container(1508).ListItem.Season]E$INFO[Container(1508).ListItem.Episode]:[/UPPERCASE] $INFO[Container(1508).ListItem.Title][/B]</value>
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Title)">[B]$INFO[Container(1508).ListItem.Title][/B]</value>
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Label)">[B]$INFO[Container(1508).ListItem.Label][/B]</value>
         <!--widgets -->
         <value condition="String.Contains(Container(300).ListItem.Property(widgetPath), plugin.video.youtube)">[B]$INFO[Window(Home).Property(ListItem.label)][CR]$INFO[Window(Home).Property(ListItem.label2)][/B]</value>
         <value condition="String.IsEqual(Window(Home).Property(ListItem.DBTYPE), systeminfo)">[B]$INFO[Window(Home).Property(ListItem.label)][/B] $INFO[Window(Home).Property(ListItem.label2)]</value>

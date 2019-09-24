@@ -45,6 +45,7 @@
 	<!-- Content -->
 	<expression name="IsTVShow">String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</expression>
 	<expression name="IsEpisode">String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)</expression>
+	<expression name="IsSeason">Container.Content(seasons) | String.IsEqual(ListItem.DBTYPE,season)</expression>
 	<expression name="IsMovie">String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),movie) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,movie)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),movie)</expression>
 	<expression name="IsArtist">String.IsEqual(ListItem.DBTYPE,artist) | String.IsEqual(ListItem.Property(DBTYPE),artist) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,artist)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),artist)</expression>
 	<expression name="IsAlbum">String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.Property(DBTYPE),album) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,album)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),album)</expression>

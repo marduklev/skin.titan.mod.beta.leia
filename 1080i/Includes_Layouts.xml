@@ -240,6 +240,23 @@
 		</control>
 		
 	</include>
+	<!-- POSTER LAYOUT CAST Scale -->
+	<include name="CastThumb">
+		<control type="image">
+			<texture border="0">diffuse/poster.png</texture>
+			<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+			<include condition="Skin.String($PARAM[border], 0)">thumbborder_0</include>
+			<include condition="Skin.String($PARAM[border], 2)">thumbborder_2</include>
+			<include condition="Skin.String($PARAM[border], 4)">thumbborder_4</include>
+			<include condition="Skin.String($PARAM[border], 6)">thumbborder_6</include>
+		</control>
+		<control type="image">
+			<description>Scale Cast Thumbs</description>
+			<texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultActor.png">$INFO[ListItem.Art(thumb)]</texture>
+			<aspectratio scalediffuse="false" aligny="bottom" align="center">scale</aspectratio>
+			<bordersize>8</bordersize>
+		</control>
+	</include>
 	
 	<!-- POSTER 523 maybe also 525 Reflections -->
 	<include name="523_reflections">
@@ -575,6 +592,13 @@
 			<width>70</width>
 			<height>40</height>
 			<include>Default_Fade</include>
+			<control type="image">
+				<description>use netflix bg</description>
+				<bordersize>2</bordersize>
+				<width>60</width>
+				<height>35</height>
+				<texture colordiffuse="$INFO[Skin.String(NetflixBGColor)]">colors/color_trans_50.png</texture>
+			</control>
 			<control type="image">
 				<width>60</width>
 				<height>35</height>

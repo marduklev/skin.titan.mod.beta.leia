@@ -124,7 +124,12 @@
 						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
 						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>					</control>
 					<!-- Genre (no random cast,genre,director,nominations -->
-					<control type="group">
+					<control type="grouplist">
+						<height>60</height>
+						<orientation>horizontal</orientation>
+						<itemgap>10</itemgap>
+						<usecontrolcoords>true</usecontrolcoords>
+						<align>left</align>
 						<include>Netflix_Genre</include>
 					</control>
 				</control>
@@ -168,12 +173,12 @@
 					<itemlayout height="225" width="158">
 						<control type="image">
 							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="DefaultActor.png">$INFO[ListItem.Thumb]</texture>
-							<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
+							<aspectratio scalediffuse="true" aligny="bottom" align="center">scale</aspectratio>
 							<bordersize>4</bordersize>
 						</control>
 						<control type="label">
 							<font>reg18</font>
-							<label>$INFO[Container(50).ListItem.Label,[B],[/B][CR]]$INFO[Container(50).ListItem.Label2]</label>
+							<label>$INFO[ListItem.Label,[B],[/B][CR]]$INFO[ListItem.Label2]</label>
 							<wrapmultiline>true</wrapmultiline>
 							<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 							<top>220</top>
@@ -183,12 +188,12 @@
 							<aligny>top</aligny>
 							<align>center</align>
 							<textoffsetx>0</textoffsetx>
-							<scroll>true</scroll>
+							<scroll>false</scroll>
 							<scrollspeed>20</scrollspeed>
 						</control>
 					</itemlayout>
 					<focusedlayout></focusedlayout>
-					<content>$VAR[VAR_EmbuaryCast]</content>
+					<content>$VAR[EmbuaryCast]</content>
                 </control>
 				<!-- Games: Popup of all game assets (trailer, title, snaps etc) -->
 				<include condition="$EXP[InGameMode]">GameAssetsPanelComplete</include>

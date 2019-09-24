@@ -41,10 +41,8 @@
                 <posy>140</posy>
                 <height>630</height>
                 <itemgap>3</itemgap>
-                <!-- Skin Custom Buttons -->
-				<include>CustomMenu_Context_Buttons</include>
-				
-               <control type="button" id="1000">
+                
+				<control type="button" id="1000">
                     <description>Buttons</description>
                     <include>SideBladeMenuButton</include>
                 </control>
@@ -129,8 +127,7 @@
 					<onclick condition="String.IsEqual(Window(home).Property(ListItemDBType),tvshow)">RunScript(script.embuary.info,call=tv,query=$INFO[Window(home).Property(ListItemTitle)],year=$INFO[Window(home).Property(ListItemYear)],external_id=$INFO[Window(home).Property(ListItemImdbnumber)])</onclick>
 					<onclick condition="String.IsEqual(Window(home).Property(ListItemDBType),movie)">RunScript(script.embuary.info,call=movie,query=$INFO[Window(home).Property(ListItemTitle)],year=$INFO[Window(home).Property(ListItemYear)],external_id=$INFO[Window(home).Property(ListItemImdbnumber)])</onclick>
 				</control>
-				<!-- Skin Custom Buttons -->
-				<include>CustomMenu_Context_Buttons</include>
+				
                 <control type="button" id="1000">
                     <description>Buttons</description>
                     <include>SideBladeMenuButton</include>
@@ -1267,25 +1264,4 @@
 			</control>
 		</control>
     </include>
-	<include name="CustomMenu_Context_Buttons">
-		<control type="button" id="1994">
-			<label>$LOCALIZE[335] $INFO[System.AddonTitle(script.artwork.beef), ,] </label>
-			<include>SideBladeMenuButton</include>
-			<onclick>RunScript(script.artwork.beef)</onclick>
-		</control>
-		<!-- <control type="button" id="1995">
-			<label>Stop Ab</label>
-			<include>SideBladeMenuButton</include>
-			<onclick>StopScript(script.artwork.beef)</onclick>
-		</control> -->
-		<control type="button" id="1996">
-			<!-- <label>$LOCALIZE[335] The Movie Database (TMDb) ($LOCALIZE[16002])</label> -->
-			<label>Open [B]TMdb VideoInfo[/B] (by Sualfred WIP)</label>
-			<visible>[!String.IsEmpty(Window(home).Property(ListItemImdbnumber)) | !String.IsEmpty(Window(home).Property(ListItemTitle))] + [String.IsEqual(Window(home).Property(ListItemDBType),tvshow) | String.IsEqual(Window(home).Property(ListItemDBType),season) | String.IsEqual(Window(home).Property(ListItemDBType),episode) | String.IsEqual(Window(home).Property(ListItemDBType),movie)]</visible>
-			<include>SideBladeMenuButton</include>
-			<onclick condition="String.IsEqual(Window(home).Property(ListItemDBType),season) | String.IsEqual(Window(home).Property(ListItemDBType),episode)">RunScript(script.embuary.info,call=tv,query=$INFO[Window(home).Property(ListItemTitle)])</onclick>
-			<onclick condition="String.IsEqual(Window(home).Property(ListItemDBType),tvshow)">RunScript(script.embuary.info,call=tv,query=$INFO[Window(home).Property(ListItemTitle)],year=$INFO[Window(home).Property(ListItemYear)],external_id=$INFO[Window(home).Property(ListItemImdbnumber)])</onclick>
-			<onclick condition="String.IsEqual(Window(home).Property(ListItemDBType),movie)">RunScript(script.embuary.info,call=movie,query=$INFO[Window(home).Property(ListItemTitle)],year=$INFO[Window(home).Property(ListItemYear)],external_id=$INFO[Window(home).Property(ListItemImdbnumber)])</onclick>
-		</control>
-	</include>
 </includes>

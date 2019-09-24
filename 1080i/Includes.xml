@@ -122,6 +122,16 @@
         <height>100%</height>
     </include>
     
+	<!-- ![ListItem.IsFolder | ListItem.IsCollection] -->
+	<include name="RespectBool_selectaction">
+		<!-- info -->
+		<onclick condition="String.IsEqual(Window(home).property(myvideos.selectaction),3)">Action(Info)</onclick>
+		<!-- playbale media test no cond -->
+		<onclick condition="!String.IsEqual(Window(home).property(myvideos.selectaction),3) + [String.IsEqual(Window(home).property(myvideos.selectaction),2) | String.IsEqual(Window(home).property(myvideos.selectaction),1)]">PlayMedia($ESCINFO[ListItem.FilenameAndPath],resume)</onclick>
+		<!-- Shows test no cond -->
+		<onclick>ActivateWindow(10025,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
+	</include>
+	
     <!--Dailog Color/Font-->
     <include name="DialogHeader">
         <!--Dialog Header-->

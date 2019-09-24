@@ -9,13 +9,21 @@
 			<include>animation_window_open_close</include>
 			
 			<!-- fixed pos FANART OVERLAY -->
-			<control type="image">
+			<!-- <control type="image">
 				<posx>0</posx>
 				<posy>0</posy>
 				<width>100%</width>
 				<height>100%</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<colordiffuse>802F2F2F</colordiffuse>
+			</control> -->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>100%</width>
+				<height>100%</height>
+				<texture border="15">$VAR[BackgroundOverlayTexture]</texture>
+				<colordiffuse>$VAR[BackgroundOverlayTexture_Colordiffuse]</colordiffuse>
 			</control>
 			
 			<!-- fixed pos  studiologo (option b ) + fileinfo bottom right -->
@@ -691,11 +699,10 @@
 					<param name="id" value="8601" />
 					<param name="width" value="216" />
 					<param name="height" value="324" />
-					<param name="layout" value="PosterPanelLayout" />
+					<param name="layout" value="CastThumb" />
 					<param name="visible" value="Integer.IsGreater(Container(8601).NumItems,0) | Container(8601).IsUpdating" />
 					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8601).NumItems,0) | Container(8601).IsUpdating">Conditional</animation>
-					<include condition="String.IsEqual(Skin.String(castprovider),embuary_helper)">INC_EmbuaryCast</include>
-					<include condition="String.IsEqual(Skin.String(castprovider),skinhelper_service)">INC_SkinHelperCast</include>
+					<content>$VAR[EmbuaryCast]</content>
 				</include>
 				
 				<!-- ITEMS BY CAST ,including current video
@@ -1282,9 +1289,7 @@
 								<scrollspeed>20</scrollspeed>
 							</control>
 						</focusedlayout>
-						
-						<include condition="String.IsEqual(Skin.String(castprovider),embuary_helper)">INC_EmbuaryCast</include>
-						<include condition="String.IsEqual(Skin.String(castprovider),skinhelper_service)">INC_SkinHelperCast</include>
+						<content>$VAR[EmbuaryCast]</content>
 					 </control>
 				
 				<!-- CAST TV SHOW-->
@@ -1358,8 +1363,7 @@
 							<textoffsetx>0</textoffsetx>
 						</control>
 					</focusedlayout>
-					<include condition="String.IsEqual(Skin.String(castprovider),embuary_helper)">INC_EmbuaryCast</include>
-					<include condition="String.IsEqual(Skin.String(castprovider),skinhelper_service)">INC_SkinHelperCast</include>
+					<content>$VAR[EmbuaryCast]</content>
 				</control>
 				
                 <!-- Header (if no logo)-->
@@ -3482,7 +3486,7 @@
 							<onfocus>SetProperty(actordbid,$INFO[ListItem.Property(DBID)],home)</onfocus>
 						</control>
 					</focusedlayout>
-					<content>$VAR[VAR_SkinHelperCast]</content>
+					<content>$VAR[EmbuaryCast]</content>
 				</control>
 
 				<!-- cast info details -->
@@ -3873,12 +3877,6 @@
 	   <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))">$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),[B],[/B]]</value>
 	</variable>
 	
-	<include name="INC_EmbuaryCast">
-		<content>$VAR[VAR_EmbuaryCast]</content>
-	</include>
-	<include name="INC_SkinHelperCast">
-		<content>$VAR[VAR_SkinHelperCast]</content>
-	</include>
 	<include name="VideoInfo_CastAction">
 		<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search) + !String.IsEmpty(Skin.String(SearchTerm))">Skin.Reset(SearchTerm)</onclick>
 		<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Dialog.Close(movieinformation,true)</onclick>

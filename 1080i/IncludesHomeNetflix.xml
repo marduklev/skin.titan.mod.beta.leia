@@ -381,19 +381,17 @@
 			
 			<!-- SPOTLIGHT AREA INFOS (left) -->
 			<control type="group">
-				<left>0</left>
+				<left>130</left>
 				<width>1820</width>
-				<height>600</height>
-				<top>0</top>
+				
 				<visible>!Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
 				<!-- INFOS -->
 				<control type="grouplist">
 					<animation time="300" effect="slide" end="0,120" reversible="true" easing="inout" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">Conditional</animation>
 					
-					<width>60%</width>
+					<width>850</width>
 					<height>650</height>
-					<left>125</left>
-					<top>0</top>
+					<top>10</top>
 					<bottom>10</bottom>
 					<orientation>vertical</orientation>
 					<itemgap>10</itemgap>
@@ -403,8 +401,8 @@
 					<control type="image" id="1601">
 						<!-- <visible>!String.IsEmpty(Control.GetLabel(1601))</visible> -->
 						<visible>!String.IsEmpty(Control.GetLabel(1601)) + String.IsEmpty(Window(Home).Property(SpotlightTrailerPlaying))</visible>
-					
-						<height>235</height>
+						<height>245</height>
+						<bordersize>10</bordersize>
 						<aspectratio align="left" aligny="top">keep</aspectratio>
 						<texture background="true">$VAR[ListItemClearLogo]</texture>
 					</control>
@@ -421,7 +419,6 @@
 						<aligny>bottom</aligny>
 						 <textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
 						<label>$VAR[HomeMenuWidgetInfoLabel]</label>
-						
 					</control>
 					
 					<!-- detail 1 row Home -->
@@ -432,6 +429,20 @@
 						<include>SpotlightRowDetails</include>
 						<visible>String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
 					</control>
+					<!-- subtitle: MOTTO for Movies-->
+					<!-- <control type="label">
+						<top>-8</top>
+						<height>50</height>
+						<width>700</width>
+						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_DetailRow</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Def_DetailRow</include>
+						<align>left</align>
+						<aligny>center</aligny>
+						<wrapmultiline>true</wrapmultiline>
+						<textcolor>$INFO[Skin.String(ViewNetfixHighlightTextColor)]</textcolor>
+						<label>$INFO[ListItem.TagLine,[B][I],[/B][/I]]</label>
+						<visible>!String.IsEmpty(ListItem.TagLine)</visible>
+					</control> -->
 					<!-- detail 1 spacer for spotlight buttons  Home -->
 					<control type="group">
 						<height>120</height>
@@ -526,8 +537,13 @@
 						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>
 					</control>
 					<!-- decide to use random info (cast,genre,director,nominations sometime -->
-					<control type="group">
+					<control type="grouplist">
 						<visible>String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
+						<height>60</height>
+						<orientation>horizontal</orientation>
+						<itemgap>10</itemgap>
+						<usecontrolcoords>true</usecontrolcoords>
+						<align>left</align>
 						<include>Netflix_Genre</include>
 					</control>
 				</control>
@@ -535,7 +551,7 @@
 				<!-- media flags -->
                 <control type="group">
 					<animation time="1200" effect="slide" end="0,150" reversible="false" easing="inout" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))">Conditional</animation>
-					<posx>130</posx>
+					<posx>10</posx>
 					<height>52</height>
                     <top>620</top>
                     <include>mediaflags</include>
@@ -543,8 +559,8 @@
 				</control>
 				<!-- ratings & studio -->
                 <control type="group">
-                    <right>-100</right>
-                    <top>535</top>
+                    <right>60</right>
+                    <top>520</top>
                     <height>150</height>
                     <width>1000</width>
                     <include>AltRatingFooter</include>
@@ -621,8 +637,8 @@
 					<onclick>SetFocus(77777)</onclick>
 					<onclick>SetProperty(SpotlightTrailerPlaying,home)</onclick>
 					<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onclick>
-					<onclick condition="[!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(home).Property(trailer_avail))]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-					<onclick condition="[[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>
+					<onclick condition="String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+					<onclick condition="!String.IsEmpty(Window(home).Property(ForceOnlineTrailer))">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onclick>
 				
 				</control>
 			
@@ -672,8 +688,10 @@
 					<onfocus condition="[[String.IsEmpty(Window(home).Property(trailer_avail)) + String.IsEmpty(ListItem.Trailer)] | ListItem.IsCollection | String.Contains(ListItem.Path,http)]">RunScript(script.skin.helper.service,action=playtraileryoutube,mode=windowed,title=$INFO[ListItem.Title],local=true)</onfocus>
 				</control> -->
 			</control>
+			
 			<!-- STANDARD widgets -->
             <control type="grouplist" id="77777">
+				<description>shortcuts templates need overhaul, may not worth it, use seperate containers instead of whole group</description>
 				<!-- temp solution ,till widgetid header pos fixed/changed-->
 				<animation effect="slide" start="0" end="0,170" time="1200" condition="!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons)) + String.EndsWith(Window(Home).Property(widgetstyle),netflixspotlight)" reversible="false">Conditional</animation>
 				
@@ -681,10 +699,10 @@
 					<param name="top" value="100"/>
 					<param name="bottom" value="100"/>
 				</include>
-                <include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)">NetFlixHome_WidgetPos</include>
+                <include content="NetFlixHome_WidgetPos" condition="!Skin.HasSetting(NetflixHomeDisableFirstRow)" />
                 
 				<left>120</left>
-				<width>1750</width>
+				<width>1800</width>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="cubic" easing="in">300</scrolltime>
@@ -1034,7 +1052,7 @@
 
     <!-- Disabled Spotlight Widgets Height ,check, need also include for disabled header on home -->
     <include name="NetFlixHome_WidgetPos">
-		<param name="top" default="650" />
+		<param name="top" default="660" />
 		<param name="bottom" default="5" />
 		<definition>
 			<top>$PARAM[top]</top>

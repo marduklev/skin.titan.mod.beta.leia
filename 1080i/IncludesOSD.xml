@@ -2331,7 +2331,7 @@
 					<font>Light24</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>dimgray</shadowcolor>
-					<label>$VAR[premiered_or_year]$INFO[VideoPlayer.Mpaa, | ,]$INFO[PVR.EpgEventDuration(mins), | ,min]</label>
+					<label>$VAR[premiered_or_year]$INFO[VideoPlayer.Mpaa, | ,]$VAR[duration_episode_pvr]</label>
 					<visible>!VideoPlayer.Content(movies)</visible>
 					<scroll>false</scroll>
 				</control>
@@ -2440,7 +2440,7 @@
 	<variable name="OSDLabel4">   <!-- added for specific MUSIC INFO , ALBUM NAME YEAR GENRE  -->
 	    <value condition="Player.HasAudio + RDS.HasRds + String.IsEmpty(RDS.ProgStyle)">RDS-Info: $INFO[RDS.GetLine(0)][CR]******</value>
 		<value condition="Player.HasAudio + RDS.HasRds + !String.IsEmpty(RDS.ProgStyle)">RDS-Info: $INFO[RDS.GetLine(0)][CR]Genre: $INFO[RDS.ProgStyle]</value>
-        <value condition="Player.HasAudio + !Pvr.IsPlayingRadio">Album: $INFO[MusicPlayer.Album] ($INFO[MusicPlayer.Year])[CR]Genre: $INFO[MusicPlayer.Genre]</value>
+        <value condition="Player.HasAudio + !Pvr.IsPlayingRadio">$VAR[OSDmusicinfo]</value>
 		<value condition="Player.HasAudio + Pvr.IsPlayingRadio + !RDS.HasRds"> [CR] </value>
 		<value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.ChannelName)">$INFO[MusicPlayer.ChannelName]</value>
         <value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.ChannelName) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName))">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
@@ -2476,8 +2476,13 @@
 	</variable>
 	
 	<variable name="premiered_or_year">
-		<value condition="VideoPlayer.Content(Movies)">$INFO[VideoPlayer.Premiered]</value>
+		<value condition="VideoPlayer.Content(Movies) | VideoPlayer.Content(Episodes)">$INFO[VideoPlayer.Premiered]</value>
 		<value>$INFO[VideoPlayer.year]</value>
+	</variable>
+	
+	<variable name="duration_episode_pvr">
+		<value condition="VideoPlayer.Content(LiveTV)">$INFO[PVR.EpgEventDuration(mins), | ,min]</value>
+		<value>$INFO[VideoPlayer.Duration(mins), | ,min]</value>
 	</variable>
      
      <variable name="PlayerActionLabel">

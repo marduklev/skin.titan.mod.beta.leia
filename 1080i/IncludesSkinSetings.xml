@@ -1152,15 +1152,7 @@
                 <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
 				<visible>Skin.HasSetting(UseNetflixInfoDialog)</visible>
             </control>
-			<!-- optional cast provider kodi default, or embuary -->
-			<!-- actor list behaviour in videoinfo 	-->
-            <control type="button" id="31690">
-                <include>SkinSettings_Button</include>
-                <label>choose cast provider</label>
-                <label2>$INFO[Skin.String(castprovider.label)]</label2>
-                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=castprovider,header=CAST PROVIDER)</onclick>
-            </control>
-            <!-- actor list behaviour in videoinfo -->
+			<!-- actor list behaviour in videoinfo -->
             <control type="button" id="31689">
                 <include>SkinSettings_Button</include>
                 <label>31689</label>

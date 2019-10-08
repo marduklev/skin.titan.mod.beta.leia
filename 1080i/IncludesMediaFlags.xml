@@ -773,7 +773,7 @@
 					<width>80</width>
 					<right>0</right>
 					<textcolor>$VAR[mediaFlagsFontColor]</textcolor>
-					<label>$INFO[ListItem.Rating]$INFO[Window(Home).Property(ListItem.Rating)]</label>
+					<label>$VAR[rating_value_label]</label>
                 	<align>center</align>
 					<aligny>center</aligny>
 					<height>36</height>
@@ -1753,7 +1753,7 @@
         <value condition="String.Contains(ListItem.Property(esrb),Adult)">A</value>
         <value condition="!String.IsEmpty(ListItem.Property(esrb))">$INFO[ListItem.Property(esrb)]</value>
         <!-- fallback -->
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) + !String.Contains(Window(Home).Property(SkinHelper.ListItem.MPAA),not rated)">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
+        <!-- value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) + !String.Contains(Window(Home).Property(SkinHelper.ListItem.MPAA),not rated)">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value -->
 		<value condition="[String.IsEqual(ListItem.DBTYPE,movie) | 
 				String.IsEqual(ListItem.Property(DBTYPE),movie) | 
 				String.IsEqual(Window(Home).Property(ListItem.DBTYPE,movie)) | 

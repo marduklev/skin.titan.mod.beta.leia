@@ -9,8 +9,7 @@
 			<include>animation_window_open_close</include>
             
             <!-- widgets -->
-            <include condition="!Skin.HasSetting(DisableAllWidgets) + !String.Contains(Skin.String(HomeLayout),3)">HorizontalWidgets</include>
-    
+            <include condition="!Skin.HasSetting(DisableAllWidgets) + !String.Contains(Skin.String(HomeLayout),3) + !String.IsEqual(Skin.String(HomeLayout),2)">HorizontalWidgets</include> 
             <!-- mainmenu -->
             <include condition="[!Skin.HasSetting(UseFixedHomeFocus) + [Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 1small)]] | Skin.String(HomeLayout, 2) | Skin.String(HomeLayout, 3) | Skin.String(HomeLayout, 2small) | Skin.String(HomeLayout, 3small)">HomeTitanTilesNormal</include>
             <include condition="Skin.HasSetting(UseFixedHomeFocus) + [Skin.String(HomeLayout, 1) | Skin.String(HomeLayout, 1small)]">HomeTitanTilesFixedFocus</include>
@@ -238,6 +237,7 @@
         <height>325</height>
         <bottom>110</bottom>
 		<focusposition>1</focusposition>
+		<animation effect="slide" delay="0" start="0" end="0,40" time="0" condition="!Skin.HasSetting(HideHomeTileIndicators)">Conditional</animation>
     </include>
     <include name="TitanTiles_2Row">
         <height>605</height>
@@ -253,12 +253,14 @@
 		<focusposition>2</focusposition>
         <posx>60</posx>
         <width>1825</width>
+		<animation effect="slide" delay="0" start="0" end="0,-40" time="0" condition="Skin.HasSetting(HideHomeTileIndicators)">Conditional</animation>
     </include>
     <include name="TitanTiles_2RowSmall">
         <height>454</height>
-        <bottom>125</bottom>
+        <bottom>90</bottom>
         <posx>60</posx>
         <width>1825</width>
+		<animation effect="slide" delay="0" start="0" end="0,40" time="0" condition="!Skin.HasSetting(HideHomeTileIndicators)">Conditional</animation>
     </include>
 	<include name="TitanTiles_3RowSmall">
 		<orientation>vertical</orientation>

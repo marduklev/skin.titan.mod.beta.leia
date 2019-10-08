@@ -1026,14 +1026,14 @@
 			<width>1000</width>
 			<height>40</height>
 			<top>0</top>
-			<left>0</left>
+			<left>10</left>
 			<visible>$PARAM[visible]</visible>
 			<control type="label">
 				<left>-10</left>
 				<width>250</width>
 				<height>40</height>
 				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
 				<align>right</align>
 				<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 				<label>$PARAM[Info]</label>
@@ -1050,7 +1050,7 @@
 				<width>730</width>
 				<height>40</height>
 				<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
+				<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot</include>				<aligny>center</aligny>
 				<align>left</align>
 				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 				<label>$PARAM[InfoLabel]</label>
@@ -1063,7 +1063,7 @@
 			<width>1000</width>
 			<height>40</height>
 			<top>0</top>
-			<left>0</left>
+			<left>10</left>
 			<visible>$PARAM[visible]</visible>
 			<control type="label">
 				<left>-10</left>

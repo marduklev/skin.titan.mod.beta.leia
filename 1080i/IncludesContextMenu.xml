@@ -444,24 +444,23 @@
 			<selected>[Control.IsVisible(501) + Skin.HasSetting(View_501_HorizontalNavigation)] | [Control.IsVisible(525) + Skin.HasSetting(View525_UseFixedLayout)]</selected>
 		</control>
 		<control type="radiobutton" id="3020">
-			<!--Show tags -->
 			<include>SideBladeMenuButton</include>
 			<label>20459</label>
-            <onclick condition="Control.IsVisible(52)">Skin.ToggleSetting(View52_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(53)">Skin.ToggleSetting(View53_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(54)">Skin.ToggleSetting(View54_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(57)">Skin.ToggleSetting(View57_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(59)">Skin.ToggleSetting(View59_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(501)">Skin.ToggleSetting(View501_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(502)">Skin.ToggleSetting(View502_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(505)">Skin.ToggleSetting(View505_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(509)">Skin.ToggleSetting(View509_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(510)">Skin.ToggleSetting(View510_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(511)">Skin.ToggleSetting(View511_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(512)">Skin.ToggleSetting(View512_ShowTags)</onclick><!-- tags done -->
+            <onclick condition="Control.IsVisible(52)">Skin.ToggleSetting(View52_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(53)">Skin.ToggleSetting(View53_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(54)">Skin.ToggleSetting(View54_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(57)">Skin.ToggleSetting(View57_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(59)">Skin.ToggleSetting(View59_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(501)">Skin.ToggleSetting(View501_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(502)">Skin.ToggleSetting(View502_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(505)">Skin.ToggleSetting(View505_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(509)">Skin.ToggleSetting(View509_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(510)">Skin.ToggleSetting(View510_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(511)">Skin.ToggleSetting(View511_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(512)">Skin.ToggleSetting(View512_ShowTags)</onclick>
             <onclick condition="Control.IsVisible(514)">Skin.ToggleSetting(View514_ShowTags)</onclick>
-            <onclick condition="Control.IsVisible(519)">Skin.ToggleSetting(View519_ShowTags)</onclick><!-- tags done -->
-            <onclick condition="Control.IsVisible(520)">Skin.ToggleSetting(View520_ShowTags)</onclick><!-- tags done -->
+            <onclick condition="Control.IsVisible(519)">Skin.ToggleSetting(View519_ShowTags)</onclick>
+            <onclick condition="Control.IsVisible(520)">Skin.ToggleSetting(View520_ShowTags)</onclick>
 			<selected>
 			[Control.IsVisible(52) + Skin.HasSetting(View52_ShowTags)] |
 			[Control.IsVisible(53) + Skin.HasSetting(View53_ShowTags)] |
@@ -469,6 +468,7 @@
 			[Control.IsVisible(57) + Skin.HasSetting(View57_ShowTags)] |
 			[Control.IsVisible(59) + Skin.HasSetting(View59_ShowTags)] |
 			[Control.IsVisible(501) + Skin.HasSetting(View501_ShowTags)] |
+			[Control.IsVisible(502) + Skin.HasSetting(View502_ShowTags)] |
 			[Control.IsVisible(505) + Skin.HasSetting(View505_ShowTags)] |
 			[Control.IsVisible(509) + Skin.HasSetting(View509_ShowTags)] |
 			[Control.IsVisible(510) + Skin.HasSetting(View510_ShowTags)] |

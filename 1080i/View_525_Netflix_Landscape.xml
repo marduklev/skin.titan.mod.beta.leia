@@ -364,6 +364,7 @@
 					<param name="colordiffuse" value="none" />
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
+				<include content="EpisodeNumOverlay" />
 				<animation effect="fade" start="100" end="20" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>
 			</control> 
         </itemlayout>
@@ -378,6 +379,7 @@
 					<param name="colordiffuse" value="none" />
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
+				<include content="EpisodeNumOverlay" />
 			</control>
 		</focusedlayout>
 		<!-- fixed -->
@@ -389,6 +391,7 @@
 					<param name="colordiffuse" value="none" />
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
+				<include content="EpisodeNumOverlay" />
 				<animation effect="fade" start="100" end="20" delay="200" time="1200" pulse="false" condition="Player.HasVideo">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,310" delay="100" time="1000" pulse="false" condition="Player.HasVideo + Skin.HasSetting(ShowCastOnTrailer)">Conditional</animation>
 			</control>
@@ -404,6 +407,7 @@
 					<param name="colordiffuse" value="none" />
 					<param name="border" value="thumbsborder_unfocused" />
 				</include>
+				<include content="EpisodeNumOverlay" />
 			</control>
 		</focusedlayout>
 	</include>
@@ -428,5 +432,27 @@
 			<width>$PARAM[width]</width>
 		</definition>
     </include>
-	
+	<include name="EpisodeNumOverlay">
+		<control type="group">
+			<visible>$EXP[IsEpisode]</visible>
+			<bottom>20</bottom>
+			<right>15</right>
+			<width>30</width>
+			<height>30</height>
+			 <control type="image">
+				<texture colordiffuse="$INFO[Skin.String(WatchedIndicator.Episodes.Color)]">diffuse/roundmask.png</texture>
+				<bordersize>1</bordersize>
+				<bordertexture colordiffuse="ff101010">diffuse/roundmask.png</bordertexture>
+			</control>
+			<control type="label">
+				<top>3</top>
+				<label>[B]$INFO[ListItem.Episode][/B]</label>
+				<font>Reg16</font>
+				<font>Reg18</font>
+				<aligny>top</aligny>
+				<align>center</align>
+				<textcolor>$INFO[Skin.String(WatchedIndicator.Episodes.TextColor)]</textcolor>
+			</control>
+		</control> 
+	</include>
 </includes>

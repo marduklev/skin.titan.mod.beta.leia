@@ -669,7 +669,7 @@ Container(id).ListItem(offset).Thumb
 	<!-- itemlayout -->
 	<include name="Tag_NF">
 		<control type="textbox">
-			<visible>!$EXP[NetflixHomeIsVisible]</visible>
+			
 			<width>$PARAM[tagwidth]</width>
 			<top>$PARAM[tagtop]</top>
 			<left>5</left>
@@ -686,7 +686,7 @@ Container(id).ListItem(offset).Thumb
 	<!-- focusedlayout -->
 	<include name="Tag_FO">
 		<control type="textbox">
-			<visible>!$EXP[NetflixHomeIsVisible]</visible>
+			
 			<width>$PARAM[tagwidth]</width>
 			<top>$PARAM[tagtop]</top>
 			<height>52</height>

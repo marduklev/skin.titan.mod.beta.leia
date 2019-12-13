@@ -589,10 +589,10 @@
     </variable>
     
     <variable name="ListTitlePVR">
-	<value condition="!String.IsEmpty(ListItem.EpisodeName)">$INFO[ListItem.EpisodeName]</value>
+		<value condition="!String.IsEmpty(ListItem.EpisodeName)">$INFO[ListItem.EpisodeName]</value>
         <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
         <value condition="!String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
-	<value condition="!String.IsEmpty(Container(510).ListItem.EpisodeName)">$INFO[Container(510).ListItem.EpisodeName]</value>
+		<value condition="!String.IsEmpty(Container(510).ListItem.EpisodeName)">$INFO[Container(510).ListItem.EpisodeName]</value>
         <value condition="!String.IsEmpty(Container(510).ListItem.Title)">$INFO[Container(510).ListItem.Title]</value>
         <value condition="!String.IsEmpty(Container(510).ListItem.Label)">$INFO[Container(510).ListItem.Label]</value>
     </variable>

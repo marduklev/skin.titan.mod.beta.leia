@@ -472,6 +472,7 @@
 	<variable name="SearchInfoHeader_Title">
 		<value condition="Control.HasFocus(5009)">$INFO[ListItem.Label,[B],[/B]]</value>
 		<value condition="String.IsEqual(ListItem.DBType,musicvideo)">$INFO[ListItem.Artist,[B],[/B]]$INFO[ListItem.Title,  [B]•  ,[/B]]</value>
+		<value condition="String.IsEqual(ListItem.DBType,song)">$INFO[ListItem.Artist,[B],[/B]]$INFO[ListItem.Title,  [B]•  ,[/B]]</value>
 		<value condition="String.IsEqual(ListItem.DBType,episode)">$INFO[ListItem.TvShowTitle,[B],  |  [/B]]$INFO[ListItem.Season,[B]$LOCALIZE[20373]  , • [/B]]$INFO[ListItem.Episode, [B]$LOCALIZE[20359]  , • [/B]]$INFO[ListItem.Title,[B],[/B]]</value>
 		<value condition="Control.HasFocus(5007)">$INFO[ListItem.Genre, &quot; , &quot;   |  ]$INFO[ListItem.Label,[B],[/B]]</value>
 		<value condition="Control.HasFocus(5011)">$INFO[ListItem.Studio, &quot; , &quot;   |  ]$INFO[ListItem.Label,[B],[/B]]</value>

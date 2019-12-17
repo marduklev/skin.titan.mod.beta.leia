@@ -278,6 +278,8 @@
         <onload condition="!Skin.String(NetflixSecondaryTextColor.name)">Skin.SetString(NetflixSecondaryTextColor.name,dimgray)</onload>
 		<onload condition="!Skin.String(ViewNetfixHighlightTextColor)">Skin.SetString(ViewNetfixHighlightTextColor,red)</onload>
         <onload condition="!Skin.String(ViewNetfixHighlightTextColor.name)">Skin.SetString(ViewNetfixHighlightTextColor.name,red)</onload>
+		<onload condition="!Skin.String(ViewNetfixSecondaryHighlightTextColor)">Skin.SetString(ViewNetfixSecondaryHighlightTextColor,FF00FFFF)</onload>
+        <onload condition="!Skin.String(ViewNetfixSecondaryHighlightTextColor.name)">Skin.SetString(ViewNetfixSecondaryHighlightTextColor.name,cyan)</onload>
 		<onload condition="!Skin.String(NetflixDetailsFlagColor)">Skin.SetString(NetflixDetailsFlagColor, ffefefef)</onload>
         <onload condition="!Skin.String(NetflixDetailsFlagColor.name)">Skin.SetString(NetflixDetailsFlagColor.name, LightGray)</onload>
 		<onload condition="!Skin.String(RatingsLogoColor)">Skin.SetString(RatingsLogoColor,befed699)</onload>

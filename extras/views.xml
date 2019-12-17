@@ -37,5 +37,6 @@
 	<view id="Netflix" value="523" languageid="31018" type="!episodes,all" />
 	<view id="Netflix Landscape" value="525" languageid="31918" type="all" />
 	<view id="Wide Netflix" value="526" languageid="31827" type="seasons,addons" />
-	<view id="TSE" value="527" languageid="31901" type="tvshows" />	
+	<view id="TSE" value="527" languageid="31901" type="tvshows" />
+	<view id="Netflix Info" value="529" languageid="31902" type="seasons" />	
 </views>

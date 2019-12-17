@@ -54,6 +54,7 @@
 	<include file="View_526_Wide_Netflix.xml" />
 	<include file="View_527_TSE.xml" />
 	<include file="View_528_Circle.xml" />
+	<include file="View_529_NetflixSeasons.xml" />
 	<include file="IncludesViews.xml" />
     <include file="IncludesMediaFlags.xml" />
     <include file="Includes_Layouts.xml" />

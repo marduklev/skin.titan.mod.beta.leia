@@ -11,6 +11,7 @@
 				  Window.IsActive(3017) | Window.IsActive(3018) | 
 				 Control.IsVisible(523) | 
 				 Control.IsVisible(525) | 
+				 Control.IsVisible(529) | 
 				[Control.IsVisible(526) + Skin.HasSetting(View526_DisableFanArt)] |
 				[Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]]
 			</expression>

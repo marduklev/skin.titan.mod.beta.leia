@@ -1866,7 +1866,7 @@ msgstr "Meine Liste"
 
 msgctxt "#31535"
 msgid "Continue watching"
-msgstr "Anschauen fortsetzen"
+msgstr "Weiterschauen"
 
 msgctxt "#31536"
 msgid "Netflix movies"
@@ -2743,3 +2743,9 @@ msgstr "Neu"
 msgctxt "#31901"
 msgid "3 in 1"
 msgstr "3 in 1"
+
+msgctxt "#31902"
+msgid "Netflix Info"
+msgstr "Netflix Info"
+
+

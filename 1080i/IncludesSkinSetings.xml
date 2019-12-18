@@ -1478,11 +1478,16 @@
             <param name="label" value="$LOCALIZE[31831]" />
             <param name="skinsetting" value="NetflixSecondaryTextColor" />
         </include>
-		<!--Netflix Highlight Text Color-->
+		<!--Netflix Highlight Text Color - Ratings -->
         <include content="SkinSettings_ColorButton">
             <param name="id" value="31840" />
             <param name="label" value="$LOCALIZE[31018] Highlight Color" />
             <param name="skinsetting" value="ViewNetfixHighlightTextColor" />
+        </include>
+		<include content="SkinSettings_ColorButton">
+            <param name="id" value="31822" />
+            <param name="label" value="$LOCALIZE[31018] Secondary Highlight Color" />
+            <param name="skinsetting" value="ViewNetfixSecondaryHighlightTextColor" />
         </include>
 		<!-- Netflix Details Flag Color -->
         <include content="SkinSettings_ColorButton">

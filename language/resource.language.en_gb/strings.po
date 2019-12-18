@@ -3027,3 +3027,7 @@ msgstr "Netflix Landscape"
 msgctxt "#31902"
 msgid "Netflix Info"
 msgstr "Netflix Info"
+
+msgctt "#31920"
+msgid "Use Alternate Episode Name Variable"
+msgstr ""

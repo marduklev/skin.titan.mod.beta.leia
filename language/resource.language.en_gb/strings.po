@@ -3028,6 +3028,6 @@ msgctxt "#31902"
 msgid "Netflix Info"
 msgstr "Netflix Info"
 
-msgctt "#31920"
+msgctxt "#31920"
 msgid "Use alternate episode name (Tvheadend)"
 msgstr ""

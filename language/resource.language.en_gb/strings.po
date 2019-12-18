@@ -3029,5 +3029,5 @@ msgid "Netflix Info"
 msgstr "Netflix Info"
 
 msgctt "#31920"
-msgid "Use Alternate Episode Name Variable"
+msgid "Use alternate episode name (Tvheadend)"
 msgstr ""

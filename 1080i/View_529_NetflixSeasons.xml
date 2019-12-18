@@ -32,7 +32,7 @@
 					<description>Dimmed Fanart BG</description>
 					<visible>!Control.HasFocus(529001)</visible>
 					<fadetime>350</fadetime>
-					<texture background="true" diffuse="colors/color_trans_20.png">$VAR[netflixThumb]</texture>
+					<texture background="true" diffuse="colors/color_trans_10.png">$VAR[netflixThumb]</texture>
 					<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
 					<animation effect="slide" start="0,1080" end="0,0" tween="quadratic" easing="in" time="400">VisibleChange</animation>
 				</control>
@@ -129,25 +129,25 @@
 						<top>740</top>
 						<left>680</left>
 						<width>40%</width>
-						<font>flags</font>
+						<font>Light22</font>
 						<height>30</height>
 						<align>left</align>
 						<aligny>top</aligny>
 						<autoscroll>false</autoscroll>
 						<textcolor>$INFO[Skin.String(ViewNetfixSecondaryHighlightTextColor)]</textcolor>
-						<label>$INFO[Container(529004).ListItem().Duration(m),, $LOCALIZE[12391]]</label>
+						<label>$INFO[Container(529004).ListItem().Duration(m),[B], $LOCALIZE[12391][/B]]</label>
 					</control>
 					<control type="textbox">
 						<top>740</top>
 						<left>680</left>
 						<width>40%</width>
-						<font>flags</font>
+						<font>Light22</font>
 						<height>30</height>
 						<align>right</align>
 						<aligny>top</aligny>
 						<autoscroll>false</autoscroll>
 						<textcolor>$INFO[Skin.String(ViewNetfixSecondaryHighlightTextColor)]</textcolor>
-						<info>Container(529004).ListItem.Premiered</info>
+						<label>$INFO[Container(529004).ListItem.Premiered,[B],[/B]]</label>
 					</control>
 					
 					<control type="panel" id="529004">
@@ -404,7 +404,7 @@
 							</control>
 							<control type="label">
 								<animation effect="fade" end="70" condition="true">conditional</animation>
-								<width>100%</width>
+								<width>425</width>
 								<top>40</top>
 								<left>425</left>
 								<right>50</right>
@@ -466,7 +466,7 @@
 								</control>
 							</control>
 							<control type="label">
-								<width>100%</width>
+								<width>425</width>
 								<top>40</top>
 								<left>425</left>
 								<right>50</right>
@@ -686,21 +686,21 @@
 					</include>
 					
 					<control type="panel" id="5290071">
-					<top>305</top>
-					<left>10</left>
-					<height>500</height>
-					<width>1920</width>
-					<onleft>9000</onleft>
-					<onup condition="Control.IsVisible(5290063)">5290063</onup>
-					<onup condition="Control.IsVisible(5290062)">5290062</onup>
-					<onup condition="![Control.IsVisible(5290062) + Control.IsVisible(5290063)]">529006</onup>
-					<include content="weird_onback" />
-					<ondown>529001</ondown>
-					<preloaditems>2</preloaditems>
-					<orientation>horizontal</orientation>
-					<scrolltime tween="quadratic">400</scrolltime>
-					
-					<itemlayout height="250" width="440">
+						<top>305</top>
+						<left>10</left>
+						<height>500</height>
+						<width>1920</width>
+						<onleft>9000</onleft>
+						<onup condition="Control.IsVisible(5290063)">5290063</onup>
+						<onup condition="Control.IsVisible(5290062)">5290062</onup>
+						<onup condition="![Control.IsVisible(5290062) + Control.IsVisible(5290063)]">529006</onup>
+						<include content="weird_onback" />
+						<ondown>529001</ondown>
+						<preloaditems>2</preloaditems>
+						<orientation>horizontal</orientation>
+						<scrolltime tween="quadratic">400</scrolltime>
+						
+						<itemlayout height="250" width="440">
 							<control type="group">
 								<width>432</width>
 								<height>243</height>
@@ -843,7 +843,7 @@
 					<visible>Control.HasFocus(529004)</visible>
 					<height>40</height>
 					<width>auto</width>
-					<label>$INFO[Container(529004).ListItem.Season, $LOCALIZE[36904] ,]$INFO[Container(529004).ListItem.Episode, | $LOCALIZE[36906] ,]</label>
+					<label>$INFO[Container(529004).ListItem.Season, $LOCALIZE[20373] ,]$INFO[Container(529004).ListItem.Episode,  [B]|[/B]  $LOCALIZE[20359] ,]</label>
 					<aligny>center</aligny>
 					<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 					<font>Light34</font>
@@ -1113,11 +1113,7 @@
 		<value condition="!String.IsEmpty(Container(5055).ListItem.Property(TotalSeasons))">$LOCALIZE[33054]</value>
 	</variable>
 	<include name="weird_onback">
-		<onback>SetFocus(5000)</onback>
-		<onright condition="!Control.IsVisible(529)">SetFocus(5000)</onright>
-		<onleft condition="!Control.IsVisible(529)">SetFocus(5000)</onleft>
-		<onup condition="!Control.IsVisible(529)">SetFocus(5000)</onup>
-		<ondown condition="!Control.IsVisible(529)">SetFocus(5000)</ondown>
+		<onback>SetFocus(878678)</onback>
 	</include>
 						
 </includes>

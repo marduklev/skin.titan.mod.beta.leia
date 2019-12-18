@@ -88,7 +88,7 @@
             <align>right</align>
             <font>Light34</font>
             <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
-            <label>T i t a n - M O D (BETA) - 18.1.13~ceta</label>
+            <label>T i t a n - M O D - 18.1.15</label>
 		</control>
     </include>
 

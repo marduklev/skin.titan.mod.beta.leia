@@ -25,6 +25,16 @@
 			<content limit="1">$VAR[container_content_getdbid_1]</content>
 		</control>
 		
+		<control type="button" id="878678">
+			<description>Let Focus Gain List if id is uncleared</description>
+			<include>DimensionsFullscreen</include>
+			<texturefocus />
+			<texturenofocus />
+			<label />
+			<font />
+			<onfocus>SetFocus(50)</onfocus>
+		</control>
+		
 		<include>allViews</include>
 		
         <!--Sub Menu Tab Left-->

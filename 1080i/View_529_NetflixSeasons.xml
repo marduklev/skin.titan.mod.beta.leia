@@ -15,12 +15,12 @@
 			currently cleared trough skinhelperservice
 			-->
 			<control type="group">
-				<visible>!Skin.HasSetting(View33_DisableFanArt)</visible>
+				<visible>!Skin.HasSetting(View529_DisableFanArt)</visible>
 				
 				<control type="image">
 					<description>Dimmed Fanart BG</description>
-					<visible>!Control.HasFocus(33001)</visible>
-					<visible>Skin.HasSetting(View33_EnableBottomPanel)</visible>
+					<visible>!Control.HasFocus(529001)</visible>
+					<visible>Skin.HasSetting(View529_EnableBottomPanel)</visible>
 					<fadetime>350</fadetime>
 					<bordersize>0,0,0,418</bordersize>
 					<texture background="true" diffuse="colors/color_trans_20.png">$VAR[netflixThumb]</texture>
@@ -28,9 +28,9 @@
 					<animation effect="slide" start="0,1080" end="0,0" tween="quadratic" easing="in" time="400">VisibleChange</animation>
 				</control>
 				<control type="image">
-					<visible>!Skin.HasSetting(View33_EnableBottomPanel)</visible>
+					<visible>!Skin.HasSetting(View529_EnableBottomPanel)</visible>
 					<description>Dimmed Fanart BG</description>
-					<visible>!Control.HasFocus(33001)</visible>
+					<visible>!Control.HasFocus(529001)</visible>
 					<fadetime>350</fadetime>
 					<texture background="true" diffuse="colors/color_trans_10.png">$VAR[netflixThumb]</texture>
 					<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
@@ -38,20 +38,20 @@
 				</control>
 			</control>
 			
-			<control type="grouplist" id="33000">
+			<control type="grouplist" id="529000">
 				<visible>Container.Content(seasons)</visible>
 				<animation reversible="true" time="300" effect="fade" start="100" end="0" condition="String.IsEqual(Window(Home).Property(TrailerPlaying),true)">Conditional</animation>
 				<width>100%</width>
 				<height>100%</height>
 				<top>110</top>
-				<onup>33000</onup>
-				<ondown>33000</ondown>
+				<onup>529000</onup>
+				<ondown>529000</ondown>
 				<scrolltime tween="quadratic" easing="in">400</scrolltime>
 				<itemgap>0</itemgap>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				
-				<control type="button" id="33001">
+				<control type="button" id="529001">
 					<texturefocus />
 					<texturenofocus />
 					<onfocus>RunScript(script.embuary.helper,action=lookforfile,file='"$INFO[listitem.path]$INFO[listitem.FolderName,,-trailer.mp4]"',prop=trailer_avail)</onfocus>
@@ -61,34 +61,34 @@
 					<include content="weird_onback" />
 				</control>
 			
-				<control type="group" id="33002">
+				<control type="group" id="529002">
 					<description>PAGE 1 INFO</description>
 					<height>970</height>
 					<include content="DefArtwork">
 						<right>0</right>
 						<param name="diffuse" value="test/Spotlight_left_diffuse.png" />
-						<param name="visible" value="!Skin.HasSetting(View33_FanartLeftAlignment)" />
+						<param name="visible" value="!Skin.HasSetting(View529_FanartLeftAlignment)" />
 					</include>
 					<include content="DefArtwork">
 						<left>0</left>
 						<param name="diffuse" value="test/Spotlight_right_diffuse.png" />
-						<param name="visible" value="Skin.HasSetting(View33_FanartLeftAlignment)" />
+						<param name="visible" value="Skin.HasSetting(View529_FanartLeftAlignment)" />
 					</include>
 					<control type="textbox">
 						<right>60</right>
 						<align>right</align>
-						<visible>Skin.HasSetting(View33_FanartLeftAlignment)</visible>
+						<visible>Skin.HasSetting(View529_FanartLeftAlignment)</visible>
 						<include content="Plot_Shift" />
 					</control>
 					<control type="textbox">
 						<left>50</left>
 						<align>left</align>
-						<visible>!Skin.HasSetting(View33_FanartLeftAlignment)</visible>
+						<visible>!Skin.HasSetting(View529_FanartLeftAlignment)</visible>
 						<include content="Plot_Shift" />
 					</control>
 				</control>
 				
-				<control type="group" id="33003">
+				<control type="group" id="529003">
 					<description>PAGE 2 NEXT UP</description>
 					<height>1080</height>
 					<left>100</left>
@@ -110,20 +110,20 @@
 						<scroll delay="2000">true</scroll>
 						<scrollspeed>40</scrollspeed>
 						<textcolor>$INFO[Skin.String(ViewNetfixSecondaryHighlightTextColor)]</textcolor>
-						<info>Container(33004).ListItem.Title</info>
+						<info>Container(529004).ListItem.Title</info>
 					</control>
 					<control type="textbox">
 						<top>570</top>
 						<left>680</left>
 						<width>40%</width>
 						<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot33</include>
+						<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot529</include>
 						<height>165</height>
 						<align>left</align>
 						<aligny>top</aligny>
 						<autoscroll delay="2000" time="3000" repeat="10000">true</autoscroll>
 						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-						<info>Container(33004).ListItem.Plot</info>
+						<info>Container(529004).ListItem.Plot</info>
 					</control>
 					<control type="textbox">
 						<top>740</top>
@@ -135,7 +135,7 @@
 						<aligny>top</aligny>
 						<autoscroll>false</autoscroll>
 						<textcolor>$INFO[Skin.String(ViewNetfixSecondaryHighlightTextColor)]</textcolor>
-						<label>$INFO[Container(33004).ListItem().Duration(m),[B], $LOCALIZE[12391][/B]]</label>
+						<label>$INFO[Container(529004).ListItem().Duration(m),[B], $LOCALIZE[12391][/B]]</label>
 					</control>
 					<control type="textbox">
 						<top>740</top>
@@ -147,14 +147,14 @@
 						<aligny>top</aligny>
 						<autoscroll>false</autoscroll>
 						<textcolor>$INFO[Skin.String(ViewNetfixSecondaryHighlightTextColor)]</textcolor>
-						<label>$INFO[Container(33004).ListItem.Premiered,[B],[/B]]</label>
+						<label>$INFO[Container(529004).ListItem.Premiered,[B],[/B]]</label>
 					</control>
 					
-					<control type="panel" id="33004">
+					<control type="panel" id="529004">
 						<onleft>9000</onleft>
 						<top>370</top>
-						<onup>33001</onup>
-						<ondown>330051</ondown>
+						<onup>529001</onup>
+						<ondown>5290051</ondown>
 						<preloaditems>2</preloaditems>
 						<orientation>horizontal</orientation>
 						<scrolltime tween="quadratic">400</scrolltime>
@@ -215,7 +215,7 @@
 					</control>
 				</control>
 				
-				<control type="group" id="33005">
+				<control type="group" id="529005">
 					<description>PAGE 3 seasons + episodes</description>
 					
 					<left>100</left>
@@ -223,18 +223,18 @@
 					
 					<include content="Special_Header">
 						<param name="pos_top" value="80" />
-						<param name="widgetdesc" value="[UPPERCASE]$INFO[Container(330051).ListItem.Label,[B],[/B]][/UPPERCASE]" />
+						<param name="widgetdesc" value="[UPPERCASE]$INFO[Container(5290051).ListItem.Label,[B],[/B]][/UPPERCASE]" />
 					</include>
 					
 				
-					<control type="panel" id="330051">
+					<control type="panel" id="5290051">
 						<top>160</top>
 						<width>96%</width>
 						<height>370</height>
 						<onleft>9000</onleft>
-						<onup>33004</onup>
-						<ondown condition="Integer.IsGreater(Container(330052).NumItems,0)">Control.SetFocus(330052,0,absolute)</ondown>
-						<ondown condition="!Integer.IsGreater(Container(330052).NumItems,0)">330061</ondown>
+						<onup>529004</onup>
+						<ondown condition="Integer.IsGreater(Container(5290052).NumItems,0)">Control.SetFocus(5290052,0,absolute)</ondown>
+						<ondown condition="!Integer.IsGreater(Container(5290052).NumItems,0)">5290061</ondown>
 						<include content="weird_onback" />
 						<preloaditems>2</preloaditems>
 						<orientation>horizontal</orientation>
@@ -245,7 +245,7 @@
 								<height>310</height>
 								<width>207</width>
 								<control type="group">
-									<animation reversible="true" time="300" effect="fade" start="100" end="40" condition="!Control.HasFocus(330051)">Conditional</animation>
+									<animation reversible="true" time="300" effect="fade" start="100" end="40" condition="!Control.HasFocus(5290051)">Conditional</animation>
 									<include content="PosterPanelLayout">
 										<param name="WatchedIndicator" value="WatchedIndicatorSmall" />
 										<param name="colordiffuse" value="$VAR[NetflixViewDetailsPanelColor]" />
@@ -253,7 +253,7 @@
 									</include>
 								</control>
 								<control type="group">
-									<visible>Control.HasFocus(330052) + String.IsEqual(ListItem.Season,Container(330052).ListItem.Season)</visible>
+									<visible>Control.HasFocus(5290052) + String.IsEqual(ListItem.Season,Container(5290052).ListItem.Season)</visible>
 									<animation effect="zoom" end="106" center="50%,70%">VisibleChange</animation>
 									<include content="PosterPanelLayout">
 										<param name="WatchedIndicator" value="WatchedIndicatorNormal"/>
@@ -292,26 +292,26 @@
 						<texture colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">colors/color_trans_20.png</texture>
 					</control>
 					
-					<control type="panel" id="330052">
+					<control type="panel" id="5290052">
 						<description>folder content - episode thumb</description>
 						<top>590</top>
 						<width>98%</width>
 						<height>450</height>
 						<onleft>9000</onleft>
-						<onup>330051</onup>
-						<ondown>330061</ondown>
+						<onup>5290051</onup>
+						<ondown>5290061</ondown>
 						<include content="weird_onback" />
 						<preloaditems>2</preloaditems>
 						<orientation>horizontal</orientation>
 						<scrolltime tween="quadratic" easing="in">400</scrolltime>
 						
-						<itemlayout height="430" width="460" condition="!Skin.HasSetting(View33_EpisodeInfoRight)">
+						<itemlayout height="430" width="460" condition="!Skin.HasSetting(View529_EpisodeInfoRight)">
 							<control type="group">
 								<height>242</height>
 								<width>410</width>
 								<top>25</top>
 								
-								<include content="33_episodethumb">
+								<include content="529_episodethumb">
 									<param name="bordersize" value="1"/>
 									<param name="colordiffuse" value=""/>
 								</include>
@@ -342,12 +342,12 @@
 								<info>ListItem.Plot</info>
 							</control>
 						</itemlayout>
-						<focusedlayout height="430" width="460" condition="!Skin.HasSetting(View33_EpisodeInfoRight)">
+						<focusedlayout height="430" width="460" condition="!Skin.HasSetting(View529_EpisodeInfoRight)">
 							<control type="group">
 								<height>242</height>
 								<width>410</width>
 								<top>25</top>
-								<include content="33_episodethumb">
+								<include content="529_episodethumb">
 									<param name="bordersize" value="4"/>
 									<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]"/>
 								</include>
@@ -382,12 +382,12 @@
 								<info>ListItem.Plot</info>
 							</control>
 						</focusedlayout>
-						<itemlayout height="430" width="860" condition="Skin.HasSetting(View33_EpisodeInfoRight)">
+						<itemlayout height="430" width="860" condition="Skin.HasSetting(View529_EpisodeInfoRight)">
 							<control type="group">
 								<top>40</top>
 								<height>242</height>
 								<width>410</width>
-								<include content="33_episodethumb">
+								<include content="529_episodethumb">
 									<param name="bordersize" value="1"/>
 									<param name="colordiffuse" value=""/>
 								</include>
@@ -440,12 +440,12 @@
 								<label>$INFO[ListItem.Premiered]</label>
 							</control>
 						</itemlayout>
-						<focusedlayout height="430" width="860" condition="Skin.HasSetting(View33_EpisodeInfoRight)">
+						<focusedlayout height="430" width="860" condition="Skin.HasSetting(View529_EpisodeInfoRight)">
 							<control type="group">
 								<top>40</top>
 								<height>242</height>
 								<width>410</width>
-								<include content="33_episodethumb">
+								<include content="529_episodethumb">
 									<param name="bordersize" value="4"/>
 									<param name="colordiffuse" value="$INFO[Skin.String(NetflixViewDetailsBorderFocusColor)]"/>
 								</include>
@@ -502,12 +502,12 @@
 								<label>$INFO[ListItem.Premiered]</label>
 							</control>
 						</focusedlayout>
-						<content sortby="year" target="videos">$INFO[Container(330051).ListItem.Folderpath]</content>
+						<content sortby="year" target="videos">$INFO[Container(5290051).ListItem.Folderpath]</content>
 					</control>
 					
 					<control type="group">
 						<description>info for linked movies - wip</description>
-						<visible>String.IsEqual(Container(330051).ListItem.dbtype,movie)</visible>
+						<visible>String.IsEqual(Container(5290051).ListItem.dbtype,movie)</visible>
 						<top>600</top>
 						<width>100%</width>
 						<height>400</height>
@@ -517,14 +517,14 @@
 							<fadetime>350</fadetime>
 							<centerleft>15%</centerleft>
 							<height>300</height>         
-							<texture background="true">$INFO[Container(330051).ListItem.Art(landscape)]</texture>
+							<texture background="true">$INFO[Container(5290051).ListItem.Art(landscape)]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
 						</control>
 						<control type="image">
 							<fadetime>350</fadetime>
 							<centerleft>50%</centerleft>
 							<height>140</height>         
-							<texture background="true">$INFO[Container(330051).ListItem.Art(clearlogo)]</texture>
+							<texture background="true">$INFO[Container(5290051).ListItem.Art(clearlogo)]</texture>
 							<aspectratio aligny="top">keep</aspectratio>
 						</control>
 						<control type="textbox">
@@ -537,20 +537,20 @@
 							<align>center</align>
 							<textcolor>white</textcolor>
 							<selectedcolor>white</selectedcolor>
-							<label>$INFO[Container(330051).ListItem.Plot]</label>
+							<label>$INFO[Container(5290051).ListItem.Plot]</label>
 						</control>
 						<control type="image">
 							<bottom>15%</bottom>
 							<fadetime>350</fadetime>
 							<centerright>17%</centerright>
 							<height>300</height>         
-							<texture background="true">$INFO[Container(330051).ListItem.Art(discart)]</texture>
+							<texture background="true">$INFO[Container(5290051).ListItem.Art(discart)]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
 						</control>
 					</control>
 				</control>
 				
-				<control type="group" id="33006">
+				<control type="group" id="529006">
 					<description>PAGE 4, cast and trailer</description>
 					<left>130</left>
 					<height>1080</height>
@@ -560,11 +560,11 @@
 						<param name="widgetdesc" value="[UPPERCASE][B]$LOCALIZE[206][/B][/UPPERCASE]" />
 					</include>
 					
-					<control type="panel" id="330061">
+					<control type="panel" id="5290061">
 						<onleft>9000</onleft>
-						<onup>330052</onup>
-						<ondown condition="Control.IsVisible(330062)">330062</ondown>
-						<ondown condition="!Control.IsVisible(330062)">330071</ondown>
+						<onup>5290052</onup>
+						<ondown condition="Control.IsVisible(5290062)">5290062</ondown>
+						<ondown condition="!Control.IsVisible(5290062)">5290071</ondown>
 						<include content="weird_onback" />
 						<top>170</top>
 						<left>40</left>
@@ -575,7 +575,7 @@
 						<scrolltime tween="quadratic">400</scrolltime>
 					
 						<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search) + !String.IsEmpty(Skin.String(SearchTerm))">Skin.Reset(SearchTerm)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Skin.SetString(SearchTerm,$INFO[Container(330052).ListItem.Label])</onclick>
+						<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Skin.SetString(SearchTerm,$INFO[Container(5290052).ListItem.Label])</onclick>
 						<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search)">ActivateWindow(1100),return</onclick>
 						
 						<itemlayout height="400" width="270">
@@ -611,15 +611,15 @@
 						<param name="widgetdesc" value="[UPPERCASE][B]$LOCALIZE[20410][/B][/UPPERCASE]" />
 					</include>
 				
-					<control type="panel" id="330062">
+					<control type="panel" id="5290062">
 						<description>trailers</description>
 						
 						<top>640</top>
 						<height>420</height>
 						<width>1920</width>
 						<onleft>9000</onleft>
-						<onup>330061</onup>
-						<ondown>330071</ondown>
+						<onup>5290061</onup>
+						<ondown>5290071</ondown>
 						<include content="weird_onback" />
 						<preloaditems>2</preloaditems>
 						<orientation>horizontal</orientation>
@@ -627,8 +627,8 @@
 						
 						<!--
 						<onclick condition="String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[ListItem.FilenameAndPath],1)</onclick>
-						<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail)) + !Container(330062).Position(0)">PlayMedia($INFO[ListItem.FilenameAndPath],1)</onclick>
-						<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail)) + Container(330062).Position(0)">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onclick>
+						<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail)) + !Container(5290062).Position(0)">PlayMedia($INFO[ListItem.FilenameAndPath],1)</onclick>
+						<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail)) + Container(5290062).Position(0)">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onclick>
 						-->
 						
 						<itemlayout height="250" width="440">
@@ -657,7 +657,7 @@
 							</control>
 						</focusedlayout>
 						<content>
-							<item id="33666">
+							<item id="529666">
 								<visible>!String.IsEmpty(Window(home).Property(trailer_avail))</visible>
 								<label>Local Trailer</label>
 								<label2 />
@@ -671,13 +671,13 @@
 					</control>
 				</control>
 				
-				<control type="group" id="33007">
+				<control type="group" id="529007">
 					<description>PAGE 5, similiar</description>
 					
 					<left>100</left>
 					<height>1080</height>
 					
-					<visible>[Integer.IsGreater(Container(330071).NumItems,0) | Container(330071).IsUpdating]</visible>
+					<visible>[Integer.IsGreater(Container(5290071).NumItems,0) | Container(5290071).IsUpdating]</visible>
 					
 					<include content="Special_Header">
 						<param name="pos_top" value="230" />
@@ -685,17 +685,17 @@
 						<param name="align" value="left" />
 					</include>
 					
-					<control type="panel" id="330071">
+					<control type="panel" id="5290071">
 						<top>305</top>
 						<left>10</left>
 						<height>500</height>
 						<width>1920</width>
 						<onleft>9000</onleft>
-						<onup condition="Control.IsVisible(330063)">330063</onup>
-						<onup condition="Control.IsVisible(330062)">330062</onup>
-						<onup condition="![Control.IsVisible(330062) + Control.IsVisible(330063)]">33006</onup>
+						<onup condition="Control.IsVisible(5290063)">5290063</onup>
+						<onup condition="Control.IsVisible(5290062)">5290062</onup>
+						<onup condition="![Control.IsVisible(5290062) + Control.IsVisible(5290063)]">529006</onup>
 						<include content="weird_onback" />
-						<ondown>33001</ondown>
+						<ondown>529001</ondown>
 						<preloaditems>2</preloaditems>
 						<orientation>horizontal</orientation>
 						<scrolltime tween="quadratic">400</scrolltime>
@@ -729,27 +729,27 @@
 			</control>
 			
 			<control type="group">
-				<visible>!Skin.HasSetting(View33_FanartLeftAlignment)</visible>
+				<visible>!Skin.HasSetting(View529_FanartLeftAlignment)</visible>
 				<left>40</left>
 				<include content="ClearLogo_or_Title">
 					<param name="align" value="left" />
 				</include>
-				<animation center="12%,-88%" effect="zoom" start="100,100" end="75,75" time="400" tween="quadratic" condition="!Control.HasFocus(33001)">Conditional</animation>
+				<animation center="12%,-88%" effect="zoom" start="100,100" end="75,75" time="400" tween="quadratic" condition="!Control.HasFocus(529001)">Conditional</animation>
 			</control>
 			
 			<control type="group">
-				<visible>Skin.HasSetting(View33_FanartLeftAlignment)</visible>
+				<visible>Skin.HasSetting(View529_FanartLeftAlignment)</visible>
 				<right>45</right>
 				<include content="ClearLogo_or_Title">
 					<param name="align" value="right" />
 				</include>
-				<animation center="99%,-88%" effect="zoom" start="100,100" end="75,75" time="400" tween="quadratic" condition="!Control.HasFocus(33001)">Conditional</animation>
+				<animation center="99%,-88%" effect="zoom" start="100,100" end="75,75" time="400" tween="quadratic" condition="!Control.HasFocus(529001)">Conditional</animation>
 			</control>
 			
 			<control type="group">
 				<control type="image">
 					<description>studio logo</description>
-					<animation effect="fade" start="5" end="100" time="400" tween="quadratic" condition="Control.HasFocus(33001) | Control.HasFocus(33004)">conditional</animation>
+					<animation effect="fade" start="5" end="100" time="400" tween="quadratic" condition="Control.HasFocus(529001) | Control.HasFocus(529004)">conditional</animation>
 					<bottom>10</bottom>
 					<right>50</right>
 					<height>200</height>
@@ -761,30 +761,30 @@
 			</control>
 			
 			<control type="grouplist">
-				<visible>!Skin.HasSetting(View33_FanartLeftAlignment)</visible>
+				<visible>!Skin.HasSetting(View529_FanartLeftAlignment)</visible>
 				<align>left</align>
 				<left>50</left>
 				<include>MetaUncommon_Season</include>
-				<animation effect="slide" start="0,0" end="50,-310" tween="quadratic" time="400" condition="!Control.HasFocus(33001)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="50,-310" tween="quadratic" time="400" condition="!Control.HasFocus(529001)">Conditional</animation>
 			</control>	
 			<control type="grouplist">
-				<visible>Skin.HasSetting(View33_FanartLeftAlignment)</visible>
+				<visible>Skin.HasSetting(View529_FanartLeftAlignment)</visible>
 				<align>right</align>
 				<right>60</right>
 				<include>MetaUncommon_Season</include>
-				<animation effect="slide" alignx="true" start="0,0" end="0,-310" tween="quadratic" time="400" condition="!Control.HasFocus(33001)">Conditional</animation>
+				<animation effect="slide" alignx="true" start="0,0" end="0,-310" tween="quadratic" time="400" condition="!Control.HasFocus(529001)">Conditional</animation>
 			</control>
 				
 			<control type="list" id="529">
 				<description>need prop first load,clear bahaviour</description>
 				<include>HiddenObject</include>
-				<onfocus>SetFocus(33001)</onfocus>
+				<onfocus>SetFocus(529001)</onfocus>
 				
-				<!-- <onfocus condition="String.IsEmpty(Window(home).Property(33_FistLoad))">SetFocus(33001)</onfocus>
-				<onfocus condition="String.IsEmpty(Window(home).Property(33_FistLoad))">SetProperty(33_FistLoad,true,Home)</onfocus>
+				<!-- <onfocus condition="String.IsEmpty(Window(home).Property(529_FistLoad))">SetFocus(529001)</onfocus>
+				<onfocus condition="String.IsEmpty(Window(home).Property(529_FistLoad))">SetProperty(529_FistLoad,true,Home)</onfocus>
 				
-				<onfocus condition="!String.IsEmpty(Window(home).Property(33_FistLoad))">Action(back)</onfocus>
-				<onfocus condition="!String.IsEmpty(Window(home).Property(33_FistLoad))">SetProperty(33_FistLoad,true,Home)</onfocus>
+				<onfocus condition="!String.IsEmpty(Window(home).Property(529_FistLoad))">Action(back)</onfocus>
+				<onfocus condition="!String.IsEmpty(Window(home).Property(529_FistLoad))">SetProperty(529_FistLoad,true,Home)</onfocus>
 				 -->
 				<visible>Container.Content(seasons)</visible>
 				<viewtype label="31902">Netflix Info</viewtype>
@@ -840,10 +840,10 @@
 				</control>
 				<control type="label">
 					<top>3</top>
-					<visible>Control.HasFocus(33004)</visible>
+					<visible>Control.HasFocus(529004)</visible>
 					<height>40</height>
 					<width>auto</width>
-					<label>$INFO[Container(33004).ListItem.Season, $LOCALIZE[20373] ,]$INFO[Container(33004).ListItem.Episode,  [B]|[/B]  $LOCALIZE[20359] ,]</label>
+					<label>$INFO[Container(529004).ListItem.Season, $LOCALIZE[20373] ,]$INFO[Container(529004).ListItem.Episode,  [B]|[/B]  $LOCALIZE[20359] ,]</label>
 					<aligny>center</aligny>
 					<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 					<font>Light34</font>
@@ -862,7 +862,7 @@
 		<itemgap>10</itemgap>
 		<control type="image">
 			<description>stars rating, does not really fit on all pages aesthetics and width wise</description>
-			<visible>Control.HasFocus(33001)</visible>
+			<visible>Control.HasFocus(529001)</visible>
 			<width>150</width>
 			<height>45</height>
 			<aspectratio align="left" aligny="center">keep</aspectratio>
@@ -922,7 +922,7 @@
 				<right>10</right>
 				<wrapmultiline>true</wrapmultiline>
 				<height>100</height>
-				<font>Plot33</font>
+				<font>Plot529</font>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
@@ -956,7 +956,7 @@
 	</include>
 	
 	<variable name="ResumeOrNext">
-		<value condition="Container(33004).ListItem.IsResumable">$LOCALIZE[31535]</value>
+		<value condition="Container(529004).ListItem.IsResumable">$LOCALIZE[31535]</value>
 		<value>$LOCALIZE[31212]</value>
 	</variable>
 	
@@ -971,7 +971,7 @@
 		<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 		<align>left</align>
 		<include condition="Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Netflix_Plot</include>
-		<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot33</include>
+		<include condition="!Skin.HasSetting(UseHelveticaNeueNetflix_font)">font_Plot529</include>
 	</include>
 	
 	<variable name="NextUp_SeasonLevel">
@@ -993,8 +993,8 @@
 			<height>$PARAM[height]</height>         
 			<texture background="true" diffuse="$PARAM[diffuse]">$VAR[netflixThumb]</texture>
 			<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-			<animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(View_33_EnableBackgroundAnimation)">Conditional</animation>
-			<animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(View_33_EnableBackgroundAnimation)">Conditional</animation>
+			<animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(View_529_EnableBackgroundAnimation)">Conditional</animation>
+			<animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(View_529_EnableBackgroundAnimation)">Conditional</animation>
 			<animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation>
 		</control>
 		</definition>
@@ -1071,7 +1071,7 @@
 		</definition>
 	</include>
 	
-	<include name="33_episodethumb">
+	<include name="529_episodethumb">
 		<control type="image">
 			<texture background="true" diffuse="home/home_matte2.png">$VAR[LandscapeImage]</texture>
 			<bordertexture colordiffuse="$PARAM[colordiffuse]">home/home_matte2.png</bordertexture>

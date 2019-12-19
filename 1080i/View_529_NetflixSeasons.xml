@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="View_33_NetflixSeasons">
+	<include name="View_529_NetflixSeasons">
 		
 		<control type="group">
 			<visible>Control.IsVisible(529)</visible>

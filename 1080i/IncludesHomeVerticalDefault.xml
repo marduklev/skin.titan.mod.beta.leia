@@ -877,7 +877,7 @@
             <animation effect="slide" start="0" end="0,-100" time="0" condition="String.IsEqual(Container(300).ListItem.Property(squaresubmenu),enable) + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>
 
             <!-- square submenu -->
-            <include condition="!Skin.HasSetting(DisableAllSubmenus)">VerticalHomeSquareSubMenuDef</include>
+            <include condition="!Skin.HasSetting(DisableAllSubmenus)">VerticalHomeSquareSubMenu</include>
             
             <!-- all widgets -->
 			
@@ -934,7 +934,7 @@
             <animation effect="slide" start="0" end="0,-100" time="0" condition="String.IsEqual(Container(300).ListItem.Property(squaresubmenu),enable) + String.IsEqual(Container(300).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(300).ListItem.Property(multiwidget),single)">Conditional</animation>
 
             <!-- square submenu -->
-            <include condition="!Skin.HasSetting(DisableAllSubmenus)">VerticalHomeSquareSubMenuDef</include>
+            <include condition="!Skin.HasSetting(DisableAllSubmenus)">VerticalHomeSquareSubMenu</include>
             
 			<include>1stRow_AlignmentCorrection</include>
             <include>skinshortcuts-template-Widgets</include>

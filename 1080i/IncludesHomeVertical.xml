@@ -1026,7 +1026,7 @@
     <include name="VerticalHomeSquareSubMenu">
 		<control type="label" id="14446">
 			<visible>String.IsEqual(Container(300).ListItem.Property(squaresubmenu),enable)</visible>
-			<height>70</height>
+			<height>140</height>
 			<label> $LOCALIZE[1034]</label>
 			<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
 			<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
@@ -1039,7 +1039,7 @@
         <control type="panel" id="4446">
 			<visible>String.IsEqual(Container(300).ListItem.Property(squaresubmenu),enable)</visible>
 			<width>100%</width>			   
-			<height>240</height>
+			<height>260</height>
 			<!-- check, maybe conditional - items, e.g. tiles, multiple artwork(listitemabsolute,1...)-->
 			<!--  centered items wished -->
 			<orientation>horizontal</orientation>

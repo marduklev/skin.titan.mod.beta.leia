@@ -26,12 +26,8 @@
 		</control>
 		
 		<control type="button" id="878678">
-			<description>Let Focus Gain List if id is uncleared</description>
-			<include>DimensionsFullscreen</include>
-			<texturefocus />
-			<texturenofocus />
-			<label />
-			<font />
+			<description>Let List  Gain Focus if id is uncleared</description>
+			<include>HiddenButton</include>
 			<onfocus>SetFocus(50)</onfocus>
 		</control>
 		

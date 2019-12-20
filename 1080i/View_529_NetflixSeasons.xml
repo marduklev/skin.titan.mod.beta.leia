@@ -5,7 +5,8 @@
 		
 		<control type="group">
 			<visible>Control.IsVisible(529)</visible>
-		
+			<visible>Integer.IsGreater(Container(529).NumItems,0)</visible>
+			
 			<!-- <control type="button">
 				<top>300</top>
 				<height>300</height>
@@ -780,12 +781,6 @@
 				<include>HiddenObject</include>
 				<onfocus>SetFocus(529001)</onfocus>
 				
-				<!-- <onfocus condition="String.IsEmpty(Window(home).Property(529_FistLoad))">SetFocus(529001)</onfocus>
-				<onfocus condition="String.IsEmpty(Window(home).Property(529_FistLoad))">SetProperty(529_FistLoad,true,Home)</onfocus>
-				
-				<onfocus condition="!String.IsEmpty(Window(home).Property(529_FistLoad))">Action(back)</onfocus>
-				<onfocus condition="!String.IsEmpty(Window(home).Property(529_FistLoad))">SetProperty(529_FistLoad,true,Home)</onfocus>
-				 -->
 				<visible>Container.Content(seasons)</visible>
 				<viewtype label="31902">Netflix Info</viewtype>
 			</control>
@@ -975,8 +970,8 @@
 	</include>
 	
 	<variable name="NextUp_SeasonLevel">
-		 <value condition="String.EndsWith(Container.Folderpath,/)">$INFO[Container.Folderpath]-1/</value>
-		<value>videodb://inprogresstvshows/-1/-1/&amp;?xsp=%7B%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22tvshow%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[ListItem.TVShowTitle]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</value>
+		<value condition="Container.Content(seasons) + String.EndsWith(Container.Folderpath,/)">$INFO[Container.Folderpath]-1/</value>
+		<value condition="Container.Content(seasons)>videodb://inprogresstvshows/-1/-1/&amp;?xsp=%7B%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22tvshow%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[ListItem.TVShowTitle]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</value>
 	</variable>
 	
 	<include name="DefArtwork">

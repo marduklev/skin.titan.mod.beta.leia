@@ -575,10 +575,10 @@
 						<preloaditems>2</preloaditems>
 						<orientation>horizontal</orientation>
 						<scrolltime tween="quadratic">400</scrolltime>
-					
-						<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search) + !String.IsEmpty(Skin.String(SearchTerm))">Skin.Reset(SearchTerm)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search)">Skin.SetString(SearchTerm,$INFO[Container(5290052).ListItem.Label])</onclick>
-						<onclick condition="String.IsEqual(Skin.String(videoinfo_castaction),library_search)">ActivateWindow(1100),return</onclick>
+						<oninfo>RunScript(script.embuary.info,call=person,query='"$INFO[Container(5290061).Listitem.Label]"')</oninfo>
+						<onclick>Skin.Reset(SearchTerm)</onclick>
+						<onclick>Skin.SetString(SearchTerm,$INFO[Container(5290052).ListItem.Label])</onclick>
+						<onclick>ActivateWindow(1100),return</onclick>
 						
 						<itemlayout height="400" width="270">
 							<control type="group">
@@ -614,7 +614,7 @@
 					</include>
 				
 					<control type="panel" id="5290062">
-						<description>trailers</description>
+						<description>trailer, props currently uncleared</description>
 						
 						<top>640</top>
 						<height>420</height>
@@ -626,13 +626,8 @@
 						<preloaditems>2</preloaditems>
 						<orientation>horizontal</orientation>
 						<scrolltime tween="quadratic">400</scrolltime>
-						
-						<!--
-						<onclick condition="String.IsEmpty(Window(home).Property(trailer_avail))">PlayMedia($INFO[ListItem.FilenameAndPath],1)</onclick>
-						<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail)) + !Container(5290062).Position(0)">PlayMedia($INFO[ListItem.FilenameAndPath],1)</onclick>
-						<onclick condition="!String.IsEmpty(Window(home).Property(trailer_avail)) + Container(5290062).Position(0)">PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onclick>
-						-->
-						
+						<onclick>SetProperty(TrailerPlaying,true,home)</onclick>
+						<onclick>PlayMedia($INFO[Window(home).Property(ListItemTrailer)],1)</onclick>
 						<itemlayout height="250" width="440">
 							<control type="group">
 								<width>432</width>
@@ -645,6 +640,11 @@
 							</control>
 						</itemlayout>
 						<focusedlayout height="250" width="440">
+							<control type="button">
+								<visible allowhiddenfocus="true">false</visible>
+								<onfocus condition="!String.IsEmpty(ListItem.Property(ListItem.Trailer))">SetProperty(ListItem.Trailer,$INFO[ListItem.Property(ListItem.Trailer)],home)</onfocus>
+								<onfocus condition="String.IsEmpty(ListItem.Property(ListItem.Trailer))">SetProperty(ListItem.Trailer,$INFO[ListItem.FilenameAndPath],home)</onfocus>
+							</control>
 							<control type="group">
 								<width>432</width>
 								<height>243</height>
@@ -659,12 +659,11 @@
 							</control>
 						</focusedlayout>
 						<content>
-							<item id="529666">
+							<item>
 								<visible>!String.IsEmpty(Window(home).Property(trailer_avail))</visible>
 								<label>Local Trailer</label>
 								<label2 />
-								<onclick>SetProperty(TrailerPlaying,true,home)</onclick>
-								<onclick>PlayMedia($INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4],1)</onclick>
+								<property name="ListItem.Trailer">$INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4]</property>
 								<icon>$VAR[TVShowArt]</icon>
 								<thumb>$VAR[TVShowArt]</thumb>
 							</item>

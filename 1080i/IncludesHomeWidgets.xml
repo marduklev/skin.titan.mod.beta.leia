@@ -2033,7 +2033,12 @@
             <visible>String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
         </control>
         <control type="group" id="$PARAM[mainmenuid]905">
-            <height>70</height>
+            <include content="height" condition="!String.Contains(Skin.String(HomeLayout),ver)">
+				<param name="height" value="1" />
+			</include>
+			<include content="height" condition="String.Contains(Skin.String(HomeLayout),ver)">
+				<param name="height" value="70" />
+			</include>
             <width>100%</width>
             <visible>String.IsEqual(Container(300).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
             <animation effect="slide" delay="0" start="0" end="0,150" time="0" condition="String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + !String.IsEqual(Window(Home).Property(ShowWidget),show)">Conditional</animation>

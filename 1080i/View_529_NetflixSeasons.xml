@@ -627,7 +627,7 @@
 						<orientation>horizontal</orientation>
 						<scrolltime tween="quadratic">400</scrolltime>
 						<onclick>SetProperty(TrailerPlaying,true,home)</onclick>
-						<onclick>PlayMedia($INFO[Window(home).Property(ListItemTrailer)],1)</onclick>
+						<onclick>PlayMedia($INFO[Window(home).Property(ListItem.Trailer)],1)</onclick>
 						<itemlayout height="250" width="440">
 							<control type="group">
 								<width>432</width>

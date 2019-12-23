@@ -1026,7 +1026,7 @@
     <include name="VerticalHomeSquareSubMenu">
 		<control type="label" id="14446">
 			<visible>String.IsEqual(Container(300).ListItem.Property(squaresubmenu),enable)</visible>
-			<height>140</height>
+			<height>50</height>
 			<label> $LOCALIZE[1034]</label>
 			<include condition="!Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(WidgetCentered)">widget_header_leftalign</include>
 			<include condition="Skin.HasSetting(WidgetCentered)">widget_header_centered</include>
@@ -1034,12 +1034,12 @@
 			<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 			<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 			<font>Bold34</font>
-			<height>50</height>
 		</control>
         <control type="panel" id="4446">
 			<visible>String.IsEqual(Container(300).ListItem.Property(squaresubmenu),enable)</visible>
+			<top>50</top>
 			<width>100%</width>			   
-			<height>260</height>
+			<height>300</height>
 			<!-- check, maybe conditional - items, e.g. tiles, multiple artwork(listitemabsolute,1...)-->
 			<!--  centered items wished -->
 			<orientation>horizontal</orientation>
@@ -1112,7 +1112,6 @@
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 					</control>
 				</control>
-				
 			</focusedlayout>
 			<content><include>skinshortcuts-submenu</include></content> 
 		</control>

@@ -575,9 +575,12 @@
 						<preloaditems>2</preloaditems>
 						<orientation>horizontal</orientation>
 						<scrolltime tween="quadratic">400</scrolltime>
-						<oninfo>RunScript(script.embuary.info,call=person,query='"$INFO[Container(5290061).Listitem.Label]"')</oninfo>
+						
+						<description>cant use hidden action sendclick or oninfo here</description>
+						<oninfo>RunScript(script.embuary.info,call=person,query=$INFO[Container(5290061).ListItem.Label])</oninfo>
+						
 						<onclick>Skin.Reset(SearchTerm)</onclick>
-						<onclick>Skin.SetString(SearchTerm,$INFO[Container(5290052).ListItem.Label])</onclick>
+						<onclick>Skin.SetString(SearchTerm,$INFO[ListItem.Label])</onclick>
 						<onclick>ActivateWindow(1100),return</onclick>
 						
 						<itemlayout height="400" width="270">
@@ -627,7 +630,10 @@
 						<orientation>horizontal</orientation>
 						<scrolltime tween="quadratic">400</scrolltime>
 						<onclick>SetProperty(TrailerPlaying,true,home)</onclick>
-						<onclick>PlayMedia($INFO[Window(home).Property(ListItem.Trailer)],1)</onclick>
+						
+						<onclick condition="!String.IsEmpty(Container(5290062).ListItem.Property(LocalTrailer))">PlayMedia($INFO[Container(5290062).ListItem.Property(LocalTrailer)],1)</onclick>
+						<onclick condition="String.IsEmpty(Container(5290062).ListItem.Property(LocalTrailer))">PlayMedia($INFO[Container(5290062).ListItem.FilenameAndPath],1)</onclick>
+						
 						<itemlayout height="250" width="440">
 							<control type="group">
 								<width>432</width>
@@ -640,11 +646,6 @@
 							</control>
 						</itemlayout>
 						<focusedlayout height="250" width="440">
-							<control type="button">
-								<visible allowhiddenfocus="true">false</visible>
-								<onfocus condition="!String.IsEmpty(ListItem.Property(ListItem.Trailer))">SetProperty(ListItem.Trailer,$INFO[ListItem.Property(ListItem.Trailer)],home)</onfocus>
-								<onfocus condition="String.IsEmpty(ListItem.Property(ListItem.Trailer))">SetProperty(ListItem.Trailer,$INFO[ListItem.FilenameAndPath],home)</onfocus>
-							</control>
 							<control type="group">
 								<width>432</width>
 								<height>243</height>
@@ -663,7 +664,7 @@
 								<visible>!String.IsEmpty(Window(home).Property(trailer_avail))</visible>
 								<label>Local Trailer</label>
 								<label2 />
-								<property name="ListItem.Trailer">$INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4]</property>
+								<property name="LocalTrailer">$INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4]</property>
 								<icon>$VAR[TVShowArt]</icon>
 								<thumb>$VAR[TVShowArt]</thumb>
 							</item>

@@ -576,11 +576,11 @@
 						<orientation>horizontal</orientation>
 						<scrolltime tween="quadratic">400</scrolltime>
 						
-						<description>cant use hidden action sendclick or oninfo here</description>
-						<oninfo>RunScript(script.embuary.info,call=person,query=$INFO[Container(5290061).ListItem.Label])</oninfo>
-						
+						<description>oninfo gets ognored here - cant use hidden action sendclick or oninfo here</description>
+						<!-- <oninfo>RunScript(script.embuary.info,call=person,query='"$INFO[Container(5290061).ListItem.Label])'"</oninfo> -->
+						<!-- <oninfo>Action(back)</oninfo> -->
 						<onclick>Skin.Reset(SearchTerm)</onclick>
-						<onclick>Skin.SetString(SearchTerm,$INFO[ListItem.Label])</onclick>
+						<onclick>Skin.SetString(SearchTerm,$INFO[Container(5290061).ListItem.Label])</onclick>
 						<onclick>ActivateWindow(1100),return</onclick>
 						
 						<itemlayout height="400" width="270">
@@ -608,7 +608,8 @@
 								</control>
 							</control>
 						</focusedlayout>
-						<content target="videos">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[container.listitem.dbid]&amp;idtype=season</content>
+						<content>plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;title='$ESCINFO[ListItem.TVShowTitle]'</content>
+						<!-- <content>plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[ListItem.DBID]&amp;idtype=season</content> -->
 					</control>
 				
 					<include content="Special_Header">
@@ -629,8 +630,8 @@
 						<preloaditems>2</preloaditems>
 						<orientation>horizontal</orientation>
 						<scrolltime tween="quadratic">400</scrolltime>
-						<onclick>SetProperty(TrailerPlaying,true,home)</onclick>
 						
+						<onclick>SetProperty(TrailerPlaying,true,home)</onclick>
 						<onclick condition="!String.IsEmpty(Container(5290062).ListItem.Property(LocalTrailer))">PlayMedia($INFO[Container(5290062).ListItem.Property(LocalTrailer)],1)</onclick>
 						<onclick condition="String.IsEmpty(Container(5290062).ListItem.Property(LocalTrailer))">PlayMedia($INFO[Container(5290062).ListItem.FilenameAndPath],1)</onclick>
 						
@@ -664,7 +665,7 @@
 								<visible>!String.IsEmpty(Window(home).Property(trailer_avail))</visible>
 								<label>Local Trailer</label>
 								<label2 />
-								<property name="LocalTrailer">$INFO[listitem.path]$INFO[ListItem.FolderName,,-trailer.mp4]</property>
+								<property name="LocalTrailer">$INFO[ListItem.Path]$INFO[ListItem.FolderName,,-trailer.mp4]</property>
 								<icon>$VAR[TVShowArt]</icon>
 								<thumb>$VAR[TVShowArt]</thumb>
 							</item>

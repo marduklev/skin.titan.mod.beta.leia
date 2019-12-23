@@ -564,7 +564,7 @@ Container(id).ListItem(offset).Thumb
 
     <!-- line1: 'Season X Episode X' line: 2 'episode title' format -->
     <variable name="NetflixEpisodeInfoLabel">
-        <value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) +!String.IsEmpty(ListItem.Title)">[B][CAPITALIZE]$INFO[ListItem.Season,$LOCALIZE[36904] ,]$INFO[ListItem.Episode, $LOCALIZE[36906] ,][/CAPITALIZE]$INFO[ListItem.Title, : ,][/B]</value>
+        <value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Title)">[B][CAPITALIZE]$INFO[ListItem.Season,$LOCALIZE[36904] ,]$INFO[ListItem.Episode, $LOCALIZE[36906] ,][/CAPITALIZE]$INFO[ListItem.Title, : ,][/B]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Season)) + !String.IsEmpty(Window(Home).Property(ListItem.Episode)) + !String.IsEmpty(Window(Home).Property(ListItem.Title))">[B][CAPITALIZE]$INFO[Window(Home).Property(ListItem.Season),$LOCALIZE[36904] ,]$INFO[Window(Home).Property(ListItem.Episode), $LOCALIZE[36906] ,][/CAPITALIZE][/B]$INFO[Window(Home).Property(ListItem.Title),  ,]</value>
         <!-- fallback -->
         <value>[B][CAPITALIZE]$INFO[Window(Home).Property(ListItem.Label)][/CAPITALIZE][/B]</value>

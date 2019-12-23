@@ -13,6 +13,7 @@
 		<include>Netflix_Title</include>
 		<include>Netflix_DetailRow</include>
 		<include>Netflix_DetailRow_Codec</include>
+		<include>Plot529</include>
 		
         <font>
             <name>arial26</name>
@@ -1262,7 +1263,7 @@
 		<include>Netflix_Title</include>
 		<include>Netflix_DetailRow</include>
 		<include>Netflix_DetailRow_Codec</include>
-		
+		<include>Plot529</include>
 		<font>
             <name>arial26</name>
             <filename>arial.ttf</filename>
@@ -2504,7 +2505,7 @@
 		<include>Netflix_Title</include>
 		<include>Netflix_DetailRow</include>
 		<include>Netflix_DetailRow_Codec</include>
-		
+		<include>Plot529</include>
 		<!-- Required for system -->
         <font>
             <name>arial26</name>
@@ -3667,7 +3668,7 @@
 		<include>Netflix_Title</include>
 		<include>Netflix_DetailRow</include>
 		<include>Netflix_DetailRow_Codec</include>
-		
+		<include>Plot529</include>
 		<!-- Required for system -->
         <!-- Normal Fonts -->
 		
@@ -4279,7 +4280,7 @@
 		<include>Netflix_Title</include>
 		<include>Netflix_DetailRow</include>
 		<include>Netflix_DetailRow_Codec</include>
-		
+		<include>Plot529</include>
 		<!-- confluence compatibility fonts -->
 		 
 		<font>

@@ -102,16 +102,15 @@
 		<value condition="!String.IsEmpty(ListItem.Art(poster)) + ListItem.IsCollection + String.Contains(ListItem.Art(poster),emby)">$INFO[ListItem.Art(poster)]&amp;EnableImageEnhancers=false</value>
 		<value condition="Skin.HasSetting(EnableAnimatedPosters) + !String.IsEmpty(ListItem.Art(animatedposter)) + !Skin.HasSetting(AnimatedPostersDisabledInLists)">$INFO[ListItem.Art(animatedposter)]</value>
 		<value condition="Container.Content(seasons) + String.StartsWith(ListItem.Label,*) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
-		
-		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Icon) + !String.IsEqual(ListItem.dbtype,movie)">$INFO[ListItem.Icon]</value>
 		<value condition="$EXP[InGameMode] + !String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 		<value condition="$EXP[InGameMode] + String.IsEmpty(ListItem.Icon)">DefaultGames.png</value>
-		
 		<value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(poster))">$INFO[ListItem.Property(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 		<value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack.png</value>
 		<value condition="String.IsEqual(ListItem.Label,$LOCALIZE[21452])">dialogs/filebrowser/DefaultAddSource.png</value>
 		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVarList]</value>
@@ -589,9 +588,11 @@
     </variable>
     
     <variable name="ListTitlePVR">
-        <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+	<value condition="!String.IsEmpty(ListItem.EpisodeName) + Skin.HasSetting(AlternateEpisodeName)">$INFO[ListItem.EpisodeName]</value>
+	<value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
         <value condition="!String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
-        <value condition="!String.IsEmpty(Container(510).ListItem.Title)">$INFO[Container(510).ListItem.Title]</value>
+	<value condition="!String.IsEmpty(Container(510).ListItem.EpisodeName) + Skin.HasSetting(AlternateEpisodeName)">$INFO[Container(510).ListItem.EpisodeName]</value>
+	<value condition="!String.IsEmpty(Container(510).ListItem.Title)">$INFO[Container(510).ListItem.Title]</value>
         <value condition="!String.IsEmpty(Container(510).ListItem.Label)">$INFO[Container(510).ListItem.Label]</value>
     </variable>
     

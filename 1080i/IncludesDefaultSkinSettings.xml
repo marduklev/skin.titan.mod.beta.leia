@@ -174,6 +174,10 @@
 			- HeaderCompactTouchButtons, 
 			- ProfileInfoCompact
 		-->
+		
+		<onload condition="!Skin.String(WidgetHeaderTextColor)">Skin.SetString(WidgetHeaderTextColor,ffffffff)</onload>
+		<onload condition="!Skin.String(WidgetHeaderTextColor.name)">Skin.SetString(WidgetHeaderTextColor.name,white)</onload>
+		
 		<onload condition="!Skin.String(HomeViewDetailsFocusColor)">Skin.SetString(HomeViewDetailsFocusColor, ff00b8ff)</onload>
 		<onload condition="!Skin.String(HomeViewDetailsFocusColor.name)">Skin.SetString(HomeViewDetailsFocusColor.name, mainblue)</onload>
 		<!-- end false used for  -->
@@ -274,6 +278,8 @@
         <onload condition="!Skin.String(NetflixSecondaryTextColor.name)">Skin.SetString(NetflixSecondaryTextColor.name,dimgray)</onload>
 		<onload condition="!Skin.String(ViewNetfixHighlightTextColor)">Skin.SetString(ViewNetfixHighlightTextColor,red)</onload>
         <onload condition="!Skin.String(ViewNetfixHighlightTextColor.name)">Skin.SetString(ViewNetfixHighlightTextColor.name,red)</onload>
+		<onload condition="!Skin.String(ViewNetfixSecondaryHighlightTextColor)">Skin.SetString(ViewNetfixSecondaryHighlightTextColor,FF00FFFF)</onload>
+        <onload condition="!Skin.String(ViewNetfixSecondaryHighlightTextColor.name)">Skin.SetString(ViewNetfixSecondaryHighlightTextColor.name,cyan)</onload>
 		<onload condition="!Skin.String(NetflixDetailsFlagColor)">Skin.SetString(NetflixDetailsFlagColor, ffefefef)</onload>
         <onload condition="!Skin.String(NetflixDetailsFlagColor.name)">Skin.SetString(NetflixDetailsFlagColor.name, LightGray)</onload>
 		<onload condition="!Skin.String(RatingsLogoColor)">Skin.SetString(RatingsLogoColor,befed699)</onload>

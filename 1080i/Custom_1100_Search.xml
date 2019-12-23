@@ -622,6 +622,41 @@
                     <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5006).NumItems,0) | Container(5006).IsUpdating">Conditional</animation>
                     <content target="music">musicdb://albums/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(5005).ListItem.Label]%22%5D%7D%5D%7D%2C%22type%22%3A%22albums%22%7D</content>
                 </include>
+		<!-- Song Title -->
+				<include content="SkinSearch_ContainerHeader">
+                    <param name="groupid" value="7577" />
+                    <param name="id" value="5077" />
+                    <param name="label" value="$INFO[Skin.String(SearchTerm),$LOCALIZE[134]  $LOCALIZE[1411]  &quot; , &quot;]"/>
+                    <visible>Control.IsVisible(5077)</visible>
+                </include>
+                <include condition="!Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="panel" />
+					<param name="id" value="5077" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="layout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5077).NumItems,0) | Container(5077).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5077).NumItems,0) | Container(5077).IsUpdating">Conditional</animation>
+                    <content target="music">musicdb://songs/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22songs%22%7D</content>
+                </include>
+				<include condition="Skin.HasSetting(search_info_widget)" content="Search_Container">
+                    <param name="type" value="fixedlist" />
+					<param name="id" value="5077" />
+					<param name="width" value="425" />
+					<param name="height" value="250" />
+					<param name="layout" value="ThumbsViewLayout" />
+					<param name="layouticon" value="$VAR[LandscapeImage]" />
+					<param name="info_panelwidth" value="900" />
+					<param name="info_plotwidth" value="445" />
+					<param name="info_plotheight" value="150" />
+                    <param name="visible" value="Integer.IsGreater(Container(5077).NumItems,0) | Container(5077).IsUpdating" />
+                    <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(5077).NumItems,0) | Container(5077).IsUpdating">Conditional</animation>
+                    <content target="music">musicdb://songs/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22songs%22%7D</content>
+                </include>
 		<!-- MUSICVIDEOS is SearchString in Title -->
                 <include content="SkinSearch_ContainerHeader">
                     <param name="groupid" value="7515" />

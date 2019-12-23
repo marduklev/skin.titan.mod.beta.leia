@@ -3023,3 +3023,11 @@ msgstr "3 in 1"
 msgctxt "#31918"
 msgid "Netflix Landscape"
 msgstr "Netflix Landscape"
+
+msgctxt "#31902"
+msgid "Netflix Info"
+msgstr "Netflix Info"
+
+msgctxt "#31920"
+msgid "Use alternate episode name (Tvheadend)"
+msgstr ""

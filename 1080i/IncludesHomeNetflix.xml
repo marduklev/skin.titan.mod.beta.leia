@@ -352,6 +352,7 @@
 			<!-- ARTWORK image Common WIDGETS -->
 			<control type="group">
 				<visible>String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
+				<visible>!Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
 				<animation effect="fade" time="800">VisibleChange</animation>
 			    <include content="SpotlightArtwork">
 					<param name="width" value="1330" />
@@ -362,21 +363,22 @@
 			
 			<!-- ARTWORK image Spotlight WIDGETS -->
 			<control type="group">
-				<visible>!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons))</visible>
+				<visible>!String.IsEmpty(Window(Home).Property(FocusSpotlightButtons)) | Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
 				<animation effect="fade" time="800">VisibleChange</animation>
 				<include content="SpotlightArtwork">
 					<param name="width" value="100%" />
 					<param name="height" value="100%" />
 					<param name="diffuse" value="special://home/addons/resource.images.backgroundoverlays.basic/resources/Spot.png" />
 				</include>
-				<!-- SPOTLIGHT  WIDGET overlay 
 				<control type="image">
+					<fadetime>350</fadetime>
+					<right>0</right>
+					<top>0</top>
 					<width>100%</width>
-					<height>100%</height>
-					<colordiffuse>$INFO[Skin.String(NetflixBGColor)]</colordiffuse>
-					<texture border="5">Overlay.png</texture>
+					<height>100%</height>         
+					<texture colordiffuse="$INFO[Skin.String(NetflixBGColor)]">colors/color_trans_70.png</texture>
 				</control>
-				-->
+				
 			</control>
 			
 			<!-- SPOTLIGHT AREA INFOS (left) -->

@@ -54,6 +54,7 @@
 	<include file="View_526_Wide_Netflix.xml" />
 	<include file="View_527_TSE.xml" />
 	<include file="View_528_Circle.xml" />
+	<include file="View_529_NetflixSeasons.xml" />
 	<include file="IncludesViews.xml" />
     <include file="IncludesMediaFlags.xml" />
     <include file="Includes_Layouts.xml" />
@@ -87,7 +88,7 @@
             <align>right</align>
             <font>Light34</font>
             <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
-            <label>T i t a n - M O D (BETA) - 18.1.13~ceta</label>
+            <label>T i t a n - M O D - 18.1.17</label>
 		</control>
     </include>
 

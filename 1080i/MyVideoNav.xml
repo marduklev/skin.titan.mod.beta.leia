@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Titan-->
 <window>
-    <defaultcontrol always="true">5000</defaultcontrol>
+    <defaultcontrol always="true">50</defaultcontrol>
     
     <include>allViewIds</include>
 	<onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
@@ -17,18 +17,21 @@
 	<onunload>ClearProperty(ShowViewSubMenu, Home)</onunload>
     <controls>
 		<include>GlobalBackground</include>
-		<!-- Video Background ,liked to use in global? -->
 		<include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>
 		
-		<!-- Hidden Container get info by dbid -->
 		<control type="list" id="5055">
 			<visible>true</visible>
 			<include>HiddenObject</include>
 			<content limit="1">$VAR[container_content_getdbid_1]</content>
 		</control>
 		
-		<!-- all Views -->
-        <include>allViews</include>
+		<control type="button" id="878678">
+			<description>Let List  Gain Focus if id is uncleared</description>
+			<include>HiddenButton</include>
+			<onfocus>SetFocus(50)</onfocus>
+		</control>
+		
+		<include>allViews</include>
 		
         <!--Sub Menu Tab Left-->
         <include condition="!Skin.HasSetting(DisableSideBladeIndicator)">SideBladeMenuTabLeft</include>

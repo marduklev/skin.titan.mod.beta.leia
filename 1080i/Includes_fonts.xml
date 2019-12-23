@@ -86,7 +86,23 @@
 			<font>Netflix_Plot</font>
 		</include>
 		<include name="font_Plot">
-			<font>Reg33</font>
+			<font>Reg28</font>
+		</include>
+		
+		
+		
+		
+		<include name="font_Plot529">
+			<font>Plot529</font>
+		</include>
+		<include name="Plot529">
+			<font>
+				<name>Plot529</name>
+				<filename>Light-new.ttf</filename>
+				<style>bold</style>
+				<size>28</size>
+				<linespacing>1.2</linespacing>
+			</font>
 		</include>
 		
 		

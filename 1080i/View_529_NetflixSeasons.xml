@@ -14,8 +14,9 @@
 				<label>Property Is TrailerPlaying [CR]not cleared via XML</label>
 				<visible>String.IsEqual(Window(Home).Property(TrailerPlaying),true)</visible>
 			</control>
-			currently cleared trough skinhelperservice
+			currently cleared trough skinhelperservice monitor
 			-->
+			
 			<control type="group">
 				<visible>!Skin.HasSetting(View529_DisableFanArt)</visible>
 				
@@ -100,6 +101,7 @@
 						<param name="align" value="left" />
 						<param name="widgetdesc" value="[B]$VAR[ResumeOrNext][/B]" />
 					</include>
+				
 									
 					<control type="label">
 						<top>505</top>
@@ -554,10 +556,12 @@
 				
 				<control type="group" id="529006">
 					<description>PAGE 4, cast and trailer</description>
+					<visible>[Integer.IsGreater(Container(5290061).NumItems,0) | Container(5290061).IsUpdating] | [Integer.IsGreater(Container(5290062).NumItems,0) | Container(5290062).IsUpdating]</visible>
 					<left>130</left>
 					<height>1080</height>
 					
 					<include content="Special_Header">
+						<param name="visible" value="Integer.IsGreater(Container(5290061).NumItems,0) | Container(5290061).IsUpdating" />
 						<param name="pos_top" value="80" />
 						<param name="widgetdesc" value="[UPPERCASE][B]$LOCALIZE[206][/B][/UPPERCASE]" />
 					</include>
@@ -613,13 +617,13 @@
 					</control>
 				
 					<include content="Special_Header">
+						<param name="visible" value="Integer.IsGreater(Container(5290062).NumItems,0) | Container(5290062).IsUpdating" />
 						<param name="pos_top" value="575" />
 						<param name="widgetdesc" value="[UPPERCASE][B]$LOCALIZE[20410][/B][/UPPERCASE]" />
 					</include>
 				
 					<control type="panel" id="5290062">
 						<description>trailer, props currently uncleared</description>
-						
 						<top>640</top>
 						<height>420</height>
 						<width>1920</width>
@@ -670,7 +674,8 @@
 								<thumb>$VAR[TVShowArt]</thumb>
 							</item>
 						</content>
-						<content target="videos" sortby="file" limit="3">plugin://plugin.video.youtube/search/?q=$INFO[ListItem.TVShowTitle]$INFO[System.Language, $LOCALIZE[20410] ,]</content>
+						<content target="videos" sortby="file" limit="3">$VAR[529_OnlineTrailerLookup]</content>
+						<!-- <content target="videos" sortby="file" limit="3">plugin://plugin.video.youtube/search/?q=$INFO[ListItem.TVShowTitle]$INFO[System.Language, $LOCALIZE[20410] ,]</content> -->
 					</control>
 				</control>
 				
@@ -683,6 +688,8 @@
 					<visible>[Integer.IsGreater(Container(5290071).NumItems,0) | Container(5290071).IsUpdating]</visible>
 					
 					<include content="Special_Header">
+						<param name="visible" value="Integer.IsGreater(Container(5290071).NumItems,0) | Container(5290071).IsUpdating" />
+						
 						<param name="pos_top" value="230" />
 						<param name="widgetdesc" value="[UPPERCASE][B]$LOCALIZE[31622][/B][/UPPERCASE]" />
 						<param name="align" value="left" />
@@ -799,9 +806,11 @@
 	<include name="Special_Header">
 		<param name="pos_top" default="200" />
 		<param name="align" default="center" />
+		<param name="visible" default="true" />
 		<definition>
 
 			<control type="grouplist">
+				<visible>$PARAM[visible]</visible>
 				<top>$PARAM[pos_top]</top>
 				<height>50</height>
 				<width>90%</width>
@@ -1099,7 +1108,14 @@
 			</control>
 		</control>
 	</include>
-	
+	<!-- avoid online lookup if offline
+	!String.IsEmpty(Network.IPAddress)
+	!String.EndsWith(Network.LinkState,$LOCALIZE[15208]] not connected
+	!String.EndsWith(Network.DHCPAddress,$LOCALIZE[15208]] not connected
+	-->
+	<variable name="529_OnlineTrailerLookup">
+		<value condition="!$EXP[IsOfflineMode] + System.HasAddon(plugin.video.youtube)">plugin://plugin.video.youtube/search/?q=$INFO[ListItem.TVShowTitle]$INFO[System.Language, $LOCALIZE[20410] ,]</value>
+	</variable>
 	<variable name="TVShowArt">
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.landscape))">$INFO[ListItem.Art(tvshow.landscape)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(tvshow.fanart)]</value>

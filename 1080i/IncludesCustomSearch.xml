@@ -233,6 +233,13 @@
         <value condition="[container.content(seasons) | String.IsEqual(ListItem.DBTYPE,season)]">$INFO[container.listitem.path,,extrathumbs]</value>
     </variable>
 	
+	<!-- video extra(s) -->
+	<variable name="BonusContent">
+        <value condition="String.Contains(listitem.filenameandpath,VIDEO_TS)">$INFO[listitem.path,,VIDEO_TS\extras]</value>
+		 <value condition="String.Contains(listitem.filenameandpath,BDMV)">$INFO[listitem.path,,BDMV\extras]</value>
+		<value>$INFO[listitem.path,,extras]</value>
+	</variable>
+	
 	<!-- videoinfo -->
 	<include name="VideoInfo_ContainerHeader">
 		<definition>

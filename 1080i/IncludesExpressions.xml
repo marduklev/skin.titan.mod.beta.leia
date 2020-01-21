@@ -3,6 +3,13 @@
 	<!-- Tags -->
 	<expression name="NetflixHomeIsVisible">[Window.IsActive(Home) + !Window.IsActive(movieinformation) + String.Contains(Skin.String(HomeLayout),netflix)]</expression>
 	
+	
+	<!-- avoid online lookups if offline , 
+	!String.IsEmpty(Network.IPAddress)
+	!String.EndsWith(Network.LinkState,$LOCALIZE[15208]] not connected
+	-->
+	<expression name="IsOfflineMode">[String.EndsWith(Network.LinkState,$LOCALIZE[15208]) + String.IsEmpty(Network.IPAddress)]</expression>
+	
 	<!-- Backgroundbuilding [Window.IsActive(movieinformation) + Skin.HasSetting(UseNetflixInfoDialog)] | -->
 			<!-- NetflixLayout -->
 			<expression name="IsNetflixLayout">

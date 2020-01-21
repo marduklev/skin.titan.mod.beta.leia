@@ -803,7 +803,25 @@
 					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8606).NumItems,0) | Container(8606).IsUpdating">Conditional</animation>
 					<content>$VAR[extraFanartLocation]</content>
 				</include>
+				
 				<!-- stored extra thumbs -->
+				<include content="VideoInfo_ContainerHeader">
+					<param name="groupid" value="8507" />
+					<param name="id" value="8607" />
+					<param name="label" value="EXTRA THUMBS" />
+					<visible>Control.IsVisible(8607)</visible>
+				</include>
+				<include content="VideoInfo_Container">
+					<param name="type" value="panel" />
+					<param name="id" value="8607" />
+					<param name="width" value="578" />
+					<param name="height" value="340" />
+					<param name="layout" value="ThumbsViewLayout" />
+					<param name="visible" value="Integer.IsGreater(Container(8607).NumItems,0) | Container(8607).IsUpdating" />
+					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8607).NumItems,0) | Container(8607).IsUpdating">Conditional</animation>
+					<content>$VAR[extraThumbsLocation]</content>
+				</include>
+				<!-- stored extras -->
 				<include content="VideoInfo_ContainerHeader">
 					<param name="groupid" value="8509" />
 					<param name="id" value="8609" />
@@ -823,24 +841,7 @@
 					<param name="layout" value="HUB_Layouts" />
 					<param name="visible" value="[container.content(movies) | String.IsEqual(ListItem.DBTYPE,movie)] + [Integer.IsGreater(Container(8609).NumItems,0) | Container(8609).IsUpdating]" />
 					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8609).NumItems,0) | Container(8609).IsUpdating">Conditional</animation>
-					<content>$INFO[listitem.path,,extras]</content>
-				</include>
-				<!-- stored extra thumbs -->
-				<include content="VideoInfo_ContainerHeader">
-					<param name="groupid" value="8507" />
-					<param name="id" value="8607" />
-					<param name="label" value="EXTRA THUMBS" />
-					<visible>Control.IsVisible(8607)</visible>
-				</include>
-				<include content="VideoInfo_Container">
-					<param name="type" value="panel" />
-					<param name="id" value="8607" />
-					<param name="width" value="578" />
-					<param name="height" value="340" />
-					<param name="layout" value="ThumbsViewLayout" />
-					<param name="visible" value="Integer.IsGreater(Container(8607).NumItems,0) | Container(8607).IsUpdating" />
-					<animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(8607).NumItems,0) | Container(8607).IsUpdating">Conditional</animation>
-					<content>$VAR[extrasLocation]</content>
+					<content>$VAR[BonusContent]</content>
 				</include>
 			</control>
 			

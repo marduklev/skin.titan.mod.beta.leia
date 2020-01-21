@@ -981,10 +981,10 @@
         
 		<include condition="!Skin.HasSetting(NetflixHomeDisableFirstRow) + Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),net)">Netflix_WidgetFade</include>
 				
-        <itemlayout width="430" height="325">
+        <itemlayout width="445" height="325">
             <control type="group">
-                <width>430</width>
-                <height>260</height>
+                <width>445</width>
+                <height>262</height>
                 <include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
 					<param name="border" value="thumbsborder_unfocused" />
@@ -998,10 +998,10 @@
 				</control>
             </control>
         </itemlayout>
-        <focusedlayout width="430" height="325" condition="!Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout width="445" height="325" condition="!Control.HasFocus($PARAM[widgetid])">
             <control type="group">
-                <width>430</width>
-                <height>260</height>
+                <width>445</width>
+                <height>262</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsPanelColor]" />
@@ -1020,10 +1020,10 @@
                 </include>
 			</control>
         </focusedlayout>
-		<focusedlayout width="430" height="325" condition="Control.HasFocus($PARAM[widgetid])">
+		<focusedlayout width="445" height="325" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
-                <width>430</width>
-                <height>260</height>
+                <width>445</width>
+                <height>262</height>
                 <include condition="Skin.HasSetting(WidgetsZoomFocus)">Focus_Zoom_Animation</include>
 				<include content="ThumbsViewLayout">
 					<param name="colordiffuse" value="$VAR[ViewDetailsBorderFocusColor]" />

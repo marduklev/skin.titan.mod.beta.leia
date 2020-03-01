@@ -1551,15 +1551,13 @@
 
     <variable name="ThumbShapeBasedOnSystem">
         <value condition="Skin.HasSetting(View523_SameHeight)">titan</value>
-        <value condition="$EXP[InGameMode] + [!Skin.String(game.humbshape.default,auto)]">$INFO[Skin.String(game.thumbshape.default)]</value>
+        <value condition="$EXP[InGameMode] + [!Skin.String(game.thumbshape.default,auto)]">$INFO[Skin.String(game.thumbshape.default)]</value>
         <value condition="$EXP[InGameMode] + [!String.IsEmpty(Window(10000).Property(AEL_Launch_Boxsize))]">$INFO[Window(10000).Property(AEL_Launch_Boxsize)]</value>
-        <value condition="$EXP[InGameMode] + Skin.String(game.humbshape.default,auto) + $EXP[PlatformIsWindows]">steambanner</value>
-        <value condition="$EXP[InGameMode] + Skin.String(game.humbshape.default,auto) + [$EXP[PlatformIsSNES] | $EXP[PlatformIsN64]]">widebox</value>
-        <value condition="$EXP[InGameMode] + Skin.String(game.humbshape.default,auto) + $EXP[PlatformIsNDS]">3dsbox</value>
-        <value condition="$EXP[InGameMode] + Skin.String(game.humbshape.default,auto) + $EXP[PlatformIsPs3]">bluray</value>
-        <value condition="$EXP[InGameMode] + Skin.String(game.humbshape.default,auto) + $EXP[PlatformIsPSP]">slimbox</value>
-        <value condition="$EXP[InGameMode] + Skin.String(game.humbshape.default,auto) + $EXP[PlatformIsWindows]">steambanner</value>
-        <value condition="$EXP[InGameMode] + Skin.String(game.humbshape.default,auto) + $EXP[PlatformIsWindows]">steambanner</value>
+        <value condition="$EXP[InGameMode] + Skin.String(game.thumbshape.default,auto) + $EXP[PlatformIsWindows]">steambanner</value>
+        <value condition="$EXP[InGameMode] + Skin.String(game.thumbshape.default,auto) + [$EXP[PlatformIsSNES] | $EXP[PlatformIsN64]]">widebox</value>
+        <value condition="$EXP[InGameMode] + Skin.String(game.thumbshape.default,auto) + $EXP[PlatformIsNDS]">3dsbox</value>
+        <value condition="$EXP[InGameMode] + Skin.String(game.thumbshape.default,auto) + $EXP[PlatformIsPs3]">bluray</value>
+        <value condition="$EXP[InGameMode] + Skin.String(game.thumbshape.default,auto) + $EXP[PlatformIsPSP]">slimbox</value>
         <value condition="$EXP[InGameMode]">poster</value>
         <value>poster</value>
     </variable>

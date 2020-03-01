@@ -4,7 +4,7 @@
     <defaultcontrol always="true">1000</defaultcontrol>
     <onload condition="Window.IsActive(loginscreen) + Skin.HasSetting(LoginScreen_DisableContextMenu)">Close</onload>
 	<!-- clear/stop on  auto trailer playing -->
-    <onload condition="Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer) + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">Stop</onload>
+    <onload condition="Player.HasVideo + $EXP[HasAutoTrailer] + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">Stop</onload>
 	<controls>
 		
 		<!-- hidden button to exit dialog in touchscreen mode -->

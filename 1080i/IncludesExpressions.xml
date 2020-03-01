@@ -49,6 +49,7 @@
 	
 	<!-- Playing -->
 	<expression name="PlayerHasVideo">[Player.HasVideo | Player.HasGame]</expression>
+	<expression name="HasAutoTrailer">Skin.HasSetting(DetailsAutoTrailer) | Skin.HasSetting(GameModeAutoTrailer)</expression>
 	
 	<!-- Content -->
 	<expression name="IsTVShow">String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</expression>

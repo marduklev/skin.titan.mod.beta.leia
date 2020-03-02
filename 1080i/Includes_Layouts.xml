@@ -31,7 +31,7 @@
             <aspectratio scalediffuse="false" align="center" aligny="bottom">keep</aspectratio>
 			<visible>
 			[[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + ![Control.IsVisible(511) | Control.IsVisible(512) | Control.IsVisible(525)]] | 
-			![String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + String.IsEmpty(ListItem.Art(tvshow.landscape)) + String.IsEmpty(ListItem.Art(season.landscape))
+			![String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + String.IsEmpty(ListItem.Art(tvshow.landscape)) + String.IsEmpty(ListItem.Art(season.landscape)) + !$EXP[InGameMode]
 			</visible>
 			<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
 			<visible>!Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>

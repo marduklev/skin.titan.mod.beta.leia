@@ -49,6 +49,7 @@
 	
 	<!-- Playing -->
 	<expression name="PlayerHasVideo">[Player.HasVideo | Player.HasGame]</expression>
+	<expression name="HasAutoTrailer">Skin.HasSetting(DetailsAutoTrailer) | Skin.HasSetting(GameModeAutoTrailer)</expression>
 	
 	<!-- Content -->
 	<expression name="IsTVShow">String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</expression>
@@ -63,37 +64,38 @@
 	
 	<!-- Games -->
 	<expression name="InVideoMode">Window.IsActive(Videos)</expression>
-    <expression name="InGameMode">String.Contains(Container.FolderPath,plugin://plugin.program.ael) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher)</expression>
-    
-    <!-- Game platforms -->
-    <expression name="PlatformIsWindows">String.Contains(Container.ListItem(1).Property(platform),Windows)</expression>
-    <expression name="PlatformIsDos">String.Contains(Container.ListItem(1).Property(platform),DOS)</expression>
-    <expression name="PlatformIsSNES">String.Contains(Container.ListItem(1).Property(platform),SNES)</expression>
-    <expression name="PlatformIsNES">String.IsEqual(Container.ListItem(1).Property(platform),Nintendo NES)</expression>
-    <expression name="PlatformIsN64">String.Contains(Container.ListItem(1).Property(platform),Nintendo 64)</expression>
-    <expression name="PlatformIsNDS">String.Contains(Container.ListItem(1).Property(platform),DS)</expression>
-    <expression name="PlatformIsGameboy">String.Contains(Container.ListItem(1).Property(platform),GameBoy)</expression>
-    <expression name="PlatformIsSwitch">String.Contains(Container.ListItem(1).Property(platform),Switch)</expression>
-    <expression name="PlatformIsPs3">String.Contains(Container.ListItem(1).Property(platform),PlayStation 3)</expression>
-    <expression name="PlatformIsPs2">String.Contains(Container.ListItem(1).Property(platform),PlayStation 2)</expression>
-    <expression name="PlatformIsPSP">String.Contains(Container.ListItem(1).Property(platform),PlayStation Portable)</expression>
-    <expression name="PlatformIsPS1">String.IsEqual(Container.ListItem(1).Property(platform),Sony PlayStation)</expression>
-    <expression name="PlatformIsDreamcast">String.Contains(Container.ListItem(1).Property(platform),Dreamcast)</expression>
-    <expression name="PlatformIsSaturn">String.Contains(Container.ListItem(1).Property(platform),Saturn)</expression>
-    <expression name="PlatformIsMasterSystem">String.Contains(Container.ListItem(1).Property(platform),Master System)</expression>
-    <expression name="PlatformIsMegadrive">String.Contains(Container.ListItem(1).Property(platform),Megadrive) | String.Contains(Container.ListItem(1).Property(platform),Genesis)</expression>
-    <expression name="PlatformIsGameGear">String.Contains(Container.ListItem(1).Property(platform),Game Gear)</expression>
-    <expression name="PlatformIs32x">String.Contains(Container.ListItem(1).Property(platform),32X)</expression>
+    <expression name="InGameMode">String.Contains(Container.FolderPath,plugin://plugin.program.ael) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher) |  Window.IsActive(games)</expression>
 
-    <!-- Preferred thumb shapes -->
+    <!-- Game platforms -->
+    <expression name="PlatformIsWindows">String.Contains(Container.ListItem(1).Property(platform),Windows) | String.Contains(Window(10000).Property(AEL_Launch_Platform),Windows) | String.Contains(Container.ListItem(1).Property(Game.Platform),Windows)</expression>
+    <expression name="PlatformIsDos">String.Contains(Container.ListItem(1).Property(platform),DOS) | String.Contains(Window(10000).Property(AEL_Launch_Platform),DOS) | String.Contains(Container.ListItem(1).Property(Game.Platform),DOS)</expression>
+    <expression name="PlatformIsSNES">String.Contains(Container.ListItem(1).Property(platform),SNES) | String.Contains(Window(10000).Property(AEL_Launch_Platform),SNES) | String.Contains(Container.ListItem(1).Property(Game.Platform),SNES)</expression>
+    <expression name="PlatformIsNES">String.IsEqual(Container.ListItem(1).Property(platform),Nintendo NES) | String.Contains(Window(10000).Property(AEL_Launch_Platform),Nintendo NES) | String.Contains(Container.ListItem(1).Property(Game.Platform),Nintendo NES)</expression>
+    <expression name="PlatformIsN64">String.Contains(Container.ListItem(1).Property(platform),Nintendo 64) | String.Contains(Window(10000).Property(AEL_Launch_Platform),Nintendo 64) | String.Contains(Container.ListItem(1).Property(Game.Platform),Nintendo 64)</expression>
+    <expression name="PlatformIsNDS">String.Contains(Container.ListItem(1).Property(platform),DS) | String.Contains(Window(10000).Property(AEL_Launch_Platform),DS) | String.Contains(Container.ListItem(1).Property(Game.Platform),DS)</expression>
+    <expression name="PlatformIsGameboy">String.Contains(Container.ListItem(1).Property(platform),GameBoy) | String.Contains(Window(10000).Property(AEL_Launch_Platform),GameBoy) | String.Contains(Container.ListItem(1).Property(Game.Platform),GameBoy)</expression>
+    <expression name="PlatformIsSwitch">String.Contains(Container.ListItem(1).Property(platform),Switch) | String.Contains(Window(10000).Property(AEL_Launch_Platform),Switch) | String.Contains(Container.ListItem(1).Property(Game.Platform),Switch)</expression>
+    <expression name="PlatformIsPs3">String.Contains(Container.ListItem(1).Property(platform),PlayStation 3) | String.Contains(Window(10000).Property(AEL_Launch_Platform),PlayStation 3) | String.Contains(Container.ListItem(1).Property(Game.Platform),PlayStation 3)</expression>
+    <expression name="PlatformIsPs2">String.Contains(Container.ListItem(1).Property(platform),PlayStation 2) | String.Contains(Window(10000).Property(AEL_Launch_Platform),PlayStation 2) | String.Contains(Container.ListItem(1).Property(Game.Platform),PlayStation 2)</expression>
+    <expression name="PlatformIsPSP">String.Contains(Container.ListItem(1).Property(platform),PlayStation Portable) | String.Contains(Window(10000).Property(AEL_Launch_Platform),PlayStation Portable) | String.Contains(Container.ListItem(1).Property(Game.Platform),PlayStation Portable)</expression>
+    <expression name="PlatformIsPS1">String.IsEqual(Container.ListItem(1).Property(platform),Sony PlayStation) | String.Contains(Window(10000).Property(AEL_Launch_Platform),Sony PlayStation) | String.Contains(Container.ListItem(1).Property(Game.Platform),Sony PlayStation)</expression>
+    <expression name="PlatformIsDreamcast">String.Contains(Container.ListItem(1).Property(platform),Dreamcast) | String.Contains(Window(10000).Property(AEL_Launch_Platform),Dreamcast) | String.Contains(Container.ListItem(1).Property(Game.Platform),Dreamcast)</expression>
+    <expression name="PlatformIsSaturn">String.Contains(Container.ListItem(1).Property(platform),Saturn) | String.Contains(Window(10000).Property(AEL_Launch_Platform),Saturn) | String.Contains(Container.ListItem(1).Property(Game.Platform),Saturn)</expression>
+    <expression name="PlatformIsMasterSystem">String.Contains(Container.ListItem(1).Property(platform),Master System) | String.Contains(Window(10000).Property(AEL_Launch_Platform),Master System) | String.Contains(Container.ListItem(1).Property(Game.Platform),Master System)</expression>
+    <expression name="PlatformIsMegadrive">String.Contains(Container.ListItem(1).Property(platform),Megadrive) | String.Contains(Container.ListItem(1).Property(platform),Genesis) | String.Contains(Window(10000).Property(AEL_Launch_Platform),Megadrive) | String.Contains(Container.ListItem(1).Property(Game.Platform),Megadrive)</expression>
+    <expression name="PlatformIsGameGear">String.Contains(Container.ListItem(1).Property(platform),Game Gear) | String.Contains(Window(10000).Property(AEL_Launch_Platform),Game Gear) | String.Contains(Container.ListItem(1).Property(Game.Platform),Game Gear)</expression>
+    <expression name="PlatformIs32x">String.Contains(Container.ListItem(1).Property(platform),32X) | String.Contains(Window(10000).Property(AEL_Launch_Platform),32X) | String.Contains(Container.ListItem(1).Property(Game.Platform),32X)</expression>
+
+	<!-- Preferred thumb shapes -->	
     <expression name="UsePosterShape">String.IsEqual(Control.GetLabel(5595),poster)</expression>
     <expression name="UseTitanShape">String.IsEqual(Control.GetLabel(5595),titan)</expression>
-    <expression name="UseWideShape">String.IsEqual(Control.GetLabel(5595),wide)</expression>
-    <expression name="Use3dsShape">String.IsEqual(Control.GetLabel(5595),3ds)</expression>
-    <expression name="UseSquareShape">String.IsEqual(Control.GetLabel(5595),square)</expression>
-    <expression name="UseSlimShape">String.IsEqual(Control.GetLabel(5595),slim)</expression>
+    <expression name="UseDvdShape">String.IsEqual(Control.GetLabel(5595),dvd)</expression>
+    <expression name="UseCdShape">String.IsEqual(Control.GetLabel(5595),cd)</expression>
     <expression name="UseBlurayShape">String.IsEqual(Control.GetLabel(5595),bluray)</expression>
-    <expression name="UseBannerShape">String.IsEqual(Control.GetLabel(5595),banner)</expression>
-    <expression name="UseSteamShape">String.IsEqual(Control.GetLabel(5595),steam)</expression>
-
+    <expression name="UseWideShape">String.IsEqual(Control.GetLabel(5595),widebox)</expression>
+    <expression name="Use3dsShape">String.IsEqual(Control.GetLabel(5595),3dsbox)</expression>
+    <expression name="UseSquareShape">String.IsEqual(Control.GetLabel(5595),squarebox)</expression>
+    <expression name="UseSlimShape">String.IsEqual(Control.GetLabel(5595),slimbox)</expression>
+    <expression name="UseSteamShape">String.IsEqual(Control.GetLabel(5595),steambanner)</expression>
+    <expression name="UseScreenshotShape">String.IsEqual(Control.GetLabel(5595),screenshot)</expression> 
 </includes>

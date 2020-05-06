@@ -1551,49 +1551,14 @@
 
     <variable name="ThumbShapeBasedOnSystem">
         <value condition="Skin.HasSetting(View523_SameHeight)">titan</value>
-        <!-- PC -->
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsWindows] + [Skin.String(game.thumbshape.win,auto) | !Skin.String(game.thumbshape.win)]">steam</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsWindows] + Skin.String(game.thumbshape.win)">$INFO[Skin.String(game.thumbshape.nes)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsDos] + [Skin.String(game.thumbshape.dos,auto) | !Skin.String(game.thumbshape.dos)]">square</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsDos] + Skin.String(game.thumbshape.dos)">$INFO[Skin.String(game.thumbshape.nes)]</value>
-        <!-- Nintendo -->
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsNES] + [Skin.String(game.thumbshape.nes,auto) | !Skin.String(game.thumbshape.nes)]">poster</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsNES] + Skin.String(game.thumbshape.nes)">$INFO[Skin.String(game.thumbshape.nes)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsSNES] + [Skin.String(game.thumbshape.snes,auto) | !Skin.String(game.thumbshape.snes)]">wide</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsSNES] + Skin.String(game.thumbshape.snes)">$INFO[Skin.String(game.thumbshape.snes)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsN64] + [Skin.String(game.thumbshape.n64,auto) | !Skin.String(game.thumbshape.n64)]">wide</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsN64] + Skin.String(game.thumbshape.n64)">$INFO[Skin.String(game.thumbshape.n64)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsNDS] + [Skin.String(game.thumbshape.nds,auto) | !Skin.String(game.thumbshape.nds)]">3ds</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsNDS] + Skin.String(game.thumbshape.nds)">$INFO[Skin.String(game.thumbshape.nds)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsGameboy] + [Skin.String(game.thumbshape.gb,auto) | !Skin.String(game.thumbshape.gb)]">square</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsGameboy] + Skin.String(game.thumbshape.gb)">$INFO[Skin.String(game.thumbshape.gb)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsSwitch] + [Skin.String(game.thumbshape.switch,auto) | !Skin.String(game.thumbshape.switch)]">slim</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsSwitch] + Skin.String(game.thumbshape.switch)">$INFO[Skin.String(game.thumbshape.switch)]</value>
-        <!-- Sony -->
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsPs3] + [Skin.String(game.thumbshape.ps3,auto) | !Skin.String(game.thumbshape.ps3)]">bluray</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsPs3] + Skin.String(game.thumbshape.ps3,auto)">$INFO[Skin.String(game.thumbshape.ps3)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsPs2] + [Skin.String(game.thumbshape.ps2,auto) | !Skin.String(game.thumbshape.ps2)]">poster</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsPs2] + Skin.String(game.thumbshape.ps2,auto)">$INFO[Skin.String(game.thumbshape.ps2)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsPs1] + [Skin.String(game.thumbshape.ps1,auto) | !Skin.String(game.thumbshape.ps1)]">square</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsPs1] + Skin.String(game.thumbshape.ps1)">$INFO[Skin.String(game.thumbshape.ps1)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsPSP] + [Skin.String(game.thumbshape.psp,auto) | !Skin.String(game.thumbshape.psp)]">slim</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsPSP] + Skin.String(game.thumbshape.psp)">$INFO[Skin.String(game.thumbshape.psp)]</value>
-        <!-- Sega -->
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsDreamcast] + [Skin.String(game.thumbshape.dcast,auto) | !Skin.String(game.thumbshape.dcast)]">square</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsDreamcast] + Skin.String(game.thumbshape.dcast)">$INFO[Skin.String(game.thumbshape.dcast)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsMasterSystem] + [Skin.String(game.thumbshape.msys,auto) | !Skin.String(game.thumbshape.msys)]">poster</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsMasterSystem] + Skin.String(game.thumbshape.msys)">$INFO[Skin.String(game.thumbshape.msys)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsMegadrive] + [Skin.String(game.thumbshape.megadr,auto) | !Skin.String(game.thumbshape.megadr)]">poster</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsMegadrive] + Skin.String(game.thumbshape.megadr)">$INFO[Skin.String(game.thumbshape.megadr)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIs32x] + [Skin.String(game.thumbshape.32x,auto) | !Skin.String(game.thumbshape.32x)]">poster</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIs32x] + Skin.String(game.thumbshape.32x)">$INFO[Skin.String(game.thumbshape.32x)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsSaturn] + [Skin.String(game.thumbshape.saturn,auto) | !Skin.String(game.thumbshape.saturn)]">slim</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsSaturn] + Skin.String(game.thumbshape.saturn)">$INFO[Skin.String(game.thumbshape.saturn)]</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsGameGear] + [Skin.String(game.thumbshape.gear,auto) | !Skin.String(game.thumbshape.gear)]">poster</value>
-        <value condition="$EXP[InGameMode] + $EXP[PlatformIsGameGear] + Skin.String(game.thumbshape.gear)">$INFO[Skin.String(game.thumbshape.gear)]</value>
-        
-        <value condition="$EXP[InGameMode] + [Skin.String(game.thumbshape.default) + !Skin.String(game.thumbshape.default,auto)]">$INFO[Skin.String(game.thumbshape.default)]</value>
-        <value condition="$EXP[InGameMode]">square</value>
+        <value condition="$EXP[InGameMode] + [!Skin.String(game.thumbshape.default,auto)]">$INFO[Skin.String(game.thumbshape.default)]</value>
+        <value condition="$EXP[InGameMode] + [!String.IsEmpty(Window(10000).Property(AEL_Launch_Boxsize))]">$INFO[Window(10000).Property(AEL_Launch_Boxsize)]</value>
+        <value condition="$EXP[InGameMode] + Skin.String(game.thumbshape.default,auto) + $EXP[PlatformIsWindows]">steambanner</value>
+        <value condition="$EXP[InGameMode] + Skin.String(game.thumbshape.default,auto) + [$EXP[PlatformIsSNES] | $EXP[PlatformIsN64]]">widebox</value>
+        <value condition="$EXP[InGameMode] + Skin.String(game.thumbshape.default,auto) + $EXP[PlatformIsNDS]">3dsbox</value>
+        <value condition="$EXP[InGameMode] + Skin.String(game.thumbshape.default,auto) + $EXP[PlatformIsPs3]">bluray</value>
+        <value condition="$EXP[InGameMode] + Skin.String(game.thumbshape.default,auto) + $EXP[PlatformIsPSP]">slimbox</value>
+        <value condition="$EXP[InGameMode]">poster</value>
         <value>poster</value>
     </variable>
     

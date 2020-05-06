@@ -534,47 +534,16 @@
     <!-- Game thumbnail options -->
     <setting id="game.thumbshape.default" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
     <setting id="game.thumbshape.default" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.nes" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.nes" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.snes" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.snes" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
-    <setting id="game.thumbshape.n64" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.n64" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.gb" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.gb" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.switch" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.switch" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.nds" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.nds" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.ps3" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.ps3" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.ps2" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.ps2" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.ps1" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.ps1" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.psp" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.psp" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.win" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.win" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>
-    <setting id="game.thumbshape.dos" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.dos" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
-    <setting id="game.thumbshape.msys" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.msys" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
-    <setting id="game.thumbshape.megadr" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.megadr" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
-    <setting id="game.thumbshape.32x" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.32x" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
-    <setting id="game.thumbshape.dcast" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.dcast" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
-    <setting id="game.thumbshape.gear" value="auto" default="true" label="Automatic shape" condition="" icon="" description="Automatically apply default type of thumbnail"/>
-    <setting id="game.thumbshape.gear" value="||SUBLEVEL||game.thumbshapes" label="Custom shape" condition="" icon="" description="Choose the desired type of thumbnail"/>    
     
     <setting id="game.thumbshapes" value="poster" label="Poster" condition="" icon="" description="Apply poster type of thumbnail"/>
     <setting id="game.thumbshapes" value="bluray" label="Blu-ray" condition="" icon="" description="Apply Blu-ray type of thumbnail"/>
-    <setting id="game.thumbshapes" value="slim" label="Slim poster" condition="" icon="" description="Apply slim poster type of thumbnail"/>
-    <setting id="game.thumbshapes" value="wide" label="Wide box" condition="" icon="" description="Apply wide box type of thumbnail"/>
-    <setting id="game.thumbshapes" value="square" label="Square" condition="" icon="" description="Apply square type of thumbnail"/>
-    <setting id="game.thumbshapes" value="3ds" label="NDS box" condition="" icon="" description="Apply NDS/3DS box type of thumbnail"/>
-    <setting id="game.thumbshapes" value="steam" label="Steam banner" condition="" icon="" description="Apply steam banner type of thumbnail"/>
+    <setting id="game.thumbshapes" value="dvd" label="DVD" condition="" icon="" description="Apply DVD type of thumbnail"/>
+    <setting id="game.thumbshapes" value="cd" label="CD" condition="" icon="" description="Apply CD type of thumbnail"/>
+    <setting id="game.thumbshapes" value="widebox" label="Wide box" condition="" icon="" description="Apply wide box type of thumbnail"/>
+    <setting id="game.thumbshapes" value="slimbox" label="Slim poster" condition="" icon="" description="Apply slim poster type of thumbnail"/>
+    <setting id="game.thumbshapes" value="squarebox" label="Square" condition="" icon="" description="Apply square type of thumbnail"/>
+    <setting id="game.thumbshapes" value="3dsbox" label="NDS box" condition="" icon="" description="Apply NDS/3DS box type of thumbnail"/>
+    <setting id="game.thumbshapes" value="steambanner" label="Steam banner" condition="" icon="" description="Apply steam banner type of thumbnail"/>
+    <setting id="game.thumbshapes" value="screenshot" label="Screenshot" condition="" icon="" description="Apply screenshot type of thumbnail"/>
 
 </settings>
